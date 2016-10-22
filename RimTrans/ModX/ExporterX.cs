@@ -92,5 +92,41 @@ namespace RimTrans.ModX
                 }
             }
         }
+
+        /// <summary>
+        /// Convert the entity reference "&amp;gt;" to the greater-than sign "&gt;"
+        /// </summary>
+        public static void ConvertEntityReference(this string path)
+        {
+            if (Directory.Exists(path))
+            {
+                DirectoryInfo Dir = new DirectoryInfo(path);
+                foreach (var subDir in Dir.GetDirectories())
+                {
+                    if (subDir.Name == "InteractionDef" ||
+                        subDir.Name == "RulePackDef" ||
+                        subDir.Name == "TaleDef")
+                    {
+                        foreach (var file in from f in subDir.GetFiles()
+                                             where f.Extension == ".xml"
+                                             select f)
+                        {
+                            string text = string.Empty;
+                            using (StreamReader sr = new StreamReader(file.FullName))
+                            {
+                                text = sr.ReadToEnd();
+                            }
+                            text = text.Replace("&gt;", ">");
+                            using (StreamWriter sw = new StreamWriter(file.FullName))
+                            {
+                                sw.Write(text);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 }

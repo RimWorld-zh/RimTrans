@@ -180,8 +180,7 @@ namespace RimTrans.ModX
             }
 
             // Special Recipes_Add.xml
-            if (recipes.Root.HasElements)
-                defInjected.Add(@"RecipeDef\Recipes_Add.xml", recipes);
+            if (recipes.Root.HasElements) defInjected.Add(@"RecipeDef\Recipes_Add.xml", recipes);
 
             // Remove Empty Documents and Inset Blank line
             List<string> keysEmptyDoc = new List<string>();
