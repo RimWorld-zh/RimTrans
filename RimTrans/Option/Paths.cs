@@ -34,8 +34,8 @@ namespace RimTrans.Option
         public Paths(string modName, Where where)
         {
             this.Name = modName;
-            this.SelectedWhere = where;
-            if (SelectedWhere == Where.Direct)
+            this.Where = where;
+            if (this.Where == Where.Direct)
                 this.FolderName = this.Name;
             else
             {
@@ -63,7 +63,7 @@ namespace RimTrans.Option
         /// <summary>
         /// Where is the Mod, the direct Mods folder or the Workshop folder.
         /// </summary>
-        public Where SelectedWhere { get; private set; }
+        public Where Where { get; private set; }
 
         /// <summary>
         /// The folder name, it will be specially generated into direct.
@@ -74,7 +74,7 @@ namespace RimTrans.Option
         {
             get
             {
-                if (SelectedWhere == Where.Direct)
+                if (this.Where == Where.Direct)
                     return Path.Combine(Config.DirModsDirect, this.Name);
                 else
                     return Path.Combine(Config.DirModsWorkshop, this.Name);

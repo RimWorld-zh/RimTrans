@@ -33,9 +33,6 @@ namespace RimTrans.Xml
                 case FieldType.fixedName:
                 case FieldType.leaderTitle:
 
-                // HairDef
-                case FieldType.hairGender:
-
                 // HediffGiverSetDef
                 case FieldType.letterLabel:
                 case FieldType.letter:

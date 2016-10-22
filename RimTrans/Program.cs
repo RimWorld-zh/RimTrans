@@ -14,19 +14,20 @@ namespace RimTrans
         {
             Mod core = new Mod();
             core.Generate();
+            core.Export();
 
-            Mod vg = new Mod("706426033", Option.Where.Workshop, core);
-            vg.Generate();
-            vg.Export();
-            Console.WriteLine(vg.Paths.Dir);
-            Console.WriteLine(vg.Paths.DefsInjected);
-            Console.WriteLine(Path.GetDirectoryName(vg.Paths.DefsInjected));
+            //Mod vg = new Mod("706426033", Option.Where.Workshop, core);
+            //vg.Generate();
+            //vg.Export();
+            //Console.WriteLine(vg.Paths.Dir);
+            //Console.WriteLine(vg.Paths.DefsInjected);
+            //Console.WriteLine(Path.GetDirectoryName(vg.Paths.DefsInjected));
             //Console.WriteLine(vg.InjectionsSheet);
-            foreach (var doc in vg.DefInjectedNew.Values)
-            {
-                //Console.WriteLine("================================");
-                //Console.WriteLine(doc);
-            }
+            //foreach (var doc in vg.DefInjectedNew.Values)
+            //{
+            //    Console.WriteLine("================================");
+            //    Console.WriteLine(doc);
+            //}
         }
     }
 }

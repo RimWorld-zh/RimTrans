@@ -317,6 +317,9 @@ namespace RimTrans.ModX
             return defs;
         }
 
+        /// <summary>
+        /// Patch fields &lt;SkillDef.label&gt;
+        /// </summary>
         public static Dictionary<string, XDocument> PatchSkill(this Dictionary<string, XDocument> defs)
         {
             foreach (var doc in defs.Values)

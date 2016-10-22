@@ -171,6 +171,9 @@ namespace RimTrans
         /// </summary
         public XElement InjectionsSheet { get; private set; }
         
+        /// <summary>
+        /// If the Mod is exist.
+        /// </summary>
         public bool IsExist
         {
             get
