@@ -115,7 +115,7 @@ namespace RimTrans.Xml
             while (flag)
             {
                 flag = false;
-                foreach (Match match in Regex.Matches(result, "[=]{1,}"))
+                foreach (Match match in Regex.Matches(result, "[=]{3,}"))
                 {
                     result = result.Remove(match.Index, match.Length);
                     flag = true;

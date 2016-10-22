@@ -112,8 +112,7 @@ namespace RimTrans.ModX
                                     contents.AddRange(def.GenerateBuildingExtra(defName));
 
                                 // Special Recipes_Add.xml
-                                if (defType == DefType.ThingDef)
-                                    recipes.AddRecipe(def, defName);
+                                if (defType == DefType.ThingDef) recipes.AddRecipe(def, defName);
 
                                 int countMultiFields = contents.CountFields();
 
@@ -367,6 +366,7 @@ namespace RimTrans.ModX
                         users += " " + li.Value;
                     }
                 }
+                users += " ";
 
                 XComment lastComm = new XComment(" RimTrans ");
                 foreach (var node in recipes.Root.Nodes())
