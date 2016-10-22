@@ -42,7 +42,7 @@ namespace RimTrans.ModX
                     {
                         foreach (var fieldCore in group.Elements())
                         {
-                            if (fieldMod.Name == fieldCore.Name)
+                            if (string.Compare(fieldMod.Name.ToString(), fieldCore.Name.ToString(), true) == 0)
                             {
                                 fieldMod.Value = fieldCore.Value;
                                 matches.Add(fieldMod);
@@ -76,7 +76,7 @@ namespace RimTrans.ModX
                     {
                         foreach (var fieldExisting in group.Elements())
                         {
-                            if (fieldNew.Name == fieldExisting.Name)
+                            if (string.Compare(fieldNew.Name.ToString(), fieldExisting.Name.ToString(), true) == 0)
                             {
                                 fieldNew.Value = fieldExisting.Value;
                                 //Console.WriteLine(fieldNew);
@@ -133,7 +133,7 @@ namespace RimTrans.ModX
                             bool invalid = true;
                             foreach (var fieldNew in fieldsNew)
                             {
-                                if (fieldExisting.Name == fieldNew.Name)
+                                if (string.Compare(fieldNew.Name.ToString(), fieldExisting.Name.ToString(), true) == 0)
                                 {
                                     invalid = false;
                                     break;
@@ -141,7 +141,7 @@ namespace RimTrans.ModX
                             }
                             if (invalid)
                             {
-                                docNew.Root.Add(Config.IndentSpaces, fieldExisting, "\n");
+                                docNew.Root.Add(Config.IndentSpaces, new XComment(fieldExisting.ToString()), "\n");
                                 hasInvalid = true;
                             }
                         }
