@@ -133,7 +133,7 @@ namespace RimTrans.ModX
                             bool invalid = true;
                             foreach (var fieldNew in fieldsNew)
                             {
-                                if (fieldExisting.NameLower() == fieldNew.NameLower())
+                                if (fieldExisting.Name == fieldNew.Name)
                                 {
                                     invalid = false;
                                     break;
@@ -141,7 +141,7 @@ namespace RimTrans.ModX
                             }
                             if (invalid)
                             {
-                                docNew.Root.Add(Config.IndentSpaces, new XComment(fieldExisting.ToString()), "\n");
+                                docNew.Root.Add(Config.IndentSpaces, fieldExisting, "\n");
                                 hasInvalid = true;
                             }
                         }
