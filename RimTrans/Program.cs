@@ -12,9 +12,12 @@ namespace RimTrans
     {
         static void Main(string[] args)
         {
+            DateTime timeEarly = DateTime.Now;
             Mod core = new Mod();
             core.Generate();
             core.Export();
+            DateTime timeLate = DateTime.Now;
+            Console.WriteLine(timeLate - timeEarly);
 
             //Mod vg = new Mod("706426033", Option.Where.Workshop, core);
             //vg.Generate();

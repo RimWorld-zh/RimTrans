@@ -111,15 +111,22 @@ namespace RimTrans.ModX
                                              where f.Extension == ".xml"
                                              select f)
                         {
-                            string text = string.Empty;
-                            using (StreamReader sr = new StreamReader(file.FullName))
+                            try
                             {
-                                text = sr.ReadToEnd();
+                                string text = string.Empty;
+                                using (StreamReader sr = new StreamReader(file.FullName))
+                                {
+                                    text = sr.ReadToEnd();
+                                }
+                                text = text.Replace("&gt;", ">");
+                                using (StreamWriter sw = new StreamWriter(file.FullName))
+                                {
+                                    sw.Write(text);
+                                }
                             }
-                            text = text.Replace("&gt;", ">");
-                            using (StreamWriter sw = new StreamWriter(file.FullName))
+                            catch (Exception)
                             {
-                                sw.Write(text);
+                                //TODO: Log
                             }
                         }
                     }

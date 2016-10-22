@@ -6,21 +6,22 @@
   <Sandstone_Rough.label>rough sandstone</Sandstone_Rough.label>
   <Sandstone_RoughHewn.label>rough-hewn sandstone</Sandstone_RoughHewn.label>
   <Sandstone_Smooth.label>smooth sandstone</Sandstone_Smooth.label>
-  
+
   <Granite_Rough.label>rough granite</Granite_Rough.label>
   <Granite_RoughHewn.label>rough-hewn granite</Granite_RoughHewn.label>
   <Granite_Smooth.label>smooth granite</Granite_Smooth.label>
-  
+
   <Limestone_Rough.label>rough limestone</Limestone_Rough.label>
   <Limestone_RoughHewn.label>rough-hewn limestone</Limestone_RoughHewn.label>
   <Limestone_Smooth.label>smooth limestone</Limestone_Smooth.label>
-  
+
   <Slate_Rough.label>rough slate</Slate_Rough.label>
   <Slate_RoughHewn.label>rough-hewn slate</Slate_RoughHewn.label>
   <Slate_Smooth.label>smooth slate</Slate_Smooth.label>
-  
+
   <Marble_Rough.label>rough marble</Marble_Rough.label>
   <Marble_RoughHewn.label>rough-hewn marble</Marble_RoughHewn.label>
   <Marble_Smooth.label>smooth marble</Marble_Smooth.label>
-  
+
+
 </LanguageData>

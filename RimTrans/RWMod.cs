@@ -115,6 +115,7 @@ namespace RimTrans
             {
                 this.Paths.TargetLanguage.DeleteEmptyFolders();
             }
+            this.Paths.DefsInjected.ConvertEntityReference();
         }
 
         /// <summary>

@@ -302,6 +302,9 @@ namespace RimTrans.ModX
                         contents.Add(Config.IndentSpaces);
                         contents.Add(new XElement(defName.Value + "_Leather.description", leather));
                         contents.Add("\n");
+                        contents.Add(Config.IndentSpaces);
+                        contents.Add(new XElement(defName.Value + "_Leather.stuffProps.stuffAdjective", leather));
+                        contents.Add("\n");
                     }
 
                     // Meat
