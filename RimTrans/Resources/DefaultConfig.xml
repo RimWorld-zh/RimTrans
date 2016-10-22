@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  
+  <!-- App Config - RimTrans -->
+  
+  <!-- Directory 目录 -->
+  <TargetLanguage>ChineseSimplified</TargetLanguage>
+  <DirSteamApps>D:\Game\Steam\steamapps</DirSteamApps>
+  <DirRimWorld>D:\A15Translating\RimWorld</DirRimWorld>
+  <SelectedMod>Core</SelectedMod>
+  <SelectedWhere>Direct</SelectedWhere>
+
+  <!-- Typesetting 排版 -->
+  <IndentSize>2</IndentSize>
+  <IsCommentExtract>true</IsCommentExtract>
+  <IsCommentTypesetting>true</IsCommentTypesetting>
+  
+  <!-- Generating 生成 -->
+  <!-- ThingDef.stuffProps.stuffAdjective -->
+  <IsPatchStuffAdjective>true</IsPatchStuffAdjective>
+  <!-- PawnKindDef.lifeStages.li.label/labelMale/labelFemale -->
+  <IsPatchPawnGenders>true</IsPatchPawnGenders>
+  <!-- Building Extra (Blueprint/Frame) -->
+  <IsGenBuildingExtra>false</IsGenBuildingExtra>
+  
+  <!-- Files&Fields Scheme 文件与字段方案 -->
+  <IsFieldsExistingAdopt>true</IsFieldsExistingAdopt>
+  <IsFieldsInvalidHold>true</IsFieldsInvalidHold>
+  <IsFilesInvalidDelete>false</IsFilesInvalidDelete>
+  <IsFoldersEmptyDelete>true</IsFoldersEmptyDelete>
+
+
+</configuration>
