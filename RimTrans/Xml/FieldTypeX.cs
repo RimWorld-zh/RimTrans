@@ -144,7 +144,8 @@ namespace RimTrans.Xml
                 // InteractionDef TaleDef RulePackDef
                 case FieldType.li:
                     FieldType parentFieldType = field.Parent.GetFieldType();
-                    if (parentFieldType == FieldType.rulesStrings)
+                    if (parentFieldType == FieldType.rulesStrings ||
+                        parentFieldType == FieldType.helpTexts /* for version earlier than A15 */)
                         return true;
                     else
                         return false;

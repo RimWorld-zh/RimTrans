@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Steam Local Data, Version=0.4.0.246, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Steam_Local_Data.dll.0.4.1\lib\net45\Steam Local Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,7 +49,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="ModX\ExporterX.cs" />
-    <Compile Include="Option\Paths.cs" />
+    <Compile Include="Option\ModInfo.cs" />
     <Compile Include="Option\PathsX.cs" />
     <Compile Include="Option\Where.cs" />
     <Compile Include="ModX\GeneratorX.cs" />
@@ -60,6 +64,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Steam.cs" />
     <Compile Include="Xml\DefType.cs" />
     <Compile Include="Xml\DefTypeX.cs" />
     <Compile Include="Xml\FieldType.cs" />
@@ -70,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DefaultConfig.xml">

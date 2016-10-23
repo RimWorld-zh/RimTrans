@@ -49,6 +49,7 @@ namespace RimTrans.Xml
         needsOpportunity,
         gameMode,
         helpText,
+        helpTexts, /* for version earlier than A15 */
         highlightTags,
         opportunityDecays,
 

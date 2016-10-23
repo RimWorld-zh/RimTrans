@@ -25,7 +25,7 @@ namespace RimTrans
         public static readonly XDocument defaultDoc = XDocument.Parse(Resources.DefaultConfig);
 
 
-        #region 方法
+        #region Method 方法
 
         /// <summary>
         /// Load config file.
@@ -91,6 +91,45 @@ namespace RimTrans
             Config.Save();
         }
 
+        /// <summary>
+        /// Get all Mods information.
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<RimTrans.Option.ModInfo> GetModInfos(bool isIncludingCore = false)
+        {
+            List<RimTrans.Option.ModInfo> mods = new List<Option.ModInfo>();
+            if (Directory.Exists(Config.DirModsDirect))
+            {
+                DirectoryInfo dir = new DirectoryInfo(Config.DirModsDirect);
+                foreach (var mod in dir.GetDirectories())
+                {
+                    if (mod.Name == "Core")
+                    {
+                        if (isIncludingCore)
+                        {
+                            mods.Insert(0, new Option.ModInfo(mod.Name, RimTrans.Option.Where.Direct));
+                        }
+                        continue;
+                    }
+                    var subDirs = mod.GetDirectories();
+                    if (subDirs.Length == 0) continue;
+                    if (subDirs.Length == 1 && subDirs.First().Name == "Languages") continue;
+                    mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Direct));
+                }
+            }
+            if (Directory.Exists(Config.DirModsWorkshop))
+            {
+                DirectoryInfo dir = new DirectoryInfo(Config.DirModsWorkshop);
+                foreach (var mod in dir.GetDirectories())
+                {
+                    var subDirs = mod.GetDirectories();
+                    if (subDirs.Length == 0) continue;
+                    mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Workshop));
+                }
+            }
+            return mods;
+        }
+
         #endregion
 
         #region Directory 目录
@@ -101,12 +140,6 @@ namespace RimTrans
             set { Config.doc.Root.Element("TargetLanguage").Value = value; }
         }
 
-        public static string DirSteamApps
-        {
-            get { return Config.doc.Root.Element("DirSteamApps").Value; }
-            set { Config.doc.Root.Element("DirSteamApps").Value = value; }
-        }
-
         public static string DirRimWorld
         {
             get { return Config.doc.Root.Element("DirRimWorld").Value; }
@@ -115,12 +148,13 @@ namespace RimTrans
 
         public static string DirModsDirect
         {
-            get { return Config.DirRimWorld + @"\Mods"; }
+            get { return Path.Combine(Config.DirRimWorld, "Mods"); }
         }
 
         public static string DirModsWorkshop
         {
-            get { return Config.DirSteamApps + @"\workshop\content\294100"; }
+            get { return Config.doc.Root.Element("DirModsWorkshop").Value; }
+            set { Config.doc.Root.Element("DirModsWorkshop").Value = value; }
         }
 
         public static string SelectedMod

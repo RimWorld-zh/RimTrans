@@ -359,16 +359,15 @@ namespace RimTrans.ModX
             XElement recipeMaker = def.Field(FieldType.recipeMaker);
             if (label != null && recipeMaker != null)
             {
-                string users = " Recipe Users:";
+                string users = " Recipe Users: ";
                 XElement recipeUsers = recipeMaker.Field(FieldType.recipeUsers);
                 if (recipeUsers != null)
                 {
                     foreach (var li in recipeUsers.Elements())
                     {
-                        users += " " + li.Value;
+                        users += li.Value + " ";
                     }
                 }
-                users += " ";
 
                 XComment lastComm = new XComment(" RimTrans ");
                 foreach (var node in recipes.Root.Nodes())

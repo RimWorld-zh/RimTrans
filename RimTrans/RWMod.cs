@@ -17,6 +17,11 @@ namespace RimTrans
         {
         }
 
+        public Mod(RimTrans.Option.ModInfo info, params Mod[] cores)
+            :this(info.Name, info.Where, cores)
+        {
+        }
+
         /// <summary>
         /// Initialize a mod, base on some cores.
         /// </summary>
@@ -26,7 +31,7 @@ namespace RimTrans
             this.Name = modName;
             this.Where = where;
             this.Cores = cores;
-            this.Paths = new RimTrans.Option.Paths(modName, where);
+            this.Info = new RimTrans.Option.ModInfo(modName, where);
 
             this.PreProcess();
         }
@@ -37,11 +42,11 @@ namespace RimTrans
         private void PreProcess()
         {
             // Load
-            this.Defs.LoadDefs(Paths.Defs);
-            this.DefInjectedExisting.LoadDefInjected(Paths.DefsInjected);
-            this.KeyedExisting.LoadKeyed(Paths.Keyed);
-            this.KeyedOriginal.LoadKeyed(Paths.KeyedOriginal);
-            this.KeyedNew.LoadKeyed(Paths.KeyedOriginal);
+            this.Defs.LoadDefs(Info.Defs);
+            this.DefInjectedExisting.LoadDefInjected(Info.DefsInjected);
+            this.KeyedExisting.LoadKeyed(Info.Keyed);
+            this.KeyedOriginal.LoadKeyed(Info.KeyedOriginal);
+            this.KeyedNew.LoadKeyed(Info.KeyedOriginal);
 
             // Abstracts and Inheritance
             this.AbstrsSheet = new XElement("AbstrsSheet");
@@ -68,7 +73,8 @@ namespace RimTrans
             this.Defs.PatchStuffAdjective();
             this.Defs.SignIndex();
 
-            this.InjectionsSheet = DefInjectedExisting.GetInjectionsSheet();
+            this.InjectionsSheet = this.DefInjectedExisting.GetInjectionsSheet();
+            this.KeyedSheet = this.KeyedExisting.GetKeyedSheet();
         }
 
         /// <summary>
@@ -84,18 +90,22 @@ namespace RimTrans
             this.DefInjectedOriginal = this.DefInjectedOriginal.OrderBy(o => o.Key).ToDictionary(o => o.Key, p => p.Value);
 
             this.DefInjectedNew = this.DefInjectedOriginal.Clone();
+            this.KeyedNew = this.KeyedOriginal.Clone();
 
             if (Cores != null)
             {
                 this.DefInjectedNew.MatchCore(Cores[0].InjectionsSheet);
             }
+            this.KeyedNew.Typeset();
             if (Config.IsFieldsExistingAdopt)
             {
-                this.DefInjectedNew.MatchExisting(this.InjectionsSheet);
+                this.DefInjectedNew.MatchExistingInjection(this.InjectionsSheet);
+                this.KeyedNew.MatchExistingKeyed(this.KeyedSheet);
             }
             if (Config.IsFieldsInvalidHold)
             {
                 this.DefInjectedNew.MatchFiles(this.DefInjectedExisting);
+                this.KeyedNew.MatchFiles(this.KeyedExisting);
             }
             this.DefInjectedNew.MatchSelf(); // Match self must at last.
             this.DefInjectedNew = this.DefInjectedNew.OrderBy(o => o.Key).ToDictionary(o => o.Key, p => p.Value);
@@ -106,16 +116,18 @@ namespace RimTrans
         /// </summary>
         public void Export()
         {
-            this.DefInjectedNew.Export(this.Paths.DefsInjected);
+            this.DefInjectedNew.Export(this.Info.DefsInjected);
+            this.KeyedNew.Export(this.Info.Keyed);
             if (Config.IsFilesInvalidDelete)
             {
-                this.DefInjectedNew.DeleteInvalidFiles(this.Paths.DefsInjected);
+                this.DefInjectedNew.DeleteInvalidFiles(this.Info.DefsInjected);
+                this.KeyedNew.DeleteInvalidFiles(this.Info.Keyed);
             }
             if (Config.IsFoldersEmptyDelete)
             {
-                this.Paths.TargetLanguage.DeleteEmptyFolders();
+                this.Info.TargetLanguage.DeleteEmptyFolders();
             }
-            this.Paths.DefsInjected.ConvertEntityReference();
+            this.Info.DefsInjected.ConvertEntityReference();
         }
 
         /// <summary>
@@ -131,7 +143,7 @@ namespace RimTrans
         /// <summary>
         /// Some directories of this mod.
         /// </summary>
-        public RimTrans.Option.Paths Paths { get; private set; }
+        public RimTrans.Option.ModInfo Info { get; private set; }
 
         /// <summary>
         /// Inheritance from these.
@@ -171,7 +183,12 @@ namespace RimTrans
         /// The snapshot of the existing DefInjected.
         /// </summary
         public XElement InjectionsSheet { get; private set; }
-        
+
+        /// <summary>
+        /// The snapshot of the existing Keyed.
+        /// </summary
+        public XElement KeyedSheet { get; private set; }
+
         /// <summary>
         /// If the Mod is exist.
         /// </summary>
@@ -179,8 +196,13 @@ namespace RimTrans
         {
             get
             {
-                return System.IO.Directory.Exists(this.Paths.Dir);
+                return System.IO.Directory.Exists(this.Info.Dir);
             }
+        }
+
+        public override string ToString()
+        {
+            return this.Info.ToString();
         }
     }
 }

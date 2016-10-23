@@ -19,13 +19,13 @@ namespace RimTrans.ModX
                 foreach (var kvp in dict)
                 {
                     string pathFile = Path.Combine(path, kvp.Key);
-                    string defType = kvp.Key.Substring(0, kvp.Key.IndexOf('\\'));
                     string pathFolder = Path.GetDirectoryName(pathFile);
                     if (Directory.Exists(pathFolder) == false)
                     {
                         Directory.CreateDirectory(pathFolder);
                     }
                     kvp.Value.Save(pathFile);
+                    //Console.WriteLine(pathFile);
                 }
             }
             catch (Exception)

@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace RimTrans.Option
 {
-    public class Paths
+    public class ModInfo
     {
         /// <summary>
         /// folders and files
@@ -26,34 +26,27 @@ namespace RimTrans.Option
             public static readonly string Textures = "Textures";
         }
 
-        public Paths()
+        public ModInfo()
             :this("Core", Where.Direct)
         {
         }
 
-        public Paths(string modName, Where where)
+        public ModInfo(string modName, Where where)
         {
             this.Name = modName;
             this.Where = where;
-            if (this.Where == Where.Direct)
-                this.FolderName = this.Name;
-            else
+            try
             {
-                try
-                {
-                    XDocument aboutXML = XDocument.Load(this.AboutFile);
-                    this.FolderName = string.Empty;
-                    this.FolderName += aboutXML.Root.Element("author").Value.Trim() + " ";
-                    this.FolderName += aboutXML.Root.Element("name").Value.Trim() + " ";
-                    this.FolderName += this.Name;
-                    this.FolderName = this.FolderName.TrimPath();
-                }
-                catch (Exception)
-                {
-                    this.FolderName = this.Name;
-                }
+                this.docAbout = XDocument.Load(this.AboutFile);
+            }
+            catch (Exception)
+            {
+                this.docAbout = null;
+                //TODO: Log
             }
         }
+
+        private XDocument docAbout;
 
         /// <summary>
         /// Name of this Mod, just the folder name.
@@ -68,7 +61,66 @@ namespace RimTrans.Option
         /// <summary>
         /// The folder name, it will be specially generated into direct.
         /// </summary>
-        public string FolderName { get; private set; }
+        public string FolderName
+        {
+            get
+            {
+                string result = string.Empty;
+                if (this.Where == Where.Direct)
+                {
+                    result = this.Name;
+                }
+                else
+                {
+                    try
+                    {
+                        result += this.Auther + " ";
+                        result += this.ViewName + " ";
+                        result += this.Name;
+                        result = result.TrimPath();
+                    }
+                    catch (Exception)
+                    {
+                        result = this.Name;
+                    }
+                }
+                return result;
+            }
+        }
+
+        public string ViewName
+        {
+            get
+            {
+                string result = string.Empty;
+                try
+                {
+                    result = this.docAbout.Root.Element("name").Value.Trim();
+                }
+                catch (Exception)
+                {
+                    result = "(none)";
+                }
+                return result;
+            }
+        }
+
+        public string Auther
+        {
+            get
+            {
+                string result = string.Empty;
+                try
+                {
+                    result = this.docAbout.Root.Element("author").Value.Trim();
+                }
+                catch (Exception)
+                {
+                    result = "Anonymous";
+                }
+                return result;
+            }
+        }
 
         public string Dir
         {
@@ -179,9 +231,32 @@ namespace RimTrans.Option
         /// </summary>
         public string StringsOriginal { get { return Path.Combine(OriginalLanguage, FF.Strings); } }
 
+        public override string ToString()
+        {
+            string result = string.Empty;
+            if (Where == Where.Direct)
+            {
+                result += "Mod: ";
+                result += this.Name;
+                result += ", Author: ";
+                result += this.Auther;
+            }
+            else
+            {
+                result += "ID: ";
+                result += this.Name;
+                result += ", Mod: ";
+                result += this.ViewName;
+                result += ", Author: ";
+                result += this.Auther;
+            }
+            
+            return result;
+        }
+
         public void _Debug()
         {
-            System.Reflection.PropertyInfo[] pis = typeof(Paths).GetProperties();
+            System.Reflection.PropertyInfo[] pis = typeof(ModInfo).GetProperties();
             foreach (var pi in pis)
             {
                 Console.WriteLine(pi.Name);

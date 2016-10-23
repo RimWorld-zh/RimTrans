@@ -13,24 +13,26 @@ namespace RimTrans
         static void Main(string[] args)
         {
             DateTime timeEarly = DateTime.Now;
+            DateTime timeLate = DateTime.Now;
+
+            timeEarly = DateTime.Now;
             Mod core = new Mod();
             core.Generate();
             core.Export();
-            DateTime timeLate = DateTime.Now;
+            timeLate = DateTime.Now;
             Console.WriteLine(timeLate - timeEarly);
 
-            //Mod vg = new Mod("706426033", Option.Where.Workshop, core);
-            //vg.Generate();
-            //vg.Export();
-            //Console.WriteLine(vg.Paths.Dir);
-            //Console.WriteLine(vg.Paths.DefsInjected);
-            //Console.WriteLine(Path.GetDirectoryName(vg.Paths.DefsInjected));
-            //Console.WriteLine(vg.InjectionsSheet);
-            //foreach (var doc in vg.DefInjectedNew.Values)
+            //timeEarly = DateTime.Now;
+            //Mod mod;
+            //foreach (var info in Config.GetModInfos())
             //{
-            //    Console.WriteLine("================================");
-            //    Console.WriteLine(doc);
+            //    Console.WriteLine(info);
+            //    mod = new Mod(info, core);
+            //    mod.Generate();
+            //    mod.Export();
             //}
+            //timeLate = DateTime.Now;
+            //Console.WriteLine(timeLate - timeEarly);
         }
     }
 }
