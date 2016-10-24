@@ -151,6 +151,36 @@ namespace RimTrans
             return mods;
         }
 
+        /// <summary>
+        /// Get the version of current RimWorld
+        /// </summary>
+        public static string RimWorldVersion
+        {
+            get
+            {
+                string version = string.Empty;
+                string versionFilePath = Path.Combine(Config.DirRimWorld, "Version.txt");
+                if (File.Exists(versionFilePath))
+                {
+                    using (StreamReader sr = new StreamReader(versionFilePath))
+                    {
+                        string text = sr.ReadLine();
+                        version = text.Substring(0, text.IndexOf(" "));
+                    }
+                }
+                return version;
+            }
+        }
+
+        /// <summary>
+        /// Get About.xml template as string.
+        /// </summary>
+        public static string GetTemplateAbout()
+        {
+            string text = Resources.TemplateAbout.Replace("(Target Version)", Config.RimWorldVersion);
+            return text;
+        }
+
         #endregion
 
         #region Directory 目录

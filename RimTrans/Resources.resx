@@ -127,6 +127,9 @@
   <data name="Recipes_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\recipes_add.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="TemplateAbout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\templateabout.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Terrain_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\terrain_add.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

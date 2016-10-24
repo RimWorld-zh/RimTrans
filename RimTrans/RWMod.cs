@@ -128,6 +128,8 @@ namespace RimTrans
                 this.Info.TargetLanguage.DeleteEmptyFolders();
             }
             this.Info.DefsInjected.ConvertEntityReference();
+
+            ExporterX.CopyStrings(this.Info.StringsOriginal, this.Info.Strings);
         }
 
         /// <summary>

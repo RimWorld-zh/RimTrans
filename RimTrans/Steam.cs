@@ -6,7 +6,7 @@ using Steam.Local;
 
 namespace RimTrans
 {
-    public static class Steam
+    public static class SteamX
     {
         /// <summary>
         /// Get the directory of RimWorld

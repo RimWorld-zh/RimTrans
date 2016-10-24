@@ -88,6 +88,9 @@ namespace RimTrans.Option
             }
         }
 
+        /// <summary>
+        /// Which be written in the tag &lt;name&gt; in the About.xml.
+        /// </summary>
         public string ViewName
         {
             get
@@ -105,6 +108,10 @@ namespace RimTrans.Option
             }
         }
 
+
+        /// <summary>
+        /// Which be written in the tag &lt;author&gt; in the About.xml.
+        /// </summary>
         public string Auther
         {
             get
@@ -122,6 +129,9 @@ namespace RimTrans.Option
             }
         }
 
+        /// <summary>
+        /// The directory of this Mod.
+        /// </summary>
         public string Dir
         {
             get

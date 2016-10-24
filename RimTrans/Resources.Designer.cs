@@ -68,15 +68,15 @@ namespace RimTrans {
         ///  
         ///  &lt;!-- Directory 目录 --&gt;
         ///  &lt;TargetLanguage&gt;ChineseSimplified&lt;/TargetLanguage&gt;
-        ///  &lt;DirSteamApps&gt;D:\Game\Steam\steamapps&lt;/DirSteamApps&gt;
         ///  &lt;DirRimWorld&gt;D:\A15Translating\RimWorld&lt;/DirRimWorld&gt;
+        ///  &lt;DirModsWorkshop&gt;D:\Game\Steam\steamapps\workshop\content\294100&lt;/DirModsWorkshop&gt;
         ///  &lt;SelectedMod&gt;Core&lt;/SelectedMod&gt;
         ///  &lt;SelectedWhere&gt;Direct&lt;/SelectedWhere&gt;
         ///
         ///  &lt;!-- Typesetting 排版 --&gt;
-        ///  &lt;IndentNumber&gt;2&lt;/IndentNumber&gt;
+        ///  &lt;IndentSize&gt;2&lt;/IndentSize&gt;
         ///  &lt;IsCommentExtract&gt;true&lt;/IsCommentExtract&gt;
-        ///  &lt;IsCommentTypesetting&gt;true&lt;/IsComm [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &lt;IsComme [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string DefaultConfig {
             get {
@@ -112,6 +112,24 @@ namespace RimTrans {
         
         /// <summary>
         ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;ModMetaData&gt;
+        ///  &lt;name&gt;(Mod name)&lt;/name&gt;
+        ///  &lt;author&gt;(Author)&lt;/author&gt;
+        ///  &lt;targetVersion&gt;(Target Version)&lt;/targetVersion&gt;
+        ///  &lt;description&gt;
+        ///    This is the template of About.xml.
+        ///    Replace with your own Mod information.
+        ///  &lt;/description&gt;
+        ///&lt;/ModMetaData&gt; 的本地化字符串。
+        /// </summary>
+        internal static string TemplateAbout {
+            get {
+                return ResourceManager.GetString("TemplateAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;LanguageData&gt;
         ///
         ///  &lt;!-- SPECIAL: Floors from natural stones --&gt;
@@ -119,10 +137,10 @@ namespace RimTrans {
         ///  &lt;Sandstone_Rough.label&gt;rough sandstone&lt;/Sandstone_Rough.label&gt;
         ///  &lt;Sandstone_RoughHewn.label&gt;rough-hewn sandstone&lt;/Sandstone_RoughHewn.label&gt;
         ///  &lt;Sandstone_Smooth.label&gt;smooth sandstone&lt;/Sandstone_Smooth.label&gt;
-        ///  
+        ///
         ///  &lt;Granite_Rough.label&gt;rough granite&lt;/Granite_Rough.label&gt;
         ///  &lt;Granite_RoughHewn.label&gt;rough-hewn granite&lt;/Granite_RoughHewn.label&gt;
-        ///  &lt;Granite_Smooth.label&gt;smooth granite&lt;/Granite_Smoo [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &lt;Granite_Smooth.label&gt;smooth granite&lt;/Granite_Smooth [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Terrain_Add {
             get {

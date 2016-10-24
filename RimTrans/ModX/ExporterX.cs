@@ -134,6 +134,41 @@ namespace RimTrans.ModX
             }
         }
 
+        /// <summary>
+        /// Copy the folder Strings from original language dir to target language dir.
+        /// </summary>
+        public static void CopyStrings(string sourcePath, string targetPath)
+        {
+            try
+            {
+                ExporterX.CopyStrings(new DirectoryInfo(sourcePath), new DirectoryInfo(targetPath));
+            }
+            catch (Exception)
+            {
+                //TODO: Log
+            }
+        }
 
+        private static void CopyStrings(DirectoryInfo sourceDir, DirectoryInfo targetDir)
+        {
+            if (sourceDir.Exists)
+            {
+                if (targetDir.Exists == false) targetDir.Create();
+
+                foreach (var sourceFile in from f in sourceDir.GetFiles()
+                                           where f.Extension == ".txt"
+                                           select f)
+                {
+                    string destFileName = Path.Combine(targetDir.FullName, sourceFile.Name);
+                    sourceFile.CopyTo(destFileName);
+                }
+
+                foreach (var sourceSubDir in sourceDir.GetDirectories())
+                {
+                    DirectoryInfo targetSubDir = new DirectoryInfo(Path.Combine(targetDir.FullName, sourceSubDir.Name));
+                    ExporterX.CopyStrings(sourceSubDir,targetSubDir);
+                }
+            }
+        }
     }
 }
