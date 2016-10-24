@@ -113,8 +113,18 @@ namespace RimTrans
                     }
                     var subDirs = mod.GetDirectories();
                     if (subDirs.Length == 0) continue;
-                    if (subDirs.Length == 1 && subDirs.First().Name == "Languages") continue;
-                    mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Direct));
+                    bool isMod = false;
+                    foreach (var subDir in subDirs)
+                    {
+                        if (subDir.Name == "Defs" || subDir.Name == "Assemblies")
+                        {
+                            isMod = true;
+                        }
+                    }
+                    if (isMod)
+                    {
+                        mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Direct));
+                    }
                 }
             }
             if (Directory.Exists(Config.DirModsWorkshop))
@@ -124,7 +134,18 @@ namespace RimTrans
                 {
                     var subDirs = mod.GetDirectories();
                     if (subDirs.Length == 0) continue;
-                    mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Workshop));
+                    bool isMod = false;
+                    foreach (var subDir in subDirs)
+                    {
+                        if (subDir.Name == "Defs" || subDir.Name == "Assemblies")
+                        {
+                            isMod = true;
+                        }
+                    }
+                    if (isMod)
+                    {
+                        mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Workshop));
+                    }
                 }
             }
             return mods;

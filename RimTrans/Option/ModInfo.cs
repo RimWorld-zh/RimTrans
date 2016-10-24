@@ -99,7 +99,7 @@ namespace RimTrans.Option
                 }
                 catch (Exception)
                 {
-                    result = "(none)";
+                    result = "Untitled";
                 }
                 return result;
             }
