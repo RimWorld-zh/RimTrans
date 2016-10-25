@@ -10,28 +10,22 @@ namespace RimTrans
     public class Mod
     {
         /// <summary>
-        /// Initialize as Core.
+        /// Initialize the Core.
         /// </summary>
         public Mod()
-            :this("Core", RimTrans.Option.Where.Direct, null)
-        {
-        }
-
-        public Mod(RimTrans.Option.ModInfo info, params Mod[] cores)
-            :this(info.Name, info.Where, cores)
+            :this(new RimTrans.Option.ModInfo())
         {
         }
 
         /// <summary>
-        /// Initialize a mod, base on some cores.
+        /// Initialize a Mod.
         /// </summary>
-        /// <param name="modName">Must be the mod folder name.</param>
-        public Mod(string modName, RimTrans.Option.Where where, params Mod[] cores)
+        public Mod(RimTrans.Option.ModInfo info, params Mod[] cores)
         {
-            this.Name = modName;
-            this.Where = where;
+            this.Name = info.Name;
+            this.Where = info.Where;
+            this.Info = info;
             this.Cores = cores;
-            this.Info = new RimTrans.Option.ModInfo(modName, where);
 
             this.PreProcess();
         }
@@ -60,11 +54,13 @@ namespace RimTrans
 
             // Patch
             this.GendersSheet = new XElement("GendersSheet");
-            if (Cores != null)
+            if (Cores != null && Cores.Length > 0)
+            {
                 foreach (var core in this.Cores)
                 {
                     this.GendersSheet.Add(core.GendersSheet.Elements());
                 }
+            }
             this.GendersSheet.Add(this.Defs.ExtractGenders());
             this.Defs.PatchPawnGenders(this.GendersSheet);
             this.Defs.PatchPawnRelation();
@@ -92,7 +88,7 @@ namespace RimTrans
             this.DefInjectedNew = this.DefInjectedOriginal.Clone();
             this.KeyedNew = this.KeyedOriginal.Clone();
 
-            if (Cores != null)
+            if (Cores != null && Cores.Length > 0)
             {
                 this.DefInjectedNew.MatchCore(Cores[0].InjectionsSheet);
             }
@@ -198,7 +194,7 @@ namespace RimTrans
         {
             get
             {
-                return System.IO.Directory.Exists(this.Info.Dir);
+                return System.IO.Directory.Exists(this.Info.ModPath);
             }
         }
 

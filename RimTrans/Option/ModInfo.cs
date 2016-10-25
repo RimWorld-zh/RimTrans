@@ -25,14 +25,41 @@ namespace RimTrans.Option
             public static readonly string Strings = "Strings";
             public static readonly string Textures = "Textures";
         }
-
+        
+        /// <summary>
+        /// Initial ModInfo as Core.
+        /// </summary>
         public ModInfo()
             :this("Core", Where.Direct)
         {
         }
 
+        /// <summary>
+        /// Initial ModInfo by custom path
+        /// </summary>
+        public ModInfo(string pathCustom)
+        {
+            this.PathCustom = pathCustom;
+            this.Name = Path.GetFileName(pathCustom);
+            this.Where = Where.Custom;
+            try
+            {
+                this.docAbout = XDocument.Load(this.AboutFile);
+            }
+            catch (Exception)
+            {
+                this.docAbout = null;
+                //TODO: Log
+            }
+        }
+
+        /// <summary>
+        /// Initial ModInfo in where direct or worshop. If custom, throw exception.
+        /// </summary>
         public ModInfo(string modName, Where where)
         {
+            if (where == Where.Custom) throw new Exception("Argument exception: the where can not be RimTrans.Option.Where.Custom");
+
             this.Name = modName;
             this.Where = where;
             try
@@ -46,8 +73,6 @@ namespace RimTrans.Option
             }
         }
 
-        private XDocument docAbout;
-
         /// <summary>
         /// Name of this Mod, just the folder name.
         /// </summary>
@@ -59,6 +84,11 @@ namespace RimTrans.Option
         public Where Where { get; private set; }
 
         /// <summary>
+        /// About.xml
+        /// </summary>
+        private XDocument docAbout;
+
+        /// <summary>
         /// The folder name, it will be specially generated into direct.
         /// </summary>
         public string FolderName
@@ -66,7 +96,7 @@ namespace RimTrans.Option
             get
             {
                 string result = string.Empty;
-                if (this.Where == Where.Direct)
+                if (this.Where == Where.Direct || this.Where == Where.Custom)
                 {
                     result = this.Name;
                 }
@@ -129,24 +159,30 @@ namespace RimTrans.Option
             }
         }
 
+        private string PathCustom { get; set; }
+
         /// <summary>
         /// The directory of this Mod.
         /// </summary>
-        public string Dir
+        public string ModPath
         {
             get
             {
+                string path;
                 if (this.Where == Where.Direct)
-                    return Path.Combine(Config.DirModsDirect, this.Name);
+                    path = Path.Combine(Config.DirModsDirect, this.Name);
+                else if (this.Where == Where.Workshop)
+                    path = Path.Combine(Config.DirModsWorkshop, this.Name);
                 else
-                    return Path.Combine(Config.DirModsWorkshop, this.Name);
+                    path = this.PathCustom;
+                return path;
             }
         }
 
         /// <summary>
         /// Folder About
         /// </summary>
-        public string About { get { return Path.Combine(this.Dir, FF.About); } }
+        public string About { get { return Path.Combine(this.ModPath, FF.About); } }
 
         /// <summary>
         /// File About.xml
@@ -161,7 +197,7 @@ namespace RimTrans.Option
         /// <summary>
         /// Folder Defs
         /// </summary>
-        public string Defs { get { return Path.Combine(this.Dir, FF.Defs); } }
+        public string Defs { get { return Path.Combine(this.ModPath, FF.Defs); } }
 
         /// <summary>
         /// Folder Languages (direct)
@@ -170,7 +206,14 @@ namespace RimTrans.Option
         {
             get
             {
-                return Path.Combine(Config.DirModsDirect, this.FolderName, FF.Languages);
+                string path;
+                if (this.Where == Where.Direct)
+                    path = Path.Combine(this.ModPath, FF.Languages);
+                else if (this.Where == Where.Workshop)
+                    path = Path.Combine(Config.DirModsDirect, this.FolderName, FF.Languages);
+                else
+                    path = Path.Combine(this.ModPath, FF.Languages);
+                return path;
             }
         }
 
@@ -200,6 +243,8 @@ namespace RimTrans.Option
         /// </summary>
         public string Strings { get { return Path.Combine(this.TargetLanguage, FF.Strings); } }
 
+        private string LanguagesOriginal { get { return Path.Combine(this.ModPath, FF.Languages); } }
+
         /// <summary>
         /// Folder Original Languages, usually is English, like "Rimworld\Mods\[the Mod]\Languages\English"
         /// </summary>
@@ -207,27 +252,19 @@ namespace RimTrans.Option
         {
             get
             {
-                string result = Path.Combine(this.Dir, FF.Languages, FF.English);
-                if (Directory.Exists(result))
-                    return result;
-                else
+                string result = Path.Combine(this.LanguagesOriginal, FF.English);
+                if (Directory.Exists(result) == false && Directory.Exists(this.LanguagesOriginal))
                 {
-                    try
+                    foreach (string path in Directory.GetDirectories(this.LanguagesOriginal))
                     {
-                        foreach (string path in Directory.GetDirectories(Path.Combine(this.Dir, FF.Languages)))
+                        if (path != this.TargetLanguage)
                         {
-                            if (path != this.TargetLanguage)
-                            {
-                                result = path;
-                                break;
-                            }
+                            result = path;
+                            break;
                         }
                     }
-                    catch (Exception)
-                    {
-                    }
-                    return result;
                 }
+                return result;
             }
         }
 
@@ -262,6 +299,82 @@ namespace RimTrans.Option
             }
             
             return result;
+        }
+
+        public bool IsFolderMeetFomat
+        {
+            get
+            {
+                bool result = true;
+                foreach (string subDir in Directory.GetDirectories(this.DefsInjected))
+                {
+                    string subDirName = Path.GetFileName(subDir);
+                    if (subDirName.LastIndexOf("Def") == subDirName.LastIndexOf("Defs"))
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Change subdirectories' name plural to singular in the folder DefInjected.
+        /// </summary>
+        public void FomatFolderName()
+        {
+            if (Directory.Exists(this.DefsInjected))
+            {
+                foreach (string sourceDir in Directory.GetDirectories(this.DefsInjected))
+                {
+                    string sourceDirName = Path.GetFileName(sourceDir);
+                    if (sourceDirName.LastIndexOf("Def") == sourceDirName.LastIndexOf("Defs"))
+                    {
+                        string destDirName = sourceDirName.Substring(0, sourceDirName.Length - 1);
+                        string destDir = Path.Combine(Path.GetDirectoryName(sourceDir), destDirName);
+                        if (Directory.Exists(destDir))
+                        {
+                            foreach (string sourceFile in Directory.GetFiles(sourceDir))
+                            {
+                                string destFile = Path.Combine(destDir, Path.GetFileName(sourceFile));
+                                if (File.Exists(destFile))
+                                {
+                                    int ordinal = 0;
+                                    while (File.Exists(destFile))
+                                    {
+                                        ordinal++;
+                                        string destFileName = Path.GetFileNameWithoutExtension(sourceFile);
+                                        destFileName += string.Format(" ({0})", ordinal.ToString());
+                                        if (Path.HasExtension(sourceFile))
+                                        {
+                                            destFileName += Path.GetExtension(sourceFile);
+                                        }
+                                        destFile = Path.Combine(destDir, destFileName);
+                                    }
+                                    File.Copy(sourceFile, destFile, true);
+                                    File.Delete(sourceFile);
+                                }
+                                else
+                                {
+                                    File.Move(sourceFile, destFile);
+                                }
+                            }
+                            try
+                            {
+                                Directory.Delete(sourceDir);
+                            }
+                            catch (Exception)
+                            {
+                            }
+                        }
+                        else
+                        {
+                            Directory.Move(sourceDir, destDir);
+                        }
+                    }
+                }
+            }
         }
 
         public void _Debug()

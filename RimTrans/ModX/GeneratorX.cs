@@ -27,17 +27,21 @@ namespace RimTrans.ModX
         /// </summary>
         public static XDocument Document(this Dictionary<string, XDocument> dict, string key)
         {
-            XDocument doc;
-            if (dict.TryGetValue(key, out doc))
+            XDocument doc = null;
+            foreach (var kvp in dict)
             {
-                return doc;
+                if (string.Compare(key, kvp.Key, true) == 0)
+                {
+                    doc = kvp.Value;
+                    break;
+                }
             }
-            else
+            if (doc == null)
             {
                 doc = XDocument.Parse(Resources.EmptyDoc, LoadOptions.PreserveWhitespace);
                 dict.Add(key, doc);
-                return doc;
             }
+            return doc;
         }
 
         /// <summary>
@@ -96,7 +100,15 @@ namespace RimTrans.ModX
                             defType != DefType.SongDef &&
                             defType != DefType.SoundDef)
                         {
-                            string keyDefInjected = defType.ToString() + "\\" + fileName;
+                            string keyDefInjected;
+                            if (defType == DefType.Unknown)
+                            {
+                                keyDefInjected = def.Name.ToString() + "\\" + fileName;
+                            }
+                            else
+                            {
+                                keyDefInjected = defType.ToString() + "\\" + fileName;
+                            }
                             XDocument docDefInjected = defInjected.Document(keyDefInjected);
 
                             XElement defName = def.Field(FieldType.defName);

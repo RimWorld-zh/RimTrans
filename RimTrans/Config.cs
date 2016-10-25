@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace RimTrans
 {
-    static class Config
+    public static class Config
     {
         /// <summary>
         /// Config file location.

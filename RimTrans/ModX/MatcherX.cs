@@ -10,6 +10,25 @@ namespace RimTrans.ModX
     internal static class MatcherX
     {
         /// <summary>
+        /// Like TryGetValue, but ignore case.
+        /// </summary>
+        public static bool TryGetDocument(this Dictionary<string, XDocument> defInjected, string key, out XDocument document)
+        {
+            bool isGet = false;
+            document = null;
+            foreach (var kvp in defInjected)
+            {
+                if (string.Compare(key, kvp.Key, true) == 0)
+                {
+                    isGet = true;
+                    document = kvp.Value;
+                    break;
+                }
+            }
+            return isGet;
+        }
+
+        /// <summary>
         /// Match the DefInjected of Core. Comment the redundant fields.
         /// </summary>
         public static void MatchCore(this Dictionary<string, XDocument> defInjected, XElement injectionsSheet)
@@ -19,24 +38,27 @@ namespace RimTrans.ModX
             foreach (var kvp in defInjected)
             {
                 string defType = kvp.Key.Substring(0, kvp.Key.IndexOf('\\'));
-                XElement group = injectionsSheet.Element(defType);
-                if (group != null)
+                foreach (XElement group in injectionsSheet.Elements())
                 {
-                    List<XElement> matches = new List<XElement>();
-                    foreach (var fieldMod in kvp.Value.Root.Elements())
+                    if (string.Compare(group.Name.ToString(), defType, true) == 0)
                     {
-                        foreach (var fieldCore in group.Elements())
+                        List<XElement> matches = new List<XElement>();
+                        foreach (var fieldMod in kvp.Value.Root.Elements())
                         {
-                            if (string.Compare(fieldMod.Name.ToString(), fieldCore.Name.ToString(), true) == 0)
+                            foreach (var fieldCore in group.Elements())
                             {
-                                fieldMod.Value = fieldCore.Value;
-                                matches.Add(fieldMod);
+                                if (string.Compare(fieldMod.Name.ToString(), fieldCore.Name.ToString(), true) == 0)
+                                {
+                                    fieldMod.Value = fieldCore.Value;
+                                    matches.Add(fieldMod);
+                                }
                             }
                         }
-                    }
-                    foreach (var match in matches)
-                    {
-                        match.ReplaceWith(new XComment(" [Core] " + match.ToString()));
+                        foreach (var match in matches)
+                        {
+                            match.ReplaceWith(new XComment(" [Core] " + match.ToString()));
+                        }
+                        break;
                     }
                 }
             }
@@ -86,19 +108,22 @@ namespace RimTrans.ModX
             foreach (var kvp in defInjected)
             {
                 string defType = kvp.Key.Substring(0, kvp.Key.IndexOf('\\'));
-                XElement group = injectionsSheet.Element(defType);
-                if (group != null)
+                foreach (XElement group in injectionsSheet.Elements())
                 {
-                    foreach (var fieldNew in kvp.Value.Root.Elements())
+                    if (string.Compare(group.Name.ToString(), defType, true) == 0)
                     {
-                        foreach (var fieldExisting in group.Elements())
+                        foreach (var fieldNew in kvp.Value.Root.Elements())
                         {
-                            if (string.Compare(fieldNew.Name.ToString(), fieldExisting.Name.ToString(), true) == 0)
+                            foreach (var fieldExisting in group.Elements())
                             {
-                                fieldNew.Value = fieldExisting.Value;
-                                //Console.WriteLine(fieldNew);
+                                if (string.Compare(fieldNew.Name.ToString(), fieldExisting.Name.ToString(), true) == 0)
+                                {
+                                    fieldNew.Value = fieldExisting.Value;
+                                    //Console.WriteLine(fieldNew);
+                                }
                             }
                         }
+                        break;
                     }
                 }
             }
@@ -146,7 +171,7 @@ namespace RimTrans.ModX
             {
                 XDocument docExisting = kvp.Value;
                 XDocument docNew;
-                if (defInjectedNew.TryGetValue(kvp.Key, out docNew))
+                if (defInjectedNew.TryGetDocument(kvp.Key, out docNew))
                 {
                     IEnumerable<XNode> nodesExisting = from n in docExisting.Root.Nodes()
                                                        where n.NodeType == XmlNodeType.Comment || n.NodeType == XmlNodeType.Element

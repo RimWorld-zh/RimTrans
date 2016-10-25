@@ -7,7 +7,7 @@
     <ProjectGuid>{0CB260D3-A15C-4FF6-BF70-1BE6DE40FFC1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RimTransGUI</RootNamespace>
+    <RootNamespace>RimTrans.GUI</RootNamespace>
     <AssemblyName>RimTransGUI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

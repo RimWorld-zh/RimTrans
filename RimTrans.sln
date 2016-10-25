@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimTrans", "RimTrans\RimTra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimTransGUI", "RimTransGUI\RimTransGUI.csproj", "{0CB260D3-A15C-4FF6-BF70-1BE6DE40FFC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimTransTest", "RimTransTest\RimTransTest.csproj", "{F7BEF363-4E1F-4498-B19F-780780F10B2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0CB260D3-A15C-4FF6-BF70-1BE6DE40FFC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CB260D3-A15C-4FF6-BF70-1BE6DE40FFC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CB260D3-A15C-4FF6-BF70-1BE6DE40FFC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BEF363-4E1F-4498-B19F-780780F10B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BEF363-4E1F-4498-B19F-780780F10B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BEF363-4E1F-4498-B19F-780780F10B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BEF363-4E1F-4498-B19F-780780F10B2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

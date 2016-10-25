@@ -20,7 +20,20 @@ namespace RimTrans.ModX
                 {
                     string pathFile = Path.Combine(path, kvp.Key);
                     string pathFolder = Path.GetDirectoryName(pathFile);
-                    if (Directory.Exists(pathFolder) == false)
+                    if (Directory.Exists(pathFolder))
+                    {
+                        // for the case ...OCD
+                        foreach (var folder in Directory.GetDirectories(path))
+                        {
+                            if (string.Compare(folder, pathFolder, true) == 0 && folder != pathFolder)
+                            {
+                                string tempFolder = folder + "." + DateTime.Now.Ticks.ToString();
+                                Directory.Move(folder, tempFolder);
+                                Directory.Move(tempFolder, pathFolder);
+                            }
+                        }
+                    }
+                    else
                     {
                         Directory.CreateDirectory(pathFolder);
                     }

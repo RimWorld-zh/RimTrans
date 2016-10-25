@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
 
 namespace RimTrans.Option
 {
-    public static class PathsX
+    public static class ModInfoX
     {
         private static char[] invalidChars = new char[]
         { 
