@@ -5,8 +5,8 @@
   
   <!-- Directory 目录 -->
   <TargetLanguage>ChineseSimplified</TargetLanguage>
-  <DirRimWorld>D:\A15Translating\RimWorld</DirRimWorld>
-  <DirModsWorkshop>D:\Game\Steam\steamapps\workshop\content\294100</DirModsWorkshop>
+  <DirRimWorld>C:\Program Files (x86)\Steam\steamapps\common\RimWorld</DirRimWorld>
+  <DirModsWorkshop>C:\Program Files (x86)\Steam\steamapps\workshop\content\294100</DirModsWorkshop>
   <SelectedMod>Core</SelectedMod>
   <SelectedWhere>Direct</SelectedWhere>
 

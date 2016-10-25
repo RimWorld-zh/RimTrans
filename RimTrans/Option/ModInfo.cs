@@ -306,13 +306,16 @@ namespace RimTrans.Option
             get
             {
                 bool result = true;
-                foreach (string subDir in Directory.GetDirectories(this.DefsInjected))
+                if (Directory.Exists(this.DefsInjected))
                 {
-                    string subDirName = Path.GetFileName(subDir);
-                    if (subDirName.LastIndexOf("Def") == subDirName.LastIndexOf("Defs"))
+                    foreach (string subDir in Directory.GetDirectories(this.DefsInjected))
                     {
-                        result = false;
-                        break;
+                        string subDirName = Path.GetFileName(subDir);
+                        if (subDirName.LastIndexOf("Def") == subDirName.LastIndexOf("Defs"))
+                        {
+                            result = false;
+                            break;
+                        }
                     }
                 }
                 return result;
@@ -384,7 +387,6 @@ namespace RimTrans.Option
             {
                 Console.WriteLine(pi.Name);
                 Console.WriteLine(pi.GetValue(this));
-                Console.WriteLine();
             }
         }
     }

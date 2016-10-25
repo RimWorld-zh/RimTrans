@@ -9,37 +9,80 @@ namespace RimTrans.Test
     {
         static void Main(string[] args)
         {
+            // Test Core.
             {
-                string modPath = @"D:\Git\RWMod\RimworldAllowTool\Mods\AllowTool";
-                Option.ModInfo info = new Option.ModInfo(modPath);
-                if (info.IsFolderMeetFomat == false)
+                Console.WriteLine(SteamX.GetDirModsWorkshop());
+                Console.WriteLine(SteamX.GetDirRimWorld());
+                Console.WriteLine("========");
+
+                Config.TargetLanguage = "Elvish";
+
+                string modPath = @"D:\A15Translating\Rimworld\Mods\Core";
+                Option.ModInfo modInfo = new Option.ModInfo(modPath);
+
+                modInfo._Debug();
+                Console.WriteLine("========");
+
+                if (modInfo.IsFolderMeetFomat == false)
                 {
-                    info.FomatFolderName();
+                    modInfo.FomatFolderName();
                 }
 
-                Mod mod = new Mod(info);
+
+                DateTime timeStart = DateTime.Now;
+
+                DateTime timeCurrent = DateTime.Now;
+                Mod mod = new Mod(modInfo);
+                Console.WriteLine("Loaded time: {0}", DateTime.Now - timeCurrent);
+
+                timeCurrent = DateTime.Now;
                 mod.Generate();
-                Console.WriteLine("DefInjectedNew");
+                Console.WriteLine("Generated time: {0}", DateTime.Now - timeCurrent);
+
+                timeCurrent = DateTime.Now;
+                mod.Export();
+                Console.WriteLine("Exported time: {0}", DateTime.Now - timeCurrent);
+
+                timeCurrent = DateTime.Now;
+                Console.WriteLine("Total time cost: {0}", timeCurrent - timeStart);
+
+                int countInjectionFields = 0;
+                int countKeysion = 0;
+                Console.WriteLine("==== DefInjected ====");
                 foreach (var kvp in mod.DefInjectedNew)
                 {
-                    Console.WriteLine(kvp.Key);
+                    int count = kvp.Value.Root.Elements().Count();
+                    Console.Write(kvp.Key);
+                    Console.Write("  ");
+                    Console.WriteLine(count);
+                    countInjectionFields += count;
                 }
-                Console.WriteLine("KeyedNew");
+                Console.WriteLine("==== Keyed ====");
                 foreach (var kvp in mod.KeyedNew)
                 {
-                    Console.WriteLine(kvp.Key);
+                    int count = kvp.Value.Root.Elements().Count();
+                    Console.Write(kvp.Key);
+                    Console.Write("  ");
+                    Console.WriteLine(count);
+                    countKeysion += count;
                 }
-                mod.Export();
+                Console.WriteLine(string.Format("==== DefInjected: {0} === Keyed: {1} ====", countInjectionFields, countKeysion));
             }
 
+            // Test Mod
+            {
+                //Config.DirRimWorld = @"D:\A15Translating\Rimworld";
+                //Config.DirModsWorkshop = @"D:\Game\Steam\steamapps\workshop\content\294100";
+                //Console.WriteLine(Config.RimWorldVersion);
+                //Mod core = new Mod();
+                //foreach (var modInfo in Config.GetModInfos())
+                //{
+                //    Mod mod = new Mod(modInfo, core);
+                //    mod.Generate();
+                //    mod.Export();
+                //}
+            }
 
-            //Mod core = new Mod();
-            //foreach (var modInfo in Config.GetModInfos())
-            //{
-            //    Mod mod = new Mod(modInfo, core);
-            //    mod.Generate();
-            //    mod.Export();
-            //}
         }
     }
 }
