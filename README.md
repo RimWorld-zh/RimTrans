@@ -1,6 +1,6 @@
 # RimTrans
 
-A translation tool for RimWorld.
+A translation tool for RimWorld Core and Mod!
 
 ---
 

@@ -301,7 +301,33 @@ namespace RimTrans.Option
             return result;
         }
 
-        public bool IsFolderMeetFomat
+        /// <summary>
+        /// Is this a valid mod.
+        /// </summary>
+        public bool IsValid
+        {
+            get
+            {
+                bool result = false;
+                if (Directory.Exists(this.ModPath))
+                {
+                    foreach (string subDir in Directory.GetDirectories(this.ModPath))
+                    {
+                        if (subDir == "Defs" || subDir == "Assemblies")
+                        {
+                            result = true;
+                            break;
+                        }
+                    }
+                }
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// The name of subdirectories in DefInjected are Singular and Plural.
+        /// </summary>
+        public bool IsFolderFomatWell
         {
             get
             {

@@ -79,7 +79,7 @@ namespace RimTrans
         public void Generate()
         {
             this.DefInjectedOriginal = this.Defs.Generate();
-            if (this.Name == "Core")
+            if (this.Name == "Core" && this.DefInjectedOriginal.Count() > 1)
             {
                 this.DefInjectedOriginal.Add(@"TerrainDef\Terrain_Add.xml", XDocument.Parse(Resources.Terrain_Add, LoadOptions.PreserveWhitespace));
             }

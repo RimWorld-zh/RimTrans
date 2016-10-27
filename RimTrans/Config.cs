@@ -95,22 +95,16 @@ namespace RimTrans
         /// Get all Mods information.
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<RimTrans.Option.ModInfo> GetModInfos(bool isIncludingCore = false)
+        public static IEnumerable<Option.ModInfo> GetModInfos(Option.Where where)
         {
-            List<RimTrans.Option.ModInfo> mods = new List<Option.ModInfo>();
-            if (Directory.Exists(Config.DirModsDirect))
+            //Console.WriteLine("GetModInfos");
+            List <Option.ModInfo> mods = new List<Option.ModInfo>();
+            if ((where & Option.Where.Direct) == Option.Where.Direct && Directory.Exists(Config.DirModsDirect))
             {
                 DirectoryInfo dir = new DirectoryInfo(Config.DirModsDirect);
                 foreach (var mod in dir.GetDirectories())
                 {
-                    if (mod.Name == "Core")
-                    {
-                        if (isIncludingCore)
-                        {
-                            mods.Insert(0, new Option.ModInfo(mod.Name, RimTrans.Option.Where.Direct));
-                        }
-                        continue;
-                    }
+                    if (mod.Name == "Core") continue;
                     var subDirs = mod.GetDirectories();
                     if (subDirs.Length == 0) continue;
                     bool isMod = false;
@@ -123,11 +117,11 @@ namespace RimTrans
                     }
                     if (isMod)
                     {
-                        mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Direct));
+                        mods.Add(new Option.ModInfo(mod.Name, Option.Where.Direct));
                     }
                 }
             }
-            if (Directory.Exists(Config.DirModsWorkshop))
+            if ((where & Option.Where.Workshop) == Option.Where.Workshop && Directory.Exists(Config.DirModsWorkshop))
             {
                 DirectoryInfo dir = new DirectoryInfo(Config.DirModsWorkshop);
                 foreach (var mod in dir.GetDirectories())
@@ -144,7 +138,7 @@ namespace RimTrans
                     }
                     if (isMod)
                     {
-                        mods.Add(new RimTrans.Option.ModInfo(mod.Name, RimTrans.Option.Where.Workshop));
+                        mods.Add(new Option.ModInfo(mod.Name, Option.Where.Workshop));
                     }
                 }
             }

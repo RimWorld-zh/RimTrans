@@ -23,7 +23,7 @@ namespace RimTrans.Test
                 modInfo._Debug();
                 Console.WriteLine("========");
 
-                if (modInfo.IsFolderMeetFomat == false)
+                if (modInfo.IsFolderFomatWell == false)
                 {
                     modInfo.FomatFolderName();
                 }
