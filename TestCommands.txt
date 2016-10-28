@@ -12,4 +12,6 @@ trans /mod:"Turret Collection" /output:"D:\Git\RWMod\Turret-Collection-zh\Chines
 trans /mod:775703802 /where:Workshop /lang:Evlish
 trans-custom /mod-path:D:\Git\RWMod\RimworldAllowTool\Mods\AllowTool
 
+trans-custom /mod-path:"D:\A15Translating\Rimworld\Mods\Core" /output:"D:\Git\Ludeon\RimWorld-ChineseSimplified"
+
 
