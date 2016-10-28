@@ -90,7 +90,9 @@ namespace RimTrans.Option
             get
             {
                 string result = string.Empty;
-                if (this.Where == Where.Direct || this.Where == Where.Custom)
+                if (this.Where == Where.Direct || 
+                    this.Where == Where.Custom || 
+                    this.docAbout == null)
                 {
                     result = this.Name;
                 }
@@ -98,10 +100,10 @@ namespace RimTrans.Option
                 {
                     try
                     {
-                        result += this.Auther + " ";
+                        result += this.Name + " ";
                         result += this.ViewName + " ";
-                        result += this.Name;
-                        result = result.TrimPath();
+                        result += this.Auther;
+                        result = result.TrimName();
                     }
                     catch (Exception)
                     {
@@ -204,7 +206,16 @@ namespace RimTrans.Option
                 if (this.Where == Where.Direct)
                     path = Path.Combine(this.ModPath, FF.Languages);
                 else if (this.Where == Where.Workshop)
-                    path = Path.Combine(Config.DirModsDirect, this.FolderName, FF.Languages);
+                {
+                    if (Config.IsWorkshopToDirect)
+                    {
+                        path = Path.Combine(Config.DirModsDirect, this.FolderName, FF.Languages);
+                    }
+                    else
+                    {
+                        path = Path.Combine(this.ModPath, FF.Languages);
+                    }
+                }
                 else
                     path = Path.Combine(this.ModPath, FF.Languages);
                 return path;

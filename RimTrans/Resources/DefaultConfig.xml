@@ -24,6 +24,7 @@
   <IsGenBuildingExtra>false</IsGenBuildingExtra>
   
   <!-- Files&Fields Scheme 文件与字段方案 -->
+  <IsWorkshopToDirect>false</IsWorkshopToDirect>
   <IsFieldsExistingAdopt>true</IsFieldsExistingAdopt>
   <IsFieldsInvalidHold>true</IsFieldsInvalidHold>
   <IsFilesInvalidDelete>false</IsFilesInvalidDelete>

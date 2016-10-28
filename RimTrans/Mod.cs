@@ -22,6 +22,8 @@ namespace RimTrans
             this.PreProcess();
         }
 
+        public static Mod Core { get { return new Mod(new Option.ModInfo("Core", Option.Where.Direct)); } }
+
         /// <summary>
         /// Preprocess: load, inherit abstracts, patch genders and some others
         /// </summary>

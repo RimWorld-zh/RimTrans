@@ -6,17 +6,12 @@ namespace RimTrans.Option
 {
     public static class ModInfoX
     {
-        private static char[] invalidChars = new char[]
-        { 
-            '\n', '\r', '\t', '\\', '/', ':', '*', '?', '\"', '<', '>', '|'
-        };
-
         /// <summary>
         /// Remove invalid characters in this file/folder name.
         /// </summary>
-        public static string TrimPath(this string name)
+        public static string TrimName(this string name)
         {
-            foreach (char invalidChar in invalidChars)
+            foreach (char invalidChar in Path.GetInvalidFileNameChars())
             {
                 name = name.Replace(invalidChar, ' ');
             }

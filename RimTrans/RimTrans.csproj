@@ -60,7 +60,7 @@
     <Compile Include="ModX\LoaderX.cs" />
     <Compile Include="ModX\MatcherX.cs" />
     <Compile Include="ModX\PreProcessorX.cs" />
-    <Compile Include="RWMod.cs" />
+    <Compile Include="Mod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">

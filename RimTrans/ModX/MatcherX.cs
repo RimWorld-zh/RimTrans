@@ -29,6 +29,44 @@ namespace RimTrans.ModX
         }
 
         /// <summary>
+        /// Typesetting the indent in Keyed
+        /// </summary>
+        public static void Typeset(this Dictionary<string, XDocument> keyed)
+        {
+            foreach (var doc in keyed.Values)
+            {
+                XText lastText = null;
+                foreach (var text in from n in doc.Root.Nodes()
+                                     where n.NodeType == XmlNodeType.Text
+                                     select n as XText)
+                {
+                    text.Value = text.Value.Replace(" ", string.Empty).Replace("\t", string.Empty) + Config.IndentSpaces;
+                    lastText = text;
+                }
+                if (lastText != null) lastText.Value = lastText.Value.Replace(Config.IndentSpaces, string.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Get the snapshot of the existing DefInjected.
+        /// </summary>
+        public static XElement GetInjectionsSheet(this Dictionary<string, XDocument> defInjectedExisting)
+        {
+            XElement injectionsSheet = new XElement("Injections");
+            foreach (var kvp in defInjectedExisting)
+            {
+                string defType = kvp.Key.Substring(0, kvp.Key.IndexOf('\\'));
+                if (defType.LastIndexOf("Def") == defType.LastIndexOf("Defs"))
+                {
+                    defType = defType.Substring(0, defType.Length - 1);
+                }
+                if (injectionsSheet.Element(defType) == null) injectionsSheet.Add(new XElement(defType));
+                injectionsSheet.Element(defType).Add(kvp.Value.Root.Elements());
+            }
+            return injectionsSheet;
+        }
+
+        /// <summary>
         /// Match the DefInjected of Core. Comment the redundant fields.
         /// </summary>
         public static void MatchCore(this Dictionary<string, XDocument> defInjected, XElement injectionsSheet)
@@ -62,40 +100,6 @@ namespace RimTrans.ModX
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Typesetting the indent in Keyed
-        /// </summary>
-        public static void Typeset(this Dictionary<string, XDocument> keyed)
-        {
-            foreach (var doc in keyed.Values)
-            {
-                XText lastText = null;
-                foreach (var text in from n in doc.Root.Nodes()
-                                     where n.NodeType == XmlNodeType.Text
-                                     select n as XText)
-                {
-                    text.Value = text.Value.Replace(" ", string.Empty).Replace("\t", string.Empty) + Config.IndentSpaces;
-                    lastText = text;
-                }
-                if (lastText != null) lastText.Value = lastText.Value.Replace(Config.IndentSpaces, string.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Get the snapshot of the existing DefInjected.
-        /// </summary>
-        public static XElement GetInjectionsSheet(this Dictionary<string, XDocument> defInjectedExisting)
-        {
-            XElement injectionsSheet = new XElement("Injections");
-            foreach (var kvp in defInjectedExisting)
-            {
-                string defType = kvp.Key.Substring(0, kvp.Key.IndexOf('\\'));
-                if (injectionsSheet.Element(defType) == null) injectionsSheet.Add(new XElement(defType));
-                injectionsSheet.Element(defType).Add(kvp.Value.Root.Elements());
-            }
-            return injectionsSheet;
         }
 
         /// <summary>

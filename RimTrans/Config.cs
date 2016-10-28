@@ -375,6 +375,24 @@ namespace RimTrans
 
         #region Files&Fileds Scheme 文件与字段方案
 
+        public static bool IsWorkshopToDirect
+        {
+            get
+            {
+                XElement key = Config.doc.Root.Element("IsWorkshopToDirect");
+                bool result;
+                if (bool.TryParse(key.Value, out result))
+                    return result;
+                else
+                {
+                    key.Value = Config.defaultDoc.Root.Element(key.Name).Value;
+                    result = bool.Parse(key.Value);
+                    return result;
+                }
+            }
+            set { Config.doc.Root.Element("IsWorkshopToDirect").Value = value.ToString(); }
+        }
+
         public static bool IsFieldsExistingAdopt
         {
             get

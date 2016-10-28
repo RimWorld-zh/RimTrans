@@ -1,5 +1,15 @@
-Trans-Direct /direct: "Turret Collection"  /Workshop: 54362165   /Custom:  "D:\A15Translating\Rimworld\Mods\Turret Collection"
-regularCommand argument /a: value  /b: value2   /argument:  value3 /argumentWithouValue
-regularCommand /a:value /b:value2 anotherArgument /argument:value3
-commandWithSpaces "c:\Program files\application" /a: value /b:valu2 /c:"c:\windows\some folder"
-commandWithSingleQuote  "this is a 'test string' with 'single quote'"  /a:"%&*^@special arguments" /b:value2
+info
+info /all
+info /direct
+info /workshop
+
+set /target-language:Evlish
+set /game-dir:"D:\A15Translating\Rimworld"
+set /workshop-dir:"D:\A15Translating\Rimworld"
+set /Game-Dir:Auto /workshop-dir:auto
+
+trans /mod:"Turret Collection" /output:"D:\Git\RWMod\Turret-Collection-zh\ChineseSimplified"
+trans /mod:775703802 /where:Workshop /lang:Evlish
+trans-custom /mod-path:D:\Git\RWMod\RimworldAllowTool\Mods\AllowTool
+
+

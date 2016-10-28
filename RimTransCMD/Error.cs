@@ -37,5 +37,15 @@ namespace RimTrans.Cmd
         {
             Console.WriteLine("ERROR: invalid target language \"{0}\", only English letters are allowed.", targetLanguage);
         }
+
+        public static void InvalidPath(string path)
+        {
+            Console.WriteLine("ERROR: invalid path \"{0}\".", path);
+        }
+
+        public static void InvalidMod(string mod)
+        {
+            Console.WriteLine("ERROR: invalid mod \"{0}\".", mod);
+        }
     }
 }
