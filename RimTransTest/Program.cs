@@ -17,8 +17,9 @@ namespace RimTrans.Test
 
                 Config.TargetLanguage = "Elvish";
 
-                string modPath = @"D:\A15Translating\Rimworld\Mods\Core";
-                Option.ModInfo modInfo = new Option.ModInfo(modPath);
+                string pathCustom = @"D:\A15Translating\Rimworld\Mods\Core";
+                string outputCustom = @"D:\Git\Ludeon\Test";
+                Option.ModInfo modInfo = new Option.ModInfo(pathCustom, outputCustom);
 
                 modInfo._Debug();
                 Console.WriteLine("========");

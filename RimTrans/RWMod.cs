@@ -10,14 +10,6 @@ namespace RimTrans
     public class Mod
     {
         /// <summary>
-        /// Initialize the Core.
-        /// </summary>
-        public Mod()
-            :this(new RimTrans.Option.ModInfo())
-        {
-        }
-
-        /// <summary>
         /// Initialize a Mod.
         /// </summary>
         public Mod(RimTrans.Option.ModInfo info, params Mod[] cores)

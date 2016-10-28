@@ -173,7 +173,7 @@ namespace RimTrans.ModX
                                            select f)
                 {
                     string destFileName = Path.Combine(targetDir.FullName, sourceFile.Name);
-                    sourceFile.CopyTo(destFileName);
+                    sourceFile.CopyTo(destFileName, false);
                 }
 
                 foreach (var sourceSubDir in sourceDir.GetDirectories())

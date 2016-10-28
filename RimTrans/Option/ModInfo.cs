@@ -25,21 +25,14 @@ namespace RimTrans.Option
             public static readonly string Strings = "Strings";
             public static readonly string Textures = "Textures";
         }
-        
-        /// <summary>
-        /// Initial ModInfo as Core.
-        /// </summary>
-        public ModInfo()
-            :this("Core", Where.Direct)
-        {
-        }
 
         /// <summary>
         /// Initial ModInfo by custom path
         /// </summary>
-        public ModInfo(string pathCustom)
+        public ModInfo(string pathCustom, string outputCustom = null)
         {
             this.PathCustom = pathCustom;
+            this.OutputCustom = outputCustom;
             this.Name = Path.GetFileName(pathCustom);
             this.Where = Where.Custom;
             try
@@ -56,10 +49,11 @@ namespace RimTrans.Option
         /// <summary>
         /// Initial ModInfo in where direct or worshop. If custom, throw exception.
         /// </summary>
-        public ModInfo(string modName, Where where)
+        public ModInfo(string modName, Where where, string outputCustom = null)
         {
             if (where == Where.Custom) throw new Exception("Argument exception: the where can not be RimTrans.Option.Where.Custom");
 
+            this.OutputCustom = outputCustom;
             this.Name = modName;
             this.Where = where;
             try
@@ -217,6 +211,8 @@ namespace RimTrans.Option
             }
         }
 
+        public string OutputCustom { get; private set; }
+
         /// <summary>
         /// Folder TargetLanguage, like "Rimworld\Mods\[the Mod]\Languages\ChineseSimplified"
         /// </summary>
@@ -224,7 +220,14 @@ namespace RimTrans.Option
         {
             get
             {
-                return Path.Combine(this.Languages, Config.TargetLanguage);
+                if (this.OutputCustom == null)
+                {
+                    return Path.Combine(this.Languages, Config.TargetLanguage);
+                }
+                else
+                {
+                    return this.OutputCustom;
+                }
             }
         }
 
@@ -304,7 +307,7 @@ namespace RimTrans.Option
         /// <summary>
         /// Is this a valid mod.
         /// </summary>
-        public bool IsValid
+        public bool IsValidMod
         {
             get
             {
@@ -313,7 +316,7 @@ namespace RimTrans.Option
                 {
                     foreach (string subDir in Directory.GetDirectories(this.ModPath))
                     {
-                        if (subDir == "Defs" || subDir == "Assemblies")
+                        if (Path.GetFileName(subDir) == "Defs" || Path.GetFileName(subDir) == "Assemblies")
                         {
                             result = true;
                             break;

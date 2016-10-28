@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -54,7 +55,8 @@ namespace RimTrans.Cmd
                         }
                         else if (string.Compare(command, "set", true) == 0)
                         {
-                            CommandSet(arguments);
+                            CommandSet(arguments, headers);
+                            //DisplayInfo();
                         }
                         else if (string.Compare(command, "trans-direct", true) == 0)
                         {
@@ -65,6 +67,10 @@ namespace RimTrans.Cmd
 
                         }
                         else if (string.Compare(command, "trans-custom", true) == 0)
+                        {
+
+                        }
+                        else if (string.Compare(command, "trans-core", true) == 0)
                         {
 
                         }
@@ -109,21 +115,21 @@ namespace RimTrans.Cmd
             else if (arguments.Count() == 1)
             {
                 string argument = arguments.First().Value;
-                if (string.Compare(argument, "all") == 0)
+                if (string.Compare(argument, "/all") == 0)
                 {
                     foreach (var modInfo in Config.GetModInfos(Option.Where.Direct | Option.Where.Workshop))
                     {
                         Console.WriteLine(modInfo);
                     }
                 }
-                else if (string.Compare(argument, "direct") == 0)
+                else if (string.Compare(argument, "/direct") == 0)
                 {
                     foreach (var modInfo in Config.GetModInfos(Option.Where.Direct))
                     {
                         Console.WriteLine(modInfo);
                     }
                 }
-                else if (string.Compare(argument, "workshop") == 0)
+                else if (string.Compare(argument, "/workshop") == 0)
                 {
                     foreach (var modInfo in Config.GetModInfos(Option.Where.Workshop))
                     {
@@ -132,74 +138,160 @@ namespace RimTrans.Cmd
                 }
                 else
                 {
-                    Error.InvalidArguments();
+                    Error.ArgumentsError("Info");
                 }
             }
             else
             {
-                Error.InvalidArguments();
+                Error.ArgumentsError("Info");
             }
         }
 
         /// <summary>
         /// Commadn Set
         /// </summary>
-        static void CommandSet(List<Match> arguments)
+        static void CommandSet(List<Match> arguments, List<Match> headers)
         {
-            if (arguments.Count() == 0)
+            if (arguments.Count() > 0 && arguments.Count() == headers.Count())
             {
-                Error.NeedArguments();
-            }
-            else
-            {
-                string dirRimWorld = string.Empty;
-                string dirModsWorkshop = string.Empty;
+                string gameDir = string.Empty;
+                string workshopDir = string.Empty;
                 string targetLanguage = string.Empty;
 
                 bool isError = false;
-                foreach (var arg in arguments)
+                for (int i = 0; i < arguments.Count() && i < headers.Count(); i++)
                 {
-                    string argName = string.Empty;
-                    string argValue = string.Empty;
-                    foreach (Match head in Regex.Matches(arg.Value, patternHeader))
+                    // Game-Dir
+                    if (string.Compare(headers[i].Value, "/game-dir", true) == 0)
                     {
-                        argName = head.Value;
-                        argValue = argValue.Replace(argName, string.Empty);
-                        argValue = argValue.Replace(":", string.Empty);
-                        break;
+                        string path = arguments[i].Value.Replace(headers[i].Value, string.Empty).Substring(1).Replace("\"", string.Empty);
+                        if (gameDir == string.Empty)
+                        {
+                            if (Directory.Exists(path))
+                            {
+                                gameDir = path;
+                            }
+                            else
+                            {
+                                Error.DirectoryNotFound(path);
+                            }
+                        }
+                        else
+                        {
+                            Error.ConflictArguments(arguments[i].Value);
+                            isError = false;
+                        }
                     }
-                    if (string.Compare(argName, "game-dir", true) == 0)
+                    // Workshop-Dir
+                    else if (string.Compare(headers[i].Value, "/workshop-dir", true) == 0)
                     {
-                        dirRimWorld = argValue;
+                        string path = arguments[i].Value.Replace(headers[i].Value, string.Empty).Substring(1).Replace("\"", string.Empty);
+                        if (workshopDir == string.Empty)
+                        {
+                            if (Directory.Exists(path))
+                            {
+                                workshopDir = path;
+                            }
+                            else
+                            {
+                                Error.DirectoryNotFound(path);
+                            }
+                        }
+                        else
+                        {
+                            Error.ConflictArguments(arguments[i].Value);
+                            isError = false;
+                        }
                     }
-                    else if (string.Compare(argName, "workshop-dir", true) == 0)
+                    // Target-Language
+                    else if (string.Compare(headers[i].Value, "/target-language", true) == 0)
                     {
-
-                    }
-                    else if (string.Compare(argName, "target-language", true) == 0)
-                    {
-
+                        string language = arguments[i].Value.Replace(headers[i].Value, string.Empty).Substring(1).Replace("\"", string.Empty);
+                        if (targetLanguage == string.Empty)
+                        {
+                            bool isValid = false;
+                            foreach (Match match in Regex.Matches(targetLanguage, "[A-Za-z]{1,}"))
+                            {
+                                if (match.Value == targetLanguage)
+                                {
+                                    isValid = true;
+                                    break;
+                                }
+                            }
+                            if (isValid)
+                            {
+                                targetLanguage = language;
+                            }
+                            else
+                            {
+                                Error.InvalidArguments(targetLanguage);
+                                isError = true;
+                            }
+                        }
+                        else
+                        {
+                            Error.ConflictArguments(arguments[i].Value);
+                            isError = true;
+                        }
                     }
                     else
                     {
-                        isError = false;
+                        Error.InvalidArguments(arguments[i].Value);
+                        isError = true;
                     }
                 }
+
+                if (isError)
+                {
+                    Error.ArgumentsError("Set");
+                }
+                else
+                {
+                    if (gameDir != string.Empty)
+                    {
+                        Config.DirRimWorld = gameDir;
+                        Console.WriteLine("Installation directory of RimWorld: {0}", Config.DirRimWorld);
+                    }
+                    if (workshopDir != string.Empty)
+                    {
+                        Config.DirModsWorkshop = workshopDir;
+                        Console.WriteLine("Workshop directory of RimWorld: {0}", Config.DirModsWorkshop);
+                    }
+                    if (targetLanguage != string.Empty)
+                    {
+                        Config.TargetLanguage = targetLanguage;
+                        Console.WriteLine("Current Target Language: {0}", Config.TargetLanguage);
+                    }
+                }
+            }
+            else
+            {
+                Error.ArgumentsError("Set");
             }
         }
 
         /// <summary>
         /// Commadn Trans-Direct
         /// </summary>
-        static void CommandTransDirect(List<Match> arguments)
+        static void CommandTransDirect(List<Match> arguments, List<Match> headers)
         {
+            if (arguments.Count() > 0 && arguments.Count() == headers.Count())
+            {
+                string modName = string.Empty;
+                string lang = string.Empty;
+                //string output = string.Empty;
 
+            }
+            else
+            {
+                Error.ArgumentsError("Trans-Direct");
+            }
         }
 
         /// <summary>
         /// Commadn Trans-Workshop
         /// </summary>
-        static void CommandTransWorkshop(List<Match> arguments)
+        static void CommandTransWorkshop(List<Match> arguments, List<Match> headers)
         {
 
         }
@@ -207,7 +299,7 @@ namespace RimTrans.Cmd
         /// <summary>
         /// Commadn Trans-Custom
         /// </summary>
-        static void CommandTransCustom(List<Match> arguments)
+        static void CommandTransCustom(List<Match> arguments, List<Match> headers)
         {
 
         }
