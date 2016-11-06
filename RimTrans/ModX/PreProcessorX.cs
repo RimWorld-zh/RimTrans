@@ -282,7 +282,7 @@ namespace RimTrans.ModX
                                     where d.HasDefName()
                                     select d)
                 {
-                    XElement label = def.Field(FieldType.defName);
+                    XElement label = def.Field(FieldType.label);
                     if (label != null &&
                         def.Field(FieldType.labelFemale) == null)
                     {
