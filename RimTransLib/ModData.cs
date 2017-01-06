@@ -127,19 +127,49 @@ namespace RimTransLib
 
         public void BuildLanguageData(bool isRebuild = false)
         {
+            if (!this._isCore && this._core != null)
+            {
+                TransLog.Message(this, new TransLog.MessageArgs(
+                TransLog.Type.Message,
+                "Loading the Core languages...",
+                null));
+                if (this._core.LanguagesExisting == null)
+                {
+                    //TODO: ???
+                }
+            }
+
+            TransLog.Message(this, new TransLog.MessageArgs(
+                TransLog.Type.Message,
+                "Loading the existing languages...",
+                null));
+            if (this.LanguagesExisting == null)
+            {
+                //TODO: ???
+            }
+
+            TransLog.Message(this, new TransLog.MessageArgs(
+                TransLog.Type.Message,
+                "Begin to construct original language...",
+                null));
+            LanguageData languageOriginal = this.LanguageOriginal;
+            TransLog.Message(this, new TransLog.MessageArgs(
+                TransLog.Type.Message,
+                "Construction completed.",
+                null));
+
             foreach (LanguageData languageExisting in this.LanguagesExisting)
             {
                 TransLog.Message(this, new TransLog.MessageArgs(
                     TransLog.Type.Message,
-                    "Begin to build language: " + languageExisting.LanguageInfo.Name,
-                    languageExisting.LanguageInfo.RootDir.FullName));
-
+                    "Begin to construct language: " + languageExisting.LanguageInfo.Name + "(" + languageExisting.LanguageInfo.NameNative + ")...",
+                    null));
                 LanguageData languageCore = null;
                 if (!this._isCore && this._core != null)
                 {
                     languageCore = this._core.Language(languageExisting.LanguageInfo.Name);
                 }
-                LanguageData languageNew = languageExisting.BuildNew(this.LanguageOriginal, isRebuild, languageCore);
+                LanguageData languageNew = languageExisting.BuildNew(languageOriginal, isRebuild, languageCore);
                 if (isRebuild)
                 {
                     try
@@ -150,16 +180,23 @@ namespace RimTransLib
                     {
                         TransLog.Message(this, new TransLog.MessageArgs(
                             TransLog.Type.Error,
-                            "BuildLanguageData.Rebuild Delete failed",
+                            "BuildLanguageData.Rebuild Delete failed!",
                             ex.Message));
+                    }
+                    finally
+                    {
+                        TransLog.Message(this, new TransLog.MessageArgs(
+                            TransLog.Type.Message,
+                            "Delete all existing language data...",
+                            null));
                     }
                 }
                 languageNew.Save();
 
                 TransLog.Message(this, new TransLog.MessageArgs(
                     TransLog.Type.Message,
-                    "Finished to build language: " + languageExisting.LanguageInfo.Name,
-                    languageNew.LanguageInfo.RootDir.FullName));
+                    "Construction completed: " + languageExisting.LanguageInfo.Name,
+                    "Output directory: " + languageNew.LanguageInfo.RootDir.FullName));
             }
         }
 

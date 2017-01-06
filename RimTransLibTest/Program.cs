@@ -24,7 +24,10 @@ namespace RimTransLibTest
         public static void LogMessage(object sender, TransLog.MessageArgs e)
         {
             Console.WriteLine(e.Type.ToString() + ": " + e.Title);
-            Console.WriteLine(e.Detail);
+            if (e.Detail != null && e.Title != string.Empty)
+            {
+                Console.WriteLine(e.Detail);
+            }
         }
 
         public static void Test()

@@ -52,19 +52,7 @@ namespace RimTransLib
                 return _supportLanguages;
             }
         }
-
-        private static bool _isRebuild = false;
-        public static bool IsRebuild
-        {
-            get
-            {
-                return _isRebuild;
-            }
-            set
-            {
-                _isRebuild = value;
-            }
-        }
+        
 
         private static bool _resetIndentWhenLoad = true;
         public static bool IsResetIndentWhenLoad
