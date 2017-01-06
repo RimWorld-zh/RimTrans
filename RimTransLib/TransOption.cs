@@ -66,16 +66,29 @@ namespace RimTransLib
             }
         }
 
-        private static bool _replaceIndent = true;
-        public static bool IsReplaceIndent
+        private static bool _resetIndentWhenLoad = true;
+        public static bool IsResetIndentWhenLoad
         {
             get
             {
-                return _replaceIndent;
+                return _resetIndentWhenLoad;
             }
             set
             {
-                _replaceIndent = value;
+                _resetIndentWhenLoad = value;
+            }
+        }
+
+        private static bool _useTabToIndent = false;
+        public static bool UseTabToIndent
+        {
+            get
+            {
+                return _useTabToIndent;
+            }
+            set
+            {
+                _useTabToIndent = value;
             }
         }
 
@@ -84,7 +97,14 @@ namespace RimTransLib
         {
             get
             {
-                return _indent;
+                if (_useTabToIndent)
+                {
+                    return "\t";
+                }
+                else
+                {
+                    return _indent;
+                }
             }
         }
 

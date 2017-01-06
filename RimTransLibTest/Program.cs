@@ -105,7 +105,7 @@ namespace RimTransLibTest
             ModInfo coreInfo = new ModInfo(@"D:\Game\RimWorld\Mods\Core");
 
             DateTime timeEarly = DateTime.Now;
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 50; i++)
             {
                 ModData core = new ModData(coreInfo, languageInfos, true);
                 core.BuildLanguageData();
@@ -113,8 +113,8 @@ namespace RimTransLibTest
             DateTime timeLate = DateTime.Now;
 
             Console.WriteLine("================ Finished Testing ================");
-            Console.WriteLine("{0} languages, {1} times", TransOption.SupportLanguages.Count(), 100);
-            Console.WriteLine("Time consuming: ", timeLate - timeEarly);
+            Console.WriteLine("{0} languages, {1} times", TransOption.SupportLanguages.Count(), 50);
+            Console.WriteLine("Time consuming: {0}", timeLate - timeEarly);
         }
     }
 }
