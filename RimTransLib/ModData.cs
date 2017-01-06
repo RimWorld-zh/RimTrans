@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace RimTransLib
 {
@@ -122,12 +123,17 @@ namespace RimTransLib
 
         #endregion
 
-        #region MyRegion
+        #region Build Language Data
 
         public void BuildLanguageData(bool isRebuild = false)
         {
             foreach (LanguageData languageExisting in this.LanguagesExisting)
             {
+                TransLog.Message(this, new TransLog.MessageArgs(
+                    TransLog.Type.Message,
+                    "Begin to build language: " + languageExisting.LanguageInfo.Name,
+                    languageExisting.LanguageInfo.RootDir.FullName));
+
                 LanguageData languageCore = null;
                 if (!this._isCore && this._core != null)
                 {
@@ -140,12 +146,20 @@ namespace RimTransLib
                     {
                         languageNew.Empty();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        //TODO: log
+                        TransLog.Message(this, new TransLog.MessageArgs(
+                            TransLog.Type.Error,
+                            "BuildLanguageData.Rebuild Delete failed",
+                            ex.Message));
                     }
                 }
                 languageNew.Save();
+
+                TransLog.Message(this, new TransLog.MessageArgs(
+                    TransLog.Type.Message,
+                    "Finished to build language: " + languageExisting.LanguageInfo.Name,
+                    languageNew.LanguageInfo.RootDir.FullName));
             }
         }
 

@@ -10,19 +10,31 @@ namespace RimTransLib
     {
         public LanguageInfo(string name, string nameNative, string customPath = null)
         {
-            this._name = name;
-            this._nameNative = nameNative;
-            if (customPath != null && customPath != string.Empty)
+            if (name == null || name == string.Empty)
             {
-                this._customPath = customPath;
-                this._rootDir = new DirectoryInfo(this._customPath);
-                this._defInjectedDir = new DirectoryInfo(Path.Combine( this._customPath, "DefInjected"));
-                this._keyedDir = new DirectoryInfo(Path.Combine(this._customPath, "Keyed"));
-                this._stringsDir = new DirectoryInfo(Path.Combine(this._customPath, "Strings"));
+                throw new ArgumentNullException("name");
+            }
+
+            this._name = name;
+            if (nameNative == null || nameNative == string.Empty)
+            {
+                this._nameNative = name;
             }
             else
             {
+                this._nameNative = nameNative;
+            }
+            if (customPath == null || customPath == string.Empty)
+            {
                 this._customPath = string.Empty;
+            }
+            else
+            {
+                this._customPath = customPath;
+                this._rootDir = new DirectoryInfo(this._customPath);
+                this._defInjectedDir = new DirectoryInfo(Path.Combine(this._customPath, "DefInjected"));
+                this._keyedDir = new DirectoryInfo(Path.Combine(this._customPath, "Keyed"));
+                this._stringsDir = new DirectoryInfo(Path.Combine(this._customPath, "Strings"));
             }
         }
 
@@ -103,7 +115,7 @@ namespace RimTransLib
         public LanguageInfo Instantiate(DirectoryInfo LanguagesDir)
         {
             string customPath;
-            if (this._customPath == null && this._customPath == string.Empty)
+            if (this._customPath == null || this._customPath == string.Empty)
             {
                 customPath = Path.Combine(LanguagesDir.FullName, this._name);
             }
@@ -116,12 +128,7 @@ namespace RimTransLib
 
         public override string ToString()
         {
-            string text = this._name + "\n"
-                + this._rootDir.FullName + "\n"
-                + this._defInjectedDir.FullName + "\n"
-                + this._keyedDir.FullName + "\n"
-                + this._stringsDir.FullName + "\n";
-            return text;
+            return this._name + "(" + this.NameNative + ")";
         }
     }
 }

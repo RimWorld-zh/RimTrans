@@ -61,7 +61,10 @@ namespace RimTransLib
                     }
                     catch (XmlException ex)
                     {
-                        //TODO: log
+                        TransLog.Message(keyData, new TransLog.MessageArgs(
+                            TransLog.Type.Error,
+                            "KeyData.Load " + fileInfo.FullName,
+                            ex.Message));
                     }
                 }
             }

@@ -265,12 +265,12 @@ namespace RimTransLib
 
         public static XDocument LoadLanguageDocument(string filePath)
         {
-            XDocument doc = XDocument.Load(filePath, LoadOptions.PreserveWhitespace);
+            XDocument doc = XDocument.Load(filePath, LoadOptions.PreserveWhitespace | LoadOptions.SetBaseUri);
             foreach (XText text in from node in doc.Root.Nodes()
                                    where node.NodeType == XmlNodeType.Text
                                    select node)
             {
-                text.Value = text.Value.Replace(" ", string.Empty).Replace("\t", string.Empty) + "  ";
+                text.Value = text.Value.Replace(" ", string.Empty).Replace("\t", string.Empty) + TransOption.Indent;
             }
             XNode nodeLast = doc.Root.LastNode;
             if (nodeLast.NodeType == XmlNodeType.Text)

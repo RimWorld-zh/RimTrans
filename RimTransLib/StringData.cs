@@ -46,16 +46,19 @@ namespace RimTransLib
             StringData stringData = new StringData(stringDir);
 
             stringData._dataBase = new SortedDictionary<string, string>();
-            int splitIndex = stringData._rootDir.FullName.Length;
-            foreach (FileInfo fileInfo in stringData._rootDir.GetFiles("*.txt", SearchOption.AllDirectories))
+            if (stringData._rootDir.Exists)
             {
-                string key = fileInfo.FullName.Substring(splitIndex);
-                string text = string.Empty;
-                using (StreamReader sr = new StreamReader(fileInfo.FullName))
+                int splitIndex = stringData._rootDir.FullName.Length;
+                foreach (FileInfo fileInfo in stringData._rootDir.GetFiles("*.txt", SearchOption.AllDirectories))
                 {
-                    text = sr.ReadToEnd();
+                    string key = fileInfo.FullName.Substring(splitIndex);
+                    string text = string.Empty;
+                    using (StreamReader sr = new StreamReader(fileInfo.FullName))
+                    {
+                        text = sr.ReadToEnd();
+                    }
+                    stringData._dataBase.Add(key, text);
                 }
-                stringData._dataBase.Add(key, text);
             }
 
             return stringData;

@@ -35,9 +35,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +53,6 @@
     <Compile Include="RWThingCategory.cs" />
     <Compile Include="RWXml.cs" />
     <Compile Include="StringData.cs" />
-    <Compile Include="TransDataBase.cs" />
     <Compile Include="TransLog.cs" />
     <Compile Include="TransOption.cs" />
   </ItemGroup>

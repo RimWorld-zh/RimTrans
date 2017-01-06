@@ -92,7 +92,10 @@ namespace RimTransLib
                         }
                         catch (XmlException ex)
                         {
-                            //TODO: log
+                            TransLog.Message(injection, new TransLog.MessageArgs(
+                                TransLog.Type.Error,
+                                "InjectionData.Load " + fileInfo.FullName,
+                                ex.Message));
                         }
                     }
                     if (docGroup.Count > 0)
@@ -143,7 +146,10 @@ namespace RimTransLib
                             }
                             catch (XmlException ex)
                             {
-                                //TODO: log
+                                TransLog.Message(injection, new TransLog.MessageArgs(
+                                    TransLog.Type.Error,
+                                    "Invalid defName: " + defName.Value + " in file:" +defName.BaseUri,
+                                    ex.Message));
                             }
                             finally
                             {
@@ -290,7 +296,7 @@ namespace RimTransLib
                             doc.Root.FirstAttribute.Value = "false";
                         }
                         if (doc.Root.HasElements) doc.Root.Add("\r\n");
-                        doc.Root.Add("  ", new XComment(commentText), "\r\n\r\n");
+                        doc.Root.Add(TransOption.Indent, new XComment(commentText), "\r\n\r\n");
                     }
                     // Add fields
                     if (countFields == 1)
@@ -352,7 +358,7 @@ namespace RimTransLib
                     }
                     linkedFields.RemoveLast();
                     injectionFieldName = injectionFieldName.Substring(1);
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XElement(injectionFieldName, field_Child.Value);
                     yield return "\r\n";
                 }
@@ -366,19 +372,19 @@ namespace RimTransLib
             if (label == null) label = defName;
             if (isBuildable)
             {
-                yield return "  ";
+                yield return TransOption.Indent;
                 yield return new XElement(defName.Value + "_Blueprint.label", label.Value + " (blueprint)");
                 yield return "\r\n";
             }
             if (isInstallable)
             {
-                yield return "  ";
+                yield return TransOption.Indent;
                 yield return new XElement(defName.Value + "_Blueprint_Install.label", label.Value + " (blueprint)");
                 yield return "\r\n";
             }
             if (isBuildable)
             {
-                yield return "  ";
+                yield return TransOption.Indent;
                 yield return new XElement(defName.Value + "_Frame.label", label.Value + " (building)");
                 yield return "\r\n";
             }
@@ -416,7 +422,7 @@ namespace RimTransLib
 
             if (isFleshTypeMechanoid)
             {
-                yield return "  ";
+                yield return TransOption.Indent;
                 yield return new XComment(" Flesh Type: Mechanoid ");
                 yield return "\r\n";
             }
@@ -425,13 +431,13 @@ namespace RimTransLib
                 // Leather
                 if (isLeatherAmountZero)
                 {
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XComment(" Leather Amount: 0 ");
                     yield return "\r\n";
                 }
                 else if (useLeatherFrom != null)
                 {
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XComment(string.Format(" Use Leather From: {0} ", useLeatherFrom.Value));
                     yield return "\r\n";
                 }
@@ -441,13 +447,13 @@ namespace RimTransLib
                         leatherLabel == null ?
                         string.Format("{0} leather", label.Value) :
                         leatherLabel.Value;
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XElement(defName.Value + "_Leather.label", leatherLabelValue);
                     yield return "\r\n";
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XElement(defName.Value + "_Leather.description", leatherLabelValue);
                     yield return "\r\n";
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XElement(defName.Value + "_Leather.stuffProps.stuffAdjective", leatherLabelValue);
                     yield return "\r\n";
                 }
@@ -455,7 +461,7 @@ namespace RimTransLib
                 // Meat
                 if (useMeatFrom != null)
                 {
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XComment(string.Format(" Use Meat From: {0} ", useMeatFrom.Value));
                     yield return "\r\n";
                 }
@@ -465,10 +471,10 @@ namespace RimTransLib
                         meatLabel == null ?
                         string.Format("{0} meat", label.Value) :
                         meatLabel.Value;
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XElement(defName.Value + "_Meat.label", meatLabelValue);
                     yield return "\r\n";
-                    yield return "  ";
+                    yield return TransOption.Indent;
                     yield return new XElement(defName.Value + "_Meat.description", meatLabelValue);
                     yield return "\r\n";
                 }
@@ -476,10 +482,10 @@ namespace RimTransLib
 
             // Corpse
             string corpseLabelValue = string.Format("{0} corpse", label.Value);
-            yield return "  ";
+            yield return TransOption.Indent;
             yield return new XElement(defName.Value + "_Corpse.label", corpseLabelValue);
             yield return "\r\n";
-            yield return "  ";
+            yield return TransOption.Indent;
             yield return new XElement(defName.Value + "_Corpse.description", corpseLabelValue);
             yield return "\r\n";
         }
@@ -501,7 +507,7 @@ namespace RimTransLib
             }
             if (isNew)
             {
-                doc.Root.Add("  ", new XComment(" SPECIAL: These Recipes from makeable Items and Buildings (ThingDef with <recipeMaker>), generated by RimTrans "), "\r\n\r\n");
+                doc.Root.Add(TransOption.Indent, new XComment(" SPECIAL: These Recipes from makeable Items and Buildings (ThingDef with <recipeMaker>), generated by RimTrans "), "\r\n\r\n");
             }
 
             XElement label = RWXml.GetField(def, RWFieldName.label);
@@ -516,22 +522,23 @@ namespace RimTransLib
                 {
                     users += ", " + li.Value;
                 }
-            }
-            users = " Recipe Users:" + users.Substring(1) + " ";
-            XComment lastComment = null;
-            foreach (XNode node in doc.Root.Nodes())
-            {
-                if (node.NodeType == XmlNodeType.Comment) lastComment = node as XComment;
-            }
-            if (lastComment.Value != users)
-            {
-                doc.Root.Add("\r\n  ", new XComment(users), "\r\n\r\n");
+                users = " Recipe Users:" + users.Substring(1) + " ";
+
+                XComment lastComment = null;
+                foreach (XNode node in doc.Root.Nodes())
+                {
+                    if (node.NodeType == XmlNodeType.Comment) lastComment = node as XComment;
+                }
+                if (lastComment.Value != users)
+                {
+                    doc.Root.Add("\r\n  ", new XComment(users), "\r\n\r\n");
+                }
             }
 
             // RecipeMake and RecipeMakeJobString in Misc_Gameplay.xml
-            doc.Root.Add("  ", new XElement("Make_" + defName.Value + ".label", string.Format("Make {0}", label.Value)), "\r\n");
-            doc.Root.Add("  ", new XElement("Make_" + defName.Value + ".description", string.Format("Make {0}.", label.Value)), "\r\n");
-            doc.Root.Add("  ", new XElement("Make_" + defName.Value + ".jobString", string.Format("Making {0}.", label.Value)), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Make_" + defName.Value + ".label", string.Format("Make {0}", label.Value)), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Make_" + defName.Value + ".description", string.Format("Make {0}.", label.Value)), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Make_" + defName.Value + ".jobString", string.Format("Making {0}.", label.Value)), "\r\n\r\n");
         }
 
         /// <summary>
@@ -551,15 +558,15 @@ namespace RimTransLib
             }
             if (isNew)
             {
-                doc.Root.Add("  ", new XComment(" SPECIAL: These Recipes from Drugs (Items with <ingestible> and <drugCategory>), generated by RimTrans "), "\r\n\r\n");
+                doc.Root.Add(TransOption.Indent, new XComment(" SPECIAL: These Recipes from Drugs (Items with <ingestible> and <drugCategory>), generated by RimTrans "), "\r\n\r\n");
             }
 
             XElement label = RWXml.GetField(def, RWFieldName.label);
             if (label == null) label = defName;
 
             // RecipeAdminister and RecipeAdministerJobString in Misc_Gameplay.xml
-            doc.Root.Add("  ", new XElement("Administer_" + defName.Value + ".label", string.Format("Administer {0}", label.Value)), "\r\n");
-            doc.Root.Add("  ", new XElement("Administer_" + defName.Value + ".jobString", string.Format("Administering {0}.", label.Value)), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Administer_" + defName.Value + ".label", string.Format("Administer {0}", label.Value)), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Administer_" + defName.Value + ".jobString", string.Format("Administering {0}.", label.Value)), "\r\n\r\n");
         }
 
         private void AddTerrainExtra(XElement def, XElement defName)
@@ -576,14 +583,14 @@ namespace RimTransLib
             }
             if (isNew)
             {
-                doc.Root.Add("  ", new XComment(" SPECIAL: Blueprint and Frame of Terrian, generated by RimTrans "), "\r\n\r\n");
+                doc.Root.Add(TransOption.Indent, new XComment(" SPECIAL: Blueprint and Frame of Terrian, generated by RimTrans "), "\r\n\r\n");
             }
 
             XElement label = RWXml.GetField(def, RWFieldName.label);
             if (label == null) label = defName;
 
-            doc.Root.Add("  ", new XElement(defName.Value + "_Blueprint.label", label.Value + " (blueprint)"), "\r\n");
-            doc.Root.Add("  ", new XElement(defName.Value + "_Frame.label", label.Value + " (building)"), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement(defName.Value + "_Blueprint.label", label.Value + " (blueprint)"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement(defName.Value + "_Frame.label", label.Value + " (building)"), "\r\n\r\n");
         }
 
         /// <summary>
@@ -595,27 +602,27 @@ namespace RimTransLib
             // Get the document
             XDocument doc = this.GetDocument(RWDefType.TerrainDef.ToString(), "Terrain_Add.xml");
             doc.Root.RemoveAttributes();
-            doc.Root.Add("  ", new XComment(" SPECIAL: Floors from natural stones "), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XComment(" SPECIAL: Floors from natural stones "), "\r\n\r\n");
 
-            doc.Root.Add("  ", new XElement("Sandstone_Rough.label", "rough sandstone"), "\r\n");
-            doc.Root.Add("  ", new XElement("Sandstone_RoughHewn.label", "rough-hewn sandstone"), "\r\n");
-            doc.Root.Add("  ", new XElement("Sandstone_Smooth.label", "smooth sandstone"), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Sandstone_Rough.label", "rough sandstone"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Sandstone_RoughHewn.label", "rough-hewn sandstone"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Sandstone_Smooth.label", "smooth sandstone"), "\r\n\r\n");
 
-            doc.Root.Add("  ", new XElement("Granite_Rough.label", "rough granite"), "\r\n");
-            doc.Root.Add("  ", new XElement("Granite_RoughHewn.label", "rough-hewn granite"), "\r\n");
-            doc.Root.Add("  ", new XElement("Granite_Smooth.label", "smooth granite"), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Granite_Rough.label", "rough granite"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Granite_RoughHewn.label", "rough-hewn granite"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Granite_Smooth.label", "smooth granite"), "\r\n\r\n");
 
-            doc.Root.Add("  ", new XElement("Limestone_Rough.label", "rough limestone"), "\r\n");
-            doc.Root.Add("  ", new XElement("Limestone_RoughHewn.label", "rough-hewn limestone"), "\r\n");
-            doc.Root.Add("  ", new XElement("Limestone_Smooth.label", "smooth limestone"), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Limestone_Rough.label", "rough limestone"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Limestone_RoughHewn.label", "rough-hewn limestone"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Limestone_Smooth.label", "smooth limestone"), "\r\n\r\n");
 
-            doc.Root.Add("  ", new XElement("Slate_Rough.label", "rough slate"), "\r\n");
-            doc.Root.Add("  ", new XElement("Slate_RoughHewn.label", "rough-hewn slate"), "\r\n");
-            doc.Root.Add("  ", new XElement("Slate_Smooth.label", "smooth slate"), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Slate_Rough.label", "rough slate"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Slate_RoughHewn.label", "rough-hewn slate"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Slate_Smooth.label", "smooth slate"), "\r\n\r\n");
 
-            doc.Root.Add("  ", new XElement("Marble_Rough.label", "rough marble"), "\r\n");
-            doc.Root.Add("  ", new XElement("Marble_RoughHewn.label", "rough-hewn marble"), "\r\n");
-            doc.Root.Add("  ", new XElement("Marble_Smooth.label", "smooth marble"), "\r\n\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Marble_Rough.label", "rough marble"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Marble_RoughHewn.label", "rough-hewn marble"), "\r\n");
+            doc.Root.Add(TransOption.Indent, new XElement("Marble_Smooth.label", "smooth marble"), "\r\n\r\n");
 
             doc.Root.Add("\r\n");
         }
@@ -679,7 +686,7 @@ namespace RimTransLib
                                     }
                                     if (isInvalid)
                                     {
-                                        docThis.Root.Add("  ", nodeExisting, "\r\n");
+                                        docThis.Root.Add(TransOption.Indent, nodeExisting, "\r\n");
                                         countInvalid++;
                                     }
                                 }
@@ -696,7 +703,7 @@ namespace RimTransLib
                                     }
                                     if (isInvalid)
                                     {
-                                        docThis.Root.Add("  ", new XComment((nodeExisting as XElement).ToString()), "\r\n");
+                                        docThis.Root.Add(TransOption.Indent, new XComment((nodeExisting as XElement).ToString()), "\r\n");
                                         countInvalid++;
                                     }
                                 }
@@ -814,6 +821,7 @@ namespace RimTransLib
         {
             foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> kvpDefTypeDocGroup in this._dataBase)
             {
+                List<string> EmptyDocs = new List<string>();
                 foreach (KeyValuePair<string, XDocument> kvpRelativePathDocument in kvpDefTypeDocGroup.Value)
                 {
                     bool isEmpty = true;
@@ -827,16 +835,26 @@ namespace RimTransLib
                     }
                     if (isEmpty)
                     {
-                        kvpDefTypeDocGroup.Value.Remove(kvpRelativePathDocument.Key);
+                        EmptyDocs.Add(kvpRelativePathDocument.Key);
                     }
                 }
+                foreach (string key in EmptyDocs)
+                {
+                    kvpDefTypeDocGroup.Value.Remove(key);
+                }
             }
+
+            List<string> EmptyDocGroups = new List<string>();
             foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> kvpDefTypeDocGroup in this._dataBase)
             {
                 if (kvpDefTypeDocGroup.Value.Count == 0)
                 {
-                    this._dataBase.Remove(kvpDefTypeDocGroup.Key);
+                    EmptyDocGroups.Add(kvpDefTypeDocGroup.Key);
                 }
+            }
+            foreach (string key in EmptyDocGroups)
+            {
+                this._dataBase.Remove(key);
             }
         }
 

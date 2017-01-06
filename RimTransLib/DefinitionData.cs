@@ -81,7 +81,10 @@ namespace RimTransLib
                     }
                     catch (XmlException ex)
                     {
-                        //TODO: log
+                        TransLog.Message(definition, new TransLog.MessageArgs(
+                            TransLog.Type.Error,
+                            "DefinitionData.Load " + fileInfo.FullName,
+                            ex.Message));
                     }
                 }
             }
@@ -138,7 +141,7 @@ namespace RimTransLib
                 {
                     bool isParentFound = false;
                     foreach (XElement defAbstract in from ele in this._abstraction.Elements()
-                                               where ele.Name == defParent.Name && ele.Attribute("Name").Value == defParent.Attribute("ParentName").Value
+                                                     where ele.Name == defParent.Name && ele.Attribute("Name").Value == defParent.Attribute("ParentName").Value
                                                      select ele)
                     {
                         isParentFound = true;
@@ -148,7 +151,14 @@ namespace RimTransLib
                     }
                     if (!isParentFound)
                     {
-                        //TODO: Log
+                        string detail = defChild.Name.ToString();
+                        detail += ": defName = " + RWXml.GetField(defChild, RWFieldName.defName).Value;
+                        detail += ", ParentName = " + defChild.Attribute("ParentName").Value;
+                        detail += ", Cannot found the parent def or grandparent def.";
+                        TransLog.Message(this, new TransLog.MessageArgs(
+                            TransLog.Type.Warning,
+                            "Abstract Def on found",
+                            detail));
                         break;
                     }
                 } while (defParent.Attribute("ParentName") != null);
