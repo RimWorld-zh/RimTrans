@@ -191,12 +191,24 @@ namespace RimTransLib
                             null));
                     }
                 }
-                languageNew.Save();
-
-                TransLog.Message(this, new TransLog.MessageArgs(
-                    TransLog.Type.Message,
-                    "Construction completed: " + languageExisting.LanguageInfo.Name,
-                    "Output directory: " + languageNew.LanguageInfo.RootDir.FullName));
+                try
+                {
+                    languageNew.Save();
+                }
+                catch (Exception ex)
+                {
+                    TransLog.Message(this, new TransLog.MessageArgs(
+                        TransLog.Type.Error,
+                        "BuildLanguageData Save failed!",
+                        ex.Message));
+                }
+                finally
+                {
+                    TransLog.Message(this, new TransLog.MessageArgs(
+                        TransLog.Type.Message,
+                        "Construction completed: " + languageExisting.LanguageInfo.Name,
+                        "Output directory: " + languageNew.LanguageInfo.RootDir.FullName));
+                }
             }
         }
 

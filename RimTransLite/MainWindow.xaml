@@ -3,10 +3,99 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:RimTransLite"
+        xmlns:lfa="clr-namespace:RimTransLite.AwesomeControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="RimTrans" Height="667" Width="1080" WindowStartupLocation="CenterScreen">
+    <Grid Background="{StaticResource LiteMainBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="col0" Width="256"/>
+            <ColumnDefinition x:Name="col1" Width="256"/>
+            <ColumnDefinition x:Name="col2" Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="row0" Height="0" />
+            <RowDefinition x:Name="row1" Height="64"/>
+            <RowDefinition x:Name="row2" Height="*"/>
+            <RowDefinition x:Name="row3" Height="0" />
+        </Grid.RowDefinitions>
         
+        <StackPanel x:Name="toolBarLeft"
+                    Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="1"
+                    Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Height="64" Width="auto" Margin="5,0,5,0">
+
+            <lfa:AwesomeButtonV x:Name="buttonAddMod" Icon="PuzzlePiece" Label="Add Mod" Click="buttonAddMod_Click" />
+            <lfa:AwesomeButtonV x:Name="buttonAddLanguage" Icon="Plus" Label="Add Lanugage" Click="buttonAddLanguage_Click" />
+            <!--<lfa:LiteAwesomeButton x:Name="buttonRefresh" Icon="Refresh" Label="Refresh" />-->
+
+            <Border Height="auto" Width="20"/>
+            
+            <lfa:AwesomeButtonV x:Name="buttonBuild" Icon="PaperPlane" Label="Build" />
+            <lfa:AwesomeButtonV x:Name="buttonRebuild" Icon="PaperPlaneOutline" Label="Rebuild" />
+
+            <Border Height="auto" Width="20"/>
+            <lfa:AwesomeButtonV x:Name="buttonEditor" Icon="PencilSquareOutline" Label="Editor" />
+            
+        </StackPanel>
+
+        <StackPanel x:Name="toolBarRight"
+                    Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Height="64" Width="auto" Margin="5,5,5,5">
+
+            
+            <lfa:AwesomeButtonV x:Name="buttonTools" Icon="Briefcase" Label="Tools" />
+            <lfa:AwesomeButtonV x:Name="buttonHelp" Icon="Question" Label="Help" />
+            <lfa:AwesomeButtonV x:Name="buttonConfig" Icon="Cog" Label="Config" />
+
+        </StackPanel>
+
+        <lfa:ModsListBox x:Name="modsListBox"
+                         Grid.Column="0" Grid.Row="2" Margin="3" Background="#f5f5f5" BorderBrush="#cccedb">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Open" />
+                    <MenuItem Header="Show in explorer" />
+                    <MenuItem Header="Remove" />
+                    <MenuItem Header="Setting" />
+                    <Separator />
+                    <MenuItem Header="Add Mod" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </lfa:ModsListBox>
+
+        <!--<GridSplitter x:Name="gridSplitterModsListBox" Background="Azure"
+            Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Height="{Binding ElementName=row2, Path=Height}" Width="6"/>-->
+
+        <lfa:LanguagesListBox x:Name="languagesListBox"
+                              Grid.Column="1" Grid.Row="2" Margin="3" Background="#f5f5f5" BorderBrush="#cccedb"
+                              MouseLeftButtonDown="languagesListBox_MouseLeftButtonDown">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Open" />
+                    <MenuItem Header="Show in explorer" />
+                    <MenuItem Header="Remove" />
+                    <MenuItem Header="Setting" />
+                    <Separator />
+                    <MenuItem Header="Add Mod" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="ContextMenu">
+                        <Setter.Value>
+                            <ContextMenu>
+                                <MenuItem Header="Build" />
+                                <MenuItem Header="Rebuild" />
+                            </ContextMenu>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </lfa:LanguagesListBox>
+
+        <Border Grid.Column="2" Grid.Row="2" Margin="3" Background="#f5f5f5" BorderThickness="1" BorderBrush="#cccedb"/>
+
+
     </Grid>
 </Window>

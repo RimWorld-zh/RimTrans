@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:RimTransLite"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="LiteThemeDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>
