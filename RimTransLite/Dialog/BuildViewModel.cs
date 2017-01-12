@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using FontAwesome.WPF;
 using duduluu.MVVM;
 using RimTrans.Builder;
+using RimTrans.Lite.Util;
 using RimTransLite.AwesomeControl;
 using RimTransLite.Options;
 
@@ -122,6 +123,21 @@ namespace RimTrans.Lite.Dialog
         private void ExecuteBuild(object parameter)
         {
             //View.logOutput.Dispatcher.BeginInvoke(new Action(() =>
+                //{
+                    Build();
+                //}));
+        }
+        private bool CanExecuteBuild(object parameter)
+        {
+            var selectedLanguages = from lang in SelectedMod.Languages
+                                    where lang.IsChecked
+                                    select lang;
+            return selectedLanguages.Count() > 0;
+        }
+
+        private void Build()
+        {
+            //View.logOutput.Dispatcher.BeginInvoke(new Action(() =>
             //{
             //    View.logOutput.AppendText("======== Begin ========");
             //}));
@@ -134,7 +150,10 @@ namespace RimTrans.Lite.Dialog
             List<LanguageInfo> languageInfos = new List<LanguageInfo>();
             foreach (LanguagesListItem lang in SelectedMod.Languages)
             {
-                languageInfos.Add(new LanguageInfo(lang.LanguageName, lang.LanguageNameNative, lang.LanguagePath));
+                if (lang.IsChecked)
+                {
+                    languageInfos.Add(new LanguageInfo(lang.LanguageName, lang.LanguageNameNative, lang.LanguagePath));
+                }
             }
             if (_isCoreMode)
             {
@@ -143,7 +162,7 @@ namespace RimTrans.Lite.Dialog
             }
             else if (_isModWithCoreMode)
             {
-                ModData coreData = new ModData(new ModInfo(LiteConfigs.PathCore), languageInfos, true);
+                ModData coreData = new ModData(new ModInfo(UserSettings.All.CoreDirectory), languageInfos, true);
                 ModData modData = new ModData(modInfo, languageInfos, false, coreData);
                 modData.BuildLanguageData(_isFreshBuild);
             }
@@ -154,20 +173,13 @@ namespace RimTrans.Lite.Dialog
             }
 
             TransLog.MessageEventHandler -= TransLog_MessageEventHandler;
-            Logs.Add("======== Begin ========");
+            Logs.Add("======== End ========");
 
             //View.logOutput.Dispatcher.BeginInvoke(new Action(() =>
             //{
             //    View.logOutput.AppendText("======== End ========");
             //}));
             //Console.WriteLine("======== End ========");
-        }
-        private bool CanExecuteBuild(object parameter)
-        {
-            var selectedLanguages = from lang in SelectedMod.Languages
-                                    where lang.IsChecked
-                                    select lang;
-            return selectedLanguages.Count() > 0;
         }
 
         private void TransLog_MessageEventHandler(object sender, TransLog.MessageArgs e)
@@ -187,12 +199,11 @@ namespace RimTrans.Lite.Dialog
                 default:
                     break;
             }
-            text += e.Title + "\n";
+            text += e.Title;
             if (e.Detail != string.Empty && e.Detail != null)
             {
-                text += e.Detail + "\n";
+                text += "\n" + e.Detail;
             }
-            text += "\n";
 
             Logs.Add(text);
             //View.logOutput.Dispatcher.BeginInvoke(new Action(() =>

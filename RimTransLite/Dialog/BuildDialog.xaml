@@ -7,7 +7,8 @@
         xmlns:lfa="clr-namespace:RimTransLite.AwesomeControl"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Build" Height="600" Width="971" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Build"
+        Height="600" Width="971" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid Background="{StaticResource LiteMainBackground}">
         <Grid.RowDefinitions>
@@ -104,7 +105,7 @@
 
             <Border Width="10" />
 
-            <Button x:Name="buttonCancel" Content="Cancel"
+            <Button x:Name="buttonCancel" Content="Close"
                     IsCancel="True"
                     VerticalAlignment="Center" Padding="20,3" />
 

@@ -115,8 +115,6 @@ namespace RimTrans.Lite
 
         #endregion
 
-
-
         #region Language Command
 
         // Can execute: has selected language
@@ -203,7 +201,23 @@ namespace RimTrans.Lite
 
         #endregion
 
+        #region Config
 
+        private RelayCommand _configCommand;
+        public RelayCommand ConfigCommand
+        {
+            get
+            {
+                return _configCommand ?? (_configCommand = new RelayCommand(ExecuteConfig));
+            }
+        }
+        private void ExecuteConfig(object parameter)
+        {
+            var dlg = new ConfigDialog();
+            dlg.ShowDialog(View);
+        }
+
+        #endregion
 
 
 

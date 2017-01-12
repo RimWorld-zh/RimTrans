@@ -22,7 +22,7 @@ RimTrans is distributed under the [MIT License](https://opensource.org/licenses/
 
 Included open-source libraries:
 
-* [Steam Local Library](https://github.com/ObsidianMinor/Steam-Local-Library) 0.4.1: MIT License
-
+* [Font-Awesome-WPF](https://github.com/charri/Font-Awesome-WPF) v4.7.0 (MIT)
+* [Steam Local Library](https://github.com/ObsidianMinor/Steam-Local-Library) v0.4.1 (MIT)
 
 

@@ -48,11 +48,12 @@ namespace RimTrans.Lite.Dialog
             var result = dlg.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                View.ResultLanguages = new List<LanguagesListItem> {
-                    new LanguagesListItem(
+                LanguagesListItem customLang = new LanguagesListItem(
                         System.IO.Path.GetFileName(dlg.SelectedPath),
                         null,
-                        dlg.SelectedPath)};
+                        dlg.SelectedPath);
+                customLang.IsChecked = true;
+                View.ResultLanguages = new List<LanguagesListItem> { customLang };
                 View.DialogResult = true;
             }
         }

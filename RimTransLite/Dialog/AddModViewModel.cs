@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 
 using FontAwesome.WPF;
 using duduluu.MVVM;
+using RimTrans.Lite.Util;
 using RimTransLite.AwesomeControl;
 using RimTransLite.Options;
 
@@ -58,7 +59,7 @@ namespace RimTrans.Lite.Dialog
         }
         private void ExecuteLoadInternalMods(object parameter)
         {
-            DirectoryInfo dir = new DirectoryInfo(LiteConfigs.PathInternalMods);
+            DirectoryInfo dir = new DirectoryInfo(UserSettings.All.ModsDirectory);
             if (dir.Exists)
             {
                 Mods.Clear();
@@ -87,7 +88,7 @@ namespace RimTrans.Lite.Dialog
         }
         private void ExecuteLoadWorkshopMods(object parameter)
         {
-            DirectoryInfo dir = new DirectoryInfo(LiteConfigs.PathWorkshopMods);
+            DirectoryInfo dir = new DirectoryInfo(UserSettings.All.WorkshopDirectory);
             if (dir.Exists)
             {
                 Mods.Clear();
@@ -117,7 +118,13 @@ namespace RimTrans.Lite.Dialog
         private void ExecuteLoadCustomMod(object parameter)
         {
             var dlg = new System.Windows.Forms.FolderBrowserDialog();
+
+            if (!string.IsNullOrWhiteSpace(UserSettings.All.CustomModSelectedFolder))
+                dlg.SelectedPath = UserSettings.All.CustomModSelectedFolder;
+
             var result = dlg.ShowDialog();
+            UserSettings.All.CustomModSelectedFolder = dlg.SelectedPath;
+
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 Mods.Clear();
