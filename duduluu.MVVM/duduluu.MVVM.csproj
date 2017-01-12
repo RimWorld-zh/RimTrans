@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8EE94102-F91F-4DF4-8304-51B6F1791464}</ProjectGuid>
+    <ProjectGuid>{F3EC6134-AC78-4919-BB82-5B37018BCEAD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RimTrans.Builder</RootNamespace>
-    <AssemblyName>RimTransBuilder</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>duduluu.MVVM</RootNamespace>
+    <AssemblyName>duduluu.MVVM</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,35 +29,33 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Steam Local Data, Version=0.4.0.246, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Steam_Local_Data.dll.0.4.1\lib\net45\Steam Local Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefinitionData.cs" />
-    <Compile Include="ILanguageData.cs" />
-    <Compile Include="InjectionData.cs" />
-    <Compile Include="KeyData.cs" />
-    <Compile Include="LanguageData.cs" />
-    <Compile Include="LanguageInfo.cs" />
-    <Compile Include="ModInfo.cs" />
-    <Compile Include="ModData.cs" />
+    <Compile Include="DialogExtension.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="TextBoxOutputter.cs" />
+    <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RWDefType.cs" />
-    <Compile Include="RWFieldName.cs" />
-    <Compile Include="RWThingCategory.cs" />
-    <Compile Include="RWXml.cs" />
-    <Compile Include="StringData.cs" />
-    <Compile Include="TransLog.cs" />
-    <Compile Include="TransOption.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,24 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 
-namespace RimTrans.Lite
+using duduluu.MVVM;
+using RimTransLite.AwesomeControl;
+
+namespace RimTrans.Lite.Dialog
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// DialogAddLanguage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddLanguageDialog : Window
     {
-        public MainWindow()
+        public AddLanguageDialog()
         {
             InitializeComponent();
-            var vm = new MainViewModel();
+            var vm = new AddLanguageViewModel();
             vm.View = this;
             this.DataContext = vm;
         }
         
+        public IEnumerable<LanguagesListItem> ResultLanguages { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public class ModData
     {
@@ -125,7 +125,7 @@ namespace RimTransLib
 
         #region Build Language Data
 
-        public void BuildLanguageData(bool isRebuild = false)
+        public void BuildLanguageData(bool isFreshBuild = false)
         {
             if (!this._isCore && this._core != null)
             {
@@ -169,8 +169,8 @@ namespace RimTransLib
                 {
                     languageCore = this._core.Language(languageExisting.LanguageInfo.Name);
                 }
-                LanguageData languageNew = languageExisting.BuildNew(languageOriginal, isRebuild, languageCore);
-                if (isRebuild)
+                LanguageData languageNew = languageExisting.BuildNew(languageOriginal, isFreshBuild, languageCore);
+                if (isFreshBuild)
                 {
                     try
                     {

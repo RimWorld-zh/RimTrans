@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public static class RWXml
     {

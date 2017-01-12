@@ -1,0 +1,63 @@
+﻿<Window x:Class="RimTrans.Lite.Dialog.AddLanguageDialog" x:Name="Root"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RimTrans.Lite.Dialog"
+        xmlns:lfa="clr-namespace:RimTransLite.AwesomeControl"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="Add Language" Height="500" Width="809" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="{StaticResource LiteMainBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <lfa:LanguagesListBox x:Name="languagesListBox"
+                              DataContext="{Binding}"
+                              ItemsSource="{Binding PrimaryLanguages}"
+                              BorderBrush="{StaticResource LiteFocusGray}" Background="{StaticResource LiteSubBackground}"
+                              Grid.Column="1" Grid.Row="0" Margin="5,20">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </lfa:LanguagesListBox>
+
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                     Grid.Column="1" Grid.Row="1" Margin="5,0">
+
+            <Button x:Name="buttonConfirm" Content="Confirm"
+                    IsDefault="True"
+                    Command="{Binding ConfirmCommand}"
+                    VerticalAlignment="Center" Padding="20,3" />
+
+            <Border Width="10" />
+
+            <Button x:Name="buttonCancel" Content="Cancel" 
+                    IsCancel="True"
+                    VerticalAlignment="Center" Padding="20,3" />
+
+        </StackPanel>
+
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                     Grid.Column="1" Grid.Row="1" Margin="5,0">
+
+            <Button x:Name="buttonAddCustomLanguage" Content="Add Custom Language" 
+                    Command="{Binding AddCustomLanguageCommand}"
+                    
+                    VerticalAlignment="Center" Padding="20,3"/>
+            
+        </StackPanel>
+
+    </Grid>
+</Window>

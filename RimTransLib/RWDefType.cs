@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public enum RWDefType : int
     {

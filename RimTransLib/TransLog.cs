@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public static class TransLog
     {

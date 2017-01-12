@@ -6,7 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public class KeyData : ILanguageData<KeyData>
     {
@@ -204,7 +204,7 @@ namespace RimTransLib
 
         #region Interface
 
-        public KeyData BuildNew(KeyData keyOriginal, bool isRebuild, KeyData keyCore = null)
+        public KeyData BuildNew(KeyData keyOriginal, bool isFreshBuild, KeyData keyCore = null)
         {
             KeyData keyNew = new KeyData(this._rootDir);
 
@@ -213,7 +213,7 @@ namespace RimTransLib
             {
                 keyNew._dataBase.Add(kvpRelativePathDocument.Key, new XDocument(kvpRelativePathDocument.Value));
             }
-            if (!isRebuild)
+            if (!isFreshBuild)
             {
                 keyNew.MatchExisting(this);
             }

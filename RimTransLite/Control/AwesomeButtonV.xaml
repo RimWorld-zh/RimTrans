@@ -1,4 +1,4 @@
-﻿<Button x:Class="RimTransLite.AwesomeControl.AwesomeButtonV"
+﻿<Button x:Name="Root" x:Class="RimTransLite.AwesomeControl.AwesomeButtonV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,11 +9,11 @@
         Height="54" MinWidth="54" Background="Transparent" BorderBrush="Transparent">
     
     <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" >
-        
-        <fa:ImageAwesome Icon="{Binding Path=Icon}" Foreground="{StaticResource LiteMainForeground}"
+
+        <fa:ImageAwesome Icon="{Binding ElementName=Root, Path=Icon}" Foreground="{StaticResource LiteMainForeground}"
                          Height="24" Width="24" Margin="0,10,0,1"/>
-        
-        <Label Content="{Binding Path=Label}" Foreground="{StaticResource LiteMainForeground}"
+
+        <Label Content="{Binding ElementName=Root, Path=Label}" Foreground="{StaticResource LiteMainForeground}"
                TextElement.FontSize="12px" Height="25"
                VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
         

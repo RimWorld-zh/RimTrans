@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public class StringData : ILanguageData<StringData>
     {
@@ -68,7 +68,7 @@ namespace RimTransLib
 
         #region Interface
 
-        public StringData BuildNew(bool isRebuild)
+        public StringData BuildNew(bool isFreshBuild)
         {
             StringData stringData = new StringData(this._rootDir);
 
@@ -82,9 +82,9 @@ namespace RimTransLib
             return stringData;
         }
 
-        public StringData BuildNew(StringData stringOriginal, bool isRebuild, StringData stringCore = null)
+        public StringData BuildNew(StringData stringOriginal, bool isFreshBuild, StringData stringCore = null)
         {
-            return this.BuildNew(isRebuild);
+            return this.BuildNew(isFreshBuild);
         }
 
         public void Save()

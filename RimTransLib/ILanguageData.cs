@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     interface ILanguageData<T>
     {
-        T BuildNew(T original, bool isRebuild, T core);
+        T BuildNew(T original, bool isFreshBuild, T core);
         void Save();
         void Save(string path);
     }

@@ -6,7 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public class InjectionData : ILanguageData<InjectionData>
     {
@@ -862,7 +862,7 @@ namespace RimTransLib
 
         #region Interface
 
-        public InjectionData BuildNew(InjectionData injectionOriginal, bool isRebuild, InjectionData injectionCore = null)
+        public InjectionData BuildNew(InjectionData injectionOriginal, bool isFreshBuild, InjectionData injectionCore = null)
         {
             InjectionData injectionNew = new InjectionData(this._rootDir);
 
@@ -877,7 +877,7 @@ namespace RimTransLib
                 injectionNew._dataBase.Add(kvpDefTypeDocGroup.Key, docGroupNew);
             }
 
-            if (!isRebuild)
+            if (!isFreshBuild)
             {
                 injectionNew.MatchExisting(this);
             }

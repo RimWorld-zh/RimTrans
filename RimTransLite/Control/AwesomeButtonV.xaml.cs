@@ -17,23 +17,23 @@ using FontAwesome.WPF;
 namespace RimTransLite.AwesomeControl
 {
     /// <summary>
-    /// AwesomeTabItem.xaml 的交互逻辑
+    /// AwesomeButton.xaml 的交互逻辑
     /// </summary>
-    public partial class AwesomeButtonH : Button
+    public partial class AwesomeButtonV : Button
     {
-        public AwesomeButtonH()
+        public AwesomeButtonV()
         {
             InitializeComponent();
-            this.DataContext = this;
+            //this.DataContext = this;
         }
-
+        
         public string Label
         {
             get { return (string)GetValue(LabelProperty); }
             set { SetValue(LabelProperty, value); }
         }
         public static readonly DependencyProperty LabelProperty =
-            DependencyProperty.Register("Label", typeof(string), typeof(AwesomeButtonH));
+            DependencyProperty.Register("Label", typeof(string), typeof(AwesomeButtonV));
 
         public FontAwesomeIcon Icon
         {
@@ -41,7 +41,10 @@ namespace RimTransLite.AwesomeControl
             set { SetValue(IconProperty, value); }
         }
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(FontAwesomeIcon), typeof(AwesomeButtonH));
+            DependencyProperty.Register("Icon", typeof(FontAwesomeIcon), typeof(AwesomeButtonV));
+
+        
+
 
     }
 }

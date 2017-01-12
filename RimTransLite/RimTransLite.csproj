@@ -7,13 +7,14 @@
     <ProjectGuid>{E0AD83F5-86DE-436F-85E6-DE12DC552A02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RimTransLite</RootNamespace>
-    <AssemblyName>RimTransLite</AssemblyName>
+    <RootNamespace>RimTrans.Lite</RootNamespace>
+    <AssemblyName>RimTrans</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -60,29 +61,48 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AwesomeControl\AwesomeButtonH.xaml.cs">
-      <DependentUpon>AwesomeButtonH.xaml</DependentUpon>
+    <Compile Include="Control\PanelPrimaryLanguages.xaml.cs">
+      <DependentUpon>PanelPrimaryLanguages.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\AddLanguageDialog.xaml.cs">
+      <DependentUpon>AddLanguageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\AddLanguageViewModel.cs" />
+    <Compile Include="Dialog\AddModViewModel.cs" />
+    <Compile Include="Dialog\BuildDialog.xaml.cs">
+      <DependentUpon>BuildDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\BuildViewModel.cs" />
+    <Compile Include="Options\LiteConfigs.cs" />
     <Compile Include="TestDialog.xaml.cs">
       <DependentUpon>TestDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="AwesomeControl\AwesomeButtonV.xaml">
+    <Compile Include="MainViewModel.cs" />
+    <Page Include="Control\AwesomeButtonV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AwesomeControl\AwesomeButtonH.xaml">
+    <Page Include="Control\LanguagesListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AwesomeControl\LanguagesListBox.xaml">
+    <Page Include="Control\ModsListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AwesomeControl\ModsListBox.xaml">
+    <Page Include="Control\PanelPrimaryLanguages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AwesomeDialog\DialogAddMod.xaml">
+    <Page Include="Dialog\AddLanguageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\AddModDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\BuildDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,17 +118,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AwesomeControl\AwesomeButtonV.xaml.cs">
+    <Compile Include="Control\AwesomeButtonV.xaml.cs">
       <DependentUpon>AwesomeButtonV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AwesomeControl\LanguagesListBox.xaml.cs">
+    <Compile Include="Control\LanguagesListBox.xaml.cs">
       <DependentUpon>LanguagesListBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AwesomeControl\ModsListBox.xaml.cs">
+    <Compile Include="Control\ModsListBox.xaml.cs">
       <DependentUpon>ModsListBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AwesomeDialog\DialogAddMod.xaml.cs">
-      <DependentUpon>DialogAddMod.xaml</DependentUpon>
+    <Compile Include="Dialog\AddModDialog.xaml.cs">
+      <DependentUpon>AddModDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -146,6 +166,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\duduluu.MVVM\duduluu.MVVM.csproj">
+      <Project>{f3ec6134-ac78-4919-bb82-5b37018bcead}</Project>
+      <Name>duduluu.MVVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RimTransLib\RimTransLib.csproj">
+      <Project>{8ee94102-f91f-4df4-8304-51b6f1791464}</Project>
+      <Name>RimTransLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

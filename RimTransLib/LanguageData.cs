@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public class LanguageData : ILanguageData<LanguageData>
     {
@@ -125,20 +125,20 @@ namespace RimTransLib
 
         #region Interface
 
-        public LanguageData BuildNew(LanguageData languageOriginial, bool isRebuild, LanguageData languageCore)
+        public LanguageData BuildNew(LanguageData languageOriginial, bool isFreshBuild, LanguageData languageCore)
         {
             LanguageData language = new LanguageData(this._languageInfo);
             if (languageCore == null)
             {
-                language._injection = this._injection.BuildNew(languageOriginial._injection, isRebuild);
-                language._key = this._key.BuildNew(languageOriginial._key, isRebuild);
-                language._string = this._string.BuildNew(isRebuild);
+                language._injection = this._injection.BuildNew(languageOriginial._injection, isFreshBuild);
+                language._key = this._key.BuildNew(languageOriginial._key, isFreshBuild);
+                language._string = this._string.BuildNew(isFreshBuild);
             }
             else
             {
-                language._injection = this._injection.BuildNew(languageOriginial._injection, isRebuild, languageCore._injection);
-                language._key = this._key.BuildNew(languageOriginial._key, isRebuild, languageCore._key);
-                language._string = this._string.BuildNew(isRebuild);
+                language._injection = this._injection.BuildNew(languageOriginial._injection, isFreshBuild, languageCore._injection);
+                language._key = this._key.BuildNew(languageOriginial._key, isFreshBuild, languageCore._key);
+                language._string = this._string.BuildNew(isFreshBuild);
             }
             return language;
         }

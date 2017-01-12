@@ -24,11 +24,11 @@ namespace RimTransLite.AwesomeControl
 
     public class ModsListItem : ListItem
     {
-        public enum ModCategory { Internal, Workshop, Custom }
+        public enum Category { Internal, Workshop, Custom }
 
-        public ModsListItem(ModCategory category, string path, string name = null)
+        public ModsListItem(Category category, string path, string name = null)
         {
-            this.Category = category;
+            this.ModCategory = category;
             this.ModPath = path;
             if (name == null || name == string.Empty)
             {
@@ -38,32 +38,42 @@ namespace RimTransLite.AwesomeControl
             {
                 this.ModName = name;
             }
-            try
+            string fileAboutXml = System.IO.Path.Combine(path, "About", "About.xml");
+            if (System.IO.File.Exists(fileAboutXml))
             {
-                XDocument aboutDoc = XDocument.Load(System.IO.Path.Combine(path, "About", "About.xml"));
-                this.ModNameNatural = aboutDoc.Root.Element("name").Value;
+                try
+                {
+                    XDocument aboutDoc = XDocument.Load(System.IO.Path.Combine(path, "About", "About.xml"));
+                    this.ModNameNatural = aboutDoc.Root.Element("name").Value;
+                }
+                catch (Exception)
+                {
+                    this.ModNameNatural = System.IO.Path.GetFileName(path);
+                }
             }
-            catch (Exception)
+            else
             {
                 this.ModNameNatural = System.IO.Path.GetFileName(path);
             }
+
+            Languages = new ObservableCollection<LanguagesListItem>();
         }
 
 
-        public ModCategory Category
+        public Category ModCategory
         {
-            get { return (ModCategory)GetValue(CategoryProperty); }
+            get { return (Category)GetValue(ModCategoryProperty); }
             set {
-                SetValue(CategoryProperty, value);
+                SetValue(ModCategoryProperty, value);
                 switch (value)
                 {
-                    case ModCategory.Internal:
+                    case Category.Internal:
                         this.Icon = FontAwesomeIcon.FolderOutline;
                         break;
-                    case ModCategory.Workshop:
+                    case Category.Workshop:
                         this.Icon = FontAwesomeIcon.Steam;
                         break;
-                    case ModCategory.Custom:
+                    case Category.Custom:
                         this.Icon = FontAwesomeIcon.HddOutline;
                         break;
                     default:
@@ -73,8 +83,8 @@ namespace RimTransLite.AwesomeControl
         }
 
         // Using a DependencyProperty as the backing store for Category.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CategoryProperty =
-            DependencyProperty.Register("Category", typeof(ModCategory), typeof(ModsListItem), new PropertyMetadata(ModCategory.Internal));
+        public static readonly DependencyProperty ModCategoryProperty =
+            DependencyProperty.Register("ModCategory", typeof(Category), typeof(ModsListItem), new PropertyMetadata(Category.Internal));
 
 
 
@@ -91,12 +101,12 @@ namespace RimTransLite.AwesomeControl
 
         public string ModPath
         {
-            get { return (string)GetValue(PathProperty); }
-            set { SetValue(PathProperty, value); }
+            get { return (string)GetValue(ModPathProperty); }
+            set { SetValue(ModPathProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Path.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PathProperty =
+        public static readonly DependencyProperty ModPathProperty =
             DependencyProperty.Register("ModPath", typeof(string), typeof(ModsListItem));
 
 
@@ -122,6 +132,7 @@ namespace RimTransLite.AwesomeControl
             DependencyProperty.Register("ModNameNatural", typeof(string), typeof(ModsListItem), new PropertyMetadata("Mod"));
 
         
+        public ObservableCollection<LanguagesListItem> Languages { get; private set; }
     }
 
     #endregion
@@ -134,31 +145,15 @@ namespace RimTransLite.AwesomeControl
         public ModsListBox()
         {
             InitializeComponent();
-            mods = new ObservableCollection<ModsListItem>();
-            this.ItemsSource = mods;
             this.DataContext = this;
+            this.MouseDown += ModsListBox_MouseDown;
         }
 
-        ObservableCollection<ModsListItem> mods;
-
-        public void AddMod(ModsListItem mod)
+        private void ModsListBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            mods.Add(mod);
+            SelectedItem = null;
         }
 
-        public void AddMod(ModsListItem.ModCategory category, string path, string name = null)
-        {
-            mods.Add(new ModsListItem(category, path, name));
-        }
-        
-        public void ClearMods()
-        {
-            mods.Clear();
-        }
 
-        public void RemoveMod(ModsListItem mod)
-        {
-            mods.Remove(mod);
-        }
     }
 }

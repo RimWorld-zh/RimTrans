@@ -10,24 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 
-namespace RimTrans.Lite
+using FontAwesome.WPF;
+using duduluu.MVVM;
+using RimTransLite.AwesomeControl;
+using RimTransLite.Options;
+
+namespace RimTrans.Lite.Dialog
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// DialogBuild.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BuildDialog : Window
     {
-        public MainWindow()
+        public BuildDialog(ModsListItem selectedMod)
         {
             InitializeComponent();
-            var vm = new MainViewModel();
+            var vm = new BuildViewModel();
+            vm.SelectedMod = selectedMod;
             vm.View = this;
+            //vm.Outputter = new TextBoxOutputter(logOutput);
             this.DataContext = vm;
         }
-        
     }
 }

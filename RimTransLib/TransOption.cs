@@ -6,7 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace RimTransLib
+namespace RimTrans.Builder
 {
     public static class TransOption
     {

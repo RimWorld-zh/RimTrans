@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RimTransLib;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+
+using RimTrans.Builder;
 
 namespace RimTransLibTest
 {
@@ -98,10 +99,10 @@ namespace RimTransLibTest
         public static void TestCore()
         {
             TransOption.Initial(@"D:\Game\RimWorld\Mods\Core");
-            TransOption.Core.BuildLanguageData();
+            //TransOption.Core.BuildLanguageData();
 
-            TransLog.MessageEventHandler += LogMessage;
             Console.WriteLine("================ Start Testing ================");
+            TransLog.MessageEventHandler += LogMessage;
 
             List<LanguageInfo> languageInfos = new List<LanguageInfo>();
             languageInfos.AddRange(TransOption.SupportLanguages);
