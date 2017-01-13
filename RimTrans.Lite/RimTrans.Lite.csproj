@@ -30,7 +30,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\RimTrans\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -191,20 +191,20 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\duduluu.MVVM\duduluu.MVVM.csproj">
-      <Project>{f3ec6134-ac78-4919-bb82-5b37018bcead}</Project>
-      <Name>duduluu.MVVM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RimTransLib\RimTransLib.csproj">
-      <Project>{8ee94102-f91f-4df4-8304-51b6f1791464}</Project>
-      <Name>RimTransLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\Localization\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\duduluu.MVVM\duduluu.MVVM.csproj">
+      <Project>{f3ec6134-ac78-4919-bb82-5b37018bcead}</Project>
+      <Name>duduluu.MVVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RimTrans.Builder\RimTrans.Builder.csproj">
+      <Project>{8ee94102-f91f-4df4-8304-51b6f1791464}</Project>
+      <Name>RimTrans.Builder</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

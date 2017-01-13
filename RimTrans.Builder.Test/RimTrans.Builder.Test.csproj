@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RimTransLib\RimTransLib.csproj">
+    <ProjectReference Include="..\RimTrans.Builder\RimTrans.Builder.csproj">
       <Project>{8ee94102-f91f-4df4-8304-51b6f1791464}</Project>
-      <Name>RimTransLib</Name>
+      <Name>RimTrans.Builder</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
