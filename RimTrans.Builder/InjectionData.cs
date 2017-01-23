@@ -395,12 +395,19 @@ namespace RimTrans.Builder
             XElement label = RWXml.GetField(def, RWFieldName.label);
             if (label == null) label = defName;
 
+            bool hasButcherProducts = false;
+            XElement butcherProducts = RWXml.GetField(def, RWFieldName.butcherProducts);
+            if (butcherProducts != null) hasButcherProducts = true;
+
             bool isLeatherAmountZero = false;
+            bool isMeatAmountZero = false;
             XElement statBases = RWXml.GetField(def, RWFieldName.statBases);
             if (statBases != null)
             {
                 XElement leatherAmount = RWXml.GetField(statBases, RWFieldName.LeatherAmount);
                 if (leatherAmount != null && leatherAmount.Value == "0") isLeatherAmountZero = true;
+                XElement meatAmount = RWXml.GetField(statBases, RWFieldName.MeatAmount);
+                if (meatAmount != null && meatAmount.Value == "0") isMeatAmountZero = true;
             }
 
             bool isFleshTypeMechanoid = false;
@@ -429,7 +436,13 @@ namespace RimTrans.Builder
             else
             {
                 // Leather
-                if (isLeatherAmountZero)
+                if (hasButcherProducts)
+                {
+                    yield return TransOption.Indent;
+                    yield return new XComment(" No Leather: Butcher Products ");
+                    yield return "\r\n";
+                }
+                else if (isLeatherAmountZero)
                 {
                     yield return TransOption.Indent;
                     yield return new XComment(" Leather Amount: 0 ");
@@ -459,7 +472,13 @@ namespace RimTrans.Builder
                 }
 
                 // Meat
-                if (useMeatFrom != null)
+                if (isMeatAmountZero)
+                {
+                    yield return TransOption.Indent;
+                    yield return new XComment(" Meat Amount: 0 ");
+                    yield return "\r\n";
+                }
+                else if (useMeatFrom != null)
                 {
                     yield return TransOption.Indent;
                     yield return new XComment(string.Format(" Use Meat From: {0} ", useMeatFrom.Value));
