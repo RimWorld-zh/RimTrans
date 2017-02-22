@@ -1,0 +1,123 @@
+﻿<Window x:Class="RimTrans.Lite.Dialog.BuildDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RimTrans.Lite.Dialog"
+        xmlns:lfa="clr-namespace:RimTransLite.AwesomeControl"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="Build"
+        Height="600" Width="971" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Grid Background="{StaticResource LiteMainBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="56"/>
+            <ColumnDefinition Width="315"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <fa:ImageAwesome Icon="PaperPlane" Foreground="{StaticResource LiteMainForeground}"
+                         Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="5"/>
+
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Left"
+                     Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,0">
+
+
+            <TextBox x:Name="modName"  Text="{Binding SelectedMod.ModName}" IsReadOnly="True"
+                 BorderBrush="Transparent" Background="Transparent"
+                 VerticalAlignment="Stretch" Margin="0,1"
+                 TextElement.FontSize="12px" VerticalContentAlignment="Center"/>
+
+            <TextBox x:Name="modNameNatural" Text="{Binding SelectedMod.ModNameNatural}" IsReadOnly="True"
+                 BorderBrush="Transparent" Background="Transparent"
+                 VerticalAlignment="Stretch" Margin="5,1"
+                 TextElement.FontSize="12px" VerticalContentAlignment="Center"/>
+
+        </StackPanel>
+        
+        <TextBox x:Name="modPath" Text="{Binding SelectedMod.ModPath}" IsReadOnly="True"
+                 BorderBrush="Transparent" Background="Transparent"
+                 Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Stretch" Margin="5,1"
+                 TextElement.FontSize="12px" VerticalContentAlignment="Center"/>
+
+
+        <lfa:LanguagesListBox x:Name="languagesListBox"
+                              DataContext="{Binding}"
+                              ItemsSource="{Binding SelectedMod.Languages}"
+                              BorderBrush="{StaticResource LiteFocusGray}" Background="{StaticResource LiteSubBackground}"
+                              Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
+
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                     Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="5,0">
+
+            <Label Content="Mode:" />
+            
+            <Border Width="20"/>
+
+            <RadioButton x:Name="isCoreMode"
+                         IsChecked="{Binding IsCoreMode}" 
+                         VerticalAlignment="Center"/>
+            <Label Content="Core" />
+
+            <Border Width="20"/>
+            
+            <RadioButton x:Name="isModWithCoreMode"
+                         IsChecked="{Binding IsModWithCoreMode}" 
+                         VerticalAlignment="Center"/>
+            <Label Content="Mod (with Core)" />
+
+            <Border Width="20"/>
+            
+            <RadioButton x:Name="isModWithoutCoreMode"
+                         IsChecked="{Binding IsModWithoutCoreMode}" 
+                         VerticalAlignment="Center"/>
+            <Label Content="Mod (without Core)" />
+
+            <Border Width="20"/>
+
+            <Label Content="Fresh Build"/>
+
+            <CheckBox x:Name="isFreshBuild"
+                      IsChecked="{Binding IsFreshBuild}"
+                      VerticalAlignment="Center" />
+
+        </StackPanel>
+
+        <!-- Result Button -->
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                     Grid.Column="3" Grid.Row="4" Margin="5,0">
+
+            <Button x:Name="buttonBuild" Content="Build"
+                    IsDefault="True"
+                    Command="{Binding BuildCommand}"
+                    VerticalAlignment="Center" Padding="20,3"/>
+
+            <Border Width="10" />
+
+            <Button x:Name="buttonCancel" Content="Close"
+                    IsCancel="True"
+                    VerticalAlignment="Center" Padding="20,3" />
+
+        </StackPanel>
+
+        <!-- Text="{Binding LogText}" -->
+        <ListBox x:Name="logOutput"
+                 DataContext="{Binding}"
+                 ItemsSource="{Binding Logs}"
+                 VirtualizingStackPanel.IsVirtualizing="True"
+                 BorderBrush="{StaticResource LiteFocusGray}" Background="{StaticResource LiteSubBackground}"
+                 Grid.Column="3" Grid.Row="3" Margin="5"/>
+
+    </Grid>
+</Window>

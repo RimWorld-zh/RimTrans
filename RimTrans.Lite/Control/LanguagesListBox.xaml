@@ -1,0 +1,30 @@
+﻿<ListBox x:Name="Root" x:Class="RimTransLite.AwesomeControl.LanguagesListBox"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:local="clr-namespace:RimTransLite.AwesomeControl"
+         mc:Ignorable="d"
+         MouseDown="ListBox_MouseDown">
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                <CheckBox VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding Path=IsChecked}"/>
+
+                <Label Content="{Binding Path=LanguageName}"
+                       Foreground="{StaticResource LiteMainForeground}"  TextElement.FontSize="12px" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+                <Label Content="{Binding Path=LanguageNameNative}"
+                       Foreground="{StaticResource LiteSubForeground}" TextElement.FontSize="12px"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+                <Label Content="{Binding Path=LanguagePath}"
+                       Foreground="{StaticResource LiteSubForeground}" TextElement.FontSize="12px"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" />
+                
+            </StackPanel>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>

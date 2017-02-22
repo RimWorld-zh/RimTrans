@@ -2,44 +2,23 @@
 
 A translation and transform tool for RimWorld Core and Mods!
 
+[Open Source Code](https://github.com/duduluu/RimTrans)
+
 ### Projects
 
-* RimTrans: The library.
-* RimTransCMD: The command line tool.
-* RimTransGUI: The WPF base application. [TODO]
+* **RimTransLib**: Dynamic-link library
+* **RimTransLite**: The executable with GUI
+* **RimTransMod**: The mod form for RimWorld [TODO]
 
-### Download on [Release Page](https://github.com/duduluu/RimTrans/releases)
+### Download: [Release Page](https://github.com/duduluu/RimTrans/releases)
 
 ---
 
-## RimTrans CMD
+![](https://cloud.githubusercontent.com/assets/10762097/21901459/c6e5ea38-d932-11e6-972b-4f92b8ed50f7.png)
 
-![2016-10-29](https://cloud.githubusercontent.com/assets/10762097/19828012/4f11dc40-9ded-11e6-9a8e-207e6404217f.png)
+![](https://cloud.githubusercontent.com/assets/10762097/21901460/c6e637a4-d932-11e6-8250-bee84718b73e.png)
 
-### Learn More on [Wiki Page](https://github.com/duduluu/RimTrans/wiki/RimTrans-CMD)
 
-### Available Commands (v0.1.0)
-
-| Command      | Purpose
-|:-------------|:-------------
-| Info         | List the information about the application or the mods.
-| Set          | Set the global variables: directory of RimWorld or the Workshop mods, target language.
-| Trans        | Transform Defs of the specific mod to DefInjected, as well as Keyed.
-| Trans-Custom | Similar to trans command, to transform the mod by custom path.
-
-* PS: all of the commands ignore case.
-
-### Examples
-
-```
-info /all
-set /game-dir:"D:\Games\Rimworld" /workshop-dir:"D:\SteamLibrary\steamapps\workshop\content\294100"
-set /target-language:Evlish
-trans /mod:"Expanded Prosthetics and Organ Engineering"
-trans /mod:725947920 /where:workshop /output:"D:\Git\Rimsenal-zh\ChineseSimplified"
-trans-custom /mod-path:"D:\Git\RWMod\RimworldAllowTool\Mods\AllowTool" /lang:ChineseTraditional
-trans-custom /mod-path:"D:\Games\Rimworld\Mods\Core" /output:"D:\Git\Ludeon\RimWorld-ChineseSimplified"
-```
 
 ---
 
@@ -49,7 +28,7 @@ RimTrans is distributed under the [MIT License](https://opensource.org/licenses/
 
 Included open-source libraries:
 
-* [Steam Local Library](https://github.com/ObsidianMinor/Steam-Local-Library) 0.4.1: MIT License
-
+* [Font-Awesome-WPF](https://github.com/charri/Font-Awesome-WPF) v4.7.0 (MIT)
+* [Steam Local Library](https://github.com/ObsidianMinor/Steam-Local-Library) v0.4.1 (MIT)
 
 
