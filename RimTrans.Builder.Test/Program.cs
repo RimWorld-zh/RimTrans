@@ -19,7 +19,18 @@ namespace RimTransLibTest
 
             //TestMods();
 
-            TestCore();
+            //TestCore();
+
+            OutputDefType();
+        }
+
+        public static void OutputDefType()
+        {
+            Type defType = typeof(RWDefType);
+            foreach (string def in Enum.GetNames(defType))
+            {
+                Console.WriteLine("static readonly string {0} = \"{0}\";", def);
+            }
         }
 
         public static void LogMessage(object sender, TransLog.MessageArgs e)
