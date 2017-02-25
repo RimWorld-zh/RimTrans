@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefinitionData.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Xml\DefType.cs" />
-    <Compile Include="Xml\Identifier.cs" />
+    <Compile Include="Xml\DefTypeNameOf.cs" />
+    <Compile Include="Xml\DocHelper.cs" />
+    <Compile Include="Xml\FieldNameOf.cs" />
+    <Compile Include="Xml\XmlHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
