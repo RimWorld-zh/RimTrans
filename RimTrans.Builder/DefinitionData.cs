@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-
 using RimTrans.Builder.Xml;
 
 namespace RimTrans.Builder
 {
     public class DefinitionData
     {
-        public string Path { get; private set; }
+        public string _path = string.Empty;
+        public string Path { get { return this._path; } }
 
         private SortedDictionary<string, XDocument> _data;
+        public SortedDictionary<string, XDocument> Data { get { return this._data; } }
 
         private XElement _abstracts;
 
@@ -25,27 +26,26 @@ namespace RimTrans.Builder
 
         }
 
-        #region Loader
+        #region Load
 
         public static DefinitionData Load(string path, DefinitionData definitionDataCore = null)
         {
             DefinitionData definitionData = new DefinitionData();
-            definitionData.Path = path;
-            if (Directory.Exists(path))
-            {
-                definitionData.Load(path);
+            definitionData._path = path;
 
-                definitionData.Inherit(definitionDataCore);
+            definitionData.Load(path);
 
-                definitionData.HandleDetails();
+            definitionData.Inherit(definitionDataCore);
 
-                definitionData.CompletePawnKindLabel(definitionDataCore);
-                definitionData.CompletePawnRelationLabel();
-                definitionData.CompleteScenarioNameAndDesc();
-                definitionData.CompleteSkillLabel();
-                definitionData.CompleteThingDefStuffAdjective();
-                definitionData.CompleteWorkTypeLabel();
-            }
+            definitionData.HandleDetails();
+
+            definitionData.CompletePawnKindLabel(definitionDataCore);
+            definitionData.CompletePawnRelationLabel();
+            definitionData.CompleteScenarioNameAndDesc();
+            definitionData.CompleteSkillLabel();
+            definitionData.CompleteThingDefStuffAdjective();
+            definitionData.CompleteWorkTypeLabel();
+
             return definitionData;
         }
 
@@ -53,18 +53,19 @@ namespace RimTrans.Builder
         {
             this._data = new SortedDictionary<string, XDocument>();
             this._abstracts = new XElement("Abstracts");
+
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             if (dirInfo.Exists)
             {
                 Log.Info();
                 Log.Write("Loading Defs: ");
-                Log.Cyan(dirInfo.FullName);
+                Log.Cyan(path);
                 Log.Line();
                 int countValidFiles = 0;
                 int countInvalidFiles = 0;
                 foreach (FileInfo fileInfo in dirInfo.GetFiles("*.xml", SearchOption.AllDirectories))
                 {
-                    XDocument doc = DocHelper.EmptyDoc();
+                    XDocument doc = null;
                     try
                     {
                         doc = XDocument.Load(fileInfo.FullName, LoadOptions.SetBaseUri);
@@ -78,33 +79,51 @@ namespace RimTrans.Builder
                         Log.WriteLine(ex.SourceUri);
                         countInvalidFiles++;
                     }
-                    this._data.Add(fileInfo.FullName, doc);
-                    foreach (XElement abstr in from ele in doc.Root.Elements()
-                                               where ele.Attribute("Name") != null
-                                               select ele)
+                    if (doc != null)
                     {
-                        XElement abstrGroup = this._abstracts.Element(abstr.Name);
-                        if (abstrGroup == null)
+                        this._data.Add(fileInfo.FullName, doc);
+                        foreach (XElement abstr in from ele in doc.Root.Elements()
+                                                   where ele.Attribute("Name") != null
+                                                   select ele)
                         {
-                            abstrGroup = new XElement(abstr.Name);
-                            abstrGroup.Add(abstr);
-                            ((XElement)abstrGroup.LastNode).SetAttributeValue("Uri", abstr.BaseUri);
-                            this._abstracts.Add(abstrGroup);
-                        }
-                        else
-                        {
-                            abstrGroup.Add(abstr);
-                            ((XElement)abstrGroup.LastNode).SetAttributeValue("Uri", abstr.BaseUri);
+                            XElement abstrGroup = this._abstracts.Element(abstr.Name);
+                            if (abstrGroup == null)
+                            {
+                                abstrGroup = new XElement(abstr.Name);
+                                abstrGroup.Add(abstr);
+                                ((XElement)abstrGroup.LastNode).SetAttributeValue("Uri", abstr.BaseUri);
+                                this._abstracts.Add(abstrGroup);
+                            }
+                            else
+                            {
+                                abstrGroup.Add(abstr);
+                                ((XElement)abstrGroup.LastNode).SetAttributeValue("Uri", abstr.BaseUri);
+                            }
                         }
                     }
                 }
-                Log.Info();
-                Log.WriteLine("Completed Loading Defs: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
+                if (countValidFiles > 0)
+                {
+                    Log.Info();
+                    Log.WriteLine("Completed Loading Defs: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
+                }
+                else if (countInvalidFiles > 0)
+                {
+                    Log.Error();
+                    Log.WriteLine("Loading failed: {1} file(s).", countInvalidFiles);
+                }
+                else
+                {
+                    Log.Info();
+                    Log.WriteLine("Directory \"Defs\" is empty.");
+                }
             }
             else
             {
                 Log.Info();
-                Log.WriteLine("Directory \"Defs\" does not exist.");
+                Log.Write("Directory \"Defs\" does not exist: ");
+                Log.Cyan(path);
+                Log.Line();
             }
         }
 
@@ -847,14 +866,12 @@ namespace RimTrans.Builder
             XDocument doc;
             if (this._data.TryGetValue(filePath, out doc))
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(filePath);
-                Console.ResetColor();
-                Console.WriteLine(doc);
+                Log.Cyan(filePath);
+                Log.WriteLine(doc.ToString());
             }
         }
 
-        public void DebugCore()
+        public void Debug()
         {
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\ThingDefs_Races\Races_Animal_Arid.xml");
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\PawnKindDefs_Humanlikes\PawnKinds_Mechanoid.xml");

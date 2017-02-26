@@ -23,30 +23,38 @@ namespace RimTrans.Builder.Xml
         public static XDocument LoadLanguageDoc(string path)
         {
             XDocument doc = XDocument.Load(path, LoadOptions.PreserveWhitespace | LoadOptions.SetBaseUri);
-            foreach (XText text in from node in doc.Root.Nodes()
+            XElement root = doc.Root;
+            foreach (XText text in from node in root.Nodes()
                                    where node.NodeType == XmlNodeType.Text
                                    select node)
             {
                 text.Value = text.Value.Replace(" ", "").Replace("\t", "") + "  ";
             }
-            XNode lastNode = doc.Root.LastNode;
+            XNode lastNode = root.LastNode;
             if (lastNode.NodeType == XmlNodeType.Text)
             {
                 (lastNode as XText).Value = (lastNode as XText).Value.Replace("  ", "");
             }
             else
             {
-                doc.Root.Add("\n");
+                root.Add("\n");
             }
             return doc;
         }
 
-        public static void CommentAll(this XDocument doc)
+        public static void CommentAllElements(this XDocument doc)
         {
-            while (doc.Root.HasElements)
+            XElement root = doc.Root;
+            //while (root.HasElements)
+            //{
+            //    XElement firstElement = root.Elements().First();
+            //    firstElement.ReplaceWith(new XComment(firstElement.ToString()));
+            //}
+            List<XElement> elements = new List<XElement>();
+            elements.AddRange(root.Elements());
+            foreach (XElement ele in elements)
             {
-                XElement firstElement = doc.Root.Elements().First();
-                firstElement.ReplaceWith(new XComment(firstElement.ToString()));
+                ele.ReplaceWith(new XComment(ele.ToString()));
             }
         }
     }

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RimTrans.Builder.Xml
 {
     public static class DefTypeNameOf
     {
-        public static readonly string Unknown = "Unknown";
+        //public static readonly string Unknown = "Unknown";
         public static readonly string Def = "Def";
         public static readonly string BiomeDef = "BiomeDef";
         public static readonly string BodyDef = "BodyDef";

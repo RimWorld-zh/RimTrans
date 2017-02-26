@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RimTrans.Builder.Xml
 {
@@ -20,10 +16,6 @@ namespace RimTrans.Builder.Xml
         public static string labelFemale = "labelFemale";
         public static string labelFemalePlural = "labelFemalePlural";
         public static string lifeStages = "lifeStages";
-        public static string category = "category";
-        public static string race = "race";
-        public static string hasGenders = "hasGenders";
-        public static string intelligence = "intelligence";
 
         public static string scenario = "scenario";
         public static string name = "name";
@@ -34,5 +26,26 @@ namespace RimTrans.Builder.Xml
         public static string stuffAdjective = "stuffAdjective";
 
         public static string labelShort = "labelShort";
+
+        public static string category = "category";
+
+        public static string designationCategory = "designationCategory";
+        public static string minifiedDef = "minifiedDef";
+        public static string recipeMaker = "recipeMaker";
+        public static string recipeUsers = "recipeUsers";
+
+        public static string ingestible = "ingestible";
+        public static string drugCategory = "drugCategory";
+
+        public static string race = "race";
+        public static string hasGenders = "hasGenders";
+        public static string intelligence = "intelligence";
+        public static string butcherProducts = "butcherProducts";
+        public static string statBases = "statBases";
+        public static string fleshType = "fleshType";
+        public static string useLeatherFrom = "useLeatherFrom";
+        public static string useMeatFrom = "useMeatFrom";
+        public static string leatherLabel = "leatherLabel";
+        public static string meatLabel = "meatLabel";
     }
 }
