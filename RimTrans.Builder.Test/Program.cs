@@ -18,7 +18,7 @@ namespace RimTransLibTest
         {
             DefinitionData Core_Defs = DefinitionData.Load(@"D:\Game\RimWorld\Mods\Core\Defs");
             InjectionData Core_Original_DefInjected = InjectionData.Parse(Core_Defs);
-            Core_Original_DefInjected.Debug();
+            //Core_Original_DefInjected.Debug();
             //InjectionData Core_CS_DefInject = InjectionData.Load(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\DefInjected");
             //defs.DebugCore();
 

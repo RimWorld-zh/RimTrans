@@ -10,6 +10,20 @@ namespace RimTrans.Builder.Xml
 {
     public static class XmlHelper
     {
+        #region Field Name
+
+        public static XElement Field(this XElement def, string fieldName)
+        {
+            foreach (XElement field in def.Elements())
+            {
+                if (string.Compare(field.Name.ToString(), fieldName, true) == 0)
+                {
+                    return field;
+                }
+            }
+            return null;
+        }
+
         public static bool HasField_defName(this XElement def)
         {
             foreach (XElement field in def.Elements())
@@ -34,17 +48,31 @@ namespace RimTrans.Builder.Xml
             return null;
         }
 
-        public static XElement Field(this XElement def, string fieldName)
+        public static XElement label(this XElement def)
         {
             foreach (XElement field in def.Elements())
             {
-                if (string.Compare(field.Name.ToString(), fieldName, true) == 0)
+                if (string.Compare(field.Name.ToString(), "label", true) == 0)
                 {
                     return field;
                 }
             }
             return null;
         }
+
+        public static XElement description(this XElement def)
+        {
+            foreach (XElement field in def.Elements())
+            {
+                if (string.Compare(field.Name.ToString(), "description", true) == 0)
+                {
+                    return field;
+                }
+            }
+            return null;
+        }
+
+        #endregion
 
         #region Judge Injectable Def
 

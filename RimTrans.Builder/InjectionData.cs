@@ -168,7 +168,7 @@ namespace RimTrans.Builder
                     injectionData.Tidy();
                     if (isCore)
                     {
-                        injectionData.AddTerrainAdd();
+                        // Something for core
                     }
                     if (countInvalidDefs > 0)
                     {
@@ -247,6 +247,8 @@ namespace RimTrans.Builder
 
         private int AddFromDef(XElement def, KeyValuePair<string, XDocument> pathDocPair, XElement defName, string commentText)
         {
+            int result = 0;
+
             bool isMote = false;
             bool isBuildable = false;
             bool isMinifiable = false;
@@ -270,6 +272,18 @@ namespace RimTrans.Builder
                         if (def.Field(FieldNameOf.designationCategory) != null) isBuildable = true;
                         if (def.Field(FieldNameOf.minifiedDef) != null) isMinifiable = true;
                         if (def.Field(FieldNameOf.recipeMaker) != null) isMakeable = true;
+                        XElement building = def.Field(FieldNameOf.building);
+                        if (building != null)
+                        {
+                            XElement isNaturalRock = building.Field(FieldNameOf.isNaturalRock);
+                            XElement isResourceRock = building.Field(FieldNameOf.isResourceRock);
+                            if (isNaturalRock != null  && string.Compare(isNaturalRock.Value, "true", true) == 0 &&
+                                (isResourceRock == null || string.Compare(isResourceRock.Value, "false", true) == 0))
+                            {
+                                this.AddTerrainAdd(def, defName);
+                                result += 6;
+                            }
+                        }
                     }
                     else if (thingCategory == ThingCategoryOf.Item)
                     {
@@ -294,6 +308,7 @@ namespace RimTrans.Builder
             else if (defTypeName == DefTypeNameOf.TerrainDef && def.Field(FieldNameOf.designationCategory) != null)
             {
                 this.AddTerrainExtra(def, defName);
+                result += 2;
             }
 
             if (!isMote)
@@ -323,12 +338,13 @@ namespace RimTrans.Builder
                     {
                         if (node.NodeType == XmlNodeType.Comment) lastComment = node as XComment;
                     }
+                    XAttribute layout = root.FirstAttribute;
                     if (commentText != null &&
                         (lastComment == null || lastComment.Value != commentText))
                     {
-                        if (root.FirstAttribute.Value == "true")
+                        if (layout.Value == "true")
                         {
-                            root.FirstAttribute.Value = "false";
+                            layout.Value = "false";
                             if (root.HasElements)
                             {
                                 root.Add("\n\n");
@@ -342,14 +358,14 @@ namespace RimTrans.Builder
                     }
                     if (countFields == 1)
                     {
-                        root.FirstAttribute.Value = "true";
+                        layout.Value = "true";
                         root.Add(contents);
                     }
                     else
                     {
-                        if (root.FirstAttribute.Value == "true")
+                        if (layout.Value == "true")
                         {
-                            root.FirstAttribute.Value = "false";
+                            layout.Value = "false";
                             root.Add("\n");
                         }
                         root.Add(contents);
@@ -359,16 +375,16 @@ namespace RimTrans.Builder
                 if (isMakeable)
                 {
                     this.AddRecipesAddMake(def, defName);
-                    countFields += 3;
+                    result += 3;
                 }
                 if (isDrug)
                 {
                     this.AddRecipesAddAdminister(def, defName);
-                    countFields += 2;
+                    result += 2;
                 }
-                return countFields;
+                result += countFields;
             }
-            return 0;
+            return result;
         }
 
         private static IEnumerable<object> GenRecursively(XElement field, LinkedList<XElement> fieldPath)
@@ -415,7 +431,7 @@ namespace RimTrans.Builder
 
         private static IEnumerable<object> GenExtraBuilding(XElement def, XElement defName, bool isBuildable, bool isMinifiable)
         {
-            XElement label = def.Field(FieldNameOf.label);
+            XElement label = def.label();
             if (label == null) label = defName;
             if (isBuildable)
             {
@@ -439,8 +455,10 @@ namespace RimTrans.Builder
 
         private static IEnumerable<object> GenExtraPawn(XElement def, XElement defName)
         {
-            XElement label = def.Field(FieldNameOf.label);
+            XElement label = def.label();
             if (label == null) label = defName;
+            string defNameValue = defName.Value;
+            string labelValue = label.Value;
 
             XElement butcherProducts = def.Field(FieldNameOf.butcherProducts);
             XElement LeatherAmount = null;
@@ -497,16 +515,16 @@ namespace RimTrans.Builder
                 {
                     string leatherLabelValue =
                         leatherLabel == null ?
-                        string.Format("{0} leather", label.Value) :
+                        string.Format("{0} leather", labelValue) :
                         leatherLabel.Value;
                     yield return "  ";
-                    yield return new XElement(defName.Value + "_Leather.label", leatherLabelValue);
+                    yield return new XElement(defNameValue + "_Leather.label", leatherLabelValue);
                     yield return "\n";
                     yield return "  ";
-                    yield return new XElement(defName.Value + "_Leather.description", leatherLabelValue);
+                    yield return new XElement(defNameValue + "_Leather.description", leatherLabelValue);
                     yield return "\n";
                     yield return "  ";
-                    yield return new XElement(defName.Value + "_Leather.stuffProps.stuffAdjective", leatherLabelValue);
+                    yield return new XElement(defNameValue + "_Leather.stuffProps.stuffAdjective", leatherLabelValue);
                     yield return "\n";
                 }
 
@@ -527,24 +545,24 @@ namespace RimTrans.Builder
                 {
                     string meatLabelValue =
                         meatLabel == null ?
-                        string.Format("{0} meat", label.Value) :
+                        string.Format("{0} meat", labelValue) :
                         meatLabel.Value;
                     yield return "  ";
-                    yield return new XElement(defName.Value + "_Meat.label", meatLabelValue);
+                    yield return new XElement(defNameValue + "_Meat.label", meatLabelValue);
                     yield return "\n";
                     yield return "  ";
-                    yield return new XElement(defName.Value + "_Meat.description", meatLabelValue);
+                    yield return new XElement(defNameValue + "_Meat.description", meatLabelValue);
                     yield return "\n";
                 }
             }
 
             // Corpse
-            string corpseLabelValue = string.Format("{0} corpse", label.Value);
+            string corpseLabelValue = string.Format("{0} corpse", labelValue);
             yield return "  ";
-            yield return new XElement(defName.Value + "_Corpse.label", corpseLabelValue);
+            yield return new XElement(defNameValue + "_Corpse.label", corpseLabelValue);
             yield return "\n";
             yield return "  ";
-            yield return new XElement(defName.Value + "_Corpse.description", corpseLabelValue);
+            yield return new XElement(defNameValue + "_Corpse.description", corpseLabelValue);
             yield return "\n";
         }
 
@@ -557,7 +575,7 @@ namespace RimTrans.Builder
                 root.Add("  ", new XComment(" SPECIAL: These Recipes from makeable Items and Buildings (ThingDef with <recipeMaker>), generated by RimTrans "), "\n\n");
             }
 
-            XElement label = def.Field(FieldNameOf.label);
+            XElement label = def.label();
             if (label == null) label = defName;
 
             XElement recipeMaker = def.Field(FieldNameOf.recipeMaker);
@@ -584,9 +602,11 @@ namespace RimTrans.Builder
             }
 
             // RecipeMake and RecipeMakeJobString in Misc_Gameplay.xml
-            root.Add("  ", new XElement("Make_" + defName.Value + ".label", string.Format("Make {0}", label.Value)), "\n");
-            root.Add("  ", new XElement("Make_" + defName.Value + ".description", string.Format("Make {0}.", label.Value)), "\n");
-            root.Add("  ", new XElement("Make_" + defName.Value + ".jobString", string.Format("Making {0}.", label.Value)), "\n\n");
+            string defNameValue = defName.Value;
+            string labelValue = label.Value;
+            root.Add("  ", new XElement("Make_" + defNameValue + ".label", string.Format("Make {0}", labelValue)), "\n");
+            root.Add("  ", new XElement("Make_" + defNameValue + ".description", string.Format("Make {0}.", labelValue)), "\n");
+            root.Add("  ", new XElement("Make_" + defNameValue + ".jobString", string.Format("Making {0}.", labelValue)), "\n\n");
         }
 
         private void AddRecipesAddAdminister(XElement def, XElement defName)
@@ -598,12 +618,39 @@ namespace RimTrans.Builder
                 root.Add("  ", new XComment(" SPECIAL: These Recipes from Drugs (Items with <ingestible> and <drugCategory>), generated by RimTrans "), "\n\n");
             }
 
-            XElement label = def.Field(FieldNameOf.label);
+            XElement label = def.label();
             if (label == null) label = defName;
 
             // RecipeAdminister and RecipeAdministerJobString in Misc_Gameplay.xml
-            root.Add("  ", new XElement("Administer_" + defName.Value + ".label", string.Format("Administer {0}", label.Value)), "\n");
-            root.Add("  ", new XElement("Administer_" + defName.Value + ".jobString", string.Format("Administering {0}.", label.Value)), "\n\n");
+            string defNameValue = defName.Value;
+            string labelValue = label.Value;
+            root.Add("  ", new XElement("Administer_" + defNameValue + ".label", string.Format("Administer {0}", labelValue)), "\n");
+            root.Add("  ", new XElement("Administer_" + defNameValue + ".jobString", string.Format("Administering {0}.", labelValue)), "\n\n");
+        }
+
+        /// <summary>
+        /// For vanilla natural stone floor
+        /// </summary>
+        private void AddTerrainAdd(XElement def, XElement defName)
+        {
+            XDocument doc = this.GetDoc(DefTypeNameOf.TerrainDef, "Terrain_Add.xml");
+            XElement root = doc.Root;
+            if (root.Elements().Count() == 0)
+            {
+                root.Add("  ", new XComment(" SPECIAL: Floors from natural stones "), "\n\n");
+            }
+
+            XElement label = def.label();
+            if (label == null) label = defName;
+
+            string defNameValue = defName.Value;
+            string labelValue = label.Value;
+            root.Add("  ", new XElement(defNameValue + "_Rough.label", "rough " + labelValue), "\n");
+            root.Add("  ", new XElement(defNameValue + "_Rough.description", string.Format("Rough, natural {0} ground.", labelValue)), "\n");
+            root.Add("  ", new XElement(defNameValue + "_RoughHewn.label", "rough-hewn " + labelValue), "\n");
+            root.Add("  ", new XElement(defNameValue + "_RoughHewn.description", string.Format("Roughly cut natural {0} floor.", labelValue)), "\n");
+            root.Add("  ", new XElement(defNameValue + "_Smooth.label", "smooth " + labelValue), "\n");
+            root.Add("  ", new XElement(defNameValue + "_Smooth.description", string.Format("Smoothed natural {0} floor.", labelValue)), "\n\n");
         }
 
         private void AddTerrainExtra(XElement def, XElement defName)
@@ -615,44 +662,28 @@ namespace RimTrans.Builder
                 root.Add("  ", new XComment(" SPECIAL: Blueprint and Frame of Terrian, generated by RimTrans "), "\n\n");
             }
 
-            XElement label = def.Field(FieldNameOf.label);
+            XElement label = def.label();
             if (label == null) label = defName;
 
-            root.Add("  ", new XElement(defName.Value + "_Blueprint.label", label.Value + " (blueprint)"), "\n");
-            root.Add("  ", new XElement(defName.Value + "_Frame.label", label.Value + " (building)"), "\n\n");
+            string defNameValue = defName.Value;
+            string labelValue = label.Value;
+            root.Add("  ", new XElement(defNameValue + "_Blueprint.label", labelValue + " (blueprint)"), "\n");
+            root.Add("  ", new XElement(defNameValue + "_Frame.label", labelValue + " (building)"), "\n\n");
         }
 
-        /// <summary>
-        /// For vanilla natural stone floor
-        /// </summary>
-        private void AddTerrainAdd()
+        private void AddKeyBindingsAddMainTab(XElement def, XElement defName)
         {
-            XDocument doc = this.GetDoc(DefTypeNameOf.TerrainDef, "Terrain_Add.xml");
+            XDocument doc = this.GetDocEx(DefTypeNameOf.KeyBindingDef, "KeyBindings_Add_MainTab.xml");
             XElement root = doc.Root;
-            root.RemoveAttributes();
-            root.Add("  ", new XComment(" SPECIAL: Floors from natural stones "), "\n\n");
+            if (root.Elements().Count() == 0)
+            {
+                root.Add("  ", new XComment(" SPECIAL: KeyBinding of MainTab, generated by RimTrans "), "\n\n");
+            }
 
-            root.Add("  ", new XElement("Sandstone_Rough.label", "rough sandstone"), "\n");
-            root.Add("  ", new XElement("Sandstone_RoughHewn.label", "rough-hewn sandstone"), "\n");
-            root.Add("  ", new XElement("Sandstone_Smooth.label", "smooth sandstone"), "\n\n");
+            XElement label = def.label();
+            if (label == null) label = defName;
 
-            root.Add("  ", new XElement("Granite_Rough.label", "rough granite"), "\n");
-            root.Add("  ", new XElement("Granite_RoughHewn.label", "rough-hewn granite"), "\n");
-            root.Add("  ", new XElement("Granite_Smooth.label", "smooth granite"), "\n\n");
-
-            root.Add("  ", new XElement("Limestone_Rough.label", "rough limestone"), "\n");
-            root.Add("  ", new XElement("Limestone_RoughHewn.label", "rough-hewn limestone"), "\n");
-            root.Add("  ", new XElement("Limestone_Smooth.label", "smooth limestone"), "\n\n");
-
-            root.Add("  ", new XElement("Slate_Rough.label", "rough slate"), "\n");
-            root.Add("  ", new XElement("Slate_RoughHewn.label", "rough-hewn slate"), "\n");
-            root.Add("  ", new XElement("Slate_Smooth.label", "smooth slate"), "\n\n");
-
-            root.Add("  ", new XElement("Marble_Rough.label", "rough marble"), "\n");
-            root.Add("  ", new XElement("Marble_RoughHewn.label", "rough-hewn marble"), "\n");
-            root.Add("  ", new XElement("Marble_Smooth.label", "smooth marble"), "\n\n");
-
-            root.Add("\n");
+            root.Add("  ", new XElement("MainTab_" + defName.Value, "Toggle " + label.Value + " tab"), "\n");
         }
 
         #endregion
@@ -713,7 +744,7 @@ namespace RimTrans.Builder
             //Debug("RecipeDef", "Recipes_Add_Make.xml");
             //Debug("ThingDef", "_Terrain_Extra.xml");
             //Debug("ThingDef", "Buildings_Joy.xml");
-            //Debug("TerrainDef", "Terrain_Add.xml");
+            Debug("TerrainDef", "Terrain_Add.xml");
             //Debug("ThingDef", "Races_Animal_Arid.xml");
             //Debug("PawnKindDef", "Races_Animal_Arid.xml");
         }

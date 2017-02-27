@@ -10,6 +10,8 @@ namespace RimTrans.Builder.Xml
         public static string description = "description";
         public static string li = "li";
 
+        public static string reportString = "reportString";
+
         public static string labelPlural = "labelPlural";
         public static string labelMale = "labelMale";
         public static string labelMalePlural = "labelMalePlural";
@@ -33,6 +35,9 @@ namespace RimTrans.Builder.Xml
         public static string minifiedDef = "minifiedDef";
         public static string recipeMaker = "recipeMaker";
         public static string recipeUsers = "recipeUsers";
+        public static string building = "building";
+        public static string isNaturalRock = "isNaturalRock";
+        public static string isResourceRock = "isResourceRock";
 
         public static string ingestible = "ingestible";
         public static string drugCategory = "drugCategory";

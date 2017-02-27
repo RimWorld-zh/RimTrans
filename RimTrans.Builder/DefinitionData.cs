@@ -39,6 +39,7 @@ namespace RimTrans.Builder
 
             definitionData.HandleDetails();
 
+            definitionData.CompleteJobReportString();
             definitionData.CompletePawnKindLabel(definitionDataCore);
             definitionData.CompletePawnRelationLabel();
             definitionData.CompleteScenarioNameAndDesc();
@@ -264,6 +265,30 @@ namespace RimTrans.Builder
 
         #region Complete
 
+        private void CompleteJobReportString()
+        {
+            IEnumerable<XElement> jobDefsAll = from doc in this._data.Values
+                                                        from ele in doc.Root.Elements(DefTypeNameOf.JobDef)
+                                                        where ele.HasField_defName()
+                                                        select ele;
+            int countJobDefs = jobDefsAll.Count();
+            if (countJobDefs > 0)
+            {
+                Log.Info();
+                Log.WriteLine("Start processing JobDefs.");
+                foreach (XElement jobDef in jobDefsAll)
+                {
+                    XElement reportString = jobDef.Field(FieldNameOf.reportString);
+                    if (reportString == null)
+                    {
+                        jobDef.Add(new XElement(FieldNameOf.reportString, "Doing something."));
+                    }
+                }
+                Log.Info();
+                Log.WriteLine("Completed processing JobDefs: {0} node(s).", countJobDefs);
+            }
+        }
+
         private static void CompleteAndTidy(ref XElement previousField, ref XElement nextField, string nextFieldName, string value, string valueFormat = null)
         {
             if (nextField == null)
@@ -344,7 +369,7 @@ namespace RimTrans.Builder
                     XElement defName = pawnKindDef.defName();
 
                     // label
-                    XElement label = pawnKindDef.Field(FieldNameOf.label);
+                    XElement label = pawnKindDef.label();
                     bool flag_Plural = false;
                     XElement labelPlural = pawnKindDef.Field(FieldNameOf.labelPlural);
                     if (labelPlural != null) flag_Plural = true;
@@ -408,7 +433,7 @@ namespace RimTrans.Builder
                         {
                             // label
                             bool curflag_label = false;
-                            XElement curLabel = curLifeStage.Field(FieldNameOf.label);
+                            XElement curLabel = curLifeStage.label();
                             if (curLabel != null) curflag_label = true;
                             bool curflag_Plural = false;
                             XElement curLabelPlural = curLifeStage.Field(FieldNameOf.labelPlural);
@@ -449,7 +474,7 @@ namespace RimTrans.Builder
                             if (curLabel == null)
                             {
                                 curLifeStage.AddFirst(label);
-                                curLabel = curLifeStage.Field(FieldNameOf.label);
+                                curLabel = curLifeStage.label();
                             }
                             else if (curLabel != curLifeStage.Elements().First())
                             {
@@ -616,7 +641,7 @@ namespace RimTrans.Builder
                 foreach (XElement pawnRelationDef in pawnRelationDefsAll)
                 {
                     XElement defName = pawnRelationDef.defName();
-                    XElement label = pawnRelationDef.Field(FieldNameOf.label);
+                    XElement label = pawnRelationDef.label();
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
                     XElement labelFemale = pawnRelationDef.Field(FieldNameOf.labelFemale);
                     CompleteAndTidy(ref label, ref labelFemale, FieldNameOf.labelFemale, label.Value);
@@ -640,9 +665,9 @@ namespace RimTrans.Builder
                 foreach (XElement scenarioDef in scenarioDefsAll)
                 {
                     XElement defName = scenarioDef.defName();
-                    XElement label = scenarioDef.Field(FieldNameOf.label);
+                    XElement label = scenarioDef.label();
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
-                    XElement description = scenarioDef.Field(FieldNameOf.description);
+                    XElement description = scenarioDef.description();
                     CompleteAndTidy(ref label, ref description, FieldNameOf.description, label.Value);
                     XElement scenario = scenarioDef.Field(FieldNameOf.scenario);
                     if (scenario != null)
@@ -653,7 +678,7 @@ namespace RimTrans.Builder
                             scenario.AddFirst(new XElement(FieldNameOf.name, label.Value));
                             name = scenario.Field(FieldNameOf.name);
                         }
-                        XElement desc = scenario.Field(FieldNameOf.description);
+                        XElement desc = scenario.description();
                         if (desc == null)
                         {
                             name.AddAfterSelf(new XElement(FieldNameOf.description, description.Value));
@@ -679,7 +704,7 @@ namespace RimTrans.Builder
                 foreach (XElement skillDef in skillDefsAll)
                 {
                     XElement defName = skillDef.defName();
-                    XElement label = skillDef.Field(FieldNameOf.label);
+                    XElement label = skillDef.label();
                     XElement skillLabel = skillDef.Field(FieldNameOf.skillLabel);
                     if (label == null)
                     {
@@ -709,7 +734,7 @@ namespace RimTrans.Builder
                 foreach (XElement stuff in stuffsAll)
                 {
                     XElement defName = stuff.defName();
-                    XElement label = stuff.Field(FieldNameOf.label);
+                    XElement label = stuff.label();
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
                     XElement stuffProps = stuff.Field(FieldNameOf.stuffProps);
                     XElement stuffAdjective = stuffProps.Field(FieldNameOf.stuffAdjective);
@@ -753,7 +778,7 @@ namespace RimTrans.Builder
                 foreach (XElement workTypeDef in workTypeDefsAll)
                 {
                     XElement defName = workTypeDef.defName();
-                    XElement label = workTypeDef.Field(FieldNameOf.label);
+                    XElement label = workTypeDef.label();
                     XElement labelShort = workTypeDef.Field(FieldNameOf.labelShort);
                     if (label == null)
                     {
@@ -797,14 +822,14 @@ namespace RimTrans.Builder
                         def.AddFirst(defName);
                         defName = def.defName();
                     }
-                    XElement label = def.Field(FieldNameOf.label);
+                    XElement label = def.label();
                     if (label != null && label != defName.ElementsAfterSelf().First())
                     {
                         label.Remove();
                         defName.AddAfterSelf(label);
-                        label = def.Field(FieldNameOf.label);
+                        label = def.label();
                     }
-                    XElement description = def.Field(FieldNameOf.description);
+                    XElement description = def.description();
                     if (description != null)
                     {
                         if (label == null)
