@@ -17,11 +17,20 @@ namespace RimTransLibTest
         static void Main(string[] args)
         {
             DefinitionData CoreDefs = DefinitionData.Load(@"D:\Game\RimWorld\Mods\Core\Defs");
-            InjectionData CoreDefInjectedOriginal = InjectionData.Parse(CoreDefs);
-            InjectionData CoreDefInjectedExisted_CS = InjectionData.Load(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\DefInjected");
-            InjectionData CoreDefInjectedNew_CS = new InjectionData(CoreDefInjectedOriginal);
-            CoreDefInjectedNew_CS.MatchExisted(CoreDefInjectedExisted_CS);
-            CoreDefInjectedNew_CS.Save(@"D:\Git\RWMod\RimWorld-ChineseSimplified\DefInjected");
+
+            //InjectionData CoreDefInjectedOriginal = InjectionData.Parse(CoreDefs);
+            //InjectionData CoreDefInjectedExisted_CS = InjectionData.Load(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\DefInjected");
+            //InjectionData CoreDefInjectedNew_CS = new InjectionData(CoreDefInjectedOriginal);
+            //CoreDefInjectedNew_CS.MatchExisted(CoreDefInjectedExisted_CS);
+            //CoreDefInjectedNew_CS.Save(@"D:\Git\RWMod\RimWorld-ChineseSimplified\DefInjected");
+
+            //KeyedData CoreKeyedOriginal = KeyedData.Load(@"D:\Game\RimWorld\Mods\Core\Languages\English\Keyed");
+            //CoreKeyedOriginal.Save(@"D:\Git\RWMod\RimWorld-English\Keyed");
+
+            //KeyedData CoreKeyedExisted = KeyedData.Load(@"D:\Git\RWMod\RimWorld-ChineseSimplified\Keyed");
+            //KeyedData CoreKeyedNew = new KeyedData(CoreKeyedOriginal);
+            //CoreKeyedNew.MatchExisted(CoreKeyedExisted);
+            //CoreKeyedNew.Save(@"D:\Git\RWMod\RimWorld-ChineseSimplified\Keyed");
 
             //DefinitionData VgDefs = DefinitionData.Load(@"D:\Game\RimWorld\Mods\Vegetable Garden 5.3\Defs", CoreDefs);
             //InjectionData VgDefInjectedOriginal = InjectionData.Parse(VgDefs);

@@ -33,11 +33,17 @@ namespace RimTrans.Builder.Xml
             XNode lastNode = root.LastNode;
             if (lastNode.NodeType == XmlNodeType.Text)
             {
-                (lastNode as XText).Value = (lastNode as XText).Value.Replace("  ", "");
+                XText lastText = lastNode as XText;
+                lastText.Value = lastText.Value.Replace("  ", "");
+                if (lastText.Value.Length == 1)
+                {
+                    lastText.Value += "\n";
+                }
+
             }
             else
             {
-                root.Add("\n");
+                root.Add("\n\n");
             }
             return doc;
         }

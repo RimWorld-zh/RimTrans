@@ -25,10 +25,11 @@ namespace RimTrans.Builder
         }
 
         #region Load
-
+        
         /// <summary>
         /// Load from files
         /// </summary>
+        /// <param name="definitionDataCore">For getting Core abstractions</param>
         public static DefinitionData Load(string path, DefinitionData definitionDataCore = null)
         {
             DefinitionData definitionData = new DefinitionData();
@@ -63,12 +64,14 @@ namespace RimTrans.Builder
                 Log.WriteLine(ConsoleColor.Cyan, path);
                 int countValidFiles = 0;
                 int countInvalidFiles = 0;
+                int splitIndex = dirInfo.FullName.Length + 1;
                 foreach (FileInfo fileInfo in dirInfo.GetFiles("*.xml", SearchOption.AllDirectories))
                 {
                     XDocument doc = null;
+                    string filePath = fileInfo.FullName;
                     try
                     {
-                        doc = XDocument.Load(fileInfo.FullName, LoadOptions.SetBaseUri);
+                        doc = XDocument.Load(filePath, LoadOptions.SetBaseUri);
                         countValidFiles++;
                     }
                     catch (XmlException ex)
@@ -76,12 +79,12 @@ namespace RimTrans.Builder
                         Log.Error();
                         Log.WriteLine(ex.Message);
                         Log.Indent();
-                        Log.WriteLine(ex.SourceUri);
+                        Log.WriteLine(filePath);
                         countInvalidFiles++;
                     }
                     if (doc != null)
                     {
-                        this._data.Add(fileInfo.FullName, doc);
+                        this._data.Add(filePath.Substring(splitIndex), doc);
                         foreach (XElement abstr in from ele in doc.Root.Elements()
                                                    where ele.Attribute("Name") != null
                                                    select ele)
@@ -939,18 +942,24 @@ namespace RimTrans.Builder
 
         #region Debug
 
-        public void Debug(string filePath)
+        public void Debug(string fileName)
         {
             XDocument doc;
-            if (this._data.TryGetValue(filePath, out doc))
+            if (this._data.TryGetValue(fileName, out doc))
             {
-                Log.Write(ConsoleColor.Cyan, filePath);
+                Log.Write(ConsoleColor.Cyan, fileName);
                 Log.WriteLine(doc.ToString());
             }
         }
 
         public void Debug()
         {
+            Log.WriteLine(ConsoleColor.Cyan, "DefinitionData.Debug()");
+            foreach (var fileNameDocPair in this._data)
+            {
+                Log.WriteLine(fileNameDocPair.Key);
+            }
+            //Log.WriteLine("================");
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\ThingDefs_Races\Races_Animal_Arid.xml");
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\PawnKindDefs_Humanlikes\PawnKinds_Mechanoid.xml");
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\PawnKindDefs_Humanlikes\PawnKinds_Mercenary.xml");

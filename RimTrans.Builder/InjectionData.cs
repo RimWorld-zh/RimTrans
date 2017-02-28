@@ -62,9 +62,10 @@ namespace RimTrans.Builder
                     foreach (FileInfo fileInfo in subDirInfo.GetFiles("*.xml", SearchOption.AllDirectories))
                     {
                         XDocument doc = null;
+                        string filePath = fileInfo.FullName;
                         try
                         {
-                            doc = DocHelper.LoadLanguageDoc(fileInfo.FullName);
+                            doc = DocHelper.LoadLanguageDoc(filePath);
                             countValidFiles++;
                         }
                         catch (XmlException ex)
@@ -77,7 +78,7 @@ namespace RimTrans.Builder
                         }
                         if (doc != null)
                         {
-                            subData.Add(fileInfo.FullName.Substring(splitIndex), doc);
+                            subData.Add(filePath.Substring(splitIndex), doc);
                         }
                     }
                     if (subData.Count() > 0)
@@ -205,7 +206,7 @@ namespace RimTrans.Builder
                         Log.WriteLine("Encountered {0} invalid Defs during parsing. Other Defs have been parsed successfully", countInvalidDefs);
                     }
                     Log.Info();
-                    Log.WriteLine("Completed generating DefInjected: {0} Def(s) -> {1} DefInjected field(s).", countValidDefs, countFields);
+                    Log.WriteLine("Completed generating DefInjected: {0} Def node(s) -> {1} DefInjected node(s).", countValidDefs, countFields);
                 }
                 else if (countInvalidDefs > 0)
                 {
@@ -806,6 +807,7 @@ namespace RimTrans.Builder
         public void MatchCore(InjectionData injectionDataCore)
         {
             if (this._data.Count == 0) return;
+
             Log.Info();
             Log.WriteLine("Start checking conficts to Core's DefInjected.");
             List<XElement> conflicts = new List<XElement>();
@@ -857,6 +859,7 @@ namespace RimTrans.Builder
         public void MatchExisted(InjectionData injectionDataExisted)
         {
             if (injectionDataExisted._data.Count == 0) return;
+
             Log.Info();
             Log.WriteLine("Start matching existed DefInjected.");
             int countInvalidFiles = 0;
@@ -917,7 +920,7 @@ namespace RimTrans.Builder
                         {
                             XElement rootExisted = docExisted.Root;
                             XElement root = doc.Root;
-                            bool hasInvalidNode = false;
+                            bool hasInvalidNodes = false;
                             foreach (XNode nodeExisted in rootExisted.Nodes())
                             {
                                 if (nodeExisted.NodeType == XmlNodeType.Comment)
@@ -935,7 +938,7 @@ namespace RimTrans.Builder
                                     if (!isMatched)
                                     {
                                         root.Add("  ", nodeExisted, "\n");
-                                        hasInvalidNode = true;
+                                        hasInvalidNodes = true;
                                     }
                                 }
                                 else if (nodeExisted.NodeType == XmlNodeType.Element)
@@ -953,11 +956,11 @@ namespace RimTrans.Builder
                                     if (!isMatched)
                                     {
                                         root.Add("  ", new XComment(nodeExisted.ToString()), "\n");
-                                        hasInvalidNode = true;
+                                        hasInvalidNodes = true;
                                     }
                                 }
                             }
-                            if (hasInvalidNode) root.Add("\n");
+                            if (hasInvalidNodes) root.Add("\n");
                         }
                     }
                     if (isNonStandard)
@@ -985,17 +988,11 @@ namespace RimTrans.Builder
         /// </summary>
         public void Save(string path)
         {
-            if (this._data.Count() > 0)
-            {
-                Log.Info();
-                Log.Write("Start outputing DefInjected: ");
-                Log.WriteLine(ConsoleColor.Cyan, path);
-            }
-            else
-            {
-                return;
-            }
+            if (this._data.Count() == 0) return;
 
+            Log.Info();
+            Log.Write("Start outputing DefInjected.");
+            Log.WriteLine(ConsoleColor.Cyan, path);
             DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
             if (ds.AreAccessRulesProtected)
             {
@@ -1008,45 +1005,54 @@ namespace RimTrans.Builder
 
             int countValidFiles = 0;
             int countInvalidFiles = 0;
+            int countValidNodes = 0;
+            int countInvalidNodes = 0;
             foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypNameSubDataPair in this._data)
             {
                 string defTypeName = defTypNameSubDataPair.Key;
                 SortedDictionary<string, XDocument> subData = defTypNameSubDataPair.Value;
                 string subDirPath = Path.Combine(path, defTypeName);
-                if (!Directory.Exists(subDirPath))
-                {
-                    Directory.CreateDirectory(subDirPath);
-                }
-                else
+                if (Directory.Exists(subDirPath))
                 {
                     DirectorySecurity curDs = new DirectorySecurity(subDirPath, AccessControlSections.Access);
                     if (curDs.AreAccessRulesProtected)
                     {
                         Log.Error();
-                        Log.WriteLine("Creating subdirectory failed: No write permission to directory: ");
+                        Log.WriteLine("Creating subdirectory failed: No write permission to directory.");
                         Log.Indent();
                         Log.WriteLine(ConsoleColor.Red, subDirPath);
                         countInvalidFiles += subData.Count;
+                        IEnumerable<XElement> invalidNodes = from doc in subData.Values
+                                                         from ele in doc.Root.Elements()
+                                                         select ele;
+                        countInvalidNodes += invalidNodes.Count();
                         continue;
                     }
+                }
+                else
+                {
+                    Directory.CreateDirectory(subDirPath);
                 }
                 foreach (KeyValuePair<string, XDocument> fileNameDocPair in subData)
                 {
                     string filePath = Path.Combine(subDirPath, fileNameDocPair.Key);
+                    XDocument doc = fileNameDocPair.Value;
+                    XElement root = doc.Root;
                     if (defTypeName == DefTypeNameOf.InteractionDef ||
                         defTypeName == DefTypeNameOf.RulePackDef ||
                         defTypeName == DefTypeNameOf.TaleDef)
                     {
                         // Special for these 3 DefType
-                        string text = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n";
-                        text += fileNameDocPair.Value.Root.ToString().Replace("-&gt;", "->");
+                        string text = root.ToString().Replace("-&gt;", "->");
                         try
                         {
                             using (StreamWriter sw = new StreamWriter(filePath))
                             {
+                                sw.WriteLine(doc.Declaration.ToString());
                                 sw.Write(text);
                             }
                             countValidFiles++;
+                            countValidNodes += root.Elements().Count();
                         }
                         catch (Exception ex)
                         {
@@ -1056,6 +1062,7 @@ namespace RimTrans.Builder
                             Log.Indent();
                             Log.WriteLine(ex.Message);
                             countInvalidFiles++;
+                            countInvalidNodes += root.Elements().Count();
                         }
                     }
                     else
@@ -1065,6 +1072,7 @@ namespace RimTrans.Builder
                         {
                             fileNameDocPair.Value.Save(filePath);
                             countValidFiles++;
+                            countValidNodes += root.Elements().Count();
                         }
                         catch (Exception ex)
                         {
@@ -1074,6 +1082,7 @@ namespace RimTrans.Builder
                             Log.Indent();
                             Log.WriteLine(ex.Message);
                             countInvalidFiles++;
+                            countInvalidNodes += root.Elements().Count();
                         }
                     }
                 }
@@ -1083,12 +1092,13 @@ namespace RimTrans.Builder
                 if (countInvalidFiles == 0)
                 {
                     Log.Info();
-                    Log.WriteLine("Completed outputing DefInjected: {0} file(s).", countValidFiles);
+                    Log.WriteLine("Completed outputing DefInjected: {0} file(s), {1} node(s).", countValidFiles, countValidNodes);
                 }
                 else
                 {
                     Log.Warning();
-                    Log.WriteLine("Completed outputing DefInjected: Success: {0} file(s), Failure {1} file(s).", countValidFiles, countInvalidFiles);
+                    Log.WriteLine("Completed outputing DefInjected: Success: {0} file(s), {1} node(s); Failure {2} file(s), {3} node(s).",
+                        countValidFiles, countValidNodes, countInvalidFiles, countInvalidNodes);
                 }
             }
             else
@@ -1101,7 +1111,7 @@ namespace RimTrans.Builder
                 else
                 {
                     Log.Error();
-                    Log.WriteLine("Outputing DefInjected failed: {0} file(s).", countInvalidFiles);
+                    Log.WriteLine("Outputing DefInjected failed: {0} file(s), {1} node(s).", countInvalidFiles, countInvalidNodes);
                 }
             }
         }
@@ -1126,12 +1136,13 @@ namespace RimTrans.Builder
 
         public void Debug()
         {
-            foreach (var kvpSubData in this._data)
+            Log.WriteLine(ConsoleColor.Cyan, "InjectionData.Debug()");
+            foreach (var defTypeNameSubDataPair in this._data)
             {
-                Log.WriteLine(ConsoleColor.Cyan, kvpSubData.Key);
-                foreach (var kvp in kvpSubData.Value)
+                Log.WriteLine(ConsoleColor.Cyan, defTypeNameSubDataPair.Key);
+                foreach (var fileNameDocPair in defTypeNameSubDataPair.Value)
                 {
-                    Log.WriteLine(kvp.Key);
+                    Log.WriteLine(fileNameDocPair.Key);
                 }
             }
             //Log.WriteLine("================");
