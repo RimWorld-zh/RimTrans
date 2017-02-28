@@ -12,12 +12,10 @@ namespace RimTrans.Builder
 {
     public class DefinitionData
     {
-        public string _path = string.Empty;
-        public string Path { get { return this._path; } }
-
         private SortedDictionary<string, XDocument> _data;
         public SortedDictionary<string, XDocument> Data { get { return this._data; } }
 
+        // Storage nodes those have attribute Name="XXXX"
         private XElement _abstracts;
 
 
@@ -28,10 +26,12 @@ namespace RimTrans.Builder
 
         #region Load
 
+        /// <summary>
+        /// Load from files
+        /// </summary>
         public static DefinitionData Load(string path, DefinitionData definitionDataCore = null)
         {
             DefinitionData definitionData = new DefinitionData();
-            definitionData._path = path;
 
             definitionData.Load(path);
 
@@ -60,8 +60,7 @@ namespace RimTrans.Builder
             {
                 Log.Info();
                 Log.Write("Loading Defs: ");
-                Log.Cyan(path);
-                Log.Line();
+                Log.WriteLine(ConsoleColor.Cyan, path);
                 int countValidFiles = 0;
                 int countInvalidFiles = 0;
                 foreach (FileInfo fileInfo in dirInfo.GetFiles("*.xml", SearchOption.AllDirectories))
@@ -105,26 +104,36 @@ namespace RimTrans.Builder
                 }
                 if (countValidFiles > 0)
                 {
-                    Log.Info();
-                    Log.WriteLine("Completed Loading Defs: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
-                }
-                else if (countInvalidFiles > 0)
-                {
-                    Log.Error();
-                    Log.WriteLine("Loading failed: {1} file(s).", countInvalidFiles);
+                    if (countInvalidFiles == 0)
+                    {
+                        Log.Info();
+                        Log.WriteLine("Completed Loading Defs: {0} file(s).", countValidFiles);
+                    }
+                    else
+                    {
+                        Log.Warning();
+                        Log.WriteLine("Completed Loading Defs: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
+                    }
                 }
                 else
                 {
-                    Log.Info();
-                    Log.WriteLine("Directory \"Defs\" is empty.");
+                    if (countInvalidFiles == 0)
+                    {
+                        Log.Info();
+                        Log.WriteLine("Directory \"Defs\" is empty.");
+                    }
+                    else
+                    {
+                        Log.Error();
+                        Log.WriteLine("Loading failed: {1} file(s).", countInvalidFiles);
+                    }
                 }
             }
             else
             {
                 Log.Info();
                 Log.Write("Directory \"Defs\" does not exist: ");
-                Log.Cyan(path);
-                Log.Line();
+                Log.WriteLine(ConsoleColor.Cyan, path);
             }
         }
 
@@ -132,6 +141,9 @@ namespace RimTrans.Builder
 
         #region Inherit
 
+        /// <summary>
+        /// Process Abstractions and Inheritances
+        /// </summary>
         private void Inherit(DefinitionData definitionDataCore = null)
         {
             IEnumerable<XElement> children = from doc in this._data.Values
@@ -170,16 +182,19 @@ namespace RimTrans.Builder
                     XElement abstrGroup = abstracts.Element(defChild.Name);
                     if (abstrGroup == null)
                     {
-                        countInvalidChildren++;
                         Log.Warning();
-                        Log.WriteLine("Could not found parent node for node \"{0}\", ParentName=\"{1}\".",
+                        Log.Write("Could not found parent for node: ");
+                        Log.WriteLine(ConsoleColor.Yellow, "<{0}> defName=\"{1}\" ParentName=\"{2}\"",
                             defChild.Name.ToString(),
+                            defChild.defName().Value,
                             defChild.Attribute("ParentName").Value);
+                        Log.Indent();
                         Log.WriteLine(defChild.BaseUri);
+                        countInvalidChildren++;
                     }
                     else
                     {
-                        bool valid = true;
+                        bool isFailed = true;
                         XElement defParent = defChild;
                         do
                         {
@@ -191,22 +206,39 @@ namespace RimTrans.Builder
                                 {
                                     isParentFound = true;
                                     defParent = abstr;
-                                    InheritRecursively(defChild, defParent);
+                                    InheritRecursively(defChild, defParent); // Recursively
                                     break;
                                 }
                             }
                             if (!isParentFound)
                             {
-                                valid = false;
-                                Log.Warning();
-                                Log.WriteLine("Could not found parent node for node \"{0}\", ParentName=\"{1}\".",
-                                    defParent.Name.ToString(),
-                                    parentName);
-                                Log.WriteLine(defParent == defChild ? defChild.BaseUri : defParent.Attribute("Uri").Value);
+                                isFailed = false;
+                                if (defParent == defChild)
+                                {
+                                    Log.Warning();
+                                    Log.Write("Could not found parent for node: ");
+                                    Log.WriteLine(ConsoleColor.Yellow, "<{0}> defName=\"{1}\" ParentName=\"{2}\"",
+                                        defChild.Name.ToString(),
+                                        defChild.defName().Value,
+                                        parentName);
+                                    Log.Indent();
+                                    Log.WriteLine(defChild.BaseUri);
+                                }
+                                else
+                                {
+                                    Log.Warning();
+                                    Log.Write("Could not found parent for node: ");
+                                    Log.WriteLine(ConsoleColor.Yellow, "<{0}> Name=\"{1}\" ParentName=\"{2}\"",
+                                        defParent.Name.ToString(),
+                                        defParent.Attribute("Name").Value,
+                                        parentName);
+                                    Log.Indent();
+                                    Log.WriteLine(defParent.Attribute("Uri").Value);
+                                }
                                 break;
                             }
                         } while (defParent.Attribute("ParentName") != null);
-                        if (valid)
+                        if (isFailed)
                         {
                             countValidChildren++;
                         }
@@ -218,17 +250,36 @@ namespace RimTrans.Builder
                 }
                 if (countValidChildren > 0)
                 {
-                    Log.Info();
-                    Log.WriteLine("Completed Inheriting: Success: {0} node(s), Failure: {1} node(s).", countValidChildren, countInvalidChildren);
+                    if (countInvalidChildren == 0)
+                    {
+                        Log.Info();
+                        Log.WriteLine("Completed Inheriting: {0} node(s).", countValidChildren);
+                    }
+                    else
+                    {
+                        Log.Warning();
+                        Log.WriteLine("Completed Inheriting: Success: {0} node(s), Failure: {1} node(s).", countValidChildren, countInvalidChildren);
+                    }
                 }
                 else
                 {
-                    Log.Error();
-                    Log.WriteLine("Inheriting Failed: {0} node(s).", countInvalidChildren);
+                    if (countInvalidChildren == 0)
+                    {
+                        Log.Info();
+                        Log.WriteLine("No node need to inherit.");
+                    }
+                    else
+                    {
+                        Log.Error();
+                        Log.WriteLine("Inheriting Failed: {0} node(s).", countInvalidChildren);
+                    }
                 }
             }
         }
 
+        /// <summary>
+        /// Inherit Recursively
+        /// </summary>
         private static void InheritRecursively(XElement child, XElement parent)
         {
             if (child.HasElements && parent.HasElements)
@@ -331,10 +382,10 @@ namespace RimTrans.Builder
             {
                 Log.Info();
                 Log.WriteLine("Start processing PawnKindDefs.");
-                IEnumerable<XElement> racesAll = GetAllRaces(this._data);
+                IEnumerable<XElement> racesAll = this.GetAllRaces();
                 if (definitionDataCore != null)
                 {
-                    racesAll.Concat(GetAllRaces(definitionDataCore._data));
+                    racesAll.Concat(definitionDataCore.GetAllRaces());
                 }
 
                 foreach (XElement pawnKindDef in pawnKindDefsAll)
@@ -458,7 +509,10 @@ namespace RimTrans.Builder
 
                             ////////////////////////////////////////////////////////////////
 
-                            if (lifeStages.Elements().Count() == 1 && !curflag_label && !curflag_Male && !curflag_Female)
+                            if (lifeStages.Elements().Count() == 1 && 
+                                !curflag_label && !curflag_Plural &&
+                                !curflag_Male && !curflag_MalePlural &&
+                                !curflag_Female && !curflag_FemalePlural)
                             {
                                 flag_NothingInLifeStage = true;
                                 break;
@@ -559,12 +613,7 @@ namespace RimTrans.Builder
                             }
 
                             // Remove labels according to hasGenders
-                            if (hasGenders)
-                            {
-                                curLabel.Remove();
-                                curLabelPlural.Remove();
-                            }
-                            else
+                            if (!hasGenders)
                             {
                                 curLabelMale.Remove();
                                 curLabelMalePlural.Remove();
@@ -575,32 +624,17 @@ namespace RimTrans.Builder
                     }
 
                     // Remove root labels
-                    if (flag_NothingInLifeStage)
+                    if (!hasGenders)
                     {
-                        if (isHumanlike)
-                        {
-                            if ((!flag_Male && !flag_Female) || !hasGenders)
-                            {
-                                labelMale.Remove();
-                                labelMalePlural.Remove();
-                                labelFemale.Remove();
-                                labelFemalePlural.Remove();
-                            }
-                        }
-                        else
-                        {
-                            if (!hasGenders)
-                            {
-                                labelMale.Remove();
-                                labelMalePlural.Remove();
-                                labelFemale.Remove();
-                                labelFemalePlural.Remove();
-                            }
-                        }
+                        labelMale.Remove();
+                        labelMalePlural.Remove();
+                        labelFemale.Remove();
+                        labelFemalePlural.Remove();
                     }
-                    else
+                    else if (isHumanlike &&
+                        !flag_Male && !flag_MalePlural &&
+                        !flag_Female && !flag_FemalePlural)
                     {
-                        //if(!flag_Plural) labelPlural.Remove();
                         labelMale.Remove();
                         labelMalePlural.Remove();
                         labelFemale.Remove();
@@ -612,9 +646,12 @@ namespace RimTrans.Builder
             }
         }
 
-        public static IEnumerable<XElement> GetAllRaces(SortedDictionary<string, XDocument> data)
+        /// <summary>
+        /// Get all races (ThingDef which is pawn category) in this Defs.
+        /// </summary>
+        public IEnumerable<XElement> GetAllRaces()
         {
-            foreach (XElement thingDef in from doc in data.Values
+            foreach (XElement thingDef in from doc in this._data.Values
                                           from ele in doc.Root.Elements(DefTypeNameOf.ThingDef)
                                           where ele.HasField_defName()
                                           select ele)
@@ -725,7 +762,7 @@ namespace RimTrans.Builder
 
         private void CompleteThingDefStuffAdjective()
         {
-            IEnumerable<XElement> stuffsAll = GetAllStuffs(this._data);
+            IEnumerable<XElement> stuffsAll = this.GetAllStuffs();
             int countStuffs = stuffsAll.Count();
             if (countStuffs > 0)
             {
@@ -748,9 +785,12 @@ namespace RimTrans.Builder
             }
         }
 
-        public static IEnumerable<XElement> GetAllStuffs(SortedDictionary<string, XDocument> data)
+        /// <summary>
+        /// Get all stuffs (ThingDef which has stuffProps) in this Defs.
+        /// </summary>
+        public IEnumerable<XElement> GetAllStuffs()
         {
-            foreach (XElement thingDef in from doc in data.Values
+            foreach (XElement thingDef in from doc in this._data.Values
                                           from ele in doc.Root.Elements(DefTypeNameOf.ThingDef)
                                           where ele.HasField_defName()
                                           select ele)
@@ -801,6 +841,9 @@ namespace RimTrans.Builder
 
         #region Handle Details
 
+        /// <summary>
+        /// Reorder defName, label and description, Add attribute to list item as index marks.
+        /// </summary>
         private void HandleDetails()
         {
             IEnumerable<XElement> defsAll = from doc in this._data.Values
@@ -849,13 +892,16 @@ namespace RimTrans.Builder
                             }
                         }
                     }
-                    MarkIndexRecursively(def);
+                    MarkIndexRecursively(def); // Recursively
                 }
                 Log.Info();
                 Log.WriteLine("Completed processing details.");
             }
         }
 
+        /// <summary>
+        /// Mark Index Recursively
+        /// </summary>
         private static void MarkIndexRecursively(XElement ele)
         {
             if (ele.HasElements)
@@ -884,6 +930,13 @@ namespace RimTrans.Builder
 
         #endregion
 
+        #region Save
+
+        //TODO: Save method
+        // Does Defs need to be saved?
+
+        #endregion
+
         #region Debug
 
         public void Debug(string filePath)
@@ -891,7 +944,7 @@ namespace RimTrans.Builder
             XDocument doc;
             if (this._data.TryGetValue(filePath, out doc))
             {
-                Log.Cyan(filePath);
+                Log.Write(ConsoleColor.Cyan, filePath);
                 Log.WriteLine(doc.ToString());
             }
         }
@@ -908,6 +961,7 @@ namespace RimTrans.Builder
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\HediffDefs\Hediffs_Global_Temperature.xml");
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\RulePackDefs\RulePacks_NameMaker_World.xml");
             //Debug(@"D:\Game\RimWorld\Mods\Core\Defs\ThingDefs_Misc\Weapons_Grenades.xml");
+            Debug(@"D:\Game\RimWorld\Mods\Core\Defs\ThingDefs_Buildings\Buildings_Production.xml");
         }
 
         #endregion

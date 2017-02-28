@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,9 +13,6 @@ namespace RimTrans.Builder
 {
     public class InjectionData
     {
-        private string _path = string.Empty;
-        public string Path { get { return this._path; } }
-
         private SortedDictionary<string, SortedDictionary<string, XDocument>> _data;
 
         private InjectionData()
@@ -22,12 +20,31 @@ namespace RimTrans.Builder
 
         }
 
+        // Clone a InjectionData object
+        public InjectionData(InjectionData other)
+        {
+            this._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
+            foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypeNameSubDataPairOther in other._data)
+            {
+                string defTypeName = defTypeNameSubDataPairOther.Key;
+                SortedDictionary<string, XDocument> subData = new SortedDictionary<string, XDocument>();
+                SortedDictionary<string, XDocument> subDataOther = defTypeNameSubDataPairOther.Value;
+                foreach (KeyValuePair<string, XDocument> fileNameDocOther in subDataOther)
+                {
+                    subData.Add(fileNameDocOther.Key, new XDocument(fileNameDocOther.Value));
+                }
+                this._data.Add(defTypeName, subData);
+            }
+        }
+
         #region Load
 
+        /// <summary>
+        /// Load existed DefInjected
+        /// </summary>
         public static InjectionData Load(string path)
         {
             InjectionData injectionData = new InjectionData();
-            injectionData._path = path;
             injectionData._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
             
             DirectoryInfo dirInfo = new DirectoryInfo(path);
@@ -35,8 +52,7 @@ namespace RimTrans.Builder
             {
                 Log.Info();
                 Log.Write("Loading DefInjected: ");
-                Log.Cyan(path);
-                Log.Line();
+                Log.WriteLine(ConsoleColor.Cyan, path);
                 int countValidFiles = 0;
                 int countInvalidFiles = 0;
                 foreach (DirectoryInfo subDirInfo in dirInfo.GetDirectories())
@@ -71,26 +87,36 @@ namespace RimTrans.Builder
                 }
                 if (countValidFiles > 0)
                 {
-                    Log.Info();
-                    Log.WriteLine("Completed Loading DefInjected: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
-                }
-                else if (countInvalidFiles > 0)
-                {
-                    Log.Error();
-                    Log.WriteLine("Loading failed: {1} file(s).", countInvalidFiles);
+                    if (countInvalidFiles == 0)
+                    {
+                        Log.Info();
+                        Log.WriteLine("Completed Loading DefInjected: {0} file(s).", countValidFiles);
+                    }
+                    else
+                    {
+                        Log.Warning();
+                        Log.WriteLine("Completed Loading DefInjected: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
+                    }
                 }
                 else
                 {
-                    Log.Info();
-                    Log.WriteLine("Directory \"DefInjected\" is empty.");
+                    if (countInvalidFiles == 0)
+                    {
+                        Log.Info();
+                        Log.WriteLine("Directory \"DefInjected\" is empty.");
+                    }
+                    else
+                    {
+                        Log.Error();
+                        Log.WriteLine("Loading failed: {1} file(s).", countInvalidFiles);
+                    }
                 }
             }
             else
             {
                 Log.Info();
                 Log.Write("Directory \"DefInjected\" does not exist: ");
-                Log.Cyan(path);
-                Log.Line();
+                Log.WriteLine(ConsoleColor.Cyan ,path);
             }
             return injectionData;
         }
@@ -99,7 +125,10 @@ namespace RimTrans.Builder
 
         #region Parse
 
-        public static InjectionData Parse(DefinitionData definitionData, bool isCore = false)
+        /// <summary>
+        /// Parse Defs to generate original DefInjected
+        /// </summary>
+        public static InjectionData Parse(DefinitionData definitionData)
         {
             InjectionData injectionData = new InjectionData();
             injectionData._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
@@ -109,7 +138,7 @@ namespace RimTrans.Builder
             {
                 Log.Info();
                 Log.Write("Start parsing Defs and generating ");
-                Log.Cyan("Original DefInjected");
+                Log.Write(ConsoleColor.Cyan, "Original DefInjected");
                 Log.WriteLine(".");
                 int countValidDefs = 0;
                 int countInvalidDefs = 0;
@@ -125,7 +154,7 @@ namespace RimTrans.Builder
                             string text = curComment.Value.Trim().Trim('=').Trim();
                             if (text.Length > 0)
                             {
-                                commentText = text;
+                                commentText = " " + text + " ";
                             }
                         }
                         else if (node.NodeType == XmlNodeType.Element && (node as XElement).IsNeedToTranslate())
@@ -166,10 +195,10 @@ namespace RimTrans.Builder
                 if (countFields > 0)
                 {
                     injectionData.Tidy();
-                    if (isCore)
-                    {
-                        // Something for core
-                    }
+                    //if (isCore)
+                    //{
+                    //    // Something for core
+                    //}
                     if (countInvalidDefs > 0)
                     {
                         Log.Error();
@@ -245,6 +274,9 @@ namespace RimTrans.Builder
 
         #region Generate and Add
 
+        /// <summary>
+        /// Generate DefInjected contents, (universal)
+        /// </summary>
         private int AddFromDef(XElement def, KeyValuePair<string, XDocument> pathDocPair, XElement defName, string commentText)
         {
             int result = 0;
@@ -305,17 +337,22 @@ namespace RimTrans.Builder
                     }
                 }
             }
+            else if (defTypeName == DefTypeNameOf.MainTabDef)
+            {
+                this.AddKeyBindingsAddMainTab(def, defName);
+                result++;
+            }
             else if (defTypeName == DefTypeNameOf.TerrainDef && def.Field(FieldNameOf.designationCategory) != null)
             {
                 this.AddTerrainExtra(def, defName);
                 result += 2;
             }
 
-            if (!isMote)
+            if (!isMote) // Mote does not need to translate.
             {
                 LinkedList<XElement> fieldPath = new LinkedList<XElement>();
                 fieldPath.AddLast(defName);
-                IEnumerable<object> contents = GenRecursively(def, fieldPath);
+                IEnumerable<object> contents = GenRecursively(def, fieldPath); // Recursively
                 if (isBuildable || isMinifiable)
                 {
                     contents = contents.Concat(GenExtraBuilding(def, defName, isBuildable, isMinifiable));
@@ -331,7 +368,7 @@ namespace RimTrans.Builder
                 }
                 if (countFields > 0)
                 {
-                    XDocument doc = this.GetDocEx(def.Name.ToString(), System.IO.Path.GetFileName(pathDocPair.Key));
+                    XDocument doc = this.GetDocEx(def.Name.ToString(), Path.GetFileName(pathDocPair.Key));
                     XElement root = doc.Root;
                     XComment lastComment = null;
                     foreach (XNode node in root.Nodes())
@@ -345,16 +382,13 @@ namespace RimTrans.Builder
                         if (layout.Value == "true")
                         {
                             layout.Value = "false";
-                            if (root.HasElements)
-                            {
-                                root.Add("\n\n");
-                            }
-                            else
-                            {
-                                root.Add("\n");
-                            }
-                            root.Add("  ", new XComment(commentText), "\n\n");
+                            if (root.HasElements) root.Add("\n\n");
                         }
+                        else
+                        {
+                            if (root.HasElements) root.Add("\n");
+                        }
+                        root.Add("  ", new XComment(commentText), "\n\n");
                     }
                     if (countFields == 1)
                     {
@@ -387,6 +421,9 @@ namespace RimTrans.Builder
             return result;
         }
 
+        /// <summary>
+        /// Generate DefInjected contents, (recursively)
+        /// </summary>
         private static IEnumerable<object> GenRecursively(XElement field, LinkedList<XElement> fieldPath)
         {
             foreach (XElement fieldChild in field.Elements())
@@ -421,7 +458,10 @@ namespace RimTrans.Builder
                         }
                         fullFieldName.Append('.');
                     }
-                    fullFieldName.Append(fieldChild.Name.ToString());
+                    string fieldChildName = fieldChild.Name.ToString();
+                    fullFieldName.Append(fieldChildName == "li" ?
+                        fieldChild.Attribute("ListIndex").Value :
+                        fieldChildName);
                     yield return "  ";
                     yield return new XElement(fullFieldName.ToString(), fieldChild.Value);
                     yield return "\n";
@@ -429,10 +469,15 @@ namespace RimTrans.Builder
             }
         }
 
+        /// <summary>
+        /// For blueprint and frame from buildable and minifiable builings.
+        /// </summary>
         private static IEnumerable<object> GenExtraBuilding(XElement def, XElement defName, bool isBuildable, bool isMinifiable)
         {
             XElement label = def.label();
             if (label == null) label = defName;
+
+            // Content generation in Keyed/Misc.xml
             if (isBuildable)
             {
                 yield return "  ";
@@ -453,6 +498,9 @@ namespace RimTrans.Builder
             }
         }
 
+        /// <summary>
+        /// For meat, leather and corpse from pawns.
+        /// </summary>
         private static IEnumerable<object> GenExtraPawn(XElement def, XElement defName)
         {
             XElement label = def.label();
@@ -484,6 +532,7 @@ namespace RimTrans.Builder
                 meatLabel = race.Field(FieldNameOf.meatLabel);
             }
 
+            // Content generation in Keyed/Misc.xml
             if (fleshType != null && fleshType.Value == "Mechanoid")
             {
                 yield return "  ";
@@ -566,6 +615,9 @@ namespace RimTrans.Builder
             yield return "\n";
         }
 
+        /// <summary>
+        /// For manufacture recipe from makeable items and buildings 
+        /// </summary>
         private void AddRecipesAddMake(XElement def, XElement defName)
         {
             XDocument doc = this.GetDoc(DefTypeNameOf.RecipeDef, "Recipes_Add_Make.xml");
@@ -601,7 +653,7 @@ namespace RimTrans.Builder
                 }
             }
 
-            // RecipeMake and RecipeMakeJobString in Misc_Gameplay.xml
+            // <RecipeMake> and <RecipeMakeJobString> in KeyedMisc_Gameplay.xml
             string defNameValue = defName.Value;
             string labelValue = label.Value;
             root.Add("  ", new XElement("Make_" + defNameValue + ".label", string.Format("Make {0}", labelValue)), "\n");
@@ -609,6 +661,9 @@ namespace RimTrans.Builder
             root.Add("  ", new XElement("Make_" + defNameValue + ".jobString", string.Format("Making {0}.", labelValue)), "\n\n");
         }
 
+        /// <summary>
+        /// For administer recipes from drugs
+        /// </summary>
         private void AddRecipesAddAdminister(XElement def, XElement defName)
         {
             XDocument doc = this.GetDoc(DefTypeNameOf.RecipeDef, "Recipes_Add_Administer.xml");
@@ -621,7 +676,7 @@ namespace RimTrans.Builder
             XElement label = def.label();
             if (label == null) label = defName;
 
-            // RecipeAdminister and RecipeAdministerJobString in Misc_Gameplay.xml
+            // <RecipeAdminister> and <RecipeAdministerJobString> in Keyed/Misc_Gameplay.xml
             string defNameValue = defName.Value;
             string labelValue = label.Value;
             root.Add("  ", new XElement("Administer_" + defNameValue + ".label", string.Format("Administer {0}", labelValue)), "\n");
@@ -629,7 +684,7 @@ namespace RimTrans.Builder
         }
 
         /// <summary>
-        /// For vanilla natural stone floor
+        /// For natural stone floor
         /// </summary>
         private void AddTerrainAdd(XElement def, XElement defName)
         {
@@ -643,6 +698,7 @@ namespace RimTrans.Builder
             XElement label = def.label();
             if (label == null) label = defName;
 
+            // Content generation in Keyed/Misc.xml
             string defNameValue = defName.Value;
             string labelValue = label.Value;
             root.Add("  ", new XElement(defNameValue + "_Rough.label", "rough " + labelValue), "\n");
@@ -653,6 +709,9 @@ namespace RimTrans.Builder
             root.Add("  ", new XElement(defNameValue + "_Smooth.description", string.Format("Smoothed natural {0} floor.", labelValue)), "\n\n");
         }
 
+        /// <summary>
+        /// For blueprint and frame from buildable terrains.
+        /// </summary>
         private void AddTerrainExtra(XElement def, XElement defName)
         {
             XDocument doc = this.GetDoc(DefTypeNameOf.ThingDef, "_Terrain_Extra.xml");
@@ -665,16 +724,21 @@ namespace RimTrans.Builder
             XElement label = def.label();
             if (label == null) label = defName;
 
+            // Content generation in Keyed/Misc.xml
             string defNameValue = defName.Value;
             string labelValue = label.Value;
             root.Add("  ", new XElement(defNameValue + "_Blueprint.label", labelValue + " (blueprint)"), "\n");
             root.Add("  ", new XElement(defNameValue + "_Frame.label", labelValue + " (building)"), "\n\n");
         }
 
+        /// <summary>
+        /// For KeyBindingDef from MainTabDefs
+        /// </summary>
         private void AddKeyBindingsAddMainTab(XElement def, XElement defName)
         {
             XDocument doc = this.GetDocEx(DefTypeNameOf.KeyBindingDef, "KeyBindings_Add_MainTab.xml");
             XElement root = doc.Root;
+            root.FirstAttribute.Value = "true";
             if (root.Elements().Count() == 0)
             {
                 root.Add("  ", new XComment(" SPECIAL: KeyBinding of MainTab, generated by RimTrans "), "\n\n");
@@ -690,10 +754,16 @@ namespace RimTrans.Builder
 
         #region Tidy
 
+        /// <summary>
+        /// Process: add newline at the end, remove duplicated nodes.
+        /// </summary>
         private void Tidy()
         {
-            foreach (SortedDictionary<string, XDocument> subData in this._data.Values)
+            foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypeNameSubDataPair in this._data)
             {
+                string defTypeName = defTypeNameSubDataPair.Key;
+                SortedDictionary<string, XDocument> subData = defTypeNameSubDataPair.Value;
+                List<XElement> injections = new List<XElement>();
                 foreach (XDocument doc in subData.Values)
                 {
                     XElement root = doc.Root;
@@ -706,6 +776,332 @@ namespace RimTrans.Builder
                         root.Add("\n");
                     }
                     root.RemoveAttributes();
+                    injections.AddRange(root.Elements());
+                }
+                for (int i = 0; i < injections.Count; i++)
+                {
+                    XElement inject_i = injections[i];
+                    for (int j = i + 1; j < injections.Count; j++)
+                    {
+                        XElement inject_j = injections[j];
+                        if (inject_i.Match(inject_j))
+                        {
+                            inject_i.ReplaceWith(new XComment("[Duplicated] " + inject_i.ToString()));
+                            Log.Warning();
+                            Log.Write("Duplicated node in DefInjected/{0}: ", defTypeName);
+                            Log.WriteLine(ConsoleColor.Yellow, "<{0}>", inject_i.Name.ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Match
+
+        /// <summary>
+        /// Process confict to Core DefInjected
+        /// </summary>
+        public void MatchCore(InjectionData injectionDataCore)
+        {
+            if (this._data.Count == 0) return;
+            Log.Info();
+            Log.WriteLine("Start checking conficts to Core's DefInjected.");
+            List<XElement> conflicts = new List<XElement>();
+            foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypNameSubDataPair in this._data)
+            {
+                SortedDictionary<string, XDocument> subData = defTypNameSubDataPair.Value;
+                SortedDictionary<string, XDocument> subDataCore;
+                if (injectionDataCore._data.TryGetValue(defTypNameSubDataPair.Key, out subDataCore))
+                {
+                    IEnumerable<XElement> injections = from doc in subData.Values
+                                                       from ele in doc.Root.Elements()
+                                                       select ele;
+                    IEnumerable<XElement> injectionsCore = from doc in subDataCore.Values
+                                                           from ele in doc.Root.Elements()
+                                                           select ele;
+                    foreach (XElement inject in injections)
+                    {
+                        foreach (XElement injectCore in injectionsCore)
+                        {
+                            if (inject.Match(injectCore))
+                            {
+                                inject.Value = injectCore.Value;
+                                conflicts.Add(inject);
+                            }
+                        }
+                    }
+                }
+            }
+            int countConflict = conflicts.Count;
+            if (countConflict > 0)
+            {
+                foreach (XElement conf in conflicts)
+                {
+                    conf.ReplaceWith(new XComment("[Core] " + conf.ToString()));
+                }
+                Log.Info();
+                Log.WriteLine("Completed processing confict: {0} node(s)", countConflict);
+            }
+            else
+            {
+                Log.Info();
+                Log.WriteLine("No confict to Core.");
+            }
+        }
+
+        /// <summary>
+        /// Continue to use existed DefInjected and comment invalid nodes
+        /// </summary>
+        public void MatchExisted(InjectionData injectionDataExisted)
+        {
+            if (injectionDataExisted._data.Count == 0) return;
+            Log.Info();
+            Log.WriteLine("Start matching existed DefInjected.");
+            int countInvalidFiles = 0;
+            int countMatched = 0;
+            foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypeNameSubDataPair in injectionDataExisted._data)
+            {
+                SortedDictionary<string, XDocument> subDataExisted = defTypeNameSubDataPair.Value;
+                SortedDictionary<string, XDocument> subData = null;
+                string defTypeName = defTypeNameSubDataPair.Key;
+                bool isNonStandard = false;
+                this._data.TryGetValue(defTypeName, out subData);
+                if (subData == null && defTypeName.Length > 3)
+                {
+                    this._data.TryGetValue(defTypeName.Substring(0, defTypeName.Length - 1), out subData);
+                    isNonStandard = true;
+                }
+                if (subData == null)
+                {
+                    subData = new SortedDictionary<string, XDocument>();
+                    foreach (KeyValuePair<string, XDocument> fileNameDocPair in subDataExisted)
+                    {
+                        subData.Add(fileNameDocPair.Key, fileNameDocPair.Value.ToCommentDoc());
+                        countInvalidFiles++;
+                    }
+                    this._data.Add(defTypeName, subData);
+                }
+                else
+                {
+                    IEnumerable<XElement> injectionsExisted = from doc in subDataExisted.Values
+                                                              from ele in doc.Root.Elements()
+                                                              select ele;
+                    IEnumerable<XElement> injections = from doc in subData.Values
+                                                       from ele in doc.Root.Elements()
+                                                       select ele;
+                    foreach (XElement inject in injections)
+                    {
+                        foreach (XElement injectExsited in injectionsExisted)
+                        {
+                            if (inject.Match(injectExsited))
+                            {
+                                inject.Value = injectExsited.Value;
+                                countMatched++;
+                            }
+                        }
+                    }
+                    foreach (KeyValuePair<string, XDocument> fileNameDocPairExisted in subDataExisted)
+                    {
+                        string fileName = fileNameDocPairExisted.Key;
+                        XDocument docExisted = fileNameDocPairExisted.Value;
+                        XDocument doc = null;
+                        subData.TryGetValue(fileName, out doc);
+                        if (doc == null)
+                        {
+                            subData.Add(fileName, docExisted.ToCommentDoc());
+                            countInvalidFiles++;
+                        }
+                        else
+                        {
+                            XElement rootExisted = docExisted.Root;
+                            XElement root = doc.Root;
+                            bool hasInvalidNode = false;
+                            foreach (XNode nodeExisted in rootExisted.Nodes())
+                            {
+                                if (nodeExisted.NodeType == XmlNodeType.Comment)
+                                {
+                                    bool isMatched = false;
+                                    foreach (XNode node in root.Nodes())
+                                    {
+                                        if (node.NodeType == XmlNodeType.Comment &&
+                                            ((XComment)nodeExisted).Value == ((XComment)node).Value)
+                                        {
+                                            isMatched = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!isMatched)
+                                    {
+                                        root.Add("  ", nodeExisted, "\n");
+                                        hasInvalidNode = true;
+                                    }
+                                }
+                                else if (nodeExisted.NodeType == XmlNodeType.Element)
+                                {
+                                    bool isMatched = false;
+                                    foreach (XNode node in root.Nodes())
+                                    {
+                                        if (node.NodeType == XmlNodeType.Element &&
+                                            ((XElement)nodeExisted).Match(((XElement)node)))
+                                        {
+                                            isMatched = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!isMatched)
+                                    {
+                                        root.Add("  ", new XComment(nodeExisted.ToString()), "\n");
+                                        hasInvalidNode = true;
+                                    }
+                                }
+                            }
+                            if (hasInvalidNode) root.Add("\n");
+                        }
+                    }
+                    if (isNonStandard)
+                    {
+                        subData = new SortedDictionary<string, XDocument>();
+                        foreach (KeyValuePair<string, XDocument> fileNameDocPair in subDataExisted)
+                        {
+                            subData.Add(fileNameDocPair.Key, fileNameDocPair.Value.ToCommentDoc());
+                            countInvalidFiles++;
+                        }
+                        this._data.Add(defTypeName, subData);
+                    }
+                }
+            }
+            Log.Info();
+            Log.WriteLine("Completed matching existed DefInjected: {0} matched node(s), {1} invalid file(s).", countMatched, countInvalidFiles);
+        }
+
+        #endregion
+
+        #region Save
+
+        /// <summary>
+        /// Output this DefInjected to files.
+        /// </summary>
+        public void Save(string path)
+        {
+            if (this._data.Count() > 0)
+            {
+                Log.Info();
+                Log.Write("Start outputing DefInjected: ");
+                Log.WriteLine(ConsoleColor.Cyan, path);
+            }
+            else
+            {
+                return;
+            }
+
+            DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
+            if (ds.AreAccessRulesProtected)
+            {
+                Log.Error();
+                Log.WriteLine("Outputing DefInjected failed: No write permission to directory: ");
+                Log.Indent();
+                Log.WriteLine(ConsoleColor.Red, path);
+                return;
+            }
+
+            int countValidFiles = 0;
+            int countInvalidFiles = 0;
+            foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypNameSubDataPair in this._data)
+            {
+                string defTypeName = defTypNameSubDataPair.Key;
+                SortedDictionary<string, XDocument> subData = defTypNameSubDataPair.Value;
+                string subDirPath = Path.Combine(path, defTypeName);
+                if (!Directory.Exists(subDirPath))
+                {
+                    Directory.CreateDirectory(subDirPath);
+                }
+                else
+                {
+                    DirectorySecurity curDs = new DirectorySecurity(subDirPath, AccessControlSections.Access);
+                    if (curDs.AreAccessRulesProtected)
+                    {
+                        Log.Error();
+                        Log.WriteLine("Creating subdirectory failed: No write permission to directory: ");
+                        Log.Indent();
+                        Log.WriteLine(ConsoleColor.Red, subDirPath);
+                        countInvalidFiles += subData.Count;
+                        continue;
+                    }
+                }
+                foreach (KeyValuePair<string, XDocument> fileNameDocPair in subData)
+                {
+                    string filePath = Path.Combine(subDirPath, fileNameDocPair.Key);
+                    if (defTypeName == DefTypeNameOf.InteractionDef ||
+                        defTypeName == DefTypeNameOf.RulePackDef ||
+                        defTypeName == DefTypeNameOf.TaleDef)
+                    {
+                        // Special for these 3 DefType
+                        string text = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n";
+                        text += fileNameDocPair.Value.Root.ToString().Replace("-&gt;", "->");
+                        try
+                        {
+                            using (StreamWriter sw = new StreamWriter(filePath))
+                            {
+                                sw.Write(text);
+                            }
+                            countValidFiles++;
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error();
+                            Log.Write("Outputing file failed: ");
+                            Log.WriteLine(ConsoleColor.Red, filePath);
+                            Log.Indent();
+                            Log.WriteLine(ex.Message);
+                            countInvalidFiles++;
+                        }
+                    }
+                    else
+                    {
+                        // Universal
+                        try
+                        {
+                            fileNameDocPair.Value.Save(filePath);
+                            countValidFiles++;
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error();
+                            Log.Write("Outputing file failed: ");
+                            Log.WriteLine(ConsoleColor.Red, filePath);
+                            Log.Indent();
+                            Log.WriteLine(ex.Message);
+                            countInvalidFiles++;
+                        }
+                    }
+                }
+            }
+            if (countValidFiles > 0)
+            {
+                if (countInvalidFiles == 0)
+                {
+                    Log.Info();
+                    Log.WriteLine("Completed outputing DefInjected: {0} file(s).", countValidFiles);
+                }
+                else
+                {
+                    Log.Warning();
+                    Log.WriteLine("Completed outputing DefInjected: Success: {0} file(s), Failure {1} file(s).", countValidFiles, countInvalidFiles);
+                }
+            }
+            else
+            {
+                if (countInvalidFiles == 0)
+                {
+                    Log.Info();
+                    Log.WriteLine("No DefInjected to be output.");
+                }
+                else
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing DefInjected failed: {0} file(s).", countInvalidFiles);
                 }
             }
         }
@@ -722,7 +1118,7 @@ namespace RimTrans.Builder
                 XDocument doc;
                 if (subData.TryGetValue(fileName, out doc))
                 {
-                    Log.Cyan(defTypeName + "/" + fileName);
+                    Log.Write(ConsoleColor.Cyan, defTypeName + "/" + fileName);
                     Log.WriteLine(doc.ToString());
                 }
             }
@@ -732,8 +1128,7 @@ namespace RimTrans.Builder
         {
             foreach (var kvpSubData in this._data)
             {
-                Log.Cyan(kvpSubData.Key);
-                Log.Line();
+                Log.WriteLine(ConsoleColor.Cyan, kvpSubData.Key);
                 foreach (var kvp in kvpSubData.Value)
                 {
                     Log.WriteLine(kvp.Key);
@@ -744,7 +1139,7 @@ namespace RimTrans.Builder
             //Debug("RecipeDef", "Recipes_Add_Make.xml");
             //Debug("ThingDef", "_Terrain_Extra.xml");
             //Debug("ThingDef", "Buildings_Joy.xml");
-            Debug("TerrainDef", "Terrain_Add.xml");
+            //Debug("TerrainDef", "Terrain_Add.xml");
             //Debug("ThingDef", "Races_Animal_Arid.xml");
             //Debug("PawnKindDef", "Races_Animal_Arid.xml");
         }

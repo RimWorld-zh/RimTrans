@@ -42,20 +42,23 @@ namespace RimTrans.Builder.Xml
             return doc;
         }
 
-        public static void CommentAllElements(this XDocument doc)
+        public static XDocument ToCommentDoc(this XDocument doc)
         {
+            XDocument commentDoc = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LanguageData></LanguageData>", LoadOptions.PreserveWhitespace);
+            XElement commentRoot = commentDoc.Root;
             XElement root = doc.Root;
-            //while (root.HasElements)
-            //{
-            //    XElement firstElement = root.Elements().First();
-            //    firstElement.ReplaceWith(new XComment(firstElement.ToString()));
-            //}
-            List<XElement> elements = new List<XElement>();
-            elements.AddRange(root.Elements());
-            foreach (XElement ele in elements)
+            foreach (XNode node in root.Nodes())
             {
-                ele.ReplaceWith(new XComment(ele.ToString()));
+                if (node.NodeType == XmlNodeType.Element)
+                {
+                    commentRoot.Add(new XComment(node.ToString()));
+                }
+                else
+                {
+                    commentRoot.Add(node);
+                }
             }
+            return commentDoc;
         }
     }
 }

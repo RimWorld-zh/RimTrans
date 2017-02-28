@@ -52,10 +52,56 @@ namespace RimTrans.Builder
 
         #region Write
 
+        public static void Write(ConsoleColor color, string text)
+        {
+            Console.ForegroundColor = color;
+            Console.Write(text);
+            Console.ResetColor();
+        }
+
+        public static void Write(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write(text);
+            Console.ResetColor();
+        }
+
+        public static void Write(ConsoleColor color, string format, params object[] arg)
+        {
+            Console.ForegroundColor = color;
+            Console.Write(format, arg);
+            Console.ResetColor();
+        }
+
         public static void Write(string format, params object[] arg)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write(format, arg);
+            Console.ResetColor();
+        }
+
+        #endregion
+
+        #region WriteLine
+
+        public static void WriteLine(ConsoleColor color, string text)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
+
+        public static void WriteLine(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
+
+        public static void WriteLine(ConsoleColor color, string format, params object[] arg)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(format, arg);
             Console.ResetColor();
         }
 
@@ -66,126 +112,9 @@ namespace RimTrans.Builder
             Console.ResetColor();
         }
 
-        public static void Line()
+        public static void WriteLine()
         {
             Console.WriteLine();
-        }
-
-        #endregion
-
-
-        #region Color
-
-        public static void Black(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkBlue(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkGreen(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkCyan(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkRed(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkMagenta(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkYellow(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Gray(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void DarkGray(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Blue(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Green(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Cyan(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Red(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Magenta(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void Yellow(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write(format, arg);
-            Console.ResetColor();
-        }
-
-        public static void White(string format, params object[] arg)
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(format, arg);
-            Console.ResetColor();
         }
 
         #endregion

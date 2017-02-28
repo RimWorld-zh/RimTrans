@@ -16,15 +16,20 @@ namespace RimTransLibTest
     {
         static void Main(string[] args)
         {
-            DefinitionData Core_Defs = DefinitionData.Load(@"D:\Game\RimWorld\Mods\Core\Defs");
-            InjectionData Core_Original_DefInjected = InjectionData.Parse(Core_Defs);
-            //Core_Original_DefInjected.Debug();
-            //InjectionData Core_CS_DefInject = InjectionData.Load(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\DefInjected");
-            //defs.DebugCore();
+            DefinitionData CoreDefs = DefinitionData.Load(@"D:\Game\RimWorld\Mods\Core\Defs");
+            InjectionData CoreDefInjectedOriginal = InjectionData.Parse(CoreDefs);
+            InjectionData CoreDefInjectedExisted_CS = InjectionData.Load(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\DefInjected");
+            InjectionData CoreDefInjectedNew_CS = new InjectionData(CoreDefInjectedOriginal);
+            CoreDefInjectedNew_CS.MatchExisted(CoreDefInjectedExisted_CS);
+            CoreDefInjectedNew_CS.Save(@"D:\Git\RWMod\RimWorld-ChineseSimplified\DefInjected");
 
-            //XmlHelper.ReadExtraFieldNames(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\Strings\Names\Animal_Female.txt");
-            //XmlHelper.ReadExtraFieldNamesParent(@"D:\Game\RimWorld\Mods\Core\Languages\ChineseSimplified\Strings\Names\Animal_Male.txt");
-            //XmlHelper.Debug();
+            //DefinitionData VgDefs = DefinitionData.Load(@"D:\Game\RimWorld\Mods\Vegetable Garden 5.3\Defs", CoreDefs);
+            //InjectionData VgDefInjectedOriginal = InjectionData.Parse(VgDefs);
+            //InjectionData VgDefInjectedExisted = InjectionData.Load(@"D:\Game\RimWorld\Mods\Vegetable Garden 5.3\Languages\ChineseSimplified\DefInjected");
+            //InjectionData VgDefInjectedNew = new InjectionData(VgDefInjectedOriginal);
+            //VgDefInjectedNew.MatchCore(CoreDefInjectedExisted_CS);
+            //VgDefInjectedNew.MatchExisted(VgDefInjectedExisted);
+            //VgDefInjectedNew.Save(@"D:\Game\RimWorld\Mods\Vegetable Garden 5.3\Languages\ChineseSimplified\DefInjected");
         }
 
         
