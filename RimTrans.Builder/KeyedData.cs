@@ -32,7 +32,7 @@ namespace RimTrans.Builder
 
         #region Load
 
-        public static KeyedData Load(string path)
+        public static KeyedData Load(string path, bool backupInvalidFile = false)
         {
             KeyedData keyedData = new KeyedData();
             keyedData._data = new SortedDictionary<string, XDocument>();
@@ -58,9 +58,27 @@ namespace RimTrans.Builder
                     catch (XmlException ex)
                     {
                         Log.Error();
-                        Log.WriteLine(ex.Message);
+                        Log.Write("Loading file failed: ");
+                        Log.WriteLine(ConsoleColor.Red, filePath);
                         Log.Indent();
-                        Log.WriteLine(filePath);
+                        Log.WriteLine(ex.Message);
+                        if (backupInvalidFile)
+                        {
+                            try
+                            {
+                                string backupFile = filePath + ".BAK";
+                                fileInfo.CopyTo(backupFile, true);
+                                Log.Indent();
+                                Log.Write("Having been backed up to: ");
+                                Log.WriteLine(ConsoleColor.Yellow, backupFile);
+                            }
+                            catch (Exception)
+                            {
+                                Log.Error();
+                                Log.WriteLine("Backing up failed.");
+                                throw;
+                            }
+                        }
                         countInvalidFiles++;
                     }
                     if (doc != null)
@@ -200,14 +218,35 @@ namespace RimTrans.Builder
             Log.Info();
             Log.Write("Start outputing Keyed: ");
             Log.WriteLine(ConsoleColor.Cyan, path);
-            DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-            if (ds.AreAccessRulesProtected)
+
+            if (Directory.Exists(path))
             {
-                Log.Error();
-                Log.WriteLine("Outputing Keyed failed: No write permission to directory.");
-                Log.Indent();
-                Log.WriteLine(ConsoleColor.Red, path);
-                return;
+                DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
+                if (ds.AreAccessRulesProtected)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing Keyed failed: No write permission to directory.");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, path);
+                    return;
+                }
+            }
+            else
+            {
+                try
+                {
+                    Directory.CreateDirectory(path);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing Keyed failed: Can not create directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, path);
+                    Log.Indent();
+                    Log.WriteLine(ex.Message);
+                    return;
+                }
             }
 
             int countValidFiles = 0;
@@ -219,27 +258,26 @@ namespace RimTrans.Builder
                 string filePath = Path.Combine(path, fileNameDocPair.Key);
                 XDocument doc = fileNameDocPair.Value;
                 XElement root = doc.Root;
-                string dirPath = path;
-                if (Path.GetFileName(filePath) != fileNameDocPair.Key)
+                string dirPath = Path.GetDirectoryName(filePath);
+                if (dirPath != path)
                 {
-                    dirPath = Path.GetDirectoryName(filePath);
-                    if (Directory.Exists(dirPath))
+                    if (!Directory.Exists(dirPath))
                     {
-                        DirectorySecurity curDs = new DirectorySecurity(dirPath, AccessControlSections.Access);
-                        if (curDs.AreAccessRulesProtected)
+                        try
+                        {
+                            Directory.CreateDirectory(dirPath);
+                        }
+                        catch (Exception ex)
                         {
                             Log.Error();
-                            Log.WriteLine("Creating subdirectory failed: No write permission to directory.");
-                            Log.Indent();
+                            Log.Write("Creating sub-directory failed: ");
                             Log.WriteLine(ConsoleColor.Red, dirPath);
+                            Log.Indent();
+                            Log.WriteLine(ex.Message);
                             countInvalidFiles++;
                             countInvalidNodes += root.Elements().Count();
                             continue;
                         }
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory(dirPath);
                     }
                 }
                 string text = root.ToString();
@@ -257,6 +295,13 @@ namespace RimTrans.Builder
                     }
                     catch (Exception ex)
                     {
+                        Log.Error();
+                        Log.Write("Outputing file failed: ");
+                        Log.WriteLine(ConsoleColor.Red, filePath);
+                        Log.Indent();
+                        Log.WriteLine(ex.Message);
+                        countInvalidFiles++;
+                        countInvalidNodes += root.Elements().Count();
                     }
                 }
                 else

@@ -42,7 +42,7 @@ namespace RimTrans.Builder
         /// <summary>
         /// Load existed DefInjected
         /// </summary>
-        public static InjectionData Load(string path)
+        public static InjectionData Load(string path, bool backupInvalidFile = false)
         {
             InjectionData injectionData = new InjectionData();
             injectionData._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
@@ -71,9 +71,27 @@ namespace RimTrans.Builder
                         catch (XmlException ex)
                         {
                             Log.Error();
-                            Log.WriteLine(ex.Message);
+                            Log.Write("Loading file failed: ");
+                            Log.WriteLine(ConsoleColor.Red, filePath);
                             Log.Indent();
-                            Log.WriteLine(ex.SourceUri);
+                            Log.WriteLine(ex.Message);
+                            if (backupInvalidFile)
+                            {
+                                try
+                                {
+                                    string backupFile = filePath + ".BAK";
+                                    fileInfo.CopyTo(backupFile, true);
+                                    Log.Indent();
+                                    Log.Write("Having been backed up to: ");
+                                    Log.WriteLine(ConsoleColor.Yellow, backupFile);
+                                }
+                                catch (Exception)
+                                {
+                                    Log.Error();
+                                    Log.WriteLine("Backing up failed.");
+                                    throw;
+                                }
+                            }
                             countInvalidFiles++;
                         }
                         if (doc != null)
@@ -173,11 +191,12 @@ namespace RimTrans.Builder
                                 catch (XmlException ex)
                                 {
                                     Log.Error();
-                                    Log.WriteLine("Invalid <defName>{0}</defName>", defName.Value);
-                                    Log.Indent();
+                                    Log.Write("Invalid ");
+                                    Log.Write(ConsoleColor.Red, "<defName>{0}</defName>", defName.Value);
+                                    Log.Write(": ");
                                     Log.WriteLine(ex.Message);
                                     Log.Indent();
-                                    Log.WriteLine(defName.BaseUri);
+                                    Log.WriteLine(ConsoleColor.Red, defName.BaseUri);
                                     countInvalidDefs++;
                                 }
                                 if (isValid)
@@ -991,16 +1010,37 @@ namespace RimTrans.Builder
             if (this._data.Count() == 0) return;
 
             Log.Info();
-            Log.Write("Start outputing DefInjected.");
+            Log.Write("Start outputing DefInjected: ");
             Log.WriteLine(ConsoleColor.Cyan, path);
-            DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-            if (ds.AreAccessRulesProtected)
+
+            if (Directory.Exists(path))
             {
-                Log.Error();
-                Log.WriteLine("Outputing DefInjected failed: No write permission to directory: ");
-                Log.Indent();
-                Log.WriteLine(ConsoleColor.Red, path);
-                return;
+                DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
+                if (ds.AreAccessRulesProtected)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing DefInjected failed: No write permission to directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, path);
+                    return;
+                }
+            }
+            else
+            {
+                try
+                {
+                    Directory.CreateDirectory(path);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing DefInjected failed: Can not create directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, path);
+                    Log.Indent();
+                    Log.WriteLine(ex.Message);
+                    return;
+                }
             }
 
             int countValidFiles = 0;
@@ -1018,7 +1058,7 @@ namespace RimTrans.Builder
                     if (curDs.AreAccessRulesProtected)
                     {
                         Log.Error();
-                        Log.WriteLine("Creating subdirectory failed: No write permission to directory.");
+                        Log.WriteLine("Outputing to sub-directory failed: No write permission to directory.");
                         Log.Indent();
                         Log.WriteLine(ConsoleColor.Red, subDirPath);
                         countInvalidFiles += subData.Count;

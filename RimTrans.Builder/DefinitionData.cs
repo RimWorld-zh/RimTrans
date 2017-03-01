@@ -77,9 +77,10 @@ namespace RimTrans.Builder
                     catch (XmlException ex)
                     {
                         Log.Error();
-                        Log.WriteLine(ex.Message);
+                        Log.Write("Loading file failed: ");
+                        Log.WriteLine(ConsoleColor.Red, filePath);
                         Log.Indent();
-                        Log.WriteLine(filePath);
+                        Log.WriteLine(ex.Message);
                         countInvalidFiles++;
                     }
                     if (doc != null)
@@ -192,7 +193,7 @@ namespace RimTrans.Builder
                             defChild.defName().Value,
                             defChild.Attribute("ParentName").Value);
                         Log.Indent();
-                        Log.WriteLine(defChild.BaseUri);
+                        Log.WriteLine(ConsoleColor.Yellow, defChild.BaseUri);
                         countInvalidChildren++;
                     }
                     else
@@ -225,7 +226,7 @@ namespace RimTrans.Builder
                                         defChild.defName().Value,
                                         parentName);
                                     Log.Indent();
-                                    Log.WriteLine(defChild.BaseUri);
+                                    Log.WriteLine(ConsoleColor.Yellow, defChild.BaseUri);
                                 }
                                 else
                                 {
@@ -236,7 +237,7 @@ namespace RimTrans.Builder
                                         defParent.Attribute("Name").Value,
                                         parentName);
                                     Log.Indent();
-                                    Log.WriteLine(defParent.Attribute("Uri").Value);
+                                    Log.WriteLine(ConsoleColor.Yellow, defParent.Attribute("Uri").Value);
                                 }
                                 break;
                             }
