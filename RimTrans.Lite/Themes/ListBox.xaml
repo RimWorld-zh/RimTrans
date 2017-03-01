@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RimTrans.Lite.Themes">
+
+    <Style TargetType="{x:Type ListBox}" x:Key="Style.ListBox">
+        <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseLeftButtonDown">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="SelectedItem">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Null}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

@@ -4,9 +4,85 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RimTrans.Lite"
+        xmlns:u="clr-namespace:RimTrans.Lite.Util"
+        xmlns:c="clr-namespace:RimTrans.Lite.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        x:Name="Main"
+        Title="{DynamicResource MainWindow.Title}"
+        WindowState="{Binding Source={x:Static u:UserSettings.All}, Path=MainWindowState}"
+        Height="{Binding Source={x:Static u:UserSettings.All}, Path=MainWindowHeight, Mode=TwoWay}"
+        Width="{Binding Source={x:Static u:UserSettings.All}, Path=MainWindowWidth, Mode=TwoWay}"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource Lite.Main.Background}"
+        SnapsToDevicePixels="True">
+    <Window.DataContext>
+        <local:MainViewModel x:Name="vm"/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="256" Width="{Binding Source={x:Static u:UserSettings.All}, Path=ModListBoxWidth}"/>
+            <ColumnDefinition MinWidth="256" Width="{Binding Source={x:Static u:UserSettings.All}, Path=LanguageListBoxWidth}"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Tool Bar Left -->
+        <StackPanel x:Name="toolbarLeft" 
+                    Background="{StaticResource Lite.Main.Background}"
+                    Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Panel.ZIndex="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
+                    Height="64" Width="auto" Margin="5,0,5,0">
+
+            <c:AwesomeButton x:Name="buttonAddMod" Text="{DynamicResource MainWindow.Button.AddMod}"
+                             Icon="PuzzlePiece" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+            <c:AwesomeButton x:Name="buttonAddLanguage" Text="{DynamicResource MainWindow.Button.AddLanguage}"
+                             Icon="Plus" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+            <Separator HorizontalAlignment="Left" Height="auto" Width="1" Margin="3,2"/>
+
+            <c:AwesomeButton x:Name="buttonAddExtract" Text="{DynamicResource MainWindow.Button.Extract}"
+                             Icon="PaperPlane" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+            <c:AwesomeButton x:Name="buttonAddEditor" Text="{DynamicResource MainWindow.Button.Editor}"
+                             Icon="Pencil" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+        </StackPanel>
+
+        <!-- Tool Bar Right -->
+        <StackPanel x:Name="toolbarRight"
+                    Background="{StaticResource Lite.Main.Background}"
+                    Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1"
+                    Height="64" Width="auto" Margin="5">
+
+            <c:AwesomeButton x:Name="buttonTools" Text="{DynamicResource MainWindow.Button.Tools}"
+                             Icon="Briefcase" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+            <c:AwesomeButton x:Name="buttonHelp" Text="{DynamicResource MainWindow.Button.Help}"
+                             Icon="Question" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+            <c:AwesomeButton x:Name="buttonOptions" Text="{DynamicResource MainWindow.Button.Options}"
+                             Icon="Cogs" Style="{StaticResource Style.AwesomeButton.Large}"/>
+
+        </StackPanel>
+
+        <ListBox x:Name="modListBox"
+                 DataContext="{Binding}"
+                 ItemsSource="{Binding Mods}"
+                 SelectionChanged="modListBox_SelectionChanged"
+                 Grid.Column="0" Grid.Row="3" Margin="3" Style="{StaticResource Style.ListBox}"/>
+
+        <ListBox x:Name="languageListBox"
+                 DataContext="{Binding}"
+                 ItemsSource="{Binding SelectedMod.Languages}"
+                 Grid.Column="1" Grid.Row="3" Margin="3" Style="{StaticResource Style.ListBox}"/>
+
     </Grid>
 </Window>

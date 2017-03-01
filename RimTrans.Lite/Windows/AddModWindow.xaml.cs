@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using RimTrans.Lite.Controls;
 
-namespace RimTrans.Lite
+namespace RimTrans.Lite.Windows
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// Window_AddMod.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddModWindow : Window
     {
-        public MainWindow()
+        public AddModWindow()
         {
             InitializeComponent();
-            vm.View = this;
-        }
-
-        private void modListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            vm.SelectedMod = (ModListBoxItem)modListBox.SelectedItem;
         }
     }
 }
