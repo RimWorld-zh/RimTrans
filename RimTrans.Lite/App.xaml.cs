@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-using RimTrans.Lite.Util;
 namespace RimTrans.Lite
 {
     /// <summary>
@@ -14,9 +13,5 @@ namespace RimTrans.Lite
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Exit(object sender, ExitEventArgs e)
-        {
-            UserSettings.Save();
-        }
     }
 }

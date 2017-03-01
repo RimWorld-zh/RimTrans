@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 
 namespace RimTrans.Lite
 {
@@ -24,10 +23,6 @@ namespace RimTrans.Lite
         public MainWindow()
         {
             InitializeComponent();
-            var vm = new MainViewModel();
-            vm.View = this;
-            this.DataContext = vm;
         }
-        
     }
 }

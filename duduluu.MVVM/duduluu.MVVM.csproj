@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="DialogExtension.cs" />
     <Compile Include="RelayCommand.cs" />
-    <Compile Include="TextBoxOutputter.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
