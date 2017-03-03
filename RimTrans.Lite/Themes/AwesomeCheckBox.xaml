@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RimTrans.Lite.Themes"
+                    xmlns:fa="http://schemas.fontawesome.io/icons/"
+                    xmlns:co="clr-namespace:RimTrans.Lite.Converters">
+
+    <co:IsCheckedToSquareIcon x:Key="IsCheckedToSquareIconConverter"/>
+    
+    <!-- AwesomeCheckBox Single -->
+    <Style TargetType="CheckBox" x:Key="Style.AwesomeCheckBox.Single">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid Background="{TemplateBinding Background}">
+                        <fa:ImageAwesome Icon="{TemplateBinding IsChecked, Converter={StaticResource IsCheckedToSquareIconConverter}}"
+                                         Foreground="{TemplateBinding Foreground}"
+                                         Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <!-- Default Value -->
+        <Setter Property="Height" Value="14"/>
+        <Setter Property="Width" Value="14"/>
+        <Setter Property="Background" Value="Transparent"/>
+
+    </Style>
+
+    <!-- AwesomeCheckBox Content -->
+    <Style TargetType="CheckBox" x:Key="Style.AwesomeCheckBox.Content">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <StackPanel Orientation="Horizontal" Cursor="{TemplateBinding Cursor}"
+                                Background="{TemplateBinding Background}"
+                                Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"
+                                HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <fa:ImageAwesome Icon="{TemplateBinding IsChecked, Converter={StaticResource IsCheckedToSquareIconConverter}}"
+                                         Foreground="{TemplateBinding Foreground}"
+                                         Height="14" Width="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="{TemplateBinding Content}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0"/>
+
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!-- Default Value -->
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="14px"/>
+        <Setter Property="Height" Value="18"/>
+        <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground}"/>
+        <Setter Property="Background" Value="Transparent"/>
+
+    </Style>
+
+</ResourceDictionary>

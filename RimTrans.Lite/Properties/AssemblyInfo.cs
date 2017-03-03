@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("RimTransLite")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("RimTrans")]
+[assembly: AssemblyDescription("RimTrans")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RimTransLite")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("RimWorld-zh.com")]
+[assembly: AssemblyProduct("RimTrans")]
+[assembly: AssemblyCopyright("Copyright © duduluu 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

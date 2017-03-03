@@ -1,0 +1,183 @@
+﻿<Window x:Class="RimTrans.Lite.Windows.AddModWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RimTrans.Lite.Windows"
+        xmlns:u="clr-namespace:RimTrans.Lite.Util"
+        xmlns:c="clr-namespace:RimTrans.Lite.Controls"
+        mc:Ignorable="d"
+        x:Name="AddMod"
+        Title="{DynamicResource MainWindow.Button.AddMod}"
+        WindowState="{Binding Source={x:Static u:UserSettings.All}, Path=AddModWindowState}"
+        Height="{Binding Source={x:Static u:UserSettings.All}, Path=AddModWindowHeight, Mode=TwoWay}"
+        Width="{Binding Source={x:Static u:UserSettings.All}, Path=AddModWindowWidth, Mode=TwoWay}"
+        MinHeight="600" MinWidth="971"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource Lite.Main.Background}"
+        SnapsToDevicePixels="True">
+    <Window.DataContext>
+        <local:AddModViewModel x:Name="vm"/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="306"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Side Bar -->
+        <StackPanel Grid.RowSpan="2" Style="{StaticResource Style.Sidebar}">
+            <c:AwesomeRadioButton x:Name="radioInternal"
+                                  Icon="FolderOutline" 
+                                  Text="{DynamicResource Mod.Internal}"
+                                  IsChecked="True"
+                                  Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
+            <c:AwesomeRadioButton x:Name="radioWorkshop"
+                                  Icon="Steam" 
+                                  Text="{DynamicResource Mod.Workshop}"
+                                  Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
+            <c:AwesomeRadioButton x:Name="radioCustom"
+                                  Icon="HddOutline" 
+                                  Text="{DynamicResource Mod.Custom}"
+                                  Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
+        </StackPanel>
+
+        <!-- Mods ListBox -->
+        
+        <TextBlock Text="{DynamicResource Mod.Internal}" 
+                   Visibility="{Binding IsChecked, ElementName=radioInternal, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Grid.Column="1" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
+        <ListBox x:Name="modListBoxInternal"
+                 DataContext="{Binding}"
+                 ItemsSource="{Binding ModsInternal}" 
+                 SelectionChanged="modListBoxInternal_SelectionChanged"
+                 Visibility="{Binding IsChecked, ElementName=radioInternal, Converter={StaticResource BooleanToVisibilityConverter}}"
+                 Grid.Column="1" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}" Grid.RowSpan="2"/>
+
+
+        <TextBlock Text="{DynamicResource Mod.Workshop}" 
+                   Visibility="{Binding IsChecked, ElementName=radioWorkshop, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Grid.Column="1" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
+        <ListBox x:Name="modListBoxWorkshop"
+                 DataContext="{Binding}"
+                 ItemsSource="{Binding ModsWorkshop}"
+                 SelectionChanged="modListBoxWorkshop_SelectionChanged"
+                 Visibility="{Binding IsChecked, ElementName=radioWorkshop, Converter={StaticResource BooleanToVisibilityConverter}}"
+                 Grid.Column="1" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}" Grid.RowSpan="2"/>
+
+        <TextBlock Text="{DynamicResource Mod.Custom}" 
+                   Visibility="{Binding IsChecked, ElementName=radioCustom, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Grid.Column="1" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
+        <ListBox x:Name="modListBoxCustom"
+                 Visibility="{Binding IsChecked, ElementName=radioCustom, Converter={StaticResource BooleanToVisibilityConverter}}"
+                 Grid.Column="1" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}" Grid.RowSpan="2"/>
+        
+        <!-- Mod Info -->
+        <Grid Grid.Column="2"
+              Height="84" VerticalAlignment="Top" Margin="16,20,20,0">
+            <TextBlock Text="{DynamicResource Common.Mod}"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource Style.TextBlock.Label}"/>
+            <TextBox Text="{Binding SelectedMod.ModPath, Converter={StaticResource PathToNameConverter}}"
+                     HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="100,0,0,0"
+                     Style="{StaticResource Style.TextBox.Label}"/>
+            <TextBlock Text="{DynamicResource Common.Name}"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Style.TextBlock.Label}"/>
+            <TextBox Text="{Binding SelectedMod.ModName}"
+                     HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="100,0,0,0"
+                     Style="{StaticResource Style.TextBox.Label}"/>
+            <TextBlock Text="{DynamicResource Common.Path}"
+                       HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource Style.TextBlock.Label}"/>
+            <TextBox Text="{Binding SelectedMod.ModPath}"
+                     HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="100,0,0,0"
+                     Style="{StaticResource Style.TextBox.Label}"/>
+        </Grid>
+
+        <!-- Languages -->
+        <GroupBox Header="{DynamicResource Common.Language}" Grid.Column="2" Grid.Row="0"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="16,120,20,5"
+                  Style="{StaticResource Style.GroupBox}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0"
+                            HorizontalAlignment="Left" Margin="5">
+                    <CheckBox Content="ChineseSimplified ( 简体中文 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_ChineseSimplified}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="ChineseTraditional ( 繁體中文 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_ChineseTraditional}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Czech ( Čeština ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Czech}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Danish ( Dansk ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Danish}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Dutch ( Nederlands ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Dutch}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="English ( English ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_English}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Estonian ( Eesti ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Estonian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Finnish ( Suomi ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Finnish}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="French ( Français ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_French}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="German ( Deutsch ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_German}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Hungarian ( Magyar ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Hungarian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Italian ( Italiano. ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Italian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Japanese ( 日本語 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Japanese}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="1"
+                            HorizontalAlignment="Left" Margin="5">
+                    <CheckBox Content="Korean ( 한국어 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Korean}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Norwegian ( Norsk Bokmål ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Norwegian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Polish ( Polski ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Polish}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Portuguese ( Português ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Portuguese}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="PortugueseBrazilian ( Português Brasileiro ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_PortugueseBrazilian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Romanian ( Română ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Romanian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Russian ( Русский ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Russian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Slovak ( Slovenčina ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Slovak}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Spanish ( Español(Castellano) ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Spanish}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="SpanishLatin ( Español(Latinoamérica) ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_SpanishLatin}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Swedish ( Svenska ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Swedish}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Turkish ( Türkçe ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Turkish}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                    <CheckBox Content="Ukrainian ( Українська ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Ukrainian}"
+                              Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Confirm and Cancel buttons -->
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="2" Grid.Row="1"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,0,15,0">
+            <Button Content="{DynamicResource Common.SelectAll}" Command="{Binding CommandSelectAll}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
+            <Button Content="{DynamicResource Common.Confirm}" IsDefault="True" Command="{Binding CommandConfirm}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
+            <Button Content="{DynamicResource Common.Cancel}" IsCancel="True"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

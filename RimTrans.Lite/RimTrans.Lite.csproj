@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0AD83F5-86DE-436F-85E6-DE12DC552A02}</ProjectGuid>
+    <ProjectGuid>{87189362-ECA6-4A7F-8D78-1B7B86FC262A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RimTrans.Lite</RootNamespace>
     <AssemblyName>RimTrans</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,26 +29,18 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\RimTrans\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Steam Local Data, Version=0.4.0.246, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Steam_Local_Data.dll.0.4.1\lib\net45\Steam Local Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,65 +59,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Control\PanelPrimaryLanguages.xaml.cs">
-      <DependentUpon>PanelPrimaryLanguages.xaml</DependentUpon>
+    <Compile Include="Controls\AwesomeButton.cs" />
+    <Compile Include="Controls\AwesomeRadioButton.cs" />
+    <Compile Include="Controls\LanguageListBoxItem.cs" />
+    <Compile Include="Controls\ModListBoxItem.cs" />
+    <Compile Include="Converters\EnumerationToBoolean.cs" />
+    <Compile Include="Converters\InserveBoolean.cs" />
+    <Compile Include="Converters\IntegerToBoolean.cs" />
+    <Compile Include="Converters\IsCheckedToCircleIcon.cs" />
+    <Compile Include="Converters\IsCheckedToSquareIcon.cs" />
+    <Compile Include="Converters\IsNullToVisibility.cs" />
+    <Compile Include="Converters\LanguageCodeToIsSelected.cs" />
+    <Compile Include="Converters\PathToName.cs" />
+    <Compile Include="Converters\ModCategoryToIcon.cs" />
+    <Compile Include="Util\LocalizationHelper.cs" />
+    <Compile Include="Windows\MainViewModel.cs" />
+    <Compile Include="Util\Enums.cs" />
+    <Compile Include="Util\RimWorldHelper.cs" />
+    <Compile Include="Util\UserSettings.cs" />
+    <Compile Include="Windows\AddModViewModel.cs" />
+    <Compile Include="Windows\AddModWindow.xaml.cs">
+      <DependentUpon>AddModWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialog\AddLanguageDialog.xaml.cs">
-      <DependentUpon>AddLanguageDialog.xaml</DependentUpon>
+    <Compile Include="Windows\OptionsWindow.xaml.cs">
+      <DependentUpon>OptionsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialog\AddLanguageViewModel.cs" />
-    <Compile Include="Dialog\AddModViewModel.cs" />
-    <Compile Include="Dialog\BuildDialog.xaml.cs">
-      <DependentUpon>BuildDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\BuildViewModel.cs" />
-    <Compile Include="Dialog\ConfigDialog.xaml.cs">
-      <DependentUpon>ConfigDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Options\LiteConfigs.cs" />
-    <Compile Include="TestDialog.xaml.cs">
-      <DependentUpon>TestDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainViewModel.cs" />
-    <Compile Include="Util\Steam.cs" />
-    <Compile Include="Util\UserSetting.cs" />
-    <Page Include="Control\AwesomeButtonV.xaml">
+    <Page Include="Resources\Localizations\StringResources.zh-CN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Accessibility.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\LanguagesListBox.xaml">
+    <Page Include="Themes\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\ModsListBox.xaml">
+    <Page Include="Themes\Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\PanelPrimaryLanguages.xaml">
+    <Page Include="Themes\TextControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialog\AddLanguageDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\AddModDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\BuildDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ConfigDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LiteThemeDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -134,27 +112,55 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\AwesomeButtonV.xaml.cs">
-      <DependentUpon>AwesomeButtonV.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\LanguagesListBox.xaml.cs">
-      <DependentUpon>LanguagesListBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\ModsListBox.xaml.cs">
-      <DependentUpon>ModsListBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\AddModDialog.xaml.cs">
-      <DependentUpon>AddModDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resources\Settings.xaml">
+    <Page Include="Resources\DefaultSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestDialog.xaml">
+    <Page Include="Resources\Localizations\StringResources.en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\AwesomeRadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\AwesomeButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\AwesomeCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\LanguageListBoxItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\LiteColors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ModListBoxItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddModWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OptionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,23 +193,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Localization\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Logo.ico" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\duduluu.MVVM\duduluu.MVVM.csproj">
       <Project>{f3ec6134-ac78-4919-bb82-5b37018bcead}</Project>
       <Name>duduluu.MVVM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RimTrans.Builder\RimTrans.Builder.csproj">
-      <Project>{8ee94102-f91f-4df4-8304-51b6f1791464}</Project>
-      <Name>RimTrans.Builder</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
