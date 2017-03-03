@@ -12,11 +12,6 @@ namespace RimTrans.Lite.Util
     public enum ModCategory
     {
         /// <summary>
-        /// The mod from custom path.
-        /// </summary>
-        Custom,
-
-        /// <summary>
         /// The mod in game's "Mods" directory.
         /// </summary>
         Internal,
@@ -25,6 +20,11 @@ namespace RimTrans.Lite.Util
         /// The mod from steam workshop, in the "294100" directory
         /// </summary>
         Workshop,
+
+        /// <summary>
+        /// The mod from custom path.
+        /// </summary>
+        Custom,
     }
 
     public enum GenerateMode

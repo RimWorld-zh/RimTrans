@@ -5,6 +5,7 @@
     <Style TargetType="{x:Type ListBox}" x:Key="Style.ListBox">
         <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
 
         <Style.Triggers>
             <EventTrigger RoutedEvent="MouseLeftButtonDown">
@@ -16,7 +17,16 @@
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
+            <Trigger Property="Visibility" Value="Collapsed">
+                <Setter Property="SelectedItem" Value="{x:Null}"/>
+            </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type ListBox}" x:Key="Style.ListBox.Lock">
+        <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
     </Style>
     
 </ResourceDictionary>

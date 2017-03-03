@@ -17,10 +17,7 @@ using FontAwesome.WPF;
 
 namespace RimTrans.Lite.Controls
 {
-    /// <summary>
-    /// Button with Font Awesome Icon
-    /// </summary>
-    public class AwesomeButton : Button
+    public class AwesomeRadioButton : RadioButton
     {
         /// <summary>
         /// The text of the button.
@@ -32,7 +29,7 @@ namespace RimTrans.Lite.Controls
             set { SetValue(TextProperty, value); }
         }
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(AwesomeButton));
+            DependencyProperty.Register("Text", typeof(string), typeof(AwesomeRadioButton));
 
 
         /// <summary>
@@ -45,8 +42,8 @@ namespace RimTrans.Lite.Controls
             set { SetValue(IconProperty, value); }
         }
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(FontAwesomeIcon), typeof(AwesomeButton));
-        
+            DependencyProperty.Register("Icon", typeof(FontAwesomeIcon), typeof(AwesomeRadioButton));
+
 
         [Bindable(true), Category("Common"), Description("The height of the icon.")]
         public Brush IconBrush
@@ -55,8 +52,8 @@ namespace RimTrans.Lite.Controls
             set { SetValue(IconBrushProperty, value); }
         }
         public static readonly DependencyProperty IconBrushProperty =
-            DependencyProperty.Register("IconBrush", typeof(Brush), typeof(AwesomeButton));
-        
+            DependencyProperty.Register("IconBrush", typeof(Brush), typeof(AwesomeRadioButton));
+
 
         [Bindable(true), Category("Common"), Description("The height of the icon.")]
         public double IconHeight
@@ -65,7 +62,7 @@ namespace RimTrans.Lite.Controls
             set { SetValue(IconHeightProperty, value); }
         }
         public static readonly DependencyProperty IconHeightProperty =
-            DependencyProperty.Register("IconHeight", typeof(double), typeof(AwesomeButton));
+            DependencyProperty.Register("IconHeight", typeof(double), typeof(AwesomeRadioButton));
 
 
         [Bindable(true), Category("Common"), Description("The width of the icon.")]
@@ -73,8 +70,8 @@ namespace RimTrans.Lite.Controls
         {
             get { return (double)GetValue(IconWidthProperty); }
             set { SetValue(IconWidthProperty, value); }
-        }public static readonly DependencyProperty IconWidthProperty =
-            DependencyProperty.Register("IconWidth", typeof(double), typeof(AwesomeButton));
-        
+        }
+        public static readonly DependencyProperty IconWidthProperty =
+           DependencyProperty.Register("IconWidth", typeof(double), typeof(AwesomeRadioButton));
     }
 }

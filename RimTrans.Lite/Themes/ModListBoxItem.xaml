@@ -3,10 +3,10 @@
                     xmlns:local="clr-namespace:RimTrans.Lite.Themes"
                     xmlns:fa="http://schemas.fontawesome.io/icons/"
                     xmlns:c="clr-namespace:RimTrans.Lite.Controls"
-                    xmlns:co="clr-namespace:RimTrans.Lite.Convertors">
-
-    <co:ModCategoryToIcon x:Key="ModCategoryToIconConvertor"/>
-    <co:PathToName x:Key="PathToNameConvertor"/>
+                    xmlns:co="clr-namespace:RimTrans.Lite.Converters">
+    
+    <co:ModCategoryToIcon x:Key="ModCategoryToIconConverter"/>
+    <co:PathToName x:Key="PathToNameConverter"/>
 
     <Style TargetType="{x:Type c:ModListBoxItem}">
         <Setter Property="Template">
@@ -17,19 +17,19 @@
                         <!--<Grid.ToolTip>
                             <ToolTip>
                                 <StackPanel>
-                                    <TextBlock Text="{TemplateBinding ModPath, Converter={StaticResource PathToNameConvertor}}" FontWeight="Heavy" Padding="2"/>
+                                    <TextBlock Text="{TemplateBinding ModPath, Converter={StaticResource PathToNameConverter}}" FontWeight="Heavy" Padding="2"/>
                                     <TextBlock Text="{TemplateBinding ModName}" FontWeight="Heavy" Padding="2"/>
                                     <TextBlock Text="{TemplateBinding ModPath}" Padding="2"/>
                                 </StackPanel>
                             </ToolTip>
                         </Grid.ToolTip>-->
-                        <fa:ImageAwesome Icon="{TemplateBinding Category, Converter={StaticResource ModCategoryToIconConvertor}}"
+                        <fa:ImageAwesome Icon="{TemplateBinding Category, Converter={StaticResource ModCategoryToIconConverter}}"
                                          Foreground="{TemplateBinding Foreground}"
                                          Height="18" Width="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <TextBlock Text="{TemplateBinding ModPath, Converter={StaticResource PathToNameConvertor}}"
+                        <TextBlock Text="{TemplateBinding ModPath, Converter={StaticResource PathToNameConverter}}" FontSize="{TemplateBinding FontSize}"
                                    Foreground="{TemplateBinding Foreground}"
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,0,0,0"/>
-                        <TextBlock Text="{TemplateBinding ModName}"
+                        <TextBlock Text="{TemplateBinding ModName}" FontSize="{TemplateBinding FontSize}"
                                    Foreground="{TemplateBinding Foreground}"
                                    Opacity="0.7"
                                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
@@ -38,6 +38,9 @@
             </Setter.Value>
         </Setter>
 
+        <!-- Default Values -->
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="12px"/>
         <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground}"/>
 
         <Style.Triggers>

@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RimTrans.Lite.Controls;
 
-namespace RimTrans.Lite
+namespace RimTrans.Lite.Windows
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -30,6 +30,21 @@ namespace RimTrans.Lite
         private void modListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             vm.SelectedMod = (ModListBoxItem)modListBox.SelectedItem;
+        }
+
+        private void languageListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            vm.SelectedLanguage = (LanguageListBoxItem)languageListBox.SelectedItem;
+        }
+
+        private void Main_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            vm.SaveProjects();
+        }
+
+        private void buttonHelp_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/duduluu/RimTrans/wiki");
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RimTrans.Lite.Controls;
 
 namespace RimTrans.Lite.Windows
 {
@@ -22,6 +23,19 @@ namespace RimTrans.Lite.Windows
         public AddModWindow()
         {
             InitializeComponent();
+            vm.View = this;
+        }
+
+        public ModListBoxItem Result { get; set; }
+
+        private void modListBoxInternal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            vm.SelectedMod = (ModListBoxItem)modListBoxInternal.SelectedItem;
+        }
+
+        private void modListBoxWorkshop_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            vm.SelectedMod = (ModListBoxItem)modListBoxWorkshop.SelectedItem;
         }
     }
 }

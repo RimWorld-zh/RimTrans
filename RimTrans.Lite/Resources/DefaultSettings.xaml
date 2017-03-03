@@ -3,16 +3,46 @@
                     xmlns:local="clr-namespace:RimTrans.Lite.Resources"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
 
+    <!-- Selected Languages For Add Mod -->
+    <s:Boolean x:Key="Selected_ChineseSimplified">False</s:Boolean>
+    <s:Boolean x:Key="Selected_ChineseTraditional">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Czech">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Danish">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Dutch">False</s:Boolean>
+    <s:Boolean x:Key="Selected_English">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Estonian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Finnish">False</s:Boolean>
+    <s:Boolean x:Key="Selected_French">False</s:Boolean>
+    <s:Boolean x:Key="Selected_German">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Hungarian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Italian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Japanese">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Korean">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Norwegian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Polish">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Portuguese">False</s:Boolean>
+    <s:Boolean x:Key="Selected_PortugueseBrazilian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Romanian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Russian">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Slovak">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Spanish">False</s:Boolean>
+    <s:Boolean x:Key="Selected_SpanishLatin">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Swedish">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Turkish">False</s:Boolean>
+    <s:Boolean x:Key="Selected_Ukrainian">False</s:Boolean>
+
     <s:Double x:Key="MainWindowHeight">667</s:Double>
     <s:Double x:Key="MainWindowWidth">1080</s:Double>
 
-    <s:Double x:Key="ModListBoxWidth">310</s:Double>
-    <s:Double x:Key="LanguageListBoxWidth">310</s:Double>
+    <s:Double x:Key="ModListBoxWidth">306</s:Double>
+    <s:Double x:Key="LanguageListBoxWidth">306</s:Double>
 
     <s:Double x:Key="AddModWindowHeight">600</s:Double>
     <s:Double x:Key="AddModWindowWidth">971</s:Double>
 
-    <s:String x:Key="RimWorldInstallDir">D:\Game\Steam\steamapps\common\RimWorld</s:String>
-    <s:String x:Key="Workshop294100">D:\Game\Steam\steamapps\workshop\content\294100</s:String>
+    <s:Double x:Key="OptionsWindowHeight">600</s:Double>
+    <s:Double x:Key="OptionsWindowWidth">971</s:Double>
+
+    <s:String x:Key="LanguageCode">auto</s:String>
 
 </ResourceDictionary>

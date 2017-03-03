@@ -9,21 +9,20 @@ using System.Windows.Data;
 using FontAwesome.WPF;
 using RimTrans.Lite.Util;
 
-namespace RimTrans.Lite.Convertors
+namespace RimTrans.Lite.Converters
 {
     class ModCategoryToIcon : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            ModCategory modCategory = (ModCategory)value;
+            var modCategory = value as ModCategory?;
             switch (modCategory)
             {
-                case ModCategory.Custom:
-                    return FontAwesomeIcon.HddOutline;
                 case ModCategory.Internal:
                     return FontAwesomeIcon.FolderOutline;
                 case ModCategory.Workshop:
                     return FontAwesomeIcon.Steam;
+                case ModCategory.Custom:
                 default:
                     return FontAwesomeIcon.HddOutline;
             }
@@ -31,15 +30,14 @@ namespace RimTrans.Lite.Convertors
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            FontAwesomeIcon icon = (FontAwesomeIcon)value;
+            var icon = value as FontAwesomeIcon?;
             switch (icon)
             {
-                case FontAwesomeIcon.HddOutline:
-                    return ModCategory.Custom;
                 case FontAwesomeIcon.FolderOutline:
                     return ModCategory.Internal;
                 case FontAwesomeIcon.Steam:
                     return ModCategory.Workshop;
+                case FontAwesomeIcon.HddOutline:
                 default:
                     return ModCategory.Custom;
             }

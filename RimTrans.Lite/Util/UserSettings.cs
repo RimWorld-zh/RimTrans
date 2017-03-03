@@ -101,6 +101,8 @@ namespace RimTrans.Lite.Util
             {
                 Application.Current.Resources.Add(key, value);
             }
+
+            All.OnPropertyChanged(key);
         }
 
         private static ResourceDictionary LoadOrDefault(string path)
@@ -151,6 +153,182 @@ namespace RimTrans.Lite.Util
         //}
 
         // MainWindow
+
+        #region RimWorld
+
+        public string RimWorldInstallDir
+        {
+            get { return (string)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public string Workshop294100
+        {
+            get { return (string)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        // 1-13
+
+        public bool Selected_ChineseSimplified
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_ChineseTraditional
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Czech
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Danish
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Dutch
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_English
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Estonian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Finnish
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_French
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_German
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Hungarian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Italian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Japanese
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        // 14-26
+
+        public bool Selected_Korean
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Norwegian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Polish
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Portuguese
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_PortugueseBrazilian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Romanian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Russian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Slovak
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Spanish
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_SpanishLatin
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Swedish
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Turkish
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool Selected_Ukrainian
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        #endregion
 
         #region MainWindow
 
@@ -226,15 +404,27 @@ namespace RimTrans.Lite.Util
 
         #endregion
 
-        #region Common
+        #region Window Options
 
-        public string RimWorldInstallDir
+        public WindowState OptionsWindowState
         {
-            get { return (string)GetValue(); }
+            get { return (WindowState)GetValue(); }
             set { SetValue(value); }
         }
 
-        public string Workshop294100
+        public double OptionsWindowHeight
+        {
+            get { return (double)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public double OptionsWindowWidth
+        {
+            get { return (double)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public string LanguageCode
         {
             get { return (string)GetValue(); }
             set { SetValue(value); }

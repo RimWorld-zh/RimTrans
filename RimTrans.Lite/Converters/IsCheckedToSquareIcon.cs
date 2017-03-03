@@ -8,9 +8,9 @@ using System.Windows;
 using System.Windows.Data;
 using FontAwesome.WPF;
 
-namespace RimTrans.Lite.Convertors
+namespace RimTrans.Lite.Converters
 {
-    public class IsCheckedToIcon : IValueConverter
+    public class IsCheckedToSquareIcon : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -20,7 +20,7 @@ namespace RimTrans.Lite.Convertors
                 case null:
                     return FontAwesomeIcon.Square;
                 case true:
-                    return FontAwesomeIcon.CheckSquare;
+                    return FontAwesomeIcon.CheckSquareOutline;
                 case false:
                 default:
                     return FontAwesomeIcon.SquareOutline;
@@ -34,7 +34,7 @@ namespace RimTrans.Lite.Convertors
             {
                 case FontAwesomeIcon.Square:
                     return null;
-                case FontAwesomeIcon.CheckSquare:
+                case FontAwesomeIcon.CheckSquareOutline:
                     return true;
                 case FontAwesomeIcon.SquareOutline:
                 default:

@@ -33,12 +33,28 @@ namespace RimTrans.Lite.Controls
 
         public ObservableCollection<LanguageListBoxItem> Languages { get; set; }
 
+        #region Hash
+
+        public string ProjectFileName { get; set; }
+
+        public void InitialProjectFileName()
+        {
+            this.ProjectFileName =
+                this.Category.ToString() +
+                "_" +
+                Path.GetFileName(this.ModPath) +
+                string.Format("{0:_yyyyMMdd_HHmmss}", DateTime.Now) +
+                ".xml";
+        }
+
+        #endregion
+
         #region Porperties
 
         /// <summary>
         /// The directory path of the mod.
         /// </summary>
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The path of the mod.")]
         public string ModPath
         {
             get { return (string)GetValue(ModPathProperty); }
@@ -51,7 +67,7 @@ namespace RimTrans.Lite.Controls
         /// <summary>
         /// Where the mod is.
         /// </summary>
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The category of the mod.")]
         public ModCategory Category
         {
             get { return (ModCategory)GetValue(CategoryProperty); }
@@ -64,7 +80,7 @@ namespace RimTrans.Lite.Controls
         /// <summary>
         /// The mod's display name.
         /// </summary>
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The name of the mod.")]
         public string ModName
         {
             get { return (string)GetValue(ModNameProperty); }
@@ -77,7 +93,7 @@ namespace RimTrans.Lite.Controls
         /// <summary>
         /// Generate Mode
         /// </summary>
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The generate option of the mod.")]
         public GenerateMode GenerateOption
         {
             get { return (GenerateMode)GetValue(GenerateOptionProperty); }
@@ -86,26 +102,45 @@ namespace RimTrans.Lite.Controls
         public static readonly DependencyProperty GenerateOptionProperty =
             DependencyProperty.Register("GenerateOption", typeof(GenerateMode), typeof(ModListBoxItem));
 
-
+        
         ///// <summary>
-        ///// Delete the old files or not when generate.
+        ///// Clean Mode
         ///// </summary>
-        //[Bindable(true), Category("Common"), Description("The text of the button.")]
-        //public bool IsCleanMode
+        //[Bindable(true), Category("Common"), Description("If clean or not when generate.")]
+        //public bool? IsCleanMode
         //{
-        //    get { return (bool)GetValue(IsCleanModeProperty); }
+        //    get { return (bool?)GetValue(IsCleanModeProperty); }
         //    set { SetValue(IsCleanModeProperty, value); }
         //}
         //public static readonly DependencyProperty IsCleanModeProperty =
-        //    DependencyProperty.Register("IsCleanMode", typeof(bool), typeof(ModListBoxItem));
+        //    DependencyProperty.Register("IsCleanMode", typeof(bool?), typeof(ModListBoxItem));
+        
 
         #endregion
 
         #region Save
 
-        public void Save()
+        public void Save(string path)
         {
-
+            XElement languages = new XElement("Languages");
+            foreach (LanguageListBoxItem langItem in this.Languages)
+            {
+                XElement li = new XElement("li",
+                    new XElement("LangPath", langItem.LangPath),
+                    new XElement("RealName", langItem.RealName),
+                    new XElement("NativeName", langItem.NativeName),
+                    new XElement("IsCustom", langItem.IsCustom),
+                    new XElement("CustomPath", langItem.CustomPath),
+                    new XElement("IsChecked", langItem.IsChecked));
+                languages.Add(li);
+            }
+            XElement root = new XElement("ProjectMod",
+                new XElement("ModPath", this.ModPath),
+                new XElement("Category", this.Category),
+                new XElement("GenerateOption", this.GenerateOption));
+            root.Add(languages);
+            XDocument doc = new XDocument(new XDeclaration("1.0", "utf-8", null), root);
+            doc.Save(path);
         }
 
         #endregion
@@ -114,81 +149,59 @@ namespace RimTrans.Lite.Controls
 
         public static ModListBoxItem Load(string path)
         {
-            ModListBoxItem modItem = new ModListBoxItem();
 
             if (File.Exists(path))
             {
+                ModListBoxItem modItem = new ModListBoxItem();
                 XDocument doc = XDocument.Load(path);
                 XElement root = doc.Root;
+                modItem.ModPath = root.Element("ModPath").Value;
+                XElement category = root.Element("Category");
+                switch (category.Value)
                 {
-                    string modPath = root.Element("ModPath").Value;
-                    if (!string.IsNullOrWhiteSpace(modPath))
-                        modItem.ModPath = modPath;
-                    else
-                        throw new Exception("Invalid value.");
-
-                    ModCategory modCategory;
-                    if (Enum.TryParse(root.Element("Category").Value, out modCategory))
-                        modItem.Category = modCategory;
-                    else
-                        throw new Exception("Invalid value.");
-
-                    GenerateMode modGenerateOption;
-                    if (Enum.TryParse(root.Element("GenerateOption").Value, out modGenerateOption))
-                        modItem.GenerateOption = modGenerateOption;
-                    else
-                        throw new Exception("Invalid value.");
+                    case "Internal":
+                        modItem.Category = ModCategory.Internal;
+                        break;
+                    case "Workshop":
+                        modItem.Category = ModCategory.Workshop;
+                        break;
+                    default:
+                        modItem.Category = ModCategory.Custom;
+                        break;
+                }
+                XElement generateOption = root.Element("GenerateOption");
+                switch (generateOption.Value)
+                {
+                    case "Special":
+                        modItem.GenerateOption = GenerateMode.Special;
+                        break;
+                    case "Core":
+                        modItem.GenerateOption = GenerateMode.Core;
+                        break;
+                    default:
+                        modItem.GenerateOption = GenerateMode.Standard;
+                        break;
                 }
                 XElement languages = root.Element("Languages");
-                foreach (XElement curLang in languages.Elements())
+                foreach (XElement li in languages.Elements())
                 {
                     LanguageListBoxItem langItem = new LanguageListBoxItem();
-
-                    string langPath = curLang.Element("LangPath").Value;
-                    if (!string.IsNullOrWhiteSpace(langPath))
-                        langItem.LangPath = langPath;
-                    else
-                        throw new Exception("Invalid value.");
-
-                    string langRealName = curLang.Element("RealName").Value;
-                    if (!string.IsNullOrWhiteSpace(langRealName))
-                        langItem.RealName = langRealName;
-                    else
-                        throw new Exception("Invalid value.");
-
-                    string langNativeName = curLang.Element("NativeName").Value;
-                    if (!string.IsNullOrWhiteSpace(langNativeName))
-                        langItem.NativeName = langNativeName;
-                    else
-                        throw new Exception("Invalid value.");
-
-                    bool langIsCustom;
-                    if (bool.TryParse(root.Element("IsCustom").Value, out langIsCustom))
-                        langItem.IsCustom = langIsCustom;
-                    else
-                        langItem.IsCustom = false;
-
-                    string langCustomPath = root.Element("CustomPath").Value;
-                    if (!string.IsNullOrWhiteSpace(langCustomPath))
-                        langItem.CustomPath = langCustomPath;
-                    else
-                        throw new Exception("Invalid value.");
-
-                    bool langIsChecked;
-                    if (bool.TryParse(root.Element("IsChecked").Value, out langIsChecked))
-                        langItem.IsChecked = langIsChecked;
-                    else
-                        langItem.IsChecked = false;
-
+                    langItem.LangPath = li.Element("LangPath").Value;
+                    langItem.RealName = li.Element("RealName").Value;
+                    langItem.NativeName = li.Element("NativeName").Value;
+                    langItem.IsCustom = (string.Compare(li.Element("IsCustom").Value, "true", true) == 0);
+                    langItem.CustomPath = li.Element("CustomPath").Value;
+                    langItem.IsChecked = (string.Compare(li.Element("IsChecked").Value, "true", true) == 0);
                     modItem.Languages.Add(langItem);
                 }
+                modItem.ProjectFileName = Path.GetFileName(path);
+                modItem.ModName = GetModName(modItem.ModPath);
+                return modItem;
             }
             else
             {
                 throw new Exception("The File dose not exist: " + path);
             }
-
-            return modItem;
         }
 
         #endregion
@@ -204,6 +217,7 @@ namespace RimTrans.Lite.Controls
                 modItem.ModPath = subDir;
                 modItem.Category = category;
                 modItem.ModName = GetModName(subDir);
+                //modItem.IsCleanMode = false;
                 if (System.IO.Path.GetFileName(subDir) == "Core")
                     modItem.GenerateOption = GenerateMode.Core;
                 else

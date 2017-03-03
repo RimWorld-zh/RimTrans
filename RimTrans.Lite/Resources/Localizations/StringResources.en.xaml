@@ -2,9 +2,19 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:RimTrans.Lite.Resources.Localizations"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--
+    
+    Application Language File
+    Language Code: en
+    Language Name: English
+    Language Native Name: English
+    Translator: duduluu
+    
+    -->
 
     <!-- Common -->
     <s:String x:Key="Common.Common">Common</s:String>
+    <s:String x:Key="Common.Application">Application</s:String>
     
     <s:String x:Key="Common.Open">Open</s:String>
     <s:String x:Key="Common.Close">Close</s:String>
@@ -31,9 +41,11 @@
 
     <s:String x:Key="Common.Select">Select</s:String>
     <s:String x:Key="Common.SelectAll">Select All</s:String>
-    
+
     <s:String x:Key="Common.Mod">Mod</s:String>
     <s:String x:Key="Common.Language">Language</s:String>
+    <s:String x:Key="Common.Backstory">Backstory</s:String>
+    <s:String x:Key="Common.Name">Name</s:String>
 
     <s:String x:Key="Common.File">File</s:String>
     <s:String x:Key="Common.Folder">Folder</s:String>
@@ -43,6 +55,20 @@
     <s:String x:Key="Common.Info">Info</s:String>
     <s:String x:Key="Common.Warning">Warning</s:String>
     <s:String x:Key="Common.Error">Error</s:String>
+
+    <!-- Mod Category -->
+    <s:String x:Key="Mod.Internal">Internal</s:String>
+    <s:String x:Key="Mod.Workshop">Workshop</s:String>
+    <s:String x:Key="Mod.Custom">Custom</s:String>
+
+    <!-- Generate Mode -->
+    <s:String x:Key="Mod.GenerationOption">Generation Option</s:String>
+    <s:String x:Key="Mod.Core">Core Mode</s:String>
+    <s:String x:Key="Mod.Standard">Standard Mode</s:String>
+    <s:String x:Key="Mod.Special">Special Mode</s:String>
+    <s:String x:Key="Mod.Clean">Clean Mode</s:String>
+    <s:String x:Key="Mod.Clean.Desc">WARNING!! Clean Generation Mode will force delete language files those exist originally and generate entirely new language files.</s:String>
+    <s:String x:Key="Mod.CustomOutput">Custom Output Directory</s:String>
 
 
     <!-- MainWindow -->
@@ -57,17 +83,8 @@
     <s:String x:Key="MainWindow.Button.Help">Help</s:String>
     <s:String x:Key="MainWindow.Button.Options">Options</s:String>
 
-    <!-- Mod Category -->
-    <s:String x:Key="Mod.Internal">Internal</s:String>
-    <s:String x:Key="Mod.Workshop">Workshop</s:String>
-    <s:String x:Key="Mod.Custom">Custom</s:String>
+    <!-- Window Options -->
 
-    <!-- Generate Mode -->
-    <s:String x:Key="Mod.Core">Core</s:String>
-    <s:String x:Key="Mod.Standard">Standard</s:String>
-    <s:String x:Key="Mod.Special">Special</s:String>
-    <s:String x:Key="Mod.Clean">Clean</s:String>
-    <s:String x:Key="Mod.Clean.Desc">WARNING!! Clean Mode will force delete language files those exist originally and generate entirely new language files.</s:String>
 
 
 </ResourceDictionary>

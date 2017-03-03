@@ -37,7 +37,7 @@ namespace RimTrans.Lite.Controls
         /// <summary>
         /// Which language this actually is. Importan.
         /// </summary>
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The name of the language.")]
         public string RealName
         {
             get { return (string)GetValue(RealNameProperty); }
@@ -47,7 +47,7 @@ namespace RimTrans.Lite.Controls
             DependencyProperty.Register("RealName", typeof(string), typeof(LanguageListBoxItem));
 
         
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The native name of the language.")]
         public string NativeName
         {
             get { return (string)GetValue(NativeNameProperty); }
@@ -57,7 +57,7 @@ namespace RimTrans.Lite.Controls
             DependencyProperty.Register("NativeName", typeof(string), typeof(LanguageListBoxItem));
 
         
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("If use custom output directory out not for the language.")]
         public bool? IsCustom
         {
             get { return (bool?)GetValue(IsCustomProperty); }
@@ -67,7 +67,7 @@ namespace RimTrans.Lite.Controls
             DependencyProperty.Register("IsCustom", typeof(bool?), typeof(LanguageListBoxItem));
 
 
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("The custom output directory of the language.")]
         public string CustomPath
         {
             get { return (string)GetValue(CustomPathProperty); }
@@ -77,7 +77,7 @@ namespace RimTrans.Lite.Controls
             DependencyProperty.Register("CustomPath", typeof(string), typeof(LanguageListBoxItem));
 
 
-        [Bindable(true), Category("Common"), Description("The text of the button.")]
+        [Bindable(true), Category("Common"), Description("If checked or not of the language.")]
         public bool? IsChecked
         {
             get { return (bool?)GetValue(IsCheckedProperty); }
@@ -85,6 +85,17 @@ namespace RimTrans.Lite.Controls
         }
         public static readonly DependencyProperty IsCheckedProperty =
             DependencyProperty.Register("IsChecked", typeof(bool?), typeof(LanguageListBoxItem));
+
+        [Bindable(true), Category("Common"), Description("The translators of the application.")]
+        public string Translators
+        {
+            get { return (string)GetValue(TranslatorsProperty); }
+            set { SetValue(TranslatorsProperty, value); }
+        }
+        public static readonly DependencyProperty TranslatorsProperty =
+            DependencyProperty.Register("Translators", typeof(string), typeof(LanguageListBoxItem));
+
+
 
 
     }
