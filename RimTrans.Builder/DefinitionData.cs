@@ -36,6 +36,9 @@ namespace RimTrans.Builder
 
             definitionData.Load(path);
 
+            if (definitionData._data.Count == 0)
+                return definitionData;
+
             definitionData.Inherit(definitionDataCore);
 
             definitionData.HandleDetails();

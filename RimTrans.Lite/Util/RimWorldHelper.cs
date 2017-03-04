@@ -9,20 +9,6 @@ namespace RimTrans.Lite.Util
 {
     public static class RimWorldHelper
     {
-
-        public static string GetInternalModsDir()
-        {
-            string rwDir = GetRimWorldInstallDir();
-            if (string.IsNullOrWhiteSpace(rwDir))
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return Path.Combine(rwDir, "Mods");
-            }
-        }
-
         public static string GetRimWorldInstallDir()
         {
             string rwDir = UserSettings.All.RimWorldInstallDir;
@@ -33,7 +19,7 @@ namespace RimTrans.Lite.Util
                 {
                     rwDir = string.Empty;
                 }
-                UserSettings.All.RimWorldInstallDir = rwDir;
+                //UserSettings.All.RimWorldInstallDir = rwDir;
             }
             return rwDir;
         }
@@ -48,9 +34,35 @@ namespace RimTrans.Lite.Util
                 {
                     wsDir = string.Empty;
                 }
-                UserSettings.All.Workshop294100 = wsDir;
+                //UserSettings.All.Workshop294100 = wsDir;
             }
             return wsDir;
+        }
+
+        public static string GetInternalModsDir()
+        {
+            string rwDir = GetRimWorldInstallDir();
+            if (string.IsNullOrWhiteSpace(rwDir))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return Path.Combine(rwDir, "Mods");
+            }
+        }
+
+        public static string GetCorePath()
+        {
+            string imDir = GetInternalModsDir();
+            if (string.IsNullOrWhiteSpace(imDir))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return Path.Combine(imDir, "Core");
+            }
         }
     }
 }

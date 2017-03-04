@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using duduluu.MVVM;
 using RimTrans.Lite.Controls;
+using RimTrans.Lite.Util;
 
 namespace RimTrans.Lite.Windows
 {
@@ -76,6 +78,7 @@ namespace RimTrans.Lite.Windows
 
         #region Command
 
+        // Add Mod
         private RelayCommand _commandAddMod;
         public RelayCommand CommandAddMod
         {
@@ -105,6 +108,30 @@ namespace RimTrans.Lite.Windows
                 Mods.Add(window.Result);
             }
         }
+
+        private bool CanExecuteHasSelectedMod(object parameter)
+        {
+            return _selectedMod != null;
+        }
+
+        private RelayCommand _commandExtract;
+        public RelayCommand CommandExtract
+        {
+            get { return _commandExtract ?? (_commandExtract = new RelayCommand(ExecuteExtract, CanExecuteHasSelectedMod)); }
+        }
+        private void ExecuteExtract(object parameter)
+        {
+            string projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
+            string projectFile = Path.Combine(projectsDir, _selectedMod.ProjectFileName);
+            _selectedMod.Save(projectFile);
+            string corePath = RimWorldHelper.GetCorePath();
+
+            string arguments = $"\"-p:{projectFile}\" -Core:\"{corePath}\"";
+
+
+            Process.Start("Trans.exe", arguments);
+        }
+
 
         private RelayCommand _commandOptions;
         public RelayCommand CommandOptions

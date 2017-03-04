@@ -126,6 +126,47 @@ namespace RimTrans.Builder
 
         #region Match
 
+        public void MatchCore(KeyedData keyedDataCore)
+        {
+            if (keyedDataCore._data.Count == 0) return;
+
+            Log.Info();
+            Log.WriteLine("Start checking conficts to Core's Keyed.");
+            List<XElement> conflicts = new List<XElement>();
+            IEnumerable<XElement> keyeds = from doc in this._data.Values
+                                           from ele in doc.Root.Elements()
+                                           select ele;
+            IEnumerable<XElement> keyedsCore = from doc in keyedDataCore._data.Values
+                                               from ele in doc.Root.Elements()
+                                               select ele;
+            foreach (XElement keyed in keyeds)
+            {
+                foreach (XElement keyedCore in keyedsCore)
+                {
+                    if (keyed.Name == keyedCore.Name)
+                    {
+                        keyed.Value = keyedCore.Value;
+                        conflicts.Add(keyed);
+                    }
+                }
+            }
+            int countConflicts = conflicts.Count;
+            if (countConflicts > 0)
+            {
+                foreach (XElement conf in conflicts)
+                {
+                    conf.ReplaceWith(new XComment("[Core] " + conf.ToString()));
+                }
+                Log.Warning();
+                Log.WriteLine("Completed processing DefInjected confict: {0} node(s)", countConflicts);
+            }
+            else
+            {
+                Log.Info();
+                Log.WriteLine("No Keyed confict to Core.");
+            }
+        }
+
         public void MatchExisted(KeyedData keyedDataExisted)
         {
             if (keyedDataExisted._data.Count == 0) return;

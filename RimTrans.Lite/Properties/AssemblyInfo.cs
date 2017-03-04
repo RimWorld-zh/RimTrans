@@ -8,11 +8,11 @@ using System.Windows;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("RimTrans")]
-[assembly: AssemblyDescription("RimTrans")]
+[assembly: AssemblyDescription("The gui tool to for translating RimWorld.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RimWorld-zh.com")]
 [assembly: AssemblyProduct("RimTrans")]
-[assembly: AssemblyCopyright("Copyright © duduluu 2017")]
+[assembly: AssemblyCopyright("Copyright © 2016-2017 duduluu")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

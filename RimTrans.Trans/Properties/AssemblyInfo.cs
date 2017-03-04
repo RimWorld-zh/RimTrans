@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("RimTrans.Builder")]
-[assembly: AssemblyDescription("The library for parsing RimWorld Defs and generating language data.")]
+[assembly: AssemblyTitle("RimTrans.Trans")]
+[assembly: AssemblyDescription("The cmd tool for translating RimWorld.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RimWorld-zh.com")]
-[assembly: AssemblyProduct("RimTrans.Builder")]
+[assembly: AssemblyProduct("RimTrans.Trans")]
 [assembly: AssemblyCopyright("Copyright © 2016-2017 duduluu")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("8ee94102-f91f-4df4-8304-51b6f1791464")]
+[assembly: Guid("8cccac26-9ddf-4bac-bebb-2ad27c5c9429")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
