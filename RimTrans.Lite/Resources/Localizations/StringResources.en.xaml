@@ -21,6 +21,7 @@
 
     <s:String x:Key="Common.Save">Save</s:String>
     <s:String x:Key="Common.SaveAll">Save All</s:String>
+    <s:String x:Key="Common.DoNotSave">Do not save</s:String>
     <s:String x:Key="Common.Delete">Delete</s:String>
     <s:String x:Key="Common.Remove">Remove</s:String>
 
@@ -41,6 +42,7 @@
 
     <s:String x:Key="Common.Select">Select</s:String>
     <s:String x:Key="Common.SelectAll">Select All</s:String>
+    <s:String x:Key="Common.SelectInvert">Select Invert</s:String>
 
     <s:String x:Key="Common.Mod">Mod</s:String>
     <s:String x:Key="Common.Language">Language</s:String>
@@ -83,7 +85,7 @@
     <s:String x:Key="MainWindow.Button.Help">Help</s:String>
     <s:String x:Key="MainWindow.Button.Options">Options</s:String>
 
-    <!-- Window Options -->
+    <!-- OptionsWindow -->
 
 
 

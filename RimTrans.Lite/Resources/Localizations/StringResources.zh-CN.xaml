@@ -14,7 +14,7 @@
     
     <!-- Common -->
     <s:String x:Key="Common.Common">通用</s:String>
-    <s:String x:Key="Common.Application">Application</s:String>
+    <s:String x:Key="Common.Application">应用</s:String>
     
     <s:String x:Key="Common.Open">打开</s:String>
     <s:String x:Key="Common.Close">关闭</s:String>
@@ -83,7 +83,7 @@
     <s:String x:Key="MainWindow.Button.Help">帮助</s:String>
     <s:String x:Key="MainWindow.Button.Options">选项</s:String>
 
-    <!-- Window Options -->
+    <!-- OptionsWindow -->
 
 
 

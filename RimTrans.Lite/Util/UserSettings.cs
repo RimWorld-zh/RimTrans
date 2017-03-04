@@ -378,12 +378,6 @@ namespace RimTrans.Lite.Util
 
         #region Window Add Mod
 
-        public WindowState AddModWindowState
-        {
-            get { return (WindowState)GetValue(); }
-            set { SetValue(value); }
-        }
-
         public double AddModWindowHeight
         {
             get { return (double)GetValue(); }
@@ -405,12 +399,6 @@ namespace RimTrans.Lite.Util
         #endregion
 
         #region Window Options
-
-        public WindowState OptionsWindowState
-        {
-            get { return (WindowState)GetValue(); }
-            set { SetValue(value); }
-        }
 
         public double OptionsWindowHeight
         {

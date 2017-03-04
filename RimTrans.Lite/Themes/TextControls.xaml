@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:RimTrans.Lite.Themes">
+                    xmlns:local="clr-namespace:RimTrans.Lite.Themes"
+                    xmlns:c="clr-namespace:RimTrans.Lite.Controls">
 
     <!-- TextBlock on top of ListBox -->
     <Style TargetType="TextBlock" x:Key="Style.TextBlock.Head">
@@ -23,7 +24,7 @@
         <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground}"/>
         <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush}"/>
         <Setter Property="Height" Value="24"/>
-        <Setter Property="Width" Value="100"/>
+        <Setter Property="Width" Value="90"/>
         <Setter Property="Padding" Value="10,4"/>
 
         <Style.Triggers>
@@ -90,6 +91,23 @@
         <Setter Property="Foreground" Value="{StaticResource Lite.Sub.Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush.Selected}"/>
 
+    </Style>
+
+    <Style TargetType="{x:Type c:LabelTextBlockBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type c:LabelTextBlockBox}">
+                    <Grid >
+                        <TextBlock Text="{TemplateBinding Label}" Style="{StaticResource Style.TextBlock.Label}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox Text="{TemplateBinding Text}" Style="{StaticResource Style.TextBox.Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="90,0,0,0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!-- Defautl Value -->
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
 </ResourceDictionary>

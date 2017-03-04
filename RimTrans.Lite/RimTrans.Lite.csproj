@@ -64,8 +64,13 @@
     </ApplicationDefinition>
     <Compile Include="Controls\AwesomeButton.cs" />
     <Compile Include="Controls\AwesomeRadioButton.cs" />
+    <Compile Include="Controls\Dialogs\AwesomeDialog.xaml.cs">
+      <DependentUpon>AwesomeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelTextBlockBox.cs" />
     <Compile Include="Controls\LanguageListBoxItem.cs" />
     <Compile Include="Controls\ModListBoxItem.cs" />
+    <Compile Include="Converters\ButtonTagsToVisibility.cs" />
     <Compile Include="Converters\EnumerationToBoolean.cs" />
     <Compile Include="Converters\InserveBoolean.cs" />
     <Compile Include="Converters\IntegerToBoolean.cs" />
@@ -76,6 +81,9 @@
     <Compile Include="Converters\PathToName.cs" />
     <Compile Include="Converters\ModCategoryToIcon.cs" />
     <Compile Include="Util\LocalizationHelper.cs" />
+    <Compile Include="Windows\ExtractWindow.xaml.cs">
+      <DependentUpon>ExtractWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainViewModel.cs" />
     <Compile Include="Util\Enums.cs" />
     <Compile Include="Util\RimWorldHelper.cs" />
@@ -87,6 +95,10 @@
     <Compile Include="Windows\OptionsWindow.xaml.cs">
       <DependentUpon>OptionsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Dialogs\AwesomeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Localizations\StringResources.zh-CN.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\TextControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ExtractWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

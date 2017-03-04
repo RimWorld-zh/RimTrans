@@ -128,8 +128,15 @@ namespace RimTrans.Lite.Windows
 
             string arguments = $"\"-p:{projectFile}\" -Core:\"{corePath}\"";
 
+            var window = new ExtractWindow();
+            window.SelectedMod = _selectedMod;
+            var dialogResult = window.ShowDialog(View);
 
-            Process.Start("Trans.exe", arguments);
+            if (dialogResult == true)
+            {
+                if (window.IsCleanMode) arguments += " -Clean";
+                Process.Start("Trans.exe", arguments);
+            }
         }
 
 

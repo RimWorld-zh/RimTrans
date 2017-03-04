@@ -9,11 +9,10 @@
         mc:Ignorable="d"
         x:Name="AddMod"
         Title="{DynamicResource MainWindow.Button.AddMod}"
-        WindowState="{Binding Source={x:Static u:UserSettings.All}, Path=AddModWindowState}"
         Height="{Binding Source={x:Static u:UserSettings.All}, Path=AddModWindowHeight, Mode=TwoWay}"
         Width="{Binding Source={x:Static u:UserSettings.All}, Path=AddModWindowWidth, Mode=TwoWay}"
-        MinHeight="600" MinWidth="971"
-        WindowStartupLocation="CenterScreen"
+        MinHeight="600" MinWidth="971" ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterOwner"
         Background="{StaticResource Lite.Main.Background}"
         SnapsToDevicePixels="True">
     <Window.DataContext>

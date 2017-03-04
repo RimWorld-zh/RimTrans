@@ -22,7 +22,7 @@ namespace RimTrans.Lite
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            UserSettings.Save();
+            //UserSettings.Save();
         }
     }
 }

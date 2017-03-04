@@ -10,11 +10,10 @@
         mc:Ignorable="d"
         x:Name="Options"
         Title="{DynamicResource MainWindow.Button.Options}"
-        WindowState="{Binding Source={x:Static u:UserSettings.All}, Path=OptionsWindowState}"
         Height="{Binding Source={x:Static u:UserSettings.All}, Path=OptionsWindowHeight, Mode=TwoWay}"
         Width="{Binding Source={x:Static u:UserSettings.All}, Path=OptionsWindowWidth, Mode=TwoWay}"
-        MinHeight="667" MinWidth="1080"
-        WindowStartupLocation="CenterScreen"
+        MinHeight="667" MinWidth="1080" ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterOwner"
         Background="{StaticResource Lite.Main.Background}"
         SnapsToDevicePixels="True"
         Closing="Options_Closing">
@@ -66,7 +65,7 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Column="1" Grid.Row="1"
                     HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,0,15,0">
-            <Button Content="{DynamicResource Common.OK}" IsDefault="True" IsCancel="True"
+            <Button Content="{DynamicResource Common.Close}" IsDefault="True" IsCancel="True"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Grid.Column="1" Style="{StaticResource Sylte.Button.Wide}"/>
         </StackPanel>
     </Grid>

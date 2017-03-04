@@ -12,7 +12,7 @@
         WindowState="{Binding Source={x:Static u:UserSettings.All}, Path=MainWindowState}"
         Height="{Binding Source={x:Static u:UserSettings.All}, Path=MainWindowHeight, Mode=TwoWay}"
         Width="{Binding Source={x:Static u:UserSettings.All}, Path=MainWindowWidth, Mode=TwoWay}"
-        MinHeight="667" MinWidth="1080"
+        MinHeight="667" MinWidth="1080" ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource Lite.Main.Background}"
         SnapsToDevicePixels="True"
@@ -112,7 +112,6 @@
             <!-- Mod Info -->
             <!-- Visibility="{Binding SelectedMod, Converter={StaticResource IsNullToVisibilityConverter}}" -->
             <GroupBox Header="{DynamicResource Common.Mod}" Grid.Column="2" Grid.Row="2"
-                      Visibility="{Binding SelectedMod, Converter={StaticResource IsNullToVisibilityConverter}}"
                       Height="120" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="16,0,20,5" Style="{StaticResource Style.GroupBox}">
                 <Grid>
                     <TextBlock Text="{DynamicResource Common.Mod}"

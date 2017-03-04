@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RimTrans.Lite.Controls;
+using RimTrans.Lite.Util;
 
 namespace RimTrans.Lite.Windows
 {
@@ -27,6 +28,13 @@ namespace RimTrans.Lite.Windows
             vm.View = this;
         }
 
+        private void Main_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            UserSettings.All.MainWindowState = WindowState.Normal;
+            UserSettings.Save();
+            vm.SaveProjects();
+        }
+
         private void modListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             vm.SelectedMod = (ModListBoxItem)modListBox.SelectedItem;
@@ -35,11 +43,6 @@ namespace RimTrans.Lite.Windows
         private void languageListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             vm.SelectedLanguage = (LanguageListBoxItem)languageListBox.SelectedItem;
-        }
-
-        private void Main_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            vm.SaveProjects();
         }
 
         private void buttonHelp_Click(object sender, RoutedEventArgs e)
