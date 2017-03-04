@@ -77,5 +77,13 @@ namespace RimTrans.Lite.Windows
                 langItem.IsChecked = true;
             }
         }
+
+        private void buttonSelectInvert_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (LanguageListBoxItem langItem in SelectedMod.Languages)
+            {
+                langItem.IsChecked = !langItem.IsChecked;
+            }
+        }
     }
 }

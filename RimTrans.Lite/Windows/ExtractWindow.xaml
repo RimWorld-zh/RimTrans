@@ -9,27 +9,28 @@
         x:Name="Extract"
         Title="{DynamicResource MainWindow.Button.Extract}"
         Background="{StaticResource Lite.Main.Background}"
-        Height="400" Width="647" ResizeMode="NoResize"
+        Height="500" Width="809" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="152"/>
+            <ColumnDefinition Width="191"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Margin="20,12,0,0">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" Margin="20,12,0,0">
             <c:LabelTextBlockBox Label="{DynamicResource Common.Mod}" Text="{Binding ElementName=Extract, Path=SelectedMod.ModName}" Margin="0,2"/>
             <c:LabelTextBlockBox Label="{DynamicResource Common.Name}" Text="{Binding ElementName=Extract, Path=SelectedMod.ModPath, Converter={StaticResource PathToNameConverter}}" Margin="0,2"/>
             <c:LabelTextBlockBox Label="{DynamicResource Common.Path}" Text="{Binding ElementName=Extract, Path=SelectedMod.ModPath}" Margin="0,2"/>
             <ListBox DataContext="{Binding ElementName=Extract, Path=SelectedMod}"
                      ItemsSource="{Binding Languages}"
-                     Height="220" VerticalAlignment="Stretch" Margin="0,2" Style="{StaticResource Style.ListBox}"/>
+                     Height="310" VerticalAlignment="Stretch" Margin="0,2" Style="{StaticResource Style.ListBox}"/>
         </StackPanel>
 
 
@@ -39,7 +40,11 @@
 
         <Button x:Name="buttonSelectAll" Click="buttonSelectAll_Click"
                 Content="{DynamicResource Common.SelectAll}" IsDefault="True"
-                Grid.Column="2" Grid.Row="0" VerticalAlignment="Top" Margin="0,60,0,0" Style="{StaticResource Sylte.Button.Wide}"/>
+                Grid.Column="2" Grid.Row="0" VerticalAlignment="Top" Margin="0,70,0,0" Style="{StaticResource Sylte.Button.Wide}"/>
+
+        <Button x:Name="buttonSelectInvert" Click="buttonSelectInvert_Click"
+                Content="{DynamicResource Common.SelectInvert}" IsDefault="True"
+                Grid.Column="2" Grid.Row="0" VerticalAlignment="Top" Margin="0,110,0,0" Style="{StaticResource Sylte.Button.Wide}"/>
 
         <CheckBox x:Name="checkBoxCleanMode" IsChecked="{Binding ElementName=Extract, Path=IsCleanMode}" Checked="checkBoxCleanMode_Checked"
                   Content="{DynamicResource Mod.Clean}" ToolTip="{DynamicResource Mod.Clean.Desc}" 

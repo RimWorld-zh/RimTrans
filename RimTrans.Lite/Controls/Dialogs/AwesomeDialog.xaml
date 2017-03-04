@@ -17,8 +17,10 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -27,9 +29,9 @@
 
         <fa:ImageAwesome Icon="{Binding ElementName=Dialog, Path=AwesomeIcon}"
                          Foreground="{StaticResource Lite.Main.Foreground}"
-                         Height="64" Width="64"/>
+                         Grid.Column="1" Height="64" Width="64"/>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0"
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0"
                     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,20,20">
 
             <TextBlock Text="{Binding ElementName=Dialog, Path=Title}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="18px" FontWeight="Heavy"
@@ -39,14 +41,14 @@
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"
                     Height="auto" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0">
             <Button x:Name="buttonDoNotSave" Content="{DynamicResource Common.DoNotSave}" Click="buttonDoNotSave_Click"
                     Visibility="{Binding ElementName=Dialog, Path=ButtonTags, Converter={StaticResource ButtonTagsToVisibilityConverter}, ConverterParameter=DoNotSave}"
                     Margin="5,0" Style="{StaticResource Sylte.Button.Wide}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"
                     Height="auto" Width="auto" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0">
             <Button x:Name="buttonConfirm" Content="{DynamicResource Common.Confirm}" IsDefault="False" Click="buttonConfirm_Click"
                     Visibility="{Binding ElementName=Dialog, Path=ButtonTags, Converter={StaticResource ButtonTagsToVisibilityConverter}, ConverterParameter=Confirm}"

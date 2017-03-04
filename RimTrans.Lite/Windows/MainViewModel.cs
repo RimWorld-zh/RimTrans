@@ -78,6 +78,22 @@ namespace RimTrans.Lite.Windows
 
         #region Command
 
+        #region CanExecute Methods
+        
+        private bool CanExecuteHasSelectedMod(object parameter)
+        {
+            return _selectedMod != null;
+        }
+
+        private bool CanExecuteHasSelectedLanguage(object parameter)
+        {
+            return _selectedLanguage != null;
+        }
+
+        #endregion
+
+        #region Mod Command
+
         // Add Mod
         private RelayCommand _commandAddMod;
         public RelayCommand CommandAddMod
@@ -109,11 +125,29 @@ namespace RimTrans.Lite.Windows
             }
         }
 
-        private bool CanExecuteHasSelectedMod(object parameter)
+        // Remove Mod
+
+        private void ExecuteRemoveMod(object parameter)
         {
-            return _selectedMod != null;
+
         }
 
+        #endregion
+
+
+
+        // Add Language
+        private RelayCommand _commandAddLanguage;
+        public RelayCommand CommandAddLanguage
+        {
+            get { return _commandAddLanguage ?? (_commandAddLanguage = new RelayCommand(ExecuteAddLanguage, CanExecuteHasSelectedMod)); }
+        }
+        private void ExecuteAddLanguage(object parameter)
+        {
+
+        }
+
+        // Extract
         private RelayCommand _commandExtract;
         public RelayCommand CommandExtract
         {
@@ -123,13 +157,15 @@ namespace RimTrans.Lite.Windows
         {
             string projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
             string projectFile = Path.Combine(projectsDir, _selectedMod.ProjectFileName);
-            _selectedMod.Save(projectFile);
             string corePath = RimWorldHelper.GetCorePath();
+            var selectedMod = _selectedMod;
+            SelectedMod = null;
+            selectedMod.Save(projectFile);
 
             string arguments = $"\"-p:{projectFile}\" -Core:\"{corePath}\"";
 
             var window = new ExtractWindow();
-            window.SelectedMod = _selectedMod;
+            window.SelectedMod = selectedMod;
             var dialogResult = window.ShowDialog(View);
 
             if (dialogResult == true)
@@ -137,9 +173,13 @@ namespace RimTrans.Lite.Windows
                 if (window.IsCleanMode) arguments += " -Clean";
                 Process.Start("Trans.exe", arguments);
             }
+
+            SelectedMod = selectedMod;
         }
 
+        // Editor (TODO)
 
+        // Options
         private RelayCommand _commandOptions;
         public RelayCommand CommandOptions
         {

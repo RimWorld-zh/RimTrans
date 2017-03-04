@@ -14,11 +14,12 @@ namespace RimTrans.Trans
     {
         static void Main(string[] args)
         {
-            Console.Title = "RimTrans";
             if (args.Length == 0) return;
 
             #region Application Info
 
+            Console.Title = "RimTrans";
+            Console.OutputEncoding = Encoding.Unicode;
             Log.WriteLine();
             Log.WriteLine(ConsoleColor.Cyan, "RimTrans");
             Log.WriteLine();
@@ -190,11 +191,6 @@ namespace RimTrans.Trans
                     Log.WriteLine(ConsoleColor.Green, $"======== Completed Processing Language: {realName} ( {nativeName} ) ========");
                     Log.WriteLine();
                 }
-
-
-                Console.Write("Press any key to exit...");
-                Console.ReadKey();
-                return;
             }
 
             #endregion
@@ -307,20 +303,16 @@ namespace RimTrans.Trans
                     Log.WriteLine(ConsoleColor.Green, $"======== Completed Processing Language: {realName} ( {nativeName} ) ========");
                     Log.WriteLine();
                 }
-
-
-
-                // End
-                Console.Write("Press any key to exit...");
-                Console.ReadKey();
-                return;
             }
 
             #endregion
 
-
-
-
+            // End
+            Log.WriteLine(ConsoleColor.Green, "======== Completed Project ========");
+            Log.WriteLine();
+            Console.Write("Press any key to exit...");
+            Console.ReadKey();
+            return;
         }
     }
 }

@@ -19,6 +19,13 @@
     <s:String x:Key="Common.Open">Open</s:String>
     <s:String x:Key="Common.Close">Close</s:String>
 
+    <s:String x:Key="Common.Confirm">Confirm</s:String>
+    <s:String x:Key="Common.Cancel">Cancel</s:String>
+
+    <s:String x:Key="Common.Yes">Yes</s:String>
+    <s:String x:Key="Common.No">No</s:String>
+    <s:String x:Key="Common.OK">OK</s:String>
+
     <s:String x:Key="Common.Save">Save</s:String>
     <s:String x:Key="Common.SaveAll">Save All</s:String>
     <s:String x:Key="Common.DoNotSave">Do not save</s:String>
@@ -29,13 +36,6 @@
     <s:String x:Key="Common.Modify">Modify</s:String>
     <s:String x:Key="Common.Undo">Undo</s:String>
     <s:String x:Key="Common.Redo">Redo</s:String>
-    
-    <s:String x:Key="Common.Confirm">Confirm</s:String>
-    <s:String x:Key="Common.Cancel">Cancel</s:String>
-    
-    <s:String x:Key="Common.Yes">Yes</s:String>
-    <s:String x:Key="Common.No">No</s:String>
-    <s:String x:Key="Common.OK">OK</s:String>
     
     <s:String x:Key="Common.Previous">Previous</s:String>
     <s:String x:Key="Common.Next">Next</s:String>
