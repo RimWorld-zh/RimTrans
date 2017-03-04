@@ -16,11 +16,11 @@ namespace RimTrans.Lite.Windows
     {
         public MainViewModel()
         {
+            this._projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
             var mods = new ObservableCollection<ModListBoxItem>();
-            string projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
-            if (Directory.Exists(projectsDir))
+            if (Directory.Exists(_projectsDir))
             {
-                foreach (string projectFile in Directory.GetFiles(projectsDir))
+                foreach (string projectFile in Directory.GetFiles(_projectsDir))
                 {
                     ModListBoxItem modItem = null;
                     try
@@ -48,6 +48,8 @@ namespace RimTrans.Lite.Windows
             }
             Mods = mods;
         }
+
+        private string _projectsDir;
 
         public MainWindow View { get; set; }
 
@@ -108,12 +110,11 @@ namespace RimTrans.Lite.Windows
             {
                 var modItem = window.Result;
                 modItem.InitialProjectFileName();
-                string projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
-                if (!Directory.Exists(projectsDir))
+                if (!Directory.Exists(_projectsDir))
                 {
-                    Directory.CreateDirectory(projectsDir);
+                    Directory.CreateDirectory(_projectsDir);
                 }
-                var projectFile = Path.Combine(projectsDir, modItem.ProjectFileName);
+                var projectFile = Path.Combine(_projectsDir, modItem.ProjectFileName);
                 try
                 {
                     modItem.Save(projectFile);
@@ -126,15 +127,38 @@ namespace RimTrans.Lite.Windows
         }
 
         // Remove Mod
-
+        private RelayCommand _commandRemoveMod;
+        public RelayCommand CommandRemoveMod
+        {
+            get { return _commandRemoveMod ?? (_commandRemoveMod = new RelayCommand(ExecuteRemoveMod, CanExecuteHasSelectedMod)); }
+        }
         private void ExecuteRemoveMod(object parameter)
         {
+            string projectFile = Path.Combine(_projectsDir, _selectedMod.ProjectFileName);
+            Mods.Remove(_selectedMod);
+            try
+            {
+                File.Delete(projectFile);
+            }
+            catch (Exception)
+            {
+            }
+        }
 
+        // Exploer Mod
+        private RelayCommand _commandExploreMod;
+        public RelayCommand CommandExploreMod
+        {
+            get { return _commandExploreMod ?? (_commandExploreMod = new RelayCommand(ExecuteExploreMod, CanExecuteHasSelectedMod)); }
+        }
+        private void ExecuteExploreMod(object parameter)
+        {
+            Process.Start("explorer.exe", _selectedMod.ModPath);
         }
 
         #endregion
 
-
+        #region Language Command
 
         // Add Language
         private RelayCommand _commandAddLanguage;
@@ -144,8 +168,66 @@ namespace RimTrans.Lite.Windows
         }
         private void ExecuteAddLanguage(object parameter)
         {
-
+            var window = new AddLanguageWindow();
+            var dialogResult = window.ShowDialog(View);
+            if (dialogResult == true)
+            {
+                var modPath = _selectedMod.ModPath;
+                var languages = _selectedMod.Languages;
+                foreach (var lang in window.Result)
+                {
+                    int splitIndex = lang.IndexOf('(');
+                    var realName = lang.Substring(0, splitIndex - 1);
+                    var nativeName = lang.Substring(splitIndex + 2, lang.Length - splitIndex - 4);
+                    var langItem = new LanguageListBoxItem();
+                    langItem.LangPath = Path.Combine(_selectedMod.ModPath, "Languages", realName);
+                    langItem.RealName = realName;
+                    langItem.NativeName = nativeName;
+                    langItem.IsCustom = false;
+                    langItem.CustomPath = langItem.LangPath;
+                    langItem.IsChecked = true;
+                    languages.Add(langItem);
+                }
+                string projectFile = Path.Combine(_projectsDir, _selectedMod.ProjectFileName);
+                _selectedMod.Save(projectFile);
+            }
         }
+
+        // Explore Language
+        private RelayCommand _commandExploreLanguage;
+        public RelayCommand CommandExploreLanguage
+        {
+            get { return _commandExploreLanguage ?? (_commandExploreLanguage = new RelayCommand(ExecuteExploreLanguage, CanExecuteHasSelectedLanguage)); }
+        }
+        private void ExecuteExploreLanguage(object parameter)
+        {
+            //if (_selectedLanguage.IsCustom == true)
+            //    Process.Start("explorer.exe", _selectedLanguage.CustomPath);
+            //else
+                Process.Start("explorer.exe", _selectedLanguage.LangPath);
+        }
+
+        private RelayCommand _commandRemoveLanguage;
+        public RelayCommand CommandRemoveLanguage
+        {
+            get { return _commandRemoveLanguage ?? (_commandRemoveLanguage = new RelayCommand(ExecuteRemoveLanguage, CanExecuteHasSelectedLanguage)); }
+        }
+        private void ExecuteRemoveLanguage(object paremeter)
+        {
+            _selectedMod.Languages.Remove(_selectedLanguage);
+            string projectFile = Path.Combine(_projectsDir, _selectedMod.ProjectFileName);
+            try
+            {
+                _selectedMod.Save(projectFile);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        #endregion
+
+
 
         // Extract
         private RelayCommand _commandExtract;
@@ -155,8 +237,7 @@ namespace RimTrans.Lite.Windows
         }
         private void ExecuteExtract(object parameter)
         {
-            string projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
-            string projectFile = Path.Combine(projectsDir, _selectedMod.ProjectFileName);
+            string projectFile = Path.Combine(_projectsDir, _selectedMod.ProjectFileName);
             string corePath = RimWorldHelper.GetCorePath();
             var selectedMod = _selectedMod;
             SelectedMod = null;
@@ -195,10 +276,9 @@ namespace RimTrans.Lite.Windows
 
         public void SaveProjects()
         {
-            string projectsDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RimTrans", "Projects");
-            if (!Directory.Exists(projectsDir))
+            if (!Directory.Exists(_projectsDir))
             {
-                Directory.CreateDirectory(projectsDir);
+                Directory.CreateDirectory(_projectsDir);
             }
             foreach (ModListBoxItem modItem in Mods)
             {
@@ -206,7 +286,7 @@ namespace RimTrans.Lite.Windows
                 {
                     modItem.InitialProjectFileName();
                 }
-                string path = Path.Combine(projectsDir, modItem.ProjectFileName);
+                string path = Path.Combine(_projectsDir, modItem.ProjectFileName);
                 try
                 {
                     modItem.Save(path);

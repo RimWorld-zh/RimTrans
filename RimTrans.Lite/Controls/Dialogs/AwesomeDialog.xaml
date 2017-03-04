@@ -8,7 +8,6 @@
         xmlns:co="clr-namespace:RimTrans.Lite.Converters"
         mc:Ignorable="d"
         x:Name="Dialog"
-        Title="AwesomeDialog"
         Background="{StaticResource Lite.Main.Background}"
         Height="300" Width="600" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
@@ -31,15 +30,17 @@
                          Foreground="{StaticResource Lite.Main.Foreground}"
                          Grid.Column="1" Height="64" Width="64"/>
 
-        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="0"
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,20,20">
-
-            <TextBlock Text="{Binding ElementName=Dialog, Path=Title}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="18px" FontWeight="Heavy"
-                   Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0"/>
-            <TextBlock Text="{Binding ElementName=Dialog, Path=Message}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="14px"
-                   Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="20,15,20,20"/>
-
-        </StackPanel>
+        <Grid Grid.Column="2" Grid.Row="0"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,20,20">
+            <StackPanel  ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="auto">
+                <TextBlock Text="{Binding ElementName=Dialog, Path=Title}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="18px" FontWeight="Heavy"
+                       Foreground="{StaticResource Lite.Main.Foreground}"
+                       Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox Text="{Binding ElementName=Dialog, Path=Message}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="14px" IsReadOnly="True"
+                     Foreground="{StaticResource Lite.Main.Foreground}" Background="Transparent" BorderThickness="0"
+                     Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,15,0,0"/>
+            </StackPanel>
+        </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"
                     Height="auto" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0">

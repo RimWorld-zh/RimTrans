@@ -81,6 +81,9 @@
     <Compile Include="Converters\PathToName.cs" />
     <Compile Include="Converters\ModCategoryToIcon.cs" />
     <Compile Include="Util\LocalizationHelper.cs" />
+    <Compile Include="Windows\AddLanguageWindow.xaml.cs">
+      <DependentUpon>AddLanguageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ExtractWindow.xaml.cs">
       <DependentUpon>ExtractWindow.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\TextControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddLanguageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

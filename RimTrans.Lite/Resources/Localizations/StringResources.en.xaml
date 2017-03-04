@@ -53,6 +53,7 @@
     <s:String x:Key="Common.Folder">Folder</s:String>
     <s:String x:Key="Common.Directory">Directory</s:String>
     <s:String x:Key="Common.Path">Path</s:String>
+    <s:String x:Key="Common.ShowInExplorer">Show in explorer</s:String>
 
     <s:String x:Key="Common.Info">Info</s:String>
     <s:String x:Key="Common.Warning">Warning</s:String>

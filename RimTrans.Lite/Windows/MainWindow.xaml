@@ -20,6 +20,21 @@
     <Window.DataContext>
         <local:MainViewModel x:Name="vm"/>
     </Window.DataContext>
+    <Window.Resources>
+        <ContextMenu x:Key="ContextMenu.ModList">
+            <MenuItem Header="{DynamicResource Common.ShowInExplorer}" Command="{Binding CommandExploreMod}"/>
+            <MenuItem Header="{DynamicResource Common.Remove}" Command="{Binding CommandRemoveMod}"/>
+            <Separator/>
+            <MenuItem Header="{DynamicResource MainWindow.Button.AddMod}" Command="{Binding CommandAddMod}"/>
+        </ContextMenu>
+        <ContextMenu x:Key="ContextMenu.LanguageList">
+            <MenuItem Header="{DynamicResource Common.ShowInExplorer}" Command="{Binding CommandExploreLanguage}"/>
+            <MenuItem Header="{DynamicResource Common.Remove}" Command="{Binding CommandRemoveLanguage}"/>
+            <Separator/>
+            <MenuItem Header="{DynamicResource MainWindow.Button.AddLanguage}" Command="{Binding CommandAddLanguage}"/>
+        </ContextMenu>
+    </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -62,7 +77,7 @@
                 <c:AwesomeButton x:Name="buttonAddMod" Command="{Binding CommandAddMod}"
                                  Icon="PuzzlePiece" Text="{DynamicResource MainWindow.Button.AddMod}"
                                  Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <c:AwesomeButton x:Name="buttonAddLanguage"
+                <c:AwesomeButton x:Name="buttonAddLanguage" Command="{Binding CommandAddLanguage}"
                                  Icon="Plus"  Text="{DynamicResource MainWindow.Button.AddLanguage}"
                                  Style="{StaticResource Style.AwesomeButton.Large}"/>
                 <Separator HorizontalAlignment="Left" Height="auto" Width="1" Margin="3,2"/>
@@ -96,15 +111,17 @@
                      DataContext="{Binding}"
                      ItemsSource="{Binding Mods}"
                      SelectionChanged="modListBox_SelectionChanged"
+                     ContextMenu="{StaticResource ContextMenu.ModList}"
                      Grid.Column="0" Grid.Row="2" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}"/>
 
             <!-- Languages ListBox -->
             <TextBlock Text="{DynamicResource Common.Language}" 
                        Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
             <ListBox x:Name="languageListBox"
-                     DataContext="{Binding SelectedMod}"
-                     ItemsSource="{Binding Languages}"
+                     DataContext="{Binding}"
+                     ItemsSource="{Binding SelectedMod.Languages}"
                      SelectionChanged="languageListBox_SelectionChanged"
+                     ContextMenu="{StaticResource ContextMenu.LanguageList}"
                      Grid.Column="1" Grid.Row="2" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}">
             </ListBox>
 

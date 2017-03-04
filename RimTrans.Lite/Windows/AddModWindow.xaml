@@ -93,60 +93,59 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Left" Margin="5">
-                        <CheckBox Content="ChineseSimplified ( 简体中文 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_ChineseSimplified}"
+                        <CheckBox Content="ChineseSimplified ( 简体中文 )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_ChineseSimplified}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="ChineseTraditional ( 繁體中文 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_ChineseTraditional}"
+                        <CheckBox Content="ChineseTraditional ( 繁體中文 )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_ChineseTraditional}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Czech ( Čeština ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Czech}"
+                        <CheckBox Content="Czech ( Čeština )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Czech}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Danish ( Dansk ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Danish}"
+                        <CheckBox Content="Danish ( Dansk )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Danish}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Dutch ( Nederlands ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Dutch}"
+                        <CheckBox Content="Dutch ( Nederlands )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Dutch}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="English ( English ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_English}"
+                        <CheckBox Content="English ( English )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_English}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Estonian ( Eesti ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Estonian}"
+                        <CheckBox Content="Estonian ( Eesti )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Estonian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Finnish ( Suomi ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Finnish}"
+                        <CheckBox Content="Finnish ( Suomi )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Finnish}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="French ( Français ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_French}"
+                        <CheckBox Content="French ( Français )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_French}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="German ( Deutsch ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_German}"
+                        <CheckBox Content="German ( Deutsch )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_German}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Hungarian ( Magyar ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Hungarian}"
+                        <CheckBox Content="Hungarian ( Magyar )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Hungarian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Italian ( Italiano. ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Italian}"
+                        <CheckBox Content="Italian ( Italiano. )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Italian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Japanese ( 日本語 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Japanese}"
+                        <CheckBox Content="Japanese ( 日本語 )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Japanese}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Grid.Column="1"
-                            HorizontalAlignment="Left" Margin="5">
-                        <CheckBox Content="Korean ( 한국어 ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Korean}"
+                    <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Left" Margin="5">
+                        <CheckBox Content="Korean ( 한국어 )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Korean}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Norwegian ( Norsk Bokmål ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Norwegian}"
+                        <CheckBox Content="Norwegian ( Norsk Bokmål )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Norwegian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Polish ( Polski ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Polish}"
+                        <CheckBox Content="Polish ( Polski )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Polish}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Portuguese ( Português ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Portuguese}"
+                        <CheckBox Content="Portuguese ( Português )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Portuguese}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="PortugueseBrazilian ( Português Brasileiro ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_PortugueseBrazilian}"
+                        <CheckBox Content="PortugueseBrazilian ( Português Brasileiro )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_PortugueseBrazilian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Romanian ( Română ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Romanian}"
+                        <CheckBox Content="Romanian ( Română )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Romanian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Russian ( Русский ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Russian}"
+                        <CheckBox Content="Russian ( Русский )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Russian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Slovak ( Slovenčina ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Slovak}"
+                        <CheckBox Content="Slovak ( Slovenčina )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Slovak}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Spanish ( Español(Castellano) ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Spanish}"
+                        <CheckBox Content="Spanish ( Español(Castellano) )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Spanish}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="SpanishLatin ( Español(Latinoamérica) ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_SpanishLatin}"
+                        <CheckBox Content="SpanishLatin ( Español(Latinoamérica) )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_SpanishLatin}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Swedish ( Svenska ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Swedish}"
+                        <CheckBox Content="Swedish ( Svenska )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Swedish}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Turkish ( Türkçe ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Turkish}"
+                        <CheckBox Content="Turkish ( Türkçe )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Turkish}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <CheckBox Content="Ukrainian ( Українська ) " IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Ukrainian}"
+                        <CheckBox Content="Ukrainian ( Українська )" IsChecked="{Binding Source={x:Static u:UserSettings.All}, Path=Selected_Ukrainian}"
                                   Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
                     </StackPanel>
                 </Grid>
@@ -155,21 +154,21 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"
-                    Grid.Column="2" Grid.Row="1"
-                    HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="16,0,15,0">
+                    Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="16,0,15,0">
             <Button Content="{DynamicResource Common.SelectAll}" Command="{Binding CommandSelectAll}"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
         </StackPanel>
 
 
 
-            <!-- Confirm and Cancel buttons -->
+        <!-- Confirm and Cancel buttons -->
         <StackPanel Orientation="Horizontal"
-                    Grid.Column="2" Grid.Row="1"
-                    HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="16,0,15,0">
-            <Button Content="{DynamicResource Common.Confirm}" IsDefault="True" Command="{Binding CommandConfirm}"
+                    Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="16,0,15,0">
+            <Button  IsDefault="True" Command="{Binding CommandConfirm}" 
+                     Content="{DynamicResource Common.Confirm}" 
                     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
-            <Button Content="{DynamicResource Common.Cancel}" IsCancel="True"
+            <Button IsCancel="True" 
+                    Content="{DynamicResource Common.Cancel}" 
                     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
         </StackPanel>
 
