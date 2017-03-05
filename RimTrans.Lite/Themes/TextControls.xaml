@@ -10,7 +10,7 @@
         <Setter Property="FontWeight" Value="Heavy"/>
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground}"/>
-        <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush.Disabled}"/>
         <Setter Property="Height" Value="24"/>
         <Setter Property="Padding" Value="10,4"/>
 
@@ -22,7 +22,7 @@
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="TextAlignment" Value="Right"/>
         <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground}"/>
-        <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush.Disabled}"/>
         <Setter Property="Height" Value="24"/>
         <Setter Property="Width" Value="90"/>
         <Setter Property="Padding" Value="0,4,12,4"/>
@@ -30,7 +30,7 @@
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground.Disabled}"/>
-                <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush.Disabled}"/>
+                <!--<Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush.Disabled}"/>-->
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -44,7 +44,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{StaticResource Lite.Main.Foreground}"/>
         <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush.Disabled}"/>
         <!--<Setter Property="SelectionOpacity" Value="0.5"/>-->
         <Setter Property="Height" Value="24"/>
 
@@ -72,16 +72,16 @@
                                    FontSize="{TemplateBinding FontSize}"
                                    Foreground="{TemplateBinding Foreground}"
                                    Background="{TemplateBinding BorderBrush}" 
-                                   Padding="30,4,30,3" HorizontalAlignment="Left">
-
-
-                        </TextBlock>
-                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                   Padding="30,4,30,3" HorizontalAlignment="Left"/>
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Grid.Row="1">
                             <ContentPresenter Margin="4"/>
                         </Border>
-
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="8" Direction="-90" ShadowDepth="2" Opacity="0.6"/>
+                        </Grid.Effect>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -89,7 +89,9 @@
 
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="Foreground" Value="{StaticResource Lite.Sub.Foreground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush.Selected}"/>
+        <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Lite.Button.Background.MouseOver}"/>
+        <Setter Property="BorderThickness" Value="0,2,0,0"/>
 
     </Style>
 
@@ -97,17 +99,28 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type c:LabelTextBlockBox}">
-                    <Grid >
-                        <TextBlock Text="{TemplateBinding Label}" Style="{StaticResource Style.TextBlock.Label}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox Text="{TemplateBinding Text}" Style="{StaticResource Style.TextBox.Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="90,0,0,0"/>
+                    <Grid>
+                        <Border Background="{TemplateBinding BorderBrush}" Width="3" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{TemplateBinding Label}" Style="{StaticResource Style.TextBlock.Label}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,0,0,0"/>
+                        <TextBox Text="{TemplateBinding Text}" Style="{StaticResource Style.TextBox.Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="92,0,0,0"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
 
         <!-- Defautl Value -->
+        <Setter Property="BorderBrush" Value="{StaticResource Lite.Icon.Foreground.Blue}"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- TextBlock as StatusBar -->
+    <Style TargetType="TextBlock" x:Key="Style.TextBlock.StatusBar">
+        <Setter Property="FontSize" Value="12px"/>
+        <Setter Property="Foreground" Value="{StaticResource Lite.Side.Foreground.Selected}"/>
+        <Setter Property="Background" Value="{StaticResource Lite.Sub.BorderBrush.Selected}"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Padding" Value="10,4"/>
     </Style>
 
 </ResourceDictionary>

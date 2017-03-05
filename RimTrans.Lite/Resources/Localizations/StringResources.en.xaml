@@ -13,8 +13,11 @@
     -->
 
     <!-- Common -->
+    <s:String x:Key="RimTrans">RimTrans</s:String> <!-- Please do not translate this node, but you could translate any other nodes. -->
+
     <s:String x:Key="Common.Common">Common</s:String>
     <s:String x:Key="Common.Application">Application</s:String>
+    <s:String x:Key="Common.About">About</s:String>
     
     <s:String x:Key="Common.Open">Open</s:String>
     <s:String x:Key="Common.Close">Close</s:String>
@@ -31,6 +34,7 @@
     <s:String x:Key="Common.DoNotSave">Do not save</s:String>
     <s:String x:Key="Common.Delete">Delete</s:String>
     <s:String x:Key="Common.Remove">Remove</s:String>
+    <s:String x:Key="Common.RemoveAll">Remove All</s:String>
 
     <s:String x:Key="Common.Edit">Edit</s:String>
     <s:String x:Key="Common.Modify">Modify</s:String>
@@ -48,6 +52,8 @@
     <s:String x:Key="Common.Language">Language</s:String>
     <s:String x:Key="Common.Backstory">Backstory</s:String>
     <s:String x:Key="Common.Name">Name</s:String>
+    <s:String x:Key="Common.Author">Author</s:String>
+    <s:String x:Key="Common.Translator">Translator</s:String>
 
     <s:String x:Key="Common.File">File</s:String>
     <s:String x:Key="Common.Folder">Folder</s:String>
@@ -55,9 +61,13 @@
     <s:String x:Key="Common.Path">Path</s:String>
     <s:String x:Key="Common.ShowInExplorer">Show in explorer</s:String>
 
+    <s:String x:Key="Common.Automatic">Automatic</s:String>
+    <s:String x:Key="Common.Custom">Custom</s:String>
+
     <s:String x:Key="Common.Info">Info</s:String>
     <s:String x:Key="Common.Warning">Warning</s:String>
     <s:String x:Key="Common.Error">Error</s:String>
+    <s:String x:Key="Common.DoNotPrompt">Do not prompt anymore</s:String>
 
     <!-- Mod Category -->
     <s:String x:Key="Mod.Internal">Internal</s:String>
@@ -70,7 +80,7 @@
     <s:String x:Key="Mod.Standard">Standard Mode</s:String>
     <s:String x:Key="Mod.Special">Special Mode</s:String>
     <s:String x:Key="Mod.Clean">Clean Mode</s:String>
-    <s:String x:Key="Mod.Clean.Desc">WARNING!! Clean Generation Mode will force delete language files those exist originally and generate entirely new language files.</s:String>
+    <s:String x:Key="Mod.Clean.Desc">WARNING!!! Clean Generation Mode will force delete language files those exist originally and generate entirely new language files.</s:String>
     <s:String x:Key="Mod.CustomOutput">Custom Output Directory</s:String>
 
 
@@ -87,6 +97,11 @@
     <s:String x:Key="MainWindow.Button.Options">Options</s:String>
 
     <!-- OptionsWindow -->
+    <s:String x:Key="Options.RimWorldInstallDir">RimWorld Install Directory</s:String>
+    <s:String x:Key="Options.WorkshopModDir">Workshop Mods Directory</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">RimWorld install directory or Steam Workshop Mods Directory on found. This can be caused by several problems. You could custom in options.</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt">Reset all No-Prompt dialogs</s:String>
+
 
 
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RimTrans.Lite.Windows"
         mc:Ignorable="d"
         x:Name="AddLanguage"
-        Title="{DynamicResource MainWindow.Button.AddMod}"
+        Title="{DynamicResource MainWindow.Button.AddLanguage}"
         Background="{StaticResource Lite.Main.Background}"
         Height="450" Width="728" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"

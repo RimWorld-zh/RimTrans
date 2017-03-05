@@ -6,13 +6,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Grid Cursor="{TemplateBinding Cursor}"
-                          Background="{TemplateBinding Background}"
-                          Height="{TemplateBinding Height}">
+                    <Border Cursor="{TemplateBinding Cursor}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}" Padding="0,4,0,0">
                         <TextBlock Text="{TemplateBinding Content}"
                                    Foreground="{TemplateBinding Foreground}"
                                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}"/>
-                    </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -21,17 +23,21 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Foreground" Value="{StaticResource Lite.Button.Foreground}"/>
         <Setter Property="Background" Value="{StaticResource Lite.Button.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Lite.Button.Background}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,4"/>
         <Setter Property="FontSize" Value="14px"/>
-        <Setter Property="Height" Value="26"/>
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Padding" Value="45,0"/>
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource Lite.Button.Background.MouseOver}"/>
+                <!--<Setter Property="Background" Value="{StaticResource Lite.Button.Background.MouseOver}"/>-->
+                <Setter Property="BorderBrush" Value="{StaticResource Lite.Icon.Foreground.Blue}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Cursor" Value="None"/>
                 <Setter Property="Background" Value="{StaticResource Lite.Main.Foreground.Disabled}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Lite.Main.Foreground.Disabled}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

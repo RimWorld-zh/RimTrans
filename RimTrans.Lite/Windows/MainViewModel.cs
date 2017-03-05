@@ -238,7 +238,10 @@ namespace RimTrans.Lite.Windows
         private void ExecuteExtract(object parameter)
         {
             string projectFile = Path.Combine(_projectsDir, _selectedMod.ProjectFileName);
-            string corePath = RimWorldHelper.GetCorePath();
+            string corePath =
+                string.IsNullOrWhiteSpace(UserSettings.All.RimWorldInstallDir) ?
+                string.Empty :
+                Path.Combine(UserSettings.All.RimWorldInstallDir, "Mods", "Core");
             var selectedMod = _selectedMod;
             SelectedMod = null;
             selectedMod.Save(projectFile);

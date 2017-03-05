@@ -6,19 +6,13 @@ A translation and transform tool for RimWorld Core and Mods!
 
 ### Projects
 
-* **RimTransLib**: Dynamic-link library
-* **RimTransLite**: The executable with GUI
-* **RimTransMod**: The mod form for RimWorld [TODO]
+- **RimTrans.Bulder**: The library for parsing Defs and generating language files.
+- **RimTrans.Lite**: The GUI tool for translating RimWorld.
+- **RimTrans.Trans**: The CMD tool for translating RimWorld.
 
-### Download: [Release Page](https://github.com/duduluu/RimTrans/releases)
+### [Download](https://github.com/duduluu/RimTrans/releases)
 
----
-
-![](https://cloud.githubusercontent.com/assets/10762097/21901459/c6e5ea38-d932-11e6-972b-4f92b8ed50f7.png)
-
-![](https://cloud.githubusercontent.com/assets/10762097/21901460/c6e637a4-d932-11e6-8250-bee84718b73e.png)
-
-
+### [How to use](https://github.com/duduluu/RimTrans/wiki)
 
 ---
 
@@ -28,7 +22,8 @@ RimTrans is distributed under the [MIT License](https://opensource.org/licenses/
 
 Included open-source libraries:
 
-* [Font-Awesome-WPF](https://github.com/charri/Font-Awesome-WPF) v4.7.0 (MIT)
-* [Steam Local Library](https://github.com/ObsidianMinor/Steam-Local-Library) v0.4.1 (MIT)
+- [Font-Awesome-WPF](https://github.com/charri/Font-Awesome-WPF) v4.7.0 ([MIT License](https://opensource.org/licenses/MIT))
+- [SteamKit2](https://github.com/SteamRE/SteamKit) v1.8.1 ([LGPL-2.1 License](http://www.tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29))
+- [protobuf-net](http://code.google.com/p/protobuf-net/) v2.1.0 ([Apache License v2.0](https://raw.githubusercontent.com/mgravell/protobuf-net/master/Licence.txt))
 
 

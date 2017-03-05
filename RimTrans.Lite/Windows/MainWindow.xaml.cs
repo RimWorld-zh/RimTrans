@@ -28,10 +28,19 @@ namespace RimTrans.Lite.Windows
             vm.View = this;
         }
 
+        private void Main_Initialized(object sender, EventArgs e)
+        {
+            LocalizationHelper.SelectLanguage(UserSettings.All.LanguageCode);
+            UserSettings.StartUp();
+        }
+
         private void Main_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            UserSettings.All.MainWindowState = WindowState.Normal;
-            UserSettings.Save();
+            if (this.WindowState == WindowState.Minimized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            UserSettings.Exit();
             vm.SaveProjects();
         }
 

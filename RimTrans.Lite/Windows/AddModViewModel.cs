@@ -17,18 +17,23 @@ namespace RimTrans.Lite.Windows
         {
             var modsInternal = new ObservableCollection<ModListBoxItem>();
             var modsWorkshop = new ObservableCollection<ModListBoxItem>();
-            string dirInternal = RimWorldHelper.GetInternalModsDir();
-            if (!string.IsNullOrWhiteSpace(dirInternal) && Directory.Exists(dirInternal))
+            string rimworldInstallDir = UserSettings.All.RimWorldInstallDir;
+            string internalModsDir = string.Empty;
+            if (!string.IsNullOrWhiteSpace(rimworldInstallDir))
             {
-                foreach (var modItem in ModListBoxItem.GetModItems(dirInternal, ModCategory.Internal))
+                internalModsDir = Path.Combine(rimworldInstallDir, "Mods");
+            }
+            if (!string.IsNullOrWhiteSpace(internalModsDir) && Directory.Exists(internalModsDir))
+            {
+                foreach (var modItem in ModListBoxItem.GetModItems(internalModsDir, ModCategory.Internal))
                 {
                     modsInternal.Add(modItem);
                 }
             }
-            string dirWorkshop = RimWorldHelper.GetWorkshopModsDir();
-            if (!string.IsNullOrWhiteSpace(dirWorkshop) && Directory.Exists(dirWorkshop))
+            string workshopModsDir = UserSettings.All.WorkshopModsDir;
+            if (!string.IsNullOrWhiteSpace(workshopModsDir) && Directory.Exists(workshopModsDir))
             {
-                foreach (var modItem in ModListBoxItem.GetModItems(dirWorkshop, ModCategory.Workshop))
+                foreach (var modItem in ModListBoxItem.GetModItems(workshopModsDir, ModCategory.Workshop))
                 {
                     modsWorkshop.Add(modItem);
                 }
@@ -54,6 +59,11 @@ namespace RimTrans.Lite.Windows
         }
 
         #region Command
+
+        private bool CanExecuteHasSelectedMod(object parameter)
+        {
+            return _selectedMod != null;
+        }
 
         private RelayCommand _commmandConfirm;
         public RelayCommand CommandConfirm
@@ -355,11 +365,6 @@ namespace RimTrans.Lite.Windows
             #endregion
             View.Result = _selectedMod;
             View.DialogResult = true;
-        }
-
-        private bool CanExecuteHasSelectedMod(object parameter)
-        {
-            return _selectedMod != null;
         }
 
         private RelayCommand _commandSelectAll;

@@ -3,9 +3,10 @@
                     xmlns:local="clr-namespace:RimTrans.Lite.Themes">
 
     <!-- ListBox, click empty area to unselect item -->
-    <Style TargetType="{x:Type ListBox}" x:Key="Style.ListBox">
+    <Style TargetType="ListBox" x:Key="Style.ListBox">
         <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <!--<Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>-->
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
 
         <Style.Triggers>
@@ -36,7 +37,8 @@
     <!-- ListBox -->
     <Style TargetType="{x:Type ListBox}" x:Key="Style.ListBox.Lock">
         <Setter Property="Background" Value="{StaticResource Lite.Sub.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>
+        <!--<Setter Property="BorderBrush" Value="{StaticResource Lite.Sub.BorderBrush}"/>-->
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
     </Style>
     

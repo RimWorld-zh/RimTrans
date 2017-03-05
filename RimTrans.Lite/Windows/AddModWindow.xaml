@@ -48,40 +48,45 @@
         </StackPanel>
 
         <!-- Mods ListBox -->
+        <Border  Grid.Column="1" Grid.RowSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource Style.Border.Shadow}">
+            <Grid>
+                <TextBlock Text="{DynamicResource Mod.Internal}" 
+                           Visibility="{Binding IsChecked, ElementName=radioInternal, Converter={StaticResource BooleanToVisibilityConverter}}"
+                           VerticalAlignment="Top" Style="{StaticResource Style.TextBlock.Head}"/>
+                <ListBox x:Name="modListBoxInternal"
+                         DataContext="{Binding}"
+                         ItemsSource="{Binding ModsInternal}" 
+                         SelectionChanged="modListBoxInternal_SelectionChanged"
+                         Visibility="{Binding IsChecked, ElementName=radioInternal, Converter={StaticResource BooleanToVisibilityConverter}}"
+                         Margin="0,24,0,0" Style="{StaticResource Style.ListBox}"/>
+
+
+                <TextBlock Text="{DynamicResource Mod.Workshop}" 
+                           Visibility="{Binding IsChecked, ElementName=radioWorkshop, Converter={StaticResource BooleanToVisibilityConverter}}"
+                           VerticalAlignment="Top" Style="{StaticResource Style.TextBlock.Head}"/>
+                <ListBox x:Name="modListBoxWorkshop"
+                         DataContext="{Binding}"
+                         ItemsSource="{Binding ModsWorkshop}"
+                         SelectionChanged="modListBoxWorkshop_SelectionChanged"
+                         Visibility="{Binding IsChecked, ElementName=radioWorkshop, Converter={StaticResource BooleanToVisibilityConverter}}"
+                         Margin="0,24,0,0" Style="{StaticResource Style.ListBox}"/>
+
+                <TextBlock Text="{DynamicResource Mod.Custom}" 
+                           Visibility="{Binding IsChecked, ElementName=radioCustom, Converter={StaticResource BooleanToVisibilityConverter}}"
+                           VerticalAlignment="Top" Style="{StaticResource Style.TextBlock.Head}"/>
+                <ListBox x:Name="modListBoxCustom"
+                         Visibility="{Binding IsChecked, ElementName=radioCustom, Converter={StaticResource BooleanToVisibilityConverter}}"
+                         Margin="0,24,0,0" Style="{StaticResource Style.ListBox}"/>
+            </Grid>
+        </Border>
         
-        <TextBlock Text="{DynamicResource Mod.Internal}" 
-                   Visibility="{Binding IsChecked, ElementName=radioInternal, Converter={StaticResource BooleanToVisibilityConverter}}"
-                   Grid.Column="1" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
-        <ListBox x:Name="modListBoxInternal"
-                 DataContext="{Binding}"
-                 ItemsSource="{Binding ModsInternal}" 
-                 SelectionChanged="modListBoxInternal_SelectionChanged"
-                 Visibility="{Binding IsChecked, ElementName=radioInternal, Converter={StaticResource BooleanToVisibilityConverter}}"
-                 Grid.Column="1" Grid.RowSpan="3" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}"/>
-
-
-        <TextBlock Text="{DynamicResource Mod.Workshop}" 
-                   Visibility="{Binding IsChecked, ElementName=radioWorkshop, Converter={StaticResource BooleanToVisibilityConverter}}"
-                   Grid.Column="1" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
-        <ListBox x:Name="modListBoxWorkshop"
-                 DataContext="{Binding}"
-                 ItemsSource="{Binding ModsWorkshop}"
-                 SelectionChanged="modListBoxWorkshop_SelectionChanged"
-                 Visibility="{Binding IsChecked, ElementName=radioWorkshop, Converter={StaticResource BooleanToVisibilityConverter}}"
-                 Grid.Column="1" Grid.RowSpan="3" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}"/>
-
-        <TextBlock Text="{DynamicResource Mod.Custom}" 
-                   Visibility="{Binding IsChecked, ElementName=radioCustom, Converter={StaticResource BooleanToVisibilityConverter}}"
-                   Grid.Column="1" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
-        <ListBox x:Name="modListBoxCustom"
-                 Visibility="{Binding IsChecked, ElementName=radioCustom, Converter={StaticResource BooleanToVisibilityConverter}}"
-                 Grid.Column="1" Grid.RowSpan="3" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}"/>
+        
         
         <!-- Mod Info -->
         <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="16,8,20,0">
-            
-            <c:LabelTextBlockBox Label="{DynamicResource Common.Mod}" Text="{Binding SelectedMod.ModName}" Margin="0,2"/>
-            <c:LabelTextBlockBox Label="{DynamicResource Common.Name}" Text="{Binding SelectedMod.ModPath, Converter={StaticResource PathToNameConverter}}"  Margin="0,2"/>
+
+            <c:LabelTextBlockBox Label="{DynamicResource Common.Mod}" Text="{Binding SelectedMod.ModPath, Converter={StaticResource PathToNameConverter}}"  Margin="0,2"/>
+            <c:LabelTextBlockBox Label="{DynamicResource Common.Name}" Text="{Binding SelectedMod.ModName}" Margin="0,2"/>
             <c:LabelTextBlockBox Label="{DynamicResource Common.Path}" Text="{Binding SelectedMod.ModPath}" Margin="0,2"/>
 
             <!-- Languages -->

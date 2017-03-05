@@ -16,6 +16,7 @@
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource Lite.Main.Background}"
         SnapsToDevicePixels="True"
+        Initialized="Main_Initialized"
         Closing="Main_Closing">
     <Window.DataContext>
         <local:MainViewModel x:Name="vm"/>
@@ -80,7 +81,7 @@
                 <c:AwesomeButton x:Name="buttonAddLanguage" Command="{Binding CommandAddLanguage}"
                                  Icon="Plus"  Text="{DynamicResource MainWindow.Button.AddLanguage}"
                                  Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <Separator HorizontalAlignment="Left" Height="auto" Width="1" Margin="3,2"/>
+                <Separator HorizontalAlignment="Left" Height="auto" Margin="5,10" Style="{StaticResource Style.Separator.Vertical}"/>
                 <c:AwesomeButton x:Name="buttonAddExtract" Command="{Binding CommandExtract}"
                                  Icon="PaperPlane" Text="{DynamicResource MainWindow.Button.Extract}"
                                  Style="{StaticResource Style.AwesomeButton.Large}"/>
@@ -105,25 +106,35 @@
             </StackPanel>
 
             <!-- Mods ListBox -->
-            <TextBlock Text="{DynamicResource Common.Mod}" 
-                       Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
-            <ListBox x:Name="modListBox"
-                     DataContext="{Binding}"
-                     ItemsSource="{Binding Mods}"
-                     SelectionChanged="modListBox_SelectionChanged"
-                     ContextMenu="{StaticResource ContextMenu.ModList}"
-                     Grid.Column="0" Grid.Row="2" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}"/>
+            <Border Grid.Column="0" Grid.Row="2" Panel.ZIndex="2" Style="{StaticResource Style.Border.Shadow}">
+                <Grid>
+                    <TextBlock Text="{DynamicResource Common.Mod}" VerticalAlignment="Top" Style="{StaticResource Style.TextBlock.Head}"/>
+                    <ListBox x:Name="modListBox"
+                             DataContext="{Binding}"
+                             ItemsSource="{Binding Mods}"
+                             SelectionChanged="modListBox_SelectionChanged"
+                             ContextMenu="{StaticResource ContextMenu.ModList}"
+                             Margin="0,24,0,0" Style="{StaticResource Style.ListBox}"/>
+
+                </Grid>
+            </Border>
 
             <!-- Languages ListBox -->
-            <TextBlock Text="{DynamicResource Common.Language}" 
-                       Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,4,0" Style="{StaticResource Style.TextBlock.Head}"/>
-            <ListBox x:Name="languageListBox"
-                     DataContext="{Binding}"
-                     ItemsSource="{Binding SelectedMod.Languages}"
-                     SelectionChanged="languageListBox_SelectionChanged"
-                     ContextMenu="{StaticResource ContextMenu.LanguageList}"
-                     Grid.Column="1" Grid.Row="2" Margin="0,24,4,0" Style="{StaticResource Style.ListBox}">
-            </ListBox>
+            <Border Grid.Column="1" Grid.Row="2" Panel.ZIndex="1" Style="{StaticResource Style.Border.Shadow}"
+                    Visibility="{Binding SelectedMod, Converter={StaticResource IsNullToVisibilityConverter}}">
+                <Grid>
+                    <TextBlock Text="{DynamicResource Common.Language}" 
+                               VerticalAlignment="Top" Style="{StaticResource Style.TextBlock.Head}"/>
+                    <ListBox x:Name="languageListBox"
+                             DataContext="{Binding}"
+                             ItemsSource="{Binding SelectedMod.Languages}"
+                             SelectionChanged="languageListBox_SelectionChanged"
+                             ContextMenu="{StaticResource ContextMenu.LanguageList}"
+                             Margin="0,24,0,0" Style="{StaticResource Style.ListBox}">
+                    </ListBox>
+                </Grid>
+            </Border>
+            
 
             <StackPanel  Grid.Column="2" Grid.Row="2">
                 
@@ -144,13 +155,13 @@
                           HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="16,15,20,0"
                           Style="{StaticResource Style.GroupBox}">
                     <StackPanel>
-                        <RadioButton Content="{StaticResource Mod.Core}"
+                        <RadioButton Content="{DynamicResource Mod.Core}"
                                      IsChecked="{Binding SelectedMod.GenerateOption, Converter={StaticResource EnumerationToBooleanConverter}, ConverterParameter={x:Static u:GenerateMode.Core}}"
                                      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,4" Style="{StaticResource Style.AwesomeRadioButton.Content}"/>
-                        <RadioButton Content="{StaticResource Mod.Standard}"
+                        <RadioButton Content="{DynamicResource Mod.Standard}"
                                      IsChecked="{Binding SelectedMod.GenerateOption, Converter={StaticResource EnumerationToBooleanConverter}, ConverterParameter={x:Static u:GenerateMode.Standard}}"
                                      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,4" Style="{StaticResource Style.AwesomeRadioButton.Content}"/>
-                        <RadioButton Content="{StaticResource Mod.Special}"
+                        <RadioButton Content="{DynamicResource Mod.Special}"
                                      IsChecked="{Binding SelectedMod.GenerateOption, Converter={StaticResource EnumerationToBooleanConverter}, ConverterParameter={x:Static u:GenerateMode.Special}}"
                                      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,4" Style="{StaticResource Style.AwesomeRadioButton.Content}"/>
                     </StackPanel>
@@ -167,7 +178,7 @@
                                              IsEnabled="{Binding SelectedLanguage.IsCustom, Converter={StaticResource InverseBooleanConverter}}"
                                              Margin="0,2"/>
                         <Separator VerticalAlignment="Top" Margin="0,10" Style="{StaticResource Style.Separator.Horizontal}"/>
-                        <CheckBox Content="{StaticResource Mod.CustomOutput}" IsChecked="{Binding SelectedLanguage.IsCustom}"
+                        <CheckBox Content="{DynamicResource Mod.CustomOutput}" IsChecked="{Binding SelectedLanguage.IsCustom}"
                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
                         <c:LabelTextBlockBox Label="{DynamicResource Common.Path}" Text="{Binding SelectedLanguage.CustomPath}"
                                               IsEnabled="{Binding SelectedLanguage.IsCustom}"
@@ -176,12 +187,14 @@
                 </GroupBox>
                 
             </StackPanel>
+            <TextBlock Text="{Binding SelectedMod.ModPath}" Panel.ZIndex="3"
+                       Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Style="{StaticResource Style.TextBlock.StatusBar}"/>
 
-            
 
-            
 
-           
+
+
+
 
         </Grid>
         

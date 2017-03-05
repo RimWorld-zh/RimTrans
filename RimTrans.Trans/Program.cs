@@ -12,6 +12,20 @@ namespace RimTrans.Trans
 {
     class Program
     {
+        #region MyRegion
+
+        static string[] faceGood =
+        {
+
+        };
+
+        static string[] faceBad =
+        {
+
+        };
+
+        #endregion
+
         static void Main(string[] args)
         {
             if (args.Length == 0) return;
@@ -21,11 +35,11 @@ namespace RimTrans.Trans
             Console.Title = "RimTrans";
             Console.OutputEncoding = Encoding.Unicode;
             Log.WriteLine();
-            Log.WriteLine(ConsoleColor.Cyan, "RimTrans");
+            Log.WriteLine(ConsoleColor.Cyan, " RimTrans (｀・ω・´)");
             Log.WriteLine();
-            Log.WriteLine(ConsoleColor.Cyan, "Builder Library Version 0.16.0.3");
+            Log.WriteLine(ConsoleColor.Cyan, " Builder Library Version 0.16.0.3");
             Log.WriteLine();
-            Log.WriteLine(ConsoleColor.Cyan, "Copyright (c) 2016-2017 duduluu, MIT License.");
+            Log.WriteLine(ConsoleColor.Cyan, " Copyright (c) 2016-2017 duduluu, MIT License.");
             Log.WriteLine();
 
             #endregion
@@ -58,14 +72,15 @@ namespace RimTrans.Trans
             if (string.IsNullOrWhiteSpace(projectFile) || !File.Exists(projectFile))
             {
                 Log.Error();
-                Log.WriteLine(ConsoleColor.Red, $"Project File {projectFile} NO FOUND.");
+                Log.WriteLine(ConsoleColor.Red, $"Project File {projectFile} NO FOUND. (ﾟДﾟ≡ﾟдﾟ)!?");
+                Log.WriteLine();
                 Console.Write("Press any key to exit...");
                 Console.ReadKey();
                 return;
             }
 
             Log.WriteLine(ConsoleColor.Green, "======== Start Project ========");
-
+            Log.WriteLine();
             Log.WriteLine(ConsoleColor.Green, "Porject File: ");
             Log.Indent();
             Log.WriteLine(ConsoleColor.Cyan, projectFile);
@@ -78,7 +93,8 @@ namespace RimTrans.Trans
             if (string.IsNullOrWhiteSpace(modPath) || !Directory.Exists(modPath))
             {
                 Log.Error();
-                Log.WriteLine(ConsoleColor.Red, $"Mod Directory {modPath} NO FOUND.");
+                Log.WriteLine(ConsoleColor.Red, $"Mod Directory {modPath} NO FOUND. …(⊙＿⊙；)…");
+                Log.WriteLine();
                 Console.Write("Press any key to exit...");
                 Console.ReadKey();
                 return;
@@ -308,7 +324,7 @@ namespace RimTrans.Trans
             #endregion
 
             // End
-            Log.WriteLine(ConsoleColor.Green, "======== Completed Project ========");
+            Log.WriteLine(ConsoleColor.Green, "======== Completed Project ======== (^・ω・^ )");
             Log.WriteLine();
             Console.Write("Press any key to exit...");
             Console.ReadKey();
