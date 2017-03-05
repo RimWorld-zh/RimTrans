@@ -37,8 +37,7 @@
 
     <!-- Show info, e.g. path -->
     <Style TargetType="TextBox" x:Key="Style.TextBox.Label">
-
-        <Setter Property="IsReadOnly" Value="True"/>
+        
         <Setter Property="FontSize" Value="14px"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -77,7 +76,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Grid.Row="1">
-                            <ContentPresenter Margin="4"/>
+                            <ContentPresenter Margin="5"/>
                         </Border>
                         <Grid.Effect>
                             <DropShadowEffect BlurRadius="8" Direction="-90" ShadowDepth="2" Opacity="0.6"/>
@@ -102,13 +101,15 @@
                     <Grid>
                         <Border Background="{TemplateBinding BorderBrush}" Width="3" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
                         <TextBlock Text="{TemplateBinding Label}" Style="{StaticResource Style.TextBlock.Label}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,0,0,0"/>
-                        <TextBox Text="{TemplateBinding Text}" Style="{StaticResource Style.TextBox.Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="92,0,0,0"/>
+                        <TextBox Text="{Binding Text, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" IsReadOnly="{TemplateBinding IsReadOnly}"
+                                 Style="{StaticResource Style.TextBox.Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="92,0,0,0"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
 
         <!-- Defautl Value -->
+        <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="BorderBrush" Value="{StaticResource Lite.Icon.Foreground.Blue}"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Center"/>

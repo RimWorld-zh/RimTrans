@@ -39,5 +39,19 @@ namespace RimTrans.Lite.Controls
             DependencyProperty.Register("Text", typeof(string), typeof(LabelTextBlockBox), new PropertyMetadata(string.Empty));
 
 
+
+        public bool IsReadOnly
+        {
+            get { return (bool)GetValue(IsReadOnlyProperty); }
+            set { SetValue(IsReadOnlyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsReadOnly.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsReadOnlyProperty =
+            DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(LabelTextBlockBox), new PropertyMetadata(false));
+
+
+
+
     }
 }
