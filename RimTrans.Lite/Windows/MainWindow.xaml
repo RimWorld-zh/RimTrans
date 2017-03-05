@@ -180,8 +180,8 @@
                         <Separator VerticalAlignment="Top" Margin="0,10" Style="{StaticResource Style.Separator.Horizontal}"/>
                         <CheckBox Content="{DynamicResource Mod.CustomOutput}" IsChecked="{Binding SelectedLanguage.IsCustom}"
                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
-                        <c:LabelTextBlockBox Label="{DynamicResource Common.Path}" Text="{Binding SelectedLanguage.CustomPath}"
-                                              IsEnabled="{Binding SelectedLanguage.IsCustom}"
+                        <c:LabelTextBlockBox Label="{DynamicResource Common.Path}" Text="{Binding SelectedLanguage.CustomPath, Mode=TwoWay}"
+                                             IsEnabled="{Binding SelectedLanguage.IsCustom}" IsReadOnly="False"
                                              Margin="0,2"/>
                     </StackPanel>
                 </GroupBox>
