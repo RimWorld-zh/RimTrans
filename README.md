@@ -10,9 +10,11 @@ A translation and transform tool for RimWorld Core and Mods!
 - **RimTrans.Lite**: The GUI tool for translating RimWorld.
 - **RimTrans.Trans**: The CMD tool for translating RimWorld.
 
-### [Download](https://github.com/duduluu/RimTrans/releases)
+### [Download](https://github.com/duduluu/RimTrans/releases) | [下载](https://github.com/duduluu/RimTrans/releases) | [百度云下载](http://pan.baidu.com/s/1gfA4oQB)
 
 ### [How to use](https://github.com/duduluu/RimTrans/wiki)
+
+## [用法介绍视频](http://www.bilibili.com/video/av8997818/)
 
 ---
 
