@@ -16,6 +16,14 @@ A translation and transform tool for RimWorld Core and Mods!
 
 ---
 
+![0](https://cloud.githubusercontent.com/assets/10762097/23590412/7425b48e-021a-11e7-8702-67e3d35509fd.PNG)
+![1](https://cloud.githubusercontent.com/assets/10762097/23590410/7423a9aa-021a-11e7-916d-0d6c545ec53f.PNG)
+![2](https://cloud.githubusercontent.com/assets/10762097/23590411/74259d1e-021a-11e7-8cb7-8a8cff89174f.PNG)
+![3](https://cloud.githubusercontent.com/assets/10762097/23590413/742704ba-021a-11e7-839e-a8230abe35a9.PNG)
+![4](https://cloud.githubusercontent.com/assets/10762097/23590414/74271054-021a-11e7-9a5a-f617c4aac7a5.PNG)
+
+---
+
 ## License
 
 RimTrans is distributed under the [MIT License](https://opensource.org/licenses/MIT).
