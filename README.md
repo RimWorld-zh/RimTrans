@@ -14,7 +14,7 @@ A translation and transform tool for RimWorld Core and Mods!
 
 ### [How to use](https://github.com/duduluu/RimTrans/wiki)
 
-## [用法介绍视频](http://www.bilibili.com/video/av8997818/)
+### [用法介绍视频](http://www.bilibili.com/video/av8997818/)
 
 ---
 
