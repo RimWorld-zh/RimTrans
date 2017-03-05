@@ -1,0 +1,91 @@
+﻿<Window x:Class="RimTrans.Lite.Windows.AddLanguageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RimTrans.Lite.Windows"
+        mc:Ignorable="d"
+        x:Name="AddLanguage"
+        Title="{DynamicResource MainWindow.Button.AddLanguage}"
+        Background="{StaticResource Lite.Main.Background}"
+        Height="450" Width="728" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        SnapsToDevicePixels="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <!--<RowDefinition Height="10"/>-->
+        </Grid.RowDefinitions>
+        <!-- Languages -->
+        <StackPanel x:Name="languageGroup" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" Margin="5">
+                <CheckBox Content="ChineseSimplified ( 简体中文 )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="ChineseTraditional ( 繁體中文 )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Czech ( Čeština )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Danish ( Dansk )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Dutch ( Nederlands )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="English ( English )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Estonian ( Eesti )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Finnish ( Suomi )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="French ( Français )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="German ( Deutsch )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Hungarian ( Magyar )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Italian ( Italiano. )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Japanese ( 日本語 )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" Margin="5">
+                <CheckBox Content="Korean ( 한국어 )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Norwegian ( Norsk Bokmål )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Polish ( Polski )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Portuguese ( Português )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="PortugueseBrazilian ( Português Brasileiro )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Romanian ( Română )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Russian ( Русский )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Slovak ( Slovenčina )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Spanish ( Español(Castellano) )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="SpanishLatin ( Español(Latinoamérica) )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Swedish ( Svenska )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Turkish ( Türkçe )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+                <CheckBox Content="Ukrainian ( Українська )" 
+                          Margin="4" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Confirm and Cancel buttons -->
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="16,0,15,0">
+            <Button x:Name="buttonConfirm" IsDefault="True" Click="buttonConfirm_Click"
+                    Content="{DynamicResource Common.Confirm}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
+            <Button IsCancel="True"
+                    Content="{DynamicResource Common.Cancel}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Style="{StaticResource Sylte.Button.Wide}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -107,8 +107,8 @@ namespace RimTrans.Builder
             else
             {
                 Log.Info();
-                Log.Write("Directory \"{0}\" does not extist: ", Path.GetFileName(path));
-                Log.WriteLine(ConsoleColor.Cyan, path);
+                Log.WriteLine("Directory \"{0}\" does not extist, nothing to be delete.", Path.GetFileName(path));
+                //Log.WriteLine(ConsoleColor.Cyan, path);
             }
         }
 

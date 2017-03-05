@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Markup;
 using System.Xml;
+using RimTrans.Lite.Controls.Dialogs;
 
 namespace RimTrans.Lite.Util
 {
@@ -18,6 +19,46 @@ namespace RimTrans.Lite.Util
         private static ResourceDictionary _appData;
 
         public static UserSettings All { get; } = new UserSettings();
+
+        #region StartUp and Exit
+
+        public static void StartUp()
+        {
+            if (string.IsNullOrWhiteSpace(All.RimWorldInstallDir))
+            {
+                All.RimWorldInstallDir = RimWorldHelper.RimWorldInstallDir;
+            }
+            if (string.IsNullOrWhiteSpace(All.WorkshopModsDir))
+            {
+                All.WorkshopModsDir = RimWorldHelper.WorkshopModsDir;
+            }
+            if (string.IsNullOrWhiteSpace(All.RimWorldInstallDir) ||
+                !Directory.Exists(All.RimWorldInstallDir) ||
+                string.IsNullOrWhiteSpace(All.WorkshopModsDir) ||
+                !Directory.Exists(All.WorkshopModsDir))
+            {
+                var dlg = new AwesomeDialog();
+                if (Application.Current.Resources.Contains("Common.Warning"))
+                    dlg.Title = (string)Application.Current.FindResource("Common.Warning");
+                else
+                    dlg.Title = "Warning";
+                if (Application.Current.Resources.Contains("Options.Message.DirectoryNoFound"))
+                    dlg.Message = (string)Application.Current.FindResource("Options.Message.DirectoryNoFound");
+                else
+                    dlg.Message = "RimWorld install directory or Steam Workshop Mods Directory on found. This can be caused by several problems. You could custom in options.";
+                dlg.AwesomeIcon = FontAwesome.WPF.FontAwesomeIcon.Warning;
+                dlg.ButtonTags = ButtonTag.Confirm;
+                dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                dlg.ShowDialog();
+            }
+        }
+
+        public static void Exit()
+        {
+            
+        }
+
+        #endregion
 
         #region Initial and Save
 
@@ -162,7 +203,7 @@ namespace RimTrans.Lite.Util
             set { SetValue(value); }
         }
 
-        public string Workshop294100
+        public string WorkshopModsDir
         {
             get { return (string)GetValue(); }
             set { SetValue(value); }
@@ -378,12 +419,6 @@ namespace RimTrans.Lite.Util
 
         #region Window Add Mod
 
-        public WindowState AddModWindowState
-        {
-            get { return (WindowState)GetValue(); }
-            set { SetValue(value); }
-        }
-
         public double AddModWindowHeight
         {
             get { return (double)GetValue(); }
@@ -405,12 +440,6 @@ namespace RimTrans.Lite.Util
         #endregion
 
         #region Window Options
-
-        public WindowState OptionsWindowState
-        {
-            get { return (WindowState)GetValue(); }
-            set { SetValue(value); }
-        }
 
         public double OptionsWindowHeight
         {

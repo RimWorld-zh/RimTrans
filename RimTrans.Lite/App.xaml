@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:RimTrans.Lite"
              xmlns:co="clr-namespace:RimTrans.Lite.Converters"
-             StartupUri="Windows/MainWindow.xaml"
-             Startup="Application_Startup" Exit="Application_Exit">
+             StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            
+
             <!-- Converter -->
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <co:InserveBoolean x:Key="InverseBooleanConverter"/>

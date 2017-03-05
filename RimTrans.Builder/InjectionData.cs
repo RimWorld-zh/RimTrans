@@ -855,20 +855,20 @@ namespace RimTrans.Builder
                     }
                 }
             }
-            int countConflict = conflicts.Count;
-            if (countConflict > 0)
+            int countConflicts = conflicts.Count;
+            if (countConflicts > 0)
             {
                 foreach (XElement conf in conflicts)
                 {
                     conf.ReplaceWith(new XComment("[Core] " + conf.ToString()));
                 }
                 Log.Info();
-                Log.WriteLine("Completed processing confict: {0} node(s)", countConflict);
+                Log.WriteLine("Completed processing DefInjected confict: {0} node(s)", countConflicts);
             }
             else
             {
                 Log.Info();
-                Log.WriteLine("No confict to Core.");
+                Log.WriteLine("No DefInjected confict to Core.");
             }
         }
 

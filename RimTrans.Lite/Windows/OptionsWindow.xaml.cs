@@ -38,7 +38,17 @@ namespace RimTrans.Lite.Windows
 
         private void HelpTranslateRimTrans_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("");
+            Process.Start("https://github.com/duduluu/RimTrans/tree/master/RimTrans.Lite/Resources/Localizations");
+        }
+
+        private void Github_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/duduluu/RimTrans/blob/master/LICENSE");
+        }
+
+        private void MIT_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/duduluu/RimTrans");
         }
     }
 }

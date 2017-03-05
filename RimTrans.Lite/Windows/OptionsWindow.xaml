@@ -10,11 +10,10 @@
         mc:Ignorable="d"
         x:Name="Options"
         Title="{DynamicResource MainWindow.Button.Options}"
-        WindowState="{Binding Source={x:Static u:UserSettings.All}, Path=OptionsWindowState}"
         Height="{Binding Source={x:Static u:UserSettings.All}, Path=OptionsWindowHeight, Mode=TwoWay}"
         Width="{Binding Source={x:Static u:UserSettings.All}, Path=OptionsWindowWidth, Mode=TwoWay}"
-        MinHeight="667" MinWidth="1080"
-        WindowStartupLocation="CenterScreen"
+        MinHeight="500" MinWidth="809" ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterOwner"
         Background="{StaticResource Lite.Main.Background}"
         SnapsToDevicePixels="True"
         Closing="Options_Closing">
@@ -31,18 +30,21 @@
         
         <StackPanel Grid.RowSpan="2" Style="{StaticResource Style.Sidebar}">
             <c:AwesomeRadioButton x:Name="radioLanguage"
-                                  Icon="Language" Text="{DynamicResource Common.Language}"
                                   IsChecked="True"
+                                  Icon="Language" Text="{DynamicResource Common.Language}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
             <c:AwesomeRadioButton x:Name="radioApplication"
                                   Icon="Cog" Text="{DynamicResource Common.Application}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
+            <c:AwesomeRadioButton x:Name="radioAbout"
+                                  Icon="InfoCircle" Text="{DynamicResource Common.About}"
+                                  Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
         </StackPanel>
         
         <!-- All Panel -->
-        <Grid Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10">
+        <Grid Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="20">
 
-            <!-- User Interface Language -->
+            <!-- Language -->
             <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioLanguage, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Label HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Hyperlink x:Name="HelpTranslateRimTrans" Click="HelpTranslateRimTrans_Click">Help translate RimTrans.</Hyperlink>
@@ -52,13 +54,60 @@
                         <ListBox.Resources>
                             <co:LanguageCodeToIsSelected x:Key="LanguageCodeToIsSelectedConverter"/>
                         </ListBox.Resources>
+
                         <c:LanguageListBoxItem RealName="Auto" NativeName="Current OS Language (If Available)" IsSelected="{Binding LanguageCode, ConverterParameter=auto, Converter={StaticResource LanguageCodeToIsSelectedConverter}}" Style="{StaticResource Sytle.LanguageItem.Large}"/>
                         <c:LanguageListBoxItem RealName="English" NativeName="English" Translators="duduluu"  IsSelected="{Binding LanguageCode, ConverterParameter=en, Converter={StaticResource LanguageCodeToIsSelectedConverter}}" Style="{StaticResource Sytle.LanguageItem.Large}"/>
                         <c:LanguageListBoxItem RealName="Chinese Simplified" NativeName="简体中文" Translators="duduluu" IsSelected="{Binding LanguageCode, ConverterParameter=zh-CN, Converter={StaticResource LanguageCodeToIsSelectedConverter}}" Style="{StaticResource Sytle.LanguageItem.Large}"/>
                     </ListBox>
                 </GroupBox>
+            </Grid> <!-- Language End -->
+            
+            <!-- Application -->
+            <StackPanel Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioApplication, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Orientation="Vertical" HorizontalAlignment="Stretch">
+                <GroupBox Header="{DynamicResource Options.RimWorldInstallDir}" Margin="10" Style="{StaticResource Style.GroupBox}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBox Text="{Binding Source={x:Static u:UserSettings.All}, Path=RimWorldInstallDir}" Margin="4" Style="{StaticResource Style.TextBox.Label}"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Content="{StaticResource Common.Automatic}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                            <Button Content="{StaticResource Common.Custom}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="{DynamicResource Options.WorkshopModDir}" Margin="10" Style="{StaticResource Style.GroupBox}">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBox Text="{Binding Source={x:Static u:UserSettings.All}, Path=WorkshopModsDir}" Margin="4" Style="{StaticResource Style.TextBox.Label}"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Content="{StaticResource Common.Automatic}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                            <Button Content="{StaticResource Common.Custom}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <Separator Margin="10" Style="{StaticResource Style.Separator.Horizontal}"/>
+                <GroupBox Header="{DynamicResource Common.Common}" Margin="10" Style="{StaticResource Style.GroupBox}">
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Button Content="{StaticResource Options.ResetDoNotPrompt}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                    </WrapPanel>
+                </GroupBox>
 
-            </Grid> <!-- User Interface Language End -->
+            </StackPanel>
+
+            <!-- About -->
+            <StackPanel Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border BorderBrush="{StaticResource Lite.Main.Foreground}" BorderThickness="1"
+                         Height="128" Width="128" Margin="20" Style="{StaticResource Style.Border.Shadow}">
+                    <Image Source="/Resources/pixelavatar512.png"/>
+                </Border>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Copyright (c) 2016-2017 duduluu" FontSize="14px"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink x:Name="Github" Click="Github_Click">https://github.com/duduluu/RimTrans</Hyperlink>
+                </Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink x:Name="MIT" Click="MIT_Click">MIT License</Hyperlink>
+                </Label>
+            </StackPanel>
+            <!-- Language End -->
 
 
 
@@ -66,7 +115,7 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Column="1" Grid.Row="1"
                     HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,0,15,0">
-            <Button Content="{DynamicResource Common.OK}" IsDefault="True" IsCancel="True"
+            <Button Content="{DynamicResource Common.Close}" IsDefault="True" IsCancel="True"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8,0" Grid.Column="1" Style="{StaticResource Sylte.Button.Wide}"/>
         </StackPanel>
     </Grid>
