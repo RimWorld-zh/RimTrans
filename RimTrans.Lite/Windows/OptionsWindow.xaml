@@ -33,10 +33,10 @@
                                   Icon="Language" Text="{DynamicResource Common.Language}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
             <c:AwesomeRadioButton x:Name="radioApplication"
-                                  IsChecked="True"
                                   Icon="Cog" Text="{DynamicResource Common.Application}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
             <c:AwesomeRadioButton x:Name="radioAbout"
+                                  IsChecked="True"
                                   Icon="InfoCircle" Text="{DynamicResource Common.About}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
         </StackPanel>
@@ -70,8 +70,10 @@
                         <TextBox Text="{Binding Source={x:Static u:UserSettings.All}, Path=RimWorldInstallDir}" IsReadOnly="False"
                                  Margin="4" Style="{StaticResource Style.TextBox.Label}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Content="{StaticResource Common.Automatic}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
-                            <Button Content="{StaticResource Common.Custom}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                            <Button x:Name="buttonAutoRWInstallDir" Click="buttonAutoRWInstallDir_Click"
+                                    Content="{StaticResource Common.Automatic}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                            <Button 
+                                    Content="{StaticResource Common.Custom}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
@@ -80,7 +82,8 @@
                         <TextBox Text="{Binding Source={x:Static u:UserSettings.All}, Path=WorkshopModsDir}" IsReadOnly="False"
                                  Margin="4" Style="{StaticResource Style.TextBox.Label}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Content="{StaticResource Common.Automatic}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
+                            <Button x:Name="buttonAutoWSModsDir" Click="buttonAutoWSModsDir_Click"
+                                    Content="{StaticResource Common.Automatic}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
                             <Button Content="{StaticResource Common.Custom}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
                         </StackPanel>
                     </StackPanel>
@@ -91,29 +94,15 @@
                         <Button Content="{StaticResource Options.ResetDoNotPrompt}" Margin="5" Style="{StaticResource Sylte.Button.Wide}"/>
                     </StackPanel>
                 </GroupBox>-->
-                <Button Content="{StaticResource Options.ResetDoNotPrompt}" HorizontalAlignment="Left" Margin="10" Style="{StaticResource Sylte.Button.Wide}"/>
+                <Button x:Name="buttonResetDoNotPrompt" Click="buttonResetDoNotPrompt_Click"
+                        Content="{StaticResource Options.ResetDoNotPrompt}" HorizontalAlignment="Left" Margin="10" Style="{StaticResource Sylte.Button.Wide}"/>
 
-            </StackPanel>
+            </StackPanel> <!-- Application End -->
 
             <!-- About -->
-            <StackPanel Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}"
-                        Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Border BorderBrush="{StaticResource Lite.Main.Foreground}" BorderThickness="1"
-                         Height="128" Width="128" Margin="20" Style="{StaticResource Style.Border.Shadow}">
-                    <Image Source="/Resources/pixelavatar512.png"/>
-                </Border>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Copyright (c) 2016-2017 duduluu" FontSize="18px"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14px">
-                    <Hyperlink x:Name="Github" Click="Github_Click">https://github.com/duduluu/RimTrans</Hyperlink>
-                </Label>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14px">
-                    <Hyperlink x:Name="MIT" Click="MIT_Click">MIT License</Hyperlink>
-                </Label>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14px">
-                    <Hyperlink x:Name="RimWorld_zh" Click="MIT_Click">http://RimWorld-zh.com</Hyperlink>
-                </Label>
-            </StackPanel>
-            <!-- Language End -->
+            <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <local:About HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Grid> <!-- About End -->
 
 
 

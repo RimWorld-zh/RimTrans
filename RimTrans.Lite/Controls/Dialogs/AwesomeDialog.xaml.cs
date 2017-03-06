@@ -27,6 +27,8 @@ namespace RimTrans.Lite.Controls.Dialogs
 
         public ButtonTag Result { get; set; } = ButtonTag.Close;
 
+        public bool DoNotPromptResult { get; set; } = false;
+
         public FontAwesomeIcon AwesomeIcon
         {
             get { return (FontAwesomeIcon)GetValue(AwesomeIconProperty); }
@@ -57,6 +59,18 @@ namespace RimTrans.Lite.Controls.Dialogs
 
 
 
+        public bool ShowDoNotPromptCheckBox
+        {
+            get { return (bool)GetValue(ShowDoNotPromptCheckBoxProperty); }
+            set { SetValue(ShowDoNotPromptCheckBoxProperty, value); }
+        }
+        public static readonly DependencyProperty ShowDoNotPromptCheckBoxProperty =
+            DependencyProperty.Register("ShowDoNotPromptCheckBox", typeof(bool), typeof(AwesomeDialog), new PropertyMetadata(false));
+
+
+
+
+
 
 
         private void buttonDoNotSave_Click(object sender, RoutedEventArgs e)
@@ -82,6 +96,11 @@ namespace RimTrans.Lite.Controls.Dialogs
 
             Result = ButtonTag.Close;
             DialogResult = false;
+        }
+
+        private void checkBoxNoPrompt_Checked(object sender, RoutedEventArgs e)
+        {
+            DoNotPromptResult = true;
         }
     }
 

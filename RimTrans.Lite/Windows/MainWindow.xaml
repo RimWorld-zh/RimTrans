@@ -18,9 +18,6 @@
         SnapsToDevicePixels="True"
         Initialized="Main_Initialized"
         Closing="Main_Closing">
-    <Window.DataContext>
-        <local:MainViewModel x:Name="vm"/>
-    </Window.DataContext>
     <Window.Resources>
         <ContextMenu x:Key="ContextMenu.ModList">
             <MenuItem Header="{DynamicResource Common.ShowInExplorer}" Command="{Binding CommandExploreMod}"/>
@@ -53,9 +50,13 @@
                                   Icon="AddressBook" 
                                   Text="{DynamicResource Common.Backstory}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
+            <c:AwesomeRadioButton x:Name="radioAbout"
+                                  Icon="InfoCircle" 
+                                  Text="{DynamicResource Common.About}"
+                                  Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
         </StackPanel>
 
-        <!-- Mods Translatons -->
+        <!-- Main -->
         <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioMod, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0"/>
@@ -68,42 +69,44 @@
                 <ColumnDefinition MinWidth="256" Width="{Binding Source={x:Static u:UserSettings.All}, Path=LanguageListBoxWidth}"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.DataContext>
+                <local:MainViewModel x:Name="vm"/>
+            </Grid.DataContext>
 
             <!-- Tool Bar Left -->
-            <StackPanel x:Name="toolbarLeft" 
-                        Background="{StaticResource Lite.Main.Background}"
-                        Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center"
-                        Panel.ZIndex="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
-                        Height="64" Width="auto" Margin="5,0,5,0">
-                <c:AwesomeButton x:Name="buttonAddMod" Command="{Binding CommandAddMod}"
-                                 Icon="PuzzlePiece" Text="{DynamicResource MainWindow.Button.AddMod}"
-                                 Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <c:AwesomeButton x:Name="buttonAddLanguage" Command="{Binding CommandAddLanguage}"
-                                 Icon="Plus"  Text="{DynamicResource MainWindow.Button.AddLanguage}"
-                                 Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <Separator HorizontalAlignment="Left" Height="auto" Margin="5,10" Style="{StaticResource Style.Separator.Vertical}"/>
-                <c:AwesomeButton x:Name="buttonAddExtract" Command="{Binding CommandExtract}"
-                                 Icon="PaperPlane" Text="{DynamicResource MainWindow.Button.Extract}"
-                                 Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <c:AwesomeButton x:Name="buttonAddEditor" IsEnabled="False"
-                                 Icon="Pencil" Text="{DynamicResource MainWindow.Button.Editor}"
-                                 Style="{StaticResource Style.AwesomeButton.Large}"/>
-            </StackPanel>
+            <Border Background="{StaticResource Lite.Main.Background}"
+                    Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Panel.ZIndex="10"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <Grid>
+                    <StackPanel x:Name="toolbarLeft" 
+                                Background="{StaticResource Lite.Main.Background}"
+                                Panel.ZIndex="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
+                                Height="64" Width="auto" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0">
+                        <c:AwesomeButton x:Name="buttonAddMod" Command="{Binding CommandAddMod}"
+                                         Icon="PuzzlePiece" Text="{DynamicResource MainWindow.Button.AddMod}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                        <c:AwesomeButton x:Name="buttonAddLanguage" Command="{Binding CommandAddLanguage}"
+                                         Icon="Plus"  Text="{DynamicResource MainWindow.Button.AddLanguage}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                        <Separator HorizontalAlignment="Left" Height="auto" Margin="5,10" Style="{StaticResource Style.Separator.Vertical}"/>
+                        <c:AwesomeButton x:Name="buttonAddExtract" Command="{Binding CommandExtract}"
+                                         Icon="PaperPlane" Text="{DynamicResource MainWindow.Button.Extract}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                        <c:AwesomeButton x:Name="buttonAddEditor" IsEnabled="False"
+                                         Icon="Pencil" Text="{DynamicResource MainWindow.Button.Editor}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                    </StackPanel>
+                    
+                    <StackPanel x:Name="toolbarRight"
+                                Background="{StaticResource Lite.Main.Background}"
+                                Grid.Row="1" Height="64" Width="auto" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0" >
+                        <c:AwesomeButton x:Name="buttonTools" IsEnabled="False"
+                                         Icon="Briefcase" Text="{DynamicResource MainWindow.Button.Tools}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                        <c:AwesomeButton x:Name="buttonHelp" Click="buttonHelp_Click"
+                                         Icon="Question" Text="{DynamicResource MainWindow.Button.Help}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                        <c:AwesomeButton x:Name="buttonOptions" Command="{Binding CommandOptions}"
+                                         Icon="Cogs" Text="{DynamicResource MainWindow.Button.Options}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
 
-            <!-- Tool Bar Right -->
-            <StackPanel x:Name="toolbarRight"
-                        Background="{StaticResource Lite.Main.Background}"
-                        Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"
-                        Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1"
-                        Height="64" Width="auto" Margin="5">
-                <c:AwesomeButton x:Name="buttonTools" IsEnabled="False"
-                                 Icon="Briefcase" Text="{DynamicResource MainWindow.Button.Tools}" Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <c:AwesomeButton x:Name="buttonHelp" Click="buttonHelp_Click"
-                                 Icon="Question" Text="{DynamicResource MainWindow.Button.Help}" Style="{StaticResource Style.AwesomeButton.Large}"/>
-                <c:AwesomeButton x:Name="buttonOptions" Command="{Binding CommandOptions}"
-                                 Icon="Cogs" Text="{DynamicResource MainWindow.Button.Options}" Style="{StaticResource Style.AwesomeButton.Large}"/>
-
-            </StackPanel>
+            
 
             <!-- Mods ListBox -->
             <Border Grid.Column="0" Grid.Row="2" Panel.ZIndex="2" Style="{StaticResource Style.Border.Shadow}">
@@ -196,9 +199,16 @@
 
 
 
+        </Grid> <!-- Main End -->
+
+
+        <!-- About -->
+        <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="30">
+            <local:About HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Grid>
-        
-        
-        
+        <!-- About End -->
+
+
+
     </Grid>
 </Window>

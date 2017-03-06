@@ -11,6 +11,7 @@
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <co:InserveBoolean x:Key="InverseBooleanConverter"/>
             <co:IsNullToVisibility x:Key="IsNullToVisibilityConverter"/>
+            <co:IsWhiteSpaceToVisibility x:Key="IsWhiteSpaceToVisibilityConverter"/>
             <co:IntegerToBoolean x:Key="IntegerToBooleanConverter"/>
             <co:EnumerationToBoolean x:Key="EnumerationToBooleanConverter"/>
 
