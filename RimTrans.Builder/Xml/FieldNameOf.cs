@@ -11,6 +11,7 @@ namespace RimTrans.Builder.Xml
         public static string li = "li";
 
         public static string reportString = "reportString";
+        public static string defaultToggleKey = "defaultToggleKey";
 
         public static string labelPlural = "labelPlural";
         public static string labelMale = "labelMale";

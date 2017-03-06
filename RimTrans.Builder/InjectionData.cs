@@ -359,8 +359,11 @@ namespace RimTrans.Builder
             }
             else if (defTypeName == DefTypeNameOf.MainTabDef)
             {
-                this.AddKeyBindingsAddMainTab(def, defName);
-                result++;
+                if (def.Field(FieldNameOf.defaultToggleKey) != null)
+                {
+                    this.AddKeyBindingsAddMainTab(def, defName);
+                    result++;
+                }
             }
             else if (defTypeName == DefTypeNameOf.TerrainDef && def.Field(FieldNameOf.designationCategory) != null)
             {
@@ -767,7 +770,7 @@ namespace RimTrans.Builder
             XElement label = def.label();
             if (label == null) label = defName;
 
-            root.Add("  ", new XElement("MainTab_" + defName.Value, "Toggle " + label.Value + " tab"), "\n");
+            root.Add("  ", new XElement("MainTab_" + defName.Value + ".label", "Toggle " + label.Value + " tab"), "\n");
         }
 
         #endregion
