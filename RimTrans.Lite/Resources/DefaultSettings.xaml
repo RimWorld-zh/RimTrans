@@ -40,8 +40,11 @@
     <s:Double x:Key="AddModWindowHeight">600</s:Double>
     <s:Double x:Key="AddModWindowWidth">971</s:Double>
 
+    <s:Boolean x:Key="ExtractDoNotPromptClean">False</s:Boolean>
+
     <s:Double x:Key="OptionsWindowHeight">600</s:Double>
     <s:Double x:Key="OptionsWindowWidth">971</s:Double>
+    <s:Boolean x:Key="OptionsDoNotPromptDirNoFound">False</s:Boolean>
 
     <s:String x:Key="LanguageCode">auto</s:String>
 

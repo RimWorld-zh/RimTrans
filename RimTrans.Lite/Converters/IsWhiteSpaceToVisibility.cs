@@ -9,11 +9,11 @@ using System.Windows.Data;
 
 namespace RimTrans.Lite.Converters
 {
-    public class IsNullToVisibility : IValueConverter
+    class IsWhiteSpaceToVisibility : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value == null ? Visibility.Collapsed : Visibility.Visible;
+            return string.IsNullOrWhiteSpace((string)value) ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

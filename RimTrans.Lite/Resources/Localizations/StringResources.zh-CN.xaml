@@ -101,6 +101,7 @@
     <s:String x:Key="Options.WorkshopModDir">工坊模组目录</s:String>
     <s:String x:Key="Options.Message.DirectoryNoFound">未发现边缘世界的安装目录或Steam工坊模组目录。这可能导致一些问题。你可以在选项中进行自定义。</s:String>
     <s:String x:Key="Options.ResetDoNotPrompt">重置所有不再提示对话框</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt.Message">所有不在提示对话框已重置。</s:String>
 
 
 

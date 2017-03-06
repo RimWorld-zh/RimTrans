@@ -32,30 +32,33 @@ namespace RimTrans.Lite.Util
             {
                 All.WorkshopModsDir = RimWorldHelper.WorkshopModsDir;
             }
-            if (string.IsNullOrWhiteSpace(All.RimWorldInstallDir) ||
+            if (!All.OptionsDoNotPromptDirNoFound &&
+                (string.IsNullOrWhiteSpace(All.RimWorldInstallDir) ||
                 !Directory.Exists(All.RimWorldInstallDir) ||
                 string.IsNullOrWhiteSpace(All.WorkshopModsDir) ||
-                !Directory.Exists(All.WorkshopModsDir))
+                !Directory.Exists(All.WorkshopModsDir)))
             {
-                var dlg = new AwesomeDialog();
+                var dialog = new AwesomeDialog();
                 if (Application.Current.Resources.Contains("Common.Warning"))
-                    dlg.Title = (string)Application.Current.FindResource("Common.Warning");
+                    dialog.Title = (string)Application.Current.FindResource("Common.Warning");
                 else
-                    dlg.Title = "Warning";
+                    dialog.Title = "Warning";
                 if (Application.Current.Resources.Contains("Options.Message.DirectoryNoFound"))
-                    dlg.Message = (string)Application.Current.FindResource("Options.Message.DirectoryNoFound");
+                    dialog.Message = (string)Application.Current.FindResource("Options.Message.DirectoryNoFound");
                 else
-                    dlg.Message = "RimWorld install directory or Steam Workshop Mods Directory on found. This can be caused by several problems. You could custom in options.";
-                dlg.AwesomeIcon = FontAwesome.WPF.FontAwesomeIcon.Warning;
-                dlg.ButtonTags = ButtonTag.Confirm;
-                dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                dlg.ShowDialog();
+                    dialog.Message = "RimWorld install directory or Steam Workshop Mods Directory on found. This can be caused by several problems. You could custom in options.";
+                dialog.AwesomeIcon = FontAwesome.WPF.FontAwesomeIcon.Warning;
+                dialog.ButtonTags = ButtonTag.Confirm;
+                dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                dialog.ShowDoNotPromptCheckBox = true;
+                dialog.ShowDialog();
+                All.OptionsDoNotPromptDirNoFound = dialog.DoNotPromptResult;
             }
         }
 
         public static void Exit()
         {
-            
+            UserSettings.Save();
         }
 
         #endregion
@@ -439,6 +442,16 @@ namespace RimTrans.Lite.Util
 
         #endregion
 
+        #region Window Extract
+
+        public bool ExtractDoNotPromptClean
+        {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        #endregion
+
         #region Window Options
 
         public double OptionsWindowHeight
@@ -456,6 +469,12 @@ namespace RimTrans.Lite.Util
         public string LanguageCode
         {
             get { return (string)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool OptionsDoNotPromptDirNoFound
+        {
+            get { return (bool)GetValue(); }
             set { SetValue(value); }
         }
 

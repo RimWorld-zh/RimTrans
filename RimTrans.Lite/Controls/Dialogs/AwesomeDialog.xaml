@@ -10,9 +10,11 @@
         x:Name="Dialog"
         Background="{StaticResource Lite.Main.Background}"
         Height="300" Width="600" ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner" SnapsToDevicePixels="True">
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <co:ButtonTagsToVisibility x:Key="ButtonTagsToVisibilityConverter"/>
+        <co:IsWhiteSpaceToVisibility x:Key="IsWhiteSpaceToVisibilityConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,13 +36,20 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,20,20">
             <StackPanel  ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="auto">
                 <TextBlock Text="{Binding ElementName=Dialog, Path=Title}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="18px" FontWeight="Heavy"
-                       Foreground="{StaticResource Lite.Main.Foreground}"
-                       Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                           Foreground="{StaticResource Lite.Main.Foreground}" Visibility="{Binding ElementName=Dialog, Path=Title, Converter={StaticResource IsWhiteSpaceToVisibilityConverter}}"
+                           Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox Text="{Binding ElementName=Dialog, Path=Message}" AllowDrop="True" TextWrapping="WrapWithOverflow" FontSize="14px" IsReadOnly="True"
-                     Foreground="{StaticResource Lite.Main.Foreground}" Background="Transparent" BorderThickness="0"
-                     Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,15,0,0"/>
+                         Foreground="{StaticResource Lite.Main.Foreground}" Background="Transparent" BorderThickness="0"
+                         Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,15,0,0"/>
             </StackPanel>
         </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"
+                    Height="auto" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0">
+            <CheckBox x:Name="checkBoxNoPrompt" Content="{DynamicResource Common.DoNotPrompt}" Checked="checkBoxNoPrompt_Checked"
+                      Visibility="{Binding ElementName=Dialog, Path=ShowDoNotPromptCheckBox, Converter={StaticResource BooleanToVisibilityConverter}}"
+                      Margin="10,0" Style="{StaticResource Style.AwesomeCheckBox.Content}"/>
+        </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"
                     Height="auto" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0">

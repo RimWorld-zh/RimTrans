@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using duduluu.MVVM;
 using RimTrans.Lite.Controls;
 using RimTrans.Lite.Controls.Dialogs;
+using RimTrans.Lite.Util;
 
 namespace RimTrans.Lite.Windows
 {
@@ -58,15 +59,20 @@ namespace RimTrans.Lite.Windows
 
         private void checkBoxCleanMode_Checked(object sender, RoutedEventArgs e)
         {
-            var dialog = new AwesomeDialog();
-            dialog.Title = checkBoxCleanMode.Content as string;
-            dialog.Message = checkBoxCleanMode.ToolTip as string;
-            dialog.AwesomeIcon = FontAwesome.WPF.FontAwesomeIcon.Warning;
-            dialog.ButtonTags = ButtonTag.Cancel | ButtonTag.Confirm;
-            dialog.ShowDialog(this);
-            if (dialog.Result != ButtonTag.Confirm)
+            if (!UserSettings.All.ExtractDoNotPromptClean)
             {
-                checkBoxCleanMode.IsChecked = false;
+                var dialog = new AwesomeDialog();
+                dialog.Title = checkBoxCleanMode.Content as string;
+                dialog.Message = checkBoxCleanMode.ToolTip as string;
+                dialog.AwesomeIcon = FontAwesome.WPF.FontAwesomeIcon.Warning;
+                dialog.ButtonTags = ButtonTag.Cancel | ButtonTag.Confirm;
+                dialog.ShowDoNotPromptCheckBox = true;
+                dialog.ShowDialog(this);
+                UserSettings.All.ExtractDoNotPromptClean = dialog.DoNotPromptResult;
+                if (dialog.Result != ButtonTag.Confirm)
+                {
+                    checkBoxCleanMode.IsChecked = false;
+                }
             }
         }
 

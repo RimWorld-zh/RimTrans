@@ -41,7 +41,7 @@
     <Style TargetType="Border" x:Key="Style.Border.Shadow">
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="3" Opacity="0.7"/>
+                <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="0" Opacity="0.7"/>
             </Setter.Value>
         </Setter>
     </Style>

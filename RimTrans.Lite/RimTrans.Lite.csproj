@@ -86,10 +86,14 @@
     <Compile Include="Converters\IsCheckedToCircleIcon.cs" />
     <Compile Include="Converters\IsCheckedToSquareIcon.cs" />
     <Compile Include="Converters\IsNullToVisibility.cs" />
+    <Compile Include="Converters\IsWhiteSpaceToVisibility.cs" />
     <Compile Include="Converters\LanguageCodeToIsSelected.cs" />
     <Compile Include="Converters\PathToName.cs" />
     <Compile Include="Converters\ModCategoryToIcon.cs" />
     <Compile Include="Util\LocalizationHelper.cs" />
+    <Compile Include="Windows\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddLanguageWindow.xaml.cs">
       <DependentUpon>AddLanguageWindow.xaml</DependentUpon>
     </Compile>
@@ -128,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\TextControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\pixelavatar512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logo_RimTrans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\About_Background_RimTrans.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
