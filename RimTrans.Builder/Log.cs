@@ -13,60 +13,6 @@ namespace RimTrans.Builder
         {
             //Console.SetWindowSize(116, 35);
             //Console.SetBufferSize(116, 3000);
-            random = new Random();
-        }
-
-        static Random random;
-
-        static string[] faceTextGood = {
-            "╭(￣▽￣)╯   ",
-            "(●′?｀●)    ",
-            "o(>ω<)o     ",
-            " (*ﾟ∇ﾟ)     ",
-            " (*´∀`)     ",
-            " ( ﾟ∀ﾟ)     ",
-            " (￣∇￣)    ",
-            "(`・ω・´)   ",
-            "(′；ω；‘)   ",
-            "(^・ω・^ )  ",
-            "╭(●｀?′●)╯  ",
-            "(=^･ω･^=)   ",
-            "o(*≥▽≤)ツ   ",
-            "o(ノﾟ∀ﾟ)ノ  ",
-            "(ノ≧∇≦)ノ ",
-            "(=^･ｪ･^=)   ",
-        };
-        public static void FaceGodd()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(faceTextGood[random.Next(9)]);
-            Console.ResetColor();
-        }
-
-        static string[] faceTextBad =
-        {
-            "(ﾟДﾟ≡ﾟдﾟ)!? ",
-            " ( ;´Д`)    ",
-            "(*゜ロ゜)ノ ",
-            "Σ( ￣д￣；) ",
-            "(っ °Д °;)っ",
-            "Σ( ° △ °|||)",
-            " (╯°Д°)╯    ",
-            "（＞д＜）   ",
-            "（ ＴДＴ）  ",
-            "(´Ａ｀。)   ",
-            "o(￣ヘ￣o＃)",
-            "ヽ(#`Д´)ﾉ   ",
-            " (|||ﾟдﾟ)   ",
-            " ヽ(≧Д≦)ノ",
-            " ヽ(#`Д´)ﾉ  ",
-            "_(:з」∠)_  ",
-        };
-        public static void FaceBad()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(faceTextBad[random.Next(9)]);
-            Console.ResetColor();
         }
 
         #region Head

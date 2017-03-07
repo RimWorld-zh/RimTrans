@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Diagnostics;
+using System.Reflection;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -24,23 +25,17 @@ namespace RimTrans.Lite.Windows
         public About()
         {
             InitializeComponent();
+            Assembly asm = Assembly.GetExecutingAssembly();
+            title.Text = asm.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+            version.Text = "Version " + asm.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
+            copyright.Text = asm.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+            description.Text = asm.GetCustomAttribute<AssemblyDescriptionAttribute>().Description;
         }
 
-        private void Github_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            Process.Start("https://github.com/duduluu/RimTrans/blob/master/LICENSE");
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
-
-        private void MIT_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("https://github.com/duduluu/RimTrans");
-        }
-
-        private void RimWorld_zh_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("http://RimWorld-zh.com/");
-        }
-
-
     }
 }

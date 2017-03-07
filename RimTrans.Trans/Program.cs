@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,23 +15,80 @@ namespace RimTrans.Trans
 {
     class Program
     {
+        #region Face Text
+
+        static Random random = new Random();
+
+        static string[] faceTextGood = {
+            "╭(￣▽￣)╯   ",
+            "(●′?｀●)    ",
+            "o(>ω<)o     ",
+            " (*ﾟ∇ﾟ)     ",
+            " (*´∀`)     ",
+            " ( ﾟ∀ﾟ)     ",
+            " (￣∇￣)    ",
+            "(`・ω・´)   ",
+            "(′；ω；‘)   ",
+            "(^・ω・^ )  ",
+            "╭(●｀?′●)╯  ",
+            "(=^･ω･^=)   ",
+            "o(*≥▽≤)ツ   ",
+            "o(ノﾟ∀ﾟ)ノ  ",
+            "(ノ≧∇≦)ノ ",
+            "(=^･ｪ･^=)   ",
+        };
+        public static string FaceGodd()
+        {
+            return faceTextGood[random.Next(9)];
+        }
+
+        static string[] faceTextBad =
+        {
+            "(ﾟДﾟ≡ﾟдﾟ)!? ",
+            " ( ;´Д`)    ",
+            "(*゜ロ゜)ノ ",
+            "Σ( ￣д￣；) ",
+            "(っ °Д °;)っ",
+            "Σ( ° △ °|||)",
+            " (╯°Д°)╯    ",
+            "（＞д＜）   ",
+            "（ ＴДＴ）  ",
+            "(´Ａ｀。)   ",
+            "o(￣ヘ￣o＃)",
+            "ヽ(#`Д´)ﾉ   ",
+            " (|||ﾟдﾟ)   ",
+            " ヽ(≧Д≦)ノ",
+            " ヽ(#`Д´)ﾉ  ",
+            "_(:з」∠)_  ",
+        };
+        public static string FaceBad()
+        {
+            return faceTextBad[random.Next(9)];
+        }
+        
+        #endregion
+
         static void Main(string[] args)
         {
             if (args.Length == 0) return;
 
             #region Application Info
 
-            Console.Title = "RimTrans";
+            Assembly asm = Assembly.GetExecutingAssembly();
+            string title = asm.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+            string version = asm.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
+            string copyright = asm.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+
+            Console.Title = title;
             Console.OutputEncoding = Encoding.Unicode;
             Log.WriteLine();
-            Log.FaceGodd();
-            Log.WriteLine(ConsoleColor.Cyan, " RimTrans (`・ω・´)");
+            Log.WriteLine(ConsoleColor.Cyan, $" {FaceGodd()}{FaceGodd()}{FaceGodd()}");
             Log.WriteLine();
-            Log.FaceGodd();
-            Log.WriteLine(ConsoleColor.Cyan, " Builder Library Version 0.16.0.3");
+            Log.WriteLine(ConsoleColor.Cyan, $" {title}");
             Log.WriteLine();
-            Log.FaceGodd();
-            Log.WriteLine(ConsoleColor.Cyan, " Copyright (c) 2016-2017 duduluu, MIT License.");
+            Log.WriteLine(ConsoleColor.Cyan, $" Version {version}");
+            Log.WriteLine();
+            Log.WriteLine(ConsoleColor.Cyan, $" {copyright}");
             Log.WriteLine();
 
             #endregion
@@ -61,7 +121,6 @@ namespace RimTrans.Trans
             if (string.IsNullOrWhiteSpace(projectFile) || !File.Exists(projectFile))
             {
                 Log.Error();
-                Log.FaceBad();
                 Log.WriteLine(ConsoleColor.Red, $"Project File {projectFile} NO FOUND.");
                 Log.WriteLine();
                 Console.Write("Press any key to exit...");
@@ -69,9 +128,8 @@ namespace RimTrans.Trans
                 return;
             }
 
-            Log.WriteLine(ConsoleColor.Green, "======== Start Project ========");
+            Log.WriteLine(ConsoleColor.Green, $"======== Start Project  {FaceGodd()} ========");
             Log.WriteLine();
-            Log.FaceGodd();
             Log.WriteLine(ConsoleColor.Green, "Porject File: ");
             Log.Indent();
             Log.WriteLine(ConsoleColor.Cyan, projectFile);
@@ -84,27 +142,24 @@ namespace RimTrans.Trans
             if (string.IsNullOrWhiteSpace(modPath) || !Directory.Exists(modPath))
             {
                 Log.Error();
-                Log.FaceBad();
                 Log.WriteLine(ConsoleColor.Red, $"Mod Directory {modPath} NO FOUND.");
                 Log.WriteLine();
                 Console.Write("Press any key to exit...");
                 Console.ReadKey();
                 return;
             }
-
-            Log.FaceGodd();
+            
             Log.WriteLine(ConsoleColor.Green, "Mod Path: ");
             Log.Indent();
             Log.WriteLine(ConsoleColor.Cyan, modPath);
 
             generateOption = root.Element("GenerateOption").Value;
-            Log.FaceGodd();
             Log.WriteLine(ConsoleColor.Green, "Generate Option: ");
             Log.Indent();
             Log.Write(ConsoleColor.Cyan, generateOption + " Mode");
             if (cleanModeOn)
             {
-                Log.WriteLine(ConsoleColor.Green, "| Clean Mode");
+                Log.WriteLine(ConsoleColor.Green, " | Clean Mode");
             }
             else
             {
@@ -125,7 +180,6 @@ namespace RimTrans.Trans
 
             if (generateOption == "Standard")
             {
-                Log.FaceGodd();
                 Log.WriteLine(ConsoleColor.Green, "Core Path: ");
                 Log.Indent();
                 Log.WriteLine(ConsoleColor.Cyan, corePath);
@@ -154,8 +208,20 @@ namespace RimTrans.Trans
                 XElement Languages = root.Element("Languages");
                 foreach (XElement li in Languages.Elements())
                 {
+                    // If IsChecked
+                    if (string.Compare(li.Element("IsChecked").Value, "false", true) == 0)
+                        continue;
+
                     string realName = li.Element("RealName").Value;
                     string nativeName = li.Element("NativeName").Value;
+
+                    // Check Language Real Name
+                    if (string.IsNullOrWhiteSpace(realName))
+                    {
+                        Log.Error();
+                        Log.WriteLine(ConsoleColor.Red, "Missing Language Name.");
+                        continue;
+                    }
 
                     Log.WriteLine(ConsoleColor.Green, $"======== Start Processing Language: {realName} ( {nativeName} ) ========");
 
@@ -236,6 +302,10 @@ namespace RimTrans.Trans
                 XElement Languages = root.Element("Languages");
                 foreach (XElement li in Languages.Elements())
                 {
+                    // If IsChecked
+                    if (string.Compare(li.Element("IsChecked").Value, "false", true) == 0)
+                        continue;
+
                     string realName = li.Element("RealName").Value;
                     string nativeName = li.Element("NativeName").Value;
 
@@ -319,8 +389,7 @@ namespace RimTrans.Trans
             #endregion
 
             // End
-            Log.FaceGodd();
-            Log.WriteLine(ConsoleColor.Green, "======== Completed Project ========");
+            Log.WriteLine(ConsoleColor.Green, $"======== Completed Project  {FaceGodd()}========");
             Log.WriteLine();
             Console.Write("Press any key to exit...");
             Console.ReadKey();

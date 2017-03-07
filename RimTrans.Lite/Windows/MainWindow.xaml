@@ -44,13 +44,13 @@
             <c:AwesomeRadioButton x:Name="radioMod"
                                   Icon="PuzzlePiece" 
                                   Text="{DynamicResource Common.Mod}"
-                                  IsChecked="True"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
             <c:AwesomeRadioButton x:Name="radioBackstory"
                                   Icon="AddressBook" 
                                   Text="{DynamicResource Common.Backstory}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
             <c:AwesomeRadioButton x:Name="radioAbout"
+                                  IsChecked="True"
                                   Icon="InfoCircle" 
                                   Text="{DynamicResource Common.About}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
@@ -203,7 +203,7 @@
 
 
         <!-- About -->
-        <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="30">
+        <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30,30,30,60">
             <local:About HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Grid>
         <!-- About End -->
