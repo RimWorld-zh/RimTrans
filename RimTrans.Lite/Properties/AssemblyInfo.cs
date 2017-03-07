@@ -8,10 +8,10 @@ using System.Windows;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("RimTrans")]
-[assembly: AssemblyDescription("The gui tool to for translating RimWorld.")]
+[assembly: AssemblyDescription("An awesome GUI and completed tool for translating RimWorld.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RimWorld-zh.com")]
-[assembly: AssemblyProduct("RimTrans")]
+[assembly: AssemblyProduct("RimTrans.Lite")]
 [assembly: AssemblyCopyright("Copyright © 2016-2017 duduluu")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -51,5 +51,5 @@ using System.Windows;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.16.0.4")]
-[assembly: AssemblyFileVersion("0.16.0.4")]
+[assembly: AssemblyVersion("0.16.0.5")]
+[assembly: AssemblyFileVersion("0.16.0.5")]

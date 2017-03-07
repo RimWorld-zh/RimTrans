@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <Image Opacity="0.5" VerticalAlignment="Stretch" Source="/Resources/About_Background_RimTrans.png"/>
-        <Border Opacity="0.3" Height="200">
+        <Image MaxHeight="512" MaxWidth="512" Opacity="0.5" VerticalAlignment="Stretch" Source="/Resources/About_Background_RimTrans.png"/>
+        <Border Opacity="0.4" Height="200">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -27,30 +27,26 @@
             </Border.Background>
         </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Border Height="128" Width="84" Style="{StaticResource Style.Border.Shadow}"/>
+            <Border Width="84" Style="{StaticResource Style.Border.Shadow}"/>
             <Separator Margin="20,10" Style="{StaticResource Style.Separator.Vertical}"/>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="RimTrans" FontSize="20px" Foreground="White" Margin="0,5"/>
-                <TextBlock Text="Version 0.16.0.4" FontSize="13.2px" Foreground="White" Margin="0,3"/>
-                <TextBlock Text="Copyright (c) 2016-2017 duduluu" FontSize="13.2px" Foreground="White" Margin="0,3"/>
-                <TextBlock Text="An awesome translation tool for RimWorld!" FontSize="13.2px" Foreground="White" Margin="0,3"/>
-                <TextBlock FontSize="12.8px" Margin="0,2">
-                    <Hyperlink x:Name="Github" Click="Github_Click" Foreground="White">https://github.com/duduluu/RimTrans</Hyperlink>
-                </TextBlock>
-                <TextBlock FontSize="12.8px" Margin="0,2">
-                    <Hyperlink x:Name="MIT" Click="MIT_Click" Foreground="White">MIT License</Hyperlink>
-                </TextBlock>
-                <TextBlock FontSize="12.8px" Margin="0,2">
-                    <Hyperlink x:Name="RimWorld_zh" Click="RimWorld_zh_Click" Foreground="White">http://RimWorld-zh.com</Hyperlink>
+                <TextBlock x:Name="title" FontSize="20px" Foreground="White" Margin="0,5"/>
+                <TextBlock x:Name="version" FontSize="13.2px" Foreground="White" Margin="0,3"/>
+                <TextBlock x:Name="copyright" FontSize="13.2px" Foreground="White" Margin="0,3"/>
+                <TextBlock x:Name="description" FontSize="13.2px" Foreground="White" Margin="0,3"/>
+                <TextBlock FontSize="13.2px" Foreground="White" Margin="0,3">
+                    <Hyperlink Foreground="White" RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/duduluu/RimTrans">Source Code</Hyperlink>
+                    <Hyperlink Foreground="White" RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://opensource.org/licenses/MIT">MIT License</Hyperlink>
+                    <Hyperlink Foreground="White" RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://RimWorld-zh.com">RimWorld-zh.com</Hyperlink>
                 </TextBlock>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
             <Label Content="Included Open-Source Library"  FontSize="13.5px" FontWeight="Heavy" HorizontalAlignment="Center"/>
             <TextBlock TextAlignment="Center" Height="18">
-                <Hyperlink x:Name="hyperLinkFontAwesomeWPF" Click="Github_Click">Font-Awesome-WPF (MIT)</Hyperlink>
-                <Hyperlink x:Name="HyperLinkSteamKit2" Click="MIT_Click">SteamKit2 (LGPL-2.1 License)</Hyperlink>
-                <Hyperlink x:Name="HyperLinkProtobufNet" Click="RimWorld_zh_Click">protobuf-net (Apache License v2.0)</Hyperlink>
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/charri/Font-Awesome-WPF">Font-Awesome-WPF (MIT)</Hyperlink>
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/SteamRE/SteamKit">SteamKit2 (LGPL-2.1 License)</Hyperlink>
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://code.google.com/p/protobuf-net/">protobuf-net (Apache License v2.0)</Hyperlink>
             </TextBlock>
         </StackPanel>
 
