@@ -357,7 +357,7 @@ namespace RimTrans.Builder
                     }
                 }
             }
-            else if (defTypeName == DefTypeNameOf.MainTabDef)
+            else if (defTypeName == DefTypeNameOf.MainTabDef || defTypeName == DefTypeNameOf.MainButtonDef)
             {
                 if (def.Field(FieldNameOf.defaultToggleKey) != null)
                 {
@@ -481,6 +481,15 @@ namespace RimTrans.Builder
                         }
                         fullFieldName.Append('.');
                     }
+
+                    //XNode previousNode = fieldChild.PreviousNode;
+                    //if (previousNode != null && previousNode.NodeType == XmlNodeType.Comment)
+                    //{
+                    //    yield return "  ";
+                    //    yield return previousNode;
+                    //    yield return "\n";
+                    //}
+
                     string fieldChildName = fieldChild.Name.ToString();
                     fullFieldName.Append(fieldChildName == "li" ?
                         fieldChild.Attribute("ListIndex").Value :

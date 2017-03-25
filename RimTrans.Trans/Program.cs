@@ -37,7 +37,7 @@ namespace RimTrans.Trans
             "(ノ≧∇≦)ノ ",
             "(=^･ｪ･^=)   ",
         };
-        public static string FaceGodd()
+        public static string FaceGood()
         {
             return faceTextGood[random.Next(9)];
         }
@@ -82,7 +82,7 @@ namespace RimTrans.Trans
             Console.Title = title;
             Console.OutputEncoding = Encoding.Unicode;
             Log.WriteLine();
-            Log.WriteLine(ConsoleColor.Cyan, $" {FaceGodd()}{FaceGodd()}{FaceGodd()}");
+            Log.WriteLine(ConsoleColor.Cyan, $" {FaceGood()}{FaceGood()}{FaceGood()}");
             Log.WriteLine();
             Log.WriteLine(ConsoleColor.Cyan, $" {title}");
             Log.WriteLine();
@@ -128,7 +128,7 @@ namespace RimTrans.Trans
                 return;
             }
 
-            Log.WriteLine(ConsoleColor.Green, $"======== Start Project  {FaceGodd()} ========");
+            Log.WriteLine(ConsoleColor.Green, $"======== Start Project  {FaceGood()} ========");
             Log.WriteLine();
             Log.WriteLine(ConsoleColor.Green, "Porject File: ");
             Log.Indent();
@@ -389,7 +389,7 @@ namespace RimTrans.Trans
             #endregion
 
             // End
-            Log.WriteLine(ConsoleColor.Green, $"======== Completed Project  {FaceGodd()}========");
+            Log.WriteLine(ConsoleColor.Green, $"======== Completed Project  {FaceGood()}========");
             Log.WriteLine();
             Console.Write("Press any key to exit...");
             Console.ReadKey();

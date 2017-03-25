@@ -97,6 +97,9 @@
     <Compile Include="Windows\AddLanguageWindow.xaml.cs">
       <DependentUpon>AddLanguageWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\BackstoryWindow.xaml.cs">
+      <DependentUpon>BackstoryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ExtractWindow.xaml.cs">
       <DependentUpon>ExtractWindow.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddLanguageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BackstoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
