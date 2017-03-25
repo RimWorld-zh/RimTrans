@@ -126,7 +126,7 @@ namespace RimTrans.Builder.Xml
             if (fieldName == "li")
             {
                 string fieldNameParent = field.Parent.Name.ToString();
-                if (fieldNameParent == "rulesStrings")
+                if (string.Compare(fieldNameParent, "rulesStrings", true) == 0)
                 {
                     return true;
                 }
@@ -250,8 +250,21 @@ namespace RimTrans.Builder.Xml
                 // WorkTypeDef
                 string.Compare(fieldName, "labelShort", true) == 0 ||
                 //string.Compare(fieldName, "pawnLabel", true) == 0 ||
-                string.Compare(fieldName, "gerundLabel", true) == 0
+                string.Compare(fieldName, "gerundLabel", true) == 0 ||
                 //string.Compare(fieldName, "verb", true) == 0 ||
+
+                // RimTrans.Framework.BackstoryInjection
+                string.Compare(fieldName, "Title", true) == 0 ||
+                string.Compare(fieldName, "TitleShort", true) == 0 ||
+                string.Compare(fieldName, "BaseDesc", true) == 0 ||
+
+                // RimTrans.Framework.PawnBioInjection
+                string.Compare(fieldName, "First", true) == 0 ||
+                string.Compare(fieldName, "Last", true) == 0 ||
+                string.Compare(fieldName, "Nick", true) == 0 ||
+
+                // RimTrans.Framework.ShuffledNameInjection
+                string.Compare(fieldName, "nativeName", true) == 0
                 )
             {
                 return true;

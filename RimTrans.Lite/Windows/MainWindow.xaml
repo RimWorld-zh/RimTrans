@@ -18,6 +18,9 @@
         SnapsToDevicePixels="True"
         Initialized="Main_Initialized"
         Closing="Main_Closing">
+    <Window.DataContext>
+        <local:MainViewModel x:Name="vm"/>
+    </Window.DataContext>
     <Window.Resources>
         <ContextMenu x:Key="ContextMenu.ModList">
             <MenuItem Header="{DynamicResource Common.ShowInExplorer}" Command="{Binding CommandExploreMod}"/>
@@ -33,15 +36,16 @@
         </ContextMenu>
     </Window.Resources>
     
-    <Grid>
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
 
         <!--Side Bar-->
-        <StackPanel Grid.RowSpan="2" Style="{StaticResource Style.Sidebar}">
+        <!--<StackPanel Grid.RowSpan="2" Style="{StaticResource Style.Sidebar}">
             <c:AwesomeRadioButton x:Name="radioMod"
+                                  IsChecked="True"
                                   Icon="PuzzlePiece" 
                                   Text="{DynamicResource Common.Mod}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
@@ -50,11 +54,10 @@
                                   Text="{DynamicResource Common.Backstory}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
             <c:AwesomeRadioButton x:Name="radioAbout"
-                                  IsChecked="True"
                                   Icon="InfoCircle" 
                                   Text="{DynamicResource Common.About}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar}"/>
-        </StackPanel>
+        </StackPanel>-->
 
         <!-- Main -->
         <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioMod, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -69,9 +72,6 @@
                 <ColumnDefinition MinWidth="256" Width="{Binding Source={x:Static u:UserSettings.All}, Path=LanguageListBoxWidth}"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid.DataContext>
-                <local:MainViewModel x:Name="vm"/>
-            </Grid.DataContext>
 
             <!-- Tool Bar Left -->
             <Border Background="{StaticResource Lite.Main.Background}"
@@ -96,8 +96,10 @@
                     <StackPanel x:Name="toolbarRight"
                                 Background="{StaticResource Lite.Main.Background}"
                                 Grid.Row="1" Height="64" Width="auto" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0" >
-                        <c:AwesomeButton x:Name="buttonTools" IsEnabled="False"
-                                         Icon="Briefcase" Text="{DynamicResource MainWindow.Button.Tools}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                    <c:AwesomeButton x:Name="backstory" Command="{Binding CommandBackstory}"
+                                         Icon="AddressBook" Text="{DynamicResource Common.Backstory}" Style="{StaticResource Style.AwesomeButton.Large}"/>
+                        <!--<c:AwesomeButton x:Name="buttonTools" IsEnabled="False"
+                                         Icon="Briefcase" Text="{DynamicResource MainWindow.Button.Tools}" Style="{StaticResource Style.AwesomeButton.Large}"/>-->
                         <c:AwesomeButton x:Name="buttonHelp" Click="buttonHelp_Click"
                                          Icon="Question" Text="{DynamicResource MainWindow.Button.Help}" Style="{StaticResource Style.AwesomeButton.Large}"/>
                         <c:AwesomeButton x:Name="buttonOptions" Command="{Binding CommandOptions}"
@@ -203,12 +205,12 @@
 
 
         <!-- About -->
-        <Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30,30,30,60">
+        <!--<Grid Grid.Column="1" Visibility="{Binding IsChecked, ElementName=radioAbout, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30,30,30,60">
             <local:About HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        </Grid>
+        </Grid>-->
         <!-- About End -->
 
 
 
-    </Grid>
+    <!--</Grid>-->
 </Window>

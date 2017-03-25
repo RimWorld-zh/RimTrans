@@ -30,13 +30,13 @@
         
         <StackPanel Grid.RowSpan="2" Style="{StaticResource Style.Sidebar}">
             <c:AwesomeRadioButton x:Name="radioLanguage"
+                                  IsChecked="True"
                                   Icon="Language" Text="{DynamicResource Common.Language}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
             <c:AwesomeRadioButton x:Name="radioApplication"
                                   Icon="Cog" Text="{DynamicResource Common.Application}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
             <c:AwesomeRadioButton x:Name="radioAbout"
-                                  IsChecked="True"
                                   Icon="InfoCircle" Text="{DynamicResource Common.About}"
                                   Style="{StaticResource Style.AwesomeRadioButton.Sidebar.Content}"/>
         </StackPanel>

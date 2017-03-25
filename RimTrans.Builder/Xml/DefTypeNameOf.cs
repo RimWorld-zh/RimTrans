@@ -35,7 +35,7 @@ namespace RimTrans.Builder.Xml
         public static readonly string KeyBindingCategoryDef = "KeyBindingCategoryDef";
         public static readonly string KeyBindingDef = "KeyBindingDef";
         public static readonly string LifeStageDef = "LifeStageDef";
-        public static readonly string MainTabDef = "MainTabDef";
+        public static readonly string MainButtonDef = "MainButtonDef";
         public static readonly string MapConditionDef = "MapConditionDef";
         public static readonly string MapGeneratorDef = "MapGeneratorDef";
         public static readonly string MentalBreakDef = "MentalBreakDef";
@@ -49,6 +49,7 @@ namespace RimTrans.Builder.Xml
         public static readonly string RecipeDef = "RecipeDef";
         public static readonly string RecordDef = "RecordDef";
         public static readonly string ResearchProjectDef = "ResearchProjectDef";
+        public static readonly string ResearchTabDef = "ResearchTabDef";
         public static readonly string RoofDef = "RoofDef";
         public static readonly string RoomRoleDef = "RoomRoleDef";
         public static readonly string RoomStatDef = "RoomStatDef";
@@ -80,5 +81,7 @@ namespace RimTrans.Builder.Xml
         public static readonly string WorkGiverDef = "WorkGiverDef";
         public static readonly string WorkTypeDef = "WorkTypeDef";
         public static readonly string WorldObjectDef = "WorldObjectDef";
+
+        public static readonly string MainTabDef = "MainTabDef"; // Before A17
     }
 }

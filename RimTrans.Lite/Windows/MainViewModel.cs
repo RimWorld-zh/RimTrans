@@ -263,6 +263,18 @@ namespace RimTrans.Lite.Windows
 
         // Editor (TODO)
 
+        // Backstory
+        private RelayCommand _commandBackstory;
+        public RelayCommand CommandBackstory
+        {
+            get { return _commandBackstory ?? (_commandBackstory = new RelayCommand(ExecuteBackstory)); }
+        }
+        private void ExecuteBackstory(object parameter)
+        {
+            var window = new BackstoryWindow();
+            window.Show();
+        }
+
         // Options
         private RelayCommand _commandOptions;
         public RelayCommand CommandOptions
