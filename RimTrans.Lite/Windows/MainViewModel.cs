@@ -244,7 +244,6 @@ namespace RimTrans.Lite.Windows
                 Path.Combine(UserSettings.All.RimWorldInstallDir, "Mods", "Core");
             var selectedMod = _selectedMod;
             SelectedMod = null;
-            selectedMod.Save(projectFile);
 
             string arguments = $"\"-p:{projectFile}\" -Core:\"{corePath}\"";
 
@@ -254,6 +253,7 @@ namespace RimTrans.Lite.Windows
 
             if (dialogResult == true)
             {
+                selectedMod.Save(projectFile);
                 if (window.IsCleanMode) arguments += " -Clean";
                 Process.Start("Trans.exe", arguments);
             }
