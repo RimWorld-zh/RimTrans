@@ -399,7 +399,14 @@ namespace RimTrans.Builder
                 {
                     bool hasGenders = true;
                     bool isHumanlike = false;
-                    string raceName = pawnKindDef.Field(FieldNameOf.race).Value;
+                    XElement raceDefName = pawnKindDef.Field(FieldNameOf.race);
+                    if (raceDefName == null)
+                    {
+                        Log.Error();
+                        Log.WriteLine($"The PawnKindDef '{pawnKindDef.Field("defName").Value}' missing the important field 'race'.");
+                        continue;
+                    }
+                    string raceName = raceDefName.Value;
                     foreach (XElement race in racesAll)
                     {
                         if (race.defName().Value == raceName)
