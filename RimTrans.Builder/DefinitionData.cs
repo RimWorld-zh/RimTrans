@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -17,6 +18,20 @@ namespace RimTrans.Builder
 
         // Storage nodes those have attribute Name="XXXX"
         private XElement _abstracts;
+
+        private bool isProcessedFieldNames = false;
+        public bool IsProcessedFieldNames { get { return this.isProcessedFieldNames; } }
+        public void MarkProcessedFieldNames()
+        {
+            this.isProcessedFieldNames = true;
+        }
+
+
+        #region Methods
+
+
+
+        #endregion
 
 
         private DefinitionData()
@@ -41,7 +56,7 @@ namespace RimTrans.Builder
 
             definitionData.Inherit(definitionDataCore);
 
-            definitionData.HandleDetails();
+            definitionData.MarkIndex();
 
             definitionData.CompleteJobReportString();
             definitionData.CompletePawnKindLabel(definitionDataCore);
@@ -291,7 +306,8 @@ namespace RimTrans.Builder
         {
             if (child.HasElements && parent.HasElements)
             {
-                if (child.Elements().First().Name.ToString() == "li")
+                if (child.Elements().First().Name.ToString() == "li" &&
+                    parent.Elements().First().Name.ToString() == "li")
                 {
                     child.AddFirst(parent.Elements()); // Must use AddFirst();
                 }
@@ -300,10 +316,9 @@ namespace RimTrans.Builder
                     foreach (XElement fieldParent in parent.Elements())
                     {
                         bool isMatched = false;
-                        string fieldNameParent = fieldParent.Name.ToString();
                         foreach (XElement fieldChild in child.Elements())
                         {
-                            if (string.Compare(fieldNameParent, fieldChild.Name.ToString(), true) == 0)
+                            if (string.Compare(fieldParent.Name.ToString(), fieldChild.Name.ToString(), true) == 0)
                             {
                                 isMatched = true;
                                 InheritRecursively(fieldChild, fieldParent);
@@ -853,12 +868,12 @@ namespace RimTrans.Builder
 
         #endregion
 
-        #region Handle Details
+        #region Mark Index
 
         /// <summary>
-        /// Reorder defName, label and description, Add attribute to list item as index marks.
+        /// Mark index number for list items.
         /// </summary>
-        private void HandleDetails()
+        private void MarkIndex()
         {
             IEnumerable<XElement> defsAll = from doc in this._data.Values
                                             from ele in doc.Root.Elements()
@@ -868,48 +883,13 @@ namespace RimTrans.Builder
             if (countDefs > 0)
             {
                 Log.Info();
-                Log.WriteLine("Start processing other details.");
+                Log.WriteLine("Start marking index number for list items.");
                 foreach (XElement def in defsAll)
                 {
-                    XElement defName = def.defName();
-                    XElement firstField = def.Elements().First();
-                    if (defName != firstField)
-                    {
-                        defName.Remove();
-                        def.AddFirst(defName);
-                        defName = def.defName();
-                    }
-                    XElement label = def.label();
-                    if (label != null && label != defName.ElementsAfterSelf().First())
-                    {
-                        label.Remove();
-                        defName.AddAfterSelf(label);
-                        label = def.label();
-                    }
-                    XElement description = def.description();
-                    if (description != null)
-                    {
-                        if (label == null)
-                        {
-                            if (description != defName.ElementsAfterSelf().First())
-                            {
-                                description.Remove();
-                                defName.AddAfterSelf(description);
-                            }
-                        }
-                        else
-                        {
-                            if (description != label.ElementsAfterSelf().First())
-                            {
-                                description.Remove();
-                                label.AddAfterSelf(description);
-                            }
-                        }
-                    }
                     MarkIndexRecursively(def); // Recursively
                 }
                 Log.Info();
-                Log.WriteLine("Completed processing details.");
+                Log.WriteLine("Completed marking index number for list items.");
             }
         }
 
@@ -946,8 +926,157 @@ namespace RimTrans.Builder
 
         #region Save
 
-        //TODO: Save method
-        // Does Defs need to be saved?
+        /// <summary>
+        /// Save this definition data to a directory. All the existed files will be deleted.
+        /// </summary>
+        /// <param name="path"></param>
+        public void Save(string path)
+        {
+            if (this._data.Count() == 0) return;
+
+            if (Directory.Exists(path))
+            {
+                DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
+                if (ds.AreAccessRulesProtected)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing Defs failed: No write permission to directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, path);
+                    return;
+                }
+                else
+                {
+                    DirectoryHelper.CleanDirectory(path, "*.xml");
+                }
+            }
+            else
+            {
+                try
+                {
+                    Directory.CreateDirectory(path);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing Defs failed: Can not create directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, path);
+                    Log.Indent();
+                    Log.WriteLine(ex.Message);
+                    return;
+                }
+            }
+
+            Log.Info();
+            Log.Write("Start outputing Defs: ");
+            Log.WriteLine(ConsoleColor.Cyan, path);
+
+            int countValidFiles = 0;
+            int countInvalidFiles = 0;
+            foreach (KeyValuePair<string, XDocument> relativePathDoc in this._data)
+            {
+                string filePath = Path.Combine(path, relativePathDoc.Key);
+                string subDirPath = Path.GetDirectoryName(filePath);
+                if (Directory.Exists(subDirPath))
+                {
+                    DirectorySecurity curDs = new DirectorySecurity(subDirPath, AccessControlSections.Access);
+                    if (curDs.AreAccessRulesProtected)
+                    {
+                        Log.Error();
+                        Log.WriteLine("Outputing to sub-directory failed: No write permission to directory.");
+                        Log.Indent();
+                        Log.WriteLine(ConsoleColor.Red, subDirPath);
+                        continue;
+                    }
+                }
+                else
+                {
+                    Directory.CreateDirectory(subDirPath);
+                }
+                XDocument doc = relativePathDoc.Value;
+                XElement root = doc.Root;
+                bool isSpecial = false;
+                foreach (XElement def in root.Elements())
+                {
+                    string defTypeName = def.Name.ToString();
+                    if (defTypeName == DefTypeNameOf.InteractionDef ||
+                        defTypeName == DefTypeNameOf.RulePackDef ||
+                        defTypeName == DefTypeNameOf.TaleDef)
+                        isSpecial = true;
+                }
+                if (isSpecial)
+                {
+                    // Special for these 3 DefType
+                    string text = root.ToString().Replace("-&gt;", "->");
+                    try
+                    {
+                        using (FileStream fs = new FileStream(filePath, FileMode.Create))
+                        {
+                            using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8)) // UTF-8 with BOM
+                            {
+                                sw.WriteLine(doc.Declaration.ToString());
+                                sw.Write(text);
+                            }
+                        }
+                        countValidFiles++;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error();
+                        Log.Write("Outputing file failed: ");
+                        Log.WriteLine(ConsoleColor.Red, filePath);
+                        Log.Indent();
+                        Log.WriteLine(ex.Message);
+                        countInvalidFiles++;
+                    }
+                }
+                else
+                {
+                    // Universal
+                    try
+                    {
+                        relativePathDoc.Value.Save(filePath);
+                        countValidFiles++;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error();
+                        Log.Write("Outputing file failed: ");
+                        Log.WriteLine(ConsoleColor.Red, filePath);
+                        Log.Indent();
+                        Log.WriteLine(ex.Message);
+                        countInvalidFiles++;
+                    }
+                }
+            }
+            if (countValidFiles > 0)
+            {
+                if (countInvalidFiles == 0)
+                {
+                    Log.Info();
+                    Log.WriteLine($"Completed outputing Defs: {countValidFiles} file(s).");
+                }
+                else
+                {
+                    Log.Warning();
+                    Log.WriteLine($"Completed outputing Defs: Success: {countValidFiles} file(s), Failure {countInvalidFiles} file(s).");
+                }
+            }
+            else
+            {
+                if (countInvalidFiles == 0)
+                {
+                    Log.Info();
+                    Log.WriteLine("No Defs to be output.");
+                }
+                else
+                {
+                    Log.Error();
+                    Log.WriteLine($"Outputing Defs failed: {countInvalidFiles} file(s).");
+                }
+            }
+        }
 
         #endregion
 

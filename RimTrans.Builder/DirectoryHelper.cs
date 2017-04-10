@@ -75,7 +75,7 @@ namespace RimTrans.Builder
                 }
 
                 // Delete this directory and all subdirectoies in this directory
-                DeleteEmptyDirRecursively(dirInfo); // Recursively
+                //DeleteEmptyDirRecursively(dirInfo); // Recursively
 
                 if (countValidFiles > 0)
                 {

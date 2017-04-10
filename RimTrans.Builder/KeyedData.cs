@@ -326,10 +326,13 @@ namespace RimTrans.Builder
                 {
                     try
                     {
-                        using (StreamWriter sw = new StreamWriter(filePath))
+                        using (FileStream fs = new FileStream(filePath, FileMode.Create))
                         {
-                            sw.WriteLine(doc.Declaration.ToString());
-                            sw.Write(text.Replace("-&gt;", "->"));
+                            using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8)) // UTF-8 with BOM
+                            {
+                                sw.WriteLine(doc.Declaration.ToString());
+                                sw.Write(text.Replace("-&gt;", "->"));
+                            }
                         }
                         countValidFiles++;
                         countValidNodes += root.Elements().Count();

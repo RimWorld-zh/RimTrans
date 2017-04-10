@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{93
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimTrans.Reflection.DefType", "RimTrans.Reflection.DefType\RimTrans.Reflection.DefType.csproj", "{801C2A51-A8B7-4DE4-90D2-EC2EDC9F3647}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimTrans.Builder.Test", "RimTrans.Builder.Test\RimTrans.Builder.Test.csproj", "{FB6DE457-ABA5-4E73-BF37-4A815E49B691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{8CCCAC26-9DDF-4BAC-BEBB-2AD27C5C9429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CCCAC26-9DDF-4BAC-BEBB-2AD27C5C9429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CCCAC26-9DDF-4BAC-BEBB-2AD27C5C9429}.Release|Any CPU.Build.0 = Release|Any CPU
-		{801C2A51-A8B7-4DE4-90D2-EC2EDC9F3647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{801C2A51-A8B7-4DE4-90D2-EC2EDC9F3647}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{801C2A51-A8B7-4DE4-90D2-EC2EDC9F3647}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{801C2A51-A8B7-4DE4-90D2-EC2EDC9F3647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6DE457-ABA5-4E73-BF37-4A815E49B691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6DE457-ABA5-4E73-BF37-4A815E49B691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6DE457-ABA5-4E73-BF37-4A815E49B691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6DE457-ABA5-4E73-BF37-4A815E49B691}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

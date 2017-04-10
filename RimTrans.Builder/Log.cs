@@ -52,6 +52,15 @@ namespace RimTrans.Builder
             Console.ResetColor();
         }
 
+        public static void Debug()
+        {
+            //nsole.Write("XXXXXXX  ");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            //Console.Write(faceTextBad[random.Next(9)]);
+            Console.Write("DEBUG    ");
+            Console.ResetColor();
+        }
+
         #endregion
 
         #region Write

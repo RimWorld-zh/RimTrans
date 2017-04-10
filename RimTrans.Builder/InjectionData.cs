@@ -13,7 +13,99 @@ namespace RimTrans.Builder
 {
     public class InjectionData
     {
+        #region Language Code
+
+
+        private static readonly Dictionary<string, string> langCodesDict = new Dictionary<string, string>
+        {
+            { "ChineseSimplified", "zh-cn" },
+            { "ChineseTraditional", "zh-tw" },
+            { "Czech", "cs" },
+            { "Danish", "da" },
+            { "Dutch", "nl" },
+            { "English", "en" },
+            { "Estonian", "et" },
+            { "Finnish", "fi" },
+            { "French", "fr" },
+            { "German", "de" },
+            { "Hungarian", "hu" },
+            { "Italian", "it" },
+            { "Japanese", "ja" },
+            { "Korean", "ko" },
+            { "Norwegian", "no" },
+            { "Polish", "pl" },
+            { "Portuguese", "pt" },
+            { "PortugueseBrazilian", "pt-br" },
+            { "Romanian", "ro" },
+            { "Russian", "ru" },
+            { "Slovak", "sk" },
+            { "Spanish", "es" },
+            { "SpanishLatin", "es-la" },
+            { "Swedish", "sv" },
+            { "Turkish", "tr" },
+            { "Ukrainian", "uk" },
+        };
+
+        public static string GetCode(string name)
+        {
+            string code;
+            if (langCodesDict.TryGetValue(name, out code))
+            {
+                return code;
+            }
+            else
+            {
+                return name;
+            }
+        }
+
+        #endregion
+
         private SortedDictionary<string, SortedDictionary<string, XDocument>> _data;
+
+        public string Name { get; private set; }
+
+        public string Code
+        {
+            get
+            {
+                string code;
+                if (langCodesDict.TryGetValue(this.Name, out code))
+                {
+                    return code;
+                }
+                else
+                {
+                    return this.Name;
+                }
+            }
+        }
+
+        #region Methods
+
+        public IEnumerable<XElement> Injections(string defType, string defName)
+        {
+            if (this._data != null)
+            {
+                SortedDictionary<string, XDocument> subData;
+                if (this._data.TryGetValue(defType, out subData))
+                {
+                    foreach (XElement curInjection in from doc in subData.Values
+                                                      from ele in doc.Root.Elements()
+                                                      select ele)
+                    {
+                        string path = curInjection.Name.ToString();
+                        if (path.Substring(0, path.IndexOf('.')) == defName)
+                        {
+                            yield return curInjection;
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
 
         private InjectionData()
         {
@@ -21,8 +113,9 @@ namespace RimTrans.Builder
         }
 
         // Clone a InjectionData object
-        public InjectionData(InjectionData other)
+        public InjectionData(string name, InjectionData other)
         {
+            this.Name = name;
             this._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
             foreach (KeyValuePair<string, SortedDictionary<string, XDocument>> defTypeNameSubDataPairOther in other._data)
             {
@@ -37,14 +130,16 @@ namespace RimTrans.Builder
             }
         }
 
+
         #region Load
 
         /// <summary>
         /// Load existed DefInjected
         /// </summary>
-        public static InjectionData Load(string path, bool backupInvalidFile = false)
+        public static InjectionData Load(string name, string path, bool backupInvalidFile = false)
         {
             InjectionData injectionData = new InjectionData();
+            injectionData.Name = name;
             injectionData._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
             
             DirectoryInfo dirInfo = new DirectoryInfo(path);
@@ -147,7 +242,7 @@ namespace RimTrans.Builder
         /// <summary>
         /// Parse Defs to generate original DefInjected
         /// </summary>
-        public static InjectionData Parse(DefinitionData definitionData)
+        public static InjectionData Parse(string name, DefinitionData definitionData)
         {
             InjectionData injectionData = new InjectionData();
             injectionData._data = new SortedDictionary<string, SortedDictionary<string, XDocument>>();
@@ -1095,13 +1190,15 @@ namespace RimTrans.Builder
                         defTypeName == DefTypeNameOf.TaleDef)
                     {
                         // Special for these 3 DefType
-                        string text = root.ToString().Replace("-&gt;", "->");
                         try
                         {
-                            using (StreamWriter sw = new StreamWriter(filePath))
+                            using (FileStream fs = new FileStream(filePath, FileMode.Create))
                             {
-                                sw.WriteLine(doc.Declaration.ToString());
-                                sw.Write(text);
+                                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8)) // UTF-8 with BOM
+                                {
+                                    sw.WriteLine(doc.Declaration.ToString());
+                                    sw.Write(root.ToString().Replace("-&gt;", "->"));
+                                }
                             }
                             countValidFiles++;
                             countValidNodes += root.Elements().Count();
