@@ -89,6 +89,7 @@ namespace RimTrans.Builder.Crawler
             {
                 Log.Error();
                 Log.WriteLine($"ERROR: defType '{defTypeName}' no found.");
+                //Log.WriteLine(def.ToString());
                 return;
             }
 

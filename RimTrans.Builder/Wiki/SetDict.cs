@@ -72,6 +72,35 @@ namespace RimTrans.Builder.Wiki
             }
         }
 
+        /// <summary>
+        /// Add key value pair to dict.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public void Add(string key, string value)
+        {
+            value = value.Replace("\r\n", "<br/>").Replace("\n", "<br/>").Replace("\\n", "<br/>");
+            if (this.dict.ContainsKey(key))
+            {
+                this.dict[key] = value;
+                Log.Warning();
+                Log.WriteLine($"Duplicated key: key='{key}', value='{value}'.");
+            }
+            else
+            {
+                this.dict.Add(key, value);
+            }
+        }
+
+        public void AddClass(LinkedList<XElement> linkedElements)
+        {
+            string className = linkedElements.Last.Value.GetClassName();
+            if (className != null)
+            {
+                this.Add(LinkedToKey(linkedElements) + ".Class", className);
+            }
+        }
+
         private void AddNonMatched(TagInfo tagInfo)
         {
 
@@ -93,6 +122,8 @@ namespace RimTrans.Builder.Wiki
                         {
                             if (tagInfo.HasTags)
                             {
+                                this.Add(LinkedToKey(linkedElements), "Exist");
+                                this.AddClass(linkedElements);
                                 foreach (TagInfo curSubTagInfo in tagInfo.Tags)
                                 {
                                     string curSubName = curSubTagInfo.Name;
@@ -123,15 +154,26 @@ namespace RimTrans.Builder.Wiki
                         }
                         else
                         {
-                            this.Add(LinkedToKey(linkedElements), linkedElements.Last.Value.Value);
+                            if (tagInfo.Category == TagCategory.Standard)
+                            {
+                                this.Add(LinkedToKey(linkedElements), linkedElements.Last.Value.Value);
+                            }
+                            else if (tagInfo.Category == TagCategory.ListComplexItem)
+                            {
+                                this.Add(LinkedToKey(linkedElements), "Exist");
+                                this.AddClass(linkedElements);
+                            }
                         }
                     }
                     break;
                 case TagCategory.ListComplex:
                     {
                         XElement tagElement = linkedElements.Last.Value;
+                        this.Add(LinkedToKey(linkedElements), "Exist");
+                        this.AddClass(linkedElements);
                         if (tagElement.HasElements)
                         {
+                            this.Add(LinkedToKey(linkedElements, true), tagElement.Elements().Count().ToString());
                             if (tagInfo.HasTags)
                             {
                                 foreach (XElement curItemElement in tagElement.Elements())
@@ -153,6 +195,10 @@ namespace RimTrans.Builder.Wiki
                                 Log.Warning();
                                 Log.WriteLine($"Tag '{LinkedToKey(linkedElements)}' has sub-elements, but matched TagInfo that has no sub-tags.");
                             }
+                        }
+                        else
+                        {
+                            this.Add(LinkedToKey(linkedElements, true), "0");
                         }
                     }
                     break;
@@ -213,7 +259,7 @@ namespace RimTrans.Builder.Wiki
         }
 
 
-        private static string LinkedToKey(LinkedList<XElement> linkedElements)
+        private static string LinkedToKey(LinkedList<XElement> linkedElements, bool isCount = false)
         {
             StringBuilder sb = new StringBuilder();
             foreach (XElement element in linkedElements)
@@ -227,11 +273,11 @@ namespace RimTrans.Builder.Wiki
                 {
                     sb.Append(name);
                 }
-                string className = element.GetClassName();
-                if (className != null)
-                {
-                    sb.Append($"({className})");
-                }
+                //string className = element.GetClassName();
+                //if (className != null)
+                //{
+                //    sb.Append($"({className})");
+                //}
                 sb.Append('.');
             }
             XAttribute lang = linkedElements.Last.Value.Attribute("lang");
@@ -243,20 +289,11 @@ namespace RimTrans.Builder.Wiki
             {
                 sb.Append(lang.Value);
             }
+            if (isCount)
+            {
+                sb.Append(".Count");
+            }
             return sb.ToString();
-        }
-
-        public void Add(string key, string value)
-        {
-            if (this.dict.ContainsKey(key))
-            {
-                Log.Warning();
-                Log.WriteLine($"Duplicated key: key='{key}', value='{value}'.");
-            }
-            else
-            {
-                this.dict.Add(key, value);
-            }
         }
 
         #endregion
@@ -268,11 +305,16 @@ namespace RimTrans.Builder.Wiki
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("{{#set:");
             sb.AppendLine("|dataType=Def");
-            sb.AppendLine($"|defType={this.defType}");
-            sb.AppendLine($"|defName={this.defName}");
+            sb.Append("|defType=");
+            sb.AppendLine(this.defType);
+            sb.Append("|defName=");
+            sb.AppendLine(this.defName);
             foreach (var kvp in this.dict)
             {
-                sb.AppendLine($"|{kvp.Key}={kvp.Value}");
+                sb.Append('|');
+                sb.Append(kvp.Key);
+                sb.Append('=');
+                sb.AppendLine(kvp.Value);
             }
             sb.Append("}}");
             return sb.ToString();
@@ -285,18 +327,7 @@ namespace RimTrans.Builder.Wiki
         /// <param name="path"></param>
         public void Save(string path)
         {
-            using (StreamWriter sw = new StreamWriter(path))
-            {
-                sw.WriteLine("{{#set:");
-                sw.WriteLine("|dataType=Def");
-                sw.WriteLine($"|defType={this.defType}");
-                sw.WriteLine($"|defName={this.defName}");
-                foreach (var kvp in this.dict)
-                {
-                    sw.WriteLine($"|{kvp.Key}={kvp.Value}");
-                }
-                sw.Write("}}");
-            }
+            File.WriteAllText(path, this.ToString(), Encoding.UTF8);
         }
 
         #endregion

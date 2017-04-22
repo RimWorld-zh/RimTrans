@@ -35,5 +35,6 @@ Included open-source libraries:
 - [Font-Awesome-WPF](https://github.com/charri/Font-Awesome-WPF) v4.7.0 ([MIT License](https://opensource.org/licenses/MIT))
 - [SteamKit2](https://github.com/SteamRE/SteamKit) v1.8.1 ([LGPL-2.1 License](http://www.tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29))
 - [protobuf-net](http://code.google.com/p/protobuf-net/) v2.1.0 ([Apache License v2.0](https://raw.githubusercontent.com/mgravell/protobuf-net/master/Licence.txt))
+- [ExcelLibrary](https://code.google.com/archive/p/excellibrary/) 20110730 ([LGPL v3.0](http://www.gnu.org/licenses/lgpl.html))
 
 

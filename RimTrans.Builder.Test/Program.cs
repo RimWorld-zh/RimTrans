@@ -18,7 +18,7 @@ namespace RimTransLibTest
     {
         static void Main(string[] args)
         {
-            TestCrawler();
+            TestDefTypeCrawler();
         }
 
         static void TestCrawler()
@@ -29,6 +29,10 @@ namespace RimTransLibTest
             capture.ProcessFieldNames(coreDefinitionData);
             coreDefinitionData.Save(@"D:\Test\Defs Processed");
 
+            string sourceCodePath = @"D:\Translating\A17\Decomplie\Assembly-CSharp";
+            Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
+            templates.Save(@"D:\Test\Defs Templates");
+
             InjectionData coreInjectionData_Original = InjectionData.Parse("Original", coreDefinitionData);
             InjectionData coreInjectionData_zhcn = new InjectionData("ChineseSimplified", coreInjectionData_Original);
             InjectionData coreInjectionData_zhcn_Existed = InjectionData.Load("ChineseSimplified", @"D:\Git\RWMod\RimWorld-ChineseSimplified\DefInjected", false);
@@ -37,16 +41,9 @@ namespace RimTransLibTest
             InjectionData coreInjectionData_zhtw_Existed = InjectionData.Load("ChineseTraditional", @"D:\Git\RWMod\RimWorld-ChineseTraditional\DefInjected", false);
             coreInjectionData_zhtw.MatchExisted(coreInjectionData_zhtw_Existed);
 
-
-            string sourceCodePath = @"D:\Translating\A17\Decomplie\Assembly-CSharp";
-            string templatePath = @"D:\Test\Defs Templates";
-            string wikidataPath = @"D:\Test\Wiki Data";
-
-            Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
-            templates.Save(templatePath);
-
             WikiData wikiData = WikiData.Parse(coreDefinitionData, templates, coreInjectionData_zhcn, coreInjectionData_zhtw);
-            wikiData.Save(wikidataPath);
+            wikiData.Save(@"D:\Test\Wiki Data");
+            wikiData.SaveCSV(@"D:\Test\CoreData.csv");
         }
 
         static void TestDefTypeCrawler()

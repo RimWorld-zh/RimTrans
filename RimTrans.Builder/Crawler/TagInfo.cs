@@ -716,6 +716,7 @@ namespace RimTrans.Builder.Crawler
                 case TagCategory.ListDef:
                 case TagCategory.ListRef:
                 case TagCategory.Dict:
+                    if (this.tagCategory == TagCategory.ListComplex) yield return new XComment($"Complex List");
                     if (this.typeName != null) yield return new XComment($"Type: {this.typeName}");
                     if (this.availableValues != null) yield return new XComment($"Available Values: {this.availableValues}");
                     if (this.defaultValueAsString != null)

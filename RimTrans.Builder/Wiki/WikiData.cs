@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
@@ -304,6 +305,86 @@ namespace RimTrans.Builder.Wiki
                     Log.Error();
                     Log.WriteLine($"Outputing Wiki Data failure: {countInvalidFiles} files.");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Save wiki data as a CSV file.
+        /// </summary>
+        /// <param name="path"></param>
+        public void SaveCSV(string path)
+        {
+            if (this.allSetDict == null || this.allSetDict.Count == 0) return;
+
+            string dir = Path.GetDirectoryName(path);
+            if (Directory.Exists(dir))
+            {
+                DirectorySecurity ds = new DirectorySecurity(dir, AccessControlSections.Access);
+                if (ds.AreAccessRulesProtected)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing Wiki Data failure: No write permission to directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, dir);
+                    return;
+                }
+            }
+            else
+            {
+                try
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error();
+                    Log.WriteLine("Outputing Wiki Data failure: Can not create directory: ");
+                    Log.Indent();
+                    Log.WriteLine(ConsoleColor.Red, dir);
+                    Log.Indent();
+                    Log.WriteLine(ex.Message);
+                    return;
+                }
+            }
+            
+            StringBuilder sb = new StringBuilder();
+            foreach (var kvpPageNameSetDict in from sd in this.allSetDict.Values
+                                            from kvp in sd
+                                            select kvp)
+            {
+                sb.Append("Core:");
+                sb.Append(kvpPageNameSetDict.Key);
+                sb.AppendLine(",\"{{#set:");
+                sb.AppendLine("|dataType=Def");
+                sb.Append("|defType=");
+                sb.AppendLine(kvpPageNameSetDict.Value.DefType);
+                sb.Append("|defName=");
+                sb.AppendLine(kvpPageNameSetDict.Value.DefName);
+                foreach (var kvp in kvpPageNameSetDict.Value.Dict)
+                {
+                    sb.Append('|');
+                    sb.Append(kvp.Key);
+                    sb.Append('=');
+                    sb.AppendLine(kvp.Value.Replace("\"", "\"\""));
+                }
+                sb.AppendLine("}}\"");
+            }
+
+
+            try
+            {
+                File.WriteAllText(path, sb.ToString(), Encoding.UTF8);
+                Log.Info();
+                Log.Write($"Completed outputing Wiki Data to Excel file: ");
+                Log.WriteLine(ConsoleColor.Cyan, path);
+            }
+            catch (Exception ex)
+            {
+                Log.Error();
+                Log.Write($"Outputing Wiki Data to Excel file failure, file: ");
+                Log.WriteLine(ConsoleColor.Red, path);
+                Log.Indent();
+                Log.WriteLine(ex.Message);
             }
         }
 
