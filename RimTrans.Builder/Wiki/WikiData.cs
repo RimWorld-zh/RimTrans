@@ -49,6 +49,8 @@ namespace RimTrans.Builder.Wiki
             
             int countSetDicts = 0;
 
+            coreDefinitionData = new DefinitionData(coreDefinitionData);
+
             Dictionary<string, List<XElement>> unnamedDefsDict = new Dictionary<string, List<XElement>>();
             foreach (XElement curDefElement in from doc in coreDefinitionData.Data.Values
                                                from ele in doc.Root.Elements()
@@ -81,15 +83,21 @@ namespace RimTrans.Builder.Wiki
                     curPageName = $"Defs_{curDefType}_{defName.Value}";
                 }
 
-                XElement curDefElement_Injected = Inject(curDefElement, injectionDatas);
+                Inject(curDefElement, injectionDatas);
                 DefInfo curDefInfo = template.Def(curDefElement);
                 if (curDefInfo == null)
                 {
                     Log.Warning();
-                    Log.WriteLine($"'{curPageName}' no matched DefInfo");
+                    Log.WriteLine($"'{curPageName}' no matched DefInfo.");
                     continue;
                 }
-                SetDict curSetDict = new SetDict(curDefElement_Injected, curDefInfo);
+                if (!curDefInfo.IsValid)
+                {
+                    Log.Warning();
+                    Log.WriteLine($"'{curPageName}' matched invalid DefInfo.");
+                    continue;
+                }
+                SetDict curSetDict = new SetDict(curDefElement, curDefInfo);
 
                 SortedDictionary<string, SetDict> curSubDict;
                 if (wikiData.allSetDict.TryGetValue(curDefType, out curSubDict))
@@ -120,15 +128,16 @@ namespace RimTrans.Builder.Wiki
             return wikiData;
         }
 
-        private static XElement Inject(XElement defElment, params InjectionData[] injectionDatas)
+        #region Inject
+
+        private static void Inject(XElement defElement, params InjectionData[] injectionDatas)
         {
-            XElement defElement_Injected = new XElement(defElment);
-            XElement defNameElement = defElment.defName();
+            XElement defNameElement = defElement.defName();
 
             if (defNameElement == null)
-                return defElement_Injected;
-            
-            string defType = defElment.Name.ToString();
+                return;
+
+            string defType = defElement.Name.ToString();
             string defName = defNameElement.Value;
 
             foreach (InjectionData curInjectionData in injectionDatas)
@@ -137,7 +146,7 @@ namespace RimTrans.Builder.Wiki
                 IEnumerable<XElement> injections = curInjectionData.Injections(defType, defName);
                 foreach (XElement curInjection in injections)
                 {
-                    XElement parent = defElement_Injected;
+                    XElement parent = defElement;
                     string[] pathSections = curInjection.Name.ToString().Split(new char[] { '.' });
                     for (int i = 1; i < pathSections.Length - 1; i++)
                     {
@@ -185,9 +194,10 @@ namespace RimTrans.Builder.Wiki
                     parent.Add(newChild);
                 }
             }
-            return defElement_Injected;
         }
 
+        #endregion
+        
         #region Save
 
         /// <summary>
@@ -375,13 +385,13 @@ namespace RimTrans.Builder.Wiki
             {
                 File.WriteAllText(path, sb.ToString(), Encoding.UTF8);
                 Log.Info();
-                Log.Write($"Completed outputing Wiki Data to Excel file: ");
+                Log.Write($"Completed outputing Wiki Data to CSV file: ");
                 Log.WriteLine(ConsoleColor.Cyan, path);
             }
             catch (Exception ex)
             {
                 Log.Error();
-                Log.Write($"Outputing Wiki Data to Excel file failure, file: ");
+                Log.Write($"Outputing Wiki Data to SCV file failure, file: ");
                 Log.WriteLine(ConsoleColor.Red, path);
                 Log.Indent();
                 Log.WriteLine(ex.Message);

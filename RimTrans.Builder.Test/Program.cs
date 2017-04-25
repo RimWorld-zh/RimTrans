@@ -18,7 +18,7 @@ namespace RimTransLibTest
     {
         static void Main(string[] args)
         {
-            TestDefTypeCrawler();
+            TestCrawler();
         }
 
         static void TestCrawler()
@@ -27,11 +27,6 @@ namespace RimTransLibTest
 
             Capture capture = Capture.Parse(coreDefinitionData);
             capture.ProcessFieldNames(coreDefinitionData);
-            coreDefinitionData.Save(@"D:\Test\Defs Processed");
-
-            string sourceCodePath = @"D:\Translating\A17\Decomplie\Assembly-CSharp";
-            Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
-            templates.Save(@"D:\Test\Defs Templates");
 
             InjectionData coreInjectionData_Original = InjectionData.Parse("Original", coreDefinitionData);
             InjectionData coreInjectionData_zhcn = new InjectionData("ChineseSimplified", coreInjectionData_Original);
@@ -41,9 +36,16 @@ namespace RimTransLibTest
             InjectionData coreInjectionData_zhtw_Existed = InjectionData.Load("ChineseTraditional", @"D:\Git\RWMod\RimWorld-ChineseTraditional\DefInjected", false);
             coreInjectionData_zhtw.MatchExisted(coreInjectionData_zhtw_Existed);
 
+            coreDefinitionData.Wiki();
+            coreDefinitionData.Save(@"D:\Git\RWMod\RimWorld-Defs-Templates\CoreDefsProcessed");
+
+            string sourceCodePath = @"D:\Git\RWMod\RimWorld-Assembly-CSharp-Decompile\Assembly-CSharp";
+            Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
+            templates.Save(@"D:\Git\RWMod\RimWorld-Defs-Templates\Templates");
+
             WikiData wikiData = WikiData.Parse(coreDefinitionData, templates, coreInjectionData_zhcn, coreInjectionData_zhtw);
-            wikiData.Save(@"D:\Test\Wiki Data");
-            wikiData.SaveCSV(@"D:\Test\CoreData.csv");
+            wikiData.Save(@"D:\Git\RimWorld.huiji.wiki\Core-Data\Source");
+            wikiData.SaveCSV(@"D:\Git\RimWorld.huiji.wiki\Core-Data\CoreData.csv");
         }
 
         static void TestDefTypeCrawler()

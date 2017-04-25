@@ -20,6 +20,11 @@ namespace RimTrans.Builder.Xml
             return XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LanguageData LastIsSingle=\"false\">\r\n\r\n</LanguageData>", LoadOptions.PreserveWhitespace);
         }
 
+        public static XDocument EmptyDocDef()
+        {
+            return XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?><Defs></Defs>");
+        }
+
         public static XDocument LoadLanguageDoc(string path)
         {
             XDocument doc = XDocument.Load(path, LoadOptions.PreserveWhitespace | LoadOptions.SetBaseUri);

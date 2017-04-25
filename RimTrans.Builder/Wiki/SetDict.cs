@@ -79,7 +79,7 @@ namespace RimTrans.Builder.Wiki
         /// <param name="value"></param>
         public void Add(string key, string value)
         {
-            value = value.Replace("\r\n", "<br/>").Replace("\n", "<br/>").Replace("\\n", "<br/>");
+            value = value.Replace("\r\n", "<br/>").Replace("\n", "<br/>").Replace("\\n", "<br/>").Replace("|","{{!}}");
             if (this.dict.ContainsKey(key))
             {
                 this.dict[key] = value;
@@ -122,27 +122,34 @@ namespace RimTrans.Builder.Wiki
                         {
                             if (tagInfo.HasTags)
                             {
-                                this.Add(LinkedToKey(linkedElements), "Exist");
-                                this.AddClass(linkedElements);
-                                foreach (TagInfo curSubTagInfo in tagInfo.Tags)
+                                if (this.CanBeRange(linkedElements, tagInfo))
                                 {
-                                    string curSubName = curSubTagInfo.Name;
-                                    string curSubClassName = curSubTagInfo.ClassName;
-                                    bool isMatched = false;
-                                    foreach (XElement curSubTagElement in tagElement.Elements())
+
+                                }
+                                else
+                                {
+                                    this.Add(LinkedToKey(linkedElements), "Exist");
+                                    this.AddClass(linkedElements);
+                                    foreach (TagInfo curSubTagInfo in tagInfo.Tags)
                                     {
-                                        if (curSubTagElement.Name.ToString() == curSubName &&
-                                            curSubTagElement.GetClassName() == curSubClassName)
+                                        string curSubName = curSubTagInfo.Name;
+                                        string curSubClassName = curSubTagInfo.ClassName;
+                                        bool isMatched = false;
+                                        foreach (XElement curSubTagElement in tagElement.Elements())
                                         {
-                                            isMatched = true;
-                                            linkedElements.AddLast(curSubTagElement);
-                                            this.AddMatched(linkedElements, curSubTagInfo);
-                                            linkedElements.RemoveLast();
+                                            if (curSubTagElement.Name.ToString() == curSubName &&
+                                                curSubTagElement.GetClassName() == curSubClassName)
+                                            {
+                                                isMatched = true;
+                                                linkedElements.AddLast(curSubTagElement);
+                                                this.AddMatched(linkedElements, curSubTagInfo);
+                                                linkedElements.RemoveLast();
+                                            }
                                         }
-                                    }
-                                    if (!isMatched)
-                                    {
-                                        this.AddNonMatched(curSubTagInfo);
+                                        if (!isMatched)
+                                        {
+                                            this.AddNonMatched(curSubTagInfo);
+                                        }
                                     }
                                 }
                             }
@@ -168,37 +175,48 @@ namespace RimTrans.Builder.Wiki
                     break;
                 case TagCategory.ListComplex:
                     {
-                        XElement tagElement = linkedElements.Last.Value;
-                        this.Add(LinkedToKey(linkedElements), "Exist");
-                        this.AddClass(linkedElements);
-                        if (tagElement.HasElements)
+                        if (this.CanBeListRef(linkedElements, tagInfo))
                         {
-                            this.Add(LinkedToKey(linkedElements, true), tagElement.Elements().Count().ToString());
-                            if (tagInfo.HasTags)
+
+                        }
+                        else if (this.CanBeListRefRange(linkedElements, tagInfo))
+                        {
+
+                        }
+                        else
+                        {
+                            XElement tagElement = linkedElements.Last.Value;
+                            this.Add(LinkedToKey(linkedElements), "Exist");
+                            this.AddClass(linkedElements);
+                            if (tagElement.HasElements)
                             {
-                                foreach (XElement curItemElement in tagElement.Elements())
+                                this.Add(LinkedToKey(linkedElements, true), tagElement.Elements().Count().ToString());
+                                if (tagInfo.HasTags)
                                 {
-                                    foreach (TagInfo curSubTagInfo in tagInfo.Tags)
+                                    foreach (XElement curItemElement in tagElement.Elements())
                                     {
-                                        if (curItemElement.GetClassName() == curSubTagInfo.ClassName)
+                                        foreach (TagInfo curSubTagInfo in tagInfo.Tags)
                                         {
-                                            linkedElements.AddLast(curItemElement);
-                                            this.AddMatched(linkedElements, curSubTagInfo);
-                                            linkedElements.RemoveLast();
-                                            break;
+                                            if (curItemElement.GetClassName() == curSubTagInfo.ClassName)
+                                            {
+                                                linkedElements.AddLast(curItemElement);
+                                                this.AddMatched(linkedElements, curSubTagInfo);
+                                                linkedElements.RemoveLast();
+                                                break;
+                                            }
                                         }
                                     }
+                                }
+                                else
+                                {
+                                    Log.Warning();
+                                    Log.WriteLine($"Tag '{LinkedToKey(linkedElements)}' has sub-elements, but matched TagInfo that has no sub-tags.");
                                 }
                             }
                             else
                             {
-                                Log.Warning();
-                                Log.WriteLine($"Tag '{LinkedToKey(linkedElements)}' has sub-elements, but matched TagInfo that has no sub-tags.");
+                                this.Add(LinkedToKey(linkedElements, true), "0");
                             }
-                        }
-                        else
-                        {
-                            this.Add(LinkedToKey(linkedElements, true), "0");
                         }
                     }
                     break;
@@ -294,6 +312,143 @@ namespace RimTrans.Builder.Wiki
                 sb.Append(".Count");
             }
             return sb.ToString();
+        }
+
+        #endregion
+
+        #region Helper
+
+        public bool CanBeRange(LinkedList<XElement> linkedElements, TagInfo tagInfo)
+        {
+            XElement tagElement = linkedElements.Last.Value;
+            if (tagInfo.HasTags && tagInfo.Tags.Count() == 2 && tagElement.Elements().Count() == 2)
+            {
+                XElement minElement = tagElement.Element("min");
+                XElement maxElement = tagElement.Element("max");
+                if (minElement != null && maxElement != null)
+                {
+                    this.Add(LinkedToKey(linkedElements), $"{minElement.Value} ~ {maxElement.Value}");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CanBeListRef(LinkedList<XElement> linkedElements, TagInfo tagInfo)
+        {
+            XElement tagElement = linkedElements.Last.Value;
+            if (tagInfo.HasTags && tagInfo.Tags.Count() == 1)
+            {
+                TagInfo item = tagInfo.Tags.First();
+                if (item.HasTags && item.Tags.Count() == 2)
+                {
+                    TagInfo def = null;
+                    foreach (TagInfo curSubTagInfo in item.Tags)
+                    {
+                        if (curSubTagInfo.TagType.IsSubclassOf(Helper.ClassDef))
+                        {
+                            def = curSubTagInfo;
+                            break;
+                        }
+                    }
+                    TagInfo value = null;
+                    foreach (TagInfo curSubTagInfo in item.Tags)
+                    {
+                        if (!curSubTagInfo.TagType.IsSubclassOf(Helper.ClassDef))
+                        {
+                            value = curSubTagInfo;
+                            break;
+                        }
+                    }
+                    if (def != null && value != null)
+                    {
+                        foreach (XElement curItemElement in tagElement.Elements())
+                        {
+                            XElement defElement = curItemElement.Element(def.Name);
+                            XElement valueElemnt = curItemElement.Element(value.Name);
+                            if (defElement == null || value == null)
+                            {
+                                return false;
+                            }
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        foreach (XElement curItemElement in tagElement.Elements())
+                        {
+                            XElement defElement = curItemElement.Element(def.Name);
+                            XElement valueElemnt = curItemElement.Element(value.Name);
+                            sb.Append($"\"{defElement.Value}\",\"{valueElemnt.Value}\";");
+                        }
+                        sb.Remove(sb.Length - 1, 1);
+                        this.Add(LinkedToKey(linkedElements), sb.ToString());
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool CanBeListRefRange(LinkedList<XElement> linkedElements, TagInfo tagInfo)
+        {
+            XElement tagElement = linkedElements.Last.Value;
+            if (tagInfo.HasTags && tagInfo.Tags.Count() == 1)
+            {
+                TagInfo item = tagInfo.Tags.First();
+                if (item.HasTags && item.Tags.Count() == 3)
+                {
+                    TagInfo def = null;
+                    foreach (TagInfo curSubTagInfo in item.Tags)
+                    {
+                        if (curSubTagInfo.TagType.IsSubclassOf(Helper.ClassDef))
+                        {
+                            def = curSubTagInfo;
+                            break;
+                        }
+                    }
+                    TagInfo min = null;
+                    foreach (TagInfo curSubTagInfo in item.Tags)
+                    {
+                        if (curSubTagInfo.Name == "min")
+                        {
+                            min = curSubTagInfo;
+                            break;
+                        }
+                    }
+                    TagInfo max = null;
+                    foreach (TagInfo curSubTagInfo in item.Tags)
+                    {
+                        if (curSubTagInfo.Name == "max")
+                        {
+                            max = curSubTagInfo;
+                            break;
+                        }
+                    }
+                    if (def != null && min != null && max != null)
+                    {
+                        foreach (XElement curItemElement in tagElement.Elements())
+                        {
+                            XElement defElement = curItemElement.Element(def.Name);
+                            XElement minElemnet = curItemElement.Element("min");
+                            XElement maxElement = curItemElement.Element("max");
+                            if (defElement == null || minElemnet == null || maxElement == null)
+                            {
+                                return false;
+                            }
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        foreach (XElement curItemElement in tagElement.Elements())
+                        {
+                            XElement defElement = curItemElement.Element(def.Name);
+                            XElement minElemnet = curItemElement.Element("min");
+                            XElement maxElement = curItemElement.Element("max");
+                            sb.Append($"\"{defElement.Value}\",\"{minElemnet.Value} ~ {maxElement.Value}\";");
+                        }
+                        sb.Remove(sb.Length - 1, 1);
+                        this.Add(LinkedToKey(linkedElements), sb.ToString());
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         #endregion
