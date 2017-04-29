@@ -716,7 +716,10 @@ namespace RimTrans.Builder.Crawler
                 case TagCategory.ListDef:
                 case TagCategory.ListRef:
                 case TagCategory.Dict:
+                    if (this.tagCategory == TagCategory.ListSimple) yield return new XComment($"Simple List");
                     if (this.tagCategory == TagCategory.ListComplex) yield return new XComment($"Complex List");
+                    if (this.tagCategory == TagCategory.ListDef) yield return new XComment($"Reference List");
+                    if (this.tagCategory == TagCategory.Flag) yield return new XComment($"Flag");
                     if (this.typeName != null) yield return new XComment($"Type: {this.typeName}");
                     if (this.availableValues != null) yield return new XComment($"Available Values: {this.availableValues}");
                     if (this.defaultValueAsString != null)
@@ -751,7 +754,7 @@ namespace RimTrans.Builder.Crawler
                     }
                     if (this.HasNonMatched)
                     {
-                        tag.Add(new XComment("======== Non Mathced Elements ========"));
+                        tag.Add(new XComment("======== Non Matched Elements ========"));
                         tag.Add(this.nonMatchedElements);
                     }
                     if (tag.Nodes().Count() == 0 && this.tagCategory != TagCategory.ListComplexItem)

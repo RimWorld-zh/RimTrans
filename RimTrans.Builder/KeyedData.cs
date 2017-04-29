@@ -16,14 +16,17 @@ namespace RimTrans.Builder
         private SortedDictionary<string, XDocument> _data;
         public SortedDictionary<string, XDocument> Data { get { return this._data; } }
 
+        public string Name { get; private set; }
+
         private KeyedData()
         {
 
         }
 
-        public KeyedData(KeyedData other)
+        public KeyedData(string name, KeyedData other)
         {
             this._data = new SortedDictionary<string, XDocument>();
+            this.Name = name;
             foreach (KeyValuePair<string, XDocument> fileNameDocPairOther in other._data)
             {
                 this._data.Add(fileNameDocPairOther.Key, new XDocument(fileNameDocPairOther.Value));
@@ -32,10 +35,11 @@ namespace RimTrans.Builder
 
         #region Load
 
-        public static KeyedData Load(string path, bool backupInvalidFile = false)
+        public static KeyedData Load(string name, string path, bool backupInvalidFile = false)
         {
             KeyedData keyedData = new KeyedData();
             keyedData._data = new SortedDictionary<string, XDocument>();
+            keyedData.Name = name;
 
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             if (dirInfo.Exists)

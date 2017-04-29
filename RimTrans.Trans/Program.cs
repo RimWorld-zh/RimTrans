@@ -204,7 +204,7 @@ namespace RimTrans.Trans
                 Capture capture = Capture.Parse(Defs);
                 capture.ProcessFieldNames(Defs);
                 InjectionData DefInjected_Original = InjectionData.Parse("Original", Defs);
-                KeyedData Keyed_English = KeyedData.Load(keyedPath_English);
+                KeyedData Keyed_English = KeyedData.Load("English", keyedPath_English);
                 Log.WriteLine(ConsoleColor.Green, "======== Completed Processing Defs and Original Language Data ========");
                 Log.WriteLine();
 
@@ -247,7 +247,7 @@ namespace RimTrans.Trans
                     string stringsPath = Path.Combine(langPath, "Strings");
 
                     InjectionData DefInjected_New = new InjectionData(realName, DefInjected_Original);
-                    KeyedData Keyed_New = new KeyedData(Keyed_English);
+                    KeyedData Keyed_New = new KeyedData(realName, Keyed_English);
 
                     if (cleanModeOn)
                     {
@@ -260,7 +260,7 @@ namespace RimTrans.Trans
                         InjectionData DefInjected_Existed = InjectionData.Load(realName, defInjectedPath, true);
                         DefInjected_New.MatchExisted(DefInjected_Existed);
 
-                        KeyedData Keyed_Existed = KeyedData.Load(keyedPath, true);
+                        KeyedData Keyed_Existed = KeyedData.Load(realName, keyedPath, true);
                         Keyed_New.MatchExisted(Keyed_Existed);
                     }
 
@@ -289,7 +289,7 @@ namespace RimTrans.Trans
                 Capture capture = Capture.Parse(Core_Defs);
                 capture.ProcessFieldNames(Core_Defs);
                 InjectionData Core_DefInjected_Original = InjectionData.Parse("Original", Core_Defs);
-                KeyedData Core_Keyed_English = KeyedData.Load(core_keyedPath_English);
+                KeyedData Core_Keyed_English = KeyedData.Load("English", core_keyedPath_English);
                 Log.WriteLine(ConsoleColor.Green, "======== Completed Processing Core Defs and Original Language Data ========");
                 Log.WriteLine();
                 
@@ -301,7 +301,7 @@ namespace RimTrans.Trans
                 DefinitionData Defs = DefinitionData.Load(defsPath, Core_Defs);
                 capture.ProcessFieldNames(Defs);
                 InjectionData DefInjected_Original = InjectionData.Parse("Original", Defs);
-                KeyedData Keyed_English = KeyedData.Load(keyedPath_English);
+                KeyedData Keyed_English = KeyedData.Load("English", keyedPath_English);
                 Log.WriteLine(ConsoleColor.Green, "======== Completed Processing Mod Defs and Original Language Data ========");
                 Log.WriteLine();
 
@@ -354,8 +354,8 @@ namespace RimTrans.Trans
                     InjectionData Core_DefInjected_Existed = InjectionData.Load(realName, core_defInjectedPath);
                     Core_DefInjected_New.MatchExisted(Core_DefInjected_Existed);
 
-                    KeyedData Core_Keyed_New = new KeyedData(Core_Keyed_English);
-                    KeyedData Core_Keyed_Existed = KeyedData.Load(core_keyedPath);
+                    KeyedData Core_Keyed_New = new KeyedData(realName, Core_Keyed_English);
+                    KeyedData Core_Keyed_Existed = KeyedData.Load(realName, core_keyedPath);
                     Core_Keyed_New.MatchExisted(Core_Keyed_Existed);
 
                     string defInjectedPath = Path.Combine(langPath, "DefInjected");
@@ -365,7 +365,7 @@ namespace RimTrans.Trans
                     InjectionData DefInjected_New = new InjectionData(realName, DefInjected_Original);
                     DefInjected_New.MatchCore(Core_DefInjected_New);
 
-                    KeyedData Keyed_New = new KeyedData(Keyed_English);
+                    KeyedData Keyed_New = new KeyedData(realName, Keyed_English);
                     Keyed_New.MatchCore(Core_Keyed_New);
 
                     if (cleanModeOn)
@@ -379,7 +379,7 @@ namespace RimTrans.Trans
                         InjectionData DefInjected_Existed = InjectionData.Load(realName, defInjectedPath, true);
                         DefInjected_New.MatchExisted(DefInjected_Existed);
 
-                        KeyedData Keyed_Existed = KeyedData.Load(keyedPath, true);
+                        KeyedData Keyed_Existed = KeyedData.Load(realName, keyedPath, true);
                         Keyed_New.MatchExisted(Keyed_Existed);
                     }
 
@@ -420,7 +420,7 @@ namespace RimTrans.Trans
                 DefinitionData Defs = DefinitionData.Load(defsPath, Core_Defs);
                 capture.ProcessFieldNames(Defs);
                 InjectionData DefInjected_Original = InjectionData.Parse("Original", Defs);
-                KeyedData Keyed_English = KeyedData.Load(keyedPath_English);
+                KeyedData Keyed_English = KeyedData.Load("English", keyedPath_English);
                 Log.WriteLine(ConsoleColor.Green, "======== Completed Processing Mod Defs and Original Language Data ========");
                 Log.WriteLine();
 
@@ -484,7 +484,7 @@ namespace RimTrans.Trans
                     InjectionData DefInjected_New = new InjectionData(realName, DefInjected_Original);
                     //DefInjected_New.MatchCore(Core_DefInjected_New);
 
-                    KeyedData Keyed_New = new KeyedData(Keyed_English);
+                    KeyedData Keyed_New = new KeyedData(realName, Keyed_English);
                     //Keyed_New.MatchCore(Core_Keyed_New);
 
                     if (cleanModeOn)
@@ -498,7 +498,7 @@ namespace RimTrans.Trans
                         InjectionData DefInjected_Existed = InjectionData.Load(realName, defInjectedPath, true);
                         DefInjected_New.MatchExisted(DefInjected_Existed);
 
-                        KeyedData Keyed_Existed = KeyedData.Load(keyedPath, true);
+                        KeyedData Keyed_Existed = KeyedData.Load(realName, keyedPath, true);
                         Keyed_New.MatchExisted(Keyed_Existed);
                     }
 

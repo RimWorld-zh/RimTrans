@@ -63,6 +63,9 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         public bool HasNonMatched { get { return this.nonMatchedElements != null && this.nonMatchedElements.Count > 0; } }
 
+        public bool IsValid { get { return this.isValid; } }
+        private bool isValid = true;
+
         #endregion
 
         #region Init
@@ -89,6 +92,7 @@ namespace RimTrans.Builder.Crawler
             {
                 Log.Error();
                 Log.WriteLine($"ERROR: defType '{defTypeName}' no found.");
+                this.isValid = false;
                 //Log.WriteLine(def.ToString());
                 return;
             }
@@ -210,7 +214,7 @@ namespace RimTrans.Builder.Crawler
             }
             if (this.HasNonMatched)
             {
-                def.Add(new XComment("======== Non Mathced Elements ========"));
+                def.Add(new XComment("======== Non Matched Elements ========"));
                 def.Add(this.nonMatchedElements);
             }
             return def;
