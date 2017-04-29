@@ -70,6 +70,7 @@
     <Compile Include="DirectoryHelper.cs" />
     <Compile Include="Wiki\SetDict.cs" />
     <Compile Include="Wiki\WikiData.cs" />
+    <Compile Include="Wiki\WikiKeyed.cs" />
     <Compile Include="Xml\DefTypeNameOf.cs" />
     <Compile Include="Xml\DocHelper.cs" />
     <Compile Include="Xml\CaseHelper.cs" />

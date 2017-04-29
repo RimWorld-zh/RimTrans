@@ -62,6 +62,7 @@ namespace RimTrans.Builder
         #endregion
 
         private SortedDictionary<string, SortedDictionary<string, XDocument>> _data;
+        public SortedDictionary<string, SortedDictionary<string, XDocument>> Data { get { return this._data; } }
 
         public string Name { get; private set; }
 
@@ -875,10 +876,10 @@ namespace RimTrans.Builder
             XElement label = def.label();
             if (label == null) label = defName;
 
-            root.Add("  ", new XElement("MainTab_" + defName.Value + ".label", label.Value + " tab"), "\n");
+            root.Add("  ", new XElement("Architect_" + defName.Value + ".label", label.Value + " tab"), "\n");
             string labelCap = label.Value;
             labelCap = labelCap[0].ToString().ToUpper() + labelCap.Substring(1);
-            root.Add("  ", new XElement("MainTab_" + defName.Value + ".description", "Key bindings for the \"" + labelCap + "\" section of the Architect menu"), "\n\n");
+            root.Add("  ", new XElement("Architect_" + defName.Value + ".description", "Key bindings for the \"" + labelCap + "\" section of the Architect menu"), "\n\n");
         }
 
         /// <summary>
@@ -897,7 +898,7 @@ namespace RimTrans.Builder
             XElement label = def.label();
             if (label == null) label = defName;
 
-            root.Add("  ", new XElement("Architect_" + defName.Value + ".description", "Toggle " + label.Value + " tab"), "\n");
+            root.Add("  ", new XElement("MainTab_" + defName.Value + ".label", "Toggle " + label.Value + " tab"), "\n");
         }
 
         #endregion
