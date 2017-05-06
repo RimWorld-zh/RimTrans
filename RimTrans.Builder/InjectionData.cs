@@ -415,6 +415,8 @@ namespace RimTrans.Builder
                     if (thingCategory == ThingCategoryOf.Mote)
                     {
                         isMote = true;
+                        this.AddThingsMote(def, defName);
+                        result++;
                     }
                     else if (thingCategory == ThingCategoryOf.Building)
                     {
@@ -608,6 +610,8 @@ namespace RimTrans.Builder
         {
             XElement label = def.label();
             if (label == null) label = defName;
+            XElement description = def.description();
+            if (description == null) description = label;
 
             // Content generation in Keyed/Misc.xml
             if (isBuildable)
@@ -626,6 +630,9 @@ namespace RimTrans.Builder
             {
                 yield return "  ";
                 yield return new XElement(defName.Value + "_Frame.label", label.Value + " (building)");
+                yield return "\n";
+                yield return "  ";
+                yield return new XElement(defName.Value + "_Frame.description", description.Value);
                 yield return "\n";
             }
         }
@@ -747,6 +754,23 @@ namespace RimTrans.Builder
             yield return "\n";
         }
 
+        private void AddThingsMote(XElement def, XElement defName)
+        {
+            XDocument doc = this.GetDocEx(DefTypeNameOf.ThingDef, "_Things_Mote.xml");
+            XElement root = doc.Root;
+            if (!root.HasElements)
+            {
+                root.Add("  ", new XComment(" These are Mote ThingDefs. Remain the same, DO NOT translate them. "), "\n\n");
+                root.FirstAttribute.Value = "true";
+            }
+
+            XElement label = def.label();
+            if (label != null)
+            {
+                root.Add("  ", new XElement(defName.Value + ".label", label.Value), "\n");
+            }
+        }
+
         /// <summary>
         /// For manufacture recipe from makeable items and buildings 
         /// </summary>
@@ -860,7 +884,8 @@ namespace RimTrans.Builder
             string defNameValue = defName.Value;
             string labelValue = label.Value;
             root.Add("  ", new XElement(defNameValue + "_Blueprint.label", labelValue + " (blueprint)"), "\n");
-            root.Add("  ", new XElement(defNameValue + "_Frame.label", labelValue + " (building)"), "\n\n");
+            root.Add("  ", new XElement(defNameValue + "_Frame.label", labelValue + " (building)"), "\n");
+            root.Add("  ", new XElement(defNameValue + "_Frame.description", "Terrain building in progress."), "\n\n");
         }
 
         private void AddKeyBindingCategoriesAddArchitect(XElement def, XElement defName)
