@@ -19,6 +19,7 @@ namespace RimTransLibTest
         static void Main(string[] args)
         {
             TestCrawler();
+            //TestDefTypeCrawler();
         }
 
         static void TestCrawler()
@@ -29,33 +30,37 @@ namespace RimTransLibTest
             capture.ProcessFieldNames(coreDefinitionData);
 
             InjectionData coreInjectionData_Original = InjectionData.Parse("Original", coreDefinitionData);
+
             InjectionData coreInjectionData_zhcn = new InjectionData("ChineseSimplified", coreInjectionData_Original);
             InjectionData coreInjectionData_zhcn_Existed = InjectionData.Load("ChineseSimplified", @"D:\Git\RWMod\RimWorld-ChineseSimplified\DefInjected", false);
             coreInjectionData_zhcn.MatchExisted(coreInjectionData_zhcn_Existed);
+
             InjectionData coreInjectionData_zhtw = new InjectionData("ChineseTraditional", coreInjectionData_Original);
             InjectionData coreInjectionData_zhtw_Existed = InjectionData.Load("ChineseTraditional", @"D:\Git\RWMod\RimWorld-ChineseTraditional\DefInjected", false);
             coreInjectionData_zhtw.MatchExisted(coreInjectionData_zhtw_Existed);
 
             KeyedData keyed_en = KeyedData.Load("English", @"D:\Game\Steam\steamapps\common\RimWorld\Mods\Core\Languages\English\Keyed", false);
+
             KeyedData keyed_zhcn = new KeyedData("ChineseSimplified", keyed_en);
             KeyedData keyed_zhcn_Existed = KeyedData.Load("ChineseSimplified", @"D:\Git\RWMod\RimWorld-ChineseSimplified\Keyed", false);
             keyed_zhcn.MatchExisted(keyed_zhcn_Existed);
+
             KeyedData keyed_zhtw = new KeyedData("ChineseTraditional", keyed_en);
             KeyedData keyed_zhtw_Existed = KeyedData.Load("ChineseTraditional", @"D:\Git\RWMod\RimWorld-ChineseTraditional\Keyed", false);
             keyed_zhtw.MatchExisted(keyed_zhtw_Existed);
 
             coreDefinitionData.Wiki();
-            //coreDefinitionData.Save(@"D:\Git\RWMod\RimWorld-Defs-Templates\CoreDefsProcessed");
+            coreDefinitionData.Save(@"D:\Git\RWMod\RimWorld-Defs-Templates\CoreDefsProcessed");
 
-            //string sourceCodePath = @"D:\Git\RWMod\RimWorld-Assembly-CSharp-Decompile\Assembly-CSharp";
-            //Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
-            //templates.Save(@"D:\Git\RWMod\RimWorld-Defs-Templates\Templates");
+            string sourceCodePath = @"D:\Git\RWMod\RimWorld-Assembly-CSharp-Decompile\Assembly-CSharp";
+            Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
+            templates.Save(@"D:\Git\RWMod\RimWorld-Defs-Templates\Templates");
 
-            //WikiData wikiData = WikiData.Parse(coreDefinitionData, templates, coreInjectionData_zhcn, coreInjectionData_zhtw);
-            //wikiData.Save(@"D:\Git\RimWorld.huiji.wiki\Core-Data\Source");
-            //wikiData.SaveCSV(@"D:\Git\RimWorld.huiji.wiki\Core-Data\CoreData.csv");
+            WikiData wikiData = WikiData.Parse(coreDefinitionData, templates, coreInjectionData_zhcn, coreInjectionData_zhtw);
+            wikiData.Save(@"D:\Git\RimWorld.huiji.wiki\Core-Data\Source");
+            wikiData.SaveCSV(@"D:\Git\RimWorld.huiji.wiki\Core-Data\CoreData.csv");
 
-            WikiKeyed wikiKeyed = WikiKeyed.Parse(keyed_en, keyed_zhcn, keyed_zhtw_Existed);
+            WikiKeyed wikiKeyed = WikiKeyed.Parse(keyed_en, keyed_zhcn, keyed_zhtw);
             wikiKeyed.Save(@"D:\Git\RimWorld.huiji.wiki\Core-Data\Keyeds");
         }
 

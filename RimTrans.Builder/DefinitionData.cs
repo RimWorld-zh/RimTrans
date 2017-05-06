@@ -67,6 +67,7 @@ namespace RimTrans.Builder
 
             definitionData.MarkIndex();
 
+            definitionData.CompleteDamage();
             definitionData.CompleteJobReportString();
             definitionData.CompletePawnKindLabel(definitionDataCore);
             definitionData.CompletePawnRelationLabel();
@@ -347,12 +348,36 @@ namespace RimTrans.Builder
 
         #region Complete
 
+        private void CompleteDamage()
+        {
+            IEnumerable<XElement> damageDefsAll = from doc in this._data.Values
+                                                  from ele in doc.Root.Elements(DefTypeNameOf.DamageDef)
+                                                  where ele.HasField_defName()
+                                                  select ele;
+            int countDamageDefs = damageDefsAll.Count();
+            if (countDamageDefs > 0)
+            {
+                Log.Info();
+                Log.WriteLine("Start processing DamageDefs.");
+                foreach (XElement damageDef in damageDefsAll)
+                {
+                    XElement deathMessage = damageDef.Field(FieldNameOf.deathMessage);
+                    if (deathMessage == null)
+                    {
+                        damageDef.Add(new XElement(FieldNameOf.deathMessage, "{0} has been killed."));
+                    }
+                }
+                Log.Info();
+                Log.WriteLine("Completed processing DamageDefs: {0} node(s).", countDamageDefs);
+            }
+        }
+
         private void CompleteJobReportString()
         {
             IEnumerable<XElement> jobDefsAll = from doc in this._data.Values
-                                                        from ele in doc.Root.Elements(DefTypeNameOf.JobDef)
-                                                        where ele.HasField_defName()
-                                                        select ele;
+                                               from ele in doc.Root.Elements(DefTypeNameOf.JobDef)
+                                               where ele.HasField_defName()
+                                               select ele;
             int countJobDefs = jobDefsAll.Count();
             if (countJobDefs > 0)
             {
@@ -1372,7 +1397,7 @@ namespace RimTrans.Builder
                 rawTerrain.Add(new XElement("label", "raw terrain"));
                 rawTerrain.Add(new XElement("description", "raw terrain"));
                 rawTerrain.Add(new XElement("statBases",
-                    new XElement("Beauty", "1")
+                    new XElement("Beauty", "-1")
                     ));
                 rawTerrain.Add(new XElement("pathCost", "1"));
                 rawTerrain.Add(new XElement("fertility", "0"));
@@ -1455,6 +1480,7 @@ namespace RimTrans.Builder
                         smooth.Element("defName").Value = defNameValue + "_Smooth";
                         smooth.Element("label").Value = "smooth " + labelValue;
                         smooth.Element("description").Value = $"Smoothed natural {labelValue} floor.";
+                        smooth.Element("statBases").Element("Beauty").Value = "3";
                         smooth.Element("texturePath").Value = "Terrain/Surfaces/SmoothStone";
                         smooth.Element("renderPrecedence").Value = "140";
                         smooth.Element("affordances").Add(

@@ -15,11 +15,13 @@ namespace RimTrans.Builder.Wiki
     public class WikiKeyed
     {
         private SortedDictionary<string, StringBuilder> jsons;
+        private SortedDictionary<string, StringBuilder> tables;
         private SortedDictionary<string, Dictionary<string, string>> dicts;
 
         WikiKeyed()
         {
             this.jsons = new SortedDictionary<string, StringBuilder>();
+            this.tables = new SortedDictionary<string, StringBuilder>();
             this.dicts = new SortedDictionary<string, Dictionary<string, string>>();
         }
 
@@ -36,30 +38,43 @@ namespace RimTrans.Builder.Wiki
             foreach (KeyedData curKeyedData in keyedDatas)
             {
                 StringBuilder json = new StringBuilder();
-                Dictionary<string, string> dict = new Dictionary<string, string>();
                 json.Append("{\n");
+                StringBuilder table = new StringBuilder();
+                table.Append("return {\n");
+                Dictionary<string, string> dict = new Dictionary<string, string>();
                 foreach (XElement ele in from doc in curKeyedData.Data.Values
                                          from ele in doc.Root.Elements()
                                          select ele)
                 {
                     string key = ele.Name.ToString();
                     string value = ele.Value.Replace("\r\n", "<br/>").Replace("\n", "<br/>").Replace("\\n", "<br/>");
+                    // JSON
                     json.Append("    \"");
                     json.Append(key);
                     json.Append("\": \"");
                     json.Append(value.Replace("\\", "\\\\").Replace("\"", "\\\""));
                     json.AppendLine("\",");
+                    // Lua table
+                    table.Append("    ");
+                    table.Append(key);
+                    table.Append(" = \"");
+                    table.Append(value.Replace("\\", "\\\\").Replace("\"", "\\\""));
+                    table.AppendLine("\",");
+                    // SMW
                     dict.Add("Keyed." + key, value.Replace("|", "{{!}}"));
                     countKey++;
                 }
                 json.Remove(json.Length - 3, 1);
                 json.Append("}");
+                table.Remove(table.Length - 3, 1);
+                table.Append("}");
                 string name = curKeyedData.Name;
                 while (wikiKeyed.jsons.ContainsKey(name))
                 {
                     name += "_";
                 }
                 wikiKeyed.jsons.Add(name, json);
+                wikiKeyed.tables.Add(name, table);
                 wikiKeyed.dicts.Add(name, dict);
             }
 
@@ -131,6 +146,20 @@ namespace RimTrans.Builder.Wiki
                     countInvalidFiles++;
                 }
             }
+            // Lua table
+            foreach (var fileNameTablePair in this.tables)
+            {
+                string fileName = Path.Combine(path, fileNameTablePair.Key);
+                try
+                {
+                    File.WriteAllText(fileName + ".lua", fileNameTablePair.Value.ToString());
+                    countValidFiles++;
+                }
+                catch (Exception)
+                {
+                    countInvalidFiles++;
+                }
+            }
             // SMW
             foreach (var fileNameDictPair in this.dicts)
             {
@@ -183,88 +212,6 @@ namespace RimTrans.Builder.Wiki
                     Log.Error();
                     Log.WriteLine($"Outputing Wiki Keyed failure: {countInvalidFiles} files.");
                 }
-            }
-        }
-
-        /// <summary>
-        /// Save wiki keyed as a CSV file.
-        /// </summary>
-        /// <param name="path"></param>
-        public void SaveCSV(string path)
-        {
-            if (this.jsons == null || this.jsons.Count == 0) return;
-
-            string dir = Path.GetDirectoryName(path);
-            if (Directory.Exists(dir))
-            {
-                DirectorySecurity ds = new DirectorySecurity(dir, AccessControlSections.Access);
-                if (ds.AreAccessRulesProtected)
-                {
-                    Log.Error();
-                    Log.WriteLine("Outputing Wiki Keyed failure: No write permission to directory: ");
-                    Log.Indent();
-                    Log.WriteLine(ConsoleColor.Red, dir);
-                    return;
-                }
-            }
-            else
-            {
-                try
-                {
-                    Directory.CreateDirectory(dir);
-                }
-                catch (Exception ex)
-                {
-                    Log.Error();
-                    Log.WriteLine("Outputing Wiki Keyed failure: Can not create directory: ");
-                    Log.Indent();
-                    Log.WriteLine(ConsoleColor.Red, dir);
-                    Log.Indent();
-                    Log.WriteLine(ex.Message);
-                    return;
-                }
-            }
-
-            StringBuilder sb = new StringBuilder();
-            // JSON
-            //foreach (var fileNameJsonPair in this.jsons)
-            //{
-            //    sb.Append(fileNameJsonPair.Key);
-            //    sb.Append("_json,\"");
-            //    sb.Append(fileNameJsonPair.Value.ToString().Replace("\"", "\"\""));
-            //    sb.AppendLine("\"");
-            //}
-            // SMW
-            //foreach (var fileNameDictPair in this.dicts)
-            //{
-            //    sb.Append(fileNameDictPair.Key);
-            //    sb.Append("_smw,");
-            //    sb.AppendLine("\"{{#set:");
-            //    Dictionary<string, string> dict = fileNameDictPair.Value;
-            //    foreach (var kvp in dict)
-            //    {
-            //        sb.Append('|');
-            //        sb.Append(kvp.Key);
-            //        sb.Append('=');
-            //        sb.AppendLine(kvp.Value.Replace("\"", "\"\""));
-            //    }
-            //    sb.AppendLine("}}\"");
-            //}
-
-            try
-            {
-                File.WriteAllText(path, sb.ToString(), Encoding.UTF8);
-                Log.Info();
-                Log.Write($"Completed outputing Wiki Keyed to CSV file: ");
-                Log.WriteLine(ConsoleColor.Cyan, path);
-            }
-            catch (Exception ex)
-            {
-                Log.Error();
-                Log.Write($"Outputing Wiki Keyed to SCV file failure, file: ");
-                Log.WriteLine(ConsoleColor.Red, path);
-                Log.Indent();
-                Log.WriteLine(ex.Message);
             }
         }
     }

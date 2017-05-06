@@ -10,6 +10,8 @@ namespace RimTrans.Builder.Xml
         public static string description = "description";
         public static string li = "li";
 
+        public static string deathMessage = "deathMessage";
+
         public static string reportString = "reportString";
         public static string defaultToggleKey = "defaultToggleKey";
         public static string defaultHotKey = "defaultHotKey";

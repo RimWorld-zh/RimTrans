@@ -163,6 +163,9 @@ namespace RimTrans.Builder.Xml
                 // LifeStageDef
                 string.Compare(fieldName, "adjective", true) == 0 ||
 
+                // PawnColumnDef
+                string.Compare(fieldName, "headerTip", true) == 0 ||
+
                 // PawnRelationDef
                 //string.Compare(fieldName, "labelFemale", true) == 0 ||
 
@@ -207,8 +210,8 @@ namespace RimTrans.Builder.Xml
                 string.Compare(fieldName, "labelSolidTendedWell", true) == 0 ||
                 string.Compare(fieldName, "labelSolidTended", true) == 0 ||
                 string.Compare(fieldName, "destroyedLabel", true) == 0 ||
-                string.Compare(fieldName, "oldLabel", true) == 0 ||
                 string.Compare(fieldName, "destroyedOutLabel", true) == 0 ||
+                string.Compare(fieldName, "oldLabel", true) == 0 ||
                 string.Compare(fieldName, "instantlyOldLabel", true) == 0 ||
 
                 // JobDef
