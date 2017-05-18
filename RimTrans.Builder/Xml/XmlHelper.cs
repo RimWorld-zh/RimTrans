@@ -249,6 +249,7 @@ namespace RimTrans.Builder.Xml
                 string.Compare(fieldName, "useLabel", true) == 0 ||
                 string.Compare(fieldName, "ingestCommandString", true) == 0 ||
                 string.Compare(fieldName, "ingestReportString", true) == 0 ||
+                string.Compare(fieldName, "offMessage", true) == 0 ||
 
                 // WorkTypeDef
                 string.Compare(fieldName, "labelShort", true) == 0 ||
