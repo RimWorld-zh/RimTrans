@@ -14,6 +14,8 @@ namespace RimTrans.Builder.Wiki
 {
     public class SetDict
     {
+        private static readonly UTF8Encoding utf8 = new UTF8Encoding(false);
+
         private string defType;
         public string DefType { get { return this.defType; } }
 
@@ -482,7 +484,7 @@ namespace RimTrans.Builder.Wiki
         /// <param name="path"></param>
         public void Save(string path)
         {
-            File.WriteAllText(path, this.ToString(), Encoding.UTF8);
+            File.WriteAllText(path, this.ToString(), utf8);
         }
 
         #endregion
