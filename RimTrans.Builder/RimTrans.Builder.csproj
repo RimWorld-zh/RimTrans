@@ -71,9 +71,10 @@
     <Compile Include="Wiki\SetDict.cs" />
     <Compile Include="Wiki\WikiData.cs" />
     <Compile Include="Wiki\WikiKeyed.cs" />
+    <Compile Include="Wiki\WikiTextures.cs" />
     <Compile Include="Xml\DefTypeNameOf.cs" />
     <Compile Include="Xml\DocHelper.cs" />
-    <Compile Include="Xml\CaseHelper.cs" />
+    <Compile Include="Xml\LangCodeHelper.cs" />
     <Compile Include="Xml\FieldNameOf.cs" />
     <Compile Include="Xml\ThingCategoryOf.cs" />
     <Compile Include="Xml\XmlHelper.cs" />

@@ -19,6 +19,8 @@ namespace RimTrans.Builder.Wiki
     /// </summary>
     public class WikiData
     {
+        private static readonly UTF8Encoding utf8 = new UTF8Encoding(false);
+
         private SortedDictionary<string, SortedDictionary<string, SetDict>> allSetDict;
         
         private WikiData()
@@ -252,27 +254,27 @@ namespace RimTrans.Builder.Wiki
             {
                 string defTypeName = defTypeSubDict.Key;
                 SortedDictionary<string, SetDict> subDict = defTypeSubDict.Value;
-                string subDirPath = Path.Combine(path, defTypeName);
-                if (Directory.Exists(subDirPath))
-                {
-                    DirectorySecurity curDs = new DirectorySecurity(subDirPath, AccessControlSections.Access);
-                    if (curDs.AreAccessRulesProtected)
-                    {
-                        Log.Error();
-                        Log.WriteLine("Outputing to sub-directory failed: No write permission to directory.");
-                        Log.Indent();
-                        Log.WriteLine(ConsoleColor.Red, subDirPath);
-                        countInvalidFiles += subDict.Count;
-                        continue;
-                    }
-                }
-                else
-                {
-                    Directory.CreateDirectory(subDirPath);
-                }
+                //string subDirPath = Path.Combine(path, defTypeName);
+                //if (Directory.Exists(subDirPath))
+                //{
+                //    DirectorySecurity curDs = new DirectorySecurity(subDirPath, AccessControlSections.Access);
+                //    if (curDs.AreAccessRulesProtected)
+                //    {
+                //        Log.Error();
+                //        Log.WriteLine("Outputing to sub-directory failed: No write permission to directory.");
+                //        Log.Indent();
+                //        Log.WriteLine(ConsoleColor.Red, subDirPath);
+                //        countInvalidFiles += subDict.Count;
+                //        continue;
+                //    }
+                //}
+                //else
+                //{
+                //    Directory.CreateDirectory(subDirPath);
+                //}
                 foreach (KeyValuePair<string, SetDict> pageNameSetDict in subDict)
                 {
-                    string filePath = Path.Combine(subDirPath, pageNameSetDict.Key) + ".wiki";
+                    string filePath = Path.Combine(path, "Core_2_" + pageNameSetDict.Key + ".wiki");
                     SetDict setDict = pageNameSetDict.Value;
                     try
                     {
@@ -383,7 +385,7 @@ namespace RimTrans.Builder.Wiki
 
             try
             {
-                File.WriteAllText(path, sb.ToString(), Encoding.UTF8);
+                File.WriteAllText(path, sb.ToString(), utf8);
                 Log.Info();
                 Log.Write($"Completed outputing Wiki Data to CSV file: ");
                 Log.WriteLine(ConsoleColor.Cyan, path);

@@ -452,6 +452,22 @@ namespace RimTrans.Lite.Util
 
         #endregion
 
+        #region Window Backstories
+
+        public string BackstoriesSourceFile
+        {
+            get { return (string)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public string BackstoriesTargetFile
+        {
+            get { return (string)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        #endregion
+
         #region Window Options
 
         public double OptionsWindowHeight
