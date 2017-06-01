@@ -46,7 +46,7 @@
 
     <s:String x:Key="Common.Select">Выбрать</s:String>
     <s:String x:Key="Common.SelectAll">Выбрать все</s:String>
-    <s:String x:Key="Common.SelectInvert">Инвентировать выбор</s:String>
+    <s:String x:Key="Common.SelectInvert">Инвентировать</s:String>
 
     <s:String x:Key="Common.Mod">Мод</s:String>
     <s:String x:Key="Common.Language">Язык</s:String>
@@ -62,7 +62,7 @@
     <s:String x:Key="Common.ShowInExplorer">Показать в Проводнике</s:String>
 
     <s:String x:Key="Common.Automatic">Автоматически</s:String>
-    <s:String x:Key="Common.Custom">Настраиваем</s:String>
+    <s:String x:Key="Common.Custom">Указать вручную</s:String>
 
     <s:String x:Key="Common.Info">Сведения</s:String>
     <s:String x:Key="Common.Warning">Предупреждение</s:String>
