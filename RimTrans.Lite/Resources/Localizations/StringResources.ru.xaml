@@ -1,0 +1,109 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RimTrans.Lite.Resources.Localizations"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--
+    
+    Application Language File
+    Language Code: ru
+    Language Name: Russian
+    Language Native Name: Русский
+    Translator: Bugo
+    
+    -->
+
+    <!-- Common -->
+    <s:String x:Key="RimTrans">RimTrans</s:String> <!-- Please do not translate this node, but you could translate any other nodes. -->
+
+    <s:String x:Key="Common.Common">Общие</s:String>
+    <s:String x:Key="Common.Application">Приложение</s:String>
+    <s:String x:Key="Common.About">О программе</s:String>
+    
+    <s:String x:Key="Common.Open">Открыть</s:String>
+    <s:String x:Key="Common.Close">Закрыть</s:String>
+
+    <s:String x:Key="Common.Confirm">Подтвердить</s:String>
+    <s:String x:Key="Common.Cancel">Отменить</s:String>
+
+    <s:String x:Key="Common.Yes">Да</s:String>
+    <s:String x:Key="Common.No">Нет</s:String>
+    <s:String x:Key="Common.OK">OK</s:String>
+
+    <s:String x:Key="Common.Save">Сохранить</s:String>
+    <s:String x:Key="Common.SaveAll">Сохранить все</s:String>
+    <s:String x:Key="Common.DoNotSave">Не сохранять</s:String>
+    <s:String x:Key="Common.Delete">Удалить</s:String>
+    <s:String x:Key="Common.Remove">Удалить</s:String>
+    <s:String x:Key="Common.RemoveAll">Удалить все</s:String>
+
+    <s:String x:Key="Common.Edit">Правка</s:String>
+    <s:String x:Key="Common.Modify">Изменить</s:String>
+    <s:String x:Key="Common.Undo">Отменить</s:String>
+    <s:String x:Key="Common.Redo">Повторить</s:String>
+    
+    <s:String x:Key="Common.Previous">Назад</s:String>
+    <s:String x:Key="Common.Next">Далее</s:String>
+
+    <s:String x:Key="Common.Select">Выбрать</s:String>
+    <s:String x:Key="Common.SelectAll">Выбрать все</s:String>
+    <s:String x:Key="Common.SelectInvert">Инвентировать выбор</s:String>
+
+    <s:String x:Key="Common.Mod">Мод</s:String>
+    <s:String x:Key="Common.Language">Язык</s:String>
+    <s:String x:Key="Common.Backstory">Предыстория</s:String>
+    <s:String x:Key="Common.Name">Название</s:String>
+    <s:String x:Key="Common.Author">Автор</s:String>
+    <s:String x:Key="Common.Translator">Переводчик</s:String>
+
+    <s:String x:Key="Common.File">Файл</s:String>
+    <s:String x:Key="Common.Folder">Папка</s:String>
+    <s:String x:Key="Common.Directory">Директория</s:String>
+    <s:String x:Key="Common.Path">Путь</s:String>
+    <s:String x:Key="Common.ShowInExplorer">Показать в Проводнике</s:String>
+
+    <s:String x:Key="Common.Automatic">Automatic</s:String>
+    <s:String x:Key="Common.Custom">Custom</s:String>
+
+    <s:String x:Key="Common.Info">Сведения</s:String>
+    <s:String x:Key="Common.Warning">Предупреждение</s:String>
+    <s:String x:Key="Common.Error">Ошибка</s:String>
+    <s:String x:Key="Common.DoNotPrompt">Не спрашивать больше</s:String>
+
+    <!-- Mod Category -->
+    <s:String x:Key="Mod.Internal">Установленные моды</s:String>
+    <s:String x:Key="Mod.Workshop">Мастерская Steam</s:String>
+    <s:String x:Key="Mod.Custom">Дополнительно</s:String>
+
+    <!-- Generate Mode -->
+    <s:String x:Key="Mod.GenerationOption">Параметры генератора</s:String>
+    <s:String x:Key="Mod.Core">Режим ядра</s:String>
+    <s:String x:Key="Mod.Standard">Обычный режим</s:String>
+    <s:String x:Key="Mod.Special">Специальный режим</s:String>
+    <s:String x:Key="Mod.Clean">Чистый режим</s:String>
+    <s:String x:Key="Mod.Clean.Desc">ПРЕДУПРЕЖДЕНИЕ!!! Чистый режим генератора удалит существующие языковые файлы, создав новые на их месте.</s:String>
+    <s:String x:Key="Mod.CustomOutput">Директория вывода</s:String>
+
+
+    <!-- MainWindow -->
+    <s:String x:Key="MainWindow.Title">RimTrans</s:String>
+
+    <s:String x:Key="MainWindow.Button.AddMod">Добавить мод</s:String>
+    <s:String x:Key="MainWindow.Button.AddLanguage">Добавить язык</s:String>
+    <s:String x:Key="MainWindow.Button.Extract">Извлечь</s:String>
+    <s:String x:Key="MainWindow.Button.Editor">Редактор</s:String>
+
+    <s:String x:Key="MainWindow.Button.Tools">Инструменты</s:String>
+    <s:String x:Key="MainWindow.Button.Help">Справка</s:String>
+    <s:String x:Key="MainWindow.Button.Options">Параметры</s:String>
+
+    <!-- OptionsWindow -->
+    <s:String x:Key="Options.RimWorldInstallDir">Директория игры RimWorld</s:String>
+    <s:String x:Key="Options.WorkshopModDir">Директория модификаций из Мастерской Steam</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">Директория игры RimWorld или директоория с модами из Мастерской Steam не найдены. Это может вызвать определённые проблемы. Укажите нужные директории в параметрах.</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt">Сбросить настройки всех диалоговых окон</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt.Message">Настройки всех диалоговых окон сброшены.</s:String>
+
+
+
+
+</ResourceDictionary>
