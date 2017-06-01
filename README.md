@@ -2,6 +2,14 @@
 
 A translation and transform tool for RimWorld Core and Mods!
 
+Supports all 26 languages of RimWorld.
+
+Interface languages:
+- English
+- 简体中文
+- 繁体中文
+- Русский
+
 [Open Source Code](https://github.com/duduluu/RimTrans)
 
 ### Projects
@@ -12,6 +20,7 @@ A translation and transform tool for RimWorld Core and Mods!
 
 ### TODO
 
+- Custom function
 - Internal Editor
 - Backstories translation tool
 - MediaWiki kit

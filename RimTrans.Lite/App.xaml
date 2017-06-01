@@ -33,6 +33,8 @@
 
                 <!-- Localizations -->
                 <ResourceDictionary Source="/Resources/Localizations/StringResources.zh-CN.xaml"/>
+                <ResourceDictionary Source="/Resources/Localizations/StringResources.zh-TW.xaml"/>
+                <ResourceDictionary Source="/Resources/Localizations/StringResources.ru.xaml"/>
                 <ResourceDictionary Source="/Resources/Localizations/StringResources.en.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
