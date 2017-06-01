@@ -1,0 +1,108 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RimTrans.Lite.Resources.Localizations"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--
+    
+    Application Language File
+    Language Code: zh-TW
+    Language Name: Chinese Traditional
+    Language Native Name: 繁體中文
+    Translator: duduluu
+    
+    -->
+
+    <!-- Common -->
+    <s:String x:Key="RimTrans">RimTrans</s:String>
+
+    <s:String x:Key="Common.Common">通用</s:String>
+    <s:String x:Key="Common.Application">應用程式</s:String>
+    <s:String x:Key="Common.About">關於</s:String>
+
+    <s:String x:Key="Common.Open">打開</s:String>
+    <s:String x:Key="Common.Close">關閉</s:String>
+
+    <s:String x:Key="Common.Confirm">確定</s:String>
+    <s:String x:Key="Common.Cancel">取消</s:String>
+
+    <s:String x:Key="Common.Yes">是</s:String>
+    <s:String x:Key="Common.No">否</s:String>
+    <s:String x:Key="Common.OK">OK</s:String>
+
+    <s:String x:Key="Common.Save">保存</s:String>
+    <s:String x:Key="Common.SaveAll">全部保存</s:String>
+    <s:String x:Key="Common.DoNotSave">不保存</s:String>
+    <s:String x:Key="Common.Delete">刪除</s:String>
+    <s:String x:Key="Common.Remove">移除</s:String>
+    <s:String x:Key="Common.RemoveAll">全部移除</s:String>
+
+    <s:String x:Key="Common.Edit">編輯</s:String>
+    <s:String x:Key="Common.Modify">修改</s:String>
+    <s:String x:Key="Common.Undo">撤銷</s:String>
+    <s:String x:Key="Common.Redo">重做</s:String>
+
+    <s:String x:Key="Common.Previous">上一項</s:String>
+    <s:String x:Key="Common.Next">下一項</s:String>
+
+    <s:String x:Key="Common.Select">選擇</s:String>
+    <s:String x:Key="Common.SelectAll">全選</s:String>
+    <s:String x:Key="Common.SelectInvert">反選</s:String>
+
+    <s:String x:Key="Common.Mod">模組</s:String>
+    <s:String x:Key="Common.Language">語言</s:String>
+    <s:String x:Key="Common.Backstory">背景故事</s:String>
+    <s:String x:Key="Common.Name">名稱</s:String>
+    <s:String x:Key="Common.Author">作者</s:String>
+    <s:String x:Key="Common.Translator">譯者</s:String>
+
+    <s:String x:Key="Common.File">檔案</s:String>
+    <s:String x:Key="Common.Folder">資料夾</s:String>
+    <s:String x:Key="Common.Directory">目錄</s:String>
+    <s:String x:Key="Common.Path">路徑</s:String>
+    <s:String x:Key="Common.ShowInExplorer">在資源管理器中打開</s:String>
+
+    <s:String x:Key="Common.Automatic">自動</s:String>
+    <s:String x:Key="Common.Custom">自定義</s:String>
+
+    <s:String x:Key="Common.Info">信息</s:String>
+    <s:String x:Key="Common.Warning">警告</s:String>
+    <s:String x:Key="Common.Error">錯誤</s:String>
+    <s:String x:Key="Common.DoNotPrompt">不再提示</s:String>
+
+    <!-- Mod Category -->
+    <s:String x:Key="Mod.Internal">內置</s:String>
+    <s:String x:Key="Mod.Workshop">工作坊</s:String>
+    <s:String x:Key="Mod.Custom">自定義</s:String>
+
+    <!-- Generate Mode -->
+    <s:String x:Key="Mod.GenerationOption">生成選項</s:String>
+    <s:String x:Key="Mod.Core">Core 模式</s:String>
+    <s:String x:Key="Mod.Standard">標準模式</s:String>
+    <s:String x:Key="Mod.Special">特殊模式</s:String>
+    <s:String x:Key="Mod.Clean">清潔模式</s:String>
+    <s:String x:Key="Mod.Clean.Desc">警告！！！清潔模式會強制刪除原有的語言檔案並生成全新的語言檔案。</s:String>
+    <s:String x:Key="Mod.CustomOutput">自定義輸出目錄</s:String>
+
+
+    <!-- MainWindow -->
+    <s:String x:Key="MainWindow.Title">RimTrans 邊緣譯</s:String>
+
+    <s:String x:Key="MainWindow.Button.AddMod">添加模組</s:String>
+    <s:String x:Key="MainWindow.Button.AddLanguage">添加語言</s:String>
+    <s:String x:Key="MainWindow.Button.Extract">提取</s:String>
+    <s:String x:Key="MainWindow.Button.Editor">編輯器</s:String>
+
+    <s:String x:Key="MainWindow.Button.Tools">工具</s:String>
+    <s:String x:Key="MainWindow.Button.Help">幫助</s:String>
+    <s:String x:Key="MainWindow.Button.Options">選項</s:String>
+
+    <!-- OptionsWindow -->
+    <s:String x:Key="Options.RimWorldInstallDir">邊緣世界安裝目錄</s:String>
+    <s:String x:Key="Options.WorkshopModDir">工作坊模組目錄</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">未發現邊緣世界的安裝目錄或Steam工作坊模組目錄。這可能導致一些問題。你可以在選項中進行自定義。</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt">重置所有不再提示對話框。</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt.Message">所有不再提示對話框已重置。</s:String>
+
+
+
+</ResourceDictionary>

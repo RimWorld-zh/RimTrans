@@ -90,7 +90,7 @@
     <s:String x:Key="MainWindow.Button.AddMod">添加模组</s:String>
     <s:String x:Key="MainWindow.Button.AddLanguage">添加语言</s:String>
     <s:String x:Key="MainWindow.Button.Extract">提取</s:String>
-    <s:String x:Key="MainWindow.Button.Editor">编辑</s:String>
+    <s:String x:Key="MainWindow.Button.Editor">编辑器</s:String>
 
     <s:String x:Key="MainWindow.Button.Tools">工具</s:String>
     <s:String x:Key="MainWindow.Button.Help">帮助</s:String>

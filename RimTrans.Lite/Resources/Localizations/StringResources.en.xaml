@@ -76,16 +76,16 @@
 
     <!-- Generate Mode -->
     <s:String x:Key="Mod.GenerationOption">Generation Option</s:String>
-    <s:String x:Key="Mod.Core">Core Mode</s:String>
-    <s:String x:Key="Mod.Standard">Standard Mode</s:String>
-    <s:String x:Key="Mod.Special">Special Mode</s:String>
+    <s:String x:Key="Mod.Core">Core Mode</s:String><!--This mode use for RimWorld Core-->
+    <s:String x:Key="Mod.Standard">Standard Mode</s:String><!--This mode use for normal mod-->
+    <s:String x:Key="Mod.Special">Special Mode</s:String><!--This mode use for some strange mod, like MarsX-->
     <s:String x:Key="Mod.Clean">Clean Mode</s:String>
     <s:String x:Key="Mod.Clean.Desc">WARNING!!! Clean Generation Mode will force delete language files those exist originally and generate entirely new language files.</s:String>
     <s:String x:Key="Mod.CustomOutput">Custom Output Directory</s:String>
 
 
     <!-- MainWindow -->
-    <s:String x:Key="MainWindow.Title">RimTrans</s:String>
+    <s:String x:Key="MainWindow.Title">RimTrans</s:String><!--This is the title of main window, you could create a new name under your native language, just like the zh-CN.-->
 
     <s:String x:Key="MainWindow.Button.AddMod">Add Mod</s:String>
     <s:String x:Key="MainWindow.Button.AddLanguage">Add Language</s:String>
