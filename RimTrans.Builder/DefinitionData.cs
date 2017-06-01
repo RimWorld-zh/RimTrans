@@ -1537,7 +1537,7 @@ namespace RimTrans.Builder
                 docKeyBindingCategoriesAddArchitect.Root.Add(catDef);
                 #endregion
             }
-            this._data.Add(@"Misc\KeyBindings\KeyBindingCategories_Add_Architect", docKeyBindingCategoriesAddArchitect);
+            this._data.Add(@"Misc\KeyBindings\KeyBindingCategories_Add_Architect.xml", docKeyBindingCategoriesAddArchitect);
         }
 
         private void WikiKeyBindingsAddMainTab()
