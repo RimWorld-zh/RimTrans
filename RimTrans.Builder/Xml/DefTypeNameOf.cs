@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace RimTrans.Builder.Xml
-{
-    public static class DefTypeNameOf
-    {
+namespace RimTrans.Builder.Xml {
+    public static class DefTypeNameOf {
         //public static readonly string Unknown = "Unknown";
         public static readonly string Def = "Def";
         public static readonly string BillRepeatModeDef = "BillRepeatModeDef";

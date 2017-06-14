@@ -11,13 +11,11 @@ using System.Xml.Linq;
 using RimWorld;
 using Verse;
 
-namespace RimTrans.Builder.Crawler
-{
+namespace RimTrans.Builder.Crawler {
     /// <summary>
     /// Privode some methods.
     /// </summary>
-    public static class Helper
-    {
+    public static class Helper {
         #region Xml Helper
 
         /// <summary>
@@ -25,11 +23,9 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="ele"></param>
         /// <returns></returns>
-        public static string GetClassName(this XElement ele)
-        {
+        public static string GetClassName(this XElement ele) {
             XAttribute className = ele.Attribute("Class");
-            if (className != null)
-            {
+            if (className != null) {
                 return className.Value;
             }
             return null;
@@ -40,8 +36,7 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="ele"></param>
         /// <param name="className"></param>
-        public static void SetClassName(this XElement ele, string className)
-        {
+        public static void SetClassName(this XElement ele, string className) {
             ele.SetAttributeValue("Class", className);
         }
 
@@ -50,47 +45,32 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="destination"></param>
         /// <param name="source"></param>
-        public static void MergeElement(XElement destination, XElement source)
-        {
-            if (!destination.HasElements && !source.HasElements)
-            {
-                if (destination.Value == string.Empty && source.Value != string.Empty)
-                {
+        public static void MergeElement(XElement destination, XElement source) {
+            if (!destination.HasElements && !source.HasElements) {
+                if (destination.Value == string.Empty && source.Value != string.Empty) {
                     destination.Value = source.Value;
                 }
-            }
-            else if (!destination.HasElements && source.HasElements)
-            {
-                if (destination.Value != string.Empty)
-                {
+            } else if (!destination.HasElements && source.HasElements) {
+                if (destination.Value != string.Empty) {
                     destination.Value = string.Empty;
                 }
                 destination.Add(source.Elements());
-            }
-            else if (destination.HasElements && source.HasElements)
-            {
+            } else if (destination.HasElements && source.HasElements) {
                 if (destination.Elements().First().Name.ToString() == "li" &&
-                    source.Elements().First().Name.ToString() == "li")
-                {
+                    source.Elements().First().Name.ToString() == "li") {
                     destination.AddFirst(source.Elements());
-                }
-                else
-                {
-                    foreach (XElement fieldSource in source.Elements())
-                    {
+                } else {
+                    foreach (XElement fieldSource in source.Elements()) {
                         bool isMatched = false;
-                        foreach (XElement fieldDestination in destination.Elements())
-                        {
+                        foreach (XElement fieldDestination in destination.Elements()) {
                             if (string.Compare(fieldSource.Name.ToString(), fieldDestination.Name.ToString(), true) == 0 &&
-                                fieldSource.GetClassName() == fieldDestination.GetClassName())
-                            {
+                                fieldSource.GetClassName() == fieldDestination.GetClassName()) {
                                 isMatched = true;
                                 MergeElement(fieldDestination, fieldSource);
                                 break;
                             }
                         }
-                        if (!isMatched)
-                        {
+                        if (!isMatched) {
                             destination.Add(fieldSource);
                         }
                     }
@@ -102,41 +82,30 @@ namespace RimTrans.Builder.Crawler
         /// Process the list in Defs or Tags.
         /// </summary>
         /// <param name="element"></param>
-        public static void MergeListItems(XElement element)
-        {
-            if (element.HasElements)
-            {
-                if (element.Elements().First().Name.ToString() == "li")
-                {
+        public static void MergeListItems(XElement element) {
+            if (element.HasElements) {
+                if (element.Elements().First().Name.ToString() == "li") {
                     List<XElement> uniques = new List<XElement>();
-                    foreach (XElement current in element.Elements())
-                    {
+                    foreach (XElement current in element.Elements()) {
                         bool isMatched = false;
-                        foreach (XElement item in uniques)
-                        {
-                            if (current.GetClassName() == item.GetClassName())
-                            {
+                        foreach (XElement item in uniques) {
+                            if (current.GetClassName() == item.GetClassName()) {
                                 isMatched = true;
                                 MergeElement(item, current);
                                 break;
                             }
                         }
-                        if (!isMatched)
-                        {
+                        if (!isMatched) {
                             uniques.Add(current);
                         }
                     }
                     element.RemoveNodes();
                     element.Add(uniques);
-                    foreach (XElement item in element.Elements())
-                    {
+                    foreach (XElement item in element.Elements()) {
                         MergeListItems(item);
                     }
-                }
-                else
-                {
-                    foreach (XElement child in element.Elements())
-                    {
+                } else {
+                    foreach (XElement child in element.Elements()) {
                         MergeListItems(child);
                     }
                 }
@@ -177,26 +146,21 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="fieldInfo"></param>
         /// <returns></returns>
-        public static string GetDefaultValueFromSource(FieldInfo fieldInfo)
-        {
-            if (fieldInfo == null) return null;
+        public static string GetDefaultValueFromSource(FieldInfo fieldInfo) {
+            if (fieldInfo == null)
+                return null;
 
             string result = null;
             Regex regex = new Regex($"(public|private|internal|protected)\\ [A-Za-z_][A-Za-z_0-9<>]*\\ {fieldInfo.Name} \\=\\ .*\\;");
 
-            if (sourceCodePath != null && Directory.Exists(sourceCodePath))
-            {
+            if (sourceCodePath != null && Directory.Exists(sourceCodePath)) {
                 string[] sections = fieldInfo.DeclaringType.FullName.Split(new char[] { '.' });
                 string sourceFilePath = Path.Combine(sourceCodePath, Path.Combine(sections)) + ".cs";
-                if (File.Exists(sourceFilePath))
-                {
-                    using (StreamReader sr = new StreamReader(sourceFilePath))
-                    {
-                        while (sr.Peek() >= 0)
-                        {
+                if (File.Exists(sourceFilePath)) {
+                    using (StreamReader sr = new StreamReader(sourceFilePath)) {
+                        while (sr.Peek() >= 0) {
                             string s = sr.ReadLine();
-                            if (regex.IsMatch(s))
-                            {
+                            if (regex.IsMatch(s)) {
                                 result = s.Substring(s.IndexOf('=') + 2).TrimEnd(new char[] { ';' });
                                 //Log.Info();
                                 //Log.WriteLine(sourceFilePath);
@@ -219,38 +183,35 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static string GetTypeName(Type type)
-        {
-            if (type.IsGenericType)
-            {
+        public static string GetTypeName(Type type) {
+            if (type.IsGenericType) {
                 string genericName;
-                if (type.GetGenericTypeDefinition() == typeof(List<>))
-                {
+                if (type.GetGenericTypeDefinition() == typeof(List<>)) {
                     genericName = "List";
-                }
-                else if (type.GetGenericTypeDefinition() == typeof(Dictionary<,>))
-                {
+                } else if (type.GetGenericTypeDefinition() == typeof(Dictionary<,>)) {
                     genericName = "Dictionary";
-                }
-                else
-                {
+                } else {
                     genericName = type.FullName;
                 }
                 Type[] genericArguments = type.GetGenericArguments();
                 StringBuilder genericArgumentsNames = new StringBuilder();
-                foreach (Type curGenericArgument in genericArguments)
-                {
+                foreach (Type curGenericArgument in genericArguments) {
                     genericArgumentsNames.Append(GetTypeName(curGenericArgument));
                     genericArgumentsNames.Append(", ");
                 }
                 genericArgumentsNames.Remove(genericArgumentsNames.Length - 2, 2);
                 return $"{genericName}<{genericArgumentsNames.ToString()}>";
             }
-            if (type == typeof(string)) return "string";
-            if (type == typeof(int)) return "int";
-            if (type == typeof(float)) return "float";
-            if (type == typeof(double)) return "double";
-            if (type == typeof(bool)) return "bool";
+            if (type == typeof(string))
+                return "string";
+            if (type == typeof(int))
+                return "int";
+            if (type == typeof(float))
+                return "float";
+            if (type == typeof(double))
+                return "double";
+            if (type == typeof(bool))
+                return "bool";
             return type.FullName;
         }
 
@@ -259,13 +220,10 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static string GetAvailableValues(Type type)
-        {
-            if (type.IsEnum)
-            {
+        public static string GetAvailableValues(Type type) {
+            if (type.IsEnum) {
                 StringBuilder availableValues = new StringBuilder();
-                foreach (var value in Enum.GetNames(type))
-                {
+                foreach (var value in Enum.GetNames(type)) {
                     availableValues.Append(value);
                     availableValues.Append(", ");
                 }
@@ -284,73 +242,49 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="fieldInfo"></param>
         /// <returns></returns>
-        public static string GetDefaultValue(FieldInfo fieldInfo)
-        {
-            if (fieldInfo == null) return null;
-            if (fieldInfo.FieldType.IsGenericType) return null;
+        public static string GetDefaultValue(FieldInfo fieldInfo) {
+            if (fieldInfo == null)
+                return null;
+            if (fieldInfo.FieldType.IsGenericType)
+                return null;
 
             string result = null;
             DefaultValueAttribute defaultValueAttribute = fieldInfo.GetCustomAttribute<DefaultValueAttribute>();
-            if (defaultValueAttribute != null)
-            {
-                if (defaultValueAttribute.value == null)
-                {
+            if (defaultValueAttribute != null) {
+                if (defaultValueAttribute.value == null) {
                     result = null;
-                }
-                else if (defaultValueAttribute.value is string)
-                {
+                } else if (defaultValueAttribute.value is string) {
                     result = defaultValueAttribute.value as string;
-                }
-                else if (defaultValueAttribute.value is bool)
-                {
+                } else if (defaultValueAttribute.value is bool) {
                     result = defaultValueAttribute.value.ToString().ToLower();
-                }
-                else
-                {
-                    try
-                    {
+                } else {
+                    try {
                         result = defaultValueAttribute.value.ToString();
-                        if (fieldInfo.FieldType == typeof(float) || fieldInfo.FieldType == typeof(double))
-                        {
-                            if (result.Last() == 'f' || result.Last() == 'd')
-                            {
+                        if (fieldInfo.FieldType == typeof(float) || fieldInfo.FieldType == typeof(double)) {
+                            if (result.Last() == 'f' || result.Last() == 'd') {
                                 result = result.Substring(0, result.Length - 1);
                             }
-                            if (result.IndexOf('.') < 0)
-                            {
+                            if (result.IndexOf('.') < 0) {
                                 result += ".0";
                             }
                         }
-                    }
-                    catch (Exception)
-                    {
+                    } catch (Exception) {
                     }
                 }
-            }
-            else
-            {
+            } else {
                 result = GetDefaultValueFromSource(fieldInfo);
-                if (string.IsNullOrEmpty(result))
-                {
-                    if (fieldInfo.FieldType == typeof(bool))
-                    {
+                if (string.IsNullOrEmpty(result)) {
+                    if (fieldInfo.FieldType == typeof(bool)) {
                         result = false.ToString().ToLower();
                     }
-                }
-                else
-                {
-                    if (fieldInfo.FieldType.IsEnum)
-                    {
+                } else {
+                    if (fieldInfo.FieldType.IsEnum) {
                         result = result.Substring(result.IndexOf('.') + 1);
-                    }
-                    else if (fieldInfo.FieldType == typeof(float) || fieldInfo.FieldType == typeof(double))
-                    {
-                        if (result.Last() == 'f' || result.Last() == 'd')
-                        {
+                    } else if (fieldInfo.FieldType == typeof(float) || fieldInfo.FieldType == typeof(double)) {
+                        if (result.Last() == 'f' || result.Last() == 'd') {
                             result = result.Substring(0, result.Length - 1);
                         }
-                        if (result.IndexOf('.') < 0)
-                        {
+                        if (result.IndexOf('.') < 0) {
                             result += ".0";
                         }
                     }
@@ -365,9 +299,9 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="fieldInfo"></param>
         /// <returns></returns>
-        public static string GetDescription(FieldInfo fieldInfo)
-        {
-            if (fieldInfo == null) return null;
+        public static string GetDescription(FieldInfo fieldInfo) {
+            if (fieldInfo == null)
+                return null;
 
             DescriptionAttribute descriptionAtrribute = fieldInfo.GetCustomAttribute<DescriptionAttribute>();
             if (descriptionAtrribute != null)
@@ -380,9 +314,9 @@ namespace RimTrans.Builder.Crawler
         /// </summary>
         /// <param name="fieldInfo"></param>
         /// <returns></returns>
-        public static string GetAlias(FieldInfo fieldInfo)
-        {
-            if (fieldInfo == null) return null;
+        public static string GetAlias(FieldInfo fieldInfo) {
+            if (fieldInfo == null)
+                return null;
 
             LoadAliasAttribute loadAliasAttribute = fieldInfo.GetCustomAttribute<LoadAliasAttribute>();
             if (loadAliasAttribute != null)

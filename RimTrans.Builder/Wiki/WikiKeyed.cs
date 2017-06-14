@@ -11,25 +11,21 @@ using System.Xml.Linq;
 using RimTrans.Builder;
 using RimTrans.Builder.Xml;
 
-namespace RimTrans.Builder.Wiki
-{
-    public class WikiKeyed
-    {
+namespace RimTrans.Builder.Wiki {
+    public class WikiKeyed {
         private static readonly UTF8Encoding utf8 = new UTF8Encoding(false);
 
         private SortedDictionary<string, StringBuilder> jsons;
         private SortedDictionary<string, StringBuilder> tables;
         private SortedDictionary<string, Dictionary<string, string>> dicts;
 
-        WikiKeyed()
-        {
+        WikiKeyed() {
             this.jsons = new SortedDictionary<string, StringBuilder>();
             this.tables = new SortedDictionary<string, StringBuilder>();
             this.dicts = new SortedDictionary<string, Dictionary<string, string>>();
         }
 
-        public static WikiKeyed Parse(params KeyedData[] keyedDatas)
-        {
+        public static WikiKeyed Parse(params KeyedData[] keyedDatas) {
             Log.Info();
             Log.Write("Start parsing KeyedDatas generating ");
             Log.Write(ConsoleColor.Cyan, "Wiki Keyed");
@@ -38,8 +34,7 @@ namespace RimTrans.Builder.Wiki
             WikiKeyed wikiKeyed = new WikiKeyed();
 
             int countKey = 0;
-            foreach (KeyedData curKeyedData in keyedDatas)
-            {
+            foreach (KeyedData curKeyedData in keyedDatas) {
                 StringBuilder json = new StringBuilder();
                 json.Append("{\n");
                 StringBuilder table = new StringBuilder();
@@ -47,8 +42,7 @@ namespace RimTrans.Builder.Wiki
                 Dictionary<string, string> dict = new Dictionary<string, string>();
                 foreach (XElement ele in from doc in curKeyedData.Data.Values
                                          from ele in doc.Root.Elements()
-                                         select ele)
-                {
+                                         select ele) {
                     string key = ele.Name.ToString();
                     string value = ele.Value.Replace("\r\n", "<br/>").Replace("\n", "<br/>").Replace("\\n", "<br/>");
                     // JSON
@@ -59,12 +53,9 @@ namespace RimTrans.Builder.Wiki
                     json.AppendLine("\",");
                     // Lua table
                     table.Append("    ");
-                    if (key == "repeat")
-                    {
+                    if (key == "repeat") {
                         table.Append("-- " + key);
-                    }
-                    else
-                    {
+                    } else {
                         table.Append(key);
                     }
                     table.Append(" = \"");
@@ -79,8 +70,7 @@ namespace RimTrans.Builder.Wiki
                 table.Remove(table.Length - 3, 1);
                 table.Append("}");
                 string name = curKeyedData.Name;
-                while (wikiKeyed.jsons.ContainsKey(name))
-                {
+                while (wikiKeyed.jsons.ContainsKey(name)) {
                     name += "_";
                 }
                 wikiKeyed.jsons.Add(name, json);
@@ -98,34 +88,25 @@ namespace RimTrans.Builder.Wiki
         /// Save wiki keyed file to a directory.
         /// </summary>
         /// <param name="path">path to the directory</param>
-        public void Save(string path)
-        {
-            if (this.jsons == null || this.jsons.Count == 0) return;
+        public void Save(string path) {
+            if (this.jsons == null || this.jsons.Count == 0)
+                return;
 
-            if (Directory.Exists(path))
-            {
+            if (Directory.Exists(path)) {
                 DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-                if (ds.AreAccessRulesProtected)
-                {
+                if (ds.AreAccessRulesProtected) {
                     Log.Error();
                     Log.WriteLine("Outputing Wiki Keyed failure: No write permission to directory: ");
                     Log.Indent();
                     Log.WriteLine(ConsoleColor.Red, path);
                     return;
-                }
-                else
-                {
+                } else {
                     DirectoryHelper.CleanDirectory(path, "*");
                 }
-            }
-            else
-            {
-                try
-                {
+            } else {
+                try {
                     Directory.CreateDirectory(path);
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Log.Error();
                     Log.WriteLine("Outputing Wiki Keyed failure: Can not create directory: ");
                     Log.Indent();
@@ -143,82 +124,60 @@ namespace RimTrans.Builder.Wiki
             int countValidFiles = 0;
             int countInvalidFiles = 0;
             // JSON
-            foreach (var fileNameJsonPair in this.jsons)
-            {
+            foreach (var fileNameJsonPair in this.jsons) {
                 string fileName = Path.Combine(path, fileNameJsonPair.Key);
-                try
-                {
+                try {
                     File.WriteAllText(fileName + ".json", fileNameJsonPair.Value.ToString(), utf8);
                     countValidFiles++;
-                }
-                catch (Exception)
-                {
+                } catch (Exception) {
                     countInvalidFiles++;
                 }
             }
             // Lua table
-            foreach (var fileNameTablePair in this.tables)
-            {
+            foreach (var fileNameTablePair in this.tables) {
                 string fileName = Path.Combine(path, fileNameTablePair.Key);
-                try
-                {
+                try {
                     File.WriteAllText(fileName + ".lua", fileNameTablePair.Value.ToString(), utf8);
                     countValidFiles++;
-                }
-                catch (Exception)
-                {
+                } catch (Exception) {
                     countInvalidFiles++;
                 }
             }
             // SMW
-            foreach (var fileNameDictPair in this.dicts)
-            {
+            foreach (var fileNameDictPair in this.dicts) {
                 string fileName = Path.Combine(path, fileNameDictPair.Key);
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("{{#set:");
                 sb.AppendLine("|dataType=Keyed");
                 sb.AppendLine($"|KeyedLanguage={fileNameDictPair.Key}");
                 Dictionary<string, string> dict = fileNameDictPair.Value;
-                foreach (var kvp in dict)
-                {
+                foreach (var kvp in dict) {
                     sb.Append('|');
                     sb.Append(kvp.Key);
                     sb.Append('=');
                     sb.AppendLine(kvp.Value);
                 }
                 sb.Append("}}");
-                try
-                {
+                try {
                     File.WriteAllText(fileName + ".wiki", sb.ToString(), utf8);
                     countValidFiles++;
-                }
-                catch (Exception)
-                {
+                } catch (Exception) {
                     countInvalidFiles++;
                 }
             }
-            if (countValidFiles > 0)
-            {
-                if (countInvalidFiles == 0)
-                {
+            if (countValidFiles > 0) {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine($"Completed outputing Wiki Keyed: {countValidFiles} files.");
-                }
-                else
-                {
+                } else {
                     Log.Warning();
                     Log.WriteLine($"Completed outputing Wiki Keyed: Success: {countValidFiles} files, Failure {countInvalidFiles} files.");
                 }
-            }
-            else
-            {
-                if (countInvalidFiles == 0)
-                {
+            } else {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine("No Wiki Keyed to be output.");
-                }
-                else
-                {
+                } else {
                     Log.Error();
                     Log.WriteLine($"Outputing Wiki Keyed failure: {countInvalidFiles} files.");
                 }
@@ -229,34 +188,25 @@ namespace RimTrans.Builder.Wiki
         /// Save wiki keyed file as lua table to a directory.
         /// </summary>
         /// <param name="path">path to the directory</param>
-        public void SaveLuaTable(string path)
-        {
-            if (this.tables == null || this.tables.Count == 0) return;
+        public void SaveLuaTable(string path) {
+            if (this.tables == null || this.tables.Count == 0)
+                return;
 
-            if (Directory.Exists(path))
-            {
+            if (Directory.Exists(path)) {
                 DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-                if (ds.AreAccessRulesProtected)
-                {
+                if (ds.AreAccessRulesProtected) {
                     Log.Error();
                     Log.WriteLine("Outputing Wiki Keyed failure: No write permission to directory: ");
                     Log.Indent();
                     Log.WriteLine(ConsoleColor.Red, path);
                     return;
-                }
-                else
-                {
+                } else {
                     DirectoryHelper.CleanDirectory(path, "*");
                 }
-            }
-            else
-            {
-                try
-                {
+            } else {
+                try {
                     Directory.CreateDirectory(path);
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Log.Error();
                     Log.WriteLine("Outputing Wiki Keyed failure: Can not create directory: ");
                     Log.Indent();
@@ -273,41 +223,28 @@ namespace RimTrans.Builder.Wiki
 
             int countValidFiles = 0;
             int countInvalidFiles = 0;
-            foreach (var LangNameTablePair in this.tables)
-            {
+            foreach (var LangNameTablePair in this.tables) {
                 string filePath = Path.Combine(path, "Keyed_" + LangCodeHelper.GetCodeShort(LangNameTablePair.Key) + "_dict.lua");
-                try
-                {
+                try {
                     File.WriteAllText(filePath, LangNameTablePair.Value.ToString(), utf8);
                     countValidFiles++;
-                }
-                catch (Exception)
-                {
+                } catch (Exception) {
                     countInvalidFiles++;
                 }
             }
-            if (countValidFiles > 0)
-            {
-                if (countInvalidFiles == 0)
-                {
+            if (countValidFiles > 0) {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine($"Completed outputing Wiki Keyed: {countValidFiles} files.");
-                }
-                else
-                {
+                } else {
                     Log.Warning();
                     Log.WriteLine($"Completed outputing Wiki Keyed: Success: {countValidFiles} files, Failure {countInvalidFiles} files.");
                 }
-            }
-            else
-            {
-                if (countInvalidFiles == 0)
-                {
+            } else {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine("No Wiki Keyed to be output.");
-                }
-                else
-                {
+                } else {
                     Log.Error();
                     Log.WriteLine($"Outputing Wiki Keyed failure: {countInvalidFiles} files.");
                 }

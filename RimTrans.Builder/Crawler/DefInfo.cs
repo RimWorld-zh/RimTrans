@@ -10,13 +10,11 @@ using RimWorld;
 using Verse;
 using UnityEngine;
 
-namespace RimTrans.Builder.Crawler
-{
+namespace RimTrans.Builder.Crawler {
     /// <summary>
     /// Storage Def info, included tags and fields.
     /// </summary>
-    public class DefInfo
-    {
+    public class DefInfo {
         #region Fields
 
         /// <summary>
@@ -74,22 +72,18 @@ namespace RimTrans.Builder.Crawler
         /// Initialize a DefInfo from xml element.
         /// </summary>
         /// <param name="def">The xml element of this type of Def.</param>
-        public DefInfo(XElement defElement)
-        {
+        public DefInfo(XElement defElement) {
             this.allTags = new Dictionary<string, TagInfo>();
             XElement def = new XElement(defElement);
 
             this.defTypeName = def.Name.ToString();
-            foreach (Type curDefType in Helper.AllClassesDef)
-            {
-                if (defTypeName == curDefType.Name)
-                {
+            foreach (Type curDefType in Helper.AllClassesDef) {
+                if (defTypeName == curDefType.Name) {
                     this.defType = curDefType;
                 }
             }
 
-            if (this.defType == null)
-            {
+            if (this.defType == null) {
                 Log.Error();
                 Log.WriteLine($"ERROR: defType '{defTypeName}' no found.");
                 this.isValid = false;
@@ -101,41 +95,32 @@ namespace RimTrans.Builder.Crawler
             {
                 types.AddFirst(this.defType);
                 Type curType = this.defType;
-                while (curType != Helper.ClassDef)
-                {
+                while (curType != Helper.ClassDef) {
                     curType = curType.BaseType;
                     types.AddFirst(curType);
                 }
             }
-            foreach (Type curType in types)
-            {
-                foreach (FieldInfo curFieldInfo in curType.GetFields(Helper.FieldBindingFlags))
-                {
-                    if (!this.allFields.ContainsKey(curFieldInfo.Name))
-                    {
+            foreach (Type curType in types) {
+                foreach (FieldInfo curFieldInfo in curType.GetFields(Helper.FieldBindingFlags)) {
+                    if (!this.allFields.ContainsKey(curFieldInfo.Name)) {
                         this.allFields.Add(curFieldInfo.Name, curFieldInfo);
                     }
                 }
             }
 
             List<XElement> matchedElements = new List<XElement>();
-            foreach (var kvpNameFieldInfo in this.allFields)
-            {
+            foreach (var kvpNameFieldInfo in this.allFields) {
                 string curName = kvpNameFieldInfo.Key;
                 FieldInfo curFieldInfo = kvpNameFieldInfo.Value;
                 string curAlias = Helper.GetAlias(curFieldInfo);
 
                 List<XElement> aliasElements = new List<XElement>();
-                foreach (XElement curAliasElememt in def.Elements())
-                {
-                    if (string.Compare(curAliasElememt.Name.ToString(), curAlias, true) == 0)
-                    {
+                foreach (XElement curAliasElememt in def.Elements()) {
+                    if (string.Compare(curAliasElememt.Name.ToString(), curAlias, true) == 0) {
                         bool isMatched = false;
-                        foreach (XElement curElement in def.Elements())
-                        {
+                        foreach (XElement curElement in def.Elements()) {
                             if (string.Compare(curElement.Name.ToString(), curName, true) == 0 &&
-                                curAliasElememt.GetClassName() == curElement.GetClassName())
-                            {
+                                curAliasElememt.GetClassName() == curElement.GetClassName()) {
                                 isMatched = true;
                                 Helper.MergeElement(curElement, curAliasElememt);
                                 Helper.MergeListItems(curElement);
@@ -143,41 +128,30 @@ namespace RimTrans.Builder.Crawler
                                 break;
                             }
                         }
-                        if (!isMatched)
-                        {
+                        if (!isMatched) {
                             curAliasElememt.Name = curName;
                         }
                     }
                 }
-                foreach (XElement curAliasElement in aliasElements)
-                {
+                foreach (XElement curAliasElement in aliasElements) {
                     curAliasElement.Remove();
                 }
 
-                foreach (XElement curElement in def.Elements())
-                {
-                    if (string.Compare(curElement.Name.ToString(), curName, true) == 0)
-                    {
+                foreach (XElement curElement in def.Elements()) {
+                    if (string.Compare(curElement.Name.ToString(), curName, true) == 0) {
                         string className = curElement.GetClassName();
-                        if (className == null)
-                        {
+                        if (className == null) {
                             string key = curName;
-                            if (!this.allTags.ContainsKey(key))
-                            {
+                            if (!this.allTags.ContainsKey(key)) {
                                 this.allTags.Add(key, new TagInfo(this, curElement, curFieldInfo));
                                 matchedElements.Add(curElement);
                             }
-                        }
-                        else
-                        {
+                        } else {
                             IEnumerable<Type> allSubClasses = curFieldInfo.FieldType.AllSubclasses();
-                            foreach (Type curSubClass in allSubClasses)
-                            {
-                                if (className == curSubClass.Name)
-                                {
+                            foreach (Type curSubClass in allSubClasses) {
+                                if (className == curSubClass.Name) {
                                     string key = $"{curName} {className}";
-                                    if (!this.allTags.ContainsKey(key))
-                                    {
+                                    if (!this.allTags.ContainsKey(key)) {
                                         this.allTags.Add(key, new TagInfo(this, curElement, curFieldInfo, curSubClass));
                                         matchedElements.Add(curElement);
                                     }
@@ -189,10 +163,8 @@ namespace RimTrans.Builder.Crawler
                 }
             }
 
-            foreach (XElement curElement in def.Elements())
-            {
-                if (!matchedElements.Contains(curElement))
-                {
+            foreach (XElement curElement in def.Elements()) {
+                if (!matchedElements.Contains(curElement)) {
                     Log.Warning();
                     Log.WriteLine($"The element '{curElement.Name.ToString()}' of {this.defTypeName} no matched.");
                     this.nonMatchedElements.Add(curElement);
@@ -205,15 +177,12 @@ namespace RimTrans.Builder.Crawler
 
         #region ToXElemnet
 
-        public XElement ToXElement()
-        {
+        public XElement ToXElement() {
             XElement def = new XElement(this.defTypeName);
-            foreach (TagInfo tag in this.allTags.Values)
-            {
+            foreach (TagInfo tag in this.allTags.Values) {
                 def.Add(tag.ToXNodes());
             }
-            if (this.HasNonMatched)
-            {
+            if (this.HasNonMatched) {
                 def.Add(new XComment("======== Non Matched Elements ========"));
                 def.Add(this.nonMatchedElements);
             }
@@ -229,13 +198,11 @@ namespace RimTrans.Builder.Crawler
         /// Process case and alias of all fields in this definition data.
         /// </summary>
         /// <param name="def"></param>
-        public void ProcessFieldNames(XElement def)
-        {
+        public void ProcessFieldNames(XElement def) {
             if (def.Name.ToString() != this.defTypeName)
                 throw new ArgumentException($"DefType '{def.Name.ToString()}' and DefInfo '{this.defTypeName}' no matched.", "def");
 
-            if (!this.HasTags)
-            {
+            if (!this.HasTags) {
                 Log.Warning();
                 Log.WriteLine($"Process field names failure for '{def.Name.ToString()}': DefInfo '{this.defTypeName}' has no tags.");
                 return;
@@ -244,20 +211,16 @@ namespace RimTrans.Builder.Crawler
             var allTagInfos = this.allTags.Values;
             List<XElement> matchedTags = new List<XElement>();
             Dictionary<XElement, XComment> bufferComments = new Dictionary<XElement, XComment>();
-            foreach (TagInfo curTagInfo in allTagInfos)
-            {
+            foreach (TagInfo curTagInfo in allTagInfos) {
                 string curName = curTagInfo.Name;
                 string curAlias = curTagInfo.Alias;
-                foreach (XElement curTag in def.Elements())
-                {
+                foreach (XElement curTag in def.Elements()) {
                     string curTagName = curTag.Name.ToString();
                     if ((string.Compare(curTagName, curName, true) == 0 ||
                         string.Compare(curTagName, curAlias, true) == 0) &&
-                        curTag.GetClassName() == curTagInfo.ClassName)
-                    {
+                        curTag.GetClassName() == curTagInfo.ClassName) {
                         XNode node = curTag.PreviousNode;
-                        if (node != null && node.NodeType == XmlNodeType.Comment)
-                        {
+                        if (node != null && node.NodeType == XmlNodeType.Comment) {
                             node.Remove();
                             bufferComments.Add(curTag, node as XComment);
                         }
@@ -269,21 +232,17 @@ namespace RimTrans.Builder.Crawler
                 }
             }
             List<XElement> nonMatchedElements = new List<XElement>();
-            if (def.HasElements)
-            {
-                foreach (XElement curTag in def.Elements())
-                {
+            if (def.HasElements) {
+                foreach (XElement curTag in def.Elements()) {
                     Log.Warning();
                     Log.WriteLine($"Field '{curTag.Name.ToString()}' no matched TagInfo.");
                 }
                 nonMatchedElements.AddRange(def.Elements());
                 def.RemoveNodes();
             }
-            foreach (XElement curTag in matchedTags)
-            {
+            foreach (XElement curTag in matchedTags) {
                 XComment curComment;
-                if (bufferComments.TryGetValue(curTag, out curComment))
-                {
+                if (bufferComments.TryGetValue(curTag, out curComment)) {
                     def.Add(curComment);
                 }
                 def.Add(curTag);

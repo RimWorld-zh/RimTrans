@@ -9,39 +9,29 @@ using System.Xml;
 using System.Xml.Linq;
 using RimTrans.Builder.Xml;
 
-namespace RimTrans.Builder
-{
-    public static class DirectoryHelper
-    {
+namespace RimTrans.Builder {
+    public static class DirectoryHelper {
         /// <summary>
         /// Delete Empty Directory Recursively
         /// </summary>
-        public static void DeleteEmptyDirRecursively(DirectoryInfo dirInfo)
-        {
-            foreach (DirectoryInfo subDirInfo in dirInfo.GetDirectories())
-            {
+        public static void DeleteEmptyDirRecursively(DirectoryInfo dirInfo) {
+            foreach (DirectoryInfo subDirInfo in dirInfo.GetDirectories()) {
                 DeleteEmptyDirRecursively(subDirInfo);
             }
-            try
-            {
+            try {
                 dirInfo.Delete();
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
             }
         }
 
         /// <summary>
         /// Delete all files in directory according to searchPattern (e.g. "*.txt"), as well as this directory and all empty subdirectories in this directory.
         /// </summary>
-        public static void CleanDirectory(string path, string searchPattern)
-        {
+        public static void CleanDirectory(string path, string searchPattern) {
             DirectoryInfo dirInfo = new DirectoryInfo(path);
-            if (dirInfo.Exists)
-            {
+            if (dirInfo.Exists) {
                 DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-                if (ds.AreAccessRulesProtected)
-                {
+                if (ds.AreAccessRulesProtected) {
                     Log.Error();
                     Log.WriteLine("Cleaning directory failed: No write permission to directory.");
                     Log.Indent();
@@ -56,15 +46,11 @@ namespace RimTrans.Builder
                 // Delete files
                 int countValidFiles = 0;
                 int countInvalidFiles = 0;
-                foreach (FileInfo fileInfo in dirInfo.GetFiles(searchPattern, SearchOption.AllDirectories))
-                {
-                    try
-                    {
+                foreach (FileInfo fileInfo in dirInfo.GetFiles(searchPattern, SearchOption.AllDirectories)) {
+                    try {
                         fileInfo.Delete();
                         countValidFiles++;
-                    }
-                    catch (Exception ex)
-                    {
+                    } catch (Exception ex) {
                         Log.Error();
                         Log.Write("Deleting file failed: ");
                         Log.WriteLine(ConsoleColor.Red, fileInfo.FullName);
@@ -77,35 +63,24 @@ namespace RimTrans.Builder
                 // Delete this directory and all subdirectoies in this directory
                 //DeleteEmptyDirRecursively(dirInfo); // Recursively
 
-                if (countValidFiles > 0)
-                {
-                    if (countInvalidFiles == 0)
-                    {
+                if (countValidFiles > 0) {
+                    if (countInvalidFiles == 0) {
                         Log.Info();
                         Log.WriteLine("Completed cleaning: {0} file(s).", countValidFiles);
-                    }
-                    else
-                    {
+                    } else {
                         Log.Warning();
                         Log.WriteLine("Completed cleaning: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
                     }
-                }
-                else
-                {
-                    if (countInvalidFiles == 0)
-                    {
+                } else {
+                    if (countInvalidFiles == 0) {
                         Log.Info();
                         Log.WriteLine("Directory is empty.");
-                    }
-                    else
-                    {
+                    } else {
                         Log.Error();
                         Log.WriteLine("Cleaning failed: {0} file(s).", countInvalidFiles);
                     }
                 }
-            }
-            else
-            {
+            } else {
                 Log.Info();
                 Log.WriteLine("Directory \"{0}\" does not extist, nothing to be delete.", Path.GetFileName(path));
                 //Log.WriteLine(ConsoleColor.Cyan, path);
@@ -115,17 +90,13 @@ namespace RimTrans.Builder
         /// <summary>
         /// Copy all files from source directory to target directory, according to searchPattern (e.g. "*.txt"), no overwrite.
         /// </summary>
-        public static void CopyDirectoryEx(string source, string target, string searchPattern)
-        {
+        public static void CopyDirectoryEx(string source, string target, string searchPattern) {
             DirectoryInfo dirInfoSource = new DirectoryInfo(source);
             DirectoryInfo dirInfoTarget = new DirectoryInfo(target);
-            if (dirInfoSource.Exists)
-            {
-                if (Directory.Exists(target))
-                {
+            if (dirInfoSource.Exists) {
+                if (Directory.Exists(target)) {
                     DirectorySecurity dsTarget = new DirectorySecurity(target, AccessControlSections.Access);
-                    if (dsTarget.AreAccessRulesProtected)
-                    {
+                    if (dsTarget.AreAccessRulesProtected) {
                         Log.Error();
                         Log.WriteLine("Copying \"{0}\" files failed: No write permission to target directory.", searchPattern);
                         Log.Indent();
@@ -136,15 +107,10 @@ namespace RimTrans.Builder
                         Log.WriteLine(ConsoleColor.Red, target);
                         return;
                     }
-                }
-                else
-                {
-                    try
-                    {
+                } else {
+                    try {
                         Directory.CreateDirectory(target);
-                    }
-                    catch (Exception ex)
-                    {
+                    } catch (Exception ex) {
                         Log.Error();
                         Log.WriteLine("Copying files failed: Can not create directory: ", searchPattern);
                         Log.Indent();
@@ -167,20 +133,14 @@ namespace RimTrans.Builder
                 int countNew = 0;
                 int countInvalidFiles = 0;
                 int splitIndex = source.Length + 1;
-                foreach (FileInfo fileInfoSource in dirInfoSource.GetFiles(searchPattern, SearchOption.AllDirectories))
-                {
+                foreach (FileInfo fileInfoSource in dirInfoSource.GetFiles(searchPattern, SearchOption.AllDirectories)) {
                     string fileTarget = Path.Combine(target, fileInfoSource.FullName.Substring(splitIndex));
                     string subDirTarget = Path.GetDirectoryName(fileTarget);
-                    if (subDirTarget != target)
-                    {
-                        if (!Directory.Exists(subDirTarget))
-                        {
-                            try
-                            {
+                    if (subDirTarget != target) {
+                        if (!Directory.Exists(subDirTarget)) {
+                            try {
                                 Directory.CreateDirectory(subDirTarget);
-                            }
-                            catch (Exception ex)
-                            {
+                            } catch (Exception ex) {
                                 Log.Error();
                                 Log.Write("Creating sub-directory failed: ");
                                 Log.WriteLine(ConsoleColor.Red, subDirTarget);
@@ -191,19 +151,13 @@ namespace RimTrans.Builder
                             }
                         }
                     }
-                    if (File.Exists(fileTarget))
-                    {
+                    if (File.Exists(fileTarget)) {
                         countExisted++;
-                    }
-                    else
-                    {
-                        try
-                        {
+                    } else {
+                        try {
                             fileInfoSource.CopyTo(fileTarget);
                             countNew++;
-                        }
-                        catch (Exception ex)
-                        {
+                        } catch (Exception ex) {
                             Log.Error();
                             Log.Write("Copying failed, target: ");
                             Log.WriteLine(ConsoleColor.Red, fileTarget);
@@ -213,37 +167,27 @@ namespace RimTrans.Builder
                         }
                     }
                 }
-                if (countExisted + countNew > 0)
-                {
-                    if (countInvalidFiles == 0)
-                    {
+                if (countExisted + countNew > 0) {
+                    if (countInvalidFiles == 0) {
                         Log.Info();
                         Log.WriteLine("Completed copying \"{0}\" file(s): {1} existed, {2} new.",
                             searchPattern, countExisted, countNew);
                     }
-                    if (countInvalidFiles > 0)
-                    {
+                    if (countInvalidFiles > 0) {
                         Log.Warning();
                         Log.WriteLine("Completed copying \"{0}\" file(s): {1} existed, {2} new, {3} failed.",
                             searchPattern, countExisted, countNew, countInvalidFiles);
                     }
-                }
-                else
-                {
-                    if (countInvalidFiles == 0)
-                    {
+                } else {
+                    if (countInvalidFiles == 0) {
                         Log.Info();
                         Log.WriteLine("No \"{0}\" file to be copyed.", searchPattern);
-                    }
-                    else
-                    {
+                    } else {
                         Log.Error();
                         Log.WriteLine("Copying \"{0}\" file(s) failed: {1} file(s).", searchPattern);
                     }
                 }
-            }
-            else
-            {
+            } else {
                 Log.Info();
                 Log.Write("Directory \"{0}\" does not extist: ", Path.GetFileName(source));
                 Log.WriteLine(ConsoleColor.Cyan, source);

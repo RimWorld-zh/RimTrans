@@ -6,66 +6,50 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace RimTrans.Builder.Xml
-{
-    public static class DocHelper
-    {
-        public static XDocument EmptyDoc()
-        {
+namespace RimTrans.Builder.Xml {
+    public static class DocHelper {
+        public static XDocument EmptyDoc() {
             return XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LanguageData>\r\n\r\n</LanguageData>", LoadOptions.PreserveWhitespace);
         }
 
-        public static XDocument EmptyDocEx()
-        {
+        public static XDocument EmptyDocEx() {
             return XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LanguageData LastIsSingle=\"false\">\r\n\r\n</LanguageData>", LoadOptions.PreserveWhitespace);
         }
 
-        public static XDocument EmptyDocDef()
-        {
+        public static XDocument EmptyDocDef() {
             return XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?><Defs></Defs>");
         }
 
-        public static XDocument LoadLanguageDoc(string path)
-        {
+        public static XDocument LoadLanguageDoc(string path) {
             XDocument doc = XDocument.Load(path, LoadOptions.PreserveWhitespace | LoadOptions.SetBaseUri);
             XElement root = doc.Root;
             foreach (XText text in from node in root.Nodes()
                                    where node.NodeType == XmlNodeType.Text
-                                   select node)
-            {
+                                   select node) {
                 text.Value = text.Value.Replace(" ", "").Replace("\t", "") + "  ";
             }
             XNode lastNode = root.LastNode;
-            if (lastNode.NodeType == XmlNodeType.Text)
-            {
+            if (lastNode.NodeType == XmlNodeType.Text) {
                 XText lastText = lastNode as XText;
                 lastText.Value = lastText.Value.Replace("  ", "");
-                if (lastText.Value.Length == 1)
-                {
+                if (lastText.Value.Length == 1) {
                     lastText.Value += "\n";
                 }
 
-            }
-            else
-            {
+            } else {
                 root.Add("\n\n");
             }
             return doc;
         }
 
-        public static XDocument ToCommentDoc(this XDocument doc)
-        {
+        public static XDocument ToCommentDoc(this XDocument doc) {
             XDocument commentDoc = XDocument.Parse("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LanguageData></LanguageData>", LoadOptions.PreserveWhitespace);
             XElement commentRoot = commentDoc.Root;
             XElement root = doc.Root;
-            foreach (XNode node in root.Nodes())
-            {
-                if (node.NodeType == XmlNodeType.Element)
-                {
+            foreach (XNode node in root.Nodes()) {
+                if (node.NodeType == XmlNodeType.Element) {
                     commentRoot.Add(new XComment(node.ToString()));
-                }
-                else
-                {
+                } else {
                     commentRoot.Add(node);
                 }
             }
