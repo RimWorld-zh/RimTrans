@@ -145,13 +145,13 @@ namespace RimTrans.Builder {
             Log.WriteLine("Start matching existed Keyed.");
             int countInvalidFiles = 0;
             int countMatched = 0;
-            IEnumerable<XElement> keyeds = from doc in this._data.Values
+            IEnumerable<XElement> keyedsNew = from doc in this._data.Values
                                            from ele in doc.Root.Elements()
                                            select ele;
             IEnumerable<XElement> keyedsExisted = from doc in keyedDataExisted._data.Values
                                                   from ele in doc.Root.Elements()
                                                   select ele;
-            foreach (XElement keyed in keyeds) {
+            foreach (XElement keyed in keyedsNew) {
                 foreach (XElement keyedExisted in keyedsExisted) {
                     if (keyed.Name == keyedExisted.Name) {
                         keyed.Value = keyedExisted.Value;
@@ -162,10 +162,10 @@ namespace RimTrans.Builder {
             foreach (KeyValuePair<string, XDocument> fileNameDocPairExisted in keyedDataExisted._data) {
                 string fileName = fileNameDocPairExisted.Key;
                 XDocument docExisted = fileNameDocPairExisted.Value;
-                XDocument doc;
-                if (this._data.TryGetValue(fileName, out doc)) {
+                XDocument docNew;
+                if (this._data.TryGetValue(fileName, out docNew)) {
                     XElement rootExisted = docExisted.Root;
-                    XElement root = doc.Root;
+                    XElement root = docNew.Root;
                     bool hasInvalidNodes = false;
                     foreach (XNode nodeExited in rootExisted.Nodes()) {
                         if (nodeExited.NodeType == XmlNodeType.Comment) {
@@ -198,6 +198,9 @@ namespace RimTrans.Builder {
                     }
                     if (hasInvalidNodes)
                         root.Add("\n");
+                } else {
+                    this._data.Add(fileName, docExisted.ToCommentDoc());
+                    countInvalidFiles++;
                 }
             }
             Log.Info();
