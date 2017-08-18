@@ -1,0 +1,109 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RimTrans.Lite.Resources.Localizations"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--
+    
+    Application Language File
+    Language Code: ko
+    Language Name: Korean
+    Language Native Name: 한국어
+    Translator: DesTiNy
+    
+    -->
+
+    <!-- Common -->
+    <s:String x:Key="RimTrans">RimTrans</s:String> <!-- Please do not translate this node, but you could translate any other nodes. -->
+
+    <s:String x:Key="Common.Common">일반</s:String>
+    <s:String x:Key="Common.Application">응용프로그램</s:String>
+    <s:String x:Key="Common.About">알아보기</s:String>
+    
+    <s:String x:Key="Common.Open">열기</s:String>
+    <s:String x:Key="Common.Close">닫기</s:String>
+
+    <s:String x:Key="Common.Confirm">확인</s:String>
+    <s:String x:Key="Common.Cancel">취소</s:String>
+
+    <s:String x:Key="Common.Yes">예</s:String>
+    <s:String x:Key="Common.No">아니오</s:String>
+    <s:String x:Key="Common.OK">확인</s:String>
+
+    <s:String x:Key="Common.Save">저장</s:String>
+    <s:String x:Key="Common.SaveAll">모두 저장</s:String>
+    <s:String x:Key="Common.DoNotSave">저장안함</s:String>
+    <s:String x:Key="Common.Delete">삭제</s:String>
+    <s:String x:Key="Common.Remove">제거</s:String>
+    <s:String x:Key="Common.RemoveAll">모두 제거</s:String>
+
+    <s:String x:Key="Common.Edit">편집</s:String>
+    <s:String x:Key="Common.Modify">수정</s:String>
+    <s:String x:Key="Common.Undo">되돌리기</s:String>
+    <s:String x:Key="Common.Redo">되살리기</s:String>
+    
+    <s:String x:Key="Common.Previous">이전</s:String>
+    <s:String x:Key="Common.Next">다음</s:String>
+
+    <s:String x:Key="Common.Select">선택</s:String>
+    <s:String x:Key="Common.SelectAll">모두 선택</s:String>
+    <s:String x:Key="Common.SelectInvert">선택 반전</s:String>
+
+    <s:String x:Key="Common.Mod">모드</s:String>
+    <s:String x:Key="Common.Language">언어</s:String>
+    <s:String x:Key="Common.Backstory">배경 이야기</s:String>
+    <s:String x:Key="Common.Name">이름</s:String>
+    <s:String x:Key="Common.Author">저작자</s:String>
+    <s:String x:Key="Common.Translator">번역자</s:String>
+
+    <s:String x:Key="Common.File">파일</s:String>
+    <s:String x:Key="Common.Folder">폴더</s:String>
+    <s:String x:Key="Common.Directory">주소</s:String>
+    <s:String x:Key="Common.Path">경로</s:String>
+    <s:String x:Key="Common.ShowInExplorer">폴더에서 보기</s:String>
+
+    <s:String x:Key="Common.Automatic">자동</s:String>
+    <s:String x:Key="Common.Custom">사용자 정의</s:String>
+
+    <s:String x:Key="Common.Info">정보</s:String>
+    <s:String x:Key="Common.Warning">경고</s:String>
+    <s:String x:Key="Common.Error">오류</s:String>
+    <s:String x:Key="Common.DoNotPrompt">표시할 메시지 없음</s:String>
+
+    <!-- Mod Category -->
+    <s:String x:Key="Mod.Internal">내장</s:String>
+    <s:String x:Key="Mod.Workshop">창작마당</s:String>
+    <s:String x:Key="Mod.Custom">사용자 정의</s:String>
+
+    <!-- Generate Mode -->
+    <s:String x:Key="Mod.GenerationOption">생성 옵션</s:String>
+    <s:String x:Key="Mod.Core">Core 모드</s:String><!--This mode use for RimWorld Core-->
+    <s:String x:Key="Mod.Standard">일반 모드</s:String><!--This mode use for normal mod-->
+    <s:String x:Key="Mod.Special">특수 모드</s:String><!--This mode use for some strange mod, like MarsX-->
+    <s:String x:Key="Mod.Clean">정리 모드</s:String>
+    <s:String x:Key="Mod.Clean.Desc">경고!!! 이 옵션은 기존에 있던 언어 파일을 완전히 삭제하고 새로 언어 파일을 생성합니다.</s:String>
+    <s:String x:Key="Mod.CustomOutput">사용자 지정 주소</s:String>
+
+
+    <!-- MainWindow -->
+    <s:String x:Key="MainWindow.Title">림트랜스 언어 추출 도구</s:String><!--This is the title of main window, you could create a new name under your native language, just like the zh-CN.-->
+
+    <s:String x:Key="MainWindow.Button.AddMod">모드 추가</s:String>
+    <s:String x:Key="MainWindow.Button.AddLanguage">언어 추가</s:String>
+    <s:String x:Key="MainWindow.Button.Extract">추출</s:String>
+    <s:String x:Key="MainWindow.Button.Editor">편집</s:String>
+
+    <s:String x:Key="MainWindow.Button.Tools">도구</s:String>
+    <s:String x:Key="MainWindow.Button.Help">도움말</s:String>
+    <s:String x:Key="MainWindow.Button.Options">옵션</s:String>
+
+    <!-- OptionsWindow -->
+    <s:String x:Key="Options.RimWorldInstallDir">림월드 설치 주소</s:String>
+    <s:String x:Key="Options.WorkshopModDir">창작마당 모드 주소</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">림월드 설치 주소 또는 스팀 창작마당 모드 주소를 찾았습니다. 몇몇 문제를 야기할 수 있습니다. 옵션에서 사용자 정의 지정할 수 있습니다.</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt">모든 대화상자 재설정</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt.Message">모든 대화상자가 재설정 되었습니다.</s:String>
+
+
+
+
+</ResourceDictionary>
