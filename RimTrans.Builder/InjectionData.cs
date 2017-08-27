@@ -782,10 +782,11 @@ namespace RimTrans.Builder {
                     for (int j = i + 1; j < injections.Count; j++) {
                         XElement inject_j = injections[j];
                         if (inject_i.Match(inject_j)) {
-                            inject_i.ReplaceWith(new XComment("[Duplicated] " + inject_i.ToString()));
                             Log.Warning();
                             Log.Write("Duplicated node in DefInjected/{0}: ", defTypeName);
                             Log.WriteLine(ConsoleColor.Yellow, "<{0}>", inject_i.Name.ToString());
+                            inject_i.ReplaceWith(new XComment("[Duplicated] " + inject_i.ToString()));
+                            break;
                         }
                     }
                 }
