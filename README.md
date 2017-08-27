@@ -8,7 +8,8 @@ Interface languages:
 - English
 - 简体中文
 - 繁体中文
-- Русский
+- Русский (by Bugo)
+- Korean (by DesTiNy)
 
 [Open Source Code](https://github.com/duduluu/RimTrans)
 
