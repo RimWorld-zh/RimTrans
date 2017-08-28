@@ -9,7 +9,7 @@ Interface languages:
 - 简体中文
 - 繁体中文
 - Русский (by Bugo)
-- Korean (by DesTiNy)
+- 한국어 (by DesTiNy)
 
 [Open Source Code](https://github.com/duduluu/RimTrans)
 
