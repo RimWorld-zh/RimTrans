@@ -239,7 +239,14 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "BaseDesc", true) == 0 ||
                   string.Compare(fieldName, "First", true) == 0 ||
                   string.Compare(fieldName, "Last", true) == 0 ||
-                  string.Compare(fieldName, "Nick", true) == 0) {
+                  string.Compare(fieldName, "Nick", true) == 0 ||
+                  
+                  // Support for Rimatomics
+                  string.Compare(fieldName, "ResearchLabel") == 0 ||
+                  string.Compare(fieldName, "ResearchDesc") == 0 ||
+                  string.Compare(fieldName, "ResearchDescDisc") == 0 ||
+                  string.Compare(fieldName, "StepLabel") == 0 ||
+                  string.Compare(fieldName, "StepDesc") == 0) {
                 return true;
             }
             return false;
