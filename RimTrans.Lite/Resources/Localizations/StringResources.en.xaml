@@ -99,7 +99,7 @@
     <!-- OptionsWindow -->
     <s:String x:Key="Options.RimWorldInstallDir">RimWorld Install Directory</s:String>
     <s:String x:Key="Options.WorkshopModDir">Workshop Mods Directory</s:String>
-    <s:String x:Key="Options.Message.DirectoryNoFound">RimWorld install directory or Steam Workshop Mods Directory on found. This can be caused by several problems. You could custom in options.</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">RimWorld install directory or Steam Workshop Mods Directory no found. This can be caused by several problems. You could custom in options.</s:String>
     <s:String x:Key="Options.ResetDoNotPrompt">Reset all Do-Not-Prompt dialogs</s:String>
     <s:String x:Key="Options.ResetDoNotPrompt.Message">All Do-Not-Prompt dialogs have been reset.</s:String>
 

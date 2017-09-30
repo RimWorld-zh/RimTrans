@@ -252,6 +252,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Resources\Localizations\README.md" />
+    <None Include="Resources\Localizations\StringResources.ja.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
