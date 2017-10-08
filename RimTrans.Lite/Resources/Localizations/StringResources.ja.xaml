@@ -16,14 +16,14 @@
     <s:String x:Key="RimTrans">RimTrans</s:String> <!-- Please do not translate this node, but you could translate any other nodes. -->
 
     <s:String x:Key="Common.Common">一般</s:String>
-    <s:String x:Key="Common.Application">アプリケーション</s:String>
-    <s:String x:Key="Common.About">について</s:String>
+    <s:String x:Key="Common.Application">アプリ</s:String>
+    <s:String x:Key="Common.About">詳細</s:String>
     
-    <s:String x:Key="Common.Open">Open</s:String>
-    <s:String x:Key="Common.Close">Close</s:String>
+    <s:String x:Key="Common.Open">開く</s:String>
+    <s:String x:Key="Common.Close">閉じる</s:String>
 
-    <s:String x:Key="Common.Confirm">Confirm</s:String>
-    <s:String x:Key="Common.Cancel">Cancel</s:String>
+    <s:String x:Key="Common.Confirm">実行</s:String>
+    <s:String x:Key="Common.Cancel">キャンセル</s:String>
 
     <s:String x:Key="Common.Yes">はい</s:String>
     <s:String x:Key="Common.No">いいえ</s:String>
@@ -37,7 +37,7 @@
     <s:String x:Key="Common.RemoveAll">全て削除</s:String>
 
     <s:String x:Key="Common.Edit">編集</s:String>
-    <s:String x:Key="Common.Modify">Modify</s:String>
+    <s:String x:Key="Common.Modify">変更する</s:String>
     <s:String x:Key="Common.Undo">元に戻す</s:String>
     <s:String x:Key="Common.Redo">やり直す</s:String>
     
