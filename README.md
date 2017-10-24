@@ -1,17 +1,24 @@
 # RimTrans
 
+<!-- orange, blue -->
+![TargetVersion)](https://img.shields.io/badge/RimWorld-0.18.1700%20(development%20build)-orange.svg?style=flat-square)
+![SupportLanguages](https://img.shields.io/badge/Support%20Languages-26-green.svg?style=flat-square)
+
 A translation and transform tool for RimWorld Core and Mods!
 
-Supports all 26 languages of RimWorld.
+Supports **all 26 languages** for RimWorld.
 
 Interface languages:
+
 - English
 - 简体中文
 - 繁体中文
 - Русский (by Bugo)
 - 한국어 (by DesTiNy)
 
-[Open Source Code](https://github.com/duduluu/RimTrans)
+[Help Translating RimTrans](https://github.com/duduluu/RimTrans/tree/master/RimTrans.Lite/Resources/Localizations)
+
+[GitHub repo](https://github.com/duduluu/RimTrans)
 
 ### Projects
 
@@ -49,8 +56,10 @@ RimTrans is distributed under the [MIT License](https://opensource.org/licenses/
 Included open-source libraries:
 
 - [Font-Awesome-WPF](https://github.com/charri/Font-Awesome-WPF) v4.7.0 ([MIT License](https://opensource.org/licenses/MIT))
-- [SteamKit2](https://github.com/SteamRE/SteamKit) v1.8.1 ([LGPL-2.1 License](http://www.tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29))
+- [SteamKit2](https://github.com/SteamRE/SteamKit) v1.8.3 ([LGPL-2.1 License](http://www.tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29))
 - [protobuf-net](http://code.google.com/p/protobuf-net/) v2.1.0 ([Apache License v2.0](https://raw.githubusercontent.com/mgravell/protobuf-net/master/Licence.txt))
 - [ExcelLibrary](https://code.google.com/archive/p/excellibrary/) 20110730 ([LGPL v3.0](http://www.gnu.org/licenses/lgpl.html))
 
+## More
 
+- [Perfect translation template for RimWorld Core](https://github.com/RimWorld-zh/RimWorld-English)
