@@ -9,6 +9,8 @@ using System.Xml.Linq;
 using RimWorld;
 using Verse;
 
+using RimTrans.Builder.Xml;
+
 namespace RimTrans.Builder.Crawler {
     /// <summary>
     /// Storage Tag info.
@@ -797,7 +799,7 @@ namespace RimTrans.Builder.Crawler {
                     if (tag.HasElements) {
                         foreach (XElement curTag in tag.Elements()) {
                             Log.Warning();
-                            Log.WriteLine($"Tag '{curTag.Name.ToString()}' no matched TagInfo.");
+                            Log.WriteLine($"Tag <{curTag.Name.ToString()}> no matched field. In {tag.BelongedDef().BaseInfo()}.");
                         }
                         nonMatchedElements.AddRange(tag.Elements());
                         tag.RemoveNodes();
@@ -826,9 +828,9 @@ namespace RimTrans.Builder.Crawler {
                         if (!isMatched) {
                             Log.Warning();
                             if (curSubTagClassName == null) {
-                                Log.WriteLine($"Tag 'li' no matched TagInfo.");
+                                Log.WriteLine($"Tag <li> no matched class. In <{curSubTag.Parent.Name}>. In {curSubTag.BelongedDef().BaseInfo()}.");
                             } else {
-                                Log.WriteLine($"Tag 'li' (class='{curSubTagClassName}') no matched TagInfo.");
+                                Log.WriteLine($"Tag <li class=\"{curSubTagClassName}\"> no matched class. In <{curSubTag.Parent.Name}>. In {curSubTag.BelongedDef().BaseInfo()}.");
                             }
                         }
                     }

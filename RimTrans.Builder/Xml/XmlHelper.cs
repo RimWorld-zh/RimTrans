@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace RimTrans.Builder.Xml {
     public static class XmlHelper {
-        #region Field Name
+        #region Def and Field extensions
 
         public static XElement Field(this XElement def, string fieldName) {
             foreach (XElement field in def.Elements()) {
@@ -66,6 +66,28 @@ namespace RimTrans.Builder.Xml {
                 }
             }
             return false;
+        }
+
+        public static string BaseInfo(this XElement def) {
+            StringBuilder sb = new StringBuilder($" <{def.Name}");
+            if (def.HasAttributes) {
+                def.Attributes().ToList().ForEach(attr => {
+                    sb.Append($" {attr.Name}=\"{attr.Value}\"");
+                });
+            }
+            sb.Append(">");
+            if (def.HasField_defName()) {
+                sb.Append(def.defName());
+            }
+            return sb.ToString();
+        }
+
+        public static XElement BelongedDef(this XElement field) {
+            XElement parent = field.Parent;
+            while (parent.Parent?.Parent != null) {
+                parent = parent.Parent;
+            }
+            return parent;
         }
 
         #endregion

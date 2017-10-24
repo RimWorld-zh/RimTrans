@@ -10,6 +10,8 @@ using RimWorld;
 using Verse;
 using UnityEngine;
 
+using RimTrans.Builder.Xml;
+
 namespace RimTrans.Builder.Crawler {
     /// <summary>
     /// Storage Def info, included tags and fields.
@@ -235,7 +237,7 @@ namespace RimTrans.Builder.Crawler {
             if (def.HasElements) {
                 foreach (XElement curTag in def.Elements()) {
                     Log.Warning();
-                    Log.WriteLine($"Field '{curTag.Name.ToString()}' no matched TagInfo.");
+                    Log.WriteLine($"Tag <{curTag.Name.ToString()}> no matched field. In {def.BaseInfo()}.");
                 }
                 nonMatchedElements.AddRange(def.Elements());
                 def.RemoveNodes();
