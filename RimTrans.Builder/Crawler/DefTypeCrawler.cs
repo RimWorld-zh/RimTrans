@@ -16,7 +16,7 @@ namespace RimTrans.Builder.Crawler {
         /// </summary>
         /// <param name="formating"></param>
         /// <param name="sorting"></param>
-        public static string GetCode(bool formating, bool sorting) {
+        public static string GenCode(bool formating, bool sorting) {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(formating ?
                 "        public static readonly string Def = \"Def\";" :
