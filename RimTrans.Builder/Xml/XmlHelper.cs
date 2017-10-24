@@ -124,7 +124,7 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "letterLabel", true) == 0 ||
                   string.Compare(fieldName, "letter", true) == 0 ||
 
-                  // HistoryAutoRecorderGroupDef
+                  // HistoryAutoRecorderDef
                   string.Compare(fieldName, "graphLabelY", true) == 0 ||
 
                   // IncidentDef
@@ -155,6 +155,9 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "name", true) == 0 ||
                   string.Compare(fieldName, "summary", true) == 0 ||
                   //string.Compare(fieldName, "text", true) == 0 ||
+
+                  // SitePartDef
+                  string.Compare(fieldName, "descriptionDialogue", true) == 0 ||
 
                   // SkillDef
                   string.Compare(fieldName, "skillLabel", true) == 0 ||
@@ -190,17 +193,23 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "oldLabel", true) == 0 ||
                   string.Compare(fieldName, "instantlyOldLabel", true) == 0 ||
 
+                  // InspirationDef
+                  string.Compare(fieldName, "beginLetterLabel", true) == 0 ||
+                  string.Compare(fieldName, "beginLetter", true) == 0 ||
+                  string.Compare(fieldName, "endMessage", true) == 0 ||
+                  string.Compare(fieldName, "baseInspectLine", true) == 0 ||
+                  
                   // JobDef
                   string.Compare(fieldName, "reportString", true) == 0 ||
 
                   // MapConditionDef
-                  string.Compare(fieldName, "endMessage", true) == 0 ||
+                  //string.Compare(fieldName, "endMessage", true) == 0 ||
 
                   // MentalStateDef
-                  string.Compare(fieldName, "beginLetterLabel", true) == 0 ||
-                  string.Compare(fieldName, "beginLetter", true) == 0 ||
+                  //string.Compare(fieldName, "beginLetterLabel", true) == 0 ||
+                  //string.Compare(fieldName, "beginLetter", true) == 0 ||
                   string.Compare(fieldName, "recoveryMessage", true) == 0 ||
-                  string.Compare(fieldName, "baseInspectLine", true) == 0 ||
+                  //string.Compare(fieldName, "baseInspectLine", true) == 0 ||
 
                   // PawnCapacityDef
                   string.Compare(fieldName, "labelMechanoids", true) == 0 ||
