@@ -1,0 +1,109 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RimTrans.Lite.Resources.Localizations"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <!--
+    
+    Application Language File
+    Language Code: ja
+    Language Name: Japanese
+    Language Native Name: 日本語
+    Translator: kPherox
+    
+    -->
+
+    <!-- Common -->
+    <s:String x:Key="RimTrans">RimTrans</s:String> <!-- Please do not translate this node, but you could translate any other nodes. -->
+
+    <s:String x:Key="Common.Common">一般</s:String>
+    <s:String x:Key="Common.Application">アプリ</s:String>
+    <s:String x:Key="Common.About">詳細</s:String>
+    
+    <s:String x:Key="Common.Open">開く</s:String>
+    <s:String x:Key="Common.Close">閉じる</s:String>
+
+    <s:String x:Key="Common.Confirm">実行</s:String>
+    <s:String x:Key="Common.Cancel">キャンセル</s:String>
+
+    <s:String x:Key="Common.Yes">はい</s:String>
+    <s:String x:Key="Common.No">いいえ</s:String>
+    <s:String x:Key="Common.OK">OK</s:String>
+
+    <s:String x:Key="Common.Save">保存</s:String>
+    <s:String x:Key="Common.SaveAll">全て保存</s:String>
+    <s:String x:Key="Common.DoNotSave">保存しない</s:String>
+    <s:String x:Key="Common.Delete">消す</s:String>
+    <s:String x:Key="Common.Remove">削除</s:String>
+    <s:String x:Key="Common.RemoveAll">全て削除</s:String>
+
+    <s:String x:Key="Common.Edit">編集</s:String>
+    <s:String x:Key="Common.Modify">変更する</s:String>
+    <s:String x:Key="Common.Undo">元に戻す</s:String>
+    <s:String x:Key="Common.Redo">やり直す</s:String>
+    
+    <s:String x:Key="Common.Previous">前へ</s:String>
+    <s:String x:Key="Common.Next">次へ</s:String>
+
+    <s:String x:Key="Common.Select">選択</s:String>
+    <s:String x:Key="Common.SelectAll">全て選択</s:String>
+    <s:String x:Key="Common.SelectInvert">反転</s:String>
+
+    <s:String x:Key="Common.Mod">Mod</s:String>
+    <s:String x:Key="Common.Language">言語</s:String>
+    <s:String x:Key="Common.Backstory">生い立ち</s:String>
+    <s:String x:Key="Common.Name">名前</s:String>
+    <s:String x:Key="Common.Author">作者</s:String>
+    <s:String x:Key="Common.Translator">翻訳者</s:String>
+
+    <s:String x:Key="Common.File">ファイル</s:String>
+    <s:String x:Key="Common.Folder">フォルダ</s:String>
+    <s:String x:Key="Common.Directory">ディレクトリ</s:String>
+    <s:String x:Key="Common.Path">パス</s:String>
+    <s:String x:Key="Common.ShowInExplorer">エクスプローラーで見る</s:String>
+
+    <s:String x:Key="Common.Automatic">自動</s:String>
+    <s:String x:Key="Common.Custom">詳細設定</s:String>
+
+    <s:String x:Key="Common.Info">情報</s:String>
+    <s:String x:Key="Common.Warning">警告</s:String>
+    <s:String x:Key="Common.Error">エラー</s:String>
+    <s:String x:Key="Common.DoNotPrompt">これ以上表示しない</s:String>
+
+    <!-- Mod Category -->
+    <s:String x:Key="Mod.Internal">ローカル</s:String>
+    <s:String x:Key="Mod.Workshop">ワークショップ</s:String>
+    <s:String x:Key="Mod.Custom">その他</s:String>
+
+    <!-- Generate Mode -->
+    <s:String x:Key="Mod.GenerationOption">出力設定</s:String>
+    <s:String x:Key="Mod.Core">Coreモード</s:String><!--This mode use for RimWorld Core-->
+    <s:String x:Key="Mod.Standard">通常モード</s:String><!--This mode use for normal mod-->
+    <s:String x:Key="Mod.Special">スペシャルモード</s:String><!--This mode use for some strange mod, like MarsX-->
+    <s:String x:Key="Mod.Clean">クリーンモード</s:String>
+    <s:String x:Key="Mod.Clean.Desc">警告!!! クリーンモードは元々存在してる言語ファイルを強制的に削除し、新しい言語ファイルを生成します。</s:String>
+    <s:String x:Key="Mod.CustomOutput">任意の場所に生成</s:String>
+
+
+    <!-- MainWindow -->
+    <s:String x:Key="MainWindow.Title">RimTrans</s:String><!--This is the title of main window, you could create a new name under your native language, just like the zh-CN.-->
+
+    <s:String x:Key="MainWindow.Button.AddMod">Modを追加</s:String>
+    <s:String x:Key="MainWindow.Button.AddLanguage">言語を追加</s:String>
+    <s:String x:Key="MainWindow.Button.Extract">出力</s:String>
+    <s:String x:Key="MainWindow.Button.Editor">編集</s:String>
+
+    <s:String x:Key="MainWindow.Button.Tools">ツール</s:String>
+    <s:String x:Key="MainWindow.Button.Help">ヘルプ</s:String>
+    <s:String x:Key="MainWindow.Button.Options">設定</s:String>
+
+    <!-- OptionsWindow -->
+    <s:String x:Key="Options.RimWorldInstallDir">RimWorldがインストールされているパス</s:String>
+    <s:String x:Key="Options.WorkshopModDir">ワークショップのModのパス</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">RimWorldがインストールされている場所、もしくはワークショップのModの場所が見つかりません。これはいくつかの問題を引き起こす可能性があります。これは設定から指定することができます。</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt">ダイアログをリセット</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt.Message">すべてのダイアログがリセットされました</s:String>
+
+
+
+
+</ResourceDictionary>

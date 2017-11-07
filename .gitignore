@@ -254,3 +254,6 @@ paket-files/
 test/
 RimTrans/
 Output/
+
+# macOS
+.DS_Store

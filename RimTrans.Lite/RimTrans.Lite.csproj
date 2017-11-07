@@ -251,6 +251,10 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Resources\Localizations\README.md" />
+    <Page Include="Resources\Localizations\StringResources.ja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
