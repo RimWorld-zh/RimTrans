@@ -1,7 +1,7 @@
 # RimTrans
 
 <!-- orange, blue -->
-![TargetVersion)](https://img.shields.io/badge/RimWorld-0.18.1700%20(development%20build)-orange.svg?style=flat-square)
+![TargetVersion)](https://img.shields.io/badge/RimWorld-0.18.1712%20(development%20build)-orange.svg?style=flat-square)
 ![SupportLanguages](https://img.shields.io/badge/Support%20Languages-26-green.svg?style=flat-square)
 
 A translation and transform tool for RimWorld Core and Mods!
@@ -13,8 +13,10 @@ Interface languages:
 - English
 - 简体中文
 - 繁体中文
-- Русский (by Bugo)
+- 日本語 (by kPherox)
 - 한국어 (by DesTiNy)
+- Русский (by Bugo)
+- Español (Latinoamérica) (by Andres6936)
 
 [Help Translating RimTrans](https://github.com/duduluu/RimTrans/tree/master/RimTrans.Lite/Resources/Localizations)
 
