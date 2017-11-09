@@ -18,11 +18,11 @@ namespace RimTransLibTest {
 
             Capture capture = Capture.Parse(coreDefinitionData);
             capture.ProcessFieldNames(coreDefinitionData);
-            coreDefinitionData.Save(@"D:\git\rw\RimWorld-Defs-Templates\CoreDefsProcessed");
+            coreDefinitionData.Save(@"C:\git\rw\RimWorld-Defs-Templates\CoreDefsProcessed");
 
-            string sourceCodePath = @"D:\git\rw\RimWorld-Decompile\Assembly-CSharp";
+            string sourceCodePath = @"C:\git\rw\RimWorld-Decompile\Assembly-CSharp";
             Capture templates = Capture.Parse(coreDefinitionData, sourceCodePath, true);
-            templates.Save(@"D:\git\rw\RimWorld-Defs-Templates\Templates");
+            templates.Save(@"C:\git\rw\RimWorld-Defs-Templates\Templates");
         }
     }
 }
