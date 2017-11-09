@@ -142,6 +142,9 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "fixedName", true) == 0 ||
                   string.Compare(fieldName, "leaderTitle", true) == 0 ||
 
+                  // HediffDef
+                  string.Compare(fieldName, "labelNoun", true) == 0 ||
+
                   // HediffGiverSetDef
                   string.Compare(fieldName, "letterLabel", true) == 0 ||
                   string.Compare(fieldName, "letter", true) == 0 ||
