@@ -14,7 +14,6 @@ using Verse;
 using RimTrans.Builder;
 using RimTrans.Builder.Xml;
 using RimTrans.Builder.Crawler;
-using RimTrans.Builder.Wiki;
 
 namespace RimTransLibTest
 {
