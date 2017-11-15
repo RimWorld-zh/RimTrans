@@ -24,7 +24,9 @@
     <Window.Resources>
         <ContextMenu x:Key="ContextMenu.ModList">
             <MenuItem Header="{DynamicResource Common.ShowInExplorer}" Command="{Binding CommandExploreMod}"/>
+            <Separator/>
             <MenuItem Header="{DynamicResource Common.Remove}" Command="{Binding CommandRemoveMod}"/>
+            <MenuItem Header="{DynamicResource Common.RemoveAll}" Command="{Binding CommandRemoveAllMods}"/>
             <Separator/>
             <MenuItem Header="{DynamicResource MainWindow.Button.AddMod}" Command="{Binding CommandAddMod}"/>
         </ContextMenu>
