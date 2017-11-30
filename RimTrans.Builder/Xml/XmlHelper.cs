@@ -104,7 +104,6 @@ namespace RimTrans.Builder.Xml {
                 defTypeName == "GenStepDef" ||
                 defTypeName == "JoyGiverDef" ||
                 defTypeName == "MapGeneratorDef" ||
-                defTypeName == "MentalBreakDef" ||
                 defTypeName == "PawnGroupKindDef" ||
                 defTypeName == "RuleDef" ||
                 defTypeName == "ScatterableDef" ||
