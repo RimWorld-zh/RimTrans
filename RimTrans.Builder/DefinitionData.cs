@@ -56,6 +56,8 @@ namespace RimTrans.Builder {
             if (definitionData._data.Count == 0)
                 return definitionData;
 
+            definitionData.Preprocess();
+
             definitionData.Inherit(definitionDataCore);
 
             definitionData.MarkIndex();
@@ -138,6 +140,26 @@ namespace RimTrans.Builder {
                 Log.Info();
                 Log.Write("Directory \"Defs\" does not exist: ");
                 Log.WriteLine(ConsoleColor.Cyan, path);
+            }
+        }
+
+        #endregion
+
+        #region Preprocess
+
+        private void Preprocess() {
+            var allDefTypeNames = DefTypeNameOf.AllNames.ToList();
+            foreach (XDocument doc in this.Data.Values) {
+                foreach (XElement def in doc.Root.Elements()) {
+                    foreach (string defTypeName in allDefTypeNames) {
+                        if (string.Compare(def.Name.ToString(), defTypeName, true) == 0 && def.Name.ToString() != defTypeName) {
+                            Log.Warning();
+                            Log.WriteLine(def.Name.ToString());
+                            def.Name = defTypeName;
+                            Log.WriteLine(def.Name.ToString());
+                        }
+                    }
+                }
             }
         }
 

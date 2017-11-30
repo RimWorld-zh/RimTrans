@@ -1,7 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Verse;
+using RimWorld;
 
 namespace RimTrans.Builder.Xml {
     public static class DefTypeNameOf {
+        public static IEnumerable<string> AllNames {
+            get {
+                Type typeDef = typeof(Def);
+                yield return typeDef.Name;
+                foreach (Type subclass in typeDef.AllSubclasses()) {
+                    yield return subclass.Name;
+                }
+            }
+        }
+
         //public static readonly string Unknown = "Unknown";
         public static readonly string Def = "Def";
         public static readonly string BillRepeatModeDef = "BillRepeatModeDef";
