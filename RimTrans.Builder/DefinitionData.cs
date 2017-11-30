@@ -153,10 +153,7 @@ namespace RimTrans.Builder {
                 foreach (XElement def in doc.Root.Elements()) {
                     foreach (string defTypeName in allDefTypeNames) {
                         if (string.Compare(def.Name.ToString(), defTypeName, true) == 0 && def.Name.ToString() != defTypeName) {
-                            Log.Warning();
-                            Log.WriteLine(def.Name.ToString());
                             def.Name = defTypeName;
-                            Log.WriteLine(def.Name.ToString());
                         }
                     }
                 }
