@@ -6,15 +6,16 @@ using RimWorld;
 
 namespace RimTrans.Builder.Xml {
     public static class DefTypeNameOf {
-        public static IEnumerable<string> AllNames {
-            get {
-                Type typeDef = typeof(Def);
-                yield return typeDef.Name;
-                foreach (Type subclass in typeDef.AllSubclasses()) {
-                    yield return subclass.Name;
-                }
+        private static IEnumerable<string> getAllNames() {
+            Type typeDef = typeof(Def);
+            yield return typeDef.Name;
+            foreach (Type subclass in typeDef.AllSubclasses()) {
+                yield return subclass.Name;
             }
         }
+        private static readonly List<string> allNames = getAllNames().ToList();
+
+        public static IEnumerable<string> AllNames => allNames;
 
         //public static readonly string Unknown = "Unknown";
         public static readonly string Def = "Def";
