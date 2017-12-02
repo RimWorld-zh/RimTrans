@@ -279,7 +279,17 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "ResearchDesc") == 0 ||
                   string.Compare(fieldName, "ResearchDescDisc") == 0 ||
                   string.Compare(fieldName, "StepLabel") == 0 ||
-                  string.Compare(fieldName, "StepDesc") == 0) {
+                  string.Compare(fieldName, "StepDesc") == 0 ||
+
+                  // Support for AlienRaces
+                  string.Compare(fieldName, "baseDescription") == 0 ||
+                  string.Compare(fieldName, "title") == 0 ||
+                  string.Compare(fieldName, "titleShort") == 0 ||
+                  string.Compare(fieldName, "first") == 0 ||
+                  string.Compare(fieldName, "last") == 0 ||
+                  string.Compare(fieldName, "nick") == 0 
+
+                  ) {
                 return true;
             }
             return false;
