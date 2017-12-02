@@ -96,6 +96,7 @@
     <Compile Include="Windows\AddLanguageWindow.xaml.cs">
       <DependentUpon>AddLanguageWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ToolsViewModel.cs" />
     <Compile Include="Windows\BackstoryWindow.xaml.cs">
       <DependentUpon>BackstoryWindow.xaml</DependentUpon>
     </Compile>
@@ -112,6 +113,9 @@
     </Compile>
     <Compile Include="Windows\OptionsWindow.xaml.cs">
       <DependentUpon>OptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ToolsWindow.xaml.cs">
+      <DependentUpon>ToolsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\Dialogs\AwesomeDialog.xaml">
       <SubType>Designer</SubType>
@@ -226,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\OptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ToolsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

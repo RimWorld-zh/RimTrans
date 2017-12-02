@@ -294,6 +294,16 @@ namespace RimTrans.Lite.Windows
             window.Show();
         }
 
+        // Tools
+        private RelayCommand _commandTools;
+        public RelayCommand CommandTools {
+            get { return _commandTools ?? (_commandTools = new RelayCommand(ExecuteTools)); }
+        }
+        private void ExecuteTools(object parameter) {
+            var window = new ToolsWindow();
+            var dialogResult = window.ShowDialog(View);
+        }
+
         // Options
         private RelayCommand _commandOptions;
         public RelayCommand CommandOptions
