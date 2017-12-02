@@ -1,7 +1,7 @@
 # RimTrans
 
 <!-- orange, blue -->
-![TargetVersion)](https://img.shields.io/badge/RimWorld-0.18.1712%20(development%20build)-orange.svg?style=flat-square)
+![TargetVersion)](https://img.shields.io/badge/RimWorld-0.18.1722-blue.svg?style=flat-square)
 ![SupportLanguages](https://img.shields.io/badge/Support%20Languages-26-green.svg?style=flat-square)
 
 A translation and transform tool for RimWorld Core and Mods!
