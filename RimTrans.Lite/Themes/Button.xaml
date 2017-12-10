@@ -10,10 +10,10 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Height="{TemplateBinding Height}" Padding="0,4,0,0">
+                            Height="{TemplateBinding Height}" Padding="{TemplateBinding Padding}">
                         <TextBlock Text="{TemplateBinding Content}"
                                    Foreground="{TemplateBinding Foreground}"
-                                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                                   VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0, 4, 0, 0" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

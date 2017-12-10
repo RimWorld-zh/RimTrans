@@ -13,6 +13,7 @@ Interface languages:
 - English
 - 简体中文
 - 繁体中文
+- Français (by kaptain_kavern)
 - 日本語 (by kPherox)
 - 한국어 (by DesTiNy)
 - Русский (by Bugo)
