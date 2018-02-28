@@ -45,9 +45,9 @@ namespace RimTrans.Core {
         }
 
         /// <summary>
-        /// Add denpendency to the mod.
+        /// Add dependency to the mod.
         /// </summary>
-        /// <param name="dependency">The dependencied mod</param>
+        /// <param name="dependency">The dependency mod</param>
         /// <returns>self</returns>
         public Mod AddDependencies(Mod dependency) {
             this.dependencies.Add(dependency);
