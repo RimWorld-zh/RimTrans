@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RimTrans.Core", "RimTrans.Core\RimTrans.Core.csproj", "{8F784276-B2AD-429E-AF78-D20122871D2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{BA29C528-9436-445D-B219-787ACB5FA55D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F784276-B2AD-429E-AF78-D20122871D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F784276-B2AD-429E-AF78-D20122871D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F784276-B2AD-429E-AF78-D20122871D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F784276-B2AD-429E-AF78-D20122871D2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA29C528-9436-445D-B219-787ACB5FA55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA29C528-9436-445D-B219-787ACB5FA55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA29C528-9436-445D-B219-787ACB5FA55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA29C528-9436-445D-B219-787ACB5FA55D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DD21F24-6FEC-4A3D-804B-20D3EAF86578}
+	EndGlobalSection
+EndGlobal
