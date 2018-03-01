@@ -59,14 +59,18 @@ namespace RimTrans.Core {
             if (!Directory.Exists(defsPath)) return;
 
             var defLists = await Task.WhenAll(Directory.GetFiles(defsPath, "*.xml", SearchOption.AllDirectories).Select(async filename => {
-                using (var stream = File.OpenText(filename)) {
-                    List<Def> result = new List<Def>();
-                    XNode pre = null;
-                    foreach (var node in (await XDocument.LoadAsync(stream, LoadOptions.SetBaseUri, new CancellationToken())).Root.Nodes()) {
-                        if (node.NodeType == XmlNodeType.Element) result.Add(new Def(filename, node as XElement, pre as XComment));
-                        pre = node;
+                try {
+                    using (var stream = File.OpenText(filename)) {
+                        List<Def> result = new List<Def>();
+                        XNode pre = null;
+                        foreach (var node in (await XDocument.LoadAsync(stream, LoadOptions.SetBaseUri, new CancellationToken())).Root.Nodes()) {
+                            if (node.NodeType == XmlNodeType.Element) result.Add(new Def(filename, node as XElement, pre as XComment));
+                            pre = node;
+                        }
+                        return result;
                     }
-                    return result;
+                } catch (Exception ex) {
+                    Log.Error($"Failed on loading file: {filename}", ex);
                 }
             }));
 
