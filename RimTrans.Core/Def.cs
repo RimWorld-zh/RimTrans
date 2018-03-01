@@ -62,7 +62,7 @@ namespace RimTrans.Core {
             
             // process comment
             if (comment != null) {
-                var text = comment.Value.Trim().Trim("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".ToCharArray());
+                var text = comment.Value.Trim().Trim("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ ".ToCharArray());
                 if (text.Length > 0 && text.IndexOf('\n') < 0) {
                     this.comment = new XComment($" {text} ");
                 }
