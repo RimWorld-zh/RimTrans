@@ -1,28 +1,109 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RimTrans.Core {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Log {
-        public static readonly List<Action<string, Exception>> InfoHandler = new List<Action<string, Exception>>();
 
+        /// <summary>
+        /// Initialize Log, add Console.WriteLine to each handlers.
+        /// </summary>
+        public static void Initialize() {
+        }
+
+        #region Debug
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly List<Func<string, Exception, Task>> DebugHandlers = new List<Func<string, Exception, Task>>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="exception"></param>
+        public static async void Debug(string message, Exception exception = null) {
+            await Task.WhenAll(DebugHandlers.Select(h => h(message, exception)));
+        }
+
+        #endregion
+
+        #region Info
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly List<Func<string, Exception, Task>> InfoHandlers = new List<Func<string, Exception, Task>>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="exception"></param>
         public static async void Info(string message, Exception exception = null) {
-            Console.WriteLine(message);
+            await Task.WhenAll(InfoHandlers.Select(h => h(message, exception)));
         }
 
+        #endregion
 
-        public static readonly List<Action<string, Exception>> WarningHandler = new List<Action<string, Exception>>();
-        
-        public static async void Warning(string message, Exception exception = null) {
-            Console.WriteLine(message);
+        #region Warning
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly List<Func<string, Exception, Task>> WarnHandlers = new List<Func<string, Exception, Task>>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="exception"></param>
+        public static async void Warn(string message, Exception exception = null) {
+            await Task.WhenAll(WarnHandlers.Select(h => h(message, exception)));
         }
 
+        #endregion
 
-        public static readonly List<Action<string, Exception>> ErrorHandler = new List<Action<string, Exception>>();
-        
+        #region Error
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly List<Func<string, Exception, Task>> ErrorHandlers = new List<Func<string, Exception, Task>>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="exception"></param>
         public static async void Error(string message, Exception exception = null) {
-            Console.WriteLine(message);
+            await Task.WhenAll(ErrorHandlers.Select(h => h(message, exception)));
         }
+
+        #endregion
+
+        #region Error
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly List<Func<string, Exception, Task>> FatalHandlers = new List<Func<string, Exception, Task>>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="exception"></param>
+        public static async void Fatal(string message, Exception exception = null) {
+            await Task.WhenAll(FatalHandlers.Select(h => h(message, exception)));
+        }
+
+        #endregion
     }
 }
