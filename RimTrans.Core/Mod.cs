@@ -64,7 +64,11 @@ namespace RimTrans.Core {
                     using (var stream = File.OpenText(filename)) {
                         XNode pre = null;
                         foreach (var node in (await XDocument.LoadAsync(stream, LoadOptions.SetBaseUri, new CancellationToken())).Root.Nodes()) {
-                            if (node.NodeType == XmlNodeType.Element) result.Add(new Def(filename, node as XElement, pre as XComment));
+                            if (node.NodeType == XmlNodeType.Element) {
+                                var def = new Def(filename, node as XElement, pre as XComment);
+                                result.Add(def);
+                                Log.Info(string.Format("{0} {1}", def.defType, def.name));
+                            }
                             pre = node;
                         }
                     }
