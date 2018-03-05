@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
 
@@ -73,9 +71,12 @@ namespace RimTrans.Core {
 
         /// <summary>
         /// Set base definition.
-        /// 设置既定义。
+        /// 设置基定义。
         /// </summary>
-        /// <param name="baseDefinition"></param>
+        /// <param name="baseDefinition">
+        /// The base schema definition.
+        /// 基定义。
+        /// </param>
         public void SetBase(SchemaDefinition baseDefinition) {
             this.BaseDefinition = baseDefinition;
         }
@@ -87,8 +88,8 @@ namespace RimTrans.Core {
     /// </summary>
     public static class Schema {
         /// <summary>
-        /// The root base schema definition, it's name is "Def".
-        /// 根基模式定义，其名称为“Def”。
+        /// The root base schema definition (Def).
+        /// 根基模式定义，（Def）。
         /// </summary>
         private readonly static SchemaDefinition rootBaseDefinition =
             new SchemaDefinition("Def", new List<SchemaDefinition> {
@@ -96,6 +97,10 @@ namespace RimTrans.Core {
                 new SchemaDefinition("description"),
             });
 
+        /// <summary>
+        /// All of schema definitions.
+        /// 所有模式定义。
+        /// </summary>
         private static readonly Dictionary<string, SchemaDefinition> definitions =
             new Dictionary<string, SchemaDefinition>();
 
@@ -109,7 +114,10 @@ namespace RimTrans.Core {
         /// Load schema definitions xml document.
         /// 载入模式定义 xml 文档。
         /// </summary>
-        /// <param name="path">The path to the xml document.</param>
+        /// <param name="path">
+        /// The path to the xml document.
+        /// xml 文档的路径。
+        /// </param>
         public static void Load(string path) {
             try {
                 foreach (var definition in from el in XDocument.Load(path).Root.Elements()
@@ -127,7 +135,10 @@ namespace RimTrans.Core {
         /// 获取指定名称的模式定义。
         /// 找不到指定定义时会返回根基定义（Def）。
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">
+        /// The name for the schema definition.
+        /// 模式定义的名称。
+        /// </param>
         /// <returns></returns>
         public static SchemaDefinition GetDefinition(string name) {
             if (Definitions.TryGetValue(name, out var definition)) {
@@ -141,7 +152,10 @@ namespace RimTrans.Core {
         /// Add a definition to schema.
         /// 添加一个定义到模式。
         /// </summary>
-        /// <param name="definition"></param>
+        /// <param name="definition">
+        /// The schema definition need to be added.
+        /// 需要添加的模式定义。
+        /// </param>
         public static void AddDefinition(SchemaDefinition definition) {
             definition.SetBase(GetDefinition(definition.baseDefinitionName));
             definitions.Add(definition.name, definition);
