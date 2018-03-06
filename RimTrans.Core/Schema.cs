@@ -152,13 +152,20 @@ namespace RimTrans.Core {
         /// Add a definition to schema.
         /// 添加一个定义到模式。
         /// </summary>
-        /// <param name="definition">
+        /// <param name="newDefinition">
         /// The schema definition need to be added.
         /// 需要添加的模式定义。
         /// </param>
-        public static void AddDefinition(SchemaDefinition definition) {
-            definition.SetBase(GetDefinition(definition.baseDefinitionName));
-            definitions.Add(definition.name, definition);
+        private static void AddDefinition(SchemaDefinition newDefinition) {
+            if (definitions.ContainsKey(newDefinition.name)) {
+                foreach (var subdefinition in definitions.Values.Where(sd => sd.baseDefinitionName == newDefinition.name)) {
+                    subdefinition.SetBase(newDefinition);
+                }
+                definitions[newDefinition.name] = newDefinition;
+            } else {
+                definitions.Add(newDefinition.name, newDefinition);
+            }
+            newDefinition.SetBase(GetDefinition(newDefinition.baseDefinitionName));
         }
     }
 }
