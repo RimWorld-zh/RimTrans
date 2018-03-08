@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SchemaDefinitions>
+
+  <ConceptDef>
+    <helpText />
+  </ConceptDef>
+
+  <DamageDef>
+    <deathMessage />
+  </DamageDef>
+
+  <FactionDef>
+    <fixedName />
+    <pawnsPlural />
+    <leaderTitle />
+  </FactionDef>
+
+  <GameConditionDef>
+    <endMessage />
+  </GameConditionDef>
+
+  <HediffDef>
+    <stages>
+      <li>
+        <label />
+      </li>
+    </stages>
+    <labelNoun />
+    <comps>
+      <li>
+        <discoverLetterLabel />
+        <discoverLetterText />
+        <tools>
+          <li>
+            <label />
+          </li>
+        </tools>
+        <labelTendedWell />
+        <labelTendedWellInner />
+        <labelSolidTendedWell />
+        <oldLabel />
+        <instantlyOldLabel />
+      </li>
+    </comps>
+    <injuryProps>
+      <destroyedLabel />
+      <destroyedOutLabel />
+    </injuryProps>
+  </HediffDef>
+
+  <HediffGiverSetDef>
+    <hediffGivers>
+      <li>
+        <letterLabel />
+        <letter />
+      </li>
+    </hediffGivers>
+  </HediffGiverSetDef>
+
+  <HistoryAutoRecorderDef>
+    <graphLabelY />
+  </HistoryAutoRecorderDef>
+
+  <IncidentDef>
+    <letterText />
+    <letterLabel />
+  </IncidentDef>
+
+  <InspirationDef>
+    <beginLetter />
+    <beginLetterLabel />
+    <endMessage />
+    <baseInspectLine />
+  </InspirationDef>
+
+  <InstructionDef>
+    <text />
+    <rejectInputMessage />
+    <onMapInstruction />
+  </InstructionDef>
+
+  <InteractionDef>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li />
+      </rulesStrings>
+    </logRulesInitiator>
+    <logRulesRecipient>
+      <rulesStrings>
+        <li />
+      </rulesStrings>
+    </logRulesRecipient>
+  </InteractionDef>
+
+  <JobDef>
+    <reportString />
+  </JobDef>
+
+  <LifeStageDef>
+    <adjective />
+  </LifeStageDef>
+
+  <MentalStateDef>
+    <beginLetter />
+    <beginLetterLabel />
+    <recoveryMessage />
+    <baseInspectLine />
+  </MentalStateDef>
+
+  <PawnCapacityDef>
+    <labelMechanoids />
+  </PawnCapacityDef>
+
+  <PawnColumnDef>
+    <headerTip />
+  </PawnColumnDef>
+
+  <PawnKindDef>
+    <labelPlural />
+    <labelMale />
+    <labelMalePlural />
+    <labelFemale />
+    <labelFemalePlural />
+    <lifeStages>
+      <li>
+        <label />
+        <labelPlural />
+        <labelMale />
+        <labelMalePlural />
+        <labelFemale />
+        <labelFemalePlural />
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnRelationDef>
+    <labelFemale />
+  </PawnRelationDef>
+
+  <RaidStrategyDef>
+    <arrivalTextFriendly />
+    <arrivalTextEnemy />
+    <letterLabelEnemy />
+    <letterLabelFriendly />
+  </RaidStrategyDef>
+
+  <RecipeDef>
+    <jobString />
+    <successfullyRemovedHediffMessage />
+  </RecipeDef>
+
+  <RoomStatDef>
+    <scoreStages>
+      <li>
+        <label />
+      </li>
+    </scoreStages>
+  </RoomStatDef>
+
+  <RulePackDef>
+    <rulePack>
+      <rulesStrings>
+        <li />
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <ScenarioDef>
+    <scenario>
+      <name />
+      <summary />
+      <description />
+      <parts>
+        <li>
+          <text />
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+  <SitePartDef>
+    <descriptionDialogue />
+  </SitePartDef>
+
+  <SkillDef>
+    <skillLabel />
+  </SkillDef>
+
+  <StatDef>
+    <formatString />
+    <parts>
+      <li>
+        <customLabel />
+      </li>
+    </parts>
+  </StatDef>
+
+  <TaleDef>
+    <rulePack>
+      <rulesStrings>
+        <li />
+      </rulesStrings>
+    </rulePack>
+  </TaleDef>
+
+  <ThingDef>
+    <tools>
+      <li>
+        <label />
+      </li>
+    </tools>
+    <ingestible>
+      <ingestCommandString />
+      <ingestReportString />
+    </ingestible>
+    <comps>
+      <li>
+        <offMessage />
+        <useLabel />
+      </li>
+    </comps>
+    <stuffProps>
+      <stuffAdjective />
+    </stuffProps>
+    <verbs>
+      <li>
+        <label />
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThoughtDef>
+    <stages>
+      <li>
+        <label />
+        <description />
+        <labelSocial />
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <TraitDef>
+    <degreeDatas>
+      <li>
+        <label />
+        <description />
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <WorkGiverDef>
+    <verb />
+    <gerund />
+  </WorkGiverDef>
+
+  <WorkTypeDef>
+    <labelShort />
+    <pawnLabel />
+    <gerundLabel />
+    <verb />
+  </WorkTypeDef>
+
+</SchemaDefinitions>

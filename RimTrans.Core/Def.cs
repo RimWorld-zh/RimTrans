@@ -62,7 +62,10 @@ namespace RimTrans.Core {
             
             // process comment
             if (comment != null) {
-                var text = comment.Value.Trim().Trim("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ ".ToCharArray());
+                // All punctuation mark by in ASCII English part:
+                // !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~
+                // use some marks and space, tab
+                var text = comment.Value.Trim().Trim("#$%&*+-/=@\\^_|~ \t".ToCharArray());
                 if (text.Length > 0 && text.IndexOf('\n') < 0) {
                     this.comment = new XComment($" {text} ");
                 }
