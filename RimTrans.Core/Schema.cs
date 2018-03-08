@@ -6,10 +6,10 @@ using System.Xml.Linq;
 
 namespace RimTrans.Core {
     /// <summary>
-    /// Schema definition is used for parsing specified defs and extract injections.
-    /// 模式定义用于解析特定的 def 并提取 injection。
+    /// Schema is used for parsing specified defs and extract injections.
+    /// 模式用于解析特定的 def 并提取 injection。
     /// </summary>
-    public class SchemaDefinition {
+    public class Schema {
         /// <summary>
         /// The target field name or def type name.
         /// 目标字段名或 Def 类型名。
@@ -17,19 +17,28 @@ namespace RimTrans.Core {
         public readonly string name;
 
         /// <summary>
+        /// If the def is banned to be translated.
+        /// 表示 Def 是否禁止翻译。
+        /// </summary>
+        public readonly bool banned;
+
+        /// <summary>
         /// Fields, inherited members are not included.
         /// 字段，不包括继承的成员。
         /// </summary>
-        private readonly List<SchemaDefinition> fileds;
+        private readonly List<Schema> fileds;
 
         /// <summary>
         /// Get all fields, including inherited members.
         /// 获取所有字段，包括继承的成员。
         /// </summary>
-        public IEnumerable<SchemaDefinition> Fields {
+        public IEnumerable<Schema> Fields {
             get {
-                if (this.BaseDefinition != null) {
-                    return this.fileds.Concat(this.BaseDefinition.Fields);
+                if (this.banned) {
+                    return Enumerable.Empty<Schema>();
+                }
+                if (this.BaseSchema != null) {
+                    return this.fileds.Concat(this.BaseSchema.Fields);
                 } else {
                     return this.fileds;
                 }
@@ -37,48 +46,50 @@ namespace RimTrans.Core {
         }
 
         /// <summary>
-        /// The name for base definition.
+        /// The name for base schema.
         /// 基定义名称。
         /// </summary>
-        public readonly string baseDefinitionName;
+        public readonly string baseSchemaName;
 
         /// <summary>
-        /// The base definition.
+        /// The base schema.
         /// 基定义。
         /// </summary>
-        public SchemaDefinition BaseDefinition { get; private set; }
+        public Schema BaseSchema { get; private set; }
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public SchemaDefinition(string name, List<SchemaDefinition> fileds = null) {
+        public Schema(string name, List<Schema> fileds = null, bool banned = false) {
             this.name = name;
-            this.fileds = fileds ?? new List<SchemaDefinition>();
+            this.fileds = fileds ?? new List<Schema>();
+            this.banned = banned;
         }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="element">
-        /// The specified xml format schema definition.
-        /// 指定的 xml 格式模式定义。
+        /// The specified xml format schema.
+        /// 指定的 xml 格式模式。
         /// </param>
-        public SchemaDefinition(XElement element) {
+        public Schema(XElement element) {
             this.name = element.Name.ToString();
-            this.fileds = element.Elements().Select(el => new SchemaDefinition(el)).ToList();
-            this.baseDefinitionName = element.Attribute("Base")?.Value;
+            this.fileds = element.Elements().Select(el => new Schema(el)).ToList();
+            this.baseSchemaName = element.Attribute("Base")?.Value;
+            this.banned = element.Attribute("Banned")?.Value == "True";
         }
 
         /// <summary>
-        /// Set base definition.
-        /// 设置基定义。
+        /// Set base schema.
+        /// 设置基模式。
         /// </summary>
-        /// <param name="baseDefinition">
-        /// The base schema definition.
-        /// 基定义。
+        /// <param name="baseSchema">
+        /// The base schema.
+        /// 基模式。
         /// </param>
-        public void SetBase(SchemaDefinition baseDefinition) {
-            this.BaseDefinition = baseDefinition;
+        public void SetBase(Schema baseSchema) {
+            this.BaseSchema = baseSchema;
         }
     }
 
@@ -86,29 +97,23 @@ namespace RimTrans.Core {
     /// The schema collection.
     /// 模式合集。
     /// </summary>
-    public static class Schema {
+    public static class SchemaCollection {
         /// <summary>
-        /// The root base schema definition (Def).
-        /// 根基模式定义，（Def）。
+        /// The root schema (Def).
+        /// 根模式（Def）。
         /// </summary>
-        private readonly static SchemaDefinition rootBaseDefinition =
-            new SchemaDefinition("Def", new List<SchemaDefinition> {
-                new SchemaDefinition("label"),
-                new SchemaDefinition("description"),
+        private readonly static Schema root =
+            new Schema("Def", new List<Schema> {
+                new Schema("label"),
+                new Schema("description"),
             });
 
         /// <summary>
-        /// All of schema definitions.
-        /// 所有模式定义。
+        /// All of schemas.
+        /// 所有模式。
         /// </summary>
-        private static readonly Dictionary<string, SchemaDefinition> definitions =
-            new Dictionary<string, SchemaDefinition>();
-
-        /// <summary>
-        /// Get all of schema definitions.
-        /// 获取所有模式定义。
-        /// </summary>
-        private static Dictionary<string, SchemaDefinition> Definitions => definitions;
+        private static readonly Dictionary<string, Schema> allSchemas =
+            new Dictionary<string, Schema>();
 
         /// <summary>
         /// Load schema definitions xml document.
@@ -120,9 +125,9 @@ namespace RimTrans.Core {
         /// </param>
         public static void Load(string path) {
             try {
-                foreach (var definition in from el in XDocument.Load(path).Root.Elements()
-                                           select new SchemaDefinition(el)) {
-                    AddDefinition(definition);
+                foreach (var schema in from el in XDocument.Load(path).Root.Elements()
+                                           select new Schema(el)) {
+                    Add(schema);
                 }
             } catch (Exception ex) {
                 Log.Warn($"Failed to load schema definitions file.", ex);
@@ -130,42 +135,42 @@ namespace RimTrans.Core {
         }
 
         /// <summary>
-        /// Get the schema definition by specified name.
-        /// Will return the root base definition (Def) when the specified definition no found.
-        /// 获取指定名称的模式定义。
-        /// 找不到指定定义时会返回根基定义（Def）。
+        /// Add a schema to the collection.
+        /// 添加一个模式到合集。
         /// </summary>
-        /// <param name="name">
-        /// The name for the schema definition.
-        /// 模式定义的名称。
+        /// <param name="newSchema">
+        /// The schema need to be added.
+        /// 需要添加的模式。
         /// </param>
-        /// <returns></returns>
-        public static SchemaDefinition GetDefinition(string name) {
-            if (Definitions.TryGetValue(name, out var definition)) {
-                return definition;
+        private static void Add(Schema newSchema) {
+            if (allSchemas.ContainsKey(newSchema.name)) {
+                foreach (var subdefinition in allSchemas.Values.Where(sd => sd.baseSchemaName == newSchema.name)) {
+                    subdefinition.SetBase(newSchema);
+                }
+                allSchemas[newSchema.name] = newSchema;
             } else {
-                return rootBaseDefinition;
+                allSchemas.Add(newSchema.name, newSchema);
             }
+            newSchema.SetBase(Get(newSchema.baseSchemaName));
         }
 
         /// <summary>
-        /// Add a definition to schema.
-        /// 添加一个定义到模式。
+        /// Get the schema by specified name.
+        /// If the specified schema no found, it will return the root schema (Def).
+        /// 获取指定名称的模式。
+        /// 找不到指定模式时会返回根模式（Def）。
         /// </summary>
-        /// <param name="newDefinition">
-        /// The schema definition need to be added.
-        /// 需要添加的模式定义。
+        /// <param name="name">
+        /// The name for the schema.
+        /// 模式的名称。
         /// </param>
-        private static void AddDefinition(SchemaDefinition newDefinition) {
-            if (definitions.ContainsKey(newDefinition.name)) {
-                foreach (var subdefinition in definitions.Values.Where(sd => sd.baseDefinitionName == newDefinition.name)) {
-                    subdefinition.SetBase(newDefinition);
-                }
-                definitions[newDefinition.name] = newDefinition;
+        /// <returns></returns>
+        public static Schema Get(string name) {
+            if (allSchemas.TryGetValue(name, out var schema)) {
+                return schema;
             } else {
-                definitions.Add(newDefinition.name, newDefinition);
+                return root;
             }
-            newDefinition.SetBase(GetDefinition(newDefinition.baseDefinitionName));
         }
     }
 }
