@@ -4,8 +4,24 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>../bin/Debug/netcoreapp2.0/RimTrans.Core.xml</DocumentationFile>
+    <OutputPath>../bin/Debug/netcoreapp2.0/</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>../bin/Release/netcoreapp2.0/</OutputPath>
+    <DocumentationFile>../bin/Release/netcoreapp2.0/netcoreapp2.0/RimTrans.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SchemaDefinitions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
