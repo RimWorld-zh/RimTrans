@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
+
+
+using duduluu.System.Linq;
 
 namespace RimTrans.Core {
     public class Mod {
@@ -62,18 +64,18 @@ namespace RimTrans.Core {
                 List<Def> result = new List<Def>();
                 try {
                     using (var stream = File.OpenText(filename)) {
-                        XNode pre = null;
-                        foreach (var node in (await XDocument.LoadAsync(stream, LoadOptions.SetBaseUri, new CancellationToken())).Root.Nodes()) {
-                            if (node.NodeType == XmlNodeType.Element) {
-                                var def = new Def(filename, node as XElement, pre as XComment);
-                                result.Add(def);
-                                Log.Info(string.Format("{0} {1}", def.defType, def.name));
-                            }
-                            pre = node;
-                        }
+                        (await XDocument.LoadAsync(stream, LoadOptions.SetBaseUri, new CancellationToken()))
+                            .Root
+                            .Nodes()
+                            .Aggregate(null as XNode, (acc, cur) => {
+                                if (cur is XElement el) {
+                                    result.Add(new Def(filename, el, acc as XComment));
+                                }
+                                return cur;
+                            });
                     }
                 } catch (Exception ex) {
-                    Log.Error($"Failed on loading file: {filename}", ex);
+                    Log.Error($"Failed at loading file: {filename}", ex);
                 }
                 return result;
             }));
@@ -85,6 +87,11 @@ namespace RimTrans.Core {
                 this.defsMap.Add(g.Key, g.Where(def => !string.IsNullOrWhiteSpace(def.defName) && !def.isAbstract).ToList());
                 this.baseMap.Add(g.Key, g.Where(def => !string.IsNullOrWhiteSpace(def.name)).ToList());
             };
+
+#if DEBUG
+            //this.defsMap.ForEach(kvp => Log.Info($"{kvp.Key}: {kvp.Value.Count}"));
+            //this.baseMap.ForEach(kvp => Log.Info($"{kvp.Key}: {kvp.Value.Count}"));
+#endif
         }
     }
 }
