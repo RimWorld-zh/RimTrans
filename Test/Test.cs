@@ -9,12 +9,9 @@ using duduluu.System.Linq;
 
 using RimTrans.Core;
 
-namespace Test
-{
-    class Test
-    {
-        static void Main(string[] args)
-        {
+namespace Test {
+    class Test {
+        static void Main(string[] args) {
             var totalTime = 0.0;
             for (int i = 0; i < 32; i++) {
                 totalTime += TestLoadMods(i);
