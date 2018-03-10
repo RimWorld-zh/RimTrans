@@ -31,10 +31,8 @@ namespace Test {
         }
 
         static void TestLoadMods() {
-            Directory.GetDirectories(@"D:\rw\test")
-                .ForEach(dir => {
-                    var mod = Mod.Load(dir);
-                });
+            //Task.WhenAll(Directory.GetDirectories(@"D:\rw\test").Select(async dir => await Task.Run(() => Mod.Load(dir)))).Wait();
+            Directory.GetDirectories(@"D:\rw\test").ForEach(dir => Mod.Load(dir));
         }
     }
 }

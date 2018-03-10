@@ -62,7 +62,7 @@ namespace RimTrans.Core {
 
         /// <summary>
         /// Asynchronously load all defs for the mod.
-        /// 异步地加载 Mod 所有 Def。
+        /// 异步地加载 Mod 的所有 Def。
         /// </summary>
         /// <returns></returns>
         private async Task LoadDefsAsync() {
@@ -94,19 +94,27 @@ namespace RimTrans.Core {
                 this.baseMap.Add(g.Key, g.Where(def => !string.IsNullOrWhiteSpace(def.name)).ToList());
             };
 
-            this.AddDependencies(this);
 #if DEBUG
-            //this.defsMap.ForEach(kvp => Log.Info($"{kvp.Key}: {kvp.Value.Count}"));
-            //this.baseMap.ForEach(kvp => Log.Info($"{kvp.Key}: {kvp.Value.Count}"));
+            //Log.Info($"Defs Map: {this.defsMap.Count} def types, {this.defsMap.Values.Aggregate(0, (acc, cur) => acc + cur.Count)} defs.");
+            //Log.Info($"Base Map: {this.baseMap.Count} def types, {this.baseMap.Values.Aggregate(0, (acc, cur) => acc + cur.Count)} defs.");
 #endif
         }
 
         /// <summary>
-        /// Add a dependency mod for the mod and return self
+        /// Add a dependency mod for the mod and return self.
         /// 为此 Mod 添加一个依赖 Mod，并返回自身。
         /// </summary>
-        public Mod AddDependencies(Mod dependency) {
+        public Mod AddDependency(Mod dependency) {
             this.dependencies.Add(dependency);
+            return this;
+        }
+
+        /// <summary>
+        /// Add multiple dependency mods for the mod and return self.
+        /// 为此 Mod 添加多个依赖 Mod，并返回自身。
+        /// </summary>
+        public Mod AddDependencies(IEnumerable<Mod> dependencies) {
+            this.dependencies.AddRange(dependencies);
             return this;
         }
     }
