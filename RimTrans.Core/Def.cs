@@ -6,6 +6,13 @@ using System.Xml.Linq;
 namespace RimTrans.Core {
     public class Def {
         /// <summary>
+        /// All punctuation mark by in ASCII English part:
+        /// !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+        /// use some of these marks and whitespace
+        /// </summary>
+        private static readonly char[] TRIM_CHARS = new char[] { '#', '$', '%', '&', '*', '+', '-', '/', '=', '@', '\\', '^', '_', '|', '~', '\t', '\n', '\v', '\f', '\r', ' ' };
+
+        /// <summary>
         /// The path to the document of the def
         /// </summary>
         public readonly string filename;
@@ -16,9 +23,9 @@ namespace RimTrans.Core {
         public readonly XElement element;
 
         /// <summary>
-        /// The xml comment before the element.
+        /// The valid comment content before the element.
         /// </summary>
-        public readonly XComment comment;
+        public readonly string comment;
 
         /// <summary>
         /// The type of the def, such as 'ThingDef', 'PawnKindDef'....
@@ -62,12 +69,9 @@ namespace RimTrans.Core {
             
             // process comment
             if (comment != null) {
-                // All punctuation mark by in ASCII English part:
-                // !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~
-                // use some marks and space, tab
-                var text = comment.Value.Trim().Trim("#$%&*+-/=@\\^_|~ \t".ToCharArray());
-                if (text.Length > 0 && text.IndexOf('\n') < 0) {
-                    this.comment = new XComment($" {text} ");
+                var content = comment.Value.Trim().Trim(TRIM_CHARS);
+                if (content.Length > 0 && !content.Contains("\n") && !content.Contains("\r")) {
+                    this.comment = content;
                 }
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -42,16 +43,6 @@ namespace RimTrans.Core {
         }
 
         /// <summary>
-        /// Add dependency to the mod.
-        /// </summary>
-        /// <param name="dependency">The dependency mod</param>
-        /// <returns>self</returns>
-        public Mod AddDependencies(Mod dependency) {
-            this.dependencies.Add(dependency);
-            return this;
-        }
-
-        /// <summary>
         /// Asynchronously load all defs for the mod.
         /// </summary>
         /// <returns></returns>
@@ -60,25 +51,21 @@ namespace RimTrans.Core {
 
             if (!Directory.Exists(defsPath)) return;
 
-            var defLists = await Task.WhenAll(Directory.GetFiles(defsPath, "*.xml", SearchOption.AllDirectories).Select(async filename => {
+            // Task.Run is faster then normal async function/lambda due to thread pool.
+            var defLists = await Task.WhenAll(Directory.GetFiles(defsPath, "*.xml", SearchOption.AllDirectories).Select(filename => Task.Run<List<Def>>(() => {
                 List<Def> result = new List<Def>();
                 try {
-                    using (var stream = File.OpenText(filename)) {
-                        (await XDocument.LoadAsync(stream, LoadOptions.SetBaseUri, new CancellationToken()))
-                            .Root
-                            .Nodes()
-                            .Aggregate(null as XNode, (acc, cur) => {
-                                if (cur is XElement el) {
-                                    result.Add(new Def(filename, el, acc as XComment));
-                                }
-                                return cur;
-                            });
-                    }
+                    XDocument.Load(filename).Root.Nodes().Aggregate(null as XNode, (acc, cur) => {
+                        if (cur is XElement el) {
+                            result.Add(new Def(filename, el, acc as XComment));
+                        }
+                        return cur;
+                    });
                 } catch (Exception ex) {
                     Log.Error($"Failed at loading file: {filename}", ex);
                 }
                 return result;
-            }));
+            })));
 
             foreach (var g in from ls in defLists
                               from def in ls
@@ -92,6 +79,16 @@ namespace RimTrans.Core {
             //this.defsMap.ForEach(kvp => Log.Info($"{kvp.Key}: {kvp.Value.Count}"));
             //this.baseMap.ForEach(kvp => Log.Info($"{kvp.Key}: {kvp.Value.Count}"));
 #endif
+        }
+
+        /// <summary>
+        /// Add dependency to the mod.
+        /// </summary>
+        /// <param name="dependency">The dependency mod</param>
+        /// <returns></returns>
+        public Mod AddDependencies(Mod dependency) {
+            this.dependencies.Add(dependency);
+            return this;
         }
     }
 }

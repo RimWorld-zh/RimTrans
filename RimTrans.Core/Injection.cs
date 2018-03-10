@@ -17,9 +17,9 @@ namespace RimTrans.Core {
         public readonly string filename;
 
         /// <summary>
-        /// The xml comment before the element.
+        /// The valid comment content before the element.
         /// </summary>
-        public readonly XComment comment;
+        public readonly string comment;
 
         /// <summary>
         /// The type of the def, such as 'ThingDef', 'PawnKindDef'....
