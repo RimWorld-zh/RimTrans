@@ -33,8 +33,7 @@ namespace Test {
         static void TestLoadMods() {
             Directory.GetDirectories(@"D:\rw\test")
                 .ForEach(dir => {
-                    var mod = new Mod(dir);
-                    mod.LoadDefsAsync().Wait();
+                    var mod = Mod.Load(dir);
                 });
         }
     }
