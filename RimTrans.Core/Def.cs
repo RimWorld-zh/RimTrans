@@ -4,14 +4,10 @@ using System.Text;
 using System.Xml.Linq;
 
 namespace RimTrans.Core {
+    /// <summary>
+    /// Store
+    /// </summary>
     public class Def {
-        /// <summary>
-        /// All punctuation mark by in ASCII English part:
-        /// !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
-        /// use some of these marks and whitespace
-        /// </summary>
-        private static readonly char[] TRIM_CHARS = new char[] { '#', '$', '%', '&', '*', '+', '-', '/', '=', '@', '\\', '^', '_', '|', '~', '\t', '\n', '\v', '\f', '\r', ' ' };
-
         /// <summary>
         /// The path to the document of the def
         /// </summary>
@@ -68,8 +64,12 @@ namespace RimTrans.Core {
             this.isAbstract = element.Attribute("Abstract")?.Value == "True";
             
             // process comment
-            if (comment != null) {
-                var content = comment.Value.Trim().Trim(TRIM_CHARS);
+            if (comment != null)
+            {
+                // All punctuation mark by in ASCII English part:
+                // !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+                // use some of these marks and whitespace
+                var content = comment.Value.Trim(new char[] { '#', '$', '%', '&', '*', '+', '-', '/', '=', '@', '\\', '^', '_', '|', '~', '\t', '\n', '\v', '\f', '\r', ' ' });
                 if (content.Length > 0 && !content.Contains("\n") && !content.Contains("\r")) {
                     this.comment = content;
                 }
