@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+
+using duduluu.System.Linq;
 
 namespace RimTrans.Core {
     /// <summary>
@@ -14,13 +18,7 @@ namespace RimTrans.Core {
         /// The target field name or def type name.
         /// 目标字段名或 Def 类型名。
         /// </summary>
-        public readonly string name;
-
-        /// <summary>
-        /// If the def is banned to be translated.
-        /// 表示 Def 是否禁止翻译。
-        /// </summary>
-        public readonly bool banned;
+        public readonly string defType;
 
         /// <summary>
         /// Fields, inherited members are not included.
@@ -34,9 +32,6 @@ namespace RimTrans.Core {
         /// </summary>
         public IEnumerable<Schema> Fields {
             get {
-                if (this.banned) {
-                    return Enumerable.Empty<Schema>();
-                }
                 if (this.BaseSchema != null) {
                     return this.fileds.Concat(this.BaseSchema.Fields);
                 } else {
@@ -60,10 +55,9 @@ namespace RimTrans.Core {
         /// <summary>
         /// Constructor.
         /// </summary>
-        public Schema(string name, List<Schema> fileds = null, bool banned = false) {
-            this.name = name;
+        public Schema(string defType, List<Schema> fileds = null) {
+            this.defType = defType;
             this.fileds = fileds ?? new List<Schema>();
-            this.banned = banned;
         }
 
         /// <summary>
@@ -74,10 +68,9 @@ namespace RimTrans.Core {
         /// 指定的 xml 格式模式。
         /// </param>
         public Schema(XElement element) {
-            this.name = element.Name.ToString();
-            this.fileds = element.Elements().Select(el => new Schema(el)).ToList();
+            this.defType = element.Attribute("DefType").Value;
+            //this.fileds = element.Elements().Select(el => new Schema(el)).ToList();
             this.baseSchemaName = element.Attribute("Base")?.Value;
-            this.banned = element.Attribute("Banned")?.Value == "True";
         }
 
         /// <summary>
@@ -112,8 +105,24 @@ namespace RimTrans.Core {
         /// All of schemas.
         /// 所有模式。
         /// </summary>
-        private static readonly Dictionary<string, Schema> allSchemas =
+        private static readonly Dictionary<string, Schema> schemas =
             new Dictionary<string, Schema>();
+
+        /// <summary>
+        /// All of banned def type name for translating.
+        /// 所有禁止翻译的 Def 类型名称。
+        /// </summary>
+        private static readonly List<string> banneds = new List<string>();
+
+        /// <summary>
+        /// Initialize the schema collection.
+        /// 初始化模式合集。
+        /// </summary>
+        public static void Initialize() {
+            Directory
+                .GetFiles(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Schemas"), "*.xml")
+                .EachFor(file => Load(file));
+        }
 
         /// <summary>
         /// Load schema definitions xml document.
@@ -125,12 +134,11 @@ namespace RimTrans.Core {
         /// </param>
         public static void Load(string path) {
             try {
-                foreach (var schema in from el in XDocument.Load(path).Root.Elements()
-                                           select new Schema(el)) {
-                    Add(schema);
-                }
+                var root = XDocument.Load(path).Root;
+                root.Elements("Schema").EachFor(el => Add(new Schema(el)));
+                root.Elements("Banned").EachFor(el => banneds.Add(el.Attribute("DefType").Name.ToString()));
             } catch (Exception ex) {
-                Log.Warn($"Failed to load schema definitions file.", ex);
+                Log.Warn($"Failed to load schema definitions file: '{path}'.", ex);
             }
         }
 
@@ -143,13 +151,13 @@ namespace RimTrans.Core {
         /// 需要添加的模式。
         /// </param>
         private static void Add(Schema newSchema) {
-            if (allSchemas.ContainsKey(newSchema.name)) {
-                foreach (var subdefinition in allSchemas.Values.Where(sd => sd.baseSchemaName == newSchema.name)) {
+            if (schemas.ContainsKey(newSchema.defType)) {
+                foreach (var subdefinition in schemas.Values.Where(sd => sd.baseSchemaName == newSchema.defType)) {
                     subdefinition.SetBase(newSchema);
                 }
-                allSchemas[newSchema.name] = newSchema;
+                schemas[newSchema.defType] = newSchema;
             } else {
-                allSchemas.Add(newSchema.name, newSchema);
+                schemas.Add(newSchema.defType, newSchema);
             }
             newSchema.SetBase(Get(newSchema.baseSchemaName));
         }
@@ -166,7 +174,10 @@ namespace RimTrans.Core {
         /// </param>
         /// <returns></returns>
         public static Schema Get(string name) {
-            if (allSchemas.TryGetValue(name, out var schema)) {
+            if (string.IsNullOrWhiteSpace(name)) {
+                return root;
+            }
+            if (schemas.TryGetValue(name, out var schema)) {
                 return schema;
             } else {
                 return root;

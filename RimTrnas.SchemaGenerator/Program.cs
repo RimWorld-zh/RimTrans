@@ -8,23 +8,23 @@ using System.Xml.Linq;
 
 using duduluu.System.Linq;
 
-namespace RimTrnas.SchemaGenerator
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace RimTrnas.SchemaGenerator {
+    class Program {
+        static void Main(string[] args) {
+            string pathDefs = @"D:\Games\SteamLibrary\steamapps\common\RimWorld\Mods\Core\Defs";
+            string pathDefInjeted = @"C:\git\rw\zh-cn\DefInjected";
+
+            XElement root = new XElement("SchemasDefinitions");
+
             Regex numberRegex = new Regex("[0-9]+");
-            string path = @"C:\git\rw\zh-cn\DefInjected";
-            XElement root = new XElement("SchemaDefinitions");
             Directory
-                .GetDirectories(path)
+                .GetDirectories(pathDefInjeted)
                 .ToDictionary(dir => Path.GetFileName(dir))
-                .ForEach(kvp => Directory
+                .EachFor(kvp => Directory
                     .GetFiles(kvp.Value)
                     .Select(file => XDocument.Load(file).Root.Elements())
                     .Aggregate((acc, cur) => acc.Concat(cur))
-                    .ForEach(
+                    .EachFor(
                         el => el
                             .Name
                             .ToString()
@@ -42,19 +42,43 @@ namespace RimTrnas.SchemaGenerator
                             })
                     )
                 );
-
-            Console.WriteLine();
             root.Elements()
-                .ForEach(el => {
+                .EachFor(el => {
                     el.Element("label")?.Remove();
                     el.Element("description")?.Remove();
+                    if (el.HasElements) {
+                        el.SetAttributeValue("DefType", el.Name);
+                        el.Name = "Schema";
+                    }
                 })
-                .Where(el => el.HasElements)
-                .ForEach(el => {
-                    Console.WriteLine(el);
-                    Console.WriteLine();
+                .Where((el) => !el.HasElements)
+                .ToList()
+                .ForEach(el => el.Remove());
+            
+            List<string> nonBanned = Directory
+                .GetDirectories(pathDefInjeted)
+                .Where(dir => Directory.GetFiles(dir, "*.xml")?.Length > 0)
+                .Select(dir => Path.GetFileName(dir))
+                //.EachFor(t => Console.WriteLine(t))
+                .ToList();
+            var banned = Directory
+                .GetFiles(pathDefs, "*.xml", SearchOption.AllDirectories)
+                .Select(file => XDocument.Load(file).Root.Elements())
+                .ContactAll()
+                .GroupBy(el => el.Name.ToString())
+                .Where(g => !nonBanned.Contains(g.Key))
+                .Select(g => g.Key)
+                .EachFor(t => root.Add(new XElement(t)));
+            root.Elements()
+                .Where(el => el.Name.ToString() != "Schema")
+                .EachFor(el => {
+                    el.SetAttributeValue("DefType", el.Name);
+                    el.Name = "Banned";
                 });
-            Console.WriteLine();
+
+            //Console.WriteLine("==== Schema Definitions ====");
+
+            Console.WriteLine(root);
         }
     }
 }

@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<SchemaDefinitions>
-
-  <ConceptDef>
+<SchemasDefinitions>
+  
+  <Schema DefType="ConceptDef">
     <helpText />
-  </ConceptDef>
+  </Schema>
 
-  <DamageDef>
+  <Schema DefType="DamageDef">
     <deathMessage />
-  </DamageDef>
+  </Schema>
 
-  <FactionDef>
+  <Schema DefType="FactionDef">
     <fixedName />
     <pawnsPlural />
     <leaderTitle />
-  </FactionDef>
+  </Schema>
 
-  <GameConditionDef>
+  <Schema DefType="GameConditionDef">
     <endMessage />
-  </GameConditionDef>
+  </Schema>
 
-  <HediffDef>
+  <Schema DefType="HediffDef">
     <stages>
       <li>
         <label />
@@ -46,40 +46,40 @@
       <destroyedLabel />
       <destroyedOutLabel />
     </injuryProps>
-  </HediffDef>
+  </Schema>
 
-  <HediffGiverSetDef>
+  <Schema DefType="HediffGiverSetDef">
     <hediffGivers>
       <li>
         <letterLabel />
         <letter />
       </li>
     </hediffGivers>
-  </HediffGiverSetDef>
+  </Schema>
 
-  <HistoryAutoRecorderDef>
+  <Schema DefType="HistoryAutoRecorderDef">
     <graphLabelY />
-  </HistoryAutoRecorderDef>
+  </Schema>
 
-  <IncidentDef>
+  <Schema DefType="IncidentDef">
     <letterText />
     <letterLabel />
-  </IncidentDef>
+  </Schema>
 
-  <InspirationDef>
+  <Schema DefType="InspirationDef">
     <beginLetter />
     <beginLetterLabel />
     <endMessage />
     <baseInspectLine />
-  </InspirationDef>
+  </Schema>
 
-  <InstructionDef>
+  <Schema DefType="InstructionDef">
     <text />
     <rejectInputMessage />
     <onMapInstruction />
-  </InstructionDef>
+  </Schema>
 
-  <InteractionDef>
+  <Schema DefType="InteractionDef">
     <logRulesInitiator>
       <rulesStrings>
         <li />
@@ -90,32 +90,32 @@
         <li />
       </rulesStrings>
     </logRulesRecipient>
-  </InteractionDef>
+  </Schema>
 
-  <JobDef>
+  <Schema DefType="JobDef">
     <reportString />
-  </JobDef>
+  </Schema>
 
-  <LifeStageDef>
+  <Schema DefType="LifeStageDef">
     <adjective />
-  </LifeStageDef>
+  </Schema>
 
-  <MentalStateDef>
+  <Schema DefType="MentalStateDef">
     <beginLetter />
     <beginLetterLabel />
     <recoveryMessage />
     <baseInspectLine />
-  </MentalStateDef>
+  </Schema>
 
-  <PawnCapacityDef>
+  <Schema DefType="PawnCapacityDef">
     <labelMechanoids />
-  </PawnCapacityDef>
+  </Schema>
 
-  <PawnColumnDef>
+  <Schema DefType="PawnColumnDef">
     <headerTip />
-  </PawnColumnDef>
+  </Schema>
 
-  <PawnKindDef>
+  <Schema DefType="PawnKindDef">
     <labelPlural />
     <labelMale />
     <labelMalePlural />
@@ -131,41 +131,41 @@
         <labelFemalePlural />
       </li>
     </lifeStages>
-  </PawnKindDef>
+  </Schema>
 
-  <PawnRelationDef>
+  <Schema DefType="PawnRelationDef">
     <labelFemale />
-  </PawnRelationDef>
+  </Schema>
 
-  <RaidStrategyDef>
+  <Schema DefType="RaidStrategyDef">
     <arrivalTextFriendly />
     <arrivalTextEnemy />
     <letterLabelEnemy />
     <letterLabelFriendly />
-  </RaidStrategyDef>
+  </Schema>
 
-  <RecipeDef>
+  <Schema DefType="RecipeDef">
     <jobString />
     <successfullyRemovedHediffMessage />
-  </RecipeDef>
+  </Schema>
 
-  <RoomStatDef>
+  <Schema DefType="RoomStatDef">
     <scoreStages>
       <li>
         <label />
       </li>
     </scoreStages>
-  </RoomStatDef>
+  </Schema>
 
-  <RulePackDef>
+  <Schema DefType="RulePackDef">
     <rulePack>
       <rulesStrings>
         <li />
       </rulesStrings>
     </rulePack>
-  </RulePackDef>
+  </Schema>
 
-  <ScenarioDef>
+  <Schema DefType="ScenarioDef">
     <scenario>
       <name />
       <summary />
@@ -176,34 +176,34 @@
         </li>
       </parts>
     </scenario>
-  </ScenarioDef>
+  </Schema>
 
-  <SitePartDef>
+  <Schema DefType="SitePartDef">
     <descriptionDialogue />
-  </SitePartDef>
+  </Schema>
 
-  <SkillDef>
+  <Schema DefType="SkillDef">
     <skillLabel />
-  </SkillDef>
+  </Schema>
 
-  <StatDef>
+  <Schema DefType="StatDef">
     <formatString />
     <parts>
       <li>
         <customLabel />
       </li>
     </parts>
-  </StatDef>
+  </Schema>
 
-  <TaleDef>
+  <Schema DefType="TaleDef">
     <rulePack>
       <rulesStrings>
         <li />
       </rulesStrings>
     </rulePack>
-  </TaleDef>
+  </Schema>
 
-  <ThingDef>
+  <Schema DefType="ThingDef">
     <tools>
       <li>
         <label />
@@ -227,9 +227,9 @@
         <label />
       </li>
     </verbs>
-  </ThingDef>
+  </Schema>
 
-  <ThoughtDef>
+  <Schema DefType="ThoughtDef">
     <stages>
       <li>
         <label />
@@ -237,27 +237,58 @@
         <labelSocial />
       </li>
     </stages>
-  </ThoughtDef>
+  </Schema>
 
-  <TraitDef>
+  <Schema DefType="TraitDef">
     <degreeDatas>
       <li>
         <label />
         <description />
       </li>
     </degreeDatas>
-  </TraitDef>
+  </Schema>
 
-  <WorkGiverDef>
+  <Schema DefType="WorkGiverDef">
     <verb />
     <gerund />
-  </WorkGiverDef>
+  </Schema>
 
-  <WorkTypeDef>
+  <Schema DefType="WorkTypeDef">
     <labelShort />
     <pawnLabel />
     <gerundLabel />
     <verb />
-  </WorkTypeDef>
+  </Schema>
 
-</SchemaDefinitions>
+  <Banned DefType="DutyDef" />
+  <Banned DefType="EffecterDef" />
+  <Banned DefType="SoundDef" />
+  <Banned DefType="JoyGiverDef" />
+  <Banned DefType="ManeuverDef" />
+  <Banned DefType="MapGeneratorDef" />
+  <Banned DefType="GenStepDef" />
+  <Banned DefType="DamageArmorCategoryDef" />
+  <Banned DefType="DesignationDef" />
+  <Banned DefType="FeatureDef" />
+  <Banned DefType="FleshTypeDef" />
+  <Banned DefType="HibernatableStateDef" />
+  <Banned DefType="ImpactSoundTypeDef" />
+  <Banned DefType="ImplementOwnerTypeDef" />
+  <Banned DefType="IncidentTargetTypeDef" />
+  <Banned DefType="LetterDef" />
+  <Banned DefType="MessageTypeDef" />
+  <Banned DefType="PawnGroupKindDef" />
+  <Banned DefType="PawnTableDef" />
+  <Banned DefType="ReservationLayerDef" />
+  <Banned DefType="ScatterableDef" />
+  <Banned DefType="SongDef" />
+  <Banned DefType="StoryEventDef" />
+  <Banned DefType="StuffAppearanceDef" />
+  <Banned DefType="SubcameraDef" />
+  <Banned DefType="RoadPathingDef" />
+  <Banned DefType="RoadWorldLayerDef" />
+  <Banned DefType="RuleDef" />
+  <Banned DefType="ThinkTreeDef" />
+  <Banned DefType="WorldGenStepDef" />
+  
+</SchemasDefinitions>

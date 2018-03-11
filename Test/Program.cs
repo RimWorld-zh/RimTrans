@@ -12,6 +12,7 @@ using RimTrans.Core;
 namespace Test {
     class Program {
         static void Main(string[] args) {
+            Test(SchemaCollection.Initialize, 1);
             Test(TestLoadMods);
         }
 
@@ -32,7 +33,7 @@ namespace Test {
 
         static void TestLoadMods() {
             //Task.WhenAll(Directory.GetDirectories(@"D:\rw\test").Select(async dir => await Task.Run(() => Mod.Load(dir)))).Wait();
-            Directory.GetDirectories(@"D:\rw\test").ForEach(dir => Mod.Load(dir));
+            Directory.GetDirectories(@"D:\rw\test").EachFor(dir => Mod.Load(dir));
         }
     }
 }

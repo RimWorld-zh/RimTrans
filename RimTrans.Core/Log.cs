@@ -29,8 +29,8 @@ namespace RimTrans.Core {
         /// </summary>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public static async void Debug(string message, Exception exception = null) {
-            await Task.Run(() => logger.Info(message, exception));
+        public static  void Debug(string message, Exception exception = null) {
+            logger.Info(message, exception);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace RimTrans.Core {
         /// </summary>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public static async void Info(string message, Exception exception = null) {
-            await Task.Run(() => logger.Info(message, exception));
+        public static  void Info(string message, Exception exception = null) {
+            logger.Info(message, exception);
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace RimTrans.Core {
         /// </summary>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public static async void Warn(string message, Exception exception = null) {
-            await Task.Run(() => logger.Info(message, exception));
+        public static  void Warn(string message, Exception exception = null) {
+            logger.Info(message, exception);
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace RimTrans.Core {
         /// </summary>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public static async void Error(string message, Exception exception = null) {
-            await Task.Run(() => logger.Info(message, exception));
+        public static  void Error(string message, Exception exception = null) {
+            logger.Info(message, exception);
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace RimTrans.Core {
         /// </summary>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public static async void Fatal(string message, Exception exception = null) {
-            await Task.Run(() => logger.Info(message, exception));
+        public static  void Fatal(string message, Exception exception = null) {
+            logger.Info(message, exception);
         }
     }
 }
