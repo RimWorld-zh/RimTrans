@@ -12,10 +12,8 @@ using System.Xml.Linq;
 
 using RimTrans.Builder.Xml;
 
-namespace RimTrans.Builder.Crawler
-{
-    public class Capture
-    {
+namespace RimTrans.Builder.Crawler {
+    public class Capture {
         /// <summary>
         /// If true, distinguish ThingDef category.
         /// </summary>
@@ -31,24 +29,18 @@ namespace RimTrans.Builder.Crawler
 
         #region Methods
 
-        public DefInfo Def(XElement defElement)
-        {
+        public DefInfo Def(XElement defElement) {
             DefInfo defInfo;
             string defTypeName = defElement.Name.ToString();
-            if (this.isTemplate && defTypeName == DefTypeNameOf.ThingDef)
-            {
+            if (this.isTemplate && defTypeName == DefTypeNameOf.ThingDef) {
                 XElement category = defElement.Field(FieldNameOf.category);
-                if (category != null)
-                {
+                if (category != null) {
                     defTypeName = $"{defTypeName}_{category.Value}";
                 }
             }
-            if (this.allDefInfo.TryGetValue(defTypeName, out defInfo))
-            {
+            if (this.allDefInfo.TryGetValue(defTypeName, out defInfo)) {
                 return defInfo;
-            }
-            else
-            {
+            } else {
                 return null;
             }
         }
@@ -60,14 +52,12 @@ namespace RimTrans.Builder.Crawler
         /// Initialize a capture.
         /// </summary>
         /// <param name="isTemplate">If true, distinguish ThingDef category.</param>
-        private Capture(bool isTemplate)
-        {
+        private Capture(bool isTemplate) {
             this.isTemplate = isTemplate;
             this.allDefInfo = new SortedDictionary<string, DefInfo>();
         }
 
-        private Capture()
-        {
+        private Capture() {
             this.allDefInfo = new SortedDictionary<string, DefInfo>();
         }
 
@@ -78,36 +68,29 @@ namespace RimTrans.Builder.Crawler
         /// <param name="sourceCodePath">The path of source code folder.</param>
         /// <param name="isTemplate">If true, distinguish ThingDef category.</param>
         /// <returns></returns>
-        public static Capture Parse(DefinitionData coreDefinitionData, string sourceCodePath = null, bool isTemplate = false)
-        {
+        public static Capture Parse(DefinitionData coreDefinitionData, string sourceCodePath = null, bool isTemplate = false) {
             Helper.sourceCodePath = sourceCodePath;
             Capture capture = new Capture(isTemplate);
 
             Log.Info();
             Log.Write("Start parsing Core Defs and generating ");
-            if (isTemplate)
-            {
+            if (isTemplate) {
                 Log.Write(ConsoleColor.Cyan, "Templates");
-            }
-            else
-            {
+            } else {
                 Log.Write(ConsoleColor.Cyan, "Capture");
             }
             Log.WriteLine(".");
 
             SortedDictionary<string, XElement> allUniqueDefElements = new SortedDictionary<string, XElement>();
-            
-            foreach (XDocument doc in coreDefinitionData.Data.Values)
-            {
-                foreach (XElement current in doc.Root.Elements())
-                {
+
+            foreach (XDocument doc in coreDefinitionData.Data.Values) {
+                foreach (XElement current in doc.Root.Elements()) {
                     XAttribute isAbstract = current.Attribute("Abstract");
                     if (isAbstract != null && string.Compare(isAbstract.Value, "True", true) == 0)
                         continue;
 
                     string key = current.Name.ToString();
-                    if (isTemplate && key == DefTypeNameOf.ThingDef)
-                    {
+                    if (isTemplate && key == DefTypeNameOf.ThingDef) {
                         XElement thingClass = current.Field(FieldNameOf.category);
                         if (thingClass == null)
                             key = $"{key}_None";
@@ -115,42 +98,34 @@ namespace RimTrans.Builder.Crawler
                             key = $"{key}_{thingClass.Value}";
                     }
                     XElement def;
-                    if (allUniqueDefElements.TryGetValue(key, out def))
-                    {
+                    if (allUniqueDefElements.TryGetValue(key, out def)) {
                         Helper.MergeElement(def, current);
-                    }
-                    else
-                    {
+                    } else {
                         allUniqueDefElements.Add(key, new XElement(current));
                         continue;
                     }
                 }
             }
 
-            foreach (XElement curDef in allUniqueDefElements.Values)
-            {
+            foreach (XElement curDef in allUniqueDefElements.Values) {
                 Helper.MergeListItems(curDef);
             }
 
-            foreach (XElement curDef in allUniqueDefElements.Values)
-            {
+            foreach (XElement curDef in allUniqueDefElements.Values) {
                 curDef.RemoveAttributes();
                 string key = curDef.Name.ToString();
-                if (isTemplate && key == DefTypeNameOf.ThingDef)
-                {
+                if (isTemplate && key == DefTypeNameOf.ThingDef) {
                     XElement category = curDef.Field(FieldNameOf.category);
-                    if (category != null) key = $"{key}_{category.Value}";
+                    if (category != null)
+                        key = $"{key}_{category.Value}";
                 }
                 capture.allDefInfo.Add(key, new DefInfo(curDef));
             }
 
             Log.Info();
-            if (isTemplate)
-            {
+            if (isTemplate) {
                 Log.WriteLine($"Completed generating Templates: {capture.allDefInfo.Count} templates.");
-            }
-            else
-            {
+            } else {
                 Log.WriteLine($"Completed generating Capture: {capture.allDefInfo.Count} Def types.");
             }
 
@@ -164,19 +139,17 @@ namespace RimTrans.Builder.Crawler
         /// Get XDocument of this cpature.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<string, XDocument> ToXDocuments()
-        {
+        public Dictionary<string, XDocument> ToXDocuments() {
             Dictionary<string, XDocument> dict = new Dictionary<string, XDocument>();
-            foreach (var kvp in this.allDefInfo)
-            {
+            foreach (var kvp in this.allDefInfo) {
 
                 XDocument doc = new XDocument(new XDeclaration("1.0", "utf-8", null), new XElement("Defs"));
                 XElement defElement = kvp.Value.ToXElement();
                 doc.Root.Add(defElement);
-                if (this.isTemplate && defElement.Name.ToString() == DefTypeNameOf.ThingDef)
-                {
+                if (this.isTemplate && defElement.Name.ToString() == DefTypeNameOf.ThingDef) {
                     XElement category = defElement.Field(FieldNameOf.category);
-                    if (category != null) category.Value = kvp.Key.Substring(DefTypeNameOf.ThingDef.Length + 1);
+                    if (category != null)
+                        category.Value = kvp.Key.Substring(DefTypeNameOf.ThingDef.Length + 1);
                 }
                 dict.Add(kvp.Key, doc);
             }
@@ -187,34 +160,25 @@ namespace RimTrans.Builder.Crawler
         /// Save this capture as xml files to a diretory. All the existed files will be deleted.
         /// </summary>
         /// <param name="path">The output directory.</param>
-        public void Save(string path)
-        {
-            if (this.allDefInfo == null || this.allDefInfo.Count == 0) return;
+        public void Save(string path) {
+            if (this.allDefInfo == null || this.allDefInfo.Count == 0)
+                return;
 
-            if (Directory.Exists(path))
-            {
+            if (Directory.Exists(path)) {
                 DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-                if (ds.AreAccessRulesProtected)
-                {
+                if (ds.AreAccessRulesProtected) {
                     Log.Error();
                     Log.WriteLine("Outputing Templates failure: No write permission to directory: ");
                     Log.Indent();
                     Log.WriteLine(ConsoleColor.Red, path);
                     return;
-                }
-                else
-                {
+                } else {
                     DirectoryHelper.CleanDirectory(path, "*.xml");
                 }
-            }
-            else
-            {
-                try
-                {
+            } else {
+                try {
                     Directory.CreateDirectory(path);
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Log.Error();
                     Log.WriteLine("Outputing Templates failure: Can not create directory: ");
                     Log.Indent();
@@ -233,16 +197,12 @@ namespace RimTrans.Builder.Crawler
             int countValidFiles = 0;
             int countInvalidFiles = 0;
 
-            foreach (KeyValuePair<string, XDocument> fileNameDoc in docsDict)
-            {
+            foreach (KeyValuePair<string, XDocument> fileNameDoc in docsDict) {
                 string filePath = Path.Combine(path, fileNameDoc.Key) + ".xml";
-                try
-                {
+                try {
                     fileNameDoc.Value.Save(filePath);
                     countValidFiles++;
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Log.Error();
                     Log.Write("Outputing file failed: ");
                     Log.WriteLine(ConsoleColor.Red, filePath);
@@ -251,28 +211,19 @@ namespace RimTrans.Builder.Crawler
                     countInvalidFiles++;
                 }
             }
-            if (countValidFiles > 0)
-            {
-                if (countInvalidFiles == 0)
-                {
+            if (countValidFiles > 0) {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine($"Completed outputing Templates: {countValidFiles} file(s).");
-                }
-                else
-                {
+                } else {
                     Log.Warning();
                     Log.WriteLine($"Completed outputing Templates: Success: {countValidFiles} file(s), Failure {countInvalidFiles} file(s).");
                 }
-            }
-            else
-            {
-                if (countInvalidFiles == 0)
-                {
+            } else {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine("No Templates to be output.");
-                }
-                else
-                {
+                } else {
                     Log.Error();
                     Log.WriteLine($"Outputing Templates failure: {countInvalidFiles} file(s).");
                 }
@@ -288,10 +239,10 @@ namespace RimTrans.Builder.Crawler
         /// Process case and alias of all fields in this definition data.
         /// </summary>
         /// <param name="definitionData"></param>
-        public void ProcessFieldNames(DefinitionData definitionData)
-        {
-            if (this.isTemplate) return;
-            
+        public void ProcessFieldNames(DefinitionData definitionData) {
+            if (this.isTemplate)
+                return;
+
             Log.Info();
             Log.WriteLine("Start processing field names for all Defs.");
 
@@ -299,18 +250,14 @@ namespace RimTrans.Builder.Crawler
 
             foreach (XElement curDef in from doc in definitionData.Data.Values
                                         from ele in doc.Root.Elements()
-                                        select ele)
-            {
+                                        select ele) {
                 string curDefTypeName = curDef.Name.ToString();
                 DefInfo defInfo;
-                if (this.allDefInfo.TryGetValue(curDefTypeName, out defInfo))
-                {
+                if (this.allDefInfo.TryGetValue(curDefTypeName, out defInfo)) {
                     defInfo.ProcessFieldNames(curDef);
-                }
-                else
-                {
-                    Log.Warning();
-                    Log.WriteLine($"'{curDefTypeName}' no matched.");
+                } else {
+                    //Log.Warning();
+                    //Log.WriteLine($"'{curDefTypeName}' no matched.");
                 }
             }
 
@@ -323,8 +270,7 @@ namespace RimTrans.Builder.Crawler
 
 
 
-        public void Debug()
-        {
+        public void Debug() {
 
         }
     }

@@ -24,7 +24,9 @@
     <Window.Resources>
         <ContextMenu x:Key="ContextMenu.ModList">
             <MenuItem Header="{DynamicResource Common.ShowInExplorer}" Command="{Binding CommandExploreMod}"/>
+            <Separator/>
             <MenuItem Header="{DynamicResource Common.Remove}" Command="{Binding CommandRemoveMod}"/>
+            <MenuItem Header="{DynamicResource Common.RemoveAll}" Command="{Binding CommandRemoveAllMods}"/>
             <Separator/>
             <MenuItem Header="{DynamicResource MainWindow.Button.AddMod}" Command="{Binding CommandAddMod}"/>
         </ContextMenu>
@@ -96,10 +98,10 @@
                     <StackPanel x:Name="toolbarRight"
                                 Background="{StaticResource Lite.Main.Background}"
                                 Grid.Row="1" Height="64" Width="auto" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0" >
-                    <c:AwesomeButton x:Name="backstory" Command="{Binding CommandBackstory}"
-                                         Icon="AddressBook" Text="{DynamicResource Common.Backstory}" Style="{StaticResource Style.AwesomeButton.Large}"/>
-                        <!--<c:AwesomeButton x:Name="buttonTools" IsEnabled="False"
-                                         Icon="Briefcase" Text="{DynamicResource MainWindow.Button.Tools}" Style="{StaticResource Style.AwesomeButton.Large}"/>-->
+                        <!--<c:AwesomeButton x:Name="backstory" Command="{Binding CommandBackstory}"
+                                         Icon="AddressBook" Text="{DynamicResource Common.Backstory}" Style="{StaticResource Style.AwesomeButton.Large}"/>-->
+                        <c:AwesomeButton x:Name="buttonTools" Command="{Binding CommandTools}"
+                                         Icon="Briefcase" Text="{DynamicResource MainWindow.Button.Tools}" Style="{StaticResource Style.AwesomeButton.Large}"/>
                         <c:AwesomeButton x:Name="buttonHelp" Click="buttonHelp_Click"
                                          Icon="Question" Text="{DynamicResource MainWindow.Button.Help}" Style="{StaticResource Style.AwesomeButton.Large}"/>
                         <c:AwesomeButton x:Name="buttonOptions" Command="{Binding CommandOptions}"

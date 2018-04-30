@@ -468,6 +468,30 @@ namespace RimTrans.Lite.Util
 
         #endregion
 
+        #region Window Tools
+
+        public double ToolsWindowHeight {
+            get { return (double)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public double ToolsWindowWidth {
+            get { return (double)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public string DefTemplateOutputPath {
+            get { return (string)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        public bool DefTemplateOpenFolder {
+            get { return (bool)GetValue(); }
+            set { SetValue(value); }
+        }
+
+        #endregion
+
         #region Window Options
 
         public double OptionsWindowHeight

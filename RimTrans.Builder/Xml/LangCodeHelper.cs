@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RimTrans.Builder.Xml
-{
-    public static class LangCodeHelper
-    {
-        private static readonly Dictionary<string, string> langCodesDict = new Dictionary<string, string>
-        {
+namespace RimTrans.Builder.Xml {
+    public static class LangCodeHelper {
+        private static readonly Dictionary<string, string> langCodesDict = new Dictionary<string, string> {
             { "ChineseSimplified", "zh-cn" },
             { "ChineseTraditional", "zh-tw" },
             { "Czech", "cs" },
@@ -38,28 +35,20 @@ namespace RimTrans.Builder.Xml
             { "Ukrainian", "uk" },
         };
 
-        public static string GetCode(string name)
-        {
+        public static string GetCode(string name) {
             string code;
-            if (langCodesDict.TryGetValue(name, out code))
-            {
+            if (langCodesDict.TryGetValue(name, out code)) {
                 return code;
-            }
-            else
-            {
+            } else {
                 return name;
             }
         }
 
-        public static string GetCodeShort(string name)
-        {
+        public static string GetCodeShort(string name) {
             string code;
-            if (langCodesDict.TryGetValue(name, out code))
-            {
+            if (langCodesDict.TryGetValue(name, out code)) {
                 return code.Replace("-", "");
-            }
-            else
-            {
+            } else {
                 return name;
             }
         }

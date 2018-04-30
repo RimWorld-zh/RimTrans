@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RimTrans.Builder.Crawler
-{
+namespace RimTrans.Builder.Crawler {
     /// <summary>
     /// Category of TagInfo
     /// </summary>
-    public enum TagCategory
-    {
+    public enum TagCategory {
         Unkown,
 
         Standard,

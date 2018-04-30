@@ -34,8 +34,13 @@
                 <!-- Localizations -->
                 <ResourceDictionary Source="/Resources/Localizations/StringResources.zh-CN.xaml"/>
                 <ResourceDictionary Source="/Resources/Localizations/StringResources.zh-TW.xaml"/>
+                <ResourceDictionary Source="/Resources/Localizations/StringResources.fr.xaml"/>
+                <ResourceDictionary Source="/Resources/Localizations/StringResources.ja.xaml"/>
+                <ResourceDictionary Source="/Resources/Localizations/StringResources.ko.xaml"/>
                 <ResourceDictionary Source="/Resources/Localizations/StringResources.ru.xaml"/>
+                <ResourceDictionary Source="/Resources/Localizations/StringResources.es-419.xaml"/>
                 <ResourceDictionary Source="/Resources/Localizations/StringResources.en.xaml"/>
+                <!-- The English must be placed in the last -->
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

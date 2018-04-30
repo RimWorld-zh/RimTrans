@@ -92,6 +92,10 @@ namespace RimTrans.Lite.Windows
             return _selectedLanguage != null;
         }
 
+		private bool CanExecuteHasMods(object parameter) {
+			return Mods.Count > 0;
+		}
+
         #endregion
 
         #region Mod Command
@@ -144,6 +148,21 @@ namespace RimTrans.Lite.Windows
             {
             }
         }
+
+		// Remove All Mods
+		private RelayCommand _commandRemoveAllMods;
+		public RelayCommand CommandRemoveAllMods {
+			get { return _commandRemoveAllMods ?? (_commandRemoveAllMods = new RelayCommand(ExecuteRemoveAllMods, CanExecuteHasMods)); }
+		}
+		private void ExecuteRemoveAllMods(object parameter) {
+			foreach (ModListBoxItem curMod in Mods.ToList()) {
+				string curProjectFile = Path.Combine(_projectsDir, curMod.ProjectFileName);
+				Mods.Remove(curMod);
+				try {
+					File.Delete(curProjectFile);
+				} catch (Exception) { }
+			}
+		}
 
         // Exploer Mod
         private RelayCommand _commandExploreMod;
@@ -273,6 +292,16 @@ namespace RimTrans.Lite.Windows
         {
             var window = new BackstoryWindow();
             window.Show();
+        }
+
+        // Tools
+        private RelayCommand _commandTools;
+        public RelayCommand CommandTools {
+            get { return _commandTools ?? (_commandTools = new RelayCommand(ExecuteTools)); }
+        }
+        private void ExecuteTools(object parameter) {
+            var window = new ToolsWindow();
+            var dialogResult = window.ShowDialog(View);
         }
 
         // Options

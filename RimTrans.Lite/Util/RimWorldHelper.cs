@@ -44,7 +44,7 @@ namespace RimTrans.Lite.Util
                     int index;
                     if (int.TryParse(child.Name, out index))
                     {
-                        libraryFolders.Add(child.Value);
+                        libraryFolders.Add(Path.Combine(child.Value, "steamapps"));
                     }
                 }
             }

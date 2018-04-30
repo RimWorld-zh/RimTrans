@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace RimTrans.Builder.Xml
-{
-    public static class FieldNameOf
-    {
+namespace RimTrans.Builder.Xml {
+    public static class FieldNameOf {
         //public static string fieldName = "fieldName";
         public static string defName = "defName";
         public static string label = "label";
@@ -22,6 +20,8 @@ namespace RimTrans.Builder.Xml
         public static string labelFemale = "labelFemale";
         public static string labelFemalePlural = "labelFemalePlural";
         public static string lifeStages = "lifeStages";
+
+        public static string tab = "tab";
 
         public static string scenario = "scenario";
         public static string name = "name";

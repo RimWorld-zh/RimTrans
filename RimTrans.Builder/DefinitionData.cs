@@ -9,10 +9,8 @@ using System.Xml;
 using System.Xml.Linq;
 using RimTrans.Builder.Xml;
 
-namespace RimTrans.Builder
-{
-    public class DefinitionData
-    {
+namespace RimTrans.Builder {
+    public class DefinitionData {
         private SortedDictionary<string, XDocument> _data;
         public SortedDictionary<string, XDocument> Data { get { return this._data; } }
 
@@ -21,8 +19,7 @@ namespace RimTrans.Builder
 
         private bool isProcessedFieldNames = false;
         public bool IsProcessedFieldNames { get { return this.isProcessedFieldNames; } }
-        public void MarkProcessedFieldNames()
-        {
+        public void MarkProcessedFieldNames() {
             this.isProcessedFieldNames = true;
         }
 
@@ -34,28 +31,24 @@ namespace RimTrans.Builder
         #endregion
 
 
-        private DefinitionData()
-        {
+        private DefinitionData() {
 
         }
 
-        public DefinitionData(DefinitionData other)
-        {
+        public DefinitionData(DefinitionData other) {
             this._data = new SortedDictionary<string, XDocument>();
-            foreach (var kvpOther in other._data)
-            {
+            foreach (var kvpOther in other._data) {
                 this._data.Add(kvpOther.Key, new XDocument(kvpOther.Value));
             }
         }
 
         #region Load
-        
+
         /// <summary>
         /// Load from files
         /// </summary>
         /// <param name="definitionDataCore">For getting Core abstractions</param>
-        public static DefinitionData Load(string path, DefinitionData definitionDataCore = null)
-        {
+        public static DefinitionData Load(string path, DefinitionData definitionDataCore = null) {
             DefinitionData definitionData = new DefinitionData();
 
             definitionData.Load(path);
@@ -71,6 +64,7 @@ namespace RimTrans.Builder
             definitionData.CompleteJobReportString();
             definitionData.CompletePawnKindLabel(definitionDataCore);
             definitionData.CompletePawnRelationLabel();
+            definitionData.CompleteResearchTab();
             definitionData.CompleteScenarioNameAndDesc();
             definitionData.CompleteSkillLabel();
             definitionData.CompleteThingDefStuffAdjective();
@@ -79,31 +73,25 @@ namespace RimTrans.Builder
             return definitionData;
         }
 
-        private void Load(string path)
-        {
+        private void Load(string path) {
             this._data = new SortedDictionary<string, XDocument>();
             this._abstracts = new XElement("Abstracts");
 
             DirectoryInfo dirInfo = new DirectoryInfo(path);
-            if (dirInfo.Exists)
-            {
+            if (dirInfo.Exists) {
                 Log.Info();
                 Log.Write("Loading Defs: ");
                 Log.WriteLine(ConsoleColor.Cyan, path);
                 int countValidFiles = 0;
                 int countInvalidFiles = 0;
                 int splitIndex = dirInfo.FullName.Length + 1;
-                foreach (FileInfo fileInfo in dirInfo.GetFiles("*.xml", SearchOption.AllDirectories))
-                {
+                foreach (FileInfo fileInfo in dirInfo.GetFiles("*.xml", SearchOption.AllDirectories)) {
                     XDocument doc = null;
                     string filePath = fileInfo.FullName;
-                    try
-                    {
+                    try {
                         doc = XDocument.Load(filePath, LoadOptions.SetBaseUri);
                         countValidFiles++;
-                    }
-                    catch (XmlException ex)
-                    {
+                    } catch (XmlException ex) {
                         Log.Error();
                         Log.Write("Loading file failed: ");
                         Log.WriteLine(ConsoleColor.Red, filePath);
@@ -111,58 +99,49 @@ namespace RimTrans.Builder
                         Log.WriteLine(ex.Message);
                         countInvalidFiles++;
                     }
-                    if (doc != null)
-                    {
+                    if (doc != null) {
+                        foreach (XElement def in doc.Root.Elements()) {
+                            foreach (string defTypeName in DefTypeNameOf.AllNames) {
+                                if (string.Compare(def.Name.ToString(), defTypeName, true) == 0 && def.Name.ToString() != defTypeName) {
+                                    def.Name = defTypeName;
+                                }
+                            }
+                        }
                         this._data.Add(filePath.Substring(splitIndex), doc);
                         foreach (XElement abstr in from ele in doc.Root.Elements()
                                                    where ele.Attribute("Name") != null
-                                                   select ele)
-                        {
+                                                   select ele) {
                             XElement abstrGroup = this._abstracts.Element(abstr.Name);
-                            if (abstrGroup == null)
-                            {
+                            if (abstrGroup == null) {
                                 abstrGroup = new XElement(abstr.Name);
                                 abstrGroup.Add(abstr);
                                 ((XElement)abstrGroup.LastNode).SetAttributeValue("Uri", abstr.BaseUri);
                                 this._abstracts.Add(abstrGroup);
-                            }
-                            else
-                            {
+                            } else {
                                 abstrGroup.Add(abstr);
                                 ((XElement)abstrGroup.LastNode).SetAttributeValue("Uri", abstr.BaseUri);
                             }
                         }
                     }
                 }
-                if (countValidFiles > 0)
-                {
-                    if (countInvalidFiles == 0)
-                    {
+                if (countValidFiles > 0) {
+                    if (countInvalidFiles == 0) {
                         Log.Info();
                         Log.WriteLine("Completed Loading Defs: {0} file(s).", countValidFiles);
-                    }
-                    else
-                    {
+                    } else {
                         Log.Warning();
                         Log.WriteLine("Completed Loading Defs: Success: {0} file(s), Failure: {1} file(s).", countValidFiles, countInvalidFiles);
                     }
-                }
-                else
-                {
-                    if (countInvalidFiles == 0)
-                    {
+                } else {
+                    if (countInvalidFiles == 0) {
                         Log.Info();
                         Log.WriteLine("Directory \"Defs\" is empty.");
-                    }
-                    else
-                    {
+                    } else {
                         Log.Error();
                         Log.WriteLine("Loading failed: {1} file(s).", countInvalidFiles);
                     }
                 }
-            }
-            else
-            {
+            } else {
                 Log.Info();
                 Log.Write("Directory \"Defs\" does not exist: ");
                 Log.WriteLine(ConsoleColor.Cyan, path);
@@ -176,44 +155,33 @@ namespace RimTrans.Builder
         /// <summary>
         /// Process Abstractions and Inheritances
         /// </summary>
-        private void Inherit(DefinitionData definitionDataCore = null)
-        {
+        private void Inherit(DefinitionData definitionDataCore = null) {
             IEnumerable<XElement> children = from doc in this._data.Values
                                              from ele in doc.Root.Elements()
                                              where ele.Attribute("ParentName") != null && ele.HasField_defName()
                                              select ele;
-            if (children.Count() > 0)
-            {
+            if (children.Count() > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing Inheritances.");
                 XElement abstracts;
-                if (definitionDataCore == null)
-                {
+                if (definitionDataCore == null) {
                     abstracts = this._abstracts;
-                }
-                else
-                {
+                } else {
                     abstracts = new XElement(this._abstracts);
-                    foreach (XElement abstrsCore in definitionDataCore._abstracts.Elements())
-                    {
+                    foreach (XElement abstrsCore in definitionDataCore._abstracts.Elements()) {
                         XElement abstrs = abstracts.Element(abstrsCore.Name);
-                        if (abstrs == null)
-                        {
+                        if (abstrs == null) {
                             abstracts.Add(abstrsCore);
-                        }
-                        else
-                        {
+                        } else {
                             abstrs.Add(abstrsCore.Elements());
                         }
                     }
                 }
                 int countValidChildren = 0;
                 int countInvalidChildren = 0;
-                foreach (XElement defChild in children)
-                {
+                foreach (XElement defChild in children) {
                     XElement abstrGroup = abstracts.Element(defChild.Name);
-                    if (abstrGroup == null)
-                    {
+                    if (abstrGroup == null) {
                         Log.Warning();
                         Log.Write("Could not found parent for node: ");
                         Log.WriteLine(ConsoleColor.Yellow, "<{0}> defName=\"{1}\" ParentName=\"{2}\"",
@@ -223,30 +191,23 @@ namespace RimTrans.Builder
                         Log.Indent();
                         Log.WriteLine(ConsoleColor.Yellow, defChild.BaseUri);
                         countInvalidChildren++;
-                    }
-                    else
-                    {
+                    } else {
                         bool isFailed = true;
                         XElement defParent = defChild;
-                        do
-                        {
+                        do {
                             bool isParentFound = false;
                             string parentName = defParent.Attribute("ParentName").Value;
-                            foreach (XElement abstr in abstrGroup.Elements())
-                            {
-                                if (abstr.Attribute("Name").Value == parentName)
-                                {
+                            foreach (XElement abstr in abstrGroup.Elements()) {
+                                if (abstr.Attribute("Name").Value == parentName) {
                                     isParentFound = true;
                                     defParent = abstr;
                                     InheritRecursively(defChild, defParent); // Recursively
                                     break;
                                 }
                             }
-                            if (!isParentFound)
-                            {
+                            if (!isParentFound) {
                                 isFailed = false;
-                                if (defParent == defChild)
-                                {
+                                if (defParent == defChild) {
                                     Log.Warning();
                                     Log.Write("Could not found parent for node: ");
                                     Log.WriteLine(ConsoleColor.Yellow, "<{0}> defName=\"{1}\" ParentName=\"{2}\"",
@@ -255,9 +216,7 @@ namespace RimTrans.Builder
                                         parentName);
                                     Log.Indent();
                                     Log.WriteLine(ConsoleColor.Yellow, defChild.BaseUri);
-                                }
-                                else
-                                {
+                                } else {
                                     Log.Warning();
                                     Log.Write("Could not found parent for node: ");
                                     Log.WriteLine(ConsoleColor.Yellow, "<{0}> Name=\"{1}\" ParentName=\"{2}\"",
@@ -270,38 +229,26 @@ namespace RimTrans.Builder
                                 break;
                             }
                         } while (defParent.Attribute("ParentName") != null);
-                        if (isFailed)
-                        {
+                        if (isFailed) {
                             countValidChildren++;
-                        }
-                        else
-                        {
+                        } else {
                             countInvalidChildren++;
                         }
                     }
                 }
-                if (countValidChildren > 0)
-                {
-                    if (countInvalidChildren == 0)
-                    {
+                if (countValidChildren > 0) {
+                    if (countInvalidChildren == 0) {
                         Log.Info();
                         Log.WriteLine("Completed Inheriting: {0} node(s).", countValidChildren);
-                    }
-                    else
-                    {
+                    } else {
                         Log.Warning();
                         Log.WriteLine("Completed Inheriting: Success: {0} node(s), Failure: {1} node(s).", countValidChildren, countInvalidChildren);
                     }
-                }
-                else
-                {
-                    if (countInvalidChildren == 0)
-                    {
+                } else {
+                    if (countInvalidChildren == 0) {
                         Log.Info();
                         Log.WriteLine("No node need to inherit.");
-                    }
-                    else
-                    {
+                    } else {
                         Log.Error();
                         Log.WriteLine("Inheriting Failed: {0} node(s).", countInvalidChildren);
                     }
@@ -312,31 +259,22 @@ namespace RimTrans.Builder
         /// <summary>
         /// Inherit Recursively
         /// </summary>
-        private static void InheritRecursively(XElement child, XElement parent)
-        {
-            if (child.HasElements && parent.HasElements)
-            {
+        private static void InheritRecursively(XElement child, XElement parent) {
+            if (child.HasElements && parent.HasElements) {
                 if (child.Elements().First().Name.ToString() == "li" &&
-                    parent.Elements().First().Name.ToString() == "li")
-                {
+                    parent.Elements().First().Name.ToString() == "li") {
                     child.AddFirst(parent.Elements()); // Must use AddFirst();
-                }
-                else
-                {
-                    foreach (XElement fieldParent in parent.Elements())
-                    {
+                } else {
+                    foreach (XElement fieldParent in parent.Elements()) {
                         bool isMatched = false;
-                        foreach (XElement fieldChild in child.Elements())
-                        {
-                            if (string.Compare(fieldParent.Name.ToString(), fieldChild.Name.ToString(), true) == 0)
-                            {
+                        foreach (XElement fieldChild in child.Elements()) {
+                            if (string.Compare(fieldParent.Name.ToString(), fieldChild.Name.ToString(), true) == 0) {
                                 isMatched = true;
                                 InheritRecursively(fieldChild, fieldParent);
                                 break;
                             }
                         }
-                        if (!isMatched)
-                        {
+                        if (!isMatched) {
                             child.Add(fieldParent);
                         }
                     }
@@ -348,22 +286,38 @@ namespace RimTrans.Builder
 
         #region Complete
 
-        private void CompleteDamage()
-        {
+        private static void CompleteAndTidy(ref XElement previousField, ref XElement nextField, string nextFieldName, string value, string valueFormat = null) {
+            if (nextField == null) {
+                if (valueFormat == null) {
+                    previousField.AddAfterSelf(new XElement(nextFieldName, value));
+                } else {
+                    previousField.AddAfterSelf(new XElement(nextFieldName, string.Format(valueFormat, value)));
+                }
+                nextField = previousField.ElementsAfterSelf().First();
+            } else {
+                try {
+                    if (nextField != previousField.ElementsAfterSelf().First()) {
+                        nextField.Remove();
+                        previousField.AddAfterSelf(nextField);
+                        nextField = previousField.ElementsAfterSelf().First();
+                    }
+                } catch (Exception) {
+                }
+            }
+        }
+
+        private void CompleteDamage() {
             IEnumerable<XElement> damageDefsAll = from doc in this._data.Values
                                                   from ele in doc.Root.Elements(DefTypeNameOf.DamageDef)
                                                   where ele.HasField_defName()
                                                   select ele;
             int countDamageDefs = damageDefsAll.Count();
-            if (countDamageDefs > 0)
-            {
+            if (countDamageDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing DamageDefs.");
-                foreach (XElement damageDef in damageDefsAll)
-                {
+                foreach (XElement damageDef in damageDefsAll) {
                     XElement deathMessage = damageDef.Field(FieldNameOf.deathMessage);
-                    if (deathMessage == null)
-                    {
+                    if (deathMessage == null) {
                         damageDef.Add(new XElement(FieldNameOf.deathMessage, "{0} has been killed."));
                     }
                 }
@@ -372,22 +326,18 @@ namespace RimTrans.Builder
             }
         }
 
-        private void CompleteJobReportString()
-        {
+        private void CompleteJobReportString() {
             IEnumerable<XElement> jobDefsAll = from doc in this._data.Values
                                                from ele in doc.Root.Elements(DefTypeNameOf.JobDef)
                                                where ele.HasField_defName()
                                                select ele;
             int countJobDefs = jobDefsAll.Count();
-            if (countJobDefs > 0)
-            {
+            if (countJobDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing JobDefs.");
-                foreach (XElement jobDef in jobDefsAll)
-                {
+                foreach (XElement jobDef in jobDefsAll) {
                     XElement reportString = jobDef.Field(FieldNameOf.reportString);
-                    if (reportString == null)
-                    {
+                    if (reportString == null) {
                         jobDef.Add(new XElement(FieldNameOf.reportString, "Doing something."));
                     }
                 }
@@ -396,86 +346,48 @@ namespace RimTrans.Builder
             }
         }
 
-        private static void CompleteAndTidy(ref XElement previousField, ref XElement nextField, string nextFieldName, string value, string valueFormat = null)
-        {
-            if (nextField == null)
-            {
-                if (valueFormat == null)
-                {
-                    previousField.AddAfterSelf(new XElement(nextFieldName, value));
-                }
-                else
-                {
-                    previousField.AddAfterSelf(new XElement(nextFieldName, string.Format(valueFormat, value)));
-                }
-                nextField = previousField.ElementsAfterSelf().First();
-            }
-            else
-            {
-                try
-                {
-                    if (nextField != previousField.ElementsAfterSelf().First())
-                    {
-                        nextField.Remove();
-                        previousField.AddAfterSelf(nextField);
-                        nextField = previousField.ElementsAfterSelf().First();
-                    }
-                }
-                catch (Exception)
-                {
-                }
-            }
-        }
-
-        private void CompletePawnKindLabel(DefinitionData definitionDataCore = null)
-        {
+        private void CompletePawnKindLabel(DefinitionData definitionDataCore = null) {
             IEnumerable<XElement> pawnKindDefsAll = from doc in this._data.Values
                                                     from ele in doc.Root.Elements(DefTypeNameOf.PawnKindDef)
                                                     where ele.HasField_defName()
                                                     select ele;
             int countPawnKindDefs = pawnKindDefsAll.Count();
-            if (countPawnKindDefs > 0)
-            {
+            if (countPawnKindDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing PawnKindDefs.");
                 IEnumerable<XElement> racesAll = this.GetAllRaces();
-                if (definitionDataCore != null)
-                {
+                if (definitionDataCore != null) {
                     racesAll.Concat(definitionDataCore.GetAllRaces());
                 }
 
-                foreach (XElement pawnKindDef in pawnKindDefsAll)
-                {
+                foreach (XElement pawnKindDef in pawnKindDefsAll) {
                     bool hasGenders = true;
                     bool isHumanlike = false;
                     XElement raceDefName = pawnKindDef.Field(FieldNameOf.race);
-                    if (raceDefName == null)
-                    {
+                    if (raceDefName == null) {
                         Log.Error();
                         Log.WriteLine($"The PawnKindDef '{pawnKindDef.Field("defName").Value}' missing the important field 'race'.");
                         continue;
                     }
                     string raceName = raceDefName.Value;
-                    foreach (XElement race in racesAll)
-                    {
-                        if (race.defName().Value == raceName)
-                        {
+                    foreach (XElement race in racesAll) {
+                        if (race.defName().Value == raceName) {
                             XElement field_race = race.Field(FieldNameOf.race);
-                            if (field_race != null)
-                            {
+                            if (field_race != null) {
                                 XElement field_hasGenders = field_race.Field(FieldNameOf.hasGenders);
-                                if (field_hasGenders != null && !bool.TryParse(field_hasGenders.Value, out hasGenders))
-                                {
+                                if (field_hasGenders != null && !bool.TryParse(field_hasGenders.Value, out hasGenders)) {
                                     hasGenders = true;
                                 }
                                 XElement field_intelligence = field_race.Field(FieldNameOf.intelligence);
-                                if (field_intelligence != null && field_intelligence.Value == "Humanlike")
-                                {
+                                if (field_intelligence != null && field_intelligence.Value == "Humanlike") {
                                     isHumanlike = true;
                                 }
                             }
                             break;
                         }
+                    }
+                    if (raceName == "Human") {
+                        isHumanlike = true;
                     }
 
 
@@ -486,25 +398,30 @@ namespace RimTrans.Builder
                     XElement label = pawnKindDef.label();
                     bool flag_Plural = false;
                     XElement labelPlural = pawnKindDef.Field(FieldNameOf.labelPlural);
-                    if (labelPlural != null) flag_Plural = true;
+                    if (labelPlural != null)
+                        flag_Plural = true;
 
                     // Male
                     bool flag_Male = false;
                     XElement labelMale = pawnKindDef.Field(FieldNameOf.labelMale);
-                    if (labelMale != null) flag_Male = true;
+                    if (labelMale != null)
+                        flag_Male = true;
                     // MalePlural
                     bool flag_MalePlural = false;
                     XElement labelMalePlural = pawnKindDef.Field(FieldNameOf.labelMalePlural);
-                    if (labelMalePlural != null) flag_MalePlural = true;
+                    if (labelMalePlural != null)
+                        flag_MalePlural = true;
 
                     // Female
                     bool flag_Female = false;
                     XElement labelFemale = pawnKindDef.Field(FieldNameOf.labelFemale);
-                    if (labelFemale != null) flag_Female = true;
+                    if (labelFemale != null)
+                        flag_Female = true;
                     // FemalePlural
                     bool flag_FemalePlural = false;
                     XElement labelFemalePlural = pawnKindDef.Field(FieldNameOf.labelFemalePlural);
-                    if (labelFemalePlural != null) flag_FemalePlural = true;
+                    if (labelFemalePlural != null)
+                        flag_FemalePlural = true;
 
                     // label
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
@@ -514,24 +431,18 @@ namespace RimTrans.Builder
                     // Male
                     CompleteAndTidy(ref labelPlural, ref labelMale, FieldNameOf.labelMale, label.Value, "male {0}");
                     // MalePlural
-                    if (flag_Plural)
-                    {
+                    if (flag_Plural) {
                         CompleteAndTidy(ref labelMale, ref labelMalePlural, FieldNameOf.labelMalePlural, labelPlural.Value, "male {0}");
-                    }
-                    else
-                    {
+                    } else {
                         CompleteAndTidy(ref labelMale, ref labelMalePlural, FieldNameOf.labelMalePlural, labelMale.Value, "{0}s");
                     }
 
                     // Female
                     CompleteAndTidy(ref labelMalePlural, ref labelFemale, FieldNameOf.labelFemale, label.Value, "female {0}");
                     // FemalePlural
-                    if (flag_Plural)
-                    {
+                    if (flag_Plural) {
                         CompleteAndTidy(ref labelFemale, ref labelFemalePlural, FieldNameOf.labelFemalePlural, labelPlural.Value, "female {0}");
-                    }
-                    else
-                    {
+                    } else {
                         CompleteAndTidy(ref labelFemale, ref labelFemalePlural, FieldNameOf.labelFemalePlural, labelFemale.Value, "{0}s");
                     }
 
@@ -539,145 +450,113 @@ namespace RimTrans.Builder
 
                     // Process lifeStages
                     XElement lifeStages = pawnKindDef.Field(FieldNameOf.lifeStages);
-                    if (lifeStages != null && lifeStages.Elements().Count() > 0)
-                    {
+                    if (lifeStages != null && lifeStages.Elements().Count() > 0) {
                         IEnumerable<XElement> lifeStagesList = lifeStages.Elements();
                         // Patch all labels in lifeStages
-                        foreach (XElement curLifeStage in lifeStagesList)
-                        {
+                        foreach (XElement curLifeStage in lifeStagesList) {
                             // label
                             bool curflag_label = false;
                             XElement curLabel = curLifeStage.label();
-                            if (curLabel != null) curflag_label = true;
+                            if (curLabel != null)
+                                curflag_label = true;
                             bool curflag_Plural = false;
                             XElement curLabelPlural = curLifeStage.Field(FieldNameOf.labelPlural);
-                            if (curLabelPlural != null) curflag_Plural = true;
+                            if (curLabelPlural != null)
+                                curflag_Plural = true;
 
                             // labelMale
                             bool curflag_Male = false;
                             XElement curLabelMale = curLifeStage.Field(FieldNameOf.labelMale);
-                            if (curLabelMale != null) curflag_Male = true;
+                            if (curLabelMale != null)
+                                curflag_Male = true;
                             bool curflag_MalePlural = false;
                             XElement curLabelMalePlural = curLifeStage.Field(FieldNameOf.labelMalePlural);
-                            if (curLabelMalePlural != null) curflag_MalePlural = true;
+                            if (curLabelMalePlural != null)
+                                curflag_MalePlural = true;
 
                             // Female
                             bool curflag_Female = false;
                             XElement curLabelFemale = curLifeStage.Field(FieldNameOf.labelFemale);
-                            if (curLabelFemale != null) curflag_Female = true;
+                            if (curLabelFemale != null)
+                                curflag_Female = true;
                             // FemalPlural
                             bool curflag_FemalePlural = false;
                             XElement curLabelFemalePlural = curLifeStage.Field(FieldNameOf.labelFemalePlural);
-                            if (curLabelFemalePlural != null) curflag_FemalePlural = true;
+                            if (curLabelFemalePlural != null)
+                                curflag_FemalePlural = true;
 
                             ////////////////////////////////////////////////////////////////
 
-                            if (lifeStages.Elements().Count() == 1 && 
+                            if (lifeStages.Elements().Count() == 1 &&
                                 !curflag_label && !curflag_Plural &&
                                 !curflag_Male && !curflag_MalePlural &&
-                                !curflag_Female && !curflag_FemalePlural)
-                            {
+                                !curflag_Female && !curflag_FemalePlural) {
                                 flag_NothingInLifeStage = true;
                                 break;
-                            }
-                            else
-                            {
+                            } else {
                                 flag_NothingInLifeStage = false;
                             }
 
                             ////////////////////////////////////////////////////////////////
 
                             // label
-                            if (curLabel == null)
-                            {
+                            if (curLabel == null) {
                                 curLifeStage.AddFirst(label);
                                 curLabel = curLifeStage.label();
-                            }
-                            else if (curLabel != curLifeStage.Elements().First())
-                            {
+                            } else if (curLabel != curLifeStage.Elements().First()) {
                                 curLabel.Remove();
                                 curLifeStage.AddFirst(curLabel);
                                 curLabel = curLifeStage.Elements().First();
                             }
                             // Plural
-                            if (curflag_label)
-                            {
+                            if (curflag_label) {
                                 CompleteAndTidy(ref curLabel, ref curLabelPlural, FieldNameOf.labelPlural, curLabel.Value, "{0}s");
-                            }
-                            else if (flag_Plural)
-                            {
+                            } else if (flag_Plural) {
                                 CompleteAndTidy(ref curLabel, ref curLabelPlural, FieldNameOf.labelPlural, labelPlural.Value);
-                            }
-                            else
-                            {
+                            } else {
                                 CompleteAndTidy(ref curLabel, ref curLabelPlural, FieldNameOf.labelPlural, label.Value);
                             }
 
                             // Male
-                            if (curflag_label)
-                            {
+                            if (curflag_label) {
                                 CompleteAndTidy(ref curLabelPlural, ref curLabelMale, FieldNameOf.labelMale, curLabel.Value, "male {0}");
-                            }
-                            else if (flag_Male)
-                            {
+                            } else if (flag_Male) {
                                 CompleteAndTidy(ref curLabelPlural, ref curLabelMale, FieldNameOf.labelMale, labelMale.Value);
-                            }
-                            else
-                            {
+                            } else {
                                 CompleteAndTidy(ref curLabelPlural, ref curLabelMale, FieldNameOf.labelMale, label.Value, "male {0}");
                             }
                             // MalePlural
-                            if (curflag_Male)
-                            {
+                            if (curflag_Male) {
                                 CompleteAndTidy(ref curLabelMale, ref curLabelMalePlural, FieldNameOf.labelMalePlural, curLabelMale.Value, "{0}s");
-                            }
-                            else if (curflag_Plural)
-                            {
+                            } else if (curflag_Plural) {
                                 CompleteAndTidy(ref curLabelMale, ref curLabelMalePlural, FieldNameOf.labelMalePlural, curLabelPlural.Value, "male {0}");
-                            }
-                            else if (curflag_label)
-                            {
+                            } else if (curflag_label) {
                                 CompleteAndTidy(ref curLabelMale, ref curLabelMalePlural, FieldNameOf.labelMalePlural, curLabel.Value, "male {0}s");
-                            }
-                            else
-                            {
+                            } else {
                                 CompleteAndTidy(ref curLabelMale, ref curLabelMalePlural, FieldNameOf.labelMalePlural, label.Value, "male {0}s");
                             }
 
                             // Female
-                            if (curflag_label)
-                            {
+                            if (curflag_label) {
                                 CompleteAndTidy(ref curLabelMalePlural, ref curLabelFemale, FieldNameOf.labelFemale, curLabel.Value, "female {0}");
-                            }
-                            else if (flag_Female)
-                            {
+                            } else if (flag_Female) {
                                 CompleteAndTidy(ref curLabelMalePlural, ref curLabelFemale, FieldNameOf.labelFemale, labelFemale.Value);
-                            }
-                            else
-                            {
+                            } else {
                                 CompleteAndTidy(ref curLabelMalePlural, ref curLabelFemale, FieldNameOf.labelFemale, label.Value, "female {0}");
                             }
                             // FemalePlural
-                            if (curflag_Female)
-                            {
+                            if (curflag_Female) {
                                 CompleteAndTidy(ref curLabelFemale, ref curLabelFemalePlural, FieldNameOf.labelFemalePlural, curLabelFemale.Value, "{0}s");
-                            }
-                            else if (curflag_Plural)
-                            {
+                            } else if (curflag_Plural) {
                                 CompleteAndTidy(ref curLabelFemale, ref curLabelFemalePlural, FieldNameOf.labelFemalePlural, curLabelPlural.Value, "female {0}");
-                            }
-                            else if (curflag_label)
-                            {
+                            } else if (curflag_label) {
                                 CompleteAndTidy(ref curLabelFemale, ref curLabelFemalePlural, FieldNameOf.labelFemalePlural, curLabel.Value, "female {0}s");
-                            }
-                            else
-                            {
+                            } else {
                                 CompleteAndTidy(ref curLabelFemale, ref curLabelFemalePlural, FieldNameOf.labelFemalePlural, label.Value, "female {0}s");
                             }
 
                             // Remove labels according to hasGenders
-                            if (!hasGenders)
-                            {
+                            if (!hasGenders) {
                                 curLabelMale.Remove();
                                 curLabelMalePlural.Remove();
                                 curLabelFemale.Remove();
@@ -687,17 +566,14 @@ namespace RimTrans.Builder
                     }
 
                     // Remove root labels
-                    if (!hasGenders)
-                    {
+                    if (!hasGenders) {
                         labelMale.Remove();
                         labelMalePlural.Remove();
                         labelFemale.Remove();
                         labelFemalePlural.Remove();
-                    }
-                    else if (isHumanlike &&
-                        !flag_Male && !flag_MalePlural &&
-                        !flag_Female && !flag_FemalePlural)
-                    {
+                    } else if (isHumanlike &&
+                          !flag_Male && !flag_MalePlural &&
+                          !flag_Female && !flag_FemalePlural) {
                         labelMale.Remove();
                         labelMalePlural.Remove();
                         labelFemale.Remove();
@@ -712,34 +588,28 @@ namespace RimTrans.Builder
         /// <summary>
         /// Get all races (ThingDef which is pawn category) in this Defs.
         /// </summary>
-        public IEnumerable<XElement> GetAllRaces()
-        {
+        public IEnumerable<XElement> GetAllRaces() {
             foreach (XElement thingDef in from doc in this._data.Values
                                           from ele in doc.Root.Elements(DefTypeNameOf.ThingDef)
                                           where ele.HasField_defName()
-                                          select ele)
-            {
+                                          select ele) {
                 XElement category = thingDef.Field(FieldNameOf.category);
-                if (category != null && category.Value == "Pawn")
-                {
+                if (category != null && category.Value == "Pawn") {
                     yield return thingDef;
                 }
             }
         }
 
-        private void CompletePawnRelationLabel()
-        {
+        private void CompletePawnRelationLabel() {
             IEnumerable<XElement> pawnRelationDefsAll = from doc in this._data.Values
                                                         from ele in doc.Root.Elements(DefTypeNameOf.PawnRelationDef)
                                                         where ele.HasField_defName()
                                                         select ele;
             int countPawnRelationDefs = pawnRelationDefsAll.Count();
-            if (countPawnRelationDefs > 0)
-            {
+            if (countPawnRelationDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing PawnRelationDefs.");
-                foreach (XElement pawnRelationDef in pawnRelationDefsAll)
-                {
+                foreach (XElement pawnRelationDef in pawnRelationDefsAll) {
                     XElement defName = pawnRelationDef.defName();
                     XElement label = pawnRelationDef.label();
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
@@ -751,36 +621,50 @@ namespace RimTrans.Builder
             }
         }
 
-        private void CompleteScenarioNameAndDesc()
-        {
+        private void CompleteResearchTab() {
+            IEnumerable<XElement> researchProjectDefsAll = from doc in this._data.Values
+                                                           from ele in doc.Root.Elements(DefTypeNameOf.ResearchProjectDef)
+                                                           where ele.HasField_defName()
+                                                           select ele;
+            int countResearchProjectDefs = researchProjectDefsAll.Count();
+            if (countResearchProjectDefs > 0) {
+                Log.Info();
+                Log.WriteLine("Start processing ResearchProjectDef.");
+                foreach (XElement researchProjectDef in researchProjectDefsAll) {
+                    XElement tab = researchProjectDef.Field(FieldNameOf.tab);
+                    if (tab == null) {
+                        researchProjectDef.Add(new XElement(FieldNameOf.tab, "Main"));
+                    }
+                }
+                Log.Info();
+                Log.WriteLine("Completed processing ResearchProjectDefs: {0} node(s).", countResearchProjectDefs);
+            }
+        }
+
+        private void CompleteScenarioNameAndDesc() {
             IEnumerable<XElement> scenarioDefsAll = from doc in this._data.Values
                                                     from ele in doc.Root.Elements(DefTypeNameOf.ScenarioDef)
                                                     where ele.HasField_defName()
                                                     select ele;
             int countScenarioDefs = scenarioDefsAll.Count();
-            if (countScenarioDefs > 0)
-            {
+            if (countScenarioDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing ScenarioDefs.");
-                foreach (XElement scenarioDef in scenarioDefsAll)
-                {
+                foreach (XElement scenarioDef in scenarioDefsAll) {
                     XElement defName = scenarioDef.defName();
                     XElement label = scenarioDef.label();
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
                     XElement description = scenarioDef.description();
                     CompleteAndTidy(ref label, ref description, FieldNameOf.description, label.Value);
                     XElement scenario = scenarioDef.Field(FieldNameOf.scenario);
-                    if (scenario != null)
-                    {
+                    if (scenario != null) {
                         XElement name = scenario.Field(FieldNameOf.name);
-                        if (name == null)
-                        {
+                        if (name == null) {
                             scenario.AddFirst(new XElement(FieldNameOf.name, label.Value));
                             name = scenario.Field(FieldNameOf.name);
                         }
                         XElement desc = scenario.description();
-                        if (desc == null)
-                        {
+                        if (desc == null) {
                             name.AddAfterSelf(new XElement(FieldNameOf.description, description.Value));
                         }
                     }
@@ -790,30 +674,23 @@ namespace RimTrans.Builder
             }
         }
 
-        private void CompleteSkillLabel()
-        {
+        private void CompleteSkillLabel() {
             IEnumerable<XElement> skillDefsAll = from doc in this._data.Values
-                                                    from ele in doc.Root.Elements(DefTypeNameOf.SkillDef)
-                                                    where ele.HasField_defName()
-                                                    select ele;
+                                                 from ele in doc.Root.Elements(DefTypeNameOf.SkillDef)
+                                                 where ele.HasField_defName()
+                                                 select ele;
             int countSkillDefs = skillDefsAll.Count();
-            if (countSkillDefs > 0)
-            {
+            if (countSkillDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing SkillDefs.");
-                foreach (XElement skillDef in skillDefsAll)
-                {
+                foreach (XElement skillDef in skillDefsAll) {
                     XElement defName = skillDef.defName();
                     XElement label = skillDef.label();
                     XElement skillLabel = skillDef.Field(FieldNameOf.skillLabel);
-                    if (label == null)
-                    {
-                        if (skillLabel == null)
-                        {
+                    if (label == null) {
+                        if (skillLabel == null) {
                             defName.AddAfterSelf(new XElement(FieldNameOf.label, defName.Value));
-                        }
-                        else
-                        {
+                        } else {
                             defName.AddAfterSelf(new XElement(FieldNameOf.label, skillLabel.Value));
                         }
                     }
@@ -823,23 +700,19 @@ namespace RimTrans.Builder
             }
         }
 
-        private void CompleteThingDefStuffAdjective()
-        {
+        private void CompleteThingDefStuffAdjective() {
             IEnumerable<XElement> stuffsAll = this.GetAllStuffs();
             int countStuffs = stuffsAll.Count();
-            if (countStuffs > 0)
-            {
+            if (countStuffs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing StuffAdjective.");
-                foreach (XElement stuff in stuffsAll)
-                {
+                foreach (XElement stuff in stuffsAll) {
                     XElement defName = stuff.defName();
                     XElement label = stuff.label();
                     CompleteAndTidy(ref defName, ref label, FieldNameOf.label, defName.Value);
                     XElement stuffProps = stuff.Field(FieldNameOf.stuffProps);
                     XElement stuffAdjective = stuffProps.Field(FieldNameOf.stuffAdjective);
-                    if (stuffAdjective == null)
-                    {
+                    if (stuffAdjective == null) {
                         stuffProps.AddFirst(new XElement(FieldNameOf.stuffAdjective, label.Value));
                     }
                 }
@@ -851,46 +724,36 @@ namespace RimTrans.Builder
         /// <summary>
         /// Get all stuffs (ThingDef which has stuffProps) in this Defs.
         /// </summary>
-        public IEnumerable<XElement> GetAllStuffs()
-        {
+        public IEnumerable<XElement> GetAllStuffs() {
             foreach (XElement thingDef in from doc in this._data.Values
                                           from ele in doc.Root.Elements(DefTypeNameOf.ThingDef)
                                           where ele.HasField_defName()
-                                          select ele)
-            {
+                                          select ele) {
                 XElement category = thingDef.Field(FieldNameOf.category);
                 XElement stuffProps = thingDef.Field(FieldNameOf.stuffProps);
-                if (category != null && category.Value == "Item" && stuffProps != null)
-                {
+                if (category != null && category.Value == "Item" && stuffProps != null) {
                     yield return thingDef;
                 }
             }
         }
 
-        private void CompleteWorkTypeLabel()
-        {
+        private void CompleteWorkTypeLabel() {
             IEnumerable<XElement> workTypeDefsAll = from doc in this._data.Values
                                                     from ele in doc.Root.Elements(DefTypeNameOf.WorkTypeDef)
                                                     where ele.HasField_defName()
                                                     select ele;
             int countWorkTypeDefs = workTypeDefsAll.Count();
-            if (countWorkTypeDefs > 0)
-            {
+            if (countWorkTypeDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start processing WorkTypeDefs.");
-                foreach (XElement workTypeDef in workTypeDefsAll)
-                {
+                foreach (XElement workTypeDef in workTypeDefsAll) {
                     XElement defName = workTypeDef.defName();
                     XElement label = workTypeDef.label();
                     XElement labelShort = workTypeDef.Field(FieldNameOf.labelShort);
-                    if (label == null)
-                    {
-                        if (labelShort == null)
-                        {
+                    if (label == null) {
+                        if (labelShort == null) {
                             defName.AddAfterSelf(new XElement(FieldNameOf.label, defName.Value));
-                        }
-                        else
-                        {
+                        } else {
                             defName.AddAfterSelf(new XElement(FieldNameOf.label, labelShort.Value));
                         }
                     }
@@ -907,8 +770,7 @@ namespace RimTrans.Builder
         /// <summary>
         /// Process this definition data for MediaWiki.
         /// </summary>
-        public void Wiki()
-        {
+        public void Wiki() {
             this.WikiExtraPawn();
             this.WikiRecipesAddMake();
             this.WikiRecipesAddAdminister();
@@ -917,8 +779,7 @@ namespace RimTrans.Builder
             this.WikiKeyBindingsAddMainTab();
         }
 
-        private void WikiExtraPawn()
-        {
+        private void WikiExtraPawn() {
             #region Raw Leather
             XElement rawLeather = new XElement(DefTypeNameOf.ThingDef);
             {
@@ -1021,8 +882,7 @@ namespace RimTrans.Builder
             foreach (XElement curDef in from doc in this._data.Values
                                         from ele in doc.Root.Elements()
                                         where ele.Name.ToString() == DefTypeNameOf.ThingDef
-                                        select ele)
-            {
+                                        select ele) {
                 XElement defName = curDef.defName();
                 if (defName == null)
                     continue;
@@ -1036,7 +896,8 @@ namespace RimTrans.Builder
                     continue;
 
                 XElement label = curDef.label();
-                if (label == null) label = defName;
+                if (label == null)
+                    label = defName;
                 string defNameValue = defName.Value;
                 string labelValue = label.Value;
 
@@ -1044,8 +905,7 @@ namespace RimTrans.Builder
                 XElement LeatherAmount = null;
                 XElement MeatAmount = null;
                 XElement statBases = curDef.Field(FieldNameOf.statBases);
-                if (statBases != null)
-                {
+                if (statBases != null) {
                     LeatherAmount = statBases.Element("LeatherAmount");
                     MeatAmount = statBases.Element("MeatAmount");
                 }
@@ -1053,28 +913,18 @@ namespace RimTrans.Builder
                 XElement useLeatherFrom = race.Field(FieldNameOf.useLeatherFrom);
                 XElement useMeatFrom = race.Field(FieldNameOf.useMeatFrom);
 
-                if (fleshType != null && fleshType.Value == "Mechanoid")
-                {
+                if (fleshType != null && fleshType.Value == "Mechanoid") {
 
-                }
-                else
-                {
+                } else {
                     // Leather
                     XElement leatherAfterRace = null;
-                    if (butcherProducts != null)
-                    {
+                    if (butcherProducts != null) {
 
-                    }
-                    else if (LeatherAmount != null && LeatherAmount.Value == "0")
-                    {
+                    } else if (LeatherAmount != null && LeatherAmount.Value == "0") {
 
-                    }
-                    else if (useLeatherFrom != null)
-                    {
+                    } else if (useLeatherFrom != null) {
 
-                    }
-                    else
-                    {
+                    } else {
                         #region GenerateThingDef Leather
                         XElement leatherLabel = race.Field(FieldNameOf.leatherLabel);
                         string leatherLabelValue =
@@ -1087,41 +937,33 @@ namespace RimTrans.Builder
                         leather.Element("description").Value = leatherLabelValue;
                         leather.Element("stuffProps").Element("stuffAdjective").Value = leatherLabelValue;
                         XElement leatherColor = race.Field(FieldNameOf.leatherColor);
-                        if (leatherColor != null)
-                        {
+                        if (leatherColor != null) {
                             leather.Element("graphicData").Element("color").Value = leatherColor.Value;
                             leather.Element("graphicData").Element("colorTwo").Value = leatherColor.Value;
                             leather.Element("stuffProps").Element("color").Value = leatherColor.Value;
                         }
                         XElement leatherCommonalityFactor = race.Field(FieldNameOf.leatherCommonalityFactor);
-                        if (leatherCommonalityFactor != null)
-                        {
+                        if (leatherCommonalityFactor != null) {
                             float factor;
-                            if (float.TryParse(leatherCommonalityFactor.Value, out factor))
-                            {
+                            if (float.TryParse(leatherCommonalityFactor.Value, out factor)) {
                                 leather.Element("stuffProps").Element("commonality").Value = (1.0f * factor).ToString();
                             }
                         }
                         XElement leatherInsulation = race.Field(FieldNameOf.leatherInsulation);
-                        if (leatherInsulation != null)
-                        {
+                        if (leatherInsulation != null) {
                             leather.Element("stuffProps").Element("statFactors").Element("Insulation_Cold").Value = leatherInsulation.Value;
                         }
                         XElement leatherStatFactors = race.Field(FieldNameOf.leatherStatFactors);
-                        if (leatherStatFactors != null)
-                        {
+                        if (leatherStatFactors != null) {
                             XElement statFactors = leather.Element("stuffProps").Element("statFactors");
-                            foreach (XElement leatherStat in leatherStatFactors.Elements())
-                            {
+                            foreach (XElement leatherStat in leatherStatFactors.Elements()) {
                                 statFactors.SetElementValue(leatherStat.Name, leatherStat.Value);
                             }
                         }
                         XElement leatherMarketValueFactor = race.Field(FieldNameOf.leatherMarketValueFactor);
-                        if (leatherMarketValueFactor != null)
-                        {
+                        if (leatherMarketValueFactor != null) {
                             float factor;
-                            if (float.TryParse(leatherMarketValueFactor.Value, out factor))
-                            {
+                            if (float.TryParse(leatherMarketValueFactor.Value, out factor)) {
                                 leather.Element("statBases").Element("MarketValue").Value = (2.1f * factor).ToString();
                             }
                         }
@@ -1131,16 +973,11 @@ namespace RimTrans.Builder
                     }
 
                     // Meat
-                    if (MeatAmount != null && MeatAmount.Value == "0")
-                    {
+                    if (MeatAmount != null && MeatAmount.Value == "0") {
 
-                    }
-                    else if (useMeatFrom != null)
-                    {
+                    } else if (useMeatFrom != null) {
 
-                    }
-                    else
-                    {
+                    } else {
                         #region GenerateThingDef Meat
                         XElement meatLabel = race.Field(FieldNameOf.meatLabel);
                         string meatLabelValue =
@@ -1151,47 +988,34 @@ namespace RimTrans.Builder
                         meat.Element("defName").Value = defNameValue + "_Meat";
                         meat.Element("label").Value = meatLabelValue;
                         meat.Element("description").Value = meatLabelValue;
-                        if (fleshType != null && fleshType.Value == "Insectoid")
-                        {
+                        if (fleshType != null && fleshType.Value == "Insectoid") {
                             XElement ingestible = meat.Element("ingestible");
                             ingestible.SetElementValue("specialThoughtDirect", "AteInsectMeatDirect");
                             ingestible.SetElementValue("specialThoughtAsIngredient", "AteInsectMeatAsIngredient");
                         }
                         XElement intelligence = race.Field(FieldNameOf.intelligence);
-                        if (intelligence != null && intelligence.Value == "Humanlike")
-                        {
+                        if (intelligence != null && intelligence.Value == "Humanlike") {
                             meat.Element("graphicData").Element("texPath").Value = "Things/Item/Resource/MeatFoodRaw/MeatHuman";
-                        }
-                        else
-                        {
+                        } else {
                             XElement baseBodySize = race.Field(FieldNameOf.baseBodySize);
-                            if (baseBodySize != null)
-                            {
+                            if (baseBodySize != null) {
                                 float size;
-                                if (float.TryParse(baseBodySize.Value, out size))
-                                {
-                                    if (size >= 0.7f)
-                                    {
+                                if (float.TryParse(baseBodySize.Value, out size)) {
+                                    if (size >= 0.7f) {
                                         meat.Element("graphicData").Element("texPath").Value = "Things/Item/Resource/MeatFoodRaw/MeatSmall";
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         meat.Element("graphicData").Element("texPath").Value = "Things/Item/Resource/MeatFoodRaw/MeatBig";
                                     }
                                 }
                             }
                         }
                         XElement meatColor = race.Field(FieldNameOf.meatColor);
-                        if (meatColor != null)
-                        {
+                        if (meatColor != null) {
                             meat.Element("graphicData").Element("color").Value = meatColor.Value;
                         }
-                        if (leatherAfterRace != null)
-                        {
+                        if (leatherAfterRace != null) {
                             leatherAfterRace.AddAfterSelf(meat);
-                        }
-                        else
-                        {
+                        } else {
                             curDef.AddAfterSelf(meat);
                         }
                         #endregion
@@ -1200,15 +1024,13 @@ namespace RimTrans.Builder
             }
         }
 
-        private void WikiRecipesAddMake()
-        {
+        private void WikiRecipesAddMake() {
             XDocument docRecipeAddMake = DocHelper.EmptyDocDef();
             docRecipeAddMake.Root.Add(new XComment("Implied RecipeDef from recipeMaker, generated by RimTrans."));
             foreach (XElement curDef in from doc in this._data.Values
                                         from ele in doc.Root.Elements()
                                         where ele.Name.ToString() == DefTypeNameOf.ThingDef
-                                        select ele)
-            {
+                                        select ele) {
                 XElement defName = curDef.defName();
                 if (defName == null)
                     continue;
@@ -1219,7 +1041,8 @@ namespace RimTrans.Builder
 
                 #region GenerateRecipeDef Make
                 XElement label = curDef.label();
-                if (label == null) label = defName;
+                if (label == null)
+                    label = defName;
                 string labelValue = label.Value;
                 XElement recipe = new XElement(DefTypeNameOf.RecipeDef);
                 recipe.Add(new XElement("defName", "Make_" + defName.Value));
@@ -1227,16 +1050,17 @@ namespace RimTrans.Builder
                 recipe.Add(new XElement("description", $"Make {labelValue}."));
                 recipe.Add(new XElement("jobString", $"Making {labelValue}."));
                 XElement statBases = curDef.Field(FieldNameOf.statBases);
-                if (statBases != null)
-                {
+                if (statBases != null) {
                     XElement WorkToMake = statBases.Element("WorkToMake");
                     if (WorkToMake != null)
                         recipe.Add(new XElement("workAmount", WorkToMake.Value));
                 }
                 XElement workSpeedStat = recipeMaker.Field(FieldNameOf.workSpeedStat);
-                if (workSpeedStat != null) recipe.Add(workSpeedStat);
+                if (workSpeedStat != null)
+                    recipe.Add(workSpeedStat);
                 XElement efficiencyStat = recipeMaker.Field(FieldNameOf.efficiencyStat);
-                if (efficiencyStat != null) recipe.Add(efficiencyStat);
+                if (efficiencyStat != null)
+                    recipe.Add(efficiencyStat);
                 XElement ingredients = new XElement("ingredients");
                 XElement fixedIngredientFilter = new XElement("fixedIngredientFilter");
                 int countIngredients = 0;
@@ -1244,12 +1068,11 @@ namespace RimTrans.Builder
                 {
                     XElement stuffCategories = curDef.Field(FieldNameOf.stuffCategories);
                     XElement costStuffCount = curDef.Field(FieldNameOf.costStuffCount);
-                    if (costStuffCount != null && stuffCategories != null && stuffCategories.HasElements)
-                    {
+                    if (costStuffCount != null && stuffCategories != null && stuffCategories.HasElements) {
                         productHasIngredientStuff = true;
                         XElement ingredientCount = XElement.Parse($"<li ListIndex=\"{countIngredients}\" />");
                         ingredientCount.Add(
-                            new XElement("filter",new XElement("categories", stuffCategories.Elements())),
+                            new XElement("filter", new XElement("categories", stuffCategories.Elements())),
                             new XElement("count", costStuffCount.Value)
                             );
                         ingredients.Add(ingredientCount);
@@ -1259,12 +1082,10 @@ namespace RimTrans.Builder
                 }
                 {
                     XElement costList = curDef.Field(FieldNameOf.costList);
-                    if (costList != null && costList.HasElements)
-                    {
+                    if (costList != null && costList.HasElements) {
                         XElement thingDefs = new XElement("thingDefs");
                         int countThingDefs = 0;
-                        foreach (XElement thingCount in costList.Elements())
-                        {
+                        foreach (XElement thingCount in costList.Elements()) {
                             XElement ingredientCount = XElement.Parse($"<li ListIndex=\"{countIngredients}\" />");
                             ingredientCount.Add(
                                 new XElement("filter", new XElement("thingDefs", XElement.Parse($"<li ListIndex=\"0\">{thingCount.Name.ToString()}</li>"))),
@@ -1281,44 +1102,52 @@ namespace RimTrans.Builder
                 recipe.Add(ingredients);
                 recipe.Add(fixedIngredientFilter);
                 XElement defaultIngredientFilter = recipeMaker.Field(FieldNameOf.defaultIngredientFilter);
-                if (defaultIngredientFilter != null) recipe.Add(defaultIngredientFilter);
-                if (productHasIngredientStuff) recipe.Add(new XElement("productHasIngredientStuff", "true"));
+                if (defaultIngredientFilter != null)
+                    recipe.Add(defaultIngredientFilter);
+                if (productHasIngredientStuff)
+                    recipe.Add(new XElement("productHasIngredientStuff", "true"));
                 recipe.Add(new XElement("products",
                     new XElement(defName.Value, "1")
                     ));
                 XElement unfinishedThingDef = recipeMaker.Field(FieldNameOf.unfinishedThingDef);
-                if (unfinishedThingDef != null) recipe.Add(unfinishedThingDef);
+                if (unfinishedThingDef != null)
+                    recipe.Add(unfinishedThingDef);
                 XElement skillRequirements = recipeMaker.Field(FieldNameOf.skillRequirements);
-                if (skillRequirements != null) recipe.Add(skillRequirements);
+                if (skillRequirements != null)
+                    recipe.Add(skillRequirements);
                 XElement workSkill = recipeMaker.Field(FieldNameOf.workSkill);
-                if (workSkill != null) recipe.Add(workSkill);
+                if (workSkill != null)
+                    recipe.Add(workSkill);
                 XElement workSkillLearnPerTick = recipeMaker.Field(FieldNameOf.workSkillLearnPerTick);
-                if (workSkillLearnPerTick != null) recipe.Add(new XElement("workSkillLearnFactor", workSkillLearnPerTick.Value));
+                if (workSkillLearnPerTick != null)
+                    recipe.Add(new XElement("workSkillLearnFactor", workSkillLearnPerTick.Value));
                 XElement effectWorking = recipeMaker.Field(FieldNameOf.effectWorking);
-                if (effectWorking != null) recipe.Add(effectWorking);
+                if (effectWorking != null)
+                    recipe.Add(effectWorking);
                 XElement soundWorking = recipeMaker.Field(FieldNameOf.soundWorking);
-                if (soundWorking != null) recipe.Add(soundWorking);
+                if (soundWorking != null)
+                    recipe.Add(soundWorking);
                 XElement recipeUsers = recipeMaker.Field(FieldNameOf.recipeUsers);
-                if (recipeUsers != null) recipe.Add(recipeUsers);
+                if (recipeUsers != null)
+                    recipe.Add(recipeUsers);
                 XElement researchPrerequisite = recipeMaker.Field(FieldNameOf.researchPrerequisite);
-                if (researchPrerequisite != null) recipe.Add(researchPrerequisite);
+                if (researchPrerequisite != null)
+                    recipe.Add(researchPrerequisite);
                 #endregion
                 docRecipeAddMake.Root.Add(recipe);
             }
             this._data.Add(@"RecipeDefs\Recipes_Add_Make.xml", docRecipeAddMake);
         }
 
-        private void WikiRecipesAddAdminister()
-        {
+        private void WikiRecipesAddAdminister() {
             #region recipeUsers
             XElement recipeUsers = new XElement("recipeUsers");
             {
                 int countUsers = 0;
                 foreach (XElement curThingDef in from doc in this._data.Values
-                                             from ele in doc.Root.Elements()
-                                             where ele.Name.ToString() == DefTypeNameOf.ThingDef
-                                             select ele)
-                {
+                                                 from ele in doc.Root.Elements()
+                                                 where ele.Name.ToString() == DefTypeNameOf.ThingDef
+                                                 select ele) {
                     XElement category = curThingDef.Field(FieldNameOf.category);
                     if (category == null || category.Value != ThingCategoryOf.Pawn)
                         continue;
@@ -1344,8 +1173,7 @@ namespace RimTrans.Builder
             foreach (XElement curDef in from doc in this._data.Values
                                         from ele in doc.Root.Elements()
                                         where ele.Name.ToString() == DefTypeNameOf.ThingDef
-                                        select ele)
-            {
+                                        select ele) {
                 XElement category = curDef.Field(FieldNameOf.category);
                 if (category == null || category.Value != ThingCategoryOf.Item)
                     continue;
@@ -1365,7 +1193,8 @@ namespace RimTrans.Builder
                 #region GenerateRecipeDef Administer
                 string defNameValue = defName.Value;
                 XElement label = curDef.label();
-                if (label == null) label = defName;
+                if (label == null)
+                    label = defName;
                 string labelValue = label.Value;
                 XElement administer = new XElement(DefTypeNameOf.RecipeDef);
                 administer.Add(new XElement("defName", "Administer_" + defName.Value));
@@ -1373,7 +1202,8 @@ namespace RimTrans.Builder
                 administer.Add(new XElement("jobString", $"Administering {labelValue}."));
                 administer.Add(new XElement("workerClass", "Recipe_AdministerIngestible"));
                 XElement baseIngestTicks = ingestible.Field(FieldNameOf.baseIngestTicks);
-                if (baseIngestTicks != null) administer.Add(new XElement("workAmount", baseIngestTicks.Value));
+                if (baseIngestTicks != null)
+                    administer.Add(new XElement("workAmount", baseIngestTicks.Value));
                 administer.Add(new XElement("ingredients",
                     XElement.Parse($"<li ListIndex=\"0\"><filter><thingDefs><li ListIndex=\"0\">{defNameValue}</li></thingDefs></filter><count>1</count></li>")
                     ));
@@ -1388,8 +1218,7 @@ namespace RimTrans.Builder
             this._data.Add(@"RecipeDefs\Recipes_Add_Administer.xml", docRecipesAddAdminister);
         }
 
-        private void WikiTerrainAdd()
-        {
+        private void WikiTerrainAdd() {
             #region Raw Terrain
             XElement rawTerrain = new XElement("TerrainDef");
             {
@@ -1416,8 +1245,7 @@ namespace RimTrans.Builder
             docTerrainAdd.Root.Add(new XComment("Implied TerraindDef, generated by RimTrans."));
             foreach (XElement curDef in from doc in this._data.Values
                                         from ele in doc.Root.Elements()
-                                        select ele)
-            {
+                                        select ele) {
                 if (curDef.Name.ToString() != DefTypeNameOf.ThingDef)
                     continue;
 
@@ -1436,11 +1264,11 @@ namespace RimTrans.Builder
                 XElement isNaturalRock = building.Field(FieldNameOf.isNaturalRock);
                 XElement isResourceRock = building.Field(FieldNameOf.isResourceRock);
                 if (isNaturalRock != null && string.Compare(isNaturalRock.Value, "true", true) == 0 &&
-                    (isResourceRock == null || string.Compare(isResourceRock.Value, "false", true) == 0))
-                {
+                    (isResourceRock == null || string.Compare(isResourceRock.Value, "false", true) == 0)) {
                     string defNameValue = defName.Value;
                     XElement label = curDef.label();
-                    if (label == null) label = defName;
+                    if (label == null)
+                        label = defName;
                     string labelValue = label.Value;
                     #region GenerateTerrainDef
                     XElement graphicData = curDef.Field(FieldNameOf.graphicData);
@@ -1458,7 +1286,8 @@ namespace RimTrans.Builder
                             XElement.Parse("<li ListIndex=\"2\">SmoothableStone</li>")
                             );
                         rough.Element("smoothedTerrain").Value = defNameValue + "_Smooth";
-                        if (color != null) rough.Element("color").Value = color.Value;
+                        if (color != null)
+                            rough.Element("color").Value = color.Value;
                     }
                     XElement hewn = new XElement(rawTerrain);
                     {
@@ -1473,7 +1302,8 @@ namespace RimTrans.Builder
                             XElement.Parse("<li ListIndex=\"2\">SmoothableStone</li>")
                             );
                         hewn.Element("smoothedTerrain").Value = defNameValue + "_Smooth";
-                        if (color != null) hewn.Element("color").Value = color.Value;
+                        if (color != null)
+                            hewn.Element("color").Value = color.Value;
                     }
                     XElement smooth = new XElement(rawTerrain);
                     {
@@ -1488,7 +1318,8 @@ namespace RimTrans.Builder
                             XElement.Parse("<li ListIndex=\"1\">Heavy</li>"),
                             XElement.Parse("<li ListIndex=\"2\">SmoothHard</li>")
                             );
-                        if (color != null) smooth.Element("color").Value = color.Value;
+                        if (color != null)
+                            smooth.Element("color").Value = color.Value;
                         smooth.Element("acceptTerrainSourceFilth").Value = "true";
                     }
                     docTerrainAdd.Root.Add(rough, hewn, smooth);
@@ -1498,16 +1329,14 @@ namespace RimTrans.Builder
             this._data.Add(@"TerrainDefs\Terrain_Add.xml", docTerrainAdd);
         }
 
-        private void WikiKeyBindingCategoriesAddArchitect()
-        {
+        private void WikiKeyBindingCategoriesAddArchitect() {
             #region gameUniversalCats
             XElement gameUniversalCats = new XElement("checkForConflicts");
             int countUniversal = 0;
             foreach (XElement KeyBindingCategoryDef in from doc in this._data.Values
                                                        from ele in doc.Root.Elements()
                                                        where ele.Name.ToString() == DefTypeNameOf.KeyBindingCategoryDef && ele.HasField_defName()
-                                                       select ele)
-            {
+                                                       select ele) {
                 gameUniversalCats.Add(XElement.Parse($"<li ListIndex=\"{countUniversal}\">{KeyBindingCategoryDef.defName().Value}</li>"));
                 countUniversal++;
             }
@@ -1516,8 +1345,7 @@ namespace RimTrans.Builder
             docKeyBindingCategoriesAddArchitect.Root.Add(new XComment("Implied KeyBindingCategoryDef, generated by RimTrans."));
             foreach (XElement curDef in from doc in this._data.Values
                                         from ele in doc.Root.Elements()
-                                        select ele)
-            {
+                                        select ele) {
                 if (curDef.Name.ToString() != DefTypeNameOf.DesignationCategoryDef)
                     continue;
 
@@ -1527,7 +1355,8 @@ namespace RimTrans.Builder
 
                 #region GenerateKeyBindingCategoryDef
                 XElement label = curDef.label();
-                if (label == null) label = defName;
+                if (label == null)
+                    label = defName;
                 string labelValue = label.Value;
                 XElement catDef = new XElement(DefTypeNameOf.KeyBindingCategoryDef);
                 catDef.Add(new XElement("defName", "Architect_" + defName.Value));
@@ -1540,14 +1369,12 @@ namespace RimTrans.Builder
             this._data.Add(@"Misc\KeyBindings\KeyBindingCategories_Add_Architect.xml", docKeyBindingCategoriesAddArchitect);
         }
 
-        private void WikiKeyBindingsAddMainTab()
-        {
+        private void WikiKeyBindingsAddMainTab() {
             XDocument docKeyBindingsAdd = DocHelper.EmptyDocDef();
             docKeyBindingsAdd.Root.Add(new XComment("Implied KeyBingdingDef, generated by RimTrans."));
             foreach (XElement curDef in from doc in this._data.Values
                                         from ele in doc.Root.Elements()
-                                        select ele)
-            {
+                                        select ele) {
                 if (curDef.Name.ToString() != DefTypeNameOf.MainButtonDef)
                     continue;
 
@@ -1561,7 +1388,8 @@ namespace RimTrans.Builder
 
                 #region GenerateKeyBindingDef
                 XElement label = curDef.label();
-                if (label == null) label = defName;
+                if (label == null)
+                    label = defName;
                 string labelValue = label.Value;
                 XElement keyDef = new XElement(DefTypeNameOf.KeyBindingDef);
                 keyDef.Add(new XElement("defName", "MainTab_" + defName.Value));
@@ -1581,19 +1409,16 @@ namespace RimTrans.Builder
         /// <summary>
         /// Mark index number for list items.
         /// </summary>
-        private void MarkIndex()
-        {
+        private void MarkIndex() {
             IEnumerable<XElement> defsAll = from doc in this._data.Values
                                             from ele in doc.Root.Elements()
                                             where ele.HasField_defName()
                                             select ele;
             int countDefs = defsAll.Count();
-            if (countDefs > 0)
-            {
+            if (countDefs > 0) {
                 Log.Info();
                 Log.WriteLine("Start marking index number for list items.");
-                foreach (XElement def in defsAll)
-                {
+                foreach (XElement def in defsAll) {
                     MarkIndexRecursively(def); // Recursively
                 }
                 Log.Info();
@@ -1604,26 +1429,19 @@ namespace RimTrans.Builder
         /// <summary>
         /// Mark Index Recursively
         /// </summary>
-        private static void MarkIndexRecursively(XElement ele)
-        {
-            if (ele.HasElements)
-            {
+        private static void MarkIndexRecursively(XElement ele) {
+            if (ele.HasElements) {
                 IEnumerable<XElement> children = ele.Elements();
                 IEnumerable<XElement> listItems = ele.Elements("li");
-                if (children.Count() == listItems.Count())
-                {
+                if (children.Count() == listItems.Count()) {
                     int index = 0;
-                    foreach (XElement child in children)
-                    {
+                    foreach (XElement child in children) {
                         child.SetAttributeValue("ListIndex", index);
                         index++;
                         MarkIndexRecursively(child);
                     }
-                }
-                else
-                {
-                    foreach (XElement child in ele.Elements())
-                    {
+                } else {
+                    foreach (XElement child in ele.Elements()) {
                         MarkIndexRecursively(child);
                     }
                 }
@@ -1638,34 +1456,25 @@ namespace RimTrans.Builder
         /// Save this definition data to a directory. All the existed files will be deleted.
         /// </summary>
         /// <param name="path"></param>
-        public void Save(string path)
-        {
-            if (this._data.Count() == 0) return;
+        public void Save(string path) {
+            if (this._data.Count() == 0)
+                return;
 
-            if (Directory.Exists(path))
-            {
+            if (Directory.Exists(path)) {
                 DirectorySecurity ds = new DirectorySecurity(path, AccessControlSections.Access);
-                if (ds.AreAccessRulesProtected)
-                {
+                if (ds.AreAccessRulesProtected) {
                     Log.Error();
                     Log.WriteLine("Outputing Defs failed: No write permission to directory: ");
                     Log.Indent();
                     Log.WriteLine(ConsoleColor.Red, path);
                     return;
-                }
-                else
-                {
+                } else {
                     DirectoryHelper.CleanDirectory(path, "*.xml");
                 }
-            }
-            else
-            {
-                try
-                {
+            } else {
+                try {
                     Directory.CreateDirectory(path);
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Log.Error();
                     Log.WriteLine("Outputing Defs failed: Can not create directory: ");
                     Log.Indent();
@@ -1682,45 +1491,36 @@ namespace RimTrans.Builder
 
             int countValidFiles = 0;
             int countInvalidFiles = 0;
-            foreach (KeyValuePair<string, XDocument> relativePathDoc in this._data)
-            {
+            foreach (KeyValuePair<string, XDocument> relativePathDoc in this._data) {
                 string filePath = Path.Combine(path, relativePathDoc.Key);
                 string subDirPath = Path.GetDirectoryName(filePath);
-                if (Directory.Exists(subDirPath))
-                {
+                if (Directory.Exists(subDirPath)) {
                     DirectorySecurity curDs = new DirectorySecurity(subDirPath, AccessControlSections.Access);
-                    if (curDs.AreAccessRulesProtected)
-                    {
+                    if (curDs.AreAccessRulesProtected) {
                         Log.Error();
                         Log.WriteLine("Outputing to sub-directory failed: No write permission to directory.");
                         Log.Indent();
                         Log.WriteLine(ConsoleColor.Red, subDirPath);
                         continue;
                     }
-                }
-                else
-                {
+                } else {
                     Directory.CreateDirectory(subDirPath);
                 }
                 XDocument doc = relativePathDoc.Value;
                 XElement root = doc.Root;
                 bool isSpecial = false;
-                foreach (XElement def in root.Elements())
-                {
+                foreach (XElement def in root.Elements()) {
                     string defTypeName = def.Name.ToString();
                     if (defTypeName == DefTypeNameOf.InteractionDef ||
                         defTypeName == DefTypeNameOf.RulePackDef ||
                         defTypeName == DefTypeNameOf.TaleDef)
                         isSpecial = true;
                 }
-                if (isSpecial)
-                {
+                if (isSpecial) {
                     // Special for these 3 DefType
                     string text = root.ToString().Replace("-&gt;", "->");
-                    try
-                    {
-                        using (FileStream fs = new FileStream(filePath, FileMode.Create))
-                        {
+                    try {
+                        using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
                             using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8)) // UTF-8 with BOM
                             {
                                 sw.WriteLine(doc.Declaration.ToString());
@@ -1728,9 +1528,7 @@ namespace RimTrans.Builder
                             }
                         }
                         countValidFiles++;
-                    }
-                    catch (Exception ex)
-                    {
+                    } catch (Exception ex) {
                         Log.Error();
                         Log.Write("Outputing file failed: ");
                         Log.WriteLine(ConsoleColor.Red, filePath);
@@ -1738,17 +1536,12 @@ namespace RimTrans.Builder
                         Log.WriteLine(ex.Message);
                         countInvalidFiles++;
                     }
-                }
-                else
-                {
+                } else {
                     // Universal
-                    try
-                    {
+                    try {
                         relativePathDoc.Value.Save(filePath);
                         countValidFiles++;
-                    }
-                    catch (Exception ex)
-                    {
+                    } catch (Exception ex) {
                         Log.Error();
                         Log.Write("Outputing file failed: ");
                         Log.WriteLine(ConsoleColor.Red, filePath);
@@ -1758,28 +1551,19 @@ namespace RimTrans.Builder
                     }
                 }
             }
-            if (countValidFiles > 0)
-            {
-                if (countInvalidFiles == 0)
-                {
+            if (countValidFiles > 0) {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine($"Completed outputing Defs: {countValidFiles} file(s).");
-                }
-                else
-                {
+                } else {
                     Log.Warning();
                     Log.WriteLine($"Completed outputing Defs: Success: {countValidFiles} file(s), Failure {countInvalidFiles} file(s).");
                 }
-            }
-            else
-            {
-                if (countInvalidFiles == 0)
-                {
+            } else {
+                if (countInvalidFiles == 0) {
                     Log.Info();
                     Log.WriteLine("No Defs to be output.");
-                }
-                else
-                {
+                } else {
                     Log.Error();
                     Log.WriteLine($"Outputing Defs failed: {countInvalidFiles} file(s).");
                 }
@@ -1790,21 +1574,17 @@ namespace RimTrans.Builder
 
         #region Debug
 
-        public void Debug(string fileName)
-        {
+        public void Debug(string fileName) {
             XDocument doc;
-            if (this._data.TryGetValue(fileName, out doc))
-            {
+            if (this._data.TryGetValue(fileName, out doc)) {
                 Log.Write(ConsoleColor.Cyan, fileName);
                 Log.WriteLine(doc.ToString());
             }
         }
 
-        public void Debug()
-        {
+        public void Debug() {
             Log.WriteLine(ConsoleColor.Cyan, "DefinitionData.Debug()");
-            foreach (var fileNameDocPair in this._data)
-            {
+            foreach (var fileNameDocPair in this._data) {
                 Log.WriteLine(fileNameDocPair.Key);
             }
             //Log.WriteLine("================");

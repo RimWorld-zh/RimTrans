@@ -41,7 +41,11 @@
     <s:Double x:Key="AddModWindowWidth">971</s:Double>
 
     <s:Boolean x:Key="ExtractDoNotPromptClean">False</s:Boolean>
-
+    
+    <s:Double x:Key="ToolsWindowHeight">600</s:Double>
+    <s:Double x:Key="ToolsWindowWidth">971</s:Double>
+    <s:String x:Key="DefTemplateOutputPath">C:\git\rw\RimWorld-Defs-Templates</s:String>
+    
     <s:Double x:Key="OptionsWindowHeight">600</s:Double>
     <s:Double x:Key="OptionsWindowWidth">971</s:Double>
     <s:Boolean x:Key="OptionsDoNotPromptDirNoFound">False</s:Boolean>

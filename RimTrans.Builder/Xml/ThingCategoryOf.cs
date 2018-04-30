@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace RimTrans.Builder.Xml
-{
-    public static class ThingCategoryOf
-    {
+namespace RimTrans.Builder.Xml {
+    public static class ThingCategoryOf {
         public static string None = "None";
         public static string Pawn = "Pawn";
         public static string Item = "Item";
