@@ -100,7 +100,7 @@
     <s:String x:Key="Options.RimWorldInstallDir">Instalační složka RimWorld</s:String>
     <s:String x:Key="Options.WorkshopModDir">Složka s Workshop módy</s:String>
     <s:String x:Key="Options.Message.DirectoryNoFound">Nebyla nalezena instalační složka RimWorld ani složka s Workshop módy. Toto může být způsobeno více příčinami. Zkuste použít vlastní nastavení</s:String>
-    <s:String x:Key="Options.ResetDoNotPrompt">Vymaza všechny dialogy Neptát se znovu</s:String>
+    <s:String x:Key="Options.ResetDoNotPrompt">Vymazat všechny dialogy Neptát se znovu</s:String>
     <s:String x:Key="Options.ResetDoNotPrompt.Message">Všechny dialogy Neptát se znovu byly restartovány.</s:String>
 
 
