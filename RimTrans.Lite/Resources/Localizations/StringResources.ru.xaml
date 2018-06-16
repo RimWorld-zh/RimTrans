@@ -3,13 +3,13 @@
                     xmlns:local="clr-namespace:RimTrans.Lite.Resources.Localizations"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
     <!--
-    
+
     Application Language File
     Language Code: ru
     Language Name: Russian
     Language Native Name: Русский
     Translator: Bugo
-    
+
     -->
 
     <!-- Common -->
@@ -18,7 +18,7 @@
     <s:String x:Key="Common.Common">Общие</s:String>
     <s:String x:Key="Common.Application">Приложение</s:String>
     <s:String x:Key="Common.About">О программе</s:String>
-    
+
     <s:String x:Key="Common.Open">Открыть</s:String>
     <s:String x:Key="Common.Close">Закрыть</s:String>
 
@@ -40,7 +40,7 @@
     <s:String x:Key="Common.Modify">Изменить</s:String>
     <s:String x:Key="Common.Undo">Отменить</s:String>
     <s:String x:Key="Common.Redo">Повторить</s:String>
-    
+
     <s:String x:Key="Common.Previous">Назад</s:String>
     <s:String x:Key="Common.Next">Далее</s:String>
 
@@ -99,7 +99,7 @@
     <!-- OptionsWindow -->
     <s:String x:Key="Options.RimWorldInstallDir">Директория игры RimWorld</s:String>
     <s:String x:Key="Options.WorkshopModDir">Директория модификаций из Мастерской Steam</s:String>
-    <s:String x:Key="Options.Message.DirectoryNoFound">Директория игры RimWorld или директоория с модами из Мастерской Steam не найдены. Это может вызвать определённые проблемы. Укажите нужные директории в параметрах.</s:String>
+    <s:String x:Key="Options.Message.DirectoryNoFound">Директория игры RimWorld или директория с модами из Мастерской Steam не найдены. Это может вызвать определённые проблемы. Укажите нужные директории в параметрах.</s:String>
     <s:String x:Key="Options.ResetDoNotPrompt">Сбросить настройки всех диалоговых окон</s:String>
     <s:String x:Key="Options.ResetDoNotPrompt.Message">Настройки всех диалоговых окон сброшены.</s:String>
 
