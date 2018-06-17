@@ -133,6 +133,9 @@ namespace RimTrans.Builder.Xml {
                   string.Compare(fieldName, "label", true) == 0 ||
                   string.Compare(fieldName, "description", true) == 0 ||
 
+                  // BodyDef && StatDef 
+                  string.Compare(fieldName, "customLabel", true) == 0 ||
+
                   // ConceptDef
                   string.Compare(fieldName, "helpText", true) == 0 ||
 
