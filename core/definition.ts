@@ -48,13 +48,11 @@ export function parse(rawDefsContent: { [path: string]: string }): DefinitionDat
         const def: xml.Element | undefined = xml.asElement(cur);
 
         if (def) {
-          if (!isAbstract(def)) {
-            if (comment) {
-              def.attributes.CommentBefore = comment;
-            }
-            def.attributes.FilePath = path;
-            addDefinition(def);
+          if (comment) {
+            def.attributes.CommentBefore = comment;
           }
+          def.attributes.FilePath = path;
+          addDefinition(def);
         }
 
         return cur;

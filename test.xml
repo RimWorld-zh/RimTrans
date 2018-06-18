@@ -35,6 +35,8 @@
       <solidTime>0.65</solidTime>
       <fadeOutTime>1.2</fadeOutTime>
     </mote>
+    <test1></test1>
+    <test2 />
   </ThingDef>
 
 </Defs>

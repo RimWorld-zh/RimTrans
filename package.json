@@ -12,7 +12,8 @@
   "scripts": {
     "ts": "tsc -p scripts/tsconfig.json && node",
     "scan-comments": "yarn ts scripts/scan-comments.js",
-    "test": "tsc -p tsconfig.test.json && node dist/index.js"
+    "test": "yarn ts scripts/test.js",
+    "start": "echo no script for start"
   },
   "devDependencies": {
     "@types/globby": "^6.1.0",

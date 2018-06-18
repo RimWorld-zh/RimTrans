@@ -76,6 +76,8 @@ export function parse(rawContent: string): Element | undefined {
 
     return root;
   }
+
+  return undefined;
 }
 
 function resolveAttributes(element: Element): void {
@@ -144,10 +146,37 @@ export function getElements(element: Element, name?: string): Element[] {
 }
 
 /**
- * Get the inner text of the element.
+ * Check the element is a value node or not.
+ */
+export function isEndingNode(element: Element): boolean {
+  return getElements(element).length === 0;
+}
+
+/**
+ * Check children of the element is the same name or not.
+ */
+export function isAllElementIs(element: Element, name: string): boolean {
+  return getElements(element, name).length === getElements(element).length;
+}
+
+/**
+ * Get the text of the element.
  */
 export function getText(element: Element): string | undefined {
-  const text: Text | undefined = (element.nodes as Text[]).find(n => n.type === 'text');
+  const text: Text | undefined = (element.nodes as Text[]).find(t => t.type === 'text');
+  if (text) {
+    return text.text;
+  }
 
-  return text ? text.text : undefined;
+  return undefined;
+}
+
+/**
+ * Set the value of the element.
+ */
+export function setText(element: Element, value: string): void {
+  const text: Text | undefined = (element.nodes as Text[]).find(t => t.type === 'text');
+  if (text) {
+    text.text = value;
+  }
 }
