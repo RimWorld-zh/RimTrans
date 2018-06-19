@@ -1,0 +1,280 @@
+{
+  "def": {
+    "type": "element",
+    "name": "TerrainDef",
+    "attributes": {
+      "Name": "BurnedFloorBase",
+      "Abstract": "True",
+      "FilePath":
+        "/mnt/f/rw/RimWorld-Core/Core/Defs/TerrainDefs/Terrain_Floors_Burned.xml"
+    },
+    "nodes": [
+      {
+        "type": "element",
+        "name": "layerable",
+        "nodes": [
+          {
+            "type": "text",
+            "text": "true"
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "type": "element",
+        "name": "affordances",
+        "nodes": [
+          {
+            "type": "element",
+            "name": "li",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Light"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "li",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "li",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Heavy"
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "type": "element",
+        "name": "pathCost",
+        "nodes": [
+          {
+            "type": "text",
+            "text": "1"
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "type": "element",
+        "name": "fertility",
+        "nodes": [
+          {
+            "type": "text",
+            "text": "0"
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "type": "element",
+        "name": "acceptTerrainSourceFilth",
+        "nodes": [
+          {
+            "type": "text",
+            "text": "True"
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "type": "element",
+        "name": "statBases",
+        "nodes": [
+          {
+            "type": "element",
+            "name": "Beauty",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "-6"
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {}
+      }
+    ]
+  },
+  "children": [
+    {
+      "def": {
+        "type": "element",
+        "name": "TerrainDef",
+        "attributes": {
+          "ParentName": "BurnedFloorBase",
+          "FilePath":
+            "/mnt/f/rw/RimWorld-Core/Core/Defs/TerrainDefs/Terrain_Floors_Burned.xml"
+        },
+        "nodes": [
+          {
+            "type": "element",
+            "name": "defName",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "BurnedWoodPlankFloor"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "label",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "burned wood floor"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "renderPrecedence",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "251"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "description",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Burned-out wood plank flooring."
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "texturePath",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Terrain/Surfaces/BurnedWoodFloor"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "edgeType",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "FadeRough"
+              }
+            ],
+            "attributes": {}
+          }
+        ]
+      },
+      "parent": "BurnedFloorBase",
+      "children": []
+    },
+    {
+      "def": {
+        "type": "element",
+        "name": "TerrainDef",
+        "attributes": {
+          "ParentName": "BurnedFloorBase",
+          "FilePath":
+            "/mnt/f/rw/RimWorld-Core/Core/Defs/TerrainDefs/Terrain_Floors_Burned.xml"
+        },
+        "nodes": [
+          {
+            "type": "element",
+            "name": "defName",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "BurnedCarpet"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "label",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "burned carpet"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "renderPrecedence",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "201"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "description",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Burned-out carpet."
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "texturePath",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "Terrain/Surfaces/BurnedCarpet"
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "element",
+            "name": "edgeType",
+            "nodes": [
+              {
+                "type": "text",
+                "text": "FadeRough"
+              }
+            ],
+            "attributes": {}
+          }
+        ]
+      },
+      "parent": "BurnedFloorBase",
+      "children": []
+    }
+  ]
+}

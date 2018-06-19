@@ -10,9 +10,9 @@
   "author": "duduluu <duduluu@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "ts": "tsc -p scripts/tsconfig.json && node",
-    "scan-comments": "yarn ts scripts/scan-comments.js",
-    "test": "yarn ts scripts/test.js",
+    "ts": "ts-node -P scripts/tsconfig.json",
+    "scan-comments": "yarn ts scripts/scan-comments.ts",
+    "test": "yarn ts scripts/definition.ts",
     "start": "echo no script for start"
   },
   "devDependencies": {
@@ -20,7 +20,10 @@
     "@types/node": "^10.3.3",
     "@types/rimraf": "^2.0.2",
     "globby": "^8.0.1",
+    "jest": "^23.1.0",
     "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.6",
+    "ts-node": "^6.1.1",
     "tslib": "^1.9.2",
     "tslint": "^5.10.0",
     "tslint-microsoft-contrib": "^5.0.3",

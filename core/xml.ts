@@ -4,6 +4,7 @@
 // tslint:disable:no-reserved-keywords
 
 import xmljs from 'xml-js';
+import * as logger from './logger';
 
 /**
  * XML attributes
@@ -52,18 +53,25 @@ export interface Text {
  * Parse the xml document text and return the root element.
  * @param rawContent the plain text of the xml document.
  */
-export function parse(rawContent: string): Element | undefined {
-  const doc: Element = xmljs.xml2js(rawContent, {
-    compact: false,
-    trim: false,
-    nativeType: false,
-    addParent: false,
-    alwaysArray: true,
-    alwaysChildren: true,
-    ignoreDeclaration: true,
-    ignoreText: false,
-    elementsKey: 'nodes',
-  }) as Element;
+export function parse(rawContent: string, path?: string): Element | undefined {
+  let doc: Element;
+  try {
+    doc = xmljs.xml2js(rawContent, {
+      compact: false,
+      trim: false,
+      nativeType: false,
+      addParent: false,
+      alwaysArray: true,
+      alwaysChildren: true,
+      ignoreDeclaration: true,
+      ignoreText: false,
+      elementsKey: 'nodes',
+    }) as Element;
+  } catch (error) {
+    logger.error(error);
+
+    return;
+  }
 
   if (doc.nodes) {
     const root: Element | undefined = (doc.nodes as Element[]).find(
@@ -76,6 +84,8 @@ export function parse(rawContent: string): Element | undefined {
 
     return root;
   }
+
+  logger.error(`Missing root element.\nfile: "${path}"`);
 
   return undefined;
 }

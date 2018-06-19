@@ -26,3 +26,4 @@ yarn-error.log*
 
 # Project related
 scripts/**/*.js
+test/resources/
