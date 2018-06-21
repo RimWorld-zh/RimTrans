@@ -11,6 +11,10 @@ import * as logger from './logger';
  */
 export interface Attributes {
   [key: string]: string | number | undefined;
+  Name?: string;
+  ParentName?: string;
+  Abstract?: 'True';
+  CommentBefore?: string;
 }
 
 /**

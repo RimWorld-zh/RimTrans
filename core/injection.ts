@@ -16,22 +16,25 @@ export enum EOL {
   CRLF = '\r\n',
 }
 
-export interface InjectionNode {
-  field: string;
+export interface Field {
+  name: string;
   text?: string;
-  children: InjectionNode[];
+  children: Field[];
 }
 
 export interface Injection {
   commentBefore?: string;
   conflicted: boolean;
   defName: string;
-  fields: InjectionNode[];
+  fields: Field[];
 }
 
 export interface InjectionData {
   [defType: string]: {
-    [fileName: string]: Injection[];
+    [fileName: string]: {
+      injections: Injection[];
+      comments: string[];
+    };
   };
 }
 
@@ -41,14 +44,26 @@ export interface InjectionData {
 export function parse(rawContents: RawContents): void {
   const data: InjectionData = {};
   // tslint:disable-next-line:typedef
-  const addInjection = (inj: Injection, defType: string, fileName: string): void => {
+  const initFile = (defType: string, fileName: string): void => {
     if (!data[defType]) {
       data[defType] = {};
     }
     if (!data[defType][fileName]) {
-      data[defType][fileName] = [];
+      data[defType][fileName] = {
+        injections: [],
+        comments: [],
+      };
     }
-    data[defType][fileName].push(inj);
+  };
+  // tslint:disable-next-line:typedef
+  const addInjection = (defType: string, fileName: string, inj: Injection): void => {
+    initFile(defType, fileName);
+    data[defType][fileName].injections.push(inj);
+  };
+  // tslint:disable-next-line:typedef
+  const addComment = (defType: string, fileName: string, comment: string): void => {
+    initFile(defType, fileName);
+    data[defType][fileName].comments.push(comment);
   };
 
   Object.entries(rawContents)
@@ -67,5 +82,11 @@ export function parse(rawContents: RawContents): void {
       if (!root) {
         return;
       }
+
+      root.nodes.forEach(node => {
+        if (node.type === 'comment') {
+          addComment(defType, fileName, (node as xml.Comment).comment);
+        }
+      });
     });
 }

@@ -12,6 +12,7 @@
   "scripts": {
     "ts": "ts-node -P scripts/tsconfig.json",
     "scan-comments": "yarn ts scripts/scan-comments.ts",
+    "env-init": "yarn ts scripts/env-init.ts",
     "test": "yarn ts scripts/definition.ts",
     "start": "echo no script for start"
   },
@@ -29,5 +30,9 @@
     "tslint-microsoft-contrib": "^5.0.3",
     "typescript": "^2.9.2",
     "xml-js": "^1.6.4"
+  },
+  "dependencies": {
+    "@types/dotenv": "^4.0.3",
+    "dotenv": "^6.0.0"
   }
 }

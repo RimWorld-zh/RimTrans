@@ -36,9 +36,28 @@ export function parse(rawContents: RawContents): DefinitionData {
         return;
       }
 
-      (root.nodes.filter(n => n.type === 'element') as xml.Element[]).forEach(def => {
-        def.attributes.FilePath = path;
-        addDefinition(def);
+      let comment: xml.Comment | undefined;
+      let markDefs: string[] = [];
+      root.nodes.forEach(n => {
+        const curComment: xml.Comment | undefined = xml.asComment(n);
+        const def: xml.Element | undefined = xml.asElement(n);
+        if (def) {
+          if (curComment) {
+            comment = curComment;
+            markDefs = [];
+            markDefs.push(def.name);
+            def.attributes.CommentBefore = comment.comment;
+          } else if (comment) {
+            if (markDefs.includes(def.name)) {
+              comment = undefined;
+              markDefs = [];
+            } else {
+              markDefs.push(def.name);
+              def.attributes.CommentBefore = comment.comment;
+            }
+          }
+          addDefinition(def);
+        }
       });
     });
 

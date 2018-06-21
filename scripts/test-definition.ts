@@ -7,13 +7,14 @@ import globby from 'globby';
 import * as xml from '../core/xml';
 import * as definition from '../core/definition';
 
-const PATH_TO_DEFS: string = '/mnt/f/rw/RimWorld-Core/Core/Defs';
+import envInit from './env-init';
+const { dirCoreDefs } = envInit();
 
 function readFiles(): Promise<definition.RawContents> {
   return new Promise<definition.RawContents>(async (resolve, reject) => {
     const rawContents: definition.RawContents = {};
 
-    const files: string[] = await globby(`${PATH_TO_DEFS}/**/*.xml`);
+    const files: string[] = await globby(`${dirCoreDefs}/**/*.xml`);
     let count: number = 0;
 
     files.forEach(f =>

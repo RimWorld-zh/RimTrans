@@ -57,5 +57,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
+  "include": ["core/*"],
   "exclude": ["node_modules"]
 }
