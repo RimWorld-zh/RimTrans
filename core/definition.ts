@@ -5,10 +5,7 @@
 import * as logger from './logger';
 import * as xml from './xml';
 import { stringCompare } from './utils';
-
-export interface RawContents {
-  [path: string]: string;
-}
+import { schema } from './schema';
 
 export interface DefinitionData {
   [defType: string]: xml.Element[];
@@ -18,7 +15,7 @@ export interface DefinitionData {
  * Parse the XML documents plain text to RimWorld Definition data.
  * @param rawContents key for file path, value for XML plain text.
  */
-export function parse(rawContents: RawContents): DefinitionData {
+export function parse(rawContents: xml.RawContents): DefinitionData {
   const data: DefinitionData = {};
   // tslint:disable-next-line:typedef
   const addDefinition = (def: xml.Element): void => {
@@ -212,10 +209,34 @@ function elementInheritRecursively(child: xml.Element, parent: xml.Element): voi
 
 // ======== Post process ========
 
-function resolveListItemIndex(element: xml.Element): void {
+export function resolveListItemIndex(element: xml.Element): void {
   element.nodes
     .filter(xml.isElementByName('li'))
     .forEach((li, index) => (li.attributes.Index = index));
 
   element.nodes.filter(xml.isElement).forEach(resolveListItemIndex);
 }
+
+function resolveDefaultValue(def: xml.Element): void {
+  // tslint:disable-next-line:typedef no-any
+  const schemaDefinition = (schema as any)[def.name];
+  if (schemaDefinition) {
+    Object.entries(schemaDefinition).forEach(([name, value]) => {
+      if (typeof value === 'string' && !def.nodes.some(xml.isElementByName(name))) {
+        (def.nodes as xml.Element[]).push({
+          type: 'element',
+          attributes: {},
+          name,
+          nodes: [
+            {
+              type: 'text',
+              text: value,
+            },
+          ],
+        });
+      }
+    });
+  }
+}
+
+export function resolveMustTranslateFields(def: xml.Element): void {}

@@ -1,0 +1,173 @@
+{
+  "BillRepeatModeDef": { "label": {} },
+  "BillStoreModeDef": { "label": {} },
+  "BiomeDef": { "label": {}, "description": {} },
+  "BodyDef": { "label": {} },
+  "BodyPartDef": { "label": {} },
+  "BodyPartGroupDef": { "label": {} },
+  "ChemicalDef": { "label": {} },
+  "ConceptDef": { "label": {}, "helpText": {} },
+  "DamageDef": { "label": {}, "deathMessage": {} },
+  "DesignationCategoryDef": { "label": {}, "description": {} },
+  "DifficultyDef": { "label": {}, "description": {} },
+  "FactionDef": {
+    "label": {},
+    "description": {},
+    "fixedName": {},
+    "pawnsPlural": {},
+    "leaderTitle": {}
+  },
+  "GameConditionDef": { "label": {}, "description": {}, "endMessage": {} },
+  "HairDef": { "label": {} },
+  "HediffDef": {
+    "label": {},
+    "stages": { "li": { "label": {} } },
+    "labelNoun": {},
+    "comps": {
+      "li": {
+        "discoverLetterLabel": {},
+        "discoverLetterText": {},
+        "tools": { "li": { "label": {} } },
+        "labelTendedWell": {},
+        "labelTendedWellInner": {},
+        "labelSolidTendedWell": {},
+        "oldLabel": {},
+        "instantlyOldLabel": {}
+      }
+    },
+    "injuryProps": { "destroyedLabel": {}, "destroyedOutLabel": {} }
+  },
+  "HediffGiverSetDef": { "hediffGivers": { "li": { "letterLabel": {}, "letter": {} } } },
+  "HistoryAutoRecorderDef": { "label": {}, "graphLabelY": {} },
+  "HistoryAutoRecorderGroupDef": { "label": {} },
+  "IncidentDef": { "label": {}, "letterText": {}, "letterLabel": {} },
+  "InspirationDef": {
+    "label": {},
+    "beginLetter": {},
+    "beginLetterLabel": {},
+    "endMessage": {},
+    "baseInspectLine": {}
+  },
+  "InstructionDef": { "text": {}, "rejectInputMessage": {}, "onMapInstruction": {} },
+  "InteractionDef": {
+    "label": {},
+    "logRulesInitiator": { "rulesStrings": { "li": {} } },
+    "logRulesRecipient": { "rulesStrings": { "li": {} } }
+  },
+  "ItemCollectionGeneratorDef": { "label": {} },
+  "JobDef": { "reportString": {} },
+  "JoyKindDef": { "label": {} },
+  "KeyBindingCategoryDef": { "label": {}, "description": {} },
+  "KeyBindingDef": { "label": {} },
+  "LifeStageDef": { "label": {}, "adjective": {} },
+  "MainButtonDef": { "label": {}, "description": {} },
+  "MentalBreakDef": { "label": {} },
+  "MentalStateDef": {
+    "label": {},
+    "beginLetter": {},
+    "beginLetterLabel": {},
+    "recoveryMessage": {},
+    "baseInspectLine": {}
+  },
+  "NeedDef": { "label": {}, "description": {} },
+  "PawnCapacityDef": { "label": {}, "labelMechanoids": {} },
+  "PawnColumnDef": { "headerTip": {}, "label": {} },
+  "PawnKindDef": {
+    "label": {},
+    "labelPlural": {},
+    "labelMale": {},
+    "labelMalePlural": {},
+    "labelFemale": {},
+    "labelFemalePlural": {},
+    "lifeStages": {
+      "li": {
+        "label": {},
+        "labelPlural": {},
+        "labelMale": {},
+        "labelMalePlural": {},
+        "labelFemale": {},
+        "labelFemalePlural": {}
+      }
+    }
+  },
+  "PawnRelationDef": { "label": {}, "labelFemale": {} },
+  "PrisonerInteractionModeDef": { "label": {} },
+  "RaidStrategyDef": {
+    "arrivalTextFriendly": {},
+    "arrivalTextEnemy": {},
+    "letterLabelEnemy": {},
+    "letterLabelFriendly": {}
+  },
+  "RecipeDef": {
+    "label": {},
+    "description": {},
+    "jobString": {},
+    "successfullyRemovedHediffMessage": {}
+  },
+  "RecordDef": { "label": {}, "description": {} },
+  "ResearchProjectDef": { "label": {}, "description": {} },
+  "ResearchTabDef": { "label": {} },
+  "RiverDef": { "label": {} },
+  "RoadDef": { "label": {} },
+  "RoofDef": { "label": {} },
+  "RoomRoleDef": { "label": {} },
+  "RoomStatDef": { "label": {}, "scoreStages": { "li": { "label": {} } } },
+  "RulePackDef": { "rulePack": { "rulesStrings": { "li": {} } } },
+  "ScenarioDef": {
+    "label": {},
+    "description": {},
+    "scenario": {
+      "name": {},
+      "summary": {},
+      "description": {},
+      "parts": { "li": { "text": {} } }
+    }
+  },
+  "ScenPartDef": { "label": {}, "description": {} },
+  "SiteCoreDef": { "label": {}, "description": {} },
+  "SitePartDef": { "label": {}, "description": {}, "descriptionDialogue": {} },
+  "SkillDef": { "label": {}, "description": {}, "skillLabel": {} },
+  "SpecialThingFilterDef": { "label": {}, "description": {} },
+  "StatCategoryDef": { "label": {} },
+  "StatDef": {
+    "label": {},
+    "description": {},
+    "formatString": {},
+    "parts": { "li": { "customLabel": {} } }
+  },
+  "StorytellerDef": { "label": {}, "description": {} },
+  "StuffCategoryDef": { "label": {} },
+  "TaleDef": { "label": {}, "rulePack": { "rulesStrings": { "li": {} } } },
+  "TerrainDef": { "label": {}, "description": {} },
+  "ThingCategoryDef": { "label": {} },
+  "ThingDef": {
+    "label": {},
+    "description": {},
+    "tools": { "li": { "label": {} } },
+    "ingestible": { "ingestCommandString": {}, "ingestReportString": {} },
+    "comps": { "li": { "useLabel": {}, "offMessage": {} } },
+    "stuffProps": { "stuffAdjective": {} },
+    "verbs": { "li": { "label": {} } }
+  },
+  "ThoughtDef": {
+    "stages": { "li": { "label": {}, "description": {}, "labelSocial": {} } }
+  },
+  "TimeAssignmentDef": { "label": {} },
+  "ToolCapacityDef": { "label": {} },
+  "TraderKindDef": { "label": {} },
+  "TrainableDef": { "label": {}, "description": {} },
+  "TrainableIntelligenceDef": { "label": {} },
+  "TraitDef": { "degreeDatas": { "li": { "label": {}, "description": {} } } },
+  "TransferableSorterDef": { "label": {} },
+  "WeatherDef": { "label": {}, "description": {} },
+  "WorkGiverDef": { "label": {}, "verb": {}, "gerund": {} },
+  "WorkTypeDef": {
+    "label": {},
+    "description": {},
+    "labelShort": {},
+    "pawnLabel": {},
+    "gerundLabel": {},
+    "verb": {}
+  },
+  "WorldObjectDef": { "label": {}, "description": {} }
+}

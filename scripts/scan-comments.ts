@@ -8,10 +8,10 @@ import globby from 'globby';
 import fs from 'fs';
 
 import envInit from './env-init';
-const { dirCoreDefs, dirWorkshopMods } = envInit();
+const { dirCore, dirWorkshopMods } = envInit();
 
 function scanComments(): void {
-  globby.sync([dirCoreDefs, dirWorkshopMods].map(p => `${p}/**/*.xml`)).forEach(p =>
+  globby.sync([dirCore, dirWorkshopMods].map(p => `${p}/**/*.xml`)).forEach(p =>
     fs.readFile(p, { encoding: 'utf-8' }, (err, data) => {
       if (err) {
         console.log(chalk.redBright(p));

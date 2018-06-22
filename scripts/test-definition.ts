@@ -1,38 +1,15 @@
 /**
  * Test definition.
  */
+import envInit from './env-init';
+import readFiles from 'read-files';
 
-import fs from 'fs';
-import globby from 'globby';
 import * as xml from '../core/xml';
 import * as definition from '../core/definition';
 
-import envInit from './env-init';
-const { dirCoreDefs } = envInit();
+const { dirCore } = envInit();
 
-function readFiles(): Promise<definition.RawContents> {
-  return new Promise<definition.RawContents>(async (resolve, reject) => {
-    const rawContents: definition.RawContents = {};
-
-    const files: string[] = await globby(`${dirCoreDefs}/**/*.xml`);
-    let count: number = 0;
-
-    files.forEach(f =>
-      fs.readFile(f, { encoding: 'utf-8' }, (error, data) => {
-        if (error) {
-          reject(error);
-        }
-        rawContents[f] = data;
-        count++;
-        if (count === files.length) {
-          resolve(rawContents);
-        }
-      }),
-    );
-  });
-}
-
-readFiles()
+readFiles(`${dirCore}/Defs/**/*.xml`)
   .then(rawContents => {
     console.log(Object.entries(rawContents).length);
     const data: definition.DefinitionData = definition.parse(rawContents);
@@ -40,7 +17,9 @@ readFiles()
     console.log(
       JSON.stringify(
         data.TerrainDef.find(def => {
-          const defName: xml.Element | undefined = xml.getElement(def, 'defName');
+          const defName: xml.Element | undefined = def.nodes.find(
+            xml.isElementByName('defName'),
+          );
 
           return !!defName && xml.getText(defName) === 'BurnedWoodPlankFloor';
         }),

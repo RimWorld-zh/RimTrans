@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 
 export interface Config {
-  dirCoreDefs: string;
+  dirCore: string;
   dirWorkshopMods: string;
 }
 
@@ -21,7 +21,7 @@ export default function envInit(): Config {
   );
 
   return {
-    dirCoreDefs: local.DIR_CORE_DEFS || env.DIR_CORE_DEFS,
+    dirCore: local.DIR_CORE || env.DIR_CORE,
     dirWorkshopMods: local.DIR_WORKSHOP_MODS || env.DIR_WORKSHOP_MODS,
   };
 }

@@ -1,0 +1,110 @@
+/**
+ * Default schema for resolve definitions and extracting injections.
+ */
+// tslint:disable:typedef
+export const schema = {
+  ConceptDef: { helpText: '' },
+  DamageDef: { deathMessage: true },
+  FactionDef: {
+    fixedName: '',
+    pawnSingular: 'member',
+    pawnsPlural: 'members',
+    leaderTitle: 'leader',
+  },
+  GameConditionDef: { endMessage: true },
+  HediffDef: {
+    stages: { li: { label: true } },
+    labelNoun: true,
+    comps: {
+      li: {
+        discoverLetterLabel: true,
+        discoverLetterText: true,
+        tools: { li: { label: true } },
+        labelTendedWell: true,
+        labelTendedWellInner: true,
+        labelSolidTendedWell: true,
+        oldLabel: true,
+        instantlyOldLabel: true,
+      },
+    },
+    injuryProps: { destroyedLabel: true, destroyedOutLabel: true },
+  },
+  HediffGiverSetDef: { hediffGivers: { li: { letterLabel: true, letter: true } } },
+  HistoryAutoRecorderDef: { graphLabelY: '' },
+  IncidentDef: { letterText: '', letterLabel: '' },
+  InspirationDef: {
+    beginLetter: '',
+    beginLetterLabel: '',
+    endMessage: '',
+    baseInspectLine: '',
+  },
+  InstructionDef: { text: '', rejectInputMessage: '', onMapInstruction: '' },
+  InteractionDef: {
+    logRulesInitiator: { rulesStrings: { li: true } },
+    logRulesRecipient: { rulesStrings: { li: true } },
+  },
+  JobDef: { reportString: true },
+  LifeStageDef: { adjective: true },
+  MentalStateDef: {
+    beginLetter: true,
+    beginLetterLabel: true,
+    recoveryMessage: true,
+    baseInspectLine: true,
+  },
+  PawnCapacityDef: { labelMechanoids: true },
+  PawnColumnDef: { headerTip: true },
+  PawnKindDef: {
+    labelPlural: true,
+    labelMale: true,
+    labelMalePlural: true,
+    labelFemale: true,
+    labelFemalePlural: true,
+    lifeStages: {
+      li: {
+        label: true,
+        labelPlural: true,
+        labelMale: true,
+        labelMalePlural: true,
+        labelFemale: true,
+        labelFemalePlural: true,
+      },
+    },
+  },
+  PawnRelationDef: { labelFemale: true },
+  RaidStrategyDef: {
+    arrivalTextFriendly: true,
+    arrivalTextEnemy: true,
+    letterLabelEnemy: true,
+    letterLabelFriendly: true,
+  },
+  RecipeDef: { jobString: true, successfullyRemovedHediffMessage: true },
+  RoomStatDef: { scoreStages: { li: { label: true } } },
+  RulePackDef: { rulePack: { rulesStrings: { li: true } } },
+  ScenarioDef: {
+    scenario: {
+      name: true,
+      summary: true,
+      description: true,
+      parts: { li: { text: true } },
+    },
+  },
+  SitePartDef: { descriptionDialogue: true },
+  SkillDef: { skillLabel: true },
+  StatDef: { formatString: true, parts: { li: { customLabel: true } } },
+  TaleDef: { rulePack: { rulesStrings: { li: true } } },
+  ThingDef: {
+    tools: { li: { label: true } },
+    ingestible: {
+      ingestCommandString: '',
+      ingestReportString: '',
+      ingestReportStringEat: '',
+    },
+    comps: { li: { useLabel: true, offMessage: true } },
+    stuffProps: { stuffAdjective: true },
+    verbs: { li: { label: true } },
+  },
+  ThoughtDef: { stages: { li: { label: true, description: true, labelSocial: true } } },
+  TraitDef: { degreeDatas: { li: { label: true, description: true } } },
+  WorkGiverDef: { verb: true, gerund: true },
+  WorkTypeDef: { labelShort: true, pawnLabel: true, gerundLabel: true, verb: true },
+};

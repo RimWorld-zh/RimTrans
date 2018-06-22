@@ -4,8 +4,9 @@
 
 import * as logger from './logger';
 import * as xml from './xml';
-import { DefinitionData, RawContents } from './definition';
+import { DefinitionData } from './definition';
 import { stringCompare } from './utils';
+import { schema } from './schema';
 
 /**
  * The default end of line character. Use \n for LF and \r\n for CRLF.
@@ -41,7 +42,7 @@ export interface InjectionData {
 /**
  * Parse the definition data and extract injection data.
  */
-export function parse(rawContents: RawContents): void {
+export function parse(rawContents: xml.RawContents): void {
   const data: InjectionData = {};
   // tslint:disable-next-line:typedef
   const initFile = (defType: string, fileName: string): void => {

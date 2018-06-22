@@ -6,6 +6,10 @@
 import xmljs from 'xml-js';
 import * as logger from './logger';
 
+export interface RawContents {
+  [path: string]: string;
+}
+
 /**
  * XML attributes
  */
@@ -15,7 +19,7 @@ export interface Attributes {
   ParentName?: string;
   Abstract?: 'True';
   CommentBefore?: string;
-  Index: number;
+  Index?: number;
 }
 
 /**
@@ -56,12 +60,12 @@ export interface Text {
 
 /**
  * Parse the xml document text and return the root element.
- * @param rawContent the plain text of the xml document.
+ * @param content the plain text of the xml document.
  */
-export function parse(rawContent: string, path?: string): Element | undefined {
+export function parse(content: string, path?: string): Element | undefined {
   let doc: Element;
   try {
-    doc = xmljs.xml2js(rawContent, {
+    doc = xmljs.xml2js(content, {
       compact: false,
       trim: false,
       nativeType: false,
