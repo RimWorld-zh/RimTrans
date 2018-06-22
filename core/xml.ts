@@ -15,6 +15,7 @@ export interface Attributes {
   ParentName?: string;
   Abstract?: 'True';
   CommentBefore?: string;
+  Index: number;
 }
 
 /**
@@ -111,73 +112,46 @@ export function clone<T extends Node>(node: T): T {
   return JSON.parse(JSON.stringify(node));
 }
 
-/**
- * Covert to Element type, if incompatible return undefined.
- */
-export function asElement(node: Node): Element | undefined {
-  return node.type === 'element' ? (node as Element) : undefined;
+// region ======== For Comment ========
+
+export function isComment(node: Node): node is Comment {
+  return node.type === 'comment';
 }
 
-/**
- * Covert to Comment type, if incompatible return undefined.
- */
 export function asComment(node: Node): Comment | undefined {
-  return node.type === 'comment' ? (node as Comment) : undefined;
+  return isComment(node) ? node : undefined;
 }
 
-/**
- * Covert to Text type, if incompatible return undefined.
- */
+// endregion
+
+// region ======== For Element ========
+
+export function isElement(node: Node): node is Element {
+  return node.type === 'element';
+}
+
+export function isElementByName(name: string): (node: Node) => node is Element {
+  return (node): node is Element => node.type === 'element' && node.name === name;
+}
+
+export function asElement(node: Node): Element | undefined {
+  return isElement(node) ? node : undefined;
+}
+
+// endregion
+
+// region ======== For Text ========
+
+export function isText(node: Node): node is Text {
+  return node.type === 'text';
+}
+
 export function asText(node: Node): Text | undefined {
-  return node.type === 'text' ? (node as Text) : undefined;
+  return isText(node) ? node : undefined;
 }
 
-/**
- * Get the first child element of the element by the specified name.
- * @param element the element
- * @param name the name for the children of the element.
- */
-export function getElement(element: Element, name: string): Element | undefined {
-  return (element.nodes as Element[]).find(
-    el => el.type === 'element' && el.name === name,
-  );
-}
-
-/**
- * Get children elements of the element.
- */
-export function getElements(element: Element): Element[];
-
-/**
- * Get children elements of the element by the specified name.
- */
-export function getElements(element: Element, name: string): Element[];
-
-export function getElements(element: Element, name?: string): Element[] {
-  return name
-    ? (element.nodes as Element[]).filter(el => el.type === 'element' && el.name === name)
-    : (element.nodes as Element[]).filter(el => el.type === 'element');
-}
-
-/**
- * Check the element is a value node or not.
- */
-export function isEndingNode(element: Element): boolean {
-  return getElements(element).length === 0;
-}
-
-/**
- * Check children of the element is the same name or not.
- */
-export function isAllElementIs(element: Element, name: string): boolean {
-  return getElements(element, name).length === getElements(element).length;
-}
-
-/**
- * Get the text of the element.
- */
 export function getText(element: Element): string | undefined {
-  const text: Text | undefined = (element.nodes as Text[]).find(t => t.type === 'text');
+  const text: Text | undefined = element.nodes.find(isText);
   if (text) {
     return text.text;
   }
@@ -185,12 +159,11 @@ export function getText(element: Element): string | undefined {
   return undefined;
 }
 
-/**
- * Set the value of the element.
- */
 export function setText(element: Element, value: string): void {
-  const text: Text | undefined = (element.nodes as Text[]).find(t => t.type === 'text');
+  const text: Text | undefined = element.nodes.find(isText);
   if (text) {
     text.text = value;
   }
 }
+
+// endregion

@@ -36,24 +36,24 @@ export function parse(rawContents: RawContents): DefinitionData {
         return;
       }
 
-      let comment: xml.Comment | undefined;
-      let markDefs: string[] = [];
+      let comment: string | undefined;
+      let markDefs: { [defType: string]: boolean } = {};
       root.nodes.forEach(n => {
-        const curComment: xml.Comment | undefined = xml.asComment(n);
+        const curComment: string | undefined = validComment(n);
         const def: xml.Element | undefined = xml.asElement(n);
         if (def) {
           if (curComment) {
             comment = curComment;
-            markDefs = [];
-            markDefs.push(def.name);
-            def.attributes.CommentBefore = comment.comment;
+            markDefs = {};
+            markDefs[def.name] = true;
+            def.attributes.CommentBefore = comment;
           } else if (comment) {
-            if (markDefs.includes(def.name)) {
+            if (markDefs[def.name]) {
               comment = undefined;
-              markDefs = [];
+              markDefs = {};
             } else {
-              markDefs.push(def.name);
-              def.attributes.CommentBefore = comment.comment;
+              markDefs[def.name] = true;
+              def.attributes.CommentBefore = comment;
             }
           }
           addDefinition(def);
@@ -81,6 +81,8 @@ function validComment(node: xml.Node): string | undefined {
 function isAbstract(def: xml.Element): boolean {
   return !!def.attributes && def.attributes.Abstract !== 'True';
 }
+
+// ======== Inheritance ========
 
 interface InheritanceNode {
   def: xml.Element;
@@ -184,27 +186,36 @@ function resolveNodeRecursively(node: InheritanceNode): void {
 }
 
 function elementInheritRecursively(child: xml.Element, parent: xml.Element): void {
-  if (
-    child.attributes.Inherit &&
-    (child.attributes.Inherit as string).toLowerCase() === 'false'
-  ) {
+  if (child.attributes.Inherit === 'false') {
     return;
   }
 
-  if (xml.isAllElementIs(child, 'li')) {
-    xml.getElements(parent, 'li').forEach(elP => child.nodes.push(xml.clone(elP)));
+  if (child.nodes.every(xml.isElementByName('li'))) {
+    parent.nodes
+      .filter(xml.isElementByName('li'))
+      .forEach(elP => child.nodes.push(xml.clone(elP)));
 
     return;
   }
 
-  xml.getElements(parent).forEach(elP => {
-    const elC: xml.Element | undefined = xml.getElement(child, elP.name);
+  parent.nodes.filter(xml.isElement).forEach(elP => {
+    const elC: xml.Element | undefined = child.nodes.find(xml.isElementByName(elP.name));
     if (elC) {
-      if (!xml.isEndingNode(elC) && !xml.isEndingNode(elP)) {
+      if (!elC.nodes.every(xml.isText) && !elP.nodes.every(xml.isText)) {
         elementInheritRecursively(elC, elP);
       }
     } else {
       child.nodes.push(xml.clone(elP));
     }
   });
+}
+
+// ======== Post process ========
+
+function resolveListItemIndex(element: xml.Element): void {
+  element.nodes
+    .filter(xml.isElementByName('li'))
+    .forEach((li, index) => (li.attributes.Index = index));
+
+  element.nodes.filter(xml.isElement).forEach(resolveListItemIndex);
 }
