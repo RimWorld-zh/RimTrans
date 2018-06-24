@@ -1,3 +1,7 @@
+export interface RawContents {
+  [path: string]: string;
+}
+
 /**
  * String compare function.
  * @param ignoreCase ignore upper and lower case or not

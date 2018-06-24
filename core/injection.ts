@@ -3,7 +3,7 @@
  */
 
 import * as logger from './logger';
-import * as xml from './xml';
+import * as xml from './xml.old';
 import { DefinitionData } from './definition';
 import { stringCompare } from './utils';
 import { schema } from './schema';

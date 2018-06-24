@@ -1,112 +1,118 @@
 /**
- * Utils for xmljs
+ * Scan Keyed
  */
 // tslint:disable:no-reserved-keywords
 
-import xmljs from 'xml-js';
-import * as logger from './logger';
+import fs, { stat } from 'fs';
+import sax from 'sax';
+import Stack from './stack';
 
-export interface RawContents {
-  [path: string]: string;
+export interface Document {
+  doctype: string;
+  root: Element;
 }
 
-/**
- * XML attributes
- */
-export interface Attributes {
-  [key: string]: string | number | undefined;
-  Name?: string;
-  ParentName?: string;
-  Abstract?: 'True';
-  CommentBefore?: string;
-  Index?: number;
-}
-
-/**
- * XML node type.
- */
-export type NodeType = 'comment' | 'element' | 'text';
-
-/**
- * XML node.
- */
 export type Node = Comment | Element | Text;
 
-/**
- * XML comment node.
- */
-export interface Comment {
-  type: 'comment';
-  comment: string;
+export interface Attributes {
+  [name: string]: string | number | boolean | undefined;
+  Name?: string;
+  ParentName?: string;
+  Abstract?: string;
+  Inherit?: string;
+  Path?: string;
+  Index?: number;
+  Comment?: string;
 }
 
-/**
- * XML element node.
- */
+export interface Comment {
+  type: 'comment';
+  value: string;
+}
+
 export interface Element {
   type: 'element';
   name: string;
   attributes: Attributes;
+  value?: string;
   nodes: Node[];
 }
 
-/**
- * XML text node.
- */
 export interface Text {
   type: 'text';
-  text: string;
+  value: string;
 }
+
+const strict: boolean = true;
+const options: object = {
+  trim: false,
+  normalize: false,
+  lowercase: false,
+  xmlns: false,
+  position: true,
+  strictEntities: true,
+};
+const parser: sax.SAXParser = sax.parser(strict, options);
 
 /**
- * Parse the xml document text and return the root element.
- * @param content the plain text of the xml document.
+ * Parse the xml string and return the root element.
+ * @param content plain text for xml document
  */
-export function parse(content: string, path?: string): Element | undefined {
-  let doc: Element;
-  try {
-    doc = xmljs.xml2js(content, {
-      compact: false,
-      trim: false,
-      nativeType: false,
-      addParent: false,
-      alwaysArray: true,
-      alwaysChildren: true,
-      ignoreDeclaration: true,
-      ignoreText: false,
-      elementsKey: 'nodes',
-    }) as Element;
-  } catch (error) {
-    logger.error(error);
+export function parse(content: string): Element {
+  const stack: Stack<Element> = new Stack<Element>();
 
-    return;
-  }
+  let current: Element = stack.push({
+    type: 'element',
+    name: 'doc',
+    attributes: {},
+    nodes: [],
+  }).peek;
 
-  if (doc.nodes) {
-    const root: Element | undefined = (doc.nodes as Element[]).find(
-      n => n.type === 'element',
-    );
+  parser.onerror = error => {
+    throw error;
+  };
 
-    if (root) {
-      (root.nodes as Element[]).forEach(resolveAttributes);
+  parser.onopentag = (tag: sax.Tag) => {
+    const element: Element = {
+      type: 'element',
+      name: tag.name,
+      attributes: { ...tag.attributes },
+      nodes: [],
+    };
+    current.nodes.push(element);
+    if (!tag.isSelfClosing) {
+      current = stack.push(element).peek;
     }
+  };
+  parser.oncomment = comment => {
+    current.nodes.push({
+      type: 'comment',
+      value: comment,
+    });
+  };
+  parser.ontext = text => {
+    current.nodes.push({
+      type: 'text',
+      value: text,
+    });
+  };
+  parser.onclosetag = tagName => {
+    if (!current.nodes.some(isElement)) {
+      if (current.nodes.length === 1 && isText(current.nodes[0])) {
+        current.value = current.nodes[0].value;
+        current.nodes = [];
+      } else {
+        current.value = (current.nodes as (Text | Comment)[])
+          .map(n => (isText(n) ? n.value : ''))
+          .join('');
+      }
+    }
+    current = stack.pop().peek;
+  };
 
-    return root;
-  }
+  parser.write(content).close();
 
-  logger.error(`Missing root element.\nfile: "${path}"`);
-
-  return undefined;
-}
-
-function resolveAttributes(element: Element): void {
-  if (element.type !== 'element') {
-    return;
-  }
-
-  element.attributes = element.attributes || {};
-
-  (element.nodes as Element[]).forEach(resolveAttributes);
+  return current.nodes.find(isElement) as Element;
 }
 
 /**
@@ -142,6 +148,38 @@ export function asElement(node: Node): Element | undefined {
   return isElement(node) ? node : undefined;
 }
 
+export function createElement(name: string): Element;
+export function createElement(name: string, value: string): Element;
+export function createElement(name: string, children: Node[]): Element;
+export function createElement(name: string, attributes: Attributes): Element;
+export function createElement(
+  name: string,
+  attributes: Attributes,
+  value: string,
+): Element;
+export function createElement(
+  name: string,
+  attributes: Attributes,
+  children: Node[],
+): Element;
+export function createElement(
+  name: string,
+  ...args: (string | Node[] | Attributes)[]
+): Element {
+  if (args.length === 1) {
+    // TODO
+  } else if (args.length === 2) {
+    // TODO
+  }
+
+  return {
+    type: 'element',
+    attributes: {},
+    name,
+    nodes: [],
+  };
+}
+
 // endregion
 
 // region ======== For Text ========
@@ -154,20 +192,10 @@ export function asText(node: Node): Text | undefined {
   return isText(node) ? node : undefined;
 }
 
-export function getText(element: Element): string | undefined {
-  const text: Text | undefined = element.nodes.find(isText);
-  if (text) {
-    return text.text;
-  }
+export function getChildElementText(element: Element, child: string): string | undefined {
+  const childElement: Element | undefined = element.nodes.find(isElementByName(child));
 
-  return undefined;
-}
-
-export function setText(element: Element, value: string): void {
-  const text: Text | undefined = element.nodes.find(isText);
-  if (text) {
-    text.text = value;
-  }
+  return childElement ? childElement.value : undefined;
 }
 
 // endregion

@@ -45,25 +45,13 @@ function scanInjected(): void {
           root.nodes.filter(xml.isElement).forEach(def => addData(defType, def.name));
         }
       });
-      console.log('{');
       Object.entries(data)
         .sort((a, b) => stringCompare(a[0], b[0]))
-        .forEach(([defType, schemaDefinition]) => {
-          console.log(`  ${defType}: ${JSON.stringify(schemaDefinition)},`);
+        .forEach(([defType, definition]) => {
+          console.log(`"${defType}": ${JSON.stringify(definition, undefined, '  ')},`);
         });
-      console.log('}');
     },
   );
 }
 
 scanInjected();
-
-function sortSchema(): void {
-  Object.entries(schema)
-    .sort((a, b) => stringCompare(a[0], b[0]))
-    .forEach(([defType, schemaDefinition]) => {
-      console.log(`${defType}: ${JSON.stringify(schemaDefinition)},`);
-    });
-}
-
-// sortSchema();

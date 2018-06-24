@@ -4,9 +4,12 @@
 
 import * as logger from './logger';
 import * as xml from './xml';
-import { stringCompare } from './utils';
+import { stringCompare, RawContents } from './utils';
 import { schema } from './schema';
 
+/**
+ * RimWorld Defs Data, key for def type, value for defs
+ */
 export interface DefinitionData {
   [defType: string]: xml.Element[];
 }
@@ -15,7 +18,7 @@ export interface DefinitionData {
  * Parse the XML documents plain text to RimWorld Definition data.
  * @param rawContents key for file path, value for XML plain text.
  */
-export function parse(rawContents: xml.RawContents): DefinitionData {
+export function parse(rawContents: RawContents): DefinitionData {
   const data: DefinitionData = {};
   // tslint:disable-next-line:typedef
   const addDefinition = (def: xml.Element): void => {
@@ -25,34 +28,43 @@ export function parse(rawContents: xml.RawContents): DefinitionData {
     data[def.name].push(def);
   };
 
+  const rootMap: { [path: string]: xml.Element } = {};
+
   Object.entries(rawContents)
     .sort((a, b) => stringCompare(a[0], b[0]))
-    .forEach(([path, raw]) => {
-      const root: xml.Element | undefined = xml.parse(raw, path);
+    .map(([path, content]) => {
+      try {
+        const root: xml.Element = xml.parse(content);
+        root.attributes.Path = path;
+
+        return root;
+      } catch (error) {
+        logger.error(`Failed to parse Defs file: "${path}".\n${(error as Error).stack}`);
+      }
+
+      return undefined;
+    })
+    .forEach(root => {
       if (!root) {
         return;
       }
 
       let comment: string | undefined;
       let markDefs: { [defType: string]: boolean } = {};
-      root.nodes.forEach(n => {
-        const curComment: string | undefined = validComment(n);
-        const def: xml.Element | undefined = xml.asElement(n);
+      root.nodes.forEach((node, index) => {
+        const curComment: string | undefined = validComment(node);
+        const def: xml.Element | undefined = xml.asElement(node);
         if (def) {
           if (curComment) {
             comment = curComment;
             markDefs = {};
             markDefs[def.name] = true;
-            def.attributes.CommentBefore = comment;
-          } else if (comment) {
-            if (markDefs[def.name]) {
-              comment = undefined;
-              markDefs = {};
-            } else {
-              markDefs[def.name] = true;
-              def.attributes.CommentBefore = comment;
-            }
+            def.attributes.Comment = comment;
+          } else if (comment && !markDefs[def.name]) {
+            markDefs[def.name] = true;
+            def.attributes.Comment = comment;
           }
+          def.attributes.Index = index;
           addDefinition(def);
         }
       });
@@ -61,6 +73,8 @@ export function parse(rawContents: xml.RawContents): DefinitionData {
   return data;
 }
 
+// ======== Utils ========
+
 function validComment(node: xml.Node): string | undefined {
   if (!node) {
     return undefined;
@@ -68,15 +82,21 @@ function validComment(node: xml.Node): string | undefined {
 
   const comment: xml.Comment | undefined = xml.asComment(node);
 
-  return comment &&
-    comment.comment &&
-    (comment.comment.match(/\r?\n/g) || []).length === 0
-    ? comment.comment
+  return comment && comment.value && (comment.value.match(/\r?\n/g) || []).length === 0
+    ? comment.value
     : undefined;
 }
 
-function isAbstract(def: xml.Element): boolean {
+export function getDefName(def: xml.Element): string | undefined {
+  return xml.getChildElementText(def, 'defName');
+}
+
+export function isAbstract(def: xml.Element): boolean {
   return !!def.attributes && def.attributes.Abstract !== 'True';
+}
+
+function insertDefAfter(defs: xml.Element[], that: xml.Element, def: xml.Element): void {
+  defs.splice(defs.indexOf(that) + 1, 0, def);
 }
 
 // ======== Inheritance ========
@@ -209,34 +229,58 @@ function elementInheritRecursively(child: xml.Element, parent: xml.Element): voi
 
 // ======== Post process ========
 
-export function resolveListItemIndex(element: xml.Element): void {
+export function postProcess(dataList: DefinitionData[]): void {
+  dataList.forEach(resolveListItemIndex);
+}
+
+// ==== List Item ====
+
+function resolveListItemIndexRecursively(element: xml.Element): void {
   element.nodes
     .filter(xml.isElementByName('li'))
     .forEach((li, index) => (li.attributes.Index = index));
 
-  element.nodes.filter(xml.isElement).forEach(resolveListItemIndex);
+  element.nodes.filter(xml.isElement).forEach(resolveListItemIndexRecursively);
 }
 
-function resolveDefaultValue(def: xml.Element): void {
-  // tslint:disable-next-line:typedef no-any
-  const schemaDefinition = (schema as any)[def.name];
-  if (schemaDefinition) {
-    Object.entries(schemaDefinition).forEach(([name, value]) => {
-      if (typeof value === 'string' && !def.nodes.some(xml.isElementByName(name))) {
-        (def.nodes as xml.Element[]).push({
-          type: 'element',
-          attributes: {},
-          name,
-          nodes: [
-            {
-              type: 'text',
-              text: value,
-            },
-          ],
-        });
-      }
-    });
-  }
+function resolveListItemIndex(data: DefinitionData): void {
+  Object.entries(data).forEach(([defType, defs]) =>
+    defs.forEach(resolveListItemIndexRecursively),
+  );
 }
 
-export function resolveMustTranslateFields(def: xml.Element): void {}
+// ==== ThingDefGenerator_Building ====
+
+const BlueprintDefNamePrefix: string = 'Blueprint_';
+const InstallBlueprintDefNamePrefix: string = 'Install_';
+const BuildingFrameDefNamePrefix: string = 'Frame_';
+
+function isBuildableByPlayer(def: xml.Element): boolean {
+  return def.nodes.some(xml.isElementByName('designationCategory'));
+}
+
+function isMinifiable(def: xml.Element): boolean {
+  return def.nodes.some(xml.isElementByName('minifiedDef'));
+}
+
+function generateThingDef_Building(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.ThingDef) {
+      data.ThingDef.forEach(def => {
+        if (isBuildableByPlayer(def)) {
+          //
+        }
+        if (isMinifiable(def)) {
+          //
+        }
+      });
+    }
+    if (data.TerrainDef) {
+      data.TerrainDef.forEach(def => {
+        if (isBuildableByPlayer(def)) {
+          //
+        }
+      });
+    }
+  });
+}

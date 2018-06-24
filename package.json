@@ -11,19 +11,26 @@
   "license": "MIT",
   "scripts": {
     "ts": "ts-node -P scripts/tsconfig.json",
+    "all-defs": "yarn ts scripts/all-defs.ts",
     "scan-comments": "yarn ts scripts/scan-comments.ts",
     "scan-injected": "yarn ts scripts/scan-injected.ts",
+    "xml": "yarn ts core/xml.ts",
     "env-init": "yarn ts scripts/env-init.ts",
     "test": "yarn ts scripts/definition.ts",
     "start": "echo no script for start"
   },
   "devDependencies": {
+    "@types/dotenv": "^4.0.3",
     "@types/globby": "^6.1.0",
     "@types/node": "^10.3.3",
     "@types/rimraf": "^2.0.2",
+    "@types/sax": "^1.0.1",
+    "@types/xml2js": "^0.4.3",
+    "dotenv": "^6.0.0",
     "globby": "^8.0.1",
     "jest": "^23.1.0",
     "rimraf": "^2.6.2",
+    "sax": "^1.2.4",
     "ts-jest": "^22.4.6",
     "ts-node": "^6.1.1",
     "tslib": "^1.9.2",
@@ -31,7 +38,6 @@
     "tslint-microsoft-contrib": "^5.0.3",
     "typescript": "^2.9.2",
     "xml-js": "^1.6.4",
-    "@types/dotenv": "^4.0.3",
-    "dotenv": "^6.0.0"
+    "xml2js": "^0.4.19"
   }
 }

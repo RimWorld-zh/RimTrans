@@ -1,23 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <TerrainDef ParentName="BurnedFloorBase">
-    <defName>BurnedWoodPlankFloor</defName>
-    <label>burned wood floor</label>
-    <renderPrecedence>251</renderPrecedence>
-    <description>Burned-out wood plank flooring.</description>
-    <texturePath>Terrain/Surfaces/BurnedWoodFloor</texturePath>
-    <edgeType>FadeRough</edgeType>
-  </TerrainDef>
-
-  <TerrainDef ParentName="BurnedFloorBase">
-    <defName>BurnedCarpet</defName>
-    <label>burned carpet</label>
-    <renderPrecedence>201</renderPrecedence>
-    <description>Burned-out carpet.</description>
-    <texturePath>Terrain/Surfaces/BurnedCarpet</texturePath>
-    <edgeType>FadeRough</edgeType>
-  </TerrainDef>
+  <!-- BurnedFloorBase -->
 
   <TerrainDef Name="BurnedFloorBase"
               Abstract="True">
@@ -33,6 +17,29 @@
     <statBases>
       <Beauty>-9</Beauty>
     </statBases>
+  </TerrainDef>
+
+  <!-- burned wood floor -->
+
+  <TerrainDef ParentName="BurnedFloorBase">
+    <defName>BurnedWoodPlankFloor</defName>
+    <label>burned wood floor</label>
+    <renderPrecedence>251</renderPrecedence>
+    <description>Burned-out wood
+      <!-- test -->plank flooring.</description>
+    <texturePath>Terrain/Surfaces/BurnedWoodFloor</texturePath>
+    <edgeType>FadeRough</edgeType>
+  </TerrainDef>
+
+  <!-- burned carpet -->
+
+  <TerrainDef ParentName="BurnedFloorBase">
+    <defName>BurnedCarpet</defName>
+    <label>burned carpet</label>
+    <renderPrecedence>201</renderPrecedence>
+    <description>Burned-out carpet.</description>
+    <texturePath>Terrain/Surfaces/BurnedCarpet</texturePath>
+    <edgeType>FadeRough</edgeType>
   </TerrainDef>
 
 </Defs>
