@@ -567,12 +567,21 @@ function generateRecipeDef(dataList: DefinitionData[]): void {
 function generatePawnColumnDefs(dataList: DefinitionData[]): void {
   dataList.forEach(data => {
     if (data.TrainableDef) {
-      [...data.TrainableDef]
+      data.TrainableDef.map(def => {
+        def.attributes.Index = parseFloat(
+          xml.getChildElementText(def, 'listPriority') || '0',
+        );
+
+        return def;
+      })
         .sort((a, b) => {
-          const A: number = parseFloat(xml.getChildElementText(a, 'listPriority') || '0');
-          const B: number = parseFloat(xml.getChildElementText(b, 'listPriority') || '0');
-          if (!isNaN(A) && !isNaN(B)) {
-            return B - A; // descending
+          if (
+            a.attributes.Index !== undefined &&
+            !isNaN(a.attributes.Index) &&
+            b.attributes.Index !== undefined &&
+            !isNaN(b.attributes.Index)
+          ) {
+            return b.attributes.Index - a.attributes.Index; // descending
           } else {
             return 0;
           }
@@ -624,7 +633,29 @@ function generateKeyBindingCategoryDefs(dataList: DefinitionData[]): void {
   dataList.forEach(data => {
     if (data.DesignationCategoryDef) {
       data.DesignationCategoryDef.forEach((def, index) => {
-        //
+        const defName: string = getDefName(def) as string;
+        const category: xml.Element = xml.createElement(
+          'KeyBindingCategoryDef',
+          {
+            ...def.attributes,
+            SourceDefType: 'DesignationCategoryDef',
+            SourceDef: defName,
+          },
+          [
+            xml.createElement('defName', `Architect_${defName}`),
+            xml.createElement('label', '{0} tab'),
+            xml.createElement(
+              'description',
+              'Key bindings for the "{0}" section of the Architect menu.',
+            ),
+          ],
+        );
+        category.attributes.Path = '_KeyBindingCategoryDef_Extra.xml';
+
+        if (!data.KeyBindingCategoryDef) {
+          data.KeyBindingCategoryDef = [];
+        }
+        data.KeyBindingCategoryDef.push(category);
       });
     }
   });
@@ -634,7 +665,21 @@ function generateKeyBindingDefs(dataList: DefinitionData[]): void {
   dataList.forEach(data => {
     if (data.MainButtonDef) {
       data.MainButtonDef.forEach((def, index) => {
-        //
+        const defName: string = getDefName(def) as string;
+        const key: xml.Element = xml.createElement(
+          'KeyBindingDef',
+          { ...def.attributes, SourceDefType: 'MainButtonDef', SourceDef: defName },
+          [
+            xml.createElement('defName', defName),
+            xml.createElement('label', 'Toggle {0} tab'),
+          ],
+        );
+        key.attributes.Path = '_KeyBinding_Extra.xml';
+
+        if (!data.MainButtonDef) {
+          data.MainButtonDef = [];
+        }
+        data.MainButtonDef.push(key);
       });
     }
   });
