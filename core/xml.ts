@@ -7,11 +7,6 @@ import fs, { stat } from 'fs';
 import sax from 'sax';
 import Stack from './stack';
 
-export interface Document {
-  doctype: string;
-  root: Element;
-}
-
 export type Node = Comment | Element | Text;
 
 export interface Attributes {
@@ -23,6 +18,8 @@ export interface Attributes {
   Path?: string;
   Index?: number;
   Comment?: string;
+  SourceDefType?: string;
+  SourceDef?: string;
 }
 
 export interface Comment {
@@ -36,6 +33,7 @@ export interface Element {
   attributes: Attributes;
   value?: string;
   nodes: Node[];
+  __metadata?: Attributes;
 }
 
 export interface Text {
@@ -68,16 +66,16 @@ export function parse(content: string): Element {
     nodes: [],
   }).peek;
 
-  parser.onerror = error => {
-    throw error;
-  };
-
   parser.onopentag = (tag: sax.Tag) => {
     const element: Element = {
       type: 'element',
       name: tag.name,
       attributes: { ...tag.attributes },
       nodes: [],
+      __metadata: {
+        line: parser.line,
+        column: parser.column,
+      },
     };
     current.nodes.push(element);
     if (!tag.isSelfClosing) {
@@ -166,17 +164,32 @@ export function createElement(
   name: string,
   ...args: (string | Node[] | Attributes)[]
 ): Element {
+  let value: string | undefined;
+  let attributes: Attributes = {};
+  let nodes: Node[] = [];
   if (args.length === 1) {
-    // TODO
+    if (typeof args[0] === 'string') {
+      value = args[0] as string;
+    } else if (Array.isArray(args[0])) {
+      nodes = args[0] as Node[];
+    } else if (typeof args[0] === 'object') {
+      attributes = args[0] as Attributes;
+    }
   } else if (args.length === 2) {
-    // TODO
+    attributes = args[0] as Attributes;
+    if (typeof args[1] === 'string') {
+      value = args[1] as string;
+    } else if (Array.isArray(args[1])) {
+      nodes = args[1] as Node[];
+    }
   }
 
   return {
     type: 'element',
-    attributes: {},
+    attributes,
     name,
-    nodes: [],
+    value,
+    nodes,
   };
 }
 
