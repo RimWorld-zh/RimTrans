@@ -16,6 +16,7 @@ export interface Field {
 
 export interface Injection {
   defType: string;
+  fileName: string;
   defName: string;
   commentBefore?: string;
   fields: Field[];
@@ -23,6 +24,12 @@ export interface Injection {
 
 export interface InjectionData {
   [defType: string]: Injection[];
+}
+
+export interface InjectionMap {
+  [defType: string]: {
+    [defName: string]: Injection;
+  };
 }
 
 /**
