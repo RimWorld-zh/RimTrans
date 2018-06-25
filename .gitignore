@@ -33,3 +33,4 @@ types/
 # Project related
 scripts/**/*.js
 test/resources/
+temp.*

@@ -11,12 +11,8 @@
   "license": "MIT",
   "scripts": {
     "ts": "ts-node -P scripts/tsconfig.json",
-    "all-defs": "yarn ts scripts/all-defs.ts",
-    "scan-comments": "yarn ts scripts/scan-comments.ts",
-    "scan-injected": "yarn ts scripts/scan-injected.ts",
-    "xml": "yarn ts core/xml.ts",
-    "env-init": "yarn ts scripts/env-init.ts",
-    "test": "yarn ts scripts/definition.ts",
+    "test:xml": "yarn ts test/xml.ts",
+    "test:def": "yarn ts test/definition.ts",
     "start": "echo no script for start"
   },
   "devDependencies": {
