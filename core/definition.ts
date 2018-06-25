@@ -232,9 +232,16 @@ export function postProcess(dataList: DefinitionData[]): void {
   dataList.forEach(resolveListItemIndex);
 
   // DefGenerator
-  [generateThingDef_Building, generateThingDef_Corpses, generateThingDef_Meat].forEach(
-    generator => generator(dataList),
-  );
+  [
+    generateThingDef_Building,
+    generateThingDef_Corpses,
+    generateThingDef_Meat,
+    generateTerrainDef_Stone,
+    generateRecipeDef,
+    generatePawnColumnDefs,
+    generateKeyBindingCategoryDefs,
+    generateKeyBindingDefs,
+  ].forEach(generator => generator(dataList));
 }
 
 // ==== List Item ====
@@ -557,7 +564,7 @@ function generateRecipeDef(dataList: DefinitionData[]): void {
 
 // ==== PawnColumnDefGenerator ====
 
-function generatePawnColumn(dataList: DefinitionData[]): void {
+function generatePawnColumnDefs(dataList: DefinitionData[]): void {
   dataList.forEach(data => {
     if (data.TrainableDef) {
       [...data.TrainableDef]
@@ -565,7 +572,7 @@ function generatePawnColumn(dataList: DefinitionData[]): void {
           const A: number = parseFloat(xml.getChildElementText(a, 'listPriority') || '0');
           const B: number = parseFloat(xml.getChildElementText(b, 'listPriority') || '0');
           if (!isNaN(A) && !isNaN(B)) {
-            return B - A;
+            return B - A; // descending
           } else {
             return 0;
           }
@@ -591,8 +598,44 @@ function generatePawnColumn(dataList: DefinitionData[]): void {
           data.PawnColumnDef.push(column);
         });
     }
-    if (data.WorkTypeDef) {
-      //
+    // if (data.WorkTypeDef) {
+    //   data.WorkTypeDef.filter(wt => xml.getChildElementText(wt, 'visible') !== 'false')
+    //     .sort((a, b) => {
+    //       const A: number = parseInt(xml.getChildElementText(a, 'naturalPriority') || '0', 10);
+    //       const B: number = parseInt(xml.getChildElementText(b, 'naturalPriority') || '0', 10);
+    //       if (!isNaN(A) && !isNaN(B)) {
+    //         return A - B; // ascending
+    //       } else {
+    //         return 0;
+    //       }
+    //     })
+    //     .forEach((def, index) => {
+    //       if (isAbstract(def)) {
+    //         return;
+    //       }
+    //     })
+    // }
+  });
+}
+
+// ==== KeyBindingDefGenerator ====
+
+function generateKeyBindingCategoryDefs(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.DesignationCategoryDef) {
+      data.DesignationCategoryDef.forEach((def, index) => {
+        //
+      });
+    }
+  });
+}
+
+function generateKeyBindingDefs(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.MainButtonDef) {
+      data.MainButtonDef.forEach((def, index) => {
+        //
+      });
     }
   });
 }
