@@ -50,56 +50,52 @@ const options: object = {
   position: true,
   strictEntities: true,
 };
-const parser: sax.SAXParser = sax.parser(strict, options);
 
 /**
  * Parse the xml string and return the root element.
  * @param content plain text for xml document
  */
 export function parse(content: string): Element {
+  const parser: sax.SAXParser = sax.parser(strict, options);
   const stack: Stack<Element> = new Stack<Element>();
 
-  let current: Element = stack.push({
-    type: 'element',
-    name: 'doc',
-    attributes: {},
-    nodes: [],
-  }).peek;
+  let current: Element = stack.push(createElement('doc')).peek;
+
+  // parser.onerror = error => {
+  //   throw error;
+  // };
 
   parser.onopentag = (tag: sax.Tag) => {
-    const element: Element = {
-      type: 'element',
-      name: tag.name,
-      attributes: { ...tag.attributes },
-      nodes: [],
-      __metadata: {
-        line: parser.line,
-        column: parser.column,
-      },
+    // console.log('onopentag', parser.line, parser.column, tag.name);
+    const element: Element = createElement(tag.name, { ...tag.attributes });
+    element.__metadata = {
+      line: parser.line,
+      column: parser.column,
     };
     current.nodes.push(element);
-    if (!tag.isSelfClosing) {
-      current = stack.push(element).peek;
-    }
+    current = stack.push(element).peek;
   };
   parser.oncomment = comment => {
+    // console.log('oncomment', parser.line, parser.column);
     current.nodes.push({
       type: 'comment',
       value: comment,
     });
   };
   parser.ontext = text => {
+    // console.log('ontext', parser.line, parser.column);
     current.nodes.push({
       type: 'text',
       value: text,
     });
   };
   parser.onclosetag = tagName => {
+    // console.log('onclosetag', parser.line, parser.column, tagName);
     if (!current.nodes.some(isElement)) {
       if (current.nodes.length === 1 && isText(current.nodes[0])) {
         current.value = current.nodes[0].value;
         current.nodes = [];
-      } else {
+      } else if (current.nodes.length > 1) {
         current.value = (current.nodes as (Text | Comment)[])
           .map(n => (isText(n) ? n.value : ''))
           .join('');
