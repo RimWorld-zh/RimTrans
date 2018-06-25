@@ -7,11 +7,14 @@ import * as xml from './xml';
 import { RawContents, stringCompare, arrayInsertAfter } from './utils';
 import { schema } from './schema';
 
-/**
- * RimWorld Defs Data, key for def type, value for defs
- */
 export interface DefinitionData {
   [defType: string]: xml.Element[];
+}
+
+export interface DefinitionMap {
+  [defType: string]: {
+    [defName: string]: xml.Element;
+  };
 }
 
 /**

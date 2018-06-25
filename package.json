@@ -13,6 +13,7 @@
     "ts": "ts-node -P scripts/tsconfig.json",
     "test:xml": "yarn ts test/xml.ts",
     "test:def": "yarn ts test/definition.ts",
+    "scan:fields": "yarn ts scripts/scan-fields.ts",
     "start": "echo no script for start"
   },
   "devDependencies": {

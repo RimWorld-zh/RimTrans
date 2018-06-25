@@ -9,8 +9,9 @@ import { RawContents, stringCompare } from './utils';
 import { schema } from './schema';
 
 export interface Field {
-  path: string | string[];
+  name: string;
   value: string;
+  children: Field[];
 }
 
 export interface Injection {
