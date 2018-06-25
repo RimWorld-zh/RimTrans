@@ -4,7 +4,7 @@
 
 import * as logger from './logger';
 import * as xml from './xml';
-import { stringCompare, RawContents } from './utils';
+import { RawContents, stringCompare, arrayInsertAfter } from './utils';
 import { schema } from './schema';
 
 /**
@@ -64,7 +64,7 @@ export function parse(rawContents: RawContents): DefinitionData {
             markDefs[def.name] = true;
             def.attributes.Comment = comment;
           }
-          def.attributes.Index = index;
+          def.attributes.Path = root.attributes.Path;
           addDefinition(def);
         }
       });
@@ -92,11 +92,7 @@ export function getDefName(def: xml.Element): string | undefined {
 }
 
 export function isAbstract(def: xml.Element): boolean {
-  return !!def.attributes && def.attributes.Abstract !== 'True';
-}
-
-function insertDefAfter(defs: xml.Element[], that: xml.Element, def: xml.Element): void {
-  defs.splice(defs.indexOf(that) + 1, 0, def);
+  return def.attributes.Abstract === 'True';
 }
 
 // ======== Inheritance ========
@@ -229,8 +225,16 @@ function elementInheritRecursively(child: xml.Element, parent: xml.Element): voi
 
 // ======== Post process ========
 
+/**
+ * Post process data after resolve inheritance: list item, generate defs, etc.
+ */
 export function postProcess(dataList: DefinitionData[]): void {
   dataList.forEach(resolveListItemIndex);
+
+  // DefGenerator
+  [generateThingDef_Building, generateThingDef_Corpses, generateThingDef_Meat].forEach(
+    generator => generator(dataList),
+  );
 }
 
 // ==== List Item ====
@@ -251,9 +255,9 @@ function resolveListItemIndex(data: DefinitionData): void {
 
 // ==== ThingDefGenerator_Building ====
 
-const BlueprintDefNamePrefix: string = 'Blueprint_';
-const InstallBlueprintDefNamePrefix: string = 'Install_';
-const BuildingFrameDefNamePrefix: string = 'Frame_';
+const prefixBlueprintDefName: string = 'Blueprint_';
+const prefixInstallBlueprintDefName: string = 'Install_';
+const prefixBuildingFrameDefName: string = 'Frame_';
 
 function isBuildableByPlayer(def: xml.Element): boolean {
   return def.nodes.some(xml.isElementByName('designationCategory'));
@@ -263,24 +267,332 @@ function isMinifiable(def: xml.Element): boolean {
   return def.nodes.some(xml.isElementByName('minifiedDef'));
 }
 
+function newBlueprintDef(
+  def: xml.Element,
+  isInstallBlueprint: boolean = false,
+): xml.Element {
+  const defName: string = getDefName(def) as string;
+  const attributes: xml.Attributes = {
+    ...def.attributes,
+    SourceDefType: def.name,
+    SourceDef: defName,
+  };
+  if (def.name === 'TerrainDef') {
+    attributes.Path = '_Terrain_Extra.xml';
+  }
+
+  return xml.createElement('ThingDef', attributes, [
+    xml.createElement(
+      'defName',
+      isInstallBlueprint
+        ? `${prefixBlueprintDefName}${prefixInstallBlueprintDefName}${defName}`
+        : `${prefixBlueprintDefName}${defName}`,
+    ),
+    xml.createElement('label', 'BlueprintLabelExtra'),
+  ]);
+}
+
+function newFrameDef(def: xml.Element): xml.Element {
+  const defName: string = getDefName(def) as string;
+  const attributes: xml.Attributes = {
+    ...def.attributes,
+    SourceDefType: def.name,
+    SourceDef: defName,
+  };
+  if (def.name === 'TerrainDef') {
+    attributes.Path = '_Terrain_Extra.xml';
+  }
+
+  return xml.createElement('ThingDef', attributes, [
+    xml.createElement('defName', `${prefixBuildingFrameDefName}${defName}`),
+    xml.createElement('label', 'FrameLabelExtra'),
+    xml.createElement('description', ''),
+  ]);
+}
+
 function generateThingDef_Building(dataList: DefinitionData[]): void {
   dataList.forEach(data => {
     if (data.ThingDef) {
-      data.ThingDef.forEach(def => {
-        if (isBuildableByPlayer(def)) {
-          //
+      data.ThingDef.forEach((def, index) => {
+        if (isAbstract(def)) {
+          return;
         }
-        if (isMinifiable(def)) {
-          //
+        if (isBuildableByPlayer(def)) {
+          arrayInsertAfter(
+            data.ThingDef,
+            index,
+            newBlueprintDef(def),
+            ...(isMinifiable(def) ? [newBlueprintDef(def, true)] : []),
+            newFrameDef(def),
+          );
+        } else if (isMinifiable(def)) {
+          arrayInsertAfter(data.ThingDef, index, newBlueprintDef(def, true));
         }
       });
     }
     if (data.TerrainDef) {
       data.TerrainDef.forEach(def => {
+        if (isAbstract(def)) {
+          return;
+        }
         if (isBuildableByPlayer(def)) {
-          //
+          if (!data.ThingDef) {
+            data.ThingDef = [];
+          }
+          data.ThingDef.push(newBlueprintDef(def), newFrameDef(def));
         }
       });
+    }
+  });
+}
+
+// ==== ThingDefGenerator_Corpses ====
+
+function generateThingDef_Corpses(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.ThingDef) {
+      data.ThingDef.forEach((def, index) => {
+        if (isAbstract(def)) {
+          return;
+        }
+        if (xml.getChildElementText(def, 'category') === 'Pawn') {
+          const defName: string = getDefName(def) as string;
+          arrayInsertAfter(
+            data.ThingDef,
+            index,
+            xml.createElement(
+              'ThingDef',
+              { ...def.attributes, SourceDefType: 'ThingDef', SourceDef: defName },
+              [
+                xml.createElement('defName', `Corpse_${defName}`),
+                xml.createElement('label', 'CorpseLabel'),
+                xml.createElement('description', 'CorpseDesc'),
+              ],
+            ),
+          );
+        }
+      });
+    }
+  });
+}
+
+// ==== ThingDefGenerator_Meat ====
+
+function generateThingDef_Meat(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.ThingDef) {
+      data.ThingDef.forEach((def, index) => {
+        if (isAbstract(def)) {
+          return;
+        }
+        if (xml.getChildElementText(def, 'category') === 'Pawn') {
+          const race: xml.Element | undefined = def.nodes.find(
+            xml.isElementByName('race'),
+          );
+          if (race) {
+            const useMeatFrom: string | undefined = xml.getChildElementText(
+              def,
+              'useMeatFrom',
+            );
+            const fleshType: string | undefined = xml.getChildElementText(
+              def,
+              'fleshType',
+            );
+            const intelligence: string | undefined = xml.getChildElementText(
+              def,
+              'intelligence',
+            );
+            if (!useMeatFrom && fleshType !== 'Mechanoid') {
+              const defName: string = getDefName(def) as string;
+              arrayInsertAfter(
+                data.ThingDef,
+                index,
+                xml.createElement(
+                  'ThingDef',
+                  { ...def.attributes, SourceDefType: 'ThingDef', SourceDef: defName },
+                  [
+                    xml.createElement('defName', `Meat_${defName}`),
+                    xml.createElement('label', 'MeatLabel'),
+                    xml.createElement(
+                      'description',
+                      intelligence === 'Humanlike'
+                        ? 'MeatHumanDesc'
+                        : fleshType === 'Insectoid'
+                          ? 'MeatInsectDesc'
+                          : 'MeatDesc',
+                    ),
+                  ],
+                ),
+              );
+            }
+          }
+        }
+      });
+    }
+  });
+}
+
+// ==== TerrainDefGenerator_Stone ====
+
+function generateTerrainDef_Stone(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.ThingDef) {
+      data.ThingDef.forEach((def, index) => {
+        if (isAbstract(def)) {
+          return;
+        }
+        const building: xml.Element | undefined = def.nodes.find(
+          xml.isElementByName('building'),
+        );
+        if (
+          building &&
+          xml.getChildElementText(building, 'isNaturalRock') === 'true' &&
+          xml.getChildElementText(building, 'isResourceRock') === 'false'
+        ) {
+          const defName: string = getDefName(def) as string;
+          const terrains: xml.Element[] = [
+            xml.createElement(
+              'TerrainDef',
+              { ...def.attributes, SourceDefType: 'TerrainDef', SourceDef: defName },
+              [
+                xml.createElement('defName', `${defName}_Rough`),
+                xml.createElement('label', 'RoughStoneTerrainLabel'),
+                xml.createElement('description', 'RoughStoneTerrainDesc'),
+              ],
+            ),
+            xml.createElement(
+              'TerrainDef',
+              { ...def.attributes, SourceDefType: 'TerrainDef', SourceDef: defName },
+              [
+                xml.createElement('defName', `${defName}_RoughHewn`),
+                xml.createElement('label', 'RoughHewnStoneTerrainLabel'),
+                xml.createElement('description', 'RoughHewnStoneTerrainDesc'),
+              ],
+            ),
+            xml.createElement(
+              'TerrainDef',
+              { ...def.attributes, SourceDefType: 'TerrainDef', SourceDef: defName },
+              [
+                xml.createElement('defName', `${defName}_Smooth`),
+                xml.createElement('label', 'SmoothStoneTerrainLabel'),
+                xml.createElement('description', 'SmoothStoneTerrainDesc'),
+              ],
+            ),
+          ];
+          terrains.forEach(t => (t.attributes.Path = '_Terrain_Extra.xml'));
+
+          if (!data.TerrainDef) {
+            data.TerrainDef = [];
+          }
+          data.TerrainDef.push(...terrains);
+        }
+      });
+    }
+  });
+}
+
+// ==== RecipeDefGenerator ====
+
+function generateRecipeDef(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.ThingDef) {
+      data.ThingDef.forEach((def, index) => {
+        if (isAbstract(def)) {
+          return;
+        }
+        {
+          const recipeMaker: xml.Element | undefined = def.nodes.find(
+            xml.isElementByName('recipeMaker'),
+          );
+          if (recipeMaker) {
+            const defName: string = getDefName(def) as string;
+            const recipe: xml.Element = xml.createElement(
+              'RecipeDef',
+              { ...def.attributes, SourceDefType: 'ThingDef', SourceDef: defName },
+              [
+                xml.createElement('defName', `Make_${defName}`),
+                xml.createElement('label', 'RecipeMake'),
+                xml.createElement('description', ''),
+                xml.createElement('jobString', 'RecipeMakeJobString'),
+              ],
+            );
+            recipe.attributes.Path = '_Recipe_Extra_Make.xml';
+
+            if (!data.RecipeDef) {
+              data.RecipeDef = [];
+            }
+            data.RecipeDef.push(recipe);
+          }
+        }
+        {
+          const ingestible: xml.Element | undefined = def.nodes.find(
+            xml.isElementByName('ingestible'),
+          );
+          if (
+            ingestible &&
+            xml.getChildElementText(ingestible, 'drugCategory') !== 'None'
+          ) {
+            const defName: string = getDefName(def) as string;
+            const recipe: xml.Element = xml.createElement(
+              'RecipeDef',
+              { ...def.attributes, SourceDefType: 'ThingDef', SourceDef: defName },
+              [
+                xml.createElement('defName', `Administer_${defName}`),
+                xml.createElement('label', 'RecipeAdminister'),
+                xml.createElement('jobString', 'RecipeAdministerJobString'),
+              ],
+            );
+            recipe.attributes.Path = '_Recipe_Extra_Administer.xml';
+
+            if (!data.RecipeDef) {
+              data.RecipeDef = [];
+            }
+            data.RecipeDef.push(recipe);
+          }
+        }
+      });
+    }
+  });
+}
+
+// ==== PawnColumnDefGenerator ====
+
+function generatePawnColumn(dataList: DefinitionData[]): void {
+  dataList.forEach(data => {
+    if (data.TrainableDef) {
+      [...data.TrainableDef]
+        .sort((a, b) => {
+          const A: number = parseFloat(xml.getChildElementText(a, 'listPriority') || '0');
+          const B: number = parseFloat(xml.getChildElementText(b, 'listPriority') || '0');
+          if (!isNaN(A) && !isNaN(B)) {
+            return B - A;
+          } else {
+            return 0;
+          }
+        })
+        .forEach((def, index) => {
+          if (isAbstract(def)) {
+            return;
+          }
+          const defName: string = getDefName(def) as string;
+          const column: xml.Element = xml.createElement(
+            'PawnColumnDef',
+            { ...def.attributes, SourceDefType: 'TrainableDef', SourceDef: defName },
+            [
+              xml.createElement('defName', `Trainable_${defName}`),
+              xml.createElement('headerTip', 'LabelCap'),
+            ],
+          );
+          column.attributes.Path = '_PawnColumn_Extra.xml';
+
+          if (!data.PawnColumnDef) {
+            data.PawnColumnDef = [];
+          }
+          data.PawnColumnDef.push(column);
+        });
+    }
+    if (data.WorkTypeDef) {
+      //
     }
   });
 }

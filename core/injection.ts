@@ -3,19 +3,10 @@
  */
 
 import * as logger from './logger';
-import * as xml from './xml.old';
+import * as xml from './xml';
 import { DefinitionData } from './definition';
-import { stringCompare } from './utils';
+import { RawContents, stringCompare } from './utils';
 import { schema } from './schema';
-
-/**
- * The default end of line character. Use \n for LF and \r\n for CRLF.
- * 默认行尾字符。使用 \n 表示 LF，\r\n 表示 CRLF。
- */
-export enum EOL {
-  LF = '\n',
-  CRLF = '\r\n',
-}
 
 export interface Field {
   name: string;
@@ -42,7 +33,7 @@ export interface InjectionData {
 /**
  * Parse the definition data and extract injection data.
  */
-export function parse(rawContents: xml.RawContents): void {
+export function parse(rawContents: RawContents): void {
   const data: InjectionData = {};
   // tslint:disable-next-line:typedef
   const initFile = (defType: string, fileName: string): void => {
