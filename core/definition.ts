@@ -673,16 +673,16 @@ function generateKeyBindingDefs(dataList: DefinitionData[]): void {
           'KeyBindingDef',
           { ...def.attributes, SourceDefType: 'MainButtonDef', SourceDef: defName },
           [
-            xml.createElement('defName', defName),
+            xml.createElement('defName', `MainTab_${defName}`),
             xml.createElement('label', 'Toggle {0} tab'),
           ],
         );
         key.attributes.Path = '_KeyBinding_Extra.xml';
 
-        if (!data.MainButtonDef) {
-          data.MainButtonDef = [];
+        if (!data.KeyBindingDef) {
+          data.KeyBindingDef = [];
         }
-        data.MainButtonDef.push(key);
+        data.KeyBindingDef.push(key);
       });
     }
   });
