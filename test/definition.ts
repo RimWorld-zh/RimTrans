@@ -4,6 +4,7 @@
 
 import fs from 'fs';
 import globby from 'globby';
+import chalk from 'chalk';
 import { readRawContents } from '../scripts/utils';
 import init from '../scripts/env-init';
 import { RawContents } from '../core/utils';
@@ -38,6 +39,17 @@ async function test(): Promise<void> {
     if (defs.length !== dataOrigin[defType].length) {
       throw new Error(`Defs count not equal: ${defType}.`);
     }
+  });
+
+  const dataList: definition.DefinitionData[] = [dataParsed];
+
+  definition.resolveInheritance(dataList);
+  definition.postProcess(dataList);
+
+  Object.entries(dataParsed).forEach(([defType, defs]) => {
+    console.log();
+    console.log(chalk.greenBright(defType));
+    console.log(defs.map(definition.getDefName).join(', '));
   });
 }
 
