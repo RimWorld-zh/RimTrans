@@ -8,7 +8,14 @@ import { DefinitionData } from './definition';
 import { RawContents, stringCompare } from './utils';
 import { schema } from './schema';
 
+interface FilePositionMap {
+  [defType: string]: {
+    [fileName: string]: Injection;
+  };
+}
+
 export interface Field {
+  status: number;
   name: string;
   value: string;
   children: Field[];
@@ -16,6 +23,7 @@ export interface Field {
 
 export interface Injection {
   defType: string;
+  sourceFile: string;
   fileName: string;
   defName: string;
   commentBefore?: string;
@@ -36,5 +44,16 @@ export interface InjectionMap {
  * Parse the definition data and extract injection data.
  */
 export function parse(rawContents: RawContents): void {
+  //
+}
+
+export function inject(
+  definitionData: DefinitionData,
+  injectionData: InjectionData,
+): void {
+  //
+}
+
+export function extract(definitionData: DefinitionData): void {
   //
 }
