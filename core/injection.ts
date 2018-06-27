@@ -47,12 +47,8 @@ export function inject(): void {
 export function extract(defData: definition.DefinitionData): void {
   const injData: InjectionData = {};
   // tslint:disable-next-line:typedef
-  const addInjection = (inj: Injection) => {
-    if (!injData[inj.defType]) {
-      injData[inj.defType] = [];
-    }
-    injData[inj.defType].push(inj);
-  };
+  const addInjection = (inj: Injection) =>
+    (injData[inj.defType] || (injData[inj.defType] = [])).push(inj);
 
   Object.entries(defData).forEach(([defType, defs]) => {
     const schemaTypeOrDefinition:
@@ -201,14 +197,7 @@ function extractInjectionRecursively(
         return 1;
       }
 
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-
-      return 0;
+      return stringCompare(a.name, b.name);
     });
     field.fields = field.fields ? field.fields.concat(fields) : fields;
   });

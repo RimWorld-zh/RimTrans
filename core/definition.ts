@@ -23,15 +23,6 @@ export interface DefinitionMap {
  */
 export function parse(rawContents: RawContents): DefinitionData {
   const data: DefinitionData = {};
-  // tslint:disable-next-line:typedef
-  const addDefinition = (def: xml.Element): void => {
-    if (!data[def.name]) {
-      data[def.name] = [];
-    }
-    data[def.name].push(def);
-  };
-
-  const rootMap: { [path: string]: xml.Element } = {};
 
   Object.entries(rawContents)
     .sort((a, b) => stringCompare(a[0], b[0]))
@@ -68,7 +59,7 @@ export function parse(rawContents: RawContents): DefinitionData {
             def.attributes.Comment = comment;
           }
           def.attributes.Path = root.attributes.Path;
-          addDefinition(def);
+          (data[def.name] || (data[def.name] = [])).push(def);
         }
       });
     });
@@ -491,10 +482,7 @@ function generateTerrainDef_Stone(dataList: DefinitionData[]): void {
           ];
           terrains.forEach(t => (t.attributes.Path = '_Terrain_Extra.xml'));
 
-          if (!data.TerrainDef) {
-            data.TerrainDef = [];
-          }
-          data.TerrainDef.push(...terrains);
+          (data.TerrainDef || (data.TerrainDef = [])).push(...terrains);
         }
       });
     }
@@ -528,10 +516,7 @@ function generateRecipeDef(dataList: DefinitionData[]): void {
             );
             recipe.attributes.Path = '_Recipe_Extra_Make.xml';
 
-            if (!data.RecipeDef) {
-              data.RecipeDef = [];
-            }
-            data.RecipeDef.push(recipe);
+            (data.RecipeDef || (data.RecipeDef = [])).push(recipe);
           }
         }
         {
@@ -554,10 +539,7 @@ function generateRecipeDef(dataList: DefinitionData[]): void {
             );
             recipe.attributes.Path = '_Recipe_Extra_Administer.xml';
 
-            if (!data.RecipeDef) {
-              data.RecipeDef = [];
-            }
-            data.RecipeDef.push(recipe);
+            (data.RecipeDef || (data.RecipeDef = [])).push(recipe);
           }
         }
       });
@@ -604,10 +586,7 @@ function generatePawnColumnDefs(dataList: DefinitionData[]): void {
           );
           column.attributes.Path = '_PawnColumn_Extra.xml';
 
-          if (!data.PawnColumnDef) {
-            data.PawnColumnDef = [];
-          }
-          data.PawnColumnDef.push(column);
+          (data.PawnColumnDef || (data.PawnColumnDef = [])).push(column);
         });
     }
     // if (data.WorkTypeDef) {
@@ -655,10 +634,7 @@ function generateKeyBindingCategoryDefs(dataList: DefinitionData[]): void {
         );
         category.attributes.Path = '_KeyBindingCategoryDef_Extra.xml';
 
-        if (!data.KeyBindingCategoryDef) {
-          data.KeyBindingCategoryDef = [];
-        }
-        data.KeyBindingCategoryDef.push(category);
+        (data.KeyBindingCategoryDef || (data.KeyBindingCategoryDef = [])).push(category);
       });
     }
   });
@@ -679,10 +655,7 @@ function generateKeyBindingDefs(dataList: DefinitionData[]): void {
         );
         key.attributes.Path = '_KeyBinding_Extra.xml';
 
-        if (!data.KeyBindingDef) {
-          data.KeyBindingDef = [];
-        }
-        data.KeyBindingDef.push(key);
+        (data.KeyBindingDef || (data.KeyBindingDef = [])).push(key);
       });
     }
   });
