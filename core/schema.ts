@@ -1,16 +1,23 @@
-import { POINT_CONVERSION_UNCOMPRESSED } from 'constants';
-
 // tslint:disable:typedef variable-name
 
-// ======== Enum ========
-
-export enum SchemaType {
+export enum DefSchemaType {
   NoTranslate,
   Def,
-  Special,
+  SpecialBodyDef,
+}
+
+export enum FieldSchemaType {
   MustTranslate,
   MayTranslate,
   TranslationCanChangeCount,
+}
+
+export interface SchemaDefinition {
+  [field: string]: boolean | string | SchemaDefinition | FieldSchemaType;
+}
+
+export interface Schema {
+  [defType: string]: SchemaDefinition | DefSchemaType | undefined;
 }
 
 // ======== some abstract def type =======
@@ -36,7 +43,7 @@ const Tool = {
 
 // BodyDef
 
-// HACK: recursive
+// HACK: for BodyDef, recursively
 const BodyPartRecord = {
   customLabel: true,
 };
@@ -143,7 +150,7 @@ const Rule = {
 const Rule_File = {
   ...Rule,
   path: true,
-  pathList: SchemaType.TranslationCanChangeCount,
+  pathList: FieldSchemaType.TranslationCanChangeCount,
 };
 const Rule_NamePerson = {
   ...Rule,
@@ -154,8 +161,8 @@ const Rule_String = {
 };
 
 const RulePack = {
-  rulesStrings: SchemaType.TranslationCanChangeCount,
-  rulesFiles: SchemaType.TranslationCanChangeCount,
+  rulesStrings: FieldSchemaType.TranslationCanChangeCount,
+  rulesFiles: FieldSchemaType.TranslationCanChangeCount,
 };
 
 // ScenarioDef
@@ -201,34 +208,34 @@ export const schema = {
     label: true,
     description: true,
   },
-  ApparelLayerDef: SchemaType.Def,
-  BillRepeatModeDef: SchemaType.Def,
-  BillStoreModeDef: SchemaType.Def,
-  BiomeDef: SchemaType.Def,
-  BodyDef: SchemaType.Special,
+  ApparelLayerDef: DefSchemaType.Def,
+  BillRepeatModeDef: DefSchemaType.Def,
+  BillStoreModeDef: DefSchemaType.Def,
+  BiomeDef: DefSchemaType.Def,
+  BodyDef: DefSchemaType.SpecialBodyDef,
   BodyPartDef: {
     labelShort: true,
   },
   BodyPartGroupDef: {
     labelShort: true,
   },
-  BodyPartTagDef: SchemaType.NoTranslate,
-  BodyTypeDef: SchemaType.NoTranslate,
-  ChemicalDef: SchemaType.Def,
-  ClamorDef: SchemaType.NoTranslate,
+  BodyPartTagDef: DefSchemaType.NoTranslate,
+  BodyTypeDef: DefSchemaType.NoTranslate,
+  ChemicalDef: DefSchemaType.Def,
+  ClamorDef: DefSchemaType.NoTranslate,
   ConceptDef: {
     helpText: true,
   },
-  DamageArmorCategoryDef: SchemaType.NoTranslate,
+  DamageArmorCategoryDef: DefSchemaType.NoTranslate,
   DamageDef: {
     deathMessage: '{0} has been killed.',
   },
-  DesignationCategoryDef: SchemaType.Def,
-  DesignationDef: SchemaType.NoTranslate,
-  DesignatorDropdownGroupDef: SchemaType.NoTranslate,
-  DifficultyDef: SchemaType.Def,
-  DutyDef: SchemaType.NoTranslate,
-  EffecterDef: SchemaType.NoTranslate,
+  DesignationCategoryDef: DefSchemaType.Def,
+  DesignationDef: DefSchemaType.NoTranslate,
+  DesignatorDropdownGroupDef: DefSchemaType.NoTranslate,
+  DifficultyDef: DefSchemaType.Def,
+  DutyDef: DefSchemaType.NoTranslate,
+  EffecterDef: DefSchemaType.NoTranslate,
   FactionDef: {
     fixedName: true,
     pawnSingular: 'member',
@@ -238,13 +245,13 @@ export const schema = {
       ...ThingFilter,
     },
   },
-  FeatureDef: SchemaType.NoTranslate,
-  FleshTypeDef: SchemaType.NoTranslate,
+  FeatureDef: DefSchemaType.NoTranslate,
+  FleshTypeDef: DefSchemaType.NoTranslate,
   GameConditionDef: {
     endMessage: true,
   },
-  GenStepDef: SchemaType.NoTranslate,
-  HairDef: SchemaType.Def,
+  GenStepDef: DefSchemaType.NoTranslate,
+  HairDef: DefSchemaType.Def,
   HediffDef: {
     labelNoun: true,
     comps: {
@@ -273,19 +280,19 @@ export const schema = {
       },
     },
   },
-  HibernatableStateDef: SchemaType.NoTranslate,
+  HibernatableStateDef: DefSchemaType.NoTranslate,
   HistoryAutoRecorderDef: {
     graphLabelY: true,
   },
-  HistoryAutoRecorderGroupDef: SchemaType.Def,
-  ImpactSoundTypeDef: SchemaType.NoTranslate,
-  ImplementOwnerTypeDef: SchemaType.NoTranslate,
-  IncidentCategoryDef: SchemaType.NoTranslate,
+  HistoryAutoRecorderGroupDef: DefSchemaType.Def,
+  ImpactSoundTypeDef: DefSchemaType.NoTranslate,
+  ImplementOwnerTypeDef: DefSchemaType.NoTranslate,
+  IncidentCategoryDef: DefSchemaType.NoTranslate,
   IncidentDef: {
     letterText: true,
     letterLabel: true,
   },
-  IncidentTargetTypeDef: SchemaType.NoTranslate,
+  IncidentTargetTypeDef: DefSchemaType.NoTranslate,
   InspirationDef: {
     beginLetter: true,
     beginLetterLabel: true,
@@ -308,27 +315,27 @@ export const schema = {
   JobDef: {
     reportString: 'Doing something.',
   },
-  JoyGiverDef: SchemaType.NoTranslate,
-  JoyKindDef: SchemaType.Def,
-  KeyBindingCategoryDef: SchemaType.Def,
-  KeyBindingDef: SchemaType.Def,
-  LetterDef: SchemaType.NoTranslate,
+  JoyGiverDef: DefSchemaType.NoTranslate,
+  JoyKindDef: DefSchemaType.Def,
+  KeyBindingCategoryDef: DefSchemaType.Def,
+  KeyBindingDef: DefSchemaType.Def,
+  LetterDef: DefSchemaType.NoTranslate,
   LifeStageDef: {
     adjective: true,
   },
-  LogEntryDef: SchemaType.NoTranslate,
-  MainButtonDef: SchemaType.Def,
-  ManeuverDef: SchemaType.NoTranslate,
-  MapGeneratorDef: SchemaType.NoTranslate,
-  MentalBreakDef: SchemaType.Def,
+  LogEntryDef: DefSchemaType.NoTranslate,
+  MainButtonDef: DefSchemaType.Def,
+  ManeuverDef: DefSchemaType.NoTranslate,
+  MapGeneratorDef: DefSchemaType.NoTranslate,
+  MentalBreakDef: DefSchemaType.Def,
   MentalStateDef: {
     beginLetter: true,
     beginLetterLabel: true,
     recoveryMessage: true,
     baseInspectLine: true,
   },
-  MessageTypeDef: SchemaType.NoTranslate,
-  NeedDef: SchemaType.Def,
+  MessageTypeDef: DefSchemaType.NoTranslate,
+  NeedDef: DefSchemaType.Def,
   PawnCapacityDef: {
     labelMechanoids: '',
     labelAnimals: '',
@@ -336,7 +343,7 @@ export const schema = {
   PawnColumnDef: {
     headerTip: true,
   },
-  PawnGroupKindDef: SchemaType.NoTranslate,
+  PawnGroupKindDef: DefSchemaType.NoTranslate,
   PawnKindDef: {
     labelPlural: '',
     labelMale: true,
@@ -352,12 +359,12 @@ export const schema = {
   PawnRelationDef: {
     labelFemale: true,
   },
-  PawnTableDef: SchemaType.NoTranslate,
+  PawnTableDef: DefSchemaType.NoTranslate,
   PawnsArrivalModeDef: {
     textEnemy: true,
     textFriendly: true,
   },
-  PrisonerInteractionModeDef: SchemaType.Def,
+  PrisonerInteractionModeDef: DefSchemaType.Def,
   RaidStrategyDef: {
     arrivalTextFriendly: true,
     arrivalTextEnemy: true,
@@ -368,19 +375,19 @@ export const schema = {
     jobString: 'Doing an unknown recipe.',
     successfullyRemovedHediffMessage: true,
   },
-  RecordDef: SchemaType.Def,
+  RecordDef: DefSchemaType.Def,
   ResearchProjectDef: {
     descriptionDiscovered: true,
   },
-  ResearchProjectTagDef: SchemaType.NoTranslate,
-  ResearchTabDef: SchemaType.Def,
-  ReservationLayerDef: SchemaType.NoTranslate,
-  RiverDef: SchemaType.Def,
-  RoadDef: SchemaType.Def,
-  RoadPathingDef: SchemaType.NoTranslate,
-  RoadWorldLayerDef: SchemaType.NoTranslate,
-  RoofDef: SchemaType.Def,
-  RoomRoleDef: SchemaType.Def,
+  ResearchProjectTagDef: DefSchemaType.NoTranslate,
+  ResearchTabDef: DefSchemaType.Def,
+  ReservationLayerDef: DefSchemaType.NoTranslate,
+  RiverDef: DefSchemaType.Def,
+  RoadDef: DefSchemaType.Def,
+  RoadPathingDef: DefSchemaType.NoTranslate,
+  RoadWorldLayerDef: DefSchemaType.NoTranslate,
+  RoofDef: DefSchemaType.Def,
+  RoomRoleDef: DefSchemaType.Def,
   RoomStatDef: {
     scoreStages: {
       li: {
@@ -388,20 +395,20 @@ export const schema = {
       },
     },
   },
-  RuleDef: SchemaType.NoTranslate,
+  RuleDef: DefSchemaType.NoTranslate,
   RulePackDef: {
     rulePack: {
       ...RulePack,
     },
   },
-  ScatterableDef: SchemaType.NoTranslate,
-  ScenPartDef: SchemaType.Def,
+  ScatterableDef: DefSchemaType.NoTranslate,
+  ScenPartDef: DefSchemaType.Def,
   ScenarioDef: {
     scenario: {
       ...Scenario,
     },
   },
-  ShaderTypeDef: SchemaType.NoTranslate,
+  ShaderTypeDef: DefSchemaType.NoTranslate,
   SiteCoreDef: {
     ...SiteDefBase,
   },
@@ -412,10 +419,10 @@ export const schema = {
   SkillDef: {
     skillLabel: true,
   },
-  SongDef: SchemaType.NoTranslate,
-  SoundDef: SchemaType.NoTranslate,
-  SpecialThingFilterDef: SchemaType.Def,
-  StatCategoryDef: SchemaType.Def,
+  SongDef: DefSchemaType.NoTranslate,
+  SoundDef: DefSchemaType.NoTranslate,
+  SpecialThingFilterDef: DefSchemaType.Def,
+  StatCategoryDef: DefSchemaType.Def,
   StatDef: {
     formatString: true,
     parts: {
@@ -424,19 +431,19 @@ export const schema = {
       },
     },
   },
-  StoryEventDef: SchemaType.NoTranslate,
-  StorytellerDef: SchemaType.Def,
-  StuffAppearanceDef: SchemaType.NoTranslate,
-  StuffCategoryDef: SchemaType.Def,
-  SubcameraDef: SchemaType.NoTranslate,
+  StoryEventDef: DefSchemaType.NoTranslate,
+  StorytellerDef: DefSchemaType.Def,
+  StuffAppearanceDef: DefSchemaType.NoTranslate,
+  StuffCategoryDef: DefSchemaType.Def,
+  SubcameraDef: DefSchemaType.NoTranslate,
   TaleDef: {
     rulePack: {
       ...RulePack,
     },
   },
-  TerrainAffordanceDef: SchemaType.Def,
-  TerrainDef: SchemaType.Def,
-  ThingCategoryDef: SchemaType.Def,
+  TerrainAffordanceDef: DefSchemaType.Def,
+  TerrainDef: DefSchemaType.Def,
+  ThingCategoryDef: DefSchemaType.Def,
   ThingDef: {
     comps: {
       li: {
@@ -464,8 +471,8 @@ export const schema = {
       },
     },
   },
-  ThingSetMakerDef: SchemaType.NoTranslate,
-  ThinkTreeDef: SchemaType.NoTranslate,
+  ThingSetMakerDef: DefSchemaType.NoTranslate,
+  ThinkTreeDef: DefSchemaType.NoTranslate,
   ThoughtDef: {
     stages: {
       li: {
@@ -473,11 +480,11 @@ export const schema = {
       },
     },
   },
-  TimeAssignmentDef: SchemaType.Def,
-  ToolCapacityDef: SchemaType.NoTranslate,
-  TraderKindDef: SchemaType.Def,
-  TrainabilityDef: SchemaType.Def,
-  TrainableDef: SchemaType.Def,
+  TimeAssignmentDef: DefSchemaType.Def,
+  ToolCapacityDef: DefSchemaType.NoTranslate,
+  TraderKindDef: DefSchemaType.Def,
+  TrainabilityDef: DefSchemaType.Def,
+  TrainableDef: DefSchemaType.Def,
   TraitDef: {
     degreeDatas: {
       li: {
@@ -485,19 +492,19 @@ export const schema = {
       },
     },
   },
-  TransferableSorterDef: SchemaType.Def,
-  WeatherDef: SchemaType.Def,
+  TransferableSorterDef: DefSchemaType.Def,
+  WeatherDef: DefSchemaType.Def,
   WorkGiverDef: {
     verb: true,
     gerund: true,
   },
-  WorkGiverEquivalenceGroupDef: SchemaType.NoTranslate,
+  WorkGiverEquivalenceGroupDef: DefSchemaType.NoTranslate,
   WorkTypeDef: {
     labelShort: true,
     pawnLabel: true,
     gerundLabel: true,
     verb: true,
   },
-  WorldGenStepDef: SchemaType.NoTranslate,
-  WorldObjectDef: SchemaType.Def,
+  WorldGenStepDef: DefSchemaType.NoTranslate,
+  WorldObjectDef: DefSchemaType.Def,
 };
