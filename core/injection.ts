@@ -34,16 +34,22 @@ export interface InjectionData {
 }
 
 /**
- * Parse the definition data and extract injection data.
+ * Parse the xml plain text in the `DefInjected` directory, and build `InjectionData`.
  */
 export function parse(rawContents: RawContents): void {
   //
 }
 
+/**
+ * Inject `InjectionData` into `DefinitionData`.
+ */
 export function inject(): void {
   //
 }
 
+/**
+ * Walk the `DefinitionData` and extra `InjectionData`.
+ */
 export function extract(defData: definition.DefinitionData): void {
   const injData: InjectionData = {};
   // tslint:disable-next-line:typedef
@@ -79,7 +85,7 @@ export function extract(defData: definition.DefinitionData): void {
         ) {
           return;
         }
-        addInjection(extractInjection_BodyDef(def));
+        addInjection(extractInjectionSpecial_BodyDef(def));
       });
     } else {
       defs.forEach(def => {
@@ -94,6 +100,8 @@ export function extract(defData: definition.DefinitionData): void {
     }
   });
 }
+
+// ==== Extract Injection ====
 
 function extractInjection(
   def: xml.Element,
@@ -203,23 +211,35 @@ function extractInjectionRecursively(
   });
 }
 
-function extractInjection_BodyDef(def: xml.Element): Injection {
+// ==== Extract Injection Special BodyDef ====
+
+function extractInjectionSpecial_BodyDef(def: xml.Element): Injection {
   const injection: Injection = extractInjection(def);
-  const corePart: xml.Element | undefined = def.nodes.find(
+
+  const corePartElement: xml.Element | undefined = def.nodes.find(
     xml.isElementByName('corePart'),
   );
-  if (corePart) {
-    //
+  if (corePartElement) {
+    const corePartField:
+      | Field
+      | undefined = extractInjectionSpecial_BodyPartRecordRecursively(corePartElement);
+    if (corePartField) {
+      (injection.fields || (injection.fields = [])).push(corePartField);
+    }
   }
 
   return injection;
 }
 
-function extractInjection_BodyDef_recursively(
-  part: xml.Element,
-  field: Injection | Field,
-): void {
-  const customLabel: xml.Element | undefined = part.nodes.find(
+function extractInjectionSpecial_BodyPartRecordRecursively(
+  element: xml.Element,
+): Field | undefined {
+  const field: Field = {
+    attributes: {},
+    name: element.name,
+  };
+
+  const customLabel: xml.Element | undefined = element.nodes.find(
     xml.isElementByName('customLabel'),
   );
   if (customLabel) {
@@ -228,5 +248,21 @@ function extractInjection_BodyDef_recursively(
       name: 'customLabel',
       value: customLabel.value || '',
     });
+  }
+
+  const partsElement: xml.Element | undefined = element.nodes.find(
+    xml.isElementByName('parts'),
+  );
+  if (partsElement) {
+    const partsField: Field = {
+      attributes: {},
+      name: 'parts',
+    };
+  }
+
+  if (field.fields && field.fields.length > 0) {
+    return field;
+  } else {
+    return undefined;
   }
 }
