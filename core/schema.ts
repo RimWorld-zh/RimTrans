@@ -6,9 +6,12 @@ export enum DefSchemaType {
 }
 
 export enum FieldSchemaType {
-  MustTranslate,
-  MayTranslate,
   TranslationCanChangeCount,
+  MayTranslate,
+  MustTranslate,
+
+  // MustExtract
+  SameToLabel,
 }
 
 export interface SchemaDefinition {
@@ -341,8 +344,8 @@ export const schema = {
   MessageTypeDef: DefSchemaType.NoTranslate,
   NeedDef: DefSchemaType.Def,
   PawnCapacityDef: {
-    labelMechanoids: '',
-    labelAnimals: '',
+    labelMechanoids: true,
+    labelAnimals: true,
   },
   PawnColumnDef: {
     headerTip: true,

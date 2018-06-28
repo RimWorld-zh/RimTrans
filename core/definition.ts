@@ -1,7 +1,3 @@
-/**
- * Definition
- */
-
 import * as logger from './logger';
 import * as xml from './xml';
 import { RawContents, stringCompare, arrayInsertAfter } from './utils';

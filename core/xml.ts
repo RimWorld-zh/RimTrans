@@ -1,6 +1,3 @@
-/**
- * Scan Keyed
- */
 // tslint:disable:no-reserved-keywords
 
 import fs, { stat } from 'fs';

@@ -1,7 +1,3 @@
-/**
- * Models for RimWorld.
- */
-
 export enum ContentSource {
   // basic
   Undefined,
@@ -12,6 +8,9 @@ export enum ContentSource {
   Remote,
 }
 
+/**
+ * Mod info.
+ */
 export interface ModMetaData {
   // basic
 

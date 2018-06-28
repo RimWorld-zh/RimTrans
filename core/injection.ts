@@ -1,6 +1,4 @@
-/**
- * Injection
- */
+// tslint:disable:max-func-body-length
 
 import * as logger from './logger';
 import * as xml from './xml';
@@ -13,6 +11,8 @@ import {
   Schema,
   schema,
 } from './schema';
+
+// ==== Field ====
 
 export interface Field {
   attributes: xml.Attributes;
@@ -29,6 +29,8 @@ function createField(element: xml.Element, value?: string | string[]): Field {
     fields: [],
   };
 }
+
+// ==== Injection ====
 
 export interface Injection {
   attributes: xml.Attributes;
@@ -126,12 +128,7 @@ function extractInjection(
   const defName: string = definition.getDefName(def) as string;
   const injection: Injection = createInjection(def);
 
-  ['label', 'description'].forEach(name => {
-    const element: xml.Element | undefined = def.nodes.find(xml.isElementByName(name));
-    if (element) {
-      injection.fields.push(createField(element));
-    }
-  });
+  extractInjectionRecursively(def, injection, schema.Def);
 
   if (schemaDefinition) {
     extractInjectionRecursively(def, injection, schemaDefinition);
@@ -200,18 +197,37 @@ function extractInjectionRecursively(
         break;
 
       default:
-        if (
-          childElement &&
-          childSchemaDefinition === FieldSchemaType.TranslationCanChangeCount
-        ) {
-          fields.push(
-            createField(
-              childElement,
-              childElement.nodes
-                .filter(xml.isElementByName('li'))
-                .map(li => li.value || ''),
-            ),
-          );
+        switch (childSchemaDefinition) {
+          case FieldSchemaType.TranslationCanChangeCount:
+            if (childElement) {
+              fields.push(
+                createField(
+                  childElement,
+                  childElement.nodes
+                    .filter(xml.isElementByName('li'))
+                    .map(li => li.value || ''),
+                ),
+              );
+            }
+            break;
+
+          case FieldSchemaType.SameToLabel:
+            if (childElement) {
+              fields.push(createField(childElement));
+            } else {
+              const label: xml.Element | undefined = element.nodes.find(
+                xml.isElementByName('label'),
+              );
+              fields.push({
+                attributes: {},
+                name,
+                value: label ? label.value || '' : '',
+                fields: [],
+              });
+            }
+            break;
+
+          default:
         }
     }
   });
