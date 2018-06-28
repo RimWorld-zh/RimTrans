@@ -221,7 +221,7 @@ function extractInjectionRecursively(
               fields.push({
                 attributes: {},
                 name,
-                value: label ? label.value || '' : '',
+                value: (label && label.value) || '',
                 fields: [],
               });
             }
