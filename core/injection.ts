@@ -18,15 +18,44 @@ export interface Field {
   attributes: xml.Attributes;
   name: string;
   value?: string | string[];
-  fields?: Field[];
+  fields: Field[];
+}
+
+function createField(element: xml.Element, value?: string | string[]): Field {
+  return {
+    attributes: { ...element.attributes },
+    name: element.name,
+    value: value || element.value || '',
+    fields: [],
+  };
 }
 
 export interface Injection {
   attributes: xml.Attributes;
+  fileName?: string;
   defType: string;
   defName: string;
   fields: Field[];
   commentBefore?: string;
+}
+
+function createInjection(def: xml.Element): Injection {
+  const pathNodes: string[] | undefined = def.attributes.Path
+    ? def.attributes.Path.split(/\/|\\/)
+    : undefined;
+  const fileName: string | undefined = pathNodes
+    ? pathNodes[pathNodes.length - 2]
+    : undefined;
+
+  return {
+    attributes: {
+      ...def.attributes,
+    },
+    fileName,
+    defType: def.name,
+    defName: definition.getDefName(def) as string,
+    fields: [],
+  };
 }
 
 export interface InjectionData {
@@ -50,7 +79,7 @@ export function inject(): void {
 /**
  * Walk the `DefinitionData` and extra `InjectionData`.
  */
-export function extract(defData: definition.DefinitionData): void {
+export function extract(defData: definition.DefinitionData): InjectionData {
   const injData: InjectionData = {};
   // tslint:disable-next-line:typedef
   const addInjection = (inj: Injection) =>
@@ -99,6 +128,8 @@ export function extract(defData: definition.DefinitionData): void {
       });
     }
   });
+
+  return injData;
 }
 
 // ==== Extract Injection ====
@@ -108,23 +139,12 @@ function extractInjection(
   schemaDefinition?: SchemaDefinition,
 ): Injection {
   const defName: string = definition.getDefName(def) as string;
-  const injection: Injection = {
-    attributes: {
-      ...def.attributes,
-    },
-    defType: def.name,
-    defName,
-    fields: [],
-  };
+  const injection: Injection = createInjection(def);
 
   ['label', 'description'].forEach(name => {
     const element: xml.Element | undefined = def.nodes.find(xml.isElementByName(name));
     if (element) {
-      injection.fields.push({
-        attributes: {},
-        name,
-        value: element.value || '',
-      });
+      injection.fields.push(createField(element));
     }
   });
 
@@ -149,11 +169,7 @@ function extractInjectionRecursively(
     switch (typeof childSchemaDefinition) {
       case 'boolean':
         if (childElement && childSchemaDefinition) {
-          fields.push({
-            attributes: {},
-            name,
-            value: childElement.value || '',
-          });
+          fields.push(createField(childElement));
         }
         break;
 
@@ -163,17 +179,13 @@ function extractInjectionRecursively(
           name,
           value:
             (childElement && childElement.value) || (childSchemaDefinition as string),
+          fields: [],
         });
         break;
 
       case 'object':
         if (childElement) {
-          const childField: Field = {
-            attributes: {
-              Index: childElement.attributes.Index,
-            },
-            name,
-          };
+          const childField: Field = createField(childElement);
           extractInjectionRecursively(
             childElement,
             childField,
@@ -187,27 +199,29 @@ function extractInjectionRecursively(
           childElement &&
           childSchemaDefinition === FieldSchemaType.TranslationCanChangeCount
         ) {
-          fields.push({
-            attributes: {},
-            name,
-            value: childElement.nodes
-              .filter(xml.isElementByName('li'))
-              .map(li => li.value || ''),
-          });
+          fields.push(
+            createField(
+              childElement,
+              childElement.nodes
+                .filter(xml.isElementByName('li'))
+                .map(li => li.value || ''),
+            ),
+          );
         }
     }
 
-    fields.sort((a, b) => {
-      if (!a.fields && b.fields) {
-        return -1;
-      }
-      if (a.fields && !b.fields) {
-        return 1;
-      }
+    field.fields.push(
+      ...fields.sort((a, b) => {
+        if (!a.fields && b.fields) {
+          return -1;
+        }
+        if (a.fields && !b.fields) {
+          return 1;
+        }
 
-      return stringCompare(a.name, b.name);
-    });
-    field.fields = field.fields ? field.fields.concat(fields) : fields;
+        return stringCompare(a.name, b.name);
+      }),
+    );
   });
 }
 
@@ -224,7 +238,7 @@ function extractInjectionSpecial_BodyDef(def: xml.Element): Injection {
       | Field
       | undefined = extractInjectionSpecial_BodyPartRecordRecursively(corePartElement);
     if (corePartField) {
-      (injection.fields || (injection.fields = [])).push(corePartField);
+      injection.fields.push(corePartField);
     }
   }
 
@@ -234,33 +248,33 @@ function extractInjectionSpecial_BodyDef(def: xml.Element): Injection {
 function extractInjectionSpecial_BodyPartRecordRecursively(
   element: xml.Element,
 ): Field | undefined {
-  const field: Field = {
-    attributes: {},
-    name: element.name,
-  };
+  const field: Field = createField(element);
 
   const customLabel: xml.Element | undefined = element.nodes.find(
     xml.isElementByName('customLabel'),
   );
   if (customLabel) {
-    (field.fields || (field.fields = [])).push({
-      attributes: {},
-      name: 'customLabel',
-      value: customLabel.value || '',
+    field.fields.push(createField(customLabel));
+  }
+
+  const parts: xml.Element | undefined = element.nodes.find(xml.isElementByName('parts'));
+  if (parts) {
+    const partsField: Field = createField(parts);
+    partsField.fields = [];
+    parts.nodes.filter(xml.isElementByName('li')).forEach(li => {
+      const liField:
+        | Field
+        | undefined = extractInjectionSpecial_BodyPartRecordRecursively(li);
+      if (liField) {
+        partsField.fields.push(liField);
+      }
     });
+    if (partsField.fields.length > 0) {
+      field.fields.push(partsField);
+    }
   }
 
-  const partsElement: xml.Element | undefined = element.nodes.find(
-    xml.isElementByName('parts'),
-  );
-  if (partsElement) {
-    const partsField: Field = {
-      attributes: {},
-      name: 'parts',
-    };
-  }
-
-  if (field.fields && field.fields.length > 0) {
+  if (field.fields.length > 0) {
     return field;
   } else {
     return undefined;

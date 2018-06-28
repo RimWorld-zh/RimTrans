@@ -1,9 +1,7 @@
 /**
- * Test definition.ts
+ * Test core/definition.ts
  */
 
-import fs from 'fs';
-import globby from 'globby';
 import chalk from 'chalk';
 import { readRawContents } from '../scripts/utils';
 import init from '../scripts/env-init';

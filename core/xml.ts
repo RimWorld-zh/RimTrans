@@ -11,11 +11,14 @@ export type Node = Comment | Element | Text;
 
 export interface Attributes {
   [name: string]: string | number | boolean | undefined;
+  // attributes for RimWorld
   Name?: string;
   ParentName?: string;
   Abstract?: string;
   Inherit?: string;
+  // attributes for RimTrans
   Path?: string;
+  FileName?: string;
   Index?: number;
   Comment?: string;
   SourceDefType?: string;
