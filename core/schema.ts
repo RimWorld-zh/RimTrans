@@ -3,7 +3,6 @@
 export enum DefSchemaType {
   NoTranslate,
   Def,
-  SpecialBodyDef,
 }
 
 export enum FieldSchemaType {
@@ -46,7 +45,12 @@ const Tool = {
 // HACK: for BodyDef, recursively
 const BodyPartRecord = {
   customLabel: true,
+  parts: {
+    li: {},
+  },
 };
+
+BodyPartRecord.parts.li = BodyPartRecord;
 
 // FactionDef
 
@@ -198,8 +202,6 @@ const TraitDegreeData = {
   description: true,
 };
 
-// label customLabel
-
 /**
  * Default schema for resolve definitions and extracting injections.
  */
@@ -212,7 +214,9 @@ export const schema = {
   BillRepeatModeDef: DefSchemaType.Def,
   BillStoreModeDef: DefSchemaType.Def,
   BiomeDef: DefSchemaType.Def,
-  BodyDef: DefSchemaType.SpecialBodyDef,
+  BodyDef: {
+    corePart: BodyPartRecord,
+  },
   BodyPartDef: {
     labelShort: true,
   },

@@ -7,11 +7,11 @@ import * as xml from './xml';
 import * as definition from './definition';
 import { RawContents, stringCompare } from './utils';
 import {
-  schema,
   DefSchemaType,
-  Schema,
-  SchemaDefinition,
   FieldSchemaType,
+  SchemaDefinition,
+  Schema,
+  schema,
 } from './schema';
 
 export interface Field {
@@ -91,12 +91,9 @@ export function extract(defData: definition.DefinitionData): InjectionData {
       | DefSchemaType
       | undefined = (schema as Schema)[defType];
     let schemaDefinition: SchemaDefinition | undefined;
-    let isSpecialBodyDef: boolean = false;
 
     if (schemaTypeOrDefinition === DefSchemaType.NoTranslate) {
       return;
-    } else if (schemaTypeOrDefinition === DefSchemaType.SpecialBodyDef) {
-      isSpecialBodyDef = true;
     } else if (
       schemaTypeOrDefinition === DefSchemaType.Def ||
       schemaTypeOrDefinition === undefined
@@ -106,27 +103,15 @@ export function extract(defData: definition.DefinitionData): InjectionData {
       schemaDefinition = schemaTypeOrDefinition as SchemaDefinition;
     }
 
-    if (isSpecialBodyDef) {
-      defs.forEach(def => {
-        if (
-          def.attributes.Abstract === 'True' ||
-          !def.nodes.some(xml.isElementByName('defName'))
-        ) {
-          return;
-        }
-        addInjection(extractInjectionSpecial_BodyDef(def));
-      });
-    } else {
-      defs.forEach(def => {
-        if (
-          def.attributes.Abstract === 'True' ||
-          !def.nodes.some(xml.isElementByName('defName'))
-        ) {
-          return;
-        }
-        addInjection(extractInjection(def, schemaDefinition));
-      });
-    }
+    defs.forEach(def => {
+      if (
+        def.attributes.Abstract === 'True' ||
+        !def.nodes.some(xml.isElementByName('defName'))
+      ) {
+        return;
+      }
+      addInjection(extractInjection(def, schemaDefinition));
+    });
   });
 
   return injData;
@@ -188,14 +173,28 @@ function extractInjectionRecursively(
 
       case 'object':
         if (childElement) {
-          const childField: Field = createField(childElement);
-          extractInjectionRecursively(
-            childElement,
-            childField,
-            childSchemaDefinition as SchemaDefinition,
-          );
-          if (childField.fields.length > 0) {
-            fields.push(childField);
+          if (name === 'li') {
+            element.nodes.filter(xml.isElementByName('li')).forEach(li => {
+              const childField: Field = createField(li);
+              extractInjectionRecursively(
+                li,
+                childField,
+                childSchemaDefinition as SchemaDefinition,
+              );
+              if (childField.fields.length > 0) {
+                fields.push(childField);
+              }
+            });
+          } else {
+            const childField: Field = createField(childElement);
+            extractInjectionRecursively(
+              childElement,
+              childField,
+              childSchemaDefinition as SchemaDefinition,
+            );
+            if (childField.fields.length > 0) {
+              fields.push(childField);
+            }
           }
         }
         break;
@@ -229,60 +228,4 @@ function extractInjectionRecursively(
       return stringCompare(a.name, b.name);
     }),
   );
-}
-
-// ==== Extract Injection Special BodyDef ====
-
-function extractInjectionSpecial_BodyDef(def: xml.Element): Injection {
-  const injection: Injection = extractInjection(def);
-
-  const corePartElement: xml.Element | undefined = def.nodes.find(
-    xml.isElementByName('corePart'),
-  );
-  if (corePartElement) {
-    const corePartField:
-      | Field
-      | undefined = extractInjectionSpecial_BodyPartRecordRecursively(corePartElement);
-    if (corePartField) {
-      injection.fields.push(corePartField);
-    }
-  }
-
-  return injection;
-}
-
-function extractInjectionSpecial_BodyPartRecordRecursively(
-  element: xml.Element,
-): Field | undefined {
-  const field: Field = createField(element);
-
-  const customLabel: xml.Element | undefined = element.nodes.find(
-    xml.isElementByName('customLabel'),
-  );
-  if (customLabel) {
-    field.fields.push(createField(customLabel));
-  }
-
-  const parts: xml.Element | undefined = element.nodes.find(xml.isElementByName('parts'));
-  if (parts) {
-    const partsField: Field = createField(parts);
-    partsField.fields = [];
-    parts.nodes.filter(xml.isElementByName('li')).forEach(li => {
-      const liField:
-        | Field
-        | undefined = extractInjectionSpecial_BodyPartRecordRecursively(li);
-      if (liField) {
-        partsField.fields.push(liField);
-      }
-    });
-    if (partsField.fields.length > 0) {
-      field.fields.push(partsField);
-    }
-  }
-
-  if (field.fields.length > 0) {
-    return field;
-  } else {
-    return undefined;
-  }
 }

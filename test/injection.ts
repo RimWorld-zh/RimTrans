@@ -2,6 +2,7 @@
  * Test core/injection.ts
  */
 
+import fs from 'fs';
 import chalk from 'chalk';
 import { readRawContents } from '../scripts/utils';
 import init from '../scripts/env-init';
@@ -9,7 +10,6 @@ import { RawContents } from '../core/utils';
 import * as xml from '../core/xml';
 import * as definition from '../core/definition';
 import * as injection from '../core/injection';
-import fs from 'fs';
 
 const { dirCore } = init();
 
