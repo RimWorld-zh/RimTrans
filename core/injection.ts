@@ -44,7 +44,7 @@ function createInjection(def: xml.Element): Injection {
     ? def.attributes.Path.split(/\/|\\/)
     : undefined;
   const fileName: string | undefined = pathNodes
-    ? pathNodes[pathNodes.length - 2]
+    ? pathNodes[pathNodes.length - 1]
     : undefined;
 
   return {
