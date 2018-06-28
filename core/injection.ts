@@ -174,13 +174,16 @@ function extractInjectionRecursively(
         break;
 
       case 'string':
-        fields.push({
-          attributes: {},
-          name,
-          value:
-            (childElement && childElement.value) || (childSchemaDefinition as string),
-          fields: [],
-        });
+        if (childElement) {
+          fields.push(createField(childElement));
+        } else {
+          fields.push({
+            attributes: {},
+            name,
+            value: childSchemaDefinition as string,
+            fields: [],
+          });
+        }
         break;
 
       case 'object':
@@ -191,6 +194,9 @@ function extractInjectionRecursively(
             childField,
             childSchemaDefinition as SchemaDefinition,
           );
+          if (childField.fields.length > 0) {
+            fields.push(childField);
+          }
         }
         break;
 
@@ -209,20 +215,20 @@ function extractInjectionRecursively(
           );
         }
     }
-
-    field.fields.push(
-      ...fields.sort((a, b) => {
-        if (!a.fields && b.fields) {
-          return -1;
-        }
-        if (a.fields && !b.fields) {
-          return 1;
-        }
-
-        return stringCompare(a.name, b.name);
-      }),
-    );
   });
+
+  field.fields.push(
+    ...fields.sort((a, b) => {
+      if (!a.fields && b.fields) {
+        return -1;
+      }
+      if (a.fields && !b.fields) {
+        return 1;
+      }
+
+      return stringCompare(a.name, b.name);
+    }),
+  );
 }
 
 // ==== Extract Injection Special BodyDef ====
