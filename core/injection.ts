@@ -149,13 +149,13 @@ function extractInjectionRecursively(
       xml.isElementByName(name),
     );
     switch (typeof childSchemaDefinition) {
-      case 'boolean':
+      case 'boolean': // normal extracting
         if (childElement && childSchemaDefinition) {
           fields.push(createField(childElement));
         }
         break;
 
-      case 'string':
+      case 'string': // this means that the field has default value in the assembly.
         if (childElement) {
           fields.push(createField(childElement));
         } else {
@@ -168,7 +168,7 @@ function extractInjectionRecursively(
         }
         break;
 
-      case 'object':
+      case 'object': // has child fields
         if (childElement) {
           if (name === 'li') {
             element.nodes.filter(xml.isElementByName('li')).forEach(li => {
@@ -196,7 +196,7 @@ function extractInjectionRecursively(
         }
         break;
 
-      default:
+      default: // some specific extracting mode
         switch (childSchemaDefinition) {
           case FieldSchemaType.TranslationCanChangeCount:
             if (childElement) {
