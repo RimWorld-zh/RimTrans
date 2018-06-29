@@ -364,7 +364,7 @@ export const schema = {
     },
   },
   PawnRelationDef: {
-    labelFemale: true,
+    labelFemale: FieldSchemaType.SameToLabel,
   },
   PawnTableDef: DefSchemaType.NoTranslate,
   PawnsArrivalModeDef: {
