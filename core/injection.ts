@@ -25,7 +25,7 @@ function createField(element: xml.Element, value?: string | string[]): Field {
   return {
     attributes: { ...element.attributes },
     name: element.name,
-    value: value || element.value || '',
+    value: value || element.value,
     fields: [],
   };
 }
