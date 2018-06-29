@@ -4,6 +4,7 @@ import * as logger from './logger';
 import * as xml from './xml';
 import * as definition from './definition';
 import { RawContents, stringCompare } from './utils';
+import Stack from './stack';
 import {
   DefSchemaType,
   FieldSchemaType,
@@ -78,9 +79,8 @@ export function inject(): void {
   //
 }
 
-/**
- * Walk the `DefinitionData` and extra `InjectionData`.
- */
+// region ======== Extra ========
+
 export function extract(defData: definition.DefinitionData): InjectionData {
   const injData: InjectionData = {};
   // tslint:disable-next-line:typedef
@@ -196,7 +196,8 @@ function extractInjectionRecursively(
         }
         break;
 
-      default: // some specific extracting mode
+      default:
+        // some specific extracting mode
         switch (childSchemaDefinition) {
           case FieldSchemaType.TranslationCanChangeCount:
             if (childElement) {
@@ -245,3 +246,50 @@ function extractInjectionRecursively(
     }),
   );
 }
+
+// endregion
+
+// region ======== Export XML ========
+
+export function toXMLString(data: InjectionData): RawContents {}
+
+function injectionToXML(inj: Injection): xml.Node[] {
+  const nodes: xml.Node[] = [];
+  const fieldStack: Stack<Field> = new Stack<Field>();
+  const pathStack: Stack<string> = new Stack<string>().push(inj.defName);
+
+  if (inj.attributes.Comment) {
+    nodes.push({
+      type: 'comment',
+      value: inj.attributes.Comment,
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  const fieldToText = (field: Field) => {
+    fieldStack.push(field);
+    pathStack.push(field.name === 'li' ? `${field.attributes.Index}` : field.name);
+
+    if (field.value) {
+      const path: string = pathStack.data.join('.');
+      if (typeof field.value === 'string') {
+        nodes.push(xml.createElement(path, field.value));
+      } else if (Array.isArray(field.value)) {
+        nodes.push(
+          xml.createElement(path, field.value.map(v => xml.createElement('li', v))),
+        );
+      }
+    } else {
+      field.fields.forEach(fieldToText);
+    }
+
+    fieldStack.pop();
+    pathStack.pop();
+  };
+
+  inj.fields.forEach(fieldToText);
+
+  return nodes;
+}
+
+// endregion
