@@ -1,7 +1,3 @@
-export interface RawContents {
-  [path: string]: string;
-}
-
 /**
  * String compare function.
  * @param ignoreCase ignore upper and lower case or not
@@ -18,11 +14,4 @@ export function stringCompare(a: string, b: string, ignoreCase: boolean = false)
   }
 
   return 0;
-}
-
-export function arrayInsert<T>(array: T[], index: number, ...items: T[]): void {
-  array.splice(index, 0, ...items);
-}
-export function arrayInsertAfter<T>(array: T[], index: number, ...items: T[]): void {
-  array.splice(index + 1, 0, ...items);
 }

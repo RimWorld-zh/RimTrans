@@ -1,10 +1,10 @@
 // tslint:disable:max-func-body-length
-
+import { Dictionary, arrayInsertAfter } from '../common/collection';
+import { stringCompare } from '../common/utils';
+import Stack from '../common/stack';
 import * as logger from './logger';
 import * as xml from './xml';
 import * as definition from './definition';
-import { RawContents, stringCompare } from './utils';
-import Stack from './stack';
 import {
   DefSchemaType,
   FieldSchemaType,
@@ -68,7 +68,7 @@ export interface InjectionData {
 /**
  * Parse the xml plain text in the `DefInjected` directory, and build `InjectionData`.
  */
-export function parse(rawContents: RawContents): void {
+export function parse(rawContents: Dictionary<string>): void {
   //
 }
 
@@ -81,7 +81,7 @@ export function inject(): void {
 
 // region ======== Extra ========
 
-export function extract(defData: definition.DefinitionData): InjectionData {
+export function extract(defData: Dictionary<xml.Element[]>): InjectionData {
   const injData: InjectionData = {};
   // tslint:disable-next-line:typedef
   const addInjection = (inj: Injection) =>
@@ -251,7 +251,9 @@ function extractInjectionRecursively(
 
 // region ======== Export XML ========
 
-export function toXMLString(data: InjectionData): RawContents {}
+export function toXMLString(data: InjectionData): Dictionary<string> {
+  //
+}
 
 function injectionToXML(inj: Injection): xml.Node[] {
   const nodes: xml.Node[] = [];
@@ -271,7 +273,7 @@ function injectionToXML(inj: Injection): xml.Node[] {
     pathStack.push(field.name === 'li' ? `${field.attributes.Index}` : field.name);
 
     if (field.value) {
-      const path: string = pathStack.data.join('.');
+      const path: string = pathStack.items.join('.');
       if (typeof field.value === 'string') {
         nodes.push(xml.createElement(path, field.value));
       } else if (Array.isArray(field.value)) {

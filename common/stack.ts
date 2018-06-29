@@ -3,16 +3,16 @@
  */
 // tslint:disable:no-any
 export default class Stack<T = any> {
-  private items: T[] = [];
+  private itemsSource: T[] = [];
 
   private top: number = 0;
 
-  public get data(): T[] {
-    return this.items.slice(0, this.top);
+  public get items(): T[] {
+    return this.itemsSource.slice(0, this.top);
   }
 
   public push(item: T): this {
-    this.items[this.top] = item;
+    this.itemsSource[this.top] = item;
     this.top++;
 
     return this;
@@ -25,7 +25,7 @@ export default class Stack<T = any> {
   }
 
   public get peek(): T {
-    return this.items[this.top - 1];
+    return this.itemsSource[this.top - 1];
   }
 
   public get length(): number {
@@ -34,7 +34,7 @@ export default class Stack<T = any> {
 
   public clear(): this {
     this.top = 0;
-    this.items = [];
+    this.itemsSource = [];
 
     return this;
   }

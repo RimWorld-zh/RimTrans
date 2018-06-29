@@ -2,7 +2,7 @@
 
 import fs, { stat } from 'fs';
 import sax from 'sax';
-import Stack from './stack';
+import Stack from '../common/stack';
 
 export type Node = Comment | Element | Text;
 
@@ -14,6 +14,7 @@ export interface Attributes {
   Abstract?: string;
   Inherit?: string;
   // attributes for RimTrans
+  Instanced?: boolean;
   Path?: string;
   FileName?: string;
   Index?: number;
