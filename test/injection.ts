@@ -19,7 +19,6 @@ async function test(): Promise<void> {
   const rawContents: Dictionary<string> = await readRawContents(
     `${dirCore}/Defs/**/*.xml`,
   );
-
   const defData: Dictionary<xml.Element[]> = definition.parse(rawContents);
   const defDataList: Dictionary<xml.Element[]>[] = [defData];
   definition.resolveInheritance(defDataList);
@@ -28,39 +27,35 @@ async function test(): Promise<void> {
   const injData: Dictionary<injection.Injection[]> = injection.extract(defData);
   const languageData: Dictionary<string> = injection.generateXMLContents(injData);
 
-  // Object.entries(injData).forEach(([defType, injs]) => {
-  //   console.log();
-  //   console.log(chalk.greenBright(defType));
-  //   // console.log(injs.map(inj => inj.defName).join(', '));
-  //   injs.forEach(inj => {
-  //     fs.writeFile(
-  //       `temp/${defType}--${inj.defName}.json`,
-  //       JSON.stringify(inj, undefined, '  '),
-  //       error => {
-  //         if (error) {
-  //           console.error(error);
-  //         }
-  //       },
-  //     );
-  //   });
-  // });
-
-  if (fs.existsSync('temp')) {
-    rm.sync('temp');
-  }
-  fs.mkdirSync('temp');
-  Object.entries(languageData).forEach(([p, content]) => {
-    const file: string = path.join('temp', p);
-    const dir: string = path.dirname(file);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+  return new Promise<void>((resolve, reject) => {
+    if (fs.existsSync('temp')) {
+      rm.sync('temp');
     }
-    fs.writeFile(file, content, error => {
-      if (error) {
-        console.log(error);
+    fs.mkdirSync('temp');
+
+    const length: number = Object.keys(languageData).length;
+    let count: number = 0;
+
+    Object.entries(languageData).forEach(([p, content]) => {
+      const file: string = path.join('temp', p);
+      const dir: string = path.dirname(file);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
       }
+      fs.writeFile(file, content, error => {
+        if (error) {
+          reject(error);
+        }
+        count++;
+        if (count === length) {
+          resolve();
+        }
+      });
     });
   });
 }
 
-test().catch(error => console.error(error));
+console.time('Extract injection');
+test()
+  .then(() => console.timeEnd('Extract injection'))
+  .catch(error => console.error(error));
