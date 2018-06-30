@@ -174,10 +174,23 @@ const RulePack = {
 
 // ScenarioDef
 
+const ScenPart_GameStartDialog = {
+  text: true,
+};
+
+const ScenPart = {
+  ...ScenPart_GameStartDialog,
+};
+
 const Scenario = {
   name: true,
   summary: true,
   description: true,
+  parts: {
+    li: {
+      ...ScenPart,
+    },
+  },
 };
 
 // StatDef RoomStatDef
@@ -261,6 +274,8 @@ export const schema = {
   HairDef: DefSchemaType.Def,
   HediffDef: {
     labelNoun: true,
+    battleStateLabel: true,
+    labelNounPretty: true,
     comps: {
       li: {
         ...HediffCompProperties,
@@ -424,7 +439,7 @@ export const schema = {
     descriptionDialogue: true,
   },
   SkillDef: {
-    skillLabel: true,
+    skillLabel: FieldSchemaType.SameToLabel,
   },
   SongDef: DefSchemaType.NoTranslate,
   SoundDef: DefSchemaType.NoTranslate,
