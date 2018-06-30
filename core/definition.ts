@@ -31,22 +31,23 @@ export function parse(rawContents: Dictionary<string>): Dictionary<xml.Element[]
       }
 
       let comment: string | undefined;
-      let markDefs: { [defType: string]: boolean } = {};
-      root.nodes.forEach((node, index) => {
-        const curComment: string | undefined = validComment(node);
-        const def: xml.Element | undefined = xml.asElement(node);
-        if (def) {
-          if (curComment) {
-            comment = curComment;
-            markDefs = {};
-            markDefs[def.name] = true;
-            def.attributes.Comment = comment;
-          } else if (comment && !markDefs[def.name]) {
-            markDefs[def.name] = true;
-            def.attributes.Comment = comment;
+      let markDefs: Dictionary<boolean> = {};
+      root.nodes.forEach(node => {
+        if (
+          xml.isComment(node) &&
+          node.value &&
+          !node.value.includes('\n') &&
+          [...new Set(node.value.replace(/\s/g, ''))].length > 2
+        ) {
+          comment = node.value;
+          markDefs = {};
+        } else if (xml.isElement(node)) {
+          if (comment && !markDefs[node.name]) {
+            markDefs[node.name] = true;
+            node.attributes.Comment = comment;
           }
-          def.attributes.Path = root.attributes.Path;
-          (data[def.name] || (data[def.name] = [])).push(def);
+          node.attributes.Path = root.attributes.Path;
+          (data[node.name] || (data[node.name] = [])).push(node);
         }
       });
     });
@@ -55,18 +56,6 @@ export function parse(rawContents: Dictionary<string>): Dictionary<xml.Element[]
 }
 
 // ======== Utils ========
-
-function validComment(node: xml.Node): string | undefined {
-  if (!node) {
-    return undefined;
-  }
-
-  const comment: xml.Comment | undefined = xml.asComment(node);
-
-  return comment && comment.value && (comment.value.match(/\r?\n/g) || []).length === 0
-    ? comment.value
-    : undefined;
-}
 
 export function getDefName(def: xml.Element): string | undefined {
   return xml.getChildElementText(def, 'defName');
@@ -295,6 +284,9 @@ function newFrameDef(def: xml.Element): xml.Element {
   return xml.createElement('ThingDef', attributes, [
     xml.createElement('defName', `${prefixBuildingFrameDefName}${defName}`),
     xml.createElement('label', 'FrameLabelExtra'),
+    ...(def.name === 'TerrainDef'
+      ? [xml.createElement('description', 'Terrain building in progress.')]
+      : []),
     xml.createElement('description', ''),
   ]);
 }
