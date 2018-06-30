@@ -8,19 +8,54 @@ export type Node = Comment | Element | Text;
 
 export interface Attributes {
   [name: string]: string | number | boolean | undefined;
+
   // attributes for RimWorld
   Name?: string;
   ParentName?: string;
   Abstract?: string;
   Inherit?: string;
+
   // attributes for RimTrans
+
+  /**
+   * A Def that has defName and not abstract, exclude those have been overloaded.
+   */
   Instanced?: boolean;
+
+  /**
+   * The file path of the Def.
+   */
   Path?: string;
+
+  /**
+   * The final file name of the injection.
+   */
   FileName?: string;
+
+  /**
+   * Index for list items.
+   */
   Index?: number;
+
+  /**
+   * The valid comment before the Def.
+   */
   Comment?: string;
+
+  /**
+   * The source Def type of the implied Def.
+   */
   SourceDefType?: string;
+
+  /**
+   * The source Def of the implied Def.
+   */
   SourceDef?: string;
+
+  /**
+   * Sign a field that non matched (out-dated version field).
+   */
+  NonMatched?: boolean;
 }
 
 export interface Comment {
