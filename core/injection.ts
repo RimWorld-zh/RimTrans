@@ -1,5 +1,5 @@
 // tslint:disable:max-func-body-length
-import { Dictionary, arrayInsertAfter } from '../common/collection';
+import { Dictionary } from '../common/collection';
 import { stringCompare } from '../common/utils';
 import Stack from '../common/stack';
 import * as logger from './logger';
@@ -12,6 +12,15 @@ import {
   Schema,
   schema,
 } from './schema';
+import config from './config';
+
+// ==== Final Injection ====
+
+export interface FinalInjection {
+  flag?: 'duplicated' | 'nonmatched';
+  path: string;
+  value: string | string[];
+}
 
 // ==== Field ====
 
@@ -31,11 +40,35 @@ function createField(element: xml.Element, value?: string | string[]): Field {
   };
 }
 
+function fieldCompare(a: Field, b: Field): number {
+  if (a.name === 'label') {
+    return -1;
+  }
+  if (b.name === 'label') {
+    return 1;
+  }
+  if (a.name === 'description') {
+    return -1;
+  }
+  if (b.name === 'description') {
+    return 1;
+  }
+
+  if (!a.fields && b.fields) {
+    return -1;
+  }
+  if (a.fields && !b.fields) {
+    return 1;
+  }
+
+  return stringCompare(a.name, b.name);
+}
+
 // ==== Injection ====
 
 export interface Injection {
   attributes: xml.Attributes;
-  fileName?: string;
+  fileName: string;
   defType: string;
   defName: string;
   fields: Field[];
@@ -54,15 +87,11 @@ function createInjection(def: xml.Element): Injection {
     attributes: {
       ...def.attributes,
     },
-    fileName,
+    fileName: fileName || 'unknown.xml',
     defType: def.name,
     defName: definition.getDefName(def) as string,
     fields: [],
   };
-}
-
-export interface InjectionData {
-  [defType: string]: Injection[];
 }
 
 /**
@@ -81,8 +110,8 @@ export function inject(): void {
 
 // region ======== Extra ========
 
-export function extract(defData: Dictionary<xml.Element[]>): InjectionData {
-  const injData: InjectionData = {};
+export function extract(defData: Dictionary<xml.Element[]>): Dictionary<Injection[]> {
+  const injData: Dictionary<Injection[]> = {};
   // tslint:disable-next-line:typedef
   const addInjection = (inj: Injection) =>
     (injData[inj.defType] || (injData[inj.defType] = [])).push(inj);
@@ -105,15 +134,8 @@ export function extract(defData: Dictionary<xml.Element[]>): InjectionData {
       schemaDefinition = schemaTypeOrDefinition as SchemaDefinition;
     }
 
-    defs.forEach(def => {
-      if (
-        def.attributes.Abstract === 'True' ||
-        !def.nodes.some(xml.isElementByName('defName'))
-      ) {
-        return;
-      }
-      addInjection(extractInjection(def, schemaDefinition));
-    });
+    const instancedDefs: xml.Element[] = defs.filter(def => def.attributes.Instanced);
+    instancedDefs.forEach(def => addInjection(extractInjection(def, schemaDefinition)));
   });
 
   return injData;
@@ -233,39 +255,52 @@ function extractInjectionRecursively(
     }
   });
 
-  field.fields.push(
-    ...fields.sort((a, b) => {
-      if (!a.fields && b.fields) {
-        return -1;
-      }
-      if (a.fields && !b.fields) {
-        return 1;
-      }
-
-      return stringCompare(a.name, b.name);
-    }),
-  );
+  field.fields.push(...fields.sort(fieldCompare));
 }
 
 // endregion
 
 // region ======== Export XML ========
 
-export function toXMLString(data: InjectionData): Dictionary<string> {
-  //
+// In the text list, empty string will be converted to empty line.
+
+export function generateXMLContents(data: Dictionary<Injection[]>): Dictionary<string> {
+  const interimData: Dictionary<string[]> = {};
+  Object.entries(data).forEach(([defType, injs]) => {
+    injs.forEach(inj => {
+      const path: string = `${defType}/${inj.fileName}`;
+      const textList: string[] = interimData[path] || (interimData[path] = []);
+      const textListToPush: string[] = generateTextList(inj);
+      textListToPush.length > 1 && textList[textList.length - 1]
+        ? textList.push('', ...textListToPush)
+        : textList.push(...textListToPush);
+    });
+  });
+
+  const rawContents: Dictionary<string> = {};
+  Object.entries(interimData).forEach(([path, textList]) => {
+    if (textList.length > 0) {
+      textList[0]
+        ? textList.unshift(
+            '<?xml version="1.0" encoding="utf-8" ?>',
+            '<LanguageData>',
+            '',
+          )
+        : textList.unshift('<?xml version="1.0" encoding="utf-8" ?>', '<LanguageData>');
+      textList[textList.length - 1]
+        ? textList.push('', '', '</LanguageData>')
+        : textList.push('', '</LanguageData>');
+      rawContents[path] = textList.join(config.eol);
+    }
+  });
+
+  return rawContents;
 }
 
-function injectionToXML(inj: Injection): xml.Node[] {
-  const nodes: xml.Node[] = [];
+function generateTextList(inj: Injection): string[] {
+  const textList: string[] = [];
   const fieldStack: Stack<Field> = new Stack<Field>();
   const pathStack: Stack<string> = new Stack<string>().push(inj.defName);
-
-  if (inj.attributes.Comment) {
-    nodes.push({
-      type: 'comment',
-      value: inj.attributes.Comment,
-    });
-  }
 
   // tslint:disable-next-line:typedef
   const fieldToText = (field: Field) => {
@@ -273,13 +308,17 @@ function injectionToXML(inj: Injection): xml.Node[] {
     pathStack.push(field.name === 'li' ? `${field.attributes.Index}` : field.name);
 
     if (field.value) {
-      const path: string = pathStack.items.join('.');
+      const key: string = pathStack.items.join('.');
       if (typeof field.value === 'string') {
-        nodes.push(xml.createElement(path, field.value));
+        textList.push(`${config.indent}<${key}>${field.value}</${key}>`);
       } else if (Array.isArray(field.value)) {
-        nodes.push(
-          xml.createElement(path, field.value.map(v => xml.createElement('li', v))),
+        textList.push(`${config.indent}<${key}>`);
+        textList.push(
+          ...field.value.map(v => `${config.indent}${config.indent}<li>${v}</li>`),
         );
+        textList.push(`${config.indent}</${key}>`);
+      } else {
+        // TODO
       }
     } else {
       field.fields.forEach(fieldToText);
@@ -291,7 +330,13 @@ function injectionToXML(inj: Injection): xml.Node[] {
 
   inj.fields.forEach(fieldToText);
 
-  return nodes;
+  if (inj.attributes.Comment) {
+    textList.unshift('', `${config.indent}<!--${inj.attributes.Comment}-->`, '');
+  } else if (textList.length > 1) {
+    textList.push('');
+  }
+
+  return textList;
 }
 
 // endregion

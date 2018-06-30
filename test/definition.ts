@@ -42,7 +42,6 @@ async function test(): Promise<void> {
   });
 
   const dataList: Dictionary<xml.Element[]>[] = [data];
-
   definition.resolveInheritance(dataList);
   definition.postProcess(dataList);
 

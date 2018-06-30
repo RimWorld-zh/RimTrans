@@ -6,3 +6,15 @@ export enum EOL {
   LF = '\n',
   CRLF = '\r\n',
 }
+
+export interface Config {
+  eol: '\n' | '\r\n';
+  indent: '  ' | '    ' | '\t';
+}
+
+const config: Config = {
+  eol: '\r\n',
+  indent: '  ',
+};
+
+export default config;
