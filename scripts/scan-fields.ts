@@ -10,166 +10,54 @@ import fs from 'fs';
 import globby from 'globby';
 import { readRawContents } from './utils';
 import init from './env-init';
-import { RawContents, stringCompare } from '../core/utils';
 import * as xml from '../core/xml';
 import * as definition from '../core/definition';
+import { Dictionary } from '../common/collection';
+import Stack from '../common/stack';
 
 const { dirCore } = init();
 
-const map: { [defType: string]: boolean } = {};
+async function scan(): Promise<void> {
+  const rawContents: Dictionary<string> = await readRawContents(
+    `${dirCore}/Defs/**/*.xml`,
+  );
 
-async function test(): Promise<void> {
-  const rawContents: RawContents = await readRawContents(`${dirCore}/Defs/**/*.xml`);
+  const fields: Set<string> = new Set();
+  const stack: Stack<string> = new Stack();
 
-  const dataOrigin: definition.DefinitionData = {};
+  // tslint:disable-next-line:typedef
+  const scanElementRecursively = (element: xml.Node) => {
+    if (!xml.isElement(element)) {
+      return;
+    }
+    stack.push(element.name);
+    if (element.value) {
+      const text: string = element.value;
+      if (text.includes(' ') || text.includes(',') || text.endsWith('.')) {
+        fields.add(stack.items.join('.'));
+      }
+    } else {
+      element.nodes.forEach(scanElementRecursively);
+    }
+    stack.pop();
+  };
 
   Object.entries(rawContents).forEach(([path, content]) => {
-    const root: xml.Element = xml.parse(content);
-    root.nodes.filter(xml.isElement).forEach(def => {
-      if (!dataOrigin[def.name]) {
-        dataOrigin[def.name] = [];
-      }
-      dataOrigin[def.name].push(def);
-    });
+    const defs: xml.Element = xml.parse(content);
+    defs.nodes.forEach(scanElementRecursively);
   });
 
-  Object.entries(dataOrigin).forEach(([defType, defs]) => {
-    for (const def of defs) {
-      if (
-        def.nodes.some(xml.isElementByName('label')) ||
-        def.nodes.some(xml.isElementByName('description'))
-      ) {
-        map[defType] = true;
-
-        return;
+  fs.writeFile(
+    'scripts/fields.txt',
+    Array.from(fields)
+      .sort()
+      .join('\n'),
+    error => {
+      if (error) {
+        throw error;
       }
-    }
-
-    map[defType] = false;
-  });
-
-  Object.entries(map)
-    .sort((a, b) => stringCompare(a[0], b[0]))
-    .forEach(([defType, value]) => console.log(`${defType}: ${value},`));
+    },
+  );
 }
 
-test().catch(error => console.log(error));
-
-export default {
-  ApparelLayerDef: true,
-  BillRepeatModeDef: true,
-  BillStoreModeDef: true,
-  BiomeDef: true,
-  BodyDef: true,
-  BodyPartDef: true,
-  BodyPartGroupDef: true,
-  BodyPartTagDef: false,
-  BodyTypeDef: false,
-  ChemicalDef: true,
-  ClamorDef: false,
-  ConceptDef: true,
-  DamageArmorCategoryDef: false,
-  DamageDef: true,
-  DesignationCategoryDef: true,
-  DesignationDef: false,
-  DesignatorDropdownGroupDef: false,
-  DifficultyDef: true,
-  DutyDef: false,
-  EffecterDef: false,
-  FactionDef: true,
-  FeatureDef: false,
-  FleshTypeDef: false,
-  GameConditionDef: true,
-  GenStepDef: false,
-  HairDef: true,
-  HediffDef: true,
-  HediffGiverSetDef: false,
-  HibernatableStateDef: false,
-  HistoryAutoRecorderDef: true,
-  HistoryAutoRecorderGroupDef: true,
-  ImpactSoundTypeDef: false,
-  ImplementOwnerTypeDef: false,
-  IncidentCategoryDef: false,
-  IncidentDef: true,
-  IncidentTargetTypeDef: false,
-  InspirationDef: true,
-  InstructionDef: false,
-  InteractionDef: true,
-  JobDef: false,
-  JoyGiverDef: false,
-  JoyKindDef: true,
-  KeyBindingCategoryDef: true,
-  KeyBindingDef: true,
-  LetterDef: false,
-  LifeStageDef: true,
-  LogEntryDef: false,
-  MainButtonDef: true,
-  ManeuverDef: false,
-  MapGeneratorDef: false,
-  MentalBreakDef: true,
-  MentalStateDef: true,
-  MessageTypeDef: false,
-  NeedDef: true,
-  PawnCapacityDef: true,
-  PawnColumnDef: true,
-  PawnGroupKindDef: false,
-  PawnKindDef: true,
-  PawnRelationDef: true,
-  PawnsArrivalModeDef: false,
-  PawnTableDef: false,
-  PrisonerInteractionModeDef: true,
-  RaidStrategyDef: false,
-  RecipeDef: true,
-  RecordDef: true,
-  ResearchProjectDef: true,
-  ResearchProjectTagDef: false,
-  ResearchTabDef: true,
-  ReservationLayerDef: false,
-  RiverDef: true,
-  RoadDef: true,
-  RoadPathingDef: false,
-  RoadWorldLayerDef: false,
-  RoofDef: true,
-  RoomRoleDef: true,
-  RoomStatDef: true,
-  RuleDef: false,
-  RulePackDef: false,
-  ScatterableDef: false,
-  ScenarioDef: true,
-  ScenPartDef: true,
-  ShaderTypeDef: false,
-  SiteCoreDef: true,
-  SitePartDef: true,
-  SkillDef: true,
-  SongDef: false,
-  SoundDef: false,
-  SpecialThingFilterDef: true,
-  StatCategoryDef: true,
-  StatDef: true,
-  StoryEventDef: false,
-  StorytellerDef: true,
-  StuffAppearanceDef: false,
-  StuffCategoryDef: true,
-  SubcameraDef: false,
-  TaleDef: true,
-  TerrainAffordanceDef: true,
-  TerrainDef: true,
-  ThingCategoryDef: true,
-  ThingDef: true,
-  ThingSetMakerDef: false,
-  ThinkTreeDef: false,
-  ThoughtDef: false,
-  TimeAssignmentDef: true,
-  ToolCapacityDef: false,
-  TraderKindDef: true,
-  TrainabilityDef: true,
-  TrainableDef: true,
-  TraitDef: false,
-  TransferableSorterDef: true,
-  WeatherDef: true,
-  WorkGiverDef: true,
-  WorkGiverEquivalenceGroupDef: false,
-  WorkTypeDef: true,
-  WorldGenStepDef: false,
-  WorldObjectDef: true,
-};
+scan().catch(error => console.log(error));

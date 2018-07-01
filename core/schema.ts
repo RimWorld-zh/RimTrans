@@ -128,11 +128,21 @@ const PawnKindLifeStage = {
 
 // ThingDef
 
+const CompProperties_Refuelable = {
+  fuelLabel: true,
+  fuelGizmoLabel: true,
+  outOfFuelMessage: true,
+};
 const CompProperties_Schedule = {
   offMessage: true,
 };
 const CompProperties_Usable = {
   useLabel: true,
+};
+const CompProperties = {
+  ...CompProperties_Refuelable,
+  ...CompProperties_Schedule,
+  ...CompProperties_Usable,
 };
 
 const IngestibleProperties = {
@@ -325,6 +335,9 @@ export const schema = {
     text: true,
     rejectInputMessage: true,
     onMapInstruction: true,
+    logRulesInitiator: {
+      ...RulePack,
+    },
   },
   InteractionDef: {
     logRulesInitiator: {
@@ -469,8 +482,7 @@ export const schema = {
   ThingDef: {
     comps: {
       li: {
-        ...CompProperties_Schedule,
-        ...CompProperties_Usable,
+        ...CompProperties,
       },
     },
     ingestible: {

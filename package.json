@@ -11,10 +11,10 @@
   "license": "MIT",
   "scripts": {
     "ts": "ts-node -P scripts/tsconfig.json",
+    "scan:fields": "yarn ts scripts/scan-fields.ts",
     "test:xml": "yarn ts test/xml.ts",
     "test:def": "yarn ts test/definition.ts",
     "test:inj": "yarn ts test/injection.ts",
-    "scan:fields": "yarn ts scripts/scan-fields.ts",
     "start": "echo no script for start"
   },
   "devDependencies": {
