@@ -41,6 +41,13 @@ function createField(element: xml.Element, value?: string | string[]): Field {
 }
 
 function fieldCompare(a: Field, b: Field): number {
+  if (!a.fields && b.fields) {
+    return -1;
+  }
+  if (a.fields && !b.fields) {
+    return 1;
+  }
+
   if (a.name === 'label') {
     return -1;
   }
@@ -51,13 +58,6 @@ function fieldCompare(a: Field, b: Field): number {
     return -1;
   }
   if (b.name === 'description') {
-    return 1;
-  }
-
-  if (!a.fields && b.fields) {
-    return -1;
-  }
-  if (a.fields && !b.fields) {
     return 1;
   }
 
