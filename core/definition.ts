@@ -198,7 +198,9 @@ function elementInheritRecursively(child: xml.Element, parent: xml.Element): voi
 /**
  * Post process data after resolve inheritance: list item, generate defs, etc.
  */
-export function postProcess(dataList: Dictionary<xml.Element[]>[]): void {
+export function postProcess(
+  dataList: Dictionary<xml.Element[]>[],
+): Dictionary<Dictionary<xml.Element>>[] {
   const actions: ((data: Dictionary<xml.Element[]>) => void)[] = [
     resolveListItemIndex,
     generateThingDef_Building,
@@ -209,10 +211,11 @@ export function postProcess(dataList: Dictionary<xml.Element[]>[]): void {
     generatePawnColumnDefs,
     generateKeyBindingCategoryDefs,
     generateKeyBindingDefs,
-    resolveDuplicated,
   ];
 
   dataList.forEach(data => actions.forEach(a => a(data)));
+
+  return dataList.map(resolveDuplicatedAndGenerateMap);
 }
 
 // ==== List Item ====
@@ -620,10 +623,13 @@ function generateKeyBindingDefs(data: Dictionary<xml.Element[]>): void {
   }
 }
 
-// ======== Resolve Duplicated ========
+// ==== Resolve Duplicated ====
 
-function resolveDuplicated(data: Dictionary<xml.Element[]>): void {
+function resolveDuplicatedAndGenerateMap(
+  data: Dictionary<xml.Element[]>,
+): Dictionary<Dictionary<xml.Element>> {
   const map: Dictionary<Dictionary<xml.Element>> = {};
+
   Object.entries(data).forEach(([defType, defs]) => {
     if ((schema as Schema)[defType] === DefSchemaType.NoTranslate) {
       return;
@@ -645,5 +651,95 @@ function resolveDuplicated(data: Dictionary<xml.Element[]>): void {
     });
 
     Object.entries(subMap).forEach(([defName, def]) => (def.attributes.Instanced = true));
+  });
+
+  return map;
+}
+
+// ==== Prepare PawnKindDef ====
+
+export function prepareForExtract(mapList: Dictionary<Dictionary<xml.Element>>[]): void {
+  [preparePawnKindDef].forEach(pre => pre(mapList));
+}
+
+function preparePawnKindDef(mapList: Dictionary<Dictionary<xml.Element>>[]): void {
+  // tslint:disable-next-line:typedef
+  const getLifeStage = (lifeStageDefName: string): xml.Element | undefined => {
+    for (let i: number = mapList.length - 1; i > -1; i--) {
+      const map: Dictionary<Dictionary<xml.Element>> = mapList[i];
+      if (map.LifeStageDef && map.LifeStageDef[lifeStageDefName]) {
+        return map.LifeStageDef[lifeStageDefName];
+      }
+    }
+
+    return undefined;
+  };
+
+  // tslint:disable-next-line:typedef
+  const getRace = (raceDefName: string): xml.Element | undefined => {
+    for (let i: number = mapList.length - 1; i > -1; i--) {
+      const map: Dictionary<Dictionary<xml.Element>> = mapList[i];
+      if (map.ThingDef && map.ThingDef[raceDefName]) {
+        return map.ThingDef[raceDefName];
+      }
+    }
+
+    return undefined;
+  };
+
+  // tslint:disable-next-line:typedef
+  const bindHook = (pawnKindDef: xml.Element): void => {
+    const raceDef: xml.Element | undefined = getRace(
+      xml.getChildElementText(pawnKindDef, 'race') || '',
+    );
+    const race: xml.Element | undefined =
+      raceDef && raceDef.nodes.find(xml.isElementByName('race'));
+
+    // Check if has genders
+    pawnKindDef.attributes.HasGenders =
+      !race || xml.getChildElementText(race, 'hasGenders') !== 'false';
+
+    // Check if is humanlike
+    const intelligence: string | undefined =
+      race && xml.getChildElementText(race, 'intelligence');
+    pawnKindDef.attributes.Humanlike =
+      !!intelligence && (intelligence !== 'Animal' && intelligence !== 'ToolUser');
+
+    // Check life stage visible
+    const lifeStages: xml.Element | undefined = pawnKindDef.nodes.find(
+      xml.isElementByName('lifeStages'),
+    );
+    const lifeStageAges: xml.Element | undefined =
+      race && race.nodes.find(xml.isElementByName('lifeStageAges'));
+    if (lifeStages && lifeStageAges) {
+      const lifeStageItems: xml.Element[] = lifeStages.nodes.filter(
+        xml.isElementByName('li'),
+      );
+      lifeStageAges.nodes
+        .filter(xml.isElementByName('li'))
+        .map(age => {
+          const lifeStageDef: xml.Element | undefined = getLifeStage(
+            xml.getChildElementText(age, 'def') || '',
+          );
+
+          return (
+            lifeStageDef && xml.getChildElementText(lifeStageDef, 'visible') !== 'false'
+          );
+        })
+        .forEach((value, index) => {
+          if (lifeStageItems[index]) {
+            lifeStageItems[index].attributes.Visible = value;
+          }
+        });
+    }
+  };
+
+  mapList.forEach(map => {
+    if (!map.PawnKindDef) {
+      return;
+    }
+    Object.entries(map.PawnKindDef).forEach(([defName, pawnKindDef]) => {
+      bindHook(pawnKindDef);
+    });
   });
 }

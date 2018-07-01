@@ -56,6 +56,13 @@ export interface Attributes {
    * Sign a field that non matched (out-dated version field).
    */
   NonMatched?: boolean;
+
+  /**
+   * Hook for Pawn
+   */
+  HasGenders?: boolean;
+  Humanlike?: boolean;
+  Visible?: boolean;
 }
 
 export interface Comment {

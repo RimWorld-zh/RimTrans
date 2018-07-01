@@ -22,7 +22,10 @@ async function test(): Promise<void> {
   const defData: Dictionary<xml.Element[]> = definition.parse(rawContents);
   const defDataList: Dictionary<xml.Element[]>[] = [defData];
   definition.resolveInheritance(defDataList);
-  definition.postProcess(defDataList);
+  const defMapList: Dictionary<Dictionary<xml.Element>>[] = definition.postProcess(
+    defDataList,
+  );
+  definition.prepareForExtract(defMapList);
 
   const injData: Dictionary<injection.Injection[]> = injection.extract(defData);
   const languageData: Dictionary<string> = injection.generateXMLContents(injData);

@@ -108,7 +108,7 @@ export function inject(): void {
   //
 }
 
-// region ======== Extra ========
+// ======== Extra ========
 
 export function extract(defData: Dictionary<xml.Element[]>): Dictionary<Injection[]> {
   const injData: Dictionary<Injection[]> = {};
@@ -135,7 +135,17 @@ export function extract(defData: Dictionary<xml.Element[]>): Dictionary<Injectio
     }
 
     const instancedDefs: xml.Element[] = defs.filter(def => def.attributes.Instanced);
-    instancedDefs.forEach(def => addInjection(extractInjection(def, schemaDefinition)));
+
+    switch (defType) {
+      case 'PawnKindDef':
+        instancedDefs.forEach(def => addInjection(extractInjection_PawnKindDef(def)));
+        break;
+
+      default:
+        instancedDefs.forEach(def =>
+          addInjection(extractInjection(def, schemaDefinition)),
+        );
+    }
   });
 
   return injData;
@@ -258,9 +268,159 @@ function extractInjectionRecursively(
   field.fields.push(...fields.sort(fieldCompare));
 }
 
-// endregion
+// ==== PawnKindDef ====
+const genderLabels: ReadonlyArray<string> = [
+  'labelMale',
+  'labelMalePlural',
+  'labelFemale',
+  'labelFemalePlural',
+];
 
-// region ======== Export XML ========
+function extractInjection_PawnKindDef(def: xml.Element): Injection {
+  // console.log(JSON.stringify(def, undefined, '  '));
+  const defName: string = definition.getDefName(def) as string;
+  const injection: Injection = createInjection(def);
+  console.log(defName, def.attributes.HasGenders, def.attributes.Humanlike);
+
+  const hasGenders: boolean = !!def.attributes.HasGenders;
+  const isHumanlike: boolean = !!def.attributes.Humanlike;
+
+  const lifeStages: xml.Element | undefined = def.nodes.find(
+    xml.isElementByName('lifeStages'),
+  );
+  const hasGenderLabels: boolean =
+    hasGenders &&
+    (genderLabels.some(gl => def.nodes.some(xml.isElementByName(gl))) ||
+      (!!lifeStages &&
+        lifeStages.nodes
+          .filter(xml.isElementByName('li'))
+          .some(ls => genderLabels.some(gl => ls.nodes.some(xml.isElementByName(gl))))));
+
+  const label: xml.Element | undefined = def.nodes.find(xml.isElementByName('label'));
+  const labelValue: string = (label && label.value) || defName;
+  injection.fields.push(
+    label
+      ? createField(label)
+      : {
+          attributes: {},
+          name: 'label',
+          value: labelValue,
+          fields: [],
+        },
+  );
+  const labelPlural: xml.Element | undefined = def.nodes.find(
+    xml.isElementByName('labelPlural'),
+  );
+  injection.fields.push(
+    labelPlural
+      ? createField(labelPlural)
+      : {
+          attributes: {},
+          name: 'labelPlural',
+          value: labelValue,
+          fields: [],
+        },
+  );
+
+  const description: xml.Element | undefined = def.nodes.find(
+    xml.isElementByName('description'),
+  );
+  if (description) {
+    injection.fields.push(createField(description));
+  }
+
+  if (hasGenderLabels || (hasGenders && !isHumanlike)) {
+    // console.log('gender labels', defName);
+    let isOdd: boolean = true;
+    let labelCache: string | undefined;
+    genderLabels.forEach(gl => {
+      const element: xml.Element | undefined = def.nodes.find(xml.isElementByName(gl));
+      if (element && isOdd) {
+        labelCache = element.value;
+      }
+      injection.fields.push(
+        element
+          ? createField(element)
+          : {
+              attributes: {},
+              name: gl,
+              value: (!isOdd && labelCache) || labelValue,
+              fields: [],
+            },
+      );
+      isOdd = !isOdd;
+    });
+  }
+  if (lifeStages) {
+    const lifeStagesField: Field = createField(lifeStages);
+    lifeStages.nodes.filter(xml.isElementByName('li')).forEach(ls => {
+      if (!ls.attributes.Visible) {
+        return;
+      }
+
+      const lsField: Field = createField(ls);
+      const lsLabel: xml.Element | undefined = ls.nodes.find(
+        xml.isElementByName('label'),
+      );
+      const lsLabelValue: string = (lsLabel && lsLabel.value) || labelValue;
+      lsField.fields.push(
+        lsLabel
+          ? createField(lsLabel)
+          : {
+              attributes: {},
+              name: 'label',
+              value: lsLabelValue,
+              fields: [],
+            },
+      );
+      const lsLabelPlural: xml.Element | undefined = ls.nodes.find(
+        xml.isElementByName('labelPlural'),
+      );
+      lsField.fields.push(
+        lsLabelPlural
+          ? createField(lsLabelPlural)
+          : {
+              attributes: {},
+              name: 'labelPlural',
+              value: lsLabelValue,
+              fields: [],
+            },
+      );
+
+      if (hasGenderLabels || (hasGenders && !isHumanlike)) {
+        // console.log('life stage gender labels', defName);
+        let isOdd: boolean = true;
+        let labelCache: string | undefined;
+        genderLabels.forEach(gl => {
+          const element: xml.Element | undefined = ls.nodes.find(xml.isElementByName(gl));
+          if (element && isOdd) {
+            labelCache = element.value;
+          }
+          lsField.fields.push(
+            element
+              ? createField(element)
+              : {
+                  attributes: {},
+                  name: gl,
+                  value: (!isOdd && labelCache) || labelValue,
+                  fields: [],
+                },
+          );
+          isOdd = !isOdd;
+        });
+      }
+
+      lifeStagesField.fields.push(lsField);
+    });
+    if (lifeStagesField.fields.length > 0) {
+      injection.fields.push(lifeStagesField);
+    }
+  }
+
+  return injection;
+}
+
+// ======== Generate XML text ========
 
 // In the text list, empty string will be converted to empty line.
 
@@ -338,5 +498,3 @@ function generateTextList(inj: Injection): string[] {
 
   return textList;
 }
-
-// endregion
