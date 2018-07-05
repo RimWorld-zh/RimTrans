@@ -211,6 +211,7 @@ export function postProcess(
     generatePawnColumnDefs,
     generateKeyBindingCategoryDefs,
     generateKeyBindingDefs,
+    resolveThingDefs_Mote,
   ];
 
   dataList.forEach(data => actions.forEach(a => a(data)));
@@ -259,7 +260,7 @@ function newBlueprintDef(
     SourceDef: defName,
   };
   if (def.name === 'TerrainDef') {
-    attributes.Path = '_Terrain_Extra.xml';
+    attributes.Path = 'ThingDefs_Buildings/_Terrain_Extra.xml';
   }
 
   return xml.createElement('ThingDef', attributes, [
@@ -281,7 +282,7 @@ function newFrameDef(def: xml.Element): xml.Element {
     SourceDef: defName,
   };
   if (def.name === 'TerrainDef') {
-    attributes.Path = '_Terrain_Extra.xml';
+    attributes.Path = 'ThingDefs_Buildings/_Terrain_Extra.xml';
   }
 
   return xml.createElement('ThingDef', attributes, [
@@ -451,7 +452,9 @@ function generateTerrainDef_Stone(data: Dictionary<xml.Element[]>): void {
             ],
           ),
         ];
-        terrains.forEach(t => (t.attributes.Path = '_Terrain_Extra.xml'));
+        terrains.forEach(
+          t => (t.attributes.Path = 'TerrainDefs/_Terrain_Extra_Stone.xml'),
+        );
 
         (data.TerrainDef || (data.TerrainDef = [])).push(...terrains);
       }
@@ -483,7 +486,7 @@ function generateRecipeDef(data: Dictionary<xml.Element[]>): void {
               xml.createElement('jobString', 'RecipeMakeJobString'),
             ],
           );
-          recipe.attributes.Path = '_Recipe_Extra_Make.xml';
+          recipe.attributes.Path = 'RecipeDefs/_Recipe_Extra_Make.xml';
 
           (data.RecipeDef || (data.RecipeDef = [])).push(recipe);
         }
@@ -506,7 +509,7 @@ function generateRecipeDef(data: Dictionary<xml.Element[]>): void {
               xml.createElement('jobString', 'RecipeAdministerJobString'),
             ],
           );
-          recipe.attributes.Path = '_Recipe_Extra_Administer.xml';
+          recipe.attributes.Path = 'RecipeDefs/_Recipe_Extra_Administer.xml';
 
           (data.RecipeDef || (data.RecipeDef = [])).push(recipe);
         }
@@ -551,7 +554,7 @@ function generatePawnColumnDefs(data: Dictionary<xml.Element[]>): void {
             xml.createElement('headerTip', 'LabelCap'),
           ],
         );
-        column.attributes.Path = '_PawnColumn_Extra.xml';
+        column.attributes.Path = 'Misc/PawnColumnDefs/_PawnColumn_Extra.xml';
 
         (data.PawnColumnDef || (data.PawnColumnDef = [])).push(column);
       });
@@ -597,7 +600,7 @@ function generateKeyBindingCategoryDefs(data: Dictionary<xml.Element[]>): void {
           ),
         ],
       );
-      category.attributes.Path = '_KeyBindingCategoryDef_Extra.xml';
+      category.attributes.Path = 'Misc/KeyBindings/_KeyBindingCategoryDef_Extra.xml';
 
       (data.KeyBindingCategoryDef || (data.KeyBindingCategoryDef = [])).push(category);
     });
@@ -616,9 +619,19 @@ function generateKeyBindingDefs(data: Dictionary<xml.Element[]>): void {
           xml.createElement('label', 'Toggle {0} tab'),
         ],
       );
-      key.attributes.Path = '_KeyBinding_Extra.xml';
+      key.attributes.Path = 'Misc/KeyBindings/_KeyBinding_Extra.xml';
 
       (data.KeyBindingDef || (data.KeyBindingDef = [])).push(key);
+    });
+  }
+}
+
+function resolveThingDefs_Mote(data: Dictionary<xml.Element[]>): void {
+  if (data.ThingDef) {
+    data.ThingDef.forEach(def => {
+      if (xml.getChildElementText(def, 'category') === 'Mote') {
+        def.attributes.Path = 'Effects/_Mote_Special.xml';
+      }
     });
   }
 }
