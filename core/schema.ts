@@ -542,3 +542,5 @@ export const schema = {
   WorldGenStepDef: DefSchemaType.NoTranslate,
   WorldObjectDef: DefSchemaType.Def,
 };
+
+export const vanillaDefTypes: string[] = Object.keys(schema);
