@@ -4,6 +4,16 @@ import * as logger from './logger';
 import * as xml from './xml';
 import { schema, DefSchemaType, Schema } from './schema';
 
+// ======== Utils ========
+
+export function getDefName(def: xml.Element): string | undefined {
+  return xml.getChildElementText(def, 'defName');
+}
+
+export function isAbstract(def: xml.Element): boolean {
+  return def.attributes.Abstract === 'True';
+}
+
 /**
  * Parse the XML documents plain text to RimWorld Definition data.
  * @param rawContents key for file path, value for XML plain text.
@@ -53,16 +63,6 @@ export function parse(rawContents: Dictionary<string>): Dictionary<xml.Element[]
     });
 
   return data;
-}
-
-// ======== Utils ========
-
-export function getDefName(def: xml.Element): string | undefined {
-  return xml.getChildElementText(def, 'defName');
-}
-
-export function isAbstract(def: xml.Element): boolean {
-  return def.attributes.Abstract === 'True';
 }
 
 // ======== Inheritance ========
