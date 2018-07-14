@@ -20,6 +20,7 @@ async function test(): Promise<void> {
     `${dirCore}/Defs/**/*.xml`,
   );
   const defData: Dictionary<xml.Element[]> = definition.parse(rawContents);
+
   const defDataList: Dictionary<xml.Element[]>[] = [defData];
   definition.resolveInheritance(defDataList);
   const defMapList: Dictionary<Dictionary<xml.Element>>[] = definition.postProcess(
@@ -27,8 +28,13 @@ async function test(): Promise<void> {
   );
   definition.prepareForExtract(defMapList);
 
-  const injData: Dictionary<injection.Injection[]> = injection.extract(defData);
-  const languageData: Dictionary<string> = injection.generateXMLContents(injData);
+  const newInjData: Dictionary<injection.Injection[]> = injection.extract(defData);
+
+  const oldInjData: Dictionary<injection.Injection[]> = injection.parse(
+    await readRawContents(`${dirCore}/Languages/ChineseSimplified/DefInjected/**/*.xml`),
+  );
+
+  const languageData: Dictionary<string> = injection.generateXMLContents(newInjData);
 
   return new Promise<void>((resolve, reject) => {
     if (fs.existsSync('temp')) {

@@ -1,5 +1,5 @@
 // tslint:disable:max-func-body-length
-import { Dictionary } from '../common/collection';
+import { Dictionary, KeyValuePair } from '../common/collection';
 import { stringCompare } from '../common/utils';
 import Stack from '../common/stack';
 import * as logger from './logger';
@@ -14,20 +14,26 @@ import {
 } from './schema';
 import config from './config';
 
-// ==== Final Injection ====
+// ==== Injection Flag ====
 
-export interface FinalInjection {
-  flag?: 'duplicated' | 'nonmatched';
-  path: string;
-  value: string | string[];
+export enum Flag {
+  duplicated = 'duplicated',
+  nonFieldMatched = 'nonFieldMatched',
+  nonSchemaMatched = 'nonSchemaMatched',
 }
 
 // ==== Field ====
 
 export interface Field {
+  flag?: Flag;
   attributes: xml.Attributes;
   name: string;
+  original?: string | string[];
   value?: string | string[];
+  /**
+   * If the field has attribute TranslationCanChangeCount, it means the count of list items.
+   */
+  length?: number;
   fields: Field[];
 }
 
@@ -36,6 +42,7 @@ function createField(element: xml.Element, value?: string | string[]): Field {
     attributes: { ...element.attributes },
     name: element.name,
     value: value || element.value,
+    length: Array.isArray(value) ? value.length : undefined,
     fields: [],
   };
 }
@@ -67,6 +74,7 @@ function fieldCompare(a: Field, b: Field): number {
 // ==== Injection ====
 
 export interface Injection {
+  nonMatched?: boolean;
   attributes: xml.Attributes;
   fileName: string;
   defType: string;
@@ -94,22 +102,264 @@ function createInjection(def: xml.Element): Injection {
   };
 }
 
+// ======== Utils ========
+
+function addField(inj: Injection, fieldNodes: string[], value: string | string[]): void {
+  const nodes: string[] = [...fieldNodes];
+  let name: string = nodes.shift() as string;
+
+  let field: Field;
+  if (inj.fields.some(f => f.name === name)) {
+    field = inj.fields.find(f => f.name === name) as Field;
+  } else {
+    field = {
+      attributes: {},
+      name,
+      fields: [],
+    };
+    inj.fields.push(field);
+  }
+
+  const isListItem: boolean = /^\d+$/.test(nodes[nodes.length - 1]);
+  if (isListItem) {
+    nodes.pop();
+  }
+
+  while (nodes.length > 0) {
+    name = nodes.shift() as string;
+    if (field.fields.some(f => f.name === name)) {
+      field = field.fields.find(f => f.name === name) as Field;
+    } else {
+      field.fields.push({
+        attributes: {},
+        name,
+        fields: [],
+      });
+      field = field.fields[field.fields.length - 1];
+    }
+  }
+
+  if (isListItem) {
+    field.value = [
+      ...(field.value
+        ? typeof field.value === 'string'
+          ? [field.value]
+          : field.value
+        : []),
+      ...(typeof value === 'string' ? [value] : value),
+    ];
+  } else {
+    field.value = value;
+  }
+}
+
+function mapInjectionData(
+  data: Dictionary<Injection[]>,
+): Dictionary<Dictionary<Injection>> {
+  const map: Dictionary<Dictionary<Injection>> = {};
+  Object.entries(data).forEach(([defType, injList]) =>
+    injList.forEach(inj => {
+      if (inj.defName) {
+        (map[defType] || (map[defType] = {}))[inj.defName] = inj;
+      }
+    }),
+  );
+
+  return map;
+}
+
 /**
  * Parse the xml plain text in the `DefInjected` directory, and build `InjectionData`.
  */
-export function parse(rawContents: Dictionary<string>): void {
-  //
+export function parse(rawContents: Dictionary<string>): Dictionary<Injection[]> {
+  const rawData: Dictionary<Dictionary<KeyValuePair<string, string | string[]>[]>> = {};
+  // tslint:disable-next-line:typedef
+  const addKeyValue = (
+    defType: string,
+    fileName: string,
+    node: xml.Comment | xml.Element,
+  ) => {
+    const kvps: KeyValuePair<string, string | string[]>[] =
+      (rawData[defType] || (rawData[defType] = {}))[fileName] ||
+      (rawData[defType][fileName] = []);
+
+    if (xml.isElement(node)) {
+      kvps.push({
+        key: node.name,
+        value: node.value
+          ? node.value.trim()
+          : node.nodes.filter(xml.isElement).reduce<string[]>((result, el) => {
+              if (el.value) {
+                result.push(el.value.trim());
+              }
+
+              return result;
+            }, []),
+      });
+    } else {
+      kvps.push({
+        key: '',
+        value: node.value || '',
+      });
+    }
+  };
+
+  Object.entries(rawContents)
+    .sort((a, b) => stringCompare(a[0], b[0]))
+    .map(([path, content]) => {
+      try {
+        const root: xml.Element = xml.parse(content);
+        root.attributes.Path = path;
+
+        return root;
+      } catch (error) {
+        logger.error(
+          `Failed to parse DefInjected file: "${path}".\n${(error as Error).stack}`,
+        );
+      }
+
+      return undefined;
+    })
+    .forEach(root => {
+      if (!root) {
+        return;
+      }
+
+      const pathNodes: string[] = (root.attributes.Path as string).split(/\/|\\/);
+      if (pathNodes.length < 2) {
+        logger.error(`Invalid path for DefInjected: "${root.attributes.Path}"`);
+
+        return;
+      }
+      const defType: string = pathNodes[pathNodes.length - 2];
+      const fileName: string = pathNodes[pathNodes.length - 1];
+
+      root.nodes.forEach(node => {
+        if (xml.isComment(node) || xml.isElement(node)) {
+          addKeyValue(defType, fileName, node);
+        }
+      });
+    });
+
+  const injData: Dictionary<Injection[]> = {};
+  // tslint:disable-next-line:typedef
+  const getInj = (defType: string, fileName: string, defName: string): Injection => {
+    if (injData[defType]) {
+      let inj: Injection | undefined = injData[defType].find(i => i.defName === defName);
+      if (inj) {
+        return inj;
+      } else {
+        inj = {
+          attributes: {},
+          fileName,
+          defType,
+          defName,
+          fields: [],
+        };
+        injData[defType].push(inj);
+
+        return inj;
+      }
+    } else {
+      injData[defType] = [];
+      const inj: Injection = {
+        attributes: {},
+        fileName,
+        defType,
+        defName,
+        fields: [],
+      };
+      injData[defType].push(inj);
+
+      return inj;
+    }
+  };
+
+  const wildComments: Dictionary<Dictionary<string[]>> = {};
+  // tslint:disable-next-line:typedef
+  const addWildComment = (defType: string, fileName: string, cmt: string) => {
+    (
+      (wildComments[defType] || (wildComments[defType] = {}))[fileName] ||
+      (wildComments[defType][fileName] = [])
+    ).push(cmt);
+  };
+
+  let comment: string | undefined;
+  Object.entries(rawData).forEach(([defType, file]) =>
+    Object.entries(file).forEach(([fileName, kvps]) =>
+      kvps.forEach(kvp => {
+        if (kvp.key) {
+          const fieldNodes: string[] = kvp.key.split('.');
+          const defName: string = fieldNodes.shift() as string;
+
+          const inj: Injection = getInj(defType, fileName, defName);
+          addField(inj, fieldNodes, kvp.value);
+
+          if (comment) {
+            if (inj.commentBefore || inj.fields.length > 0) {
+              addWildComment(defType, fileName, comment);
+              comment = undefined;
+            } else {
+              inj.commentBefore = comment;
+              comment = undefined;
+            }
+          }
+        } else {
+          if (comment) {
+            addWildComment(defType, fileName, comment);
+          }
+          comment = kvp.value as string;
+        }
+      }),
+    ),
+  );
+
+  Object.entries(wildComments).forEach(([defType, file]) =>
+    Object.entries(file).forEach(([fileName, comments]) =>
+      // hackly use empty string as defName for store wild comments
+      getInj(defType, fileName, '').fields.push({
+        attributes: {},
+        name: 'comments',
+        value: comments,
+        fields: [],
+      }),
+    ),
+  );
+
+  return injData;
 }
 
 /**
- * Inject `InjectionData` into `DefinitionData`.
+ * Merge old injection to new injection.
  */
-export function inject(): void {
-  //
+export function merge(
+  newData: Dictionary<Injection[]>,
+  oldData: Dictionary<Injection[]>,
+): void {
+  const newMap: Dictionary<Dictionary<Injection>> = mapInjectionData(newData);
+  Object.entries(oldData).forEach(([defType, oldInjList]) =>
+    oldInjList.forEach(oldInj => {
+      if (oldInj.defName) {
+        const newInj: Injection | undefined =
+          newMap[oldInj.defType] && newMap[oldInj.defType][oldInj.defName];
+        if (newInj) {
+          mergeInjection(newInj, oldInj);
+        }
+      } else {
+        (newData[oldInj.defType] || (newData[oldInj.defType] = [])).push(oldInj);
+      }
+    }),
+  );
 }
 
-// ======== Extra ========
+function mergeInjection(newInj: Injection, oldInj: Injection): void {}
 
+function mergeFieldRecursively(newField: Field, oldField: Field): void {}
+
+/**
+ * Extract injection data from definition data.
+ * @param defData the definition data
+ */
 export function extract(defData: Dictionary<xml.Element[]>): Dictionary<Injection[]> {
   const injData: Dictionary<Injection[]> = {};
   // tslint:disable-next-line:typedef
@@ -280,7 +530,6 @@ function extractInjection_PawnKindDef(def: xml.Element): Injection {
   // console.log(JSON.stringify(def, undefined, '  '));
   const defName: string = definition.getDefName(def) as string;
   const injection: Injection = createInjection(def);
-  console.log(defName, def.attributes.HasGenders, def.attributes.Humanlike);
 
   const hasGenders: boolean = !!def.attributes.HasGenders;
   const isHumanlike: boolean = !!def.attributes.Humanlike;
