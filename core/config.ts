@@ -8,7 +8,13 @@ export enum EOL {
 }
 
 export interface Config {
+  /**
+   * The end of line: unix style or windows style.
+   */
   eol: '\n' | '\r\n';
+  /**
+   * The indent style for xml: 2/4 spaces or a tab character.
+   */
   indent: '  ' | '    ' | '\t';
 }
 
