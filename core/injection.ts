@@ -104,6 +104,8 @@ function createInjection(def: xml.Element): Injection {
 
 // ======== Utils ========
 
+const regexNumber: RegExp = /^\d+$/;
+
 function addField(inj: Injection, fieldNodes: string[], value: string | string[]): void {
   const nodes: string[] = [...fieldNodes];
   let name: string = nodes.shift() as string;
@@ -120,7 +122,7 @@ function addField(inj: Injection, fieldNodes: string[], value: string | string[]
     inj.fields.push(field);
   }
 
-  const isListItem: boolean = /^\d+$/.test(nodes[nodes.length - 1]);
+  const isListItem: boolean = regexNumber.test(nodes[nodes.length - 1]);
   if (isListItem) {
     nodes.pop();
   }
@@ -167,6 +169,8 @@ function mapInjectionData(
 
   return map;
 }
+
+// ================================================================
 
 /**
  * Parse the xml plain text in the `DefInjected` directory, and build `InjectionData`.
@@ -329,6 +333,8 @@ export function parse(rawContents: Dictionary<string>): Dictionary<Injection[]> 
   return injData;
 }
 
+// ================================================================
+
 /**
  * Merge old injection to new injection.
  */
@@ -346,15 +352,46 @@ export function merge(
           mergeInjection(newInj, oldInj);
         }
       } else {
+        // wild comments
         (newData[oldInj.defType] || (newData[oldInj.defType] = [])).push(oldInj);
       }
     }),
   );
 }
 
-function mergeInjection(newInj: Injection, oldInj: Injection): void {}
+function mergeInjection(newInj: Injection, oldInj: Injection): void {
+  oldInj.fields.forEach(oldField => {
+    const newField: Field | undefined = newInj.fields.find(f => f.name === oldField.name);
+    if (newField) {
+      mergeFieldRecursively(newField, oldField);
+    } else {
+      newInj.fields.push(oldField);
+    }
+  });
+  oldInj.fields.sort(fieldCompare);
+}
 
-function mergeFieldRecursively(newField: Field, oldField: Field): void {}
+function mergeFieldRecursively(newField: Field, oldField: Field): void {
+  if (oldField.value) {
+    if (newField.value) {
+      //
+    } else {
+      newField.value = oldField.value;
+    }
+  } else if (oldField.fields.length > 0) {
+    oldField.fields.forEach(oF => {
+      const nF: Field | undefined = newField.fields.find(f => f.name === oF.name);
+      if (nF) {
+        mergeFieldRecursively(nF, oF);
+      } else {
+        newField.fields.push(oF);
+      }
+    });
+    oldField.fields.sort(fieldCompare);
+  }
+}
+
+// ================================================================
 
 /**
  * Extract injection data from definition data.
@@ -519,6 +556,7 @@ function extractInjectionRecursively(
 }
 
 // ==== PawnKindDef ====
+
 const genderLabels: ReadonlyArray<string> = [
   'labelMale',
   'labelMalePlural',
@@ -669,10 +707,14 @@ function extractInjection_PawnKindDef(def: xml.Element): Injection {
   return injection;
 }
 
-// ======== Generate XML text ========
+// ================================================================
 
 // In the text list, empty string will be converted to empty line.
 
+/**
+ * Generate XML plain text finally.
+ * @param data Injection data
+ */
 export function generateXMLContents(data: Dictionary<Injection[]>): Dictionary<string> {
   const interimData: Dictionary<string[]> = {};
   Object.entries(data).forEach(([defType, injs]) => {

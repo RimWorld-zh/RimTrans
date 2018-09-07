@@ -16,11 +16,25 @@ export interface Config {
    * The indent style for xml: 2/4 spaces or a tab character.
    */
   indent: '  ' | '    ' | '\t';
+
+  preservingRules: {
+    duplicated: boolean;
+    nonDefMatched: boolean;
+    nonFieldMatched: boolean;
+    nonSchemaMatched: boolean;
+  };
 }
 
 const config: Config = {
   eol: '\r\n',
   indent: '  ',
+
+  preservingRules: {
+    duplicated: false,
+    nonDefMatched: false,
+    nonFieldMatched: true,
+    nonSchemaMatched: false,
+  },
 };
 
 export default config;
