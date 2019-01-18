@@ -1,0 +1,49 @@
+{
+  "ignoreFiles": ["dist/**/*", "**/dist/**/*", "*.vue"],
+  "extends": ["stylelint-config-standard", "stylelint-scss"],
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "extend",
+          "at-root",
+          "debug",
+          "warn",
+          "error",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "mixin",
+          "content",
+          "include",
+          "function",
+          "return"
+        ]
+      }
+    ],
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": ["if", "else"]
+      }
+    ],
+    "color-hex-length": "long",
+    "comment-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "declaration-colon-newline-after": null,
+    "declaration-colon-space-after": null,
+    "declaration-empty-line-before": null,
+    "function-max-empty-lines": null,
+    "no-eol-whitespace": null,
+    "number-no-trailing-zeros": null,
+    "rule-empty-line-before": null,
+    "selector-max-id": 0,
+    "string-quotes": "single",
+    "value-list-max-empty-lines": null,
+    "indentation": null
+  }
+}

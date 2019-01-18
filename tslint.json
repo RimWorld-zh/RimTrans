@@ -1,0 +1,11 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["@huiji/tslint-rules"],
+  "linterOptions": {
+    "exclude": ["node_modules", "**/*.js", "**/*.vue"]
+  },
+  "rules": {
+    "no-null-keyword": false,
+    "no-require-imports": false
+  }
+}
