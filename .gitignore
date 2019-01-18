@@ -251,6 +251,7 @@ paket-files/
 .idea/
 *.sln.iml
 
+.tmp
 test/
 RimTrans/
 Output/
