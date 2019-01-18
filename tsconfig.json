@@ -14,7 +14,6 @@
     "baseUrl": ".",
     "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types"],
-    "allowJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
