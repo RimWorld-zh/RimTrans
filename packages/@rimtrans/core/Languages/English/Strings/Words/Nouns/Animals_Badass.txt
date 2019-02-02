@@ -1,4 +1,4 @@
-﻿alligator
+alligator
 ape
 armadillo
 barracuda

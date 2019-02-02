@@ -1,4 +1,4 @@
-﻿This is the default language data written by Tynan Sylvester.
+This is the default language data written by Tynan Sylvester.
 
 This is just example data. The default English data is in the main XML data for the core mod.
   

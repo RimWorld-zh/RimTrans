@@ -1,4 +1,4 @@
-﻿//Intended as small-scale objects, not major terrain formations
+//Intended as small-scale objects, not major terrain formations
 //Includes animal, vegetable, and mineral
 rock
 stone

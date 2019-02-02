@@ -1,4 +1,4 @@
-﻿poker
+poker
 chess
 cards
 backgammon

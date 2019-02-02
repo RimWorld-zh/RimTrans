@@ -1,4 +1,4 @@
-﻿
+
 scyther
 lancer
 centipede

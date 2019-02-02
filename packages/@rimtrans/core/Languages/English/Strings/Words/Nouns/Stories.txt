@@ -1,4 +1,4 @@
-﻿story
+story
 tale
 yarn
 journey

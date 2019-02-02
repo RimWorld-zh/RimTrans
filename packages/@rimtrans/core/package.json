@@ -1,6 +1,7 @@
 {
   "name": "@rimtrans/core",
   "private": true,
+  "version": "1.0.2096",
   "scripts": {
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json",
     "update": "yarn ts scripts/update.ts"

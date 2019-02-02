@@ -1,4 +1,4 @@
-﻿//Normal outlanders
+//Normal outlanders
 farmer
 villager
 miller

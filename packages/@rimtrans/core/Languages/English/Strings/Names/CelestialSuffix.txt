@@ -1,4 +1,4 @@
-﻿Primus
+Primus
 Secundus
 Tertius
 Quadrus

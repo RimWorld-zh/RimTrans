@@ -1,4 +1,4 @@
-﻿head
+head
 eye
 nose
 mouth

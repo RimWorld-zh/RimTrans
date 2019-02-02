@@ -1,4 +1,4 @@
-﻿//Common with tribals
+//Common with tribals
 union
 nation
 confederacy

@@ -1,4 +1,4 @@
-﻿oak
+oak
 poplar
 pine
 teak

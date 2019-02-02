@@ -1,4 +1,4 @@
-﻿shirt
+shirt
 button-down shirt
 formal shirt
 jacket

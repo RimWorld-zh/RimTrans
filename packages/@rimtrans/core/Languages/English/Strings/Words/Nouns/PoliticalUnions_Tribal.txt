@@ -1,4 +1,4 @@
-﻿//Common with outlanders
+//Common with outlanders
 union
 nation
 confederacy
