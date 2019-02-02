@@ -1,0 +1,6 @@
+{
+  "lerna": "3.10.7",
+  "version": "0.1.0",
+  "npmClient": "yarn",
+  "packages": ["packages/@huiji/*", "packages/@rimtrans/*"]
+}

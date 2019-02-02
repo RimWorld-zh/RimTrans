@@ -3,37 +3,30 @@
     "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "scripthost", "esnext"],
-
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "jsx": "preserve",
-    "jsxFactory": "h",
-
-    "strict": true,
-
-    "baseUrl": ".",
     "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types"],
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
-
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "diagnostics": true,
-    "listFiles": true,
-
-    "newLine": "lf"
+    "baseUrl": "."
   },
   "include": [
-    "scripts/**/*.ts",
-    "typings/**/*.d.ts",
-    "packages/@rimtrans/*/scripts/**/*.ts",
+    "packages/@huiji/*/src/**/*.ts",
     "packages/@rimtrans/*/src/**/*.ts",
     "packages/@rimtrans/*/src/**/*.tsx",
-    "packages/@rimtrans/*/src/**/*.json"
-  ]
+    "packages/@rimtrans/*/tests/**/*.ts",
+    "packages/@rimtrans/*/tests/**/*.tsx",
+    "packages/@rimtrans/*/scripts/**/*.ts",
+    // "packages/@rimtrans/*/typings/**/*.d.ts",
+    "scripts/**/*.ts",
+    "typings/**/*.d.ts"
+  ],
+  "exclude": ["node_modules"]
 }
