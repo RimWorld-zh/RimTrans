@@ -69,46 +69,29 @@ const io = {
   }
 
   const resolvePath = genPathResolve(__dirname, '..');
+  const resolveSrc = genPathResolve(corePath);
+  const files = await globby(['About/**/*', 'Defs/**/*', 'Languages/English/**/*'], {
+    cwd: corePath,
+  });
 
-  {
-    const resolveSrc = genPathResolve(corePath);
-    const files = await globby(['About/**/*', 'Defs/**/*', 'Languages/English/**/*'], {
-      cwd: corePath,
-    });
+  await Promise.all(
+    [...new Set(files.map(f => pth.dirname(f)))].map(async dir =>
+      io.mkdir(resolvePath(dir)),
+    ),
+  );
 
-    await Promise.all(
-      [...new Set(files.map(f => pth.dirname(f)))].map(async dir =>
-        io.mkdir(resolvePath(dir)),
-      ),
-    );
+  await Promise.all(
+    files.map(async f => {
+      if (/\.(md|xml|txt|meta~alpha14)$/.test(f)) {
+        const content = await io.load(resolveSrc(f));
+        await io.save(resolvePath(f), content);
+      } else {
+        await io.copy(resolveSrc(f), resolvePath(f));
+      }
+    }),
+  );
 
-    await Promise.all(
-      files.map(async f => {
-        if (/\.(md|xml|txt|meta~alpha14)$/.test(f)) {
-          const content = await io.load(resolveSrc(f));
-          await io.save(resolvePath(f), content);
-        } else {
-          await io.copy(resolveSrc(f), resolvePath(f));
-        }
-      }),
-    );
-
-    log.success(
-      `Update Core files for About, Defs and Language English, total: ${files.length}`,
-    );
-  }
-
-  {
-    const tmp = '.tmp';
-    rimraf.sync(resolvePath(tmp));
-    mkdirp.sync(resolvePath(tmp));
-
-    for (const [lang, url] of Object.entries({
-      ChineseSimplified: 'https://github.com/Ludeon/RimWorld-ChineseSimplified.git',
-    })) {
-      log.info(`Cloning language '${lang}'`);
-      await execa('git', ['clone', '--depth', '1', url, resolvePath(tmp, lang)]);
-      rimraf.sync(resolvePath(tmp, '.git'));
-    }
-  }
+  log.success(
+    `Update Core files for About, Defs and Language English, total: ${files.length}`,
+  );
 })();

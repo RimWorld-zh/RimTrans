@@ -22,3 +22,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+packages/@rimtrans/core/Languages/*
+!packages/@rimtrans/core/Languages/English
