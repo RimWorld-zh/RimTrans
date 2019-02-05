@@ -1,11 +1,10 @@
 {
   "name": "@rimtrans/core",
   "private": true,
-  "version": "1.0.2096",
+  "version": "1.0.2150",
   "scripts": {
     "clean:dist": "rimraf dist",
-    "update:core": "yarn ts scripts/update.ts",
-    "update:langs": "yarn ts scripts/update-langs.ts",
+    "update-files": "yarn ts scripts/update.ts",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   }
 }
