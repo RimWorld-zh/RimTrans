@@ -9,6 +9,7 @@ import globby from 'globby';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
 import { genPathResolve } from '@huiji/shared-utils';
+import io from '@rimtrans/io';
 
 const loggerMap = {
   info: chalk.cyanBright,
@@ -25,35 +26,6 @@ Object.entries(loggerMap).forEach(
       // tslint:disable-next-line:no-console
       console.log(color(msg))),
 );
-
-const io = {
-  async load(file: string): Promise<string> {
-    return new Promise<string>((resolve, reject) =>
-      fs.readFile(file, { encoding: 'utf-8' }, (error, content) =>
-        error
-          ? reject(error)
-          : resolve(content.replace(/^\ufeff/g, '').replace(/\r\n/g, '\n')),
-      ),
-    );
-  },
-  async save(file: string, content: string): Promise<void> {
-    return new Promise<void>((resolve, reject) =>
-      fs.writeFile(file, content, { encoding: 'utf-8' }, error =>
-        error ? reject(error) : resolve(),
-      ),
-    );
-  },
-  async copy(src: string, dest: string): Promise<void> {
-    return new Promise<void>((resolve, reject) =>
-      fs.copyFile(src, dest, error => (error ? reject(error) : resolve())),
-    );
-  },
-  async mkdir(dir: string): Promise<void> {
-    return new Promise<void>((resolve, reject) =>
-      mkdirp(dir, error => (error ? reject(error) : resolve())),
-    );
-  },
-};
 
 (async () => {
   const [corePath] = process.argv.slice(2);
@@ -76,7 +48,7 @@ const io = {
 
   await Promise.all(
     [...new Set(files.map(f => pth.dirname(f)))].map(async dir =>
-      io.mkdir(resolvePath(dir)),
+      io.createDirectory(resolvePath(dir)),
     ),
   );
 
