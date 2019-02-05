@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "clean:dist": "rimraf dist",
+    "gen-files": "yarn ts scripts/gen-files.ts",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
   "dependencies": {

@@ -24,6 +24,8 @@ export async function download(url: string, filename: string): Promise<void> {
         response.headers.location
       ) {
         download(response.headers.location, filename).then(resolve, reject);
+      } else if (response.statusCode && response.statusCode >= 400) {
+        reject(`${response.statusCode} ${response.statusMessage}`);
       } else {
         response
           .on('data', data => file.write(data))
