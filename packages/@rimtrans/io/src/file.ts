@@ -5,14 +5,16 @@ import rimraf from 'rimraf';
 /**
  * Load a text file.
  * @param file the path to the file
- * @param unify default is true, remove the UTF-8 BOM and replace CRLF to LF
+ * @param unify if true, remove the UTF-8 BOM and replace CRLF to LF
  */
-export async function load(file: string, unify: boolean = true): Promise<string> {
+export async function load(file: string, unify: boolean = false): Promise<string> {
   return new Promise<string>((resolve, reject) =>
     fs.readFile(file, { encoding: 'utf-8' }, (error, content) =>
       error
         ? reject(error)
-        : resolve(content.replace(/^\ufeff/g, '').replace(/\r\n/g, '\n')),
+        : resolve(
+            unify ? content.replace(/^\ufeff/g, '').replace(/\r\n/g, '\n') : content,
+          ),
     ),
   );
 }

@@ -30,7 +30,12 @@ Object.entries(loggerMap).forEach(
       console.log(color(msg))),
 );
 
-async function copy(src: string, dest: string, patterns: string[]): Promise<void> {
+async function copy(
+  src: string,
+  dest: string,
+  patterns: string[],
+  manifest: any,
+): Promise<void> {
   const resolveSrc = genPathResolve(src);
   const resolveDest = genPathResolve(dest);
 
@@ -47,7 +52,7 @@ async function copy(src: string, dest: string, patterns: string[]): Promise<void
   await Promise.all(
     files.map(async f => {
       if (/\.(md|xml|txt)$/.test(f)) {
-        await io.save(resolveDest(f), await io.load(resolveSrc(f)));
+        await io.save(resolveDest(f), await io.load(resolveSrc(f), true));
       } else {
         await io.copy(resolveSrc(f), resolveDest(f));
       }
@@ -55,8 +60,15 @@ async function copy(src: string, dest: string, patterns: string[]): Promise<void
   );
 
   await io.save(
-    resolveDest('manifest.ts'),
-    `// tslint:disable\n export default ${JSON.stringify(files, undefined, '  ')};\n`,
+    resolveDest('manifest.json'),
+    JSON.stringify(
+      {
+        ...manifest,
+        files,
+      },
+      undefined,
+      '  ',
+    ),
   );
 }
 
@@ -82,15 +94,18 @@ async function copy(src: string, dest: string, patterns: string[]): Promise<void
   );
 
   await Promise.all(['About', 'Defs', 'Languages'].map(async dir => io.remove(dir)));
-  await copy(resolveGame('Mods/Core'), resolvePath('.'), [
-    'About/**/*',
-    'Defs/**/*.xml',
-    'Languages/English/LangIcon.png',
-    'Languages/English/**/*.xml',
-    'Languages/English/**/*.txt',
-  ]);
-  await io.copy(resolvePath('manifest.ts'), resolvePath('src/manifest.ts'));
-  await io.remove(resolvePath('manifest.ts'));
+  await copy(
+    resolveGame('Mods/Core'),
+    resolvePath('.'),
+    [
+      'About/**/*',
+      'Defs/**/*.xml',
+      'Languages/English/LangIcon.png',
+      'Languages/English/**/*.xml',
+      'Languages/English/**/*.txt',
+    ],
+    { version },
+  );
   log.success("Copied Core's 'About', 'Defs' and 'Languages/English‘");
 
   const timestamp = Date.now();
@@ -104,6 +119,7 @@ async function copy(src: string, dest: string, patterns: string[]): Promise<void
       resolvePath('.tmp', `${info.repo}-master`),
       resolvePath('Languages', info.name),
       ['README.md', 'LangIcon.png', '**/*.xml', '**/*.txt'],
+      { timestamp },
     );
     await io.save(
       resolvePath('Languages', info.name, 'timestamp.ts'),
