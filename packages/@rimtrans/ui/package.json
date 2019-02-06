@@ -1,0 +1,44 @@
+{
+  "name": "@rimtrans/ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean:dist": "rimraf dist",
+    "gen-files": "yarn ts scripts/gen-files",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --report --report-json",
+    "lint:scss": "stylelint src/**/*.scss",
+    "lint:ts": "tslint -p tsconfig.json",
+    "lint": "yarn lint:scss && yarn lint:ts",
+    "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
+  },
+  "dependencies": {
+    "register-service-worker": "^1.5.2",
+    "void-ui": "^0.7.20",
+    "vue": "^2.6.2",
+    "vue-class-component": "^6.3.2",
+    "vue-property-decorator": "^7.3.0",
+    "vue-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-pwa": "^3.4.0",
+    "@vue/cli-plugin-typescript": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "fibers": "^3.1.1",
+    "sass": "^1.16.1",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.3.1",
+    "vue-template-compiler": "^2.6.2"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
