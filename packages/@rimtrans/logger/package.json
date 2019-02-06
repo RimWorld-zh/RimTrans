@@ -1,9 +1,15 @@
 {
   "name": "@rimtrans/logger",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
     "clean:dist": "rimraf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build": "yarn build:cjs && yarn build:esm",
+    "lint": "tslint -p tsconfig.json",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   }
 }

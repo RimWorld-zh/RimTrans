@@ -1,22 +1,18 @@
 {
-  "name": "@rimtrans/io",
+  "name": "@rimtrans/service",
   "version": "0.1.0",
   "private": true,
-  "main": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
     "clean:dist": "rimraf dist",
-    "gen-files": "yarn ts scripts/gen-files.ts",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
     "lint": "tslint -p tsconfig.json",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
-  "dependencies": {
-    "@types/mkdirp": "^0.5.2",
-    "@types/rimraf": "^2.0.2",
-    "compressing": "^1.4.0",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.3"
+  "devDependencies": {
+    "pkg": "^4.3.7"
   }
 }
