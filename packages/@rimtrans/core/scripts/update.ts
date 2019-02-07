@@ -30,12 +30,7 @@ Object.entries(loggerMap).forEach(
       console.log(color(msg))),
 );
 
-async function copy(
-  src: string,
-  dest: string,
-  patterns: string[],
-  manifest: any,
-): Promise<void> {
+async function copy(src: string, dest: string, patterns: string[]): Promise<void> {
   const resolveSrc = genPathResolve(src);
   const resolveDest = genPathResolve(dest);
 
@@ -63,7 +58,6 @@ async function copy(
     resolveDest('manifest.json'),
     JSON.stringify(
       {
-        ...manifest,
         files,
       },
       undefined,
@@ -93,43 +87,20 @@ async function copy(
     `// tslint:disable\nexport default '${version}';\n`,
   );
 
-  await Promise.all(['About', 'Defs', 'Languages'].map(async dir => io.remove(dir)));
-  await copy(
-    resolveGame('Mods/Core'),
-    resolvePath('.'),
-    [
-      'About/**/*',
-      'Defs/**/*.xml',
-      'Languages/English/LangIcon.png',
-      'Languages/English/**/*.xml',
-      'Languages/English/**/*.txt',
-    ],
-    { version },
+  await Promise.all(
+    ['About', 'Defs', 'Languages/English'].map(async dir => io.remove(dir)),
+  );
+  await copy(resolveGame('Mods/Core'), resolvePath('.'), [
+    'About/**/*',
+    'Defs/**/*.xml',
+    'Languages/English/LangIcon.png',
+    'Languages/English/**/*.xml',
+    'Languages/English/**/*.txt',
+  ]);
+
+  await io.save(
+    resolvePath('src', 'version.ts'),
+    `// tslint:disable\nexport default '${version}';\n`,
   );
   log.success("Copied Core's 'About', 'Defs' and 'Languages/English‘");
-
-  const timestamp = Date.now();
-
-  for (const info of languageInfos) {
-    if (!info.repo) {
-      continue;
-    }
-    const url = `https://github.com/Ludeon/${info.repo}/archive/master.zip`;
-    const zip = resolvePath('.tmp', `${info.name}.zip`);
-    await io.download(url, zip);
-    await io.unzip(zip, resolvePath('.tmp'));
-    await copy(
-      resolvePath('.tmp', `${info.repo}-master`),
-      resolvePath('Languages', info.name),
-      ['README.md', 'LangIcon.png', '**/*.xml', '**/*.txt'],
-      { timestamp },
-    );
-    await io.save(
-      resolvePath('Languages', info.name, 'timestamp.ts'),
-      `// tslint:disable\nexport default ${timestamp};\n`,
-    );
-    log.success(`Downloaded language ${info.name} from GitHub.`);
-  }
-
-  log.success('Completed.');
 })();
