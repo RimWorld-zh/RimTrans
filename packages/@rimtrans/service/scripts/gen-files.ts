@@ -10,6 +10,11 @@ const optionsList: GenFilesOptions[] = [
     patterns: ['src/models/**/*.ts'],
     output: 'src/models/index.ts',
   },
+  {
+    comments: ['All Middlewares'],
+    patterns: ['src/middlewares/**/handlers.ts'],
+    output: 'src/middlewares/all-handlers.ts',
+  },
 ];
 
 Promise.all(optionsList.map(async opts => genFiles(opts))).catch((error: Error) => {

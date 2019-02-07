@@ -4,7 +4,7 @@
 // tslint:disable
 
 /**
- * All Models
+ * All Middlewares
  */
 
-export * from './mod-mata-data';
+export * from './mod/handlers';

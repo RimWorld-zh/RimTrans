@@ -6,12 +6,22 @@
     "packages/@huiji/*",
     "packages/@rimtrans/*"
   ],
+  "bin": "packages/@rimtrans/service/dist/cjs/main.js",
+  "pkg": {
+    "assets": [
+      "packages/@rimtrans/core/About/*",
+      "packages/@rimtrans/core/Defs/**/*",
+      "packages/@rimtrans/core/Languages/**/*",
+      "packages/@rimtrans/core/manifest.json"
+    ]
+  },
   "scripts": {
     "dep": "yarn ts scripts/dependencies.ts",
     "clean:dist": "lerna run clean:dist",
     "gen-files": "lerna run gen-files",
     "env": "lerna run env",
     "build": "lerna run build",
+    "build:pkg": "pkg . -t node10-linux-x64,node10-macos-x64,node10-win-x64 -o dist/rimtrans",
     "lint": "lerna run lint",
     "test": "lerna run test",
     "ts": "ts-node -r tsconfig-paths/register -P scripts/tsconfig.json"
@@ -62,6 +72,7 @@
     "lerna": "^3.10.7",
     "lru-cache": "^5.1.1",
     "mkdirp": "^0.5.1",
+    "pkg": "^4.3.7",
     "pm2": "^3.2.9",
     "raw-loader": "^1.0.0",
     "register-service-worker": "^1.5.2",

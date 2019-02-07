@@ -2,9 +2,14 @@
   "name": "@rimtrans/core",
   "private": true,
   "version": "1.0.2150",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
     "clean:dist": "rimraf dist",
     "update-files": "yarn ts scripts/update.ts",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build": "yarn build:cjs && yarn build:esm",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   }
 }

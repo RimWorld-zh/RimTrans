@@ -7,10 +7,28 @@
 export interface LanguageInfo {
   name: string;
   label: string;
-  repo: string;
+  repo?: string;
+}
+
+/**
+ * File manifest
+ */
+export interface Manifest {
+  files: string[];
+}
+
+/**
+ * Language Manifest
+ */
+export interface LanguageManifest extends Manifest {
+  timestamp: number;
 }
 
 export const languageInfos: LanguageInfo[] = [
+  {
+    name: 'English',
+    label: 'English',
+  },
   {
     name: 'Catalan',
     label: 'Català',

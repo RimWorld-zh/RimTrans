@@ -111,6 +111,9 @@ async function copy(
   const timestamp = Date.now();
 
   for (const info of languageInfos) {
+    if (!info.repo) {
+      continue;
+    }
     const url = `https://github.com/Ludeon/${info.repo}/archive/master.zip`;
     const zip = resolvePath('.tmp', `${info.name}.zip`);
     await io.download(url, zip);

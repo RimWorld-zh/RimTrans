@@ -7,14 +7,16 @@
   "scripts": {
     "clean:dist": "rimraf dist",
     "gen-files": "yarn ts scripts/gen-files.ts",
+    "watch:tsc": "yarn build:cjs --watch",
+    "watch:pm2": "pm2-runtime dist/cjs/main.js --watch",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build:pkg": "pkg dist/cjs/index.js -t node10-linux-x64,node10-macos-x64,node10-win-x64 -o dist/rimtrans",
     "build": "yarn build:cjs && yarn build:esm",
     "lint": "tslint -p tsconfig.json",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
-  "devDependencies": {
-    "pkg": "^4.3.7"
+  "dependencies": {
+    "@rimtrans/core": "^0.1.0",
+    "@rimtrans/io": "^0.1.0"
   }
 }
