@@ -90,7 +90,7 @@
     "tslib": "^1.9.3",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
-    "void-ui": "^0.7.20",
+    "void-ui": "^0.7.21",
     "vue": "^2.6.2",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.3.0",

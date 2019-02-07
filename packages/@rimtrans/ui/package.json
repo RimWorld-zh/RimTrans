@@ -15,8 +15,9 @@
   "dependencies": {
     "@huiji/vue-locale": "^1.2.0",
     "@rimtrans/service": "^0.1.0",
+    "@rimtrans/worker": "^0.1.0",
     "register-service-worker": "^1.5.2",
-    "void-ui": "^0.7.20",
+    "void-ui": "^0.7.21",
     "vue": "^2.6.2",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.3.0",

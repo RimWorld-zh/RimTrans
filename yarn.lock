@@ -12459,10 +12459,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-void-ui@^0.7.20:
-  version "0.7.20"
-  resolved "http://registry.npm.taobao.org/void-ui/download/void-ui-0.7.20.tgz#a4d78ba54c600d8d8b5853ccd724ae5efdc65a06"
-  integrity sha1-pNeLpUxgDY2LWFPM1ySuXv3GWgY=
+void-ui@^0.7.21:
+  version "0.7.21"
+  resolved "https://registry.yarnpkg.com/void-ui/-/void-ui-0.7.21.tgz#6bf1584f43f90b695767bead0ba01dcc9ff2dba7"
+  integrity sha512-It2RNlAxdFGK4p0ImB4+PuQFGZg7svG2UnbESiwmOvgp/PaYszBnTzuxDLi5lp3/OOoQCr2/rlKI0RTx/VY7Kw==
   dependencies:
     cep.scss "^1.0.1"
     normalize.css "^8.0.1"
