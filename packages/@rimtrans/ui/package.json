@@ -13,6 +13,7 @@
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
   "dependencies": {
+    "@rimtrans/service": "^0.1.0",
     "register-service-worker": "^1.5.2",
     "void-ui": "^0.7.20",
     "vue": "^2.6.2",

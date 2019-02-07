@@ -3,12 +3,13 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import VHome from './views/home';
+import { VHome } from './views/home';
+import { VConfigs } from './views/configs/index';
 
 /**
  * Router
  */
-export default new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -16,6 +17,10 @@ export default new VueRouter({
       path: '/',
       name: 'home',
       component: VHome,
+    },
+    {
+      path: '/configs',
+      component: VConfigs,
     },
   ],
 });

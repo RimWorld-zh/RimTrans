@@ -1,0 +1,14 @@
+body {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/**
+ * Component: App
+ */
+@include comp('app') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+}

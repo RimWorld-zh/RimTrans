@@ -4,6 +4,7 @@ dist
 .cache
 .tmp
 .tmp.*
+void-ui
 
 # local env files
 .env.local

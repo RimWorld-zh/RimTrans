@@ -4,7 +4,7 @@
 // tslint:disable
 
 /**
- * All handlers
+ * All models
  */
 
-export * from './mod/handlers';
+export * from './mod/models';

@@ -1,3 +1,8 @@
+@import './variables.scss';
 @import '~void-ui/src/index.scss';
 
+$namespace: 'c';
+@import './components/all.scss';
+
 $namespace: 'v';
+@import './views/app.scss';

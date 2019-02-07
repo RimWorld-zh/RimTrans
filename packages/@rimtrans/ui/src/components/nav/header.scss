@@ -1,0 +1,21 @@
+/**
+ * Component: Header
+ */
+@include comp('header') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: rem(40);
+  overflow: hidden;
+
+  color: $color-white;
+  background-color: tone();
+
+  @include elem('container') {
+    display: flex;
+    height: 100%;
+
+    overflow: hidden;
+  }
+}

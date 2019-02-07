@@ -10,17 +10,11 @@ import {
 } from 'vue-property-decorator';
 
 /**
- * Component: Home
+ * Component: Configs
  */
 @Component
-export class VHome extends Vue {
+export class VConfigs extends Vue {
   private render(h: CreateElement): VNode {
-    return (
-      <div staticClass="v-home">
-        <vd-swimlane>
-          <vd-container>Home</vd-container>
-        </vd-swimlane>
-      </div>
-    );
+    return <div staticClass="v-configs">configs</div>;
   }
 }

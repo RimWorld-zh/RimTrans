@@ -7,7 +7,7 @@ import globby from 'globby';
 import { genPathResolve } from '@huiji/shared-utils';
 import { languageInfos, LanguageManifest } from '@rimtrans/core';
 import io, { load } from '@rimtrans/io';
-import { setContentType } from '../utils';
+import { setContentType } from '../utils-handlers';
 import { ABOUT, ABOUT_XML, PREVIEW_PNG, DEFS, LANGUAGES } from './models';
 
 /**
@@ -50,7 +50,6 @@ export function handlerCore(internal: string, external: string): express.Router 
           cwd: resolvePath(LANGUAGES),
           onlyDirectories: true,
         });
-        console.log(languages);
         await Promise.all(
           languages.map(async l => {
             if (typeof languageTimestamps[l] !== 'number') {

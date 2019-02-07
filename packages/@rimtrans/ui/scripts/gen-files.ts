@@ -6,15 +6,15 @@ import { GenFilesOptions, genFiles } from '@huiji/shared-utils';
 
 const optionsList: GenFilesOptions[] = [
   {
-    comments: ['All Models'],
-    patterns: ['src/models/**/*.ts'],
-    output: 'src/models/index.ts',
+    comments: ['All components'],
+    patterns: ['ts', 'tsx'].map(ext => `src/components/**/*.${ext}`),
+    output: 'src/components/all.ts',
   },
-  ...['handlers', 'models', 'requests'].map<GenFilesOptions>(item => ({
-    comments: [`All ${item}`],
-    patterns: [`src/middlewares/**/${item}.ts`],
-    output: `src/middlewares/all-${item}.ts`,
-  })),
+  {
+    comments: ['All components style'],
+    patterns: ['src/components/**/*.scss'],
+    output: 'src/components/all.scss',
+  },
 ];
 
 Promise.all(optionsList.map(async opts => genFiles(opts))).catch((error: Error) => {

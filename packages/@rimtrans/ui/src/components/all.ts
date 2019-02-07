@@ -4,7 +4,7 @@
 // tslint:disable
 
 /**
- * All handlers
+ * All components
  */
 
-export * from './mod/handlers';
+export * from './nav/header';

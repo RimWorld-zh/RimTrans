@@ -17,7 +17,7 @@
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
   "dependencies": {
-    "@rimtrans/core": "^0.1.0",
+    "@rimtrans/core": "1.0.2150",
     "@rimtrans/io": "^0.1.0"
   }
 }

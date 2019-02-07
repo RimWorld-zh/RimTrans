@@ -1,3 +1,7 @@
+/**
+ * Utils for server side request handlers
+ */
+
 import { Response } from 'express';
 
 export type ContentType = 'application/json' | 'text/plain' | 'text/html' | 'text/xml';
