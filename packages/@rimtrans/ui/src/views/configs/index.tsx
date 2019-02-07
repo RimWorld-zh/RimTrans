@@ -8,6 +8,20 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
+import { NavItem } from '@src/components/all';
+
+const sideItems: NavItem[] = [
+  {
+    icon: ['fas', 'globe'],
+    label: 'configs_interface_languages',
+    to: '/configs/interface-languages',
+  },
+  {
+    icon: ['fas', 'cubes'],
+    label: 'configs_core_languages',
+    to: '/configs/core-languages',
+  },
+];
 
 /**
  * Component: Configs
@@ -15,6 +29,27 @@ import {
 @Component
 export class VConfigs extends Vue {
   private render(h: CreateElement): VNode {
-    return <div staticClass="v-configs">configs</div>;
+    return (
+      <div staticClass="v-configs">
+        <vd-swimlane>
+          <vd-container>
+            <vd-flexbox gap>
+              <vd-flexbox flex="none">
+                <c-side-menu
+                  items-source={sideItems.map<NavItem>(item => ({
+                    ...item,
+                    label: this.$locale.dict[item.label] || item.label,
+                  }))}
+                />
+              </vd-flexbox>
+
+              <vd-flexbox>
+                <router-view staticClass="va-init" />
+              </vd-flexbox>
+            </vd-flexbox>
+          </vd-container>
+        </vd-swimlane>
+      </div>
+    );
   }
 }

@@ -15,6 +15,11 @@ const optionsList: GenFilesOptions[] = [
     patterns: ['src/components/**/*.scss'],
     output: 'src/components/all.scss',
   },
+  {
+    comments: ['All views style'],
+    patterns: ['src/views/**/*.scss'],
+    output: 'src/views/all.scss',
+  },
 ];
 
 Promise.all(optionsList.map(async opts => genFiles(opts))).catch((error: Error) => {

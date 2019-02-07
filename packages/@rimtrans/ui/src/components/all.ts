@@ -7,4 +7,6 @@
  * All components
  */
 
+export * from './models';
 export * from './nav/header';
+export * from './nav/side-menu';

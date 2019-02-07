@@ -3,6 +3,13 @@ body {
   scroll-behavior: smooth;
 }
 
+@include define-atom('init') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 /**
  * Component: App
  */

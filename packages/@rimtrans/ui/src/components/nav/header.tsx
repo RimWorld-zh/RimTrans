@@ -8,23 +8,17 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { RawLocation } from 'vue-router';
-
-export interface HeaderItem {
-  label: string;
-  to: RawLocation;
-}
-
+import { NavItem } from '../models';
 /**
  * Component: Header
  */
 @Component
 export class CHeader extends Vue {
   @Prop({ type: Object, required: true })
-  public readonly brand!: HeaderItem;
+  public readonly brand!: NavItem;
 
   @Prop({ type: Array, required: true })
-  public readonly itemsSource!: HeaderItem[];
+  public readonly itemsSource!: NavItem[];
 
   private render(h: CreateElement): VNode {
     return (
@@ -58,8 +52,9 @@ export class CHeader extends Vue {
                 router-link
                 tag="a"
                 to={item.to}
+                title={item.label}
               >
-                {item.label}
+                {item.icon ? <fa-icon icon={item.icon} /> : item.label}
               </vd-flexbox>
             ))}
           </vd-flexbox>

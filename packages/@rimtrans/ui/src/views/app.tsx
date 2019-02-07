@@ -8,11 +8,16 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { HeaderItem } from '@src/components/all';
+import { NavItem } from '@src/components/models';
 
-const headerItems: HeaderItem[] = [
+const brand: NavItem = {
+  label: 'RimTrans',
+  to: '/',
+};
+const headerItems: NavItem[] = [
   {
-    label: 'Configs',
+    icon: ['fas', 'cog'],
+    label: 'configs',
     to: '/configs',
   },
 ];
@@ -26,11 +31,11 @@ export class VApp extends Vue {
     return (
       <div staticClass="v-app">
         <c-header
-          brand={{
-            label: 'RimTrans',
-            to: '/',
-          }}
-          items-source={headerItems}
+          brand={brand}
+          items-source={headerItems.map<NavItem>(item => ({
+            ...item,
+            label: this.$locale.dict[item.label] || item.label,
+          }))}
         />
         <router-view staticClass="v-app_wrapper" />
       </div>

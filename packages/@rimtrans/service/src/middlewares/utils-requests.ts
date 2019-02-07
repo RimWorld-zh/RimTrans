@@ -1,13 +1,14 @@
-/**
- * Utils for client side api requests
- */
-
 import axios from 'axios';
 
+const BASE_URL = '/api';
+
 /**
- * Axios instance api requests
+ * Axios instance for api requests
  */
 export const api = axios.create({
-  baseURL: '/api',
-  timeout: 10000,
+  baseURL: BASE_URL,
 });
+
+export function resolveApi(url: string): string {
+  return `${BASE_URL}/${url.replace(/^\/+/, '')}`;
+}

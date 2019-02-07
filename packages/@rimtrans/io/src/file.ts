@@ -32,6 +32,12 @@ export async function save(file: string, content: string): Promise<void> {
   );
 }
 
+export async function exists(path: string): Promise<boolean> {
+  return new Promise<boolean>((resolve, reject) =>
+    fs.exists(path, value => resolve(value)),
+  );
+}
+
 /**
  * Copy a file.
  * @param src the path to the source file

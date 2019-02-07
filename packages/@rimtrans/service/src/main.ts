@@ -29,6 +29,10 @@ const PORT = 5100;
       '/api',
       express
         .Router()
+        .use((request, response, next) => {
+          response.setHeader('Cache-Control', 'no-cache');
+          next();
+        })
         .use('/core', allHandlers.handlerCore(CORE_INTERNAL, CORE_EXTERNAL)),
     )
     .use('*', (request, response) =>
