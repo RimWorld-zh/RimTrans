@@ -7,11 +7,12 @@
   "scripts": {
     "clean:dist": "rimraf dist",
     "gen-files": "yarn ts scripts/gen-files.ts",
-    "watch:tsc": "yarn build:cjs --watch",
-    "watch:pm2": "pm2-runtime dist/cjs/main.js --watch",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
+    "watch:cjs": "yarn build:cjs --watch",
+    "watch:esm": "yarn build:esm --watch",
+    "watch:pm2": "pm2-runtime dist/cjs/main.js --watch",
     "lint": "tslint -p tsconfig.json",
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
