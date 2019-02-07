@@ -1,0 +1,17 @@
+/**
+ * Component: SideMenu
+ */
+@include comp('side-menu') {
+  position: relative;
+  flex: 1 1 100%;
+  width: rem(320);
+  min-width: 0;
+
+  @include elem('item') {
+    > * {
+      @include when('active') {
+        color: tone();
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+/**
+ * Component: CoreLanguages
+ */
+@include comp('core-languages') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  @include elem('lang-icon') {
+    position: relative;
+    width: rem(32 + gap('xsmall') * 2);
+    height: rem(18 + gap('xsmall') * 2);
+    padding: rem(gap('xsmall'));
+    object-fit: contain;
+    color: $color-white;
+    background-color: rgba($color: $color-black, $alpha: 0.5);
+
+    ::before {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
