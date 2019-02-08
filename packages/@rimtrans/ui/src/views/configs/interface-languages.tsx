@@ -9,7 +9,12 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { languages } from '@src/i18n';
+import { RadioData } from 'void-ui';
 
+const auto: RadioData = {
+  label: 'Auto',
+  value: 'auto',
+};
 /**
  * Component: InterfaceLanguages
  */
@@ -21,7 +26,7 @@ export class VInterfaceLanguages extends Vue {
         <vd-radio-group
           direction="column"
           v-model={this.$configs.language}
-          items-source={languages}
+          items-source={[auto].concat(languages)}
         />
       </div>
     );

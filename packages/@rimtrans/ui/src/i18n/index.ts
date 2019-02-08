@@ -8,7 +8,7 @@ import { en } from './en';
 import { zhCN } from './zh-CN';
 
 const dicts: Record<string, Dict> = {};
-const languages: RadioData[] = [{ label: 'auto', value: 'auto' }];
+const languages: RadioData[] = [];
 
 [en, zhCN].forEach(info => {
   dicts[info.code] = info.dict;
