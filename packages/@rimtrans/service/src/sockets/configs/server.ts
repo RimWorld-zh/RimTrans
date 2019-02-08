@@ -9,10 +9,7 @@ import { ServerListenerFactory } from '../utils-server';
 
 const CONFIGS_JSON = 'configs.json';
 
-const factory: ServerListenerFactory<'configs' | 'configsInit'> = (
-  internal,
-  external,
-) => {
+export const configs: ServerListenerFactory<'configs'> = (internal, external) => {
   const configsPath = genPathResolve(external)(CONFIGS_JSON);
 
   const save = async (c: any) => {
@@ -45,6 +42,3 @@ const factory: ServerListenerFactory<'configs' | 'configsInit'> = (
     }
   };
 };
-
-export const configs: ServerListenerFactory<'configs'> = factory;
-export const configsInit: ServerListenerFactory<'configsInit'> = factory;

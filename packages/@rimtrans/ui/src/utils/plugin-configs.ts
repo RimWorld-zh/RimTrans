@@ -80,7 +80,7 @@ export class PluginConfigs extends Vue {
         resolve();
       };
       wsc.addListener('configs', init);
-      wsc.send('configsInit');
+      wsc.send('configs');
     });
   }
 
