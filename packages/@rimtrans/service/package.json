@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "module": "src/index.ts",
   "scripts": {
     "clean:dist": "rimraf dist",
     "gen-files": "yarn ts scripts/gen-files.ts",
