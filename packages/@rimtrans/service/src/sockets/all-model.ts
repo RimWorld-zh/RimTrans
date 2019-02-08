@@ -7,6 +7,5 @@
  * All model
  */
 
-export * from './configs/model';
 export * from './mod/model';
 export * from './model';

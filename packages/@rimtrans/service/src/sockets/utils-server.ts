@@ -9,6 +9,10 @@ import { genPathResolve } from '@huiji/shared-utils';
 import io from '@rimtrans/io';
 import { SocketDataMapToClient, SocketDataMapToServer } from './model';
 
+const log = (cat: string, key: string, data: any) => {
+  console.info(new Date().toISOString(), 'WS', cat, key, data);
+};
+
 export type ServerListenerFactory<K extends keyof SocketDataMapToServer = any> = (
   internal: string,
   external: string,
@@ -40,8 +44,9 @@ export class WebSocketServer {
   }
   private listen(raw: any): void {
     const { key, data } = JSON.parse(raw);
-    console.log(this.listenerMap);
-    console.log('WS', key, data);
+
+    log('listen', key, data);
+
     if (typeof key === 'string' && key) {
       const list = this.listenerMap[key];
       if (list) {
@@ -65,6 +70,8 @@ export class WebSocketServer {
     key: K,
     data?: SocketDataMapToClient[K],
   ): void {
+    log('send', key, data);
+
     this.ws.send(JSON.stringify({ key, data }));
   }
 

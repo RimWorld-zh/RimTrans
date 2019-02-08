@@ -1,10 +1,10 @@
-import { Configs } from './all-model';
+// tslint:disable:no-any no-unsafe-any
 
 /**
  * Type Map for WebSocket key and data type, uses to server send to client
  */
 export interface SocketDataMapToClient {
-  configs: Configs;
+  configs: any;
 }
 
 /**
@@ -12,5 +12,5 @@ export interface SocketDataMapToClient {
  */
 export interface SocketDataMapToServer {
   configsInit: never;
-  configs: Configs;
+  configs: any;
 }
