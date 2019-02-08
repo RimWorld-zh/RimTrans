@@ -4,8 +4,9 @@ Vue.use(VueRouter);
 
 import { VHome } from './views/home';
 import { VConfigs } from './views/configs/index';
-import { VInterfaceLanguages } from './views/configs/interface-languages';
-import { VCoreLanguages } from './views/configs/core-languages';
+import { VConfigsInterfaceLanguages } from './views/configs/interface-languages';
+import { VConfigsApplication } from './views/configs/application';
+import { VConfigsCoreLanguages } from './views/configs/core-languages';
 
 /**
  * Router
@@ -29,14 +30,19 @@ export const router = new VueRouter({
           redirect: 'interface-languages',
         },
         {
+          path: 'application',
+          name: 'configs-application',
+          component: VConfigsApplication,
+        },
+        {
           path: 'interface-languages',
-          name: 'interface-languages',
-          component: VInterfaceLanguages,
+          name: 'configs-interface-languages',
+          component: VConfigsInterfaceLanguages,
         },
         {
           path: 'core-languages',
-          name: 'core-languages',
-          component: VCoreLanguages,
+          name: 'configs-core-languages',
+          component: VConfigsCoreLanguages,
         },
       ],
     },

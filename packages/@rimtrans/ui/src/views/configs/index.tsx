@@ -17,6 +17,11 @@ const sideItems: NavItem[] = [
     to: '/configs/interface-languages',
   },
   {
+    icon: ['fas', 'cogs'],
+    label: 'configs_application',
+    to: '/configs/application',
+  },
+  {
     icon: ['fas', 'cubes'],
     label: 'configs_core_languages',
     to: '/configs/core-languages',
@@ -33,7 +38,7 @@ export class VConfigs extends Vue {
       <div staticClass="v-configs">
         <vd-swimlane>
           <vd-container>
-            <vd-flexbox gap>
+            <vd-flexbox gap="xlarge">
               <vd-flexbox flex="none">
                 <c-side-menu
                   items-source={sideItems.map<NavItem>(item => ({
@@ -44,7 +49,7 @@ export class VConfigs extends Vue {
               </vd-flexbox>
 
               <vd-flexbox>
-                <router-view staticClass="va-init" />
+                <router-view staticClass="v-configs_wrapper va-init" />
               </vd-flexbox>
             </vd-flexbox>
           </vd-container>

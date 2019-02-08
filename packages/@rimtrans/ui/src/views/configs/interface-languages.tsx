@@ -16,13 +16,13 @@ const auto: RadioData = {
   value: 'auto',
 };
 /**
- * Component: InterfaceLanguages
+ * Component: ConfigsInterfaceLanguages
  */
 @Component
-export class VInterfaceLanguages extends Vue {
+export class VConfigsInterfaceLanguages extends Vue {
   private render(h: CreateElement): VNode {
     return (
-      <div staticClass="v-interface-languages">
+      <div staticClass="v-configs_interface-languages">
         <vd-radio-group
           direction="column"
           v-model={this.$configs.language}

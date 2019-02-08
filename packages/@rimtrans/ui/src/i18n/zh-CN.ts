@@ -18,6 +18,9 @@ export const zhCN: LocaleInfo = {
     // configs
     configs: '设置',
     configs_interface_languages: '界面语言',
+    configs_application: '应用',
+    configs_application_path_rw: 'RimWorld 目录路径',
+    configs_application_path_ws: 'Workshop 目录路径',
     configs_core_languages: 'Core 语言',
   },
 };

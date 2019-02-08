@@ -18,10 +18,10 @@ const update = 'update';
 const updateAll = 'update_all';
 
 /**
- * Component: CoreLanguages
+ * Component: ConfigsCoreLanguages
  */
 @Component
-export class VCoreLanguages extends Vue {
+export class VConfigsCoreLanguages extends Vue {
   private timestamp: number = 0;
   private languages: [string, string][] = [];
 
@@ -46,7 +46,7 @@ export class VCoreLanguages extends Vue {
 
   private render(h: CreateElement): VNode {
     return (
-      <div staticClass="v-core-languages">
+      <div staticClass="v-configs_core-languages">
         <vd-flexbox direction="column" align="stretch" gap="small">
           <vd-flexbox justify="space-between" align="center">
             <vd-flexbox flex="none">

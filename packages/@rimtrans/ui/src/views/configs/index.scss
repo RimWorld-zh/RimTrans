@@ -1,11 +1,26 @@
 /**
- * Component: CoreLanguages
+ * Component: Configs
  */
-@include comp('core-languages') {
+@include comp('configs') {
   position: relative;
   flex: 1 1 100%;
   max-width: 100%;
   min-width: 0;
+
+  @include elem('wrapper') {
+    .vd-flexbox {
+      // border: rem($border-base) solid #cccccc;
+    }
+  }
+
+  @include elem('label') {
+    //
+  }
+
+  @include elem('text-input') {
+    width: 100%;
+    height: rem(32);
+  }
 
   @include elem('lang-icon') {
     position: relative;
