@@ -15,15 +15,21 @@ import * as allListenerFactories from './sockets/all-server';
 
 (async () => {
   const internal = genPathResolve(__dirname, '../../..')('.');
-  const external = __dirname.startsWith('/snapshot')
+  const external = (process as any).pkg
     ? genPathResolve(pth.dirname(process.execPath), 'rimtrans_data')('.')
     : genPathResolve(__dirname, '../../../../../.tmp/data')('.');
+  await io.createDirectory(external);
+  console.log(internal);
+  console.log(external);
+
+  const resolveStatic = genPathResolve(internal, 'ui', 'dist');
 
   const app = express();
 
-  app.use('*', (request, response) =>
-    response.send(`Hello world! Service is running in ${__dirname}`),
-  );
+  app
+    .use('/static', express.static(resolveStatic('.')))
+    .use('/static/*', (request, response) => response.sendStatus(404))
+    .use('*', (request, response) => response.sendFile(resolveStatic('index.html')));
 
   const server = http.createServer(app);
 

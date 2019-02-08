@@ -12,16 +12,17 @@
       "packages/@rimtrans/core/About/*",
       "packages/@rimtrans/core/Defs/**/*",
       "packages/@rimtrans/core/Languages/**/*",
-      "packages/@rimtrans/core/manifest.json"
+      "packages/@rimtrans/core/manifest.json",
+      "packages/@rimtrans/ui/dist/**/*"
     ]
   },
   "scripts": {
     "dep": "yarn ts scripts/dependencies.ts",
-    "clean:dist": "lerna run clean:dist",
+    "clean:dist": "rimraf dist && lerna run clean:dist",
     "gen-files": "lerna run gen-files",
     "env": "lerna run env",
-    "build": "lerna run build",
     "build:pkg": "pkg . -t node10-linux-x64,node10-macos-x64,node10-win-x64 -o dist/rimtrans",
+    "build": "lerna run build && yarn build:pkg",
     "lint": "lerna run lint",
     "test": "lerna run test",
     "ts": "ts-node -r tsconfig-paths/register -P scripts/tsconfig.json"

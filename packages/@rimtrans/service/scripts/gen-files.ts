@@ -15,6 +15,11 @@ const optionsList: GenFilesOptions[] = [
     patterns: [`src/sockets/**/${item}.ts`],
     output: `src/sockets/all-${item}.ts`,
   })),
+  ...['model', 'client', 'server'].map<GenFilesOptions>(item => ({
+    comments: [`All API ${item}s`],
+    patterns: [`src/api/**/${item}.ts`],
+    output: `src/api/all-${item}.ts`,
+  })),
 ];
 
 Promise.all(optionsList.map(async opts => genFiles(opts))).catch((error: Error) => {
