@@ -20,7 +20,7 @@ export class VInterfaceLanguages extends Vue {
       <div staticClass="v-interface-languages">
         <vd-radio-group
           direction="column"
-          v-model={this.$locale.language}
+          v-model={this.$configs.language}
           items-source={languages}
         />
       </div>

@@ -9,7 +9,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import dateformat from 'dateformat';
-import { Languages, api } from '@rimtrans/service';
+import { Languages } from '@rimtrans/service';
 import worker from '@rimtrans/worker';
 
 const language = 'language';
@@ -33,35 +33,11 @@ export class VCoreLanguages extends Vue {
     }
     this.updating = true;
 
-    await api.core.languagesUpdateAll();
-    await this.load();
-
     this.updating = false;
   }
 
   private async load(): Promise<void> {
-    const languages = await api.core.languages();
-    this.timestamp = languages.timestamp;
-    this.languages = languages.items.map<[string, string]>(item => {
-      if (item.info) {
-        try {
-          const info = worker.languageInfo(item.info);
-
-          return [item.name, info.friendlyNameNative || item.name];
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-      let label: string;
-      if (item.friendly) {
-        label = item.friendly;
-      } else {
-        label = item.name;
-      }
-
-      return [item.name, label];
-    });
+    //
   }
 
   private async beforeMount(): Promise<void> {
@@ -89,13 +65,7 @@ export class VCoreLanguages extends Vue {
 
           {this.languages.map(([name, label]) => (
             <vd-flexbox align="center" gap="small">
-              <vd-flexbox flex="none">
-                <img
-                  staticClass="v-core-languages_lang-icon"
-                  src={api.core.langIcon(name)}
-                  alt={label}
-                />
-              </vd-flexbox>
+              <vd-flexbox flex="none" />
               <vd-flexbox>
                 {name}
                 {name !== label && ` (${label})`}

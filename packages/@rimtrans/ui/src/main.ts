@@ -25,6 +25,10 @@ Object.entries({ FaIcon, FaLayers, FaLayersText }).forEach(([name, comp]) =>
 import VoidUI from 'void-ui';
 Vue.use(VoidUI);
 
+import { wsc } from '@rimtrans/service';
+
+import { PluginConfigs } from './utils/plugin-configs';
+
 // Components
 import * as allComponents from './components/all';
 Object.entries(allComponents).forEach(([name, comp]) => Vue.component(name, comp));
@@ -33,12 +37,16 @@ import { VApp } from './views/app';
 import { locale } from './i18n';
 import { router } from './router';
 
-(async () => {
-  await locale.selectLanguage('zh-CN');
+wsc.ws.addEventListener('open', async () => {
+  const pluginConfigs = new PluginConfigs({
+    locale,
+  });
+  Vue.use(pluginConfigs);
+  await pluginConfigs.init();
 
   new Vue({
     locale,
     router,
     render: h => h(VApp),
   }).$mount('#app');
-})().catch(error => console.error(error));
+});

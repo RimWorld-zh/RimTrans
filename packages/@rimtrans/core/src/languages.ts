@@ -10,20 +10,6 @@ export interface LanguageInfo {
   repo?: string;
 }
 
-/**
- * File manifest
- */
-export interface Manifest {
-  files: string[];
-}
-
-/**
- * Language Manifest
- */
-export interface LanguageManifest extends Manifest {
-  timestamp: number;
-}
-
 export const languageInfos: LanguageInfo[] = [
   {
     name: 'English',

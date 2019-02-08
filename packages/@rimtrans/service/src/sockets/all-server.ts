@@ -4,7 +4,7 @@
 // tslint:disable
 
 /**
- * All requests
+ * All server
  */
 
-export * from './mod/requests';
+export * from './configs/server';

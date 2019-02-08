@@ -28,6 +28,11 @@ const options = {
         target: 'http://localhost:5100',
         changeOrigin: true,
       },
+      '/ws': {
+        target: 'http://localhost:5100',
+        ws: true,
+        changeOrigin: true,
+      },
     },
   },
 };

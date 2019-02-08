@@ -10,10 +10,10 @@ const optionsList: GenFilesOptions[] = [
     patterns: ['src/models/**/*.ts'],
     output: 'src/models/index.ts',
   },
-  ...['handlers', 'models', 'requests'].map<GenFilesOptions>(item => ({
+  ...['model', 'client', 'server'].map<GenFilesOptions>(item => ({
     comments: [`All ${item}`],
-    patterns: [`src/middlewares/**/${item}.ts`],
-    output: `src/middlewares/all-${item}.ts`,
+    patterns: [`src/sockets/**/${item}.ts`],
+    output: `src/sockets/all-${item}.ts`,
   })),
 ];
 

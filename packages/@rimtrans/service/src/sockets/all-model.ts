@@ -4,7 +4,9 @@
 // tslint:disable
 
 /**
- * All models
+ * All model
  */
 
-export * from './mod/models';
+export * from './configs/model';
+export * from './mod/model';
+export * from './model';

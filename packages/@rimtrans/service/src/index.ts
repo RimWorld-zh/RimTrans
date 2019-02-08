@@ -1,8 +1,6 @@
 /**
- * SDK for RimTrans
+ * SDK for RimTrans Client
  */
-
-export * from './middlewares/all-models';
-import * as api from './middlewares/all-requests';
-
-export { api };
+export * from './constants';
+export * from './sockets/all-model';
+export * from './sockets/utils-client';

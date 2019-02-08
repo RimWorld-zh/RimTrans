@@ -3,42 +3,36 @@
  */
 
 import pth from 'path';
+import http from 'http';
 import express from 'express';
+import WebSocket from 'ws';
 import { genPathResolve } from '@huiji/shared-utils';
-
 import io from '@rimtrans/io';
 
-import * as allHandlers from './middlewares/all-handlers';
-
-const PORT = 5100;
+import { PORT } from './constants';
+import { WebSocketServer } from './sockets/utils-server';
+import * as allListenerFactories from './sockets/all-server';
 
 (async () => {
-  const resolveInternal = genPathResolve(__dirname, '../../..');
-  const resolveExternal = __dirname.startsWith('/snapshot')
-    ? genPathResolve(pth.dirname(process.execPath), 'rimtrans_data')
-    : genPathResolve(__dirname, '../../../../../.tmp/data');
-
-  const CORE_INTERNAL = resolveInternal('core');
-  const CORE_EXTERNAL = resolveExternal('core');
-  await io.createDirectory(CORE_EXTERNAL);
+  const internal = genPathResolve(__dirname, '../../..')('.');
+  const external = __dirname.startsWith('/snapshot')
+    ? genPathResolve(pth.dirname(process.execPath), 'rimtrans_data')('.')
+    : genPathResolve(__dirname, '../../../../../.tmp/data')('.');
 
   const app = express();
 
-  app
-    .use(
-      '/api',
-      express
-        .Router()
-        .use((request, response, next) => {
-          response.setHeader('Cache-Control', 'no-cache');
-          next();
-        })
-        .use('/core', allHandlers.handlerCore(CORE_INTERNAL, CORE_EXTERNAL)),
-    )
-    .use('*', (request, response) =>
-      response.send(`Hello world! Service is running in ${__dirname}`),
-    )
-    .listen(PORT, () => {
-      console.info(`Service is listening at localhost:${PORT}`);
-    });
+  app.use('*', (request, response) =>
+    response.send(`Hello world! Service is running in ${__dirname}`),
+  );
+
+  const server = http.createServer(app);
+
+  const wss = new WebSocket.Server({ server });
+
+  wss.on('connection', (ws, request) => {
+    const wrapper = new WebSocketServer(ws);
+    wrapper.inject(internal, external, allListenerFactories);
+  });
+
+  server.listen(PORT, () => console.info(`Listening at *:${PORT}`));
 })();
