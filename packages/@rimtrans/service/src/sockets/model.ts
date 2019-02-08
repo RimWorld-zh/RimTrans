@@ -1,10 +1,12 @@
 // tslint:disable:no-any no-unsafe-any
+import { LanguageCollection } from './all-model';
 
 /**
  * Type Map for WebSocket key and data type, uses to server send to client
  */
 export interface SocketDataMapToClient {
   configs: any;
+  languageCollection: LanguageCollection;
 }
 
 /**
@@ -13,4 +15,5 @@ export interface SocketDataMapToClient {
 export interface SocketDataMapToServer {
   configsInit: never;
   configs: any;
+  languageCollection: undefined | 'update';
 }

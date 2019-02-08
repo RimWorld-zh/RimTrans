@@ -10,13 +10,15 @@ export const LANG_ICON_PNG = 'LangIcon.png';
 export const FRIENDLY_NAME_TXT = 'FriendlyName.txt';
 export const TIMESTAMP = 'timestamp';
 
-export interface Languages {
+export interface LanguageCollection {
   timestamp: number;
   items: LanguageData[];
 }
 
 export interface LanguageData {
   name: string;
+  internal: boolean;
+  status: 'success' | 'pending' | 'failed';
   info?: string;
   friendly?: string;
 }

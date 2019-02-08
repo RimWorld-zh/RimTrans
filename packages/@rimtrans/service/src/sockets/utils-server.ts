@@ -9,8 +9,8 @@ import { genPathResolve } from '@huiji/shared-utils';
 import io from '@rimtrans/io';
 import { SocketDataMapToClient, SocketDataMapToServer } from './model';
 
-const log = (cat: string, key: string, data: any) => {
-  console.info(new Date().toISOString(), 'WS', cat, key, data);
+const log = (...args: any[]) => {
+  console.info(new Date().toISOString(), 'WS', ...args);
 };
 
 export type ServerListenerFactory<K extends keyof SocketDataMapToServer = any> = (
@@ -51,6 +51,8 @@ export class WebSocketServer {
       const list = this.listenerMap[key];
       if (list) {
         list.forEach(l => l(this, data));
+      } else {
+        log('listen', `key not found: ${key}`);
       }
     }
   }
@@ -80,9 +82,9 @@ export class WebSocketServer {
     external: string,
     factories: Record<string, ServerListenerFactory>,
   ): void {
-    Object.entries(factories).forEach(([key, factory]) =>
-      this.addListener(key, factory(internal, external)),
-    );
+    Object.entries(factories).forEach(([key, factory]) => {
+      this.addListener(key, factory(internal, external));
+    });
   }
 
   /**
@@ -115,7 +117,7 @@ export class WebSocketServer {
   }
 }
 
-async function copyModFiles(
+export async function copyModFiles(
   src: string,
   dest: string,
   patterns: string[],

@@ -9,7 +9,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import dateformat from 'dateformat';
-import { Languages } from '@rimtrans/service';
+import { wsc, LanguageCollection, LanguageData } from '@rimtrans/service';
 import worker from '@rimtrans/worker';
 
 const language = 'language';
@@ -17,31 +17,47 @@ const latestUpdate = 'latest_update';
 const update = 'update';
 const updateAll = 'update_all';
 
+interface LanguageItem extends Pick<LanguageData, 'name' | 'internal' | 'status'> {
+  label?: string;
+}
+
 /**
  * Component: ConfigsCoreLanguages
  */
 @Component
 export class VConfigsCoreLanguages extends Vue {
   private timestamp: number = 0;
-  private languages: [string, string][] = [];
+  private items: LanguageItem[] = [];
 
   private updating: boolean = false;
 
   private async onUpdateAll(event: MouseEvent): Promise<void> {
-    if (this.updating) {
-      return;
+    wsc.send('languageCollection', 'update');
+  }
+
+  private onLanguageCollection(data?: LanguageCollection): void {
+    if (data) {
+      this.timestamp = data.timestamp;
+      this.items = data.items.map<LanguageItem>(
+        ({ name, internal, status, info, friendly }) => {
+          return {
+            name,
+            label: info ? worker.languageInfo(info).friendlyNameNative : friendly,
+            internal,
+            status,
+          };
+        },
+      );
     }
-    this.updating = true;
-
-    this.updating = false;
   }
 
-  private async load(): Promise<void> {
-    //
+  private mounted(): void {
+    wsc.addListener('languageCollection', this.onLanguageCollection);
+    wsc.send('languageCollection');
   }
 
-  private async beforeMount(): Promise<void> {
-    await this.load();
+  private beforeDestroy(): void {
+    wsc.removeListener('languageCollection', this.onLanguageCollection);
   }
 
   private render(h: CreateElement): VNode {
@@ -63,12 +79,23 @@ export class VConfigsCoreLanguages extends Vue {
 
           <vd-flexbox />
 
-          {this.languages.map(([name, label]) => (
+          {this.items.map(({ name, label, internal, status }) => (
             <vd-flexbox align="center" gap="small">
-              <vd-flexbox flex="none" />
+              <vd-flexbox flex="none">
+                <fa-icon
+                  staticClass="v-configs_lang-icon"
+                  class={(!internal && 'is-external') || `is-${status}`}
+                  icon={
+                    (!internal && ['fas', 'folder']) ||
+                    (status === 'success' && ['fas', 'check']) ||
+                    (status === 'pending' && ['fas', 'circle-notch']) || ['fas', 'times']
+                  }
+                  spin={status === 'pending'}
+                />
+              </vd-flexbox>
               <vd-flexbox>
                 {name}
-                {name !== label && ` (${label})`}
+                {label && label !== name && ` (${label})`}
               </vd-flexbox>
             </vd-flexbox>
           ))}

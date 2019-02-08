@@ -8,3 +8,4 @@
  */
 
 export * from './configs/server';
+export * from './mod/server';

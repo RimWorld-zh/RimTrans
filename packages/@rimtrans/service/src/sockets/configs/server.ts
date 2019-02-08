@@ -3,12 +3,7 @@
  */
 // tslint:disable:no-any  no-unsafe-any
 
-import fs from 'fs';
-import pth from 'path';
-import express from 'express';
-import globby from 'globby';
 import { genPathResolve } from '@huiji/shared-utils';
-import { languageInfos } from '@rimtrans/core';
 import io from '@rimtrans/io';
 import { ServerListenerFactory } from '../utils-server';
 

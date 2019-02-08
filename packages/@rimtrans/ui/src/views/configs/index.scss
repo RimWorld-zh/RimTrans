@@ -23,21 +23,16 @@
   }
 
   @include elem('lang-icon') {
-    position: relative;
-    width: rem(32 + gap('xsmall') * 2);
-    height: rem(18 + gap('xsmall') * 2);
-    padding: rem(gap('xsmall'));
-    object-fit: contain;
-    color: $color-white;
-    background-color: rgba($color: $color-black, $alpha: 0.5);
-
-    ::before {
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
+    $status-tone-map: (
+      external: 'secondary',
+      success: 'success',
+      pending: 'warning',
+      failed: 'danger',
+    );
+    @each $status, $tone in $status-tone-map {
+      @include when($status) {
+        color: tone($tone);
+      }
     }
   }
 }
