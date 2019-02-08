@@ -11,7 +11,7 @@ const optionsList: GenFilesOptions[] = [
     output: 'src/models/index.ts',
   },
   ...['model', 'client', 'server'].map<GenFilesOptions>(item => ({
-    comments: [`All ${item}`],
+    comments: [`All WebSocket ${item}s`],
     patterns: [`src/sockets/**/${item}.ts`],
     output: `src/sockets/all-${item}.ts`,
   })),

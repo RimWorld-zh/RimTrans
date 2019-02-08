@@ -4,7 +4,7 @@
 // tslint:disable
 
 /**
- * All server
+ * All WebSocket servers
  */
 
 export * from './configs/server';

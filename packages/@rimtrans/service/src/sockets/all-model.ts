@@ -4,7 +4,7 @@
 // tslint:disable
 
 /**
- * All model
+ * All WebSocket models
  */
 
 export * from './mod/model';
