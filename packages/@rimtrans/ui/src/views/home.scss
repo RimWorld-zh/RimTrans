@@ -1,0 +1,49 @@
+/**
+ * Component: Home
+ */
+@include comp('home') {
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  @include elem('nav-card', 'card-icon') {
+    transition: color ease-in-out $button-transition-duration;
+  }
+
+  @include elem('card-icon') {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    font-size: rem(40);
+  }
+
+  @each $theme in $type-theme {
+    @include prop(
+      (
+        'theme': $theme,
+      )
+    ) {
+      @include elem('card-icon') {
+        color: theme($theme, 'fg', 'sub');
+        background-color: theme($theme, 'bg', 'lower');
+      }
+
+      @include elem('nav-card') {
+        &:hover {
+          color: theme($theme, 'fg', 'emphasize');
+          @include elem('card-icon') {
+            color: theme($theme, 'fg', 'emphasize');
+          }
+        }
+      }
+    }
+  }
+}

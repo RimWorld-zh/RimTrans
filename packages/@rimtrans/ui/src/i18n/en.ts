@@ -13,6 +13,9 @@ export const en = {
     update: 'Update',
     update_all: 'Update All',
 
+    // extractor
+    extractor: 'Translation Extractor',
+
     // configs
     configs: 'Configs',
     configs_interface_languages: 'Interface Languages',

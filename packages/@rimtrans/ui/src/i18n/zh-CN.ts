@@ -15,6 +15,9 @@ export const zhCN: LocaleInfo = {
     update: '更新',
     update_all: '更新所有',
 
+    // extractor
+    extractor: '翻译提取器',
+
     // configs
     configs: '设置',
     configs_interface_languages: '界面语言',
