@@ -30,6 +30,8 @@ export type ServerListener<K extends keyof SocketDataMapToServer> = (
  * The WebSocket wrapper for server side
  */
 export class WebSocketServer {
+  private static readonly instances: WebSocketServer[] = [];
+
   private ws: WebSocket;
   private listenerMap: Record<string, ((wss: this, data?: any) => any)[] | undefined>;
 
@@ -41,7 +43,19 @@ export class WebSocketServer {
     this.ws = ws;
     this.ws.on('message', raw => this.listen(raw));
     this.ws.on('close', () => this.destructor());
+    WebSocketServer.instances.push(this);
   }
+
+  private destructor(): void {
+    const index = WebSocketServer.instances.indexOf(this);
+    if (index > -1) {
+      WebSocketServer.instances.splice(index, 1);
+    }
+    Object.keys(this.listenerMap).forEach(key => {
+      this.listenerMap[key] = undefined;
+    });
+  }
+
   private listen(raw: any): void {
     const { key, data } = JSON.parse(raw);
 
@@ -57,16 +71,10 @@ export class WebSocketServer {
     }
   }
 
-  private destructor(): void {
-    Object.keys(this.listenerMap).forEach(key => {
-      this.listenerMap[key] = undefined;
-    });
-  }
-
   /**
-   * Wrap `data` with `key` and send to client
+   * Wrap `data` with `key` and send to the client of current WebSocketServer instance
    * @param key the key
-   * @param data
+   * @param data the data
    */
   public send<K extends keyof SocketDataMapToClient>(
     key: K,
@@ -75,6 +83,22 @@ export class WebSocketServer {
     log('send', key, data);
 
     this.ws.send(JSON.stringify({ key, data }));
+  }
+
+  /**
+   * Wrap `data` with `key` and send to clients of other WebSocketServer instances
+   * @param key the key
+   * @param data the data
+   */
+  public sendOthers<K extends keyof SocketDataMapToClient>(
+    key: K,
+    data?: SocketDataMapToClient[K],
+  ): void {
+    WebSocketServer.instances.forEach(wss => {
+      if (wss !== this) {
+        wss.send(key, data);
+      }
+    });
   }
 
   public inject(

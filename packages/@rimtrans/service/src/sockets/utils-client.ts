@@ -26,6 +26,7 @@ export class WebSocketClient {
     this.ws = ws;
     this.ws.addEventListener('message', event => this.listen(event));
   }
+
   private listen(event: MessageEvent): void {
     const { key, data } = JSON.parse(event.data);
     console.log('WS', key, data);

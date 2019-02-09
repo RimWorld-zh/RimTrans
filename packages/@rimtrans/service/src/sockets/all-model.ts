@@ -7,5 +7,6 @@
  * All WebSocket models
  */
 
+export * from './configs/model';
 export * from './mod/model';
 export * from './model';

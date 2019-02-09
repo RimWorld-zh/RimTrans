@@ -9,7 +9,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { wsc } from '@rimtrans/service';
+import { wsc, Configs } from '@rimtrans/service';
 import { Theme } from 'void-ui';
 
 let $$Vue: typeof Vue | undefined;
@@ -21,18 +21,6 @@ declare module 'vue/types/vue' {
      */
     $configs: Configs;
   }
-}
-
-/**
- * Client Configs
- */
-export interface Configs {
-  _comment: string;
-  language: string;
-  theme: Theme;
-  pathToRimWorld: string;
-  pathToWorkshop: string;
-  pathToCustom: string;
 }
 
 export function newConfigs(): Configs {
@@ -51,6 +39,7 @@ export function newConfigs(): Configs {
  */
 @Component
 export class PluginConfigs extends Vue {
+  private silent?: boolean;
   public configs: Configs = newConfigs();
 
   public reset(): void {
@@ -71,10 +60,15 @@ export class PluginConfigs extends Vue {
   @Watch('configs', { deep: true })
   private async watchConfigs(): Promise<void> {
     await this.setLanguage();
-    wsc.send('configs', this.configs);
+    if (this.silent) {
+      this.silent = false;
+    } else {
+      wsc.send('configs', this.configs);
+    }
   }
 
   private async onConfigs(data?: Configs): Promise<void> {
+    this.silent = true;
     this.configs = {
       ...newConfigs(),
       ...data,
