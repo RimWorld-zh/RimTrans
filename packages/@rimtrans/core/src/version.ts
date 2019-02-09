@@ -1,2 +1,2 @@
 // tslint:disable
-export default '1.0.2150';
+export const version = '1.0.2150';

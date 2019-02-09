@@ -22,6 +22,7 @@ export const en = {
     configs_application_path_custom: 'Path to custom directory',
     // this 'Core' means RimWorld/Mods/Core, reserve it
     configs_core_languages: 'Core Languages',
+    configs_about: 'About',
   },
 };
 

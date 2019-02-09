@@ -100,7 +100,7 @@ async function copy(src: string, dest: string, patterns: string[]): Promise<void
 
   await io.save(
     resolvePath('src', 'version.ts'),
-    `// tslint:disable\nexport default '${version}';\n`,
+    `// tslint:disable\nexport const version = '${version}';\n`,
   );
   log.success("Copied Core's 'About', 'Defs' and 'Languages/English‘");
 })();

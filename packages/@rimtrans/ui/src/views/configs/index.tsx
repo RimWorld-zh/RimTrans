@@ -22,9 +22,14 @@ const sideItems: NavItem[] = [
     to: '/configs/application',
   },
   {
-    icon: ['fas', 'cubes'],
+    icon: ['fas', 'file-alt'],
     label: 'configs_core_languages',
     to: '/configs/core-languages',
+  },
+  {
+    icon: ['fas', 'info-circle'],
+    label: 'configs_about',
+    to: '/configs/about',
   },
 ];
 

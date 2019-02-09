@@ -23,5 +23,6 @@ export const zhCN: LocaleInfo = {
     configs_application_path_workshop: 'Workshop 目录路径',
     configs_application_path_custom: '自定义目录路径',
     configs_core_languages: 'Core 语言',
+    configs_about: '关于',
   },
 };
