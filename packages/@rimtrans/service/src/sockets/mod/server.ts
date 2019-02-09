@@ -4,7 +4,7 @@
 // tslint:disable:no-any  no-unsafe-any max-func-body-length
 import globby from 'globby';
 import { genPathResolve } from '@huiji/shared-utils';
-import { languageInfos } from '@rimtrans/core';
+import { languageInfos, LanguageInfo } from '@rimtrans/core';
 import io from '@rimtrans/io';
 
 import { ServerListenerFactory, copyModFiles } from '../utils-server';
@@ -23,17 +23,17 @@ import {
 } from './model';
 
 const tmp = '.tmp';
-let updating = false;
+let pending = false;
 
-export const languageCollection: ServerListenerFactory<'languageCollection'> = (
+export const coreLanguages: ServerListenerFactory<'coreLanguages'> = (
   internal,
   external,
 ) => {
   const resolveInternal = genPathResolve(internal, 'core', LANGUAGES);
   const resolveExternal = genPathResolve(external, LANGUAGES);
 
-  return async (ws, data) => {
-    if (updating) {
+  return async (wss, data) => {
+    if (pending) {
       return;
     }
 
@@ -60,7 +60,7 @@ export const languageCollection: ServerListenerFactory<'languageCollection'> = (
               const item: LanguageData = {
                 name,
                 internal: isInternal,
-                status: isInternal && updating ? 'pending' : 'success',
+                status: isInternal && pending ? 'pending' : 'success',
               };
 
               const pathInfo = resolvePath(name, LANGUAGE_INFO_XML);
@@ -83,26 +83,41 @@ export const languageCollection: ServerListenerFactory<'languageCollection'> = (
     );
 
     if (data === 'update') {
-      updating = true;
+      pending = true;
       const timestamp = Date.now();
-      const official =
-        timestampExternal > timestampInternal
-          ? itemsExternal.filter(item => item.internal)
-          : itemsInternal;
-      official.forEach(item => (item.status = 'pending'));
-      const users = itemsExternal.filter(item => !item.internal);
 
-      const send = () =>
-        ws.send('languageCollection', {
+      const users = itemsExternal.filter(item => !item.internal);
+      const pairs: [LanguageInfo, LanguageData][] = [];
+      const official: LanguageData[] = [];
+
+      languageInfos.forEach(info => {
+        const item: LanguageData = (timestampExternal > timestampInternal &&
+          itemsExternal.find(i => i.name === info.name)) ||
+          itemsInternal.find(i => i.name === info.name) || {
+            name: info.name,
+            internal: true,
+            status: 'pending',
+          };
+        if (info.repo) {
+          item.status = 'pending';
+        }
+        pairs.push([info, item]);
+        official.push(item);
+      });
+
+      const send = () => {
+        const dataToClient = {
           timestamp,
           items: [...official, ...users],
-        });
+        };
+        wss.send('coreLanguages', dataToClient);
+        wss.sendOthers('coreLanguages', dataToClient);
+      };
       send();
 
       await Promise.all(
-        languageInfos.map(async info => {
-          const item = official.find(i => i.name === info.name);
-          if (!info.repo || !item) {
+        pairs.map(async ([info, item]) => {
+          if (!info.repo) {
             return;
           }
           try {
@@ -115,6 +130,10 @@ export const languageCollection: ServerListenerFactory<'languageCollection'> = (
             await io.download(
               `https://github.com/Ludeon/${info.repo}/archive/master.zip`,
               pathZip,
+              (current, total) => {
+                item.current = current;
+                item.total = total;
+              },
             );
             await io.unzip(pathZip, resolveExternal(tmp));
             await io.remove(pathLang);
@@ -139,9 +158,10 @@ export const languageCollection: ServerListenerFactory<'languageCollection'> = (
         }),
       );
       await io.save(resolveExternal(TIMESTAMP), timestamp.toString());
-      updating = false;
+      send();
+      pending = false;
     } else if (timestampExternal > timestampInternal) {
-      ws.send('languageCollection', {
+      wss.send('coreLanguages', {
         timestamp: timestampExternal,
         items: [
           ...itemsExternal.filter(item => item.internal),
@@ -149,7 +169,7 @@ export const languageCollection: ServerListenerFactory<'languageCollection'> = (
         ],
       });
     } else {
-      ws.send('languageCollection', {
+      wss.send('coreLanguages', {
         timestamp: timestampInternal,
         items: [
           ...itemsInternal,

@@ -3,7 +3,10 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import { VHome } from './views/home';
+
 import { VExtractor } from './views/extractor';
+import { VExtractorProjects } from './views/extractor/projects';
+
 import { VConfigs } from './views/configs/index';
 import { VConfigsInterfaceLanguages } from './views/configs/interface-languages';
 import { VConfigsApplication } from './views/configs/application';
@@ -24,8 +27,19 @@ export const router = new VueRouter({
     },
     {
       path: '/extractor',
-      name: 'extractor',
       component: VExtractor,
+      children: [
+        {
+          path: '',
+          name: 'extractor',
+          redirect: 'projects',
+        },
+        {
+          path: 'projects',
+          name: 'extractor-projects',
+          component: VExtractorProjects,
+        },
+      ],
     },
     {
       path: '/configs',

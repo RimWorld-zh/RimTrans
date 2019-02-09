@@ -8,7 +8,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { Configs } from '@src/utils/plugin-configs';
+import { Configs } from '@rimtrans/service';
 
 const labelWidth = 35;
 

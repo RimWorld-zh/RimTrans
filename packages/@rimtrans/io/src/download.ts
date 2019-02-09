@@ -1,39 +1,49 @@
+// tslint:disable:no-any no-unsafe-any
 import fs from 'fs';
 import pth from 'path';
-import https from 'https';
+import axios from 'axios';
 import mkdirp from 'mkdirp';
+import { Stream } from 'stream';
 
 /**
  * Download a file from the internet
  * @param url the url of the file to download
  * @param filename the path to save the file
+ * @param cb the callback function to get current and total file size (bytes) in process, note that total maybe NaN
  */
-export async function download(url: string, filename: string): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    const dir = pth.dirname(filename);
-    if (!fs.existsSync(dir) || !fs.lstatSync(dir).isDirectory()) {
-      mkdirp.sync(dir);
-    }
+export async function download(
+  url: string,
+  filename: string,
+  cb?: (current: number, total?: number) => any,
+): Promise<void> {
+  const dir = pth.dirname(filename);
+  if (!fs.existsSync(dir) || !fs.lstatSync(dir).isDirectory()) {
+    mkdirp.sync(dir);
+  }
 
-    const file = fs.createWriteStream(filename);
-    https.get(url, response => {
-      if (
-        response.statusCode &&
-        300 < response.statusCode &&
-        response.statusCode < 400 &&
-        response.headers.location
-      ) {
-        download(response.headers.location, filename).then(resolve, reject);
-      } else if (response.statusCode && response.statusCode >= 400) {
-        reject(`${response.statusCode} ${response.statusMessage}`);
-      } else {
-        response
-          .on('data', data => file.write(data))
-          .on('end', () => {
-            file.end(resolve);
-          })
-          .on('error', reject);
-      }
+  const writer = fs.createWriteStream(filename);
+  const response = await axios({
+    url,
+    method: 'GET',
+    responseType: 'stream',
+  });
+  const stream = response.data as Stream;
+
+  if (cb) {
+    const total = parseInt(
+      response.headers['content-length'] || response.headers['Content-Length'],
+      10,
+    );
+    let current = 0;
+    stream.on('data', chunk => {
+      current += chunk.length as number;
+      cb(current, total);
     });
+  }
+  stream.pipe(writer);
+
+  return new Promise<void>((resolve, reject) => {
+    writer.on('finish', resolve);
+    writer.on('error', reject);
   });
 }

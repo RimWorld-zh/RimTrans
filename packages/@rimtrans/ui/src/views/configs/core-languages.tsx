@@ -17,7 +17,7 @@ const latestUpdate = 'latest_update';
 const update = 'update';
 const updateAll = 'update_all';
 
-interface LanguageItem extends Pick<LanguageData, 'name' | 'internal' | 'status'> {
+interface LanguageItem extends LanguageData {
   label?: string;
 }
 
@@ -32,32 +32,30 @@ export class VConfigsCoreLanguages extends Vue {
   private updating: boolean = false;
 
   private async onUpdateAll(event: MouseEvent): Promise<void> {
-    wsc.send('languageCollection', 'update');
+    wsc.send('coreLanguages', 'update');
   }
 
   private onLanguageCollection(data?: LanguageCollection): void {
     if (data) {
       this.timestamp = data.timestamp;
-      this.items = data.items.map<LanguageItem>(
-        ({ name, internal, status, info, friendly }) => {
-          return {
-            name,
-            label: info ? worker.languageInfo(info).friendlyNameNative : friendly,
-            internal,
-            status,
-          };
-        },
-      );
+      this.items = data.items.map<LanguageItem>(raw => {
+        return {
+          ...raw,
+          label: raw.info
+            ? worker.languageInfo(raw.info).friendlyNameNative
+            : raw.friendly,
+        };
+      });
     }
   }
 
   private mounted(): void {
-    wsc.addListener('languageCollection', this.onLanguageCollection);
-    wsc.send('languageCollection');
+    wsc.addListener('coreLanguages', this.onLanguageCollection);
+    wsc.send('coreLanguages');
   }
 
   private beforeDestroy(): void {
-    wsc.removeListener('languageCollection', this.onLanguageCollection);
+    wsc.removeListener('coreLanguages', this.onLanguageCollection);
   }
 
   private render(h: CreateElement): VNode {
@@ -79,7 +77,7 @@ export class VConfigsCoreLanguages extends Vue {
 
           <vd-flexbox />
 
-          {this.items.map(({ name, label, internal, status }) => (
+          {this.items.map(({ name, label, internal, status, current, total }) => (
             <vd-flexbox align="center" gap="small">
               <vd-flexbox flex="none">
                 <fa-icon
@@ -93,10 +91,20 @@ export class VConfigsCoreLanguages extends Vue {
                   spin={status === 'pending'}
                 />
               </vd-flexbox>
-              <vd-flexbox>
+              <vd-flexbox flex="none">
                 {name}
                 {label && label !== name && ` (${label})`}
               </vd-flexbox>
+              {status === 'pending' && (
+                <vd-flexbox flex="none">
+                  {current &&
+                    ((current > 1024 * 1024 &&
+                      `${(current / 1024 / 1024).toFixed(2)}MB`) ||
+                      (current > 1024 && `${(current / 1024).toFixed(1)}KB`) ||
+                      `${current}B`)}
+                  {/* {current && total ? `(${((current / total) * 100).toFixed(2)}%)` : ''} */}
+                </vd-flexbox>
+              )}
             </vd-flexbox>
           ))}
         </vd-flexbox>

@@ -18,7 +18,9 @@ export class VExtractor extends Vue {
     return (
       <div staticClass="v-extractor">
         <vd-swimlane>
-          <vd-container />
+          <vd-container>
+            <router-view />
+          </vd-container>
         </vd-swimlane>
       </div>
     );

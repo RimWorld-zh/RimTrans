@@ -6,7 +6,7 @@ import { Configs, LanguageCollection } from './all-model';
  */
 export interface SocketDataMapToClient {
   configs: Configs;
-  languageCollection: LanguageCollection;
+  coreLanguages: LanguageCollection;
 }
 
 /**
@@ -14,5 +14,5 @@ export interface SocketDataMapToClient {
  */
 export interface SocketDataMapToServer {
   configs: Configs;
-  languageCollection: 'update';
+  coreLanguages: 'update';
 }

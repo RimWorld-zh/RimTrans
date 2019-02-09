@@ -19,6 +19,18 @@ export interface LanguageData {
   name: string;
   internal: boolean;
   status: 'success' | 'pending' | 'failed';
+  /** current file size in downloading process */
+  current?: number;
+  /** total file size, maybe NaN */
+  total?: number;
   info?: string;
   friendly?: string;
+}
+
+export type ModCategory = 'internal' | 'workshop' | 'custom';
+
+export interface ModInfo {
+  category: ModCategory;
+  path: string;
+  about: string;
 }
