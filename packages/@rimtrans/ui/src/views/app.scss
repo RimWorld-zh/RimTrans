@@ -18,4 +18,16 @@ body {
   flex: 1 1 100%;
   max-width: 100%;
   min-width: 0;
+  min-height: 100vh;
+
+  @each $theme in $type-theme {
+    @include prop(
+      (
+        'theme': $theme,
+      )
+    ) {
+      color: theme($theme);
+      background-color: theme($theme, 'bg');
+    }
+  }
 }

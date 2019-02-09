@@ -8,6 +8,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
+import { ClassName, Theme, ThemeComponent } from 'void-ui';
 import { NavItem } from '@src/components/all';
 
 const sideItems: NavItem[] = [
@@ -37,10 +38,20 @@ const sideItems: NavItem[] = [
  * Component: Configs
  */
 @Component
-export class VConfigs extends Vue {
+export class VConfigs extends Vue implements ThemeComponent {
+  @Prop(String)
+  public readonly theme?: Theme;
+  public get themeValue(): Theme {
+    return this.theme || this.$vd_theme.theme || 'lite';
+  }
+
+  public get classes(): ClassName {
+    return [`vp-theme_${this.themeValue}`];
+  }
+
   private render(h: CreateElement): VNode {
     return (
-      <div staticClass="v-configs">
+      <div staticClass="v-configs" class={this.classes}>
         <vd-swimlane>
           <vd-container>
             <vd-flexbox gap="xlarge">

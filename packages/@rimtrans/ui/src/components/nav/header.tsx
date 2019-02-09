@@ -20,6 +20,10 @@ export class CHeader extends Vue {
   @Prop({ type: Array, required: true })
   public readonly itemsSource!: NavItem[];
 
+  private onSwitchTheme(event: MouseEvent): void {
+    this.$configs.theme = this.$configs.theme === 'lite' ? 'dark' : 'lite';
+  }
+
   private render(h: CreateElement): VNode {
     return (
       <div staticClass="c-header">
@@ -41,8 +45,22 @@ export class CHeader extends Vue {
             >
               {this.brand.label}
             </vd-flexbox>
+
             <vd-flexbox />
-            <vd-flexbox />
+
+            <vd-flexbox
+              staticClass="c-header_item"
+              flex="none"
+              justify="center"
+              align="center"
+              tag="button"
+              nativeOnClick={this.onSwitchTheme}
+            >
+              <fa-icon
+                icon={this.$configs.theme === 'lite' ? ['fas', 'sun'] : ['fas', 'moon']}
+              />
+            </vd-flexbox>
+
             {this.itemsSource.map(item => (
               <vd-flexbox
                 staticClass="c-header_item"

@@ -22,8 +22,8 @@ Object.entries({ FaIcon, FaLayers, FaLayersText }).forEach(([name, comp]) =>
 );
 
 // Void-UI
-import VoidUI from 'void-ui';
-Vue.use(VoidUI);
+import VoidUI, { VoidUIOptions, VdTheme } from 'void-ui';
+Vue.use<VoidUIOptions>(VoidUI);
 
 import { wsc } from '@rimtrans/service';
 
@@ -38,8 +38,14 @@ import { locale } from './i18n';
 import { router } from './router';
 
 wsc.ws.addEventListener('open', async () => {
+  const vdTheme = new VdTheme({
+    propsData: {
+      theme: 'lite',
+    },
+  });
   const pluginConfigs = new PluginConfigs({
     locale,
+    vdTheme,
   });
   Vue.use(pluginConfigs);
   await pluginConfigs.init();
@@ -47,6 +53,7 @@ wsc.ws.addEventListener('open', async () => {
   new Vue({
     locale,
     router,
+    vdTheme,
     render: h => h(VApp),
   }).$mount('#app');
 });

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import { VHome } from './views/home';
+import { VExtractor } from './views/extractor';
 import { VConfigs } from './views/configs/index';
 import { VConfigsInterfaceLanguages } from './views/configs/interface-languages';
 import { VConfigsApplication } from './views/configs/application';
@@ -20,6 +21,11 @@ export const router = new VueRouter({
       path: '/',
       name: 'home',
       component: VHome,
+    },
+    {
+      path: '/extractor',
+      name: 'extractor',
+      component: VExtractor,
     },
     {
       path: '/configs',

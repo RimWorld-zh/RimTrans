@@ -10,11 +10,17 @@ import {
 } from 'vue-property-decorator';
 
 /**
- * Component: Mods
+ * Component: Extractor
  */
 @Component
-export class VMods extends Vue {
+export class VExtractor extends Vue {
   private render(h: CreateElement): VNode {
-    return <div staticClass="v-mods">{this.$slots.default}</div>;
+    return (
+      <div staticClass="v-extractor">
+        <vd-swimlane>
+          <vd-container />
+        </vd-swimlane>
+      </div>
+    );
   }
 }

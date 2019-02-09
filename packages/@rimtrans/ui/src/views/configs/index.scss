@@ -19,8 +19,8 @@
 
   @include elem('text-input') {
     width: 100%;
-    height: rem(32);
-    padding: 0 rem(gap('xsmall'));
+    padding: rem(gap('small'));
+    border: rem($border-base) solid;
   }
 
   @include elem('lang-icon') {
@@ -38,5 +38,21 @@
 
   @include elem('about') {
     text-align: center;
+  }
+
+  @each $theme in $type-theme {
+    @include prop(
+      (
+        'theme': $theme,
+      )
+    ) {
+      color: theme($theme);
+
+      @include elem('text-input') {
+        color: theme($theme);
+        background-color: theme($theme, 'bg', 'high');
+        border-color: theme($theme, 'bd');
+      }
+    }
   }
 }
