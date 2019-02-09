@@ -1,0 +1,11 @@
+$custom-color-map: (
+  rimworld: #c29654,
+  steam: #356480,
+  folder: #f5cd68,
+);
+
+@each $key, $value in $custom-color-map {
+  @include define-atom('color', $key) {
+    color: $value;
+  }
+}

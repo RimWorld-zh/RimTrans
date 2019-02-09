@@ -84,7 +84,7 @@ export class VConfigsCoreLanguages extends Vue {
               <vd-flexbox flex="none">
                 <fa-icon
                   staticClass="v-configs_lang-icon"
-                  class={(!internal && 'is-external') || `is-${status}`}
+                  class={(!internal && 'ca-color_folder') || `is-${status}`}
                   icon={
                     (!internal && ['fas', 'folder']) ||
                     (status === 'success' && ['fas', 'check']) ||

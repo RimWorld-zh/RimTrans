@@ -30,6 +30,7 @@ export interface Configs {
   language: string;
   pathToRimWorld: string;
   pathToWorkshop: string;
+  pathToCustom: string;
 }
 
 export function newConfigs(): Configs {
@@ -38,6 +39,7 @@ export function newConfigs(): Configs {
     language: 'auto',
     pathToRimWorld: '',
     pathToWorkshop: '',
+    pathToCustom: '',
   };
 }
 

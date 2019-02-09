@@ -17,8 +17,9 @@ export const en = {
     configs: 'Configs',
     configs_interface_languages: 'Interface Languages',
     configs_application: 'Application',
-    configs_application_path_rw: 'Path to RimWorld directory',
-    configs_application_path_ws: 'Path to Workshop directory',
+    configs_application_path_rimworld: 'Path to RimWorld directory',
+    configs_application_path_workshop: 'Path to Workshop directory',
+    configs_application_path_custom: 'Path to custom directory',
     // this 'Core' means RimWorld/Mods/Core, reserve it
     configs_core_languages: 'Core Languages',
   },

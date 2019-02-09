@@ -20,11 +20,11 @@
   @include elem('text-input') {
     width: 100%;
     height: rem(32);
+    padding: 0 rem(gap('xsmall'));
   }
 
   @include elem('lang-icon') {
     $status-tone-map: (
-      external: 'secondary',
       success: 'success',
       pending: 'warning',
       failed: 'danger',
