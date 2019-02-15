@@ -8,5 +8,6 @@
  */
 
 export * from './configs/model';
+export * from './file/model';
 export * from './mod/model';
 export * from './model';

@@ -4,7 +4,7 @@ import { requestFunction } from '../utils-request';
 import { FileParams } from './model';
 
 /**
- * Request function for files
+ * Request functions for files
  */
 export const file = {
   /**

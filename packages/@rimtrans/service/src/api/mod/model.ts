@@ -34,3 +34,8 @@ export interface ModInfo {
   path: string;
   about: string;
 }
+
+export interface ModsParams {
+  /** The path to the directory of mods, e.g. `/RimWorld/Mods` */
+  path: string;
+}

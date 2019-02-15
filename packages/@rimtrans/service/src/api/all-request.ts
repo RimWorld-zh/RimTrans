@@ -8,3 +8,4 @@
  */
 
 export * from './file/request';
+export * from './mod/request';
