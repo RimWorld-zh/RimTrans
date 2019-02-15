@@ -15,6 +15,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
+      "@rimtrans/service": ["../service/src/index.ts"],
       "@src/*": ["src/*"]
     }
   },

@@ -10,9 +10,10 @@ import WebSocket from 'ws';
 import { genPathResolve } from '@huiji/shared-utils';
 import io from '@rimtrans/io';
 
-import { PORT } from './constants';
-import { WebSocketServer } from './sockets/utils-server';
-import * as allListenerFactories from './sockets/all-server';
+import { PORT, BASE_URL_REST_API } from './api/all-model';
+import { WebSocketServer } from './api/utils-server';
+import * as allListenerFactories from './api/all-server';
+import * as allRestRouters from './api/all-handler';
 
 (async () => {
   const dataDir = 'rimtrans_data';
@@ -34,6 +35,12 @@ import * as allListenerFactories from './sockets/all-server';
 
   const app = express();
 
+  const rest = express.Router();
+  Object.entries(allRestRouters).forEach(([name, router]) =>
+    rest.use(`/${name}`, router),
+  );
+  app.use(BASE_URL_REST_API, rest);
+
   app
     .use('/static', express.static(resolveStatic('.')))
     .use('/static/*', (request, response) => response.sendStatus(404))
@@ -42,7 +49,6 @@ import * as allListenerFactories from './sockets/all-server';
   const server = http.createServer(app);
 
   const wss = new WebSocket.Server({ server });
-
   wss.on('connection', (ws, request) => {
     const wrapper = new WebSocketServer(ws);
     wrapper.inject(internal, external, allListenerFactories);

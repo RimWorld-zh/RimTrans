@@ -1,5 +1,5 @@
 {
-  "ignore": [".git", "node_modules", "dist", "scripts", "tests"],
+  "ignore": [".git", "node_modules", "dist", "scripts", "tests", "src/**/*request.ts"],
   "watch": ["src"],
   "ext": "ts",
   "exec": "ts-node -r tsconfig-paths/register -P tsconfig.cjs.json src/main.ts"

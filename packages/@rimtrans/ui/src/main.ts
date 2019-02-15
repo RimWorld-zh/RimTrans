@@ -57,3 +57,6 @@ wsc.ws.addEventListener('open', async () => {
     render: h => h(VApp),
   }).$mount('#app');
 });
+
+import test from './test';
+test().catch(console.error);

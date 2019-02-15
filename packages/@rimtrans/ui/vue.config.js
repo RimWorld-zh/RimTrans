@@ -14,6 +14,10 @@ const options = {
     config.resolve.symlinks(true);
     config.resolve.alias.delete('@').set('@src', resolvePath('src'));
 
+    if (process.env.NODE_ENV === 'development') {
+      config.resolve.alias.set('@rimtrans/service', '@rimtrans/service/src/index.ts');
+    }
+
     config.optimization
       .delete('minimizer')
       .delete('splitChunks')
@@ -24,7 +28,7 @@ const options = {
     port: 5102,
     open: true,
     proxy: {
-      '/api': {
+      '/rest': {
         target: 'http://localhost:5100',
         changeOrigin: true,
       },

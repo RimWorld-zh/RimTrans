@@ -2,7 +2,11 @@
  * Utils for client WebSocket
  */
 // tslint:disable:no-any no-unsafe-any
-import { SocketDataMapToClient, SocketDataMapToServer } from './model';
+import {
+  SocketDataMapToClient,
+  SocketDataMapToServer,
+  BASE_URL_WEB_SOCKET,
+} from './model';
 
 /**
  * Listener function type for client
@@ -80,4 +84,6 @@ export class WebSocketClient {
   }
 }
 
-export const wsc = new WebSocketClient(new WebSocket(`ws://${location.host}/ws`));
+export const wsc = new WebSocketClient(
+  new WebSocket(`ws://${location.host}${BASE_URL_WEB_SOCKET}`),
+);
