@@ -1,9 +1,10 @@
 /**
  * Service main
  */
-
+// tslint:disable:no-any no-unsafe-any
 import pth from 'path';
 import http from 'http';
+import chalk from 'chalk';
 import express from 'express';
 import WebSocket from 'ws';
 import { genPathResolve } from '@huiji/shared-utils';
@@ -14,13 +15,20 @@ import { WebSocketServer } from './sockets/utils-server';
 import * as allListenerFactories from './sockets/all-server';
 
 (async () => {
-  const internal = genPathResolve(__dirname, '../../..')('.');
+  const dataDir = 'rimtrans_data';
+  const projectDir = __dirname.replace(
+    /[\/\\]packages[\/\\]@rimtrans[\/\\]service.+/,
+    '',
+  );
+
+  const internal = genPathResolve(projectDir, 'packages', '@rimtrans')('.');
   const external = (process as any).pkg
-    ? genPathResolve(pth.dirname(process.execPath), 'rimtrans_data')('.')
-    : genPathResolve(__dirname, '../../../../../.tmp/data')('.');
+    ? genPathResolve(pth.dirname(process.execPath), dataDir)('.')
+    : genPathResolve(projectDir, '.tmp', dataDir)('.');
   await io.createDirectory(external);
-  console.log(internal);
-  console.log(external);
+
+  console.log('internal', internal);
+  console.log('external', external);
 
   const resolveStatic = genPathResolve(internal, 'ui', 'dist');
 
@@ -40,5 +48,10 @@ import * as allListenerFactories from './sockets/all-server';
     wrapper.inject(internal, external, allListenerFactories);
   });
 
-  server.listen(PORT, () => console.info(`Listening at *:${PORT}`));
+  server.listen(PORT, () =>
+    console.info(`
+${chalk.greenBright('Listening at')} ${chalk.cyanBright(`http://localhost:${PORT}`)}
+Press ctrl+c to stop.
+`),
+  );
 })();
