@@ -16,8 +16,6 @@ file.get('/', async (request, response) => {
     return response.sendStatus(404);
   }
 
-  response.setHeader('Content-Type', 'text/plain');
-
   return response.sendFile(path);
 });
 
