@@ -17,7 +17,7 @@
     "@rimtrans/service": "^0.1.0",
     "@rimtrans/worker": "^0.1.0",
     "void-ui": "^0.7.21",
-    "vue": "^2.6.5",
+    "vue": "^2.6.6",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.3.0",
     "vue-router": "^3.0.2"
@@ -30,7 +30,7 @@
     "sass": "^1.16.1",
     "sass-loader": "^7.1.0",
     "typescript": "^3.2.4",
-    "vue-template-compiler": "^2.6.5"
+    "vue-template-compiler": "^2.6.6"
   },
   "postcss": {
     "plugins": {

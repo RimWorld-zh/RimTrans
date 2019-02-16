@@ -32,6 +32,10 @@ export async function save(file: string, content: string): Promise<void> {
   );
 }
 
+/**
+ * Detect a file or a directory exists or not.
+ * @param path the path to the file or the directory
+ */
 export async function exists(path: string): Promise<boolean> {
   return new Promise<boolean>((resolve, reject) =>
     fs.exists(path, value => resolve(value)),
@@ -47,6 +51,10 @@ export async function copy(src: string, dest: string): Promise<void> {
   return new Promise<void>((resolve, reject) =>
     fs.copyFile(src, dest, error => (error ? reject(error) : resolve())),
   );
+}
+
+export async function copyDirectory(src: string, dest: string): Promise<void> {
+  //
 }
 
 /**

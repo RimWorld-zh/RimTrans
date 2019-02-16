@@ -14,10 +14,6 @@
     "ts": "ts-node -r tsconfig-paths/register -P ../../../scripts/tsconfig.json"
   },
   "dependencies": {
-    "@types/mkdirp": "^0.5.2",
-    "@types/rimraf": "^2.0.2",
-    "compressing": "^1.4.0",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.3"
+    "compressing": "^1.4.0"
   }
 }
