@@ -35,3 +35,5 @@ scripts/**/*.js
 test/resources/
 temp/
 temp.*
+.tmp/
+.tmp.*
