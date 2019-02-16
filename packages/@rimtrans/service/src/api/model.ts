@@ -7,6 +7,7 @@ import { Configs, LanguageCollection } from './all-model';
  * The port to listen
  */
 export const PORT = 5100;
+export const BASE_URL_STATIC = '/static';
 export const BASE_URL_REST_API = '/rest';
 export const BASE_URL_WEB_SOCKET = '/ws';
 
