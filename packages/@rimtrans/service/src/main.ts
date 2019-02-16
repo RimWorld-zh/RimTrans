@@ -40,6 +40,7 @@ import * as allRestRouters from './api/all-handler';
         express.Router(),
       ),
     )
+    .use(`${BASE_URL_REST_API}/*`, (request, response) => response.sendStatus(404))
     .use(BASE_URL_STATIC, express.static(resolveStatic('.')))
     .use(`${BASE_URL_STATIC}/*`, (request, response) => response.sendStatus(404))
     .use('*', (request, response) => response.sendFile(resolveStatic('index.html')));
