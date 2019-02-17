@@ -33,7 +33,7 @@ export class VExtractorProjects extends Vue {
     [...internal, ...workshop].forEach(([path, xml]) => {
       try {
         const data = worker.modMetaData(xml);
-        console.log(path, data.name);
+        console.info(path, data.name);
       } catch (error) {
         console.error(error);
       }

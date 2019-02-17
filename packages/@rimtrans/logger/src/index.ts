@@ -2,16 +2,12 @@
 
 export type LogFunction = (mask: string, ...args: any[]) => void | Promise<void>;
 
+/**
+ * The model of logger
+ */
 export default interface Logger {
   info: LogFunction;
   success: LogFunction;
   warn: LogFunction;
   error: LogFunction;
 }
-
-console;
-
-/**
- * Logger for RimTrans
- */
-export default class Logger {}

@@ -33,7 +33,10 @@ export class WebSocketClient {
 
   private listen(event: MessageEvent): void {
     const { key, data } = JSON.parse(event.data);
+
+    // tslint:disable-next-line:no-console
     console.log('WS', key, data);
+
     if (typeof key === 'string' && key) {
       const list = this.listenerMap[key];
       if (list) {

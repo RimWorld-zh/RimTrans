@@ -15,7 +15,7 @@ import { WebSocketServer } from './api/utils-server';
 import * as allListenerFactories from './api/all-server';
 import * as allRestRouters from './api/all-handler';
 
-(async () => {
+async function setup(): Promise<void> {
   const dataDir = 'rimtrans_data';
   const projectDir = __dirname.replace(
     /[\/\\]packages[\/\\]@rimtrans[\/\\]service.+/,
@@ -29,8 +29,10 @@ import * as allRestRouters from './api/all-handler';
 
   await io.createDirectory(external);
 
+  // tslint:disable:no-console
   console.log('internal', internal);
   console.log('external', external);
+  // tslint:enable:no-console
 
   const app = express()
     .use(
@@ -59,4 +61,6 @@ ${chalk.greenBright('Listening at')} ${chalk.cyanBright(`http://localhost:${PORT
 Press ctrl+c to stop.
 `),
   );
-})();
+}
+
+setup().catch(console.error);
