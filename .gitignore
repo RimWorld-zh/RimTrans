@@ -250,10 +250,3 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
-
-test/
-RimTrans/
-Output/
-
-# macOS
-.DS_Store
