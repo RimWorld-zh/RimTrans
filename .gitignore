@@ -250,3 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+### Projects
+
+# Reflection
+/Reflection/RimWorldWin64_Data

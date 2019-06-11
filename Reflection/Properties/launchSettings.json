@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Reflection": {
+      "commandName": "Project",
+      "workingDirectory": "./"
+    }
+  }
+}
