@@ -1,0 +1,33 @@
+{
+  "name": "rimtrans",
+  "version": "4.0.0",
+  "description": "RimTrans: a translation tool for RimWorld Core and Mods.",
+  "main": "index.js",
+  "repository": "git@github.com:RimWorld-zh/RimTrans.git",
+  "author": "duduluu <duduluu@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "extractor"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@huiji/eslint-config-typescript": "^0.1.0",
+    "@huiji/shared-utils": "^1.1.0",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.7",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.3",
+    "jest": "^24.8.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.8.0",
+    "ts-node": "^8.2.0",
+    "tsconfig-paths": "^3.8.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.1"
+  }
+}
