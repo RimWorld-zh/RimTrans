@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable", "scripthost", "esnext"],
+    "lib": ["scripthost", "esnext"],
     "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types"],
     "strict": true,

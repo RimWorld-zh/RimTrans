@@ -3,6 +3,7 @@
   "useWorkspaces": true,
   "version": "independent",
   "ignoreChanges": [
+    "Reflection/**",
     "**/scripts/**",
     "**/tests/**",
     "**/__tests__/**",

@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: ['@huiji/typescript'],
   rules: {
@@ -13,16 +13,16 @@ module.exports = {
       'error',
       {
         allowExpressions: true,
-        allowTypedFunctionExpressions: true
-      }
+        allowTypedFunctionExpressions: true,
+      },
     ],
     '@typescript-eslint/no-unused-vars': [
       'off',
       {
         ignoreRestSiblings: true,
         args: 'none',
-        caughtErrors: 'none'
-      }
-    ]
-  }
+        caughtErrors: 'none',
+      },
+    ],
+  },
 };

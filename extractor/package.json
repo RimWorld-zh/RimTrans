@@ -1,0 +1,15 @@
+{
+  "name": "@rimtrans/extractor",
+  "version": "4.0.0-alpha.1",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "build": "babel ./src -x .ts -d ./lib",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/jsdom": "^12.2.3",
+    "jsdom": "^15.1.1"
+  }
+}
