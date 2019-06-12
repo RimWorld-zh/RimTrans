@@ -3,5 +3,18 @@
   "description": "Files for RimWorld/Mods/Core",
   "version": "1.0.2282",
   "versionText": "1.0.2282 rev726",
-  "private": true
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf ./types && rimraf ./lib",
+    "build:types": "tsc",
+    "build:babel": "babel ./src -x .ts -d ./lib",
+    "build": "yarn build:types && yarn build:babel",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/globby": "^9.1.0",
+    "globby": "^9.2.0"
+  }
 }

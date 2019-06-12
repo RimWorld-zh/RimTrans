@@ -13,6 +13,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@rimtrans/rimworld-core": "1.0.2282",
+    "@rimtrans/type-info": "4.0.0-alpha.1",
     "@types/jsdom": "^12.2.3",
     "jsdom": "^15.1.1"
   }

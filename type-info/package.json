@@ -1,7 +1,15 @@
 {
   "name": "@rimtrans/type-info",
+  "description": "Type info for RimWorld/RimWorldWin64_Data/Managed/Assembly-CSharp.dll about Def",
   "version": "4.0.0-alpha.1",
-  "main": "type-info.json",
-  "types": "type-info.d.ts",
-  "private": true
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf ./types && rimraf ./lib",
+    "build:types": "tsc",
+    "build:babel": "babel ./src -x .ts -d ./lib",
+    "build": "yarn build:types && yarn build:babel",
+    "test": "jest"
+  }
 }
