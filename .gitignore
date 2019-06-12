@@ -255,5 +255,11 @@ paket-files/
 
 # Reflection
 /Reflection/RimWorldWin64_Data
-/*/lib
+/coverage
 /*/coverage
+/dist
+/*/dist
+/lib
+/*/lib
+/types
+/*/types

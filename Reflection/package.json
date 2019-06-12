@@ -1,7 +1,13 @@
 {
-  "name": "@rimtrans/type-info",
+  "name": "@rimtrans/reflection",
+  "description": "A dotnet core command line tool for getting type info in .dll file.",
+  "version": "4.0.0-alpha.1",
   "private": true,
-  "version": "1.0.2282",
-  "main": "type-info.json",
-  "types": "type-info.d.ts"
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "build:win": "dotnet publish --self-contained -c Release -r win-x64 -o ./lib/win",
+    "build:linux": "dotnet publish --self-contained -c Release -r linux-x64 -o ./lib/linux",
+    "build:osx": "dotnet publish --self-contained -c Release -r osx-x64 -o ./lib/osx",
+    "build": "yarn build:win && yarn build:linux && yarn build:osx"
+  }
 }

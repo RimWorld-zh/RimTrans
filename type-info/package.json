@@ -1,0 +1,7 @@
+{
+  "name": "@rimtrans/type-info",
+  "version": "4.0.0-alpha.1",
+  "main": "type-info.json",
+  "types": "type-info.d.ts",
+  "private": true
+}

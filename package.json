@@ -1,6 +1,7 @@
 {
   "name": "rimtrans",
   "description": "RimTrans: a translation tool for RimWorld Core and Mods.",
+  "version": "4.0.0-alpha.1",
   "main": "index.js",
   "repository": "git@github.com:RimWorld-zh/RimTrans.git",
   "author": "duduluu <duduluu@outlook.com>",
@@ -9,6 +10,12 @@
   "workspaces": [
     "*"
   ],
+  "scripts": {
+    "clean": "rimraf ./lib && lerna run clean",
+    "build": "lerna run build",
+    "archive": "yarn ts ./scripts/archive",
+    "ts": "ts-node -r tsconfig-paths/register -P ./scripts/tsconfig.json"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
@@ -18,11 +25,14 @@
     "@huiji/eslint-config-typescript": "^0.1.0",
     "@huiji/shared-utils": "^1.1.0",
     "@types/jest": "^24.0.13",
+    "@types/ncp": "^2.0.1",
     "@types/node": "^12.0.7",
     "@types/rimraf": "^2.0.2",
+    "compressing": "^1.4.0",
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.17.3",
     "jest": "^24.8.0",
+    "ncp": "^2.0.0",
     "rimraf": "^2.6.3",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
@@ -31,5 +41,9 @@
     "tsconfig-paths": "^3.8.0",
     "tslib": "^1.10.0",
     "typescript": "^3.5.1"
+  },
+  "engines": {
+    "node": ">=12.2.0",
+    "yarn": ">=1.16.0"
   }
 }

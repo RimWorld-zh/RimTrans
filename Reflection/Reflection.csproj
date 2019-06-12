@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="lib\**" />
     <Compile Remove="RimWorldWin64_Data\**" />
+    <EmbeddedResource Remove="lib\**" />
     <EmbeddedResource Remove="RimWorldWin64_Data\**" />
+    <None Remove="lib\**" />
     <None Remove="RimWorldWin64_Data\**" />
   </ItemGroup>
 
@@ -18,10 +21,7 @@
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>RimWorldWin64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>References\Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
