@@ -34,7 +34,7 @@ describe('xml', () => {
     const { documentElement: root } = doc;
 
     expect(root.tagName).toBe(tagName);
-    expect(root.outerHTML).toBe(`<${tagName}></${tagName}>`);
+    expect(root.outerHTML).toBe(`<${tagName}/>`);
     expect(Array.from(root.children).length).toBe(0);
 
     root.appendChild(doc.createElement('MockDef'));

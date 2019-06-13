@@ -1,6 +1,5 @@
 import pth from 'path';
-import globby from 'globby';
-import { getFiles } from './io';
+import * as io from './io';
 import * as xml from './xml';
 
 /**
@@ -9,17 +8,19 @@ import * as xml from './xml';
  */
 export async function load(path: string): Promise<Record<string, XMLDocument>> {
   const map: Record<string, XMLDocument> = {};
-  await getFiles(['**/*.xml'], {
-    cwd: path,
-    case: false,
-    onlyFiles: true,
-  }).then(files =>
-    Promise.all(
-      files.map(async file => {
-        map[file] = await xml.load(pth.join(path, file));
-      }),
-    ),
-  );
+  await io
+    .getFiles(['**/*.xml'], {
+      cwd: path,
+      case: false,
+      onlyFiles: true,
+    })
+    .then(files =>
+      Promise.all(
+        files.map(async file => {
+          map[file] = await xml.load(pth.join(path, file));
+        }),
+      ),
+    );
   return map;
 }
 

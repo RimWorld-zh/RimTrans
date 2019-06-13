@@ -1,6 +1,7 @@
 import fs from 'fs';
 import pth from 'path';
 import { genPathResolve } from '@huiji/shared-utils';
+import * as io from './io';
 import * as xml from './xml';
 import {
   load,
@@ -11,7 +12,7 @@ import {
 } from './def';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
-const pathTemp = resolvePath('.tmp');
+
 const pathDefs = resolvePath('Core', 'Defs');
 const defsFileCount = 413;
 
@@ -38,31 +39,15 @@ describe('def', () => {
     // core
     const maps = await Promise.all([load(pathDefs)]).then(resolveInheritance);
     const core = maps[0];
-    await Promise.all(
-      [
-        ...new Set(Object.keys(core).map(path => pth.dirname(resolvePath('.tmp', path)))),
-      ].map(
-        path =>
-          new Promise((resolve, reject) =>
-            fs.exists(path, exists => {
-              if (!exists) {
-                fs.promises
-                  .mkdir(path)
-                  .then(resolve)
-                  .catch(reject);
-              } else {
-                resolve();
-              }
-            }),
-          ),
-      ),
-    );
+    await io.deleteDirectory(resolvePath('.tmp', 'core-inherited-defs'));
     await Promise.all(
       Object.entries(core).map(async ([path, defs]) => {
         const doc = xml.create('Defs');
         defs.forEach(def => doc.documentElement.appendChild(def));
-        const dest = resolvePath('.tmp', path);
-        await fs.promises.writeFile(dest, doc.documentElement.outerHTML);
+        await io.save(
+          resolvePath('.tmp', 'core-inherited-defs', path),
+          doc.documentElement.outerHTML,
+        );
       }),
     );
     expect(Object.keys(core).length).toBe(defsFileCount);
