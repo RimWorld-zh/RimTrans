@@ -10,4 +10,7 @@ module.exports = {
     ],
     '@babel/preset-typescript',
   ],
+  sourceMaps: true,
+  include: ['./src/**/*.ts'],
+  ignore: process.env.NODE_ENV === 'test' ? undefined : ['./src/**/*.test.ts'],
 };
