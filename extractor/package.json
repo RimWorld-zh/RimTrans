@@ -10,7 +10,7 @@
     "build:types": "tsc",
     "build:babel": "babel ./src -x .ts -d ./lib",
     "build": "yarn build:types && yarn build:babel",
-    "test": "jest"
+    "test": "jest --setupTestFrameworkScriptFile=./jest.setup.js"
   },
   "dependencies": {
     "@rimtrans/rimworld-core": "1.0.2282",
