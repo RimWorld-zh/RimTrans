@@ -19,16 +19,23 @@ describe('io', () => {
     const file = pth.join(__dirname, '.tmp', 'mock', 'mock.txt');
     const content = 'mocking bird';
 
-    await io.deleteDirectory(dir);
+    await io.deleteFileOrDirectory(dir);
 
     await io.createDirectory(subDir);
     expect(await io.directoryExists(subDir)).toBe(true);
-    await io.deleteDirectory(dir);
+
+    await io.deleteFileOrDirectory(dir);
     expect(await io.directoryExists(subDir)).toBe(false);
 
     await io.save(file, content);
     expect(await fs.promises.readFile(file, 'utf-8')).toBe(content);
 
-    io.deleteDirectory(dir);
+    await io.deleteFileOrDirectory(file);
+    expect(await io.fileExists(file)).toBe(false);
+
+    await io.save(file, content);
+    expect(await fs.promises.readFile(file, 'utf-8')).toBe(content);
+
+    await io.deleteFileOrDirectory(dir);
   });
 });

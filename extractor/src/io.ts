@@ -62,19 +62,13 @@ export async function createDirectory(path: string): Promise<void> {
 }
 
 /**
- * Delete a directory.
- * @param path the path to the directory
+ * Delete a file or a directory.
+ * @param path the path to the file or the directory
  */
-export async function deleteDirectory(path: string): Promise<void> {
-  return new Promise<void>((resolve, reject) =>
-    rimraf(path, { maxBusyTries: 3 }, error => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(error);
-      }
-    }),
-  );
+export async function deleteFileOrDirectory(path: string): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
+    rimraf(path, fs, error => resolve());
+  });
 }
 
 /**

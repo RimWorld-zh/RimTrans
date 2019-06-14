@@ -39,7 +39,7 @@ describe('def', () => {
     // core
     const maps = await Promise.all([load(pathDefs)]).then(resolveInheritance);
     const core = maps[0];
-    await io.deleteDirectory(resolvePath('.tmp', 'core-inherited-defs'));
+    await io.deleteFileOrDirectory(resolvePath('.tmp', 'core-inherited-defs'));
     await Promise.all(
       Object.entries(core).map(async ([path, defs]) => {
         const doc = xml.create('Defs');
