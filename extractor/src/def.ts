@@ -149,10 +149,10 @@ export function resolveXmlNodeFor(node: InheritanceNode): void {
       'Tried to resolve node whose parent has not been resolved yet. This means that this method was called in incorrect order.',
     );
   }
-  const current = (node.def.ownerDocument as Document).importNode(
-    node.parent.resolvedDef,
-    true,
-  );
+  const current =
+    node.def.ownerDocument === node.parent.resolvedDef.ownerDocument
+      ? (node.parent.resolvedDef.cloneNode(true) as Element)
+      : (node.def.ownerDocument as Document).importNode(node.parent.resolvedDef, true);
   recursiveNodeCopyOverwriteElements(node.def, current);
   node.resolvedDef = current;
 }
