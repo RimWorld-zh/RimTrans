@@ -251,10 +251,7 @@ paket-files/
 .idea/
 *.sln.iml
 
-### Projects
-
-# Reflection
-/Reflection/RimWorldWin64_Data
+# Projects
 /coverage
 /*/coverage
 /dist

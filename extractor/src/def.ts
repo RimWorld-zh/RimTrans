@@ -2,6 +2,8 @@ import pth from 'path';
 import * as io from './io';
 import * as xml from './xml';
 
+xml.mountDomPrototype();
+
 /**
  * Load all Defs file from a directory.
  * @param path the path to the `Defs` directory.
@@ -165,62 +167,32 @@ export function recursiveNodeCopyOverwriteElements(
     inheritAttribute.value &&
     inheritAttribute.value.toLowerCase() === 'false'
   ) {
-    Array.from(current.childNodes).forEach(c => current.removeChild(c));
-    Array.from(child.childNodes).forEach(c => current.appendChild(c));
+    current.removeAllChildNodes();
+    current.appendChildrenClone(child.childNodes);
   } else {
-    Array(current.attributes.length)
-      .fill(0)
-      .map((v, i) => current.attributes.item(i) as Attr)
-      .forEach(attr => current.attributes.removeNamedItem(attr.name));
-    Array(child.attributes.length)
-      .fill(0)
-      .forEach((v, i) => {
-        const childAttribute = child.attributes.item(i) as Attr;
-        const currentAttribute = (current.ownerDocument as Document).createAttribute(
-          childAttribute.name,
-        );
-        currentAttribute.value = childAttribute.value;
-        current.attributes.setNamedItem(currentAttribute);
-      });
+    current.removeAllAttributes();
+    Array.from(child.attributes).forEach(attr =>
+      current.setAttribute(attr.name, attr.value),
+    );
 
-    const list: Element[] = [];
-    let textNode: Node | undefined;
-    Array.from(child.childNodes).forEach(node => {
-      switch (node.nodeType) {
-        case node.TEXT_NODE:
-          textNode = node;
-          break;
-        case node.ELEMENT_NODE:
-          list.push(node as Element);
-          break;
-        default:
-      }
-    });
+    const childValue = child.value.trim();
 
-    if (textNode && textNode.nodeValue && textNode.nodeValue.trim()) {
-      // Remove all current nodes
-      Array.from(current.childNodes).forEach(c => current.removeChild(c));
-      current.appendChild((current.ownerDocument as Document).importNode(textNode, true));
-    } else if (list.length === 0) {
+    if (childValue) {
+      current.value = childValue;
+    } else if (child.children.length === 0) {
       if (current.children.length > 0) {
-        Array.from(current.childNodes).forEach(c => current.removeChild(c));
+        current.removeAllChildNodes();
       }
     } else {
-      list.forEach(elChild => {
+      child.elements().forEach(elChild => {
         if (elChild.tagName === 'li') {
-          current.appendChild(
-            (current.ownerDocument as Document).importNode(elChild, true),
-          );
+          current.appendChildClone(elChild);
         } else {
-          const elCurrent = Array.from(current.children).find(
-            el => el.tagName === elChild.tagName,
-          );
+          const elCurrent = current.element(elChild.tagName);
           if (elCurrent) {
             recursiveNodeCopyOverwriteElements(elChild, elCurrent);
           } else {
-            current.appendChild(
-              (current.ownerDocument as Document).importNode(elChild, true),
-            );
+            current.appendChildClone(elChild);
           }
         }
       });
