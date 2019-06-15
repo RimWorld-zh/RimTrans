@@ -1,7 +1,7 @@
 import fs from 'fs';
 import pth from 'path';
 import { genPathResolve } from '@huiji/shared-utils';
-import * as io from './io';
+import * as io from '@rimtrans/io';
 import * as xml from './xml';
 import {
   load,

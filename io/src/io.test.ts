@@ -28,14 +28,19 @@ describe('io', () => {
     expect(await io.directoryExists(subDir)).toBe(false);
 
     await io.save(file, content);
-    expect(await fs.promises.readFile(file, 'utf-8')).toBe(content);
+    expect(await io.read(file)).toBe(content);
 
     await io.deleteFileOrDirectory(file);
     expect(await io.fileExists(file)).toBe(false);
 
     await io.save(file, content);
-    expect(await fs.promises.readFile(file, 'utf-8')).toBe(content);
+    expect(await io.read(file)).toBe(content);
 
     await io.deleteFileOrDirectory(dir);
+
+    const typePackage = await io.load(
+      pth.join(__dirname, '..', '..', 'Reflection', 'type-info.json'),
+    );
+    expect(typePackage.classes.length).toBeGreaterThan(0);
   });
 });

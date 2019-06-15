@@ -1,5 +1,5 @@
 import pth from 'path';
-import * as io from './io';
+import * as io from '@rimtrans/io';
 import * as xml from './xml';
 
 xml.mountDomPrototype();

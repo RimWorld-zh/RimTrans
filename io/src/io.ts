@@ -83,3 +83,21 @@ export async function save(path: string, content: string): Promise<void> {
   }
   return fs.promises.writeFile(path, content);
 }
+
+/**
+ * Read a text file.
+ * @param path the path to the file
+ */
+export async function read(path: string): Promise<string> {
+  return fs.promises.readFile(path, 'utf-8');
+}
+
+/**
+ * Load a json file.
+ * @param path the path to the file
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function load<T = any>(path: string): Promise<T> {
+  const content = await fs.promises.readFile(path, 'utf-8');
+  return JSON.parse(content);
+}
