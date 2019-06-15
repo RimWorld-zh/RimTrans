@@ -72,17 +72,7 @@ namespace RimTrans.Reflection {
       this.fields = type
         .GetFields(
           BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly
-        )
-        .Where(fi => {
-          if (fi.GetCustomAttribute<Verse.UnsavedAttribute>() != null) {
-            return false;
-          }
-          if (fi.GetCustomAttribute<NonSerializedAttribute>() != null) {
-            return false;
-          }
-
-          return true;
-        }).Select(fi => new FieldInfo(fi)).ToList();
+        ).Select(fi => new FieldInfo(fi)).ToList();
     }
   }
 
@@ -121,13 +111,13 @@ namespace RimTrans.Reflection {
 
   class FieldInfo {
     public string name;
-    public bool mustTranslate;
+    public List<string> attributes;
     public TypeInfo type;
 
 
     public FieldInfo(System.Reflection.FieldInfo fi) {
       this.name = fi.Name;
-      this.mustTranslate = fi.FieldType.GetCustomAttribute<Verse.MustTranslateAttribute>() != null;
+      this.attributes = fi.GetCustomAttributes().Select(attr => attr.GetType().Name.Replace("Attribute", "")).ToList();
       this.type = new TypeInfo(fi.FieldType);
     }
   }
