@@ -70,10 +70,10 @@ export function resolveInheritance(
             children: [],
           };
           allNodes.push(node);
-          const nameAttribute = def.attributes.getNamedItem(ATTRIBUTE_NAME_NAME);
+          const name = def.getAttribute(ATTRIBUTE_NAME_NAME);
           const subMap = parentMap[def.tagName] || (parentMap[def.tagName] = {});
-          if (nameAttribute && nameAttribute.value && !subMap[nameAttribute.value]) {
-            subMap[nameAttribute.value] = node;
+          if (name) {
+            subMap[name] = node;
           }
         });
       });
@@ -161,12 +161,8 @@ export function recursiveNodeCopyOverwriteElements(
   child: Element,
   current: Element,
 ): void {
-  const inheritAttribute = child.attributes.getNamedItem(ATTRIBUTE_NAME_INHERIT);
-  if (
-    inheritAttribute &&
-    inheritAttribute.value &&
-    inheritAttribute.value.toLowerCase() === 'false'
-  ) {
+  const inherit = child.getAttribute(ATTRIBUTE_NAME_INHERIT);
+  if (inherit && inherit.toLowerCase() === 'false') {
     current.removeAllChildNodes();
     current.appendChildrenClone(child.childNodes);
   } else {
