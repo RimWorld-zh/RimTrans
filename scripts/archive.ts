@@ -9,7 +9,7 @@ const resolvePath = genPathResolve(__dirname, '..');
 const platforms = ['win', 'linux', 'osx'];
 const { npm_package_version: version } = process.env;
 
-async function copyDir(src: string, dest: string): Promise<void> {
+async function copy(src: string, dest: string): Promise<void> {
   return new Promise<void>((resolve, reject) =>
     ncp(src, dest, error => (error ? reject(error) : resolve())),
   );
@@ -17,22 +17,29 @@ async function copyDir(src: string, dest: string): Promise<void> {
 
 const LIB = 'lib';
 const EXECUTABLE = 'executable';
+const CORE = 'Core';
 const REFLECTION = 'Reflection';
+const TYPE_INFO = 'type-info.json';
 
 async function archive(): Promise<void> {
   for (const platform of platforms) {
     const folder = `rimtrans-v${version}-${platform}`;
     await fs.promises.mkdir(resolvePath(LIB, folder), { recursive: true });
 
-    // copy executable
-    await copyDir(resolvePath(EXECUTABLE, LIB, platform), resolvePath(LIB, folder));
-    // copy reflection
-    await copyDir(
+    // Copy executable
+    await copy(resolvePath(EXECUTABLE, LIB, platform), resolvePath(LIB, folder));
+
+    // Copy Core
+    await copy(resolvePath(CORE), resolvePath(LIB, folder, CORE));
+    // Copy Reflection
+    await copy(
       resolvePath(REFLECTION, LIB, platform),
       resolvePath(LIB, folder, REFLECTION),
     );
+    // Copy type-info.json
+    await copy(resolvePath(REFLECTION, TYPE_INFO), resolvePath(LIB, folder, TYPE_INFO));
 
-    // compress
+    // Compress
     if (platform === 'win') {
       await compressing.zip.compressDir(
         resolvePath(LIB, folder),

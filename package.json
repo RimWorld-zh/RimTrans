@@ -11,9 +11,9 @@
     "*"
   ],
   "scripts": {
-    "clean": "rimraf ./lib && lerna run clean",
+    "clean": "lerna run clean",
     "build": "lerna run build",
-    "archive": "yarn ts ./scripts/archive",
+    "archive": "rimraf ./lib && yarn ts ./scripts/archive",
     "test": "lerna run test",
     "ts": "ts-node -r tsconfig-paths/register -P ./scripts/tsconfig.json"
   },
