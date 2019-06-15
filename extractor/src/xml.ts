@@ -46,7 +46,7 @@ declare global {
     /**
      * Get or set the text value of the element.
      */
-    value: string;
+    elementValue: string;
 
     /**
      * Remove all attributes of the element, and return the element itself.
@@ -77,16 +77,16 @@ declare global {
     removeAllChildNodes(): this;
 
     /**
-     * Gets the first child element with the specified name.
+     * Get the first child element with the specified name.
      * @param name the name to match
      */
-    element(name?: string): Element | undefined;
+    getElement(name?: string): Element | undefined;
 
     /**
-     * Gets the child elements with the specified name.
+     * Get the child elements with the specified name.
      * @param name the name to match
      */
-    elements(name?: string): Element[];
+    getElements(name?: string): Element[];
   }
 }
 
@@ -108,7 +108,7 @@ export function mountDomPrototype(): void {
     value: true,
   });
 
-  Object.defineProperty(g.Element.prototype, 'value', {
+  Object.defineProperty(g.Element.prototype, 'elementValue', {
     configurable: false,
     enumerable: false,
     get(this: Element) {
@@ -202,7 +202,7 @@ export function mountDomPrototype(): void {
     },
   });
 
-  Object.defineProperty(g.Element.prototype, 'element', {
+  Object.defineProperty(g.Element.prototype, 'getElement', {
     configurable: false,
     enumerable: false,
     writable: false,
@@ -213,7 +213,7 @@ export function mountDomPrototype(): void {
     },
   });
 
-  Object.defineProperty(g.Element.prototype, 'elements', {
+  Object.defineProperty(g.Element.prototype, 'getElements', {
     configurable: false,
     enumerable: false,
     writable: false,

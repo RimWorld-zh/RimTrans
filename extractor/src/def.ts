@@ -175,20 +175,20 @@ export function recursiveNodeCopyOverwriteElements(
       current.setAttribute(attr.name, attr.value),
     );
 
-    const childValue = child.value.trim();
+    const childValue = child.elementValue.trim();
 
     if (childValue) {
-      current.value = childValue;
+      current.elementValue = childValue;
     } else if (child.children.length === 0) {
       if (current.children.length > 0) {
         current.removeAllChildNodes();
       }
     } else {
-      child.elements().forEach(elChild => {
+      child.getElements().forEach(elChild => {
         if (elChild.tagName === 'li') {
           current.appendChildClone(elChild);
         } else {
-          const elCurrent = current.element(elChild.tagName);
+          const elCurrent = current.getElement(elChild.tagName);
           if (elCurrent) {
             recursiveNodeCopyOverwriteElements(elChild, elCurrent);
           } else {

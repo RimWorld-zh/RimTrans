@@ -67,21 +67,21 @@ describe('xml', () => {
     );
     const [def0, def1] = Array.from(doc.documentElement.children);
 
-    expect(def0.value).toBe('MockValue');
+    expect(def0.elementValue).toBe('MockValue');
 
-    def0.value = 'MockingBird';
-    expect(def0.value).toBe('MockingBird');
+    def0.elementValue = 'MockingBird';
+    expect(def0.elementValue).toBe('MockingBird');
 
     def0.removeAllChildNodes();
-    expect(def0.value).toBe('');
+    expect(def0.elementValue).toBe('');
 
-    def0.value = 'MockingBird';
-    expect(def0.value).toBe('MockingBird');
+    def0.elementValue = 'MockingBird';
+    expect(def0.elementValue).toBe('MockingBird');
 
-    expect(def1.value).toBe(' ');
+    expect(def1.elementValue).toBe(' ');
 
-    def1.value = 'MockingBird';
-    expect(def1.value).toBe('MockingBird');
+    def1.elementValue = 'MockingBird';
+    expect(def1.elementValue).toBe('MockingBird');
   });
 
   test('prototype appendChildClone', () => {
@@ -147,22 +147,22 @@ describe('xml', () => {
       '<Defs><MockDef0></MockDef0><MockDef1></MockDef1></Defs>',
     );
     {
-      const first = root.element();
+      const first = root.getElement();
       expect(first.tagName).toBe('MockDef0');
       expect(first).toBe(root.children[0]);
     }
     {
-      const def0 = root.element('MockDef0');
+      const def0 = root.getElement('MockDef0');
       expect(def0.tagName).toBe('MockDef0');
       expect(def0).toBe(root.children[0]);
     }
     {
-      const def1 = root.element('MockDef1');
+      const def1 = root.getElement('MockDef1');
       expect(def1.tagName).toBe('MockDef1');
       expect(def1).toBe(root.children[1]);
     }
     {
-      const elements = root.elements();
+      const elements = root.getElements();
       expect(elements.length).toBe(2);
       expect(elements[0].tagName).toBe('MockDef0');
       expect(elements[0]).toBe(root.children[0]);
@@ -170,13 +170,13 @@ describe('xml', () => {
       expect(elements[1]).toBe(root.children[1]);
     }
     {
-      const elements = root.elements('MockDef0');
+      const elements = root.getElements('MockDef0');
       expect(elements.length).toBe(1);
       expect(elements[0].tagName).toBe('MockDef0');
       expect(elements[0]).toBe(root.children[0]);
     }
     {
-      const elements = root.elements('MockDef1');
+      const elements = root.getElements('MockDef1');
       expect(elements.length).toBe(1);
       expect(elements[0].tagName).toBe('MockDef1');
       expect(elements[0]).toBe(root.children[1]);
