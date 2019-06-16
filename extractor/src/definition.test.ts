@@ -4,22 +4,27 @@ import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
 import * as xml from './xml';
 import {
+  DefDocumentMap,
   load,
   resolveInheritance,
   resolveInheritanceNodeRecursively,
   resolveXmlNodeFor,
   recursiveNodeCopyOverwriteElements,
-} from './def';
+} from './definition';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
 
-const pathDefs = resolvePath('Core', 'Defs');
+const paths = [resolvePath('Core', 'Defs'), resolvePath('Mock', 'Defs')];
 const defsFileCount = 413;
 
 describe('def', () => {
+  let defMaps: DefDocumentMap[];
+  beforeAll(async () => {
+    defMaps = await load(paths);
+  });
+
   test('load', async () => {
-    const map = await load(pathDefs);
-    expect(Object.keys(map).length).toBe(defsFileCount);
+    expect(Object.keys(defMaps[0]).length).toBe(defsFileCount);
   });
 
   test('resolveInheritance', async () => {
@@ -37,15 +42,13 @@ describe('def', () => {
     ]);
 
     // core
-    const maps = await Promise.all([load(pathDefs)]).then(resolveInheritance);
+    const maps = await resolveInheritance(defMaps);
     const core = maps[0];
     await io.deleteFileOrDirectory(resolvePath('.tmp', 'core-inherited-defs'));
     await Promise.all(
-      Object.entries(core).map(async ([path, defs]) => {
-        const doc = xml.create('Defs');
-        defs.forEach(def => doc.documentElement.appendChild(def));
+      Object.entries(core).map(async ([path, doc]) => {
         await io.save(
-          resolvePath('.tmp', 'core-inherited-defs', path),
+          resolvePath('.tmp', 'CoreInherited', path),
           doc.documentElement.outerHTML,
         );
       }),

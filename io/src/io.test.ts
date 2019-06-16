@@ -25,9 +25,13 @@ describe('io', () => {
   test('exists', async () => {
     expect(await io.fileExists(__filename)).toBe(true);
     expect(await io.fileExists(`${__filename}.mock`)).toBe(false);
+    expect(await io.fileExists(pth.join(__dirname, 'mock', 'mock', 'mock.txt'))).toBe(
+      false,
+    );
 
     expect(await io.directoryExists(__dirname)).toBe(true);
     expect(await io.directoryExists(pth.join(__dirname, 'mock'))).toBe(false);
+    expect(await io.directoryExists(pth.join(__dirname, 'mock', 'mock'))).toBe(false);
   });
 
   test('several', async () => {

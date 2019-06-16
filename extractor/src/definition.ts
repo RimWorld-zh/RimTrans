@@ -4,26 +4,41 @@ import * as xml from './xml';
 
 xml.mountDomPrototype();
 
+export interface DefDocumentMap {
+  [path: string]: XMLDocument;
+}
+
+// ----------------------------------------------------------------
+// Loading
+
 /**
- * Load all Defs file from a directory.
- * @param path the path to the `Defs` directory.
+ * Load all Defs file from a directory and get array of `DefDocumentMap`.
+ * @param paths the array of paths to Def directories, order: `[core, ...mods]`.
  */
-export async function load(path: string): Promise<Record<string, XMLDocument>> {
-  const map: Record<string, XMLDocument> = {};
-  await io
-    .getFiles(['**/*.xml'], {
-      cwd: path,
-      case: false,
-      onlyFiles: true,
-    })
-    .then(files =>
-      Promise.all(
-        files.map(async file => {
-          map[file] = await xml.load(pth.join(path, file));
-        }),
-      ),
-    );
-  return map;
+export async function load(paths: string[]): Promise<DefDocumentMap[]> {
+  return Promise.all(
+    paths.map(async path => {
+      const map: Record<string, XMLDocument> = {};
+      if (!(await io.directoryExists(path))) {
+        return map;
+      }
+
+      await io
+        .search(['**/*.xml'], {
+          cwd: path,
+          case: false,
+          onlyFiles: true,
+        })
+        .then(files =>
+          Promise.all(
+            files.map(async file => {
+              map[file] = await xml.load(pth.join(path, file));
+            }),
+          ),
+        );
+      return map;
+    }),
+  );
 }
 
 // ----------------------------------------------------------------
@@ -43,11 +58,9 @@ interface InheritanceNode {
 
 /**
  * Resolve the Defs inheritance.
- * @param maps the array of `DefDocumentMap`, `[current, ...dependencies, core]`.
+ * @param maps the array of `DefDocumentMap`, order: `[core, ...mods]`.
  */
-export function resolveInheritance(
-  maps: Record<string, XMLDocument>[],
-): Record<string, Element[]>[] {
+export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
   if (maps.length < 1) {
     throw new Error(`The argument 'maps' is a empty array.`);
   }
@@ -79,6 +92,9 @@ export function resolveInheritance(
       });
     parentMaps.push(parentMap);
   });
+
+  // Reverse parent map
+  parentMaps.reverse();
 
   const getParent = (
     node: InheritanceNode,
@@ -115,20 +131,13 @@ export function resolveInheritance(
     .filter(node => !node.parent)
     .forEach(node => resolveInheritanceNodeRecursively(node));
 
-  return maps.map((m, i) => {
-    const map: Record<string, Element[]> = {};
-
-    // TODO detect undefined
-    Object.entries(m).forEach(([path, doc]) => {
-      map[path] = Array.from(doc.documentElement.children)
-        .map(def => allNodes.find(n => n.def === def))
-        .filter((node): node is InheritanceNode => !!node)
-        .map(node => node.resolvedDef)
-        .filter((def): def is Element => !!def);
-    });
-
-    return map;
+  allNodes.forEach(node => {
+    if (node.def !== node.resolvedDef) {
+      node.def.replaceWith(node.resolvedDef as Element);
+    }
   });
+
+  return maps;
 }
 
 export function resolveInheritanceNodeRecursively(node: InheritanceNode): void {
