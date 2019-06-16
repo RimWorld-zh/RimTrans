@@ -11,13 +11,21 @@ describe('io', () => {
   });
 
   test('search', async () => {
-    const files = await io.search(['*.ts'], { cwd: __dirname });
-    expect(files.includes('io.ts')).toBe(true);
+    expect(
+      await io
+        .search(['*.ts'], { cwd: __dirname })
+        .then(files => files.includes('io.ts') && files.includes('io.test.ts')),
+    ).toBe(true);
+
+    expect(
+      io.search(['*.ts'], { cwd: pth.join(__dirname, 'mock') }),
+    ).rejects.toThrowError(/ENOENT/);
   });
 
   test('exists', async () => {
     expect(await io.fileExists(__filename)).toBe(true);
     expect(await io.fileExists(`${__filename}.mock`)).toBe(false);
+
     expect(await io.directoryExists(__dirname)).toBe(true);
     expect(await io.directoryExists(pth.join(__dirname, 'mock'))).toBe(false);
   });
