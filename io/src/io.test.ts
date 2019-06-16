@@ -3,14 +3,23 @@ import pth from 'path';
 import * as io from './io';
 
 describe('io', () => {
-  test('getFiles', async () => {
-    const files = await io.getFiles(['*.ts'], { cwd: __dirname });
+  test('basic', () => {
+    expect(io.directoryName('/a/b/c/d/e')).toBe('/a/b/c/d');
+    expect(io.fileName('/a/b/c.d')).toBe('c');
+    expect(io.fileName('/a/b/c.d', false)).toBe('c.d');
+    expect(io.extensionName('/a/b/c.d')).toBe('.d');
+  });
+
+  test('search', async () => {
+    const files = await io.search(['*.ts'], { cwd: __dirname });
     expect(files.includes('io.ts')).toBe(true);
   });
 
-  test('fileExists', async () => {
+  test('exists', async () => {
     expect(await io.fileExists(__filename)).toBe(true);
     expect(await io.fileExists(`${__filename}.mock`)).toBe(false);
+    expect(await io.directoryExists(__dirname)).toBe(true);
+    expect(await io.directoryExists(pth.join(__dirname, 'mock'))).toBe(false);
   });
 
   test('several', async () => {

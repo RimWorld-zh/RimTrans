@@ -4,11 +4,37 @@ import globby, { GlobbyOptions } from 'globby';
 import rimraf from 'rimraf';
 
 /**
- * Get files by glob patterns
+ * Get the directory of the file.
+ * @param path the path
+ */
+export function directoryName(path: string): string {
+  return pth.dirname(path);
+}
+
+/**
+ * Get the file name in the path
+ * @param path the path
+ * @param removeExt remove extension name or not, default `true`
+ */
+export function fileName(path: string, removeExt: boolean = true): string {
+  const ext = removeExt ? pth.extname(path) : undefined;
+  return pth.basename(path, ext);
+}
+
+/**
+ * Get the extension name of the path
+ * @param path the path
+ */
+export function extensionName(path: string): string {
+  return pth.extname(path);
+}
+
+/**
+ * Search files or directories by glob patterns
  * @param patterns the glob patterns
  * @param options the globby options
  */
-export async function getFiles(
+export async function search(
   patterns: string[],
   options?: GlobbyOptions,
 ): Promise<string[]> {

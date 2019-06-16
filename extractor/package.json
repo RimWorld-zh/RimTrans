@@ -13,7 +13,7 @@
     "test": "jest --setupTestFrameworkScriptFile=./jest.setup.js"
   },
   "dependencies": {
-    "@rimtrans/io": "0.1.0",
+    "@rimtrans/io": "0.2.0",
     "@types/jsdom": "^12.2.3",
     "jsdom": "^15.1.1"
   }
