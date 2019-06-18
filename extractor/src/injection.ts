@@ -11,6 +11,7 @@ import {
   ATTRIBUTE_NO_TRANSLATE,
   ATTRIBUTE_MUST_TRANSLATE,
   ATTRIBUTE_MAY_TRANSLATE,
+  ATTRIBUTE_LOAD_ALIAS,
   ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
   TYPE_STRING,
 } from './type-package';
@@ -18,8 +19,10 @@ import {
 xml.mountDomPrototype();
 
 // CONSTANTS
+const FIELD_NAME_DEF_NAME = 'defName';
 const TAG_NAME_LI = 'li';
 const ATTRIBUTE_NAME_CLASS = 'Class';
+const TEXT_EN = 'EN:';
 const TEXT_TODO = 'TODO';
 
 /**
@@ -32,6 +35,7 @@ export interface Injection {
   origin: string | string[];
   translation: string | string[];
   duplicated?: boolean;
+  indefinite?: boolean;
 }
 
 export interface InjectionMap {
@@ -86,8 +90,8 @@ export async function load(paths: string[]): Promise<any> {
                       switch (node.nodeType) {
                         case node.COMMENT_NODE:
                           origin = (node.nodeValue || '').trim();
-                          if (origin.startsWith('EN:')) {
-                            origin = origin.replace('EN:', '').trim();
+                          if (origin.startsWith(TEXT_EN)) {
+                            origin = origin.replace(TEXT_EN, '').trim();
                           } else {
                             injections.push(origin);
                             origin = '';
@@ -194,7 +198,7 @@ export function generateParseDef(
   parseField: ParseField,
 ): ParseDef {
   return (injections, def) => {
-    const defNameElement = def.getElement('defName');
+    const defNameElement = def.getElement(FIELD_NAME_DEF_NAME);
     const defName =
       defNameElement && defNameElement.elementValue && defNameElement.elementValue.trim();
     const classInfo: ClassInfo | undefined =
@@ -205,13 +209,14 @@ export function generateParseDef(
     }
 
     classInfo.fields.forEach(fieldInfo => {
-      parseField(
-        [defName],
-        injections,
-        fieldInfo.type,
-        fieldInfo,
-        def.getElement(fieldInfo.name),
-      );
+      if (fieldInfo.name === FIELD_NAME_DEF_NAME) {
+        return;
+      }
+      let element = def.getElement(fieldInfo.name);
+      if (!element && fieldInfo.alias) {
+        element = def.getElement(fieldInfo.alias);
+      }
+      parseField([defName], injections, fieldInfo.type, fieldInfo, element);
     });
   };
 }
@@ -255,19 +260,24 @@ function generateParseField(
   ) => {
     const { of: typeInfoOf } = typeInfo;
 
-    // skip
-    if (
-      fieldInfo &&
+    const noTranslate =
+      !!fieldInfo &&
       (fieldInfo.attributes.includes(ATTRIBUTE_UNSAVED) ||
-        fieldInfo.attributes.includes(ATTRIBUTE_NO_TRANSLATE))
-    ) {
+        fieldInfo.attributes.includes(ATTRIBUTE_NO_TRANSLATE));
+    const mustTranslate =
+      fieldInfo &&
+      (fieldInfo.attributes.includes(ATTRIBUTE_MUST_TRANSLATE) ||
+        fieldInfo.attributes.includes(ATTRIBUTE_MAY_TRANSLATE));
+
+    // skip
+    if (noTranslate) {
       return;
     }
 
     // List<string>
     if (
       fieldInfo &&
-      fieldInfo.attributes.includes(ATTRIBUTE_MUST_TRANSLATE) &&
+      mustTranslate &&
       fieldInfo.attributes.includes(ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT) &&
       typeInfo.category === 'LIST' &&
       typeInfoOf &&
@@ -293,8 +303,7 @@ function generateParseField(
     // String
     if (
       fieldInfo &&
-      (fieldInfo.attributes.includes(ATTRIBUTE_MUST_TRANSLATE) ||
-        fieldInfo.attributes.includes(ATTRIBUTE_MAY_TRANSLATE)) &&
+      mustTranslate &&
       typeInfo.category === 'VALUE' &&
       typeInfo.name === TYPE_STRING
     ) {
@@ -308,6 +317,7 @@ function generateParseField(
       return;
     }
 
+    // List
     if (typeInfo.category === 'LIST' && typeInfoOf && element) {
       path.push((fieldInfo && fieldInfo.name) || pathNode);
       const list = element.getElements();
@@ -319,6 +329,7 @@ function generateParseField(
       return;
     }
 
+    // Class
     if (typeInfo.category === 'CLASS' && element) {
       const attributeClass = element.getAttribute(ATTRIBUTE_NAME_CLASS);
       const classInfo: ClassInfo | undefined =
@@ -326,16 +337,33 @@ function generateParseField(
       if (classInfo) {
         path.push((fieldInfo && fieldInfo.name) || pathNode);
         classInfo.fields.forEach(subFieldInfo => {
-          parseField(
-            path,
-            injections,
-            subFieldInfo.type,
-            subFieldInfo,
-            element.getElement(subFieldInfo.name),
-          );
+          let subElement = element.getElement(subFieldInfo.name);
+          if (!subElement && subFieldInfo.alias) {
+            subElement = element.getElement(subFieldInfo.alias);
+          }
+          parseField(path, injections, subFieldInfo.type, subFieldInfo, subElement);
         });
         path.pop();
       }
+      return;
+    }
+
+    // DEBUG
+    if (
+      process.env.NODE_ENV === 'test' &&
+      fieldInfo &&
+      !noTranslate &&
+      typeInfo.category === 'VALUE' &&
+      typeInfo.name === TYPE_STRING
+    ) {
+      const currentPath = [...path, fieldInfo.name];
+      const origin = (element && getTextValue(element)) || '';
+      injections.push({
+        path: currentPath,
+        origin,
+        translation: TEXT_TODO,
+        indefinite: true,
+      });
       return;
     }
   };

@@ -1,17 +1,21 @@
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
-import { load } from './type-package';
+import { ClassInfo, FieldInfo, ATTRIBUTE_MUST_TRANSLATE, load } from './type-package';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
 const paths = [
   resolvePath('Reflection', 'type-package.json'),
+  resolvePath('Reflection', 'type-package-fix.json'),
   resolvePath('Mock', 'Assemblies'),
 ];
 
 describe('type-package', () => {
-  test('load', async () => {
-    const map = await load(paths);
+  let map: Record<string, ClassInfo>;
+  beforeAll(async () => {
+    map = await load(paths);
+  });
 
+  test('load', async () => {
     expect(map.Def).toBeTruthy();
     expect(map.Def.name).toBe('Def');
 
@@ -30,5 +34,11 @@ describe('type-package', () => {
     map.BuildableDef.fields.forEach(f => {
       expect(map.ThingDef.fields.includes(f)).toBe(true);
     });
+
+    map.FactionDef.fields
+      .filter(fi => fi.name === 'leaderTitle')
+      .forEach(fieldInfo =>
+        expect(fieldInfo.attributes.includes(ATTRIBUTE_MUST_TRANSLATE)).toBe(true),
+      );
   });
 });

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RimTrans.Reflection {
   class ClassInfo {
-    public static readonly List<Type> classes = new List<Type>();
+    public static readonly List<Type> classTypes = new List<Type>();
     public static readonly List<ClassInfo> classesOf = new List<ClassInfo>();
     public static readonly Type TYPE_DEF = typeof(Verse.Def);
 
@@ -19,7 +19,7 @@ namespace RimTrans.Reflection {
           .Where(t => t.IsSubclassOf(TYPE_DEF))
           .Select(t => new ClassInfo(t))
       );
-      classes.AddRange(classesOf.Select(ci => ci.type));
+      classTypes.AddRange(classesOf.Select(ci => ci.type));
       classesOf.AddRange(defs);
       foreach (var ci in defs) {
         foreach (var fi in ci.fields) {
@@ -30,27 +30,31 @@ namespace RimTrans.Reflection {
 
     public static void CrawlFieldType(TypeInfo ti) {
       if (ti.category == TypeInfo.CATEGORY_CLASS) {
-        if (!classes.Contains(ti.type) && ti.type.Assembly == TYPE_DEF.Assembly) {
-          classes.Add(ti.type);
-          classesOf.Add(new ClassInfo(ti.type));
-          foreach (var subClass in TYPE_DEF.Assembly.GetTypes().Where(t => t.IsSubclassOf(ti.type))) {
-            if (!classes.Contains(subClass)) {
-              var subClassInfo = new ClassInfo(subClass);
-              classes.Add(subClass);
-              classesOf.Add(subClassInfo);
-              foreach (var fi in subClassInfo.fields) {
-                CrawlFieldType(fi.type);
-              }
+        if (!classTypes.Contains(ti.type) && ti.type.Assembly == TYPE_DEF.Assembly) {
+          var classInfos = new List<ClassInfo> { new ClassInfo(ti.type) };
+          classInfos.AddRange(
+            TYPE_DEF.Assembly
+              .GetTypes()
+              .Where(t => !classTypes.Contains(t) && t.IsSubclassOf(ti.type))
+              .Select(t => new ClassInfo(t))
+            );
+          foreach (var classInfo in classInfos) {
+            classTypes.Add(classInfo.type);
+            classesOf.Add(classInfo);
+            foreach (var fi in classInfo.fields) {
+              CrawlFieldType(fi.type);
             }
           }
         }
-      } else if (ti.category == TypeInfo.CATEGORY_LIST || ti.category == TypeInfo.CATEGORY_DICT) {
-        CrawlFieldType(ti.of);
       } else if (ti.category == TypeInfo.CATEGORY_ENUM) {
-        if (!EnumInfo.enums.Contains(ti.type)) {
-          EnumInfo.enums.Add(ti.type);
+        if (!EnumInfo.enumTypes.Contains(ti.type)) {
+          EnumInfo.enumTypes.Add(ti.type);
           EnumInfo.enumsOf.Add(new EnumInfo(ti.type));
         }
+      }
+
+      if (ti.of != null) {
+        CrawlFieldType(ti.of);
       }
     }
 
@@ -65,7 +69,7 @@ namespace RimTrans.Reflection {
 
     public ClassInfo(Type type) {
       this.isAbstract = type.IsAbstract;
-      this.baseClass = type.BaseType == typeof(Object)
+      this.baseClass = type.BaseType == null || type.BaseType == typeof(Object)
           ? null
           : type.BaseType.Name;
       this.type = type;
@@ -108,7 +112,7 @@ namespace RimTrans.Reflection {
   }
 
   class EnumInfo {
-    public static readonly List<Type> enums = new List<Type>();
+    public static readonly List<Type> enumTypes = new List<Type>();
     public static readonly List<EnumInfo> enumsOf = new List<EnumInfo>();
 
     public class EnumValue {
@@ -131,7 +135,7 @@ namespace RimTrans.Reflection {
       this.name = type.Name;
       var names = Enum.GetNames(type);
       var values = Enum.GetValues(type);
-      for (int i = 0; i < name.Length; i++) {
+      for (int i = 0; i < values.Length; i++) {
         this.values.Add(new EnumValue {
           name = names[i],
           value = Convert.ChangeType(values.GetValue(i), underlyingType)
@@ -142,13 +146,19 @@ namespace RimTrans.Reflection {
 
   class FieldInfo {
     public string name;
+    public string alias;
     public List<string> attributes;
     public TypeInfo type;
 
 
     public FieldInfo(System.Reflection.FieldInfo fi) {
       this.name = fi.Name;
+
+      var loadAliasAttribute = fi.GetCustomAttribute<Verse.LoadAliasAttribute>();
+      this.alias = loadAliasAttribute == null ? "" : loadAliasAttribute.alias;
+
       this.attributes = fi.GetCustomAttributes().Select(attr => attr.GetType().Name.Replace("Attribute", "")).ToList();
+
       this.type = new TypeInfo(fi.FieldType);
     }
   }
@@ -179,11 +189,11 @@ namespace RimTrans.Reflection {
       } else if (type == typeof(Type)) {
         this.category = CATEGORY_TYPE;
         this.name = "Type";
-      } else if (type.IsValueType || type == typeof(string)) {
-        this.category = CATEGORY_VALUE;
-        this.name = type.Name;
       } else if (type.IsEnum) {
         this.category = CATEGORY_ENUM;
+        this.name = type.Name;
+      } else if (type.IsValueType || type == typeof(string)) {
+        this.category = CATEGORY_VALUE;
         this.name = type.Name;
       } else if (type.IsArray) {
         this.category = CATEGORY_LIST;

@@ -3,14 +3,17 @@ import * as io from '@rimtrans/io';
 import * as xml from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
-import { InjectionMap, parse, load, pathMatch } from './injection';
+import { PathNode, Injection, InjectionMap, parse, load, pathMatch } from './injection';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
 
 const pathDefs = resolvePath('Core', 'Defs');
 const pathDefInjected = resolvePath('Core', 'Languages', 'Template', 'DefInjected');
 const pathDefInjectedMock = resolvePath('Core', 'Languages', 'Mock', 'DefInjected');
-const pathTypePackage = resolvePath('Reflection', 'type-package.json');
+const pathTypePackages = [
+  resolvePath('Reflection', 'type-package.json'),
+  resolvePath('Reflection', 'type-package-fix.json'),
+];
 
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
@@ -21,7 +24,7 @@ describe('injection', () => {
   beforeAll(async () => {
     [defMaps, classInfoMap] = await Promise.all([
       definition.load([pathDefs]).then(definition.resolveInheritance),
-      typePackage.load([pathTypePackage]),
+      typePackage.load(pathTypePackages),
     ]);
     defMaps.push({
       'mock.xml': xml.parse(
@@ -204,7 +207,8 @@ describe('injection', () => {
     ).toBe(false);
   });
 
-  test('verify', () => {
+  test('verify', async () => {
+    const missing: string[] = [];
     const [mapOld] = injectionMapsLoaded;
     const [mapNew] = injectionMapsParsed;
     Object.entries(mapOld).forEach(([defType, subMapOld]) => {
@@ -218,13 +222,33 @@ describe('injection', () => {
             const injNew = injectionsNew.find(
               inj => typeof inj !== 'string' && pathMatch(inj.path, injOld.path),
             );
-            if (!injNew) {
-              console.log(injOld.path.join('.'));
+
+            if ((typeof injNew === 'object' && injNew.indefinite) || !injNew) {
+              missing.push(injOld.path.join('.'));
             }
             // expect(injNew).toBeTruthy();
           }
         });
       });
     });
+    await io.save(resolvePath('.tmp', 'missing.txt'), missing.join('\n'));
+  });
+
+  test('indefinite', async () => {
+    const [map] = injectionMapsParsed;
+    const indefinite: string[] = [];
+    Object.entries(map).forEach(([defType, subMap]) =>
+      Object.entries(subMap).forEach(([fileName, injections]) =>
+        injections.forEach(injection => {
+          if (typeof injection === 'object' && injection.indefinite) {
+            indefinite.push(`${defType}.${injection.path.slice(1).join('.')}`);
+          }
+        }),
+      ),
+    );
+    await io.save(
+      resolvePath('.tmp', 'indefinite.txt'),
+      [...new Set(indefinite)].sort().join('\n'),
+    );
   });
 });
