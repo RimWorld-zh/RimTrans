@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: Time -->
+  <ClockTime>TODO</ClockTime>
+  <!-- EN: Date -->
+  <ClockDate>TODO</ClockDate>
+  <!-- EN: Year -->
+  <ClockYear>TODO</ClockYear>
+  <!-- EN: Days passed since your arrival: {0}\nCurrent quadrum: {4}\nLocal season: {2}\n\nThe year is divided into 4 quadrums of {3} days each. Quadrums are the same everywhere, while seasons are different in different places.\n\nLocal seasons for each quadrum:\n{5} -->
+  <DateReadoutTip>TODO</DateReadoutTip>
+
+  <!-- EN: {0} of {1}, {2} -->
+  <FullDate>TODO</FullDate>
+  <!-- EN: {0} of {1}, {2} -->
+  <DateReadout>TODO</DateReadout>
+  <!-- EN: {0} of {1} -->
+  <SeasonFullDate>TODO</SeasonFullDate>
+  <!-- EN: Whole year -->
+  <WholeYear>TODO</WholeYear>
+  
+</LanguageData>

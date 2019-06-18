@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: son-in-law -->
+  <ChildInLaw.label>TODO</ChildInLaw.label>
+  <!-- EN: daughter-in-law -->
+  <ChildInLaw.labelFemale>TODO</ChildInLaw.labelFemale>
+  
+  <!-- EN: ex-lover -->
+  <ExLover.label>TODO</ExLover.label>
+  
+  <!-- EN: ex-husband -->
+  <ExSpouse.label>TODO</ExSpouse.label>
+  <!-- EN: ex-wife -->
+  <ExSpouse.labelFemale>TODO</ExSpouse.labelFemale>
+  
+  <!-- EN: fiance -->
+  <Fiance.label>TODO</Fiance.label>
+  <!-- EN: fiancée -->
+  <Fiance.labelFemale>TODO</Fiance.labelFemale>
+  
+  <!-- EN: lover -->
+  <Lover.label>TODO</Lover.label>
+  
+  <!-- EN: father-in-law -->
+  <ParentInLaw.label>TODO</ParentInLaw.label>
+  <!-- EN: mother-in-law -->
+  <ParentInLaw.labelFemale>TODO</ParentInLaw.labelFemale>
+  
+  <!-- EN: husband -->
+  <Spouse.label>TODO</Spouse.label>
+  <!-- EN: wife -->
+  <Spouse.labelFemale>TODO</Spouse.labelFemale>
+  
+  <!-- EN: stepson -->
+  <Stepchild.label>TODO</Stepchild.label>
+  <!-- EN: stepdaughter -->
+  <Stepchild.labelFemale>TODO</Stepchild.labelFemale>
+  
+  <!-- EN: stepfather -->
+  <Stepparent.label>TODO</Stepparent.label>
+  <!-- EN: stepmother -->
+  <Stepparent.labelFemale>TODO</Stepparent.labelFemale>
+  
+</LanguageData>

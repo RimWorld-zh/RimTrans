@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: blight -->
+  <Blight.label>TODO</Blight.label>
+  
+  <!-- EN: explosion -->
+  <Explosion.label>TODO</Explosion.label>
+  
+  <!-- EN: rect trigger -->
+  <RectTrigger.label>TODO</RectTrigger.label>
+  
+  <!-- EN: tornado -->
+  <Tornado.label>TODO</Tornado.label>
+  
+  <!-- EN: trigger unfogged -->
+  <TriggerUnfogged.label>TODO</TriggerUnfogged.label>
+  
+  <!-- EN: tunnel -->
+  <TunnelHiveSpawner.label>TODO</TunnelHiveSpawner.label>
+  
+</LanguageData>

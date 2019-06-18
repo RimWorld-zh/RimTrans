@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: animals -->
+  <Animals.label>TODO</Animals.label>
+  <!-- EN: Configure how the colony's tame animals should be treated. -->
+  <Animals.description>TODO</Animals.description>
+  
+  <!-- EN: architect -->
+  <Architect.label>TODO</Architect.label>
+  <!-- EN: Designate where to build, farm, store items, and so on. -->
+  <Architect.description>TODO</Architect.description>
+  
+  <!-- EN: assign -->
+  <Assign.label>TODO</Assign.label>
+  <!-- EN: Assign behaviors to colonists like what they should wear, what drugs to take, or how to respond to enemies. -->
+  <Assign.description>TODO</Assign.description>
+  
+  <!-- EN: factions -->
+  <Factions.label>TODO</Factions.label>
+  <!-- EN: Review the other factions on this world and their relationships. -->
+  <Factions.description>TODO</Factions.description>
+  
+  <!-- EN: history -->
+  <History.label>TODO</History.label>
+  <!-- EN: Review historical records. -->
+  <History.description>TODO</History.description>
+  
+  <!-- EN: inspect -->
+  <Inspect.label>TODO</Inspect.label>
+  
+  <!-- EN: menu -->
+  <Menu.label>TODO</Menu.label>
+  <!-- EN: Change options, save, load, or quit the game. -->
+  <Menu.description>TODO</Menu.description>
+  
+  <!-- EN: research -->
+  <Research.label>TODO</Research.label>
+  <!-- EN: Examine and decide on research projects. -->
+  <Research.description>TODO</Research.description>
+  
+  <!-- EN: restrict -->
+  <Restrict.label>TODO</Restrict.label>
+  <!-- EN: Restrict colonists to certain activities at certain times of day, or to specific allowed areas. -->
+  <Restrict.description>TODO</Restrict.description>
+  
+  <!-- EN: wildlife -->
+  <Wildlife.label>TODO</Wildlife.label>
+  <!-- EN: List wild animals in the area and designate them for hunting or taming. -->
+  <Wildlife.description>TODO</Wildlife.description>
+  
+  <!-- EN: work -->
+  <Work.label>TODO</Work.label>
+  <!-- EN: Choose which colonist does what kinds of work, and in what order. -->
+  <Work.description>TODO</Work.description>
+  
+  <!-- EN: world -->
+  <World.label>TODO</World.label>
+  <!-- EN: Examine the world map, form, and manage caravans. -->
+  <World.description>TODO</World.description>
+  
+</LanguageData>

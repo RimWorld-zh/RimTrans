@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: A story generator by Tynan Sylvester -->
+  <MainPageCredit>TODO</MainPageCredit>
+
+  <!-- EN: Developers -->
+  <Credits_Developers>TODO</Credits_Developers>
+  <!-- EN: Direction, design, code, art -->
+  <Credit_DirectionVarious>TODO</Credit_DirectionVarious>
+  <!-- EN: Audio -->
+  <Credit_MusicAndSound>TODO</Credit_MusicAndSound>
+  <!-- EN: Code -->
+  <Credit_Code>TODO</Credit_Code>
+  <!-- EN: Art -->
+  <Credit_GameArt>TODO</Credit_GameArt>
+  <!-- EN: Menu art -->
+  <Credit_MenuArt>TODO</Credit_MenuArt>
+  <!-- EN: Additional code -->
+  <Credit_AdditionalCode>TODO</Credit_AdditionalCode>
+  
+  <!-- EN: Additional development -->
+  <Credits_AdditionalDevelopment>TODO</Credits_AdditionalDevelopment>
+
+  <!-- EN: Special thanks -->
+  <Credit_SpecialThanks>TODO</Credit_SpecialThanks>
+
+  <!-- EN: Community volunteers -->
+  <Credits_TitleCommunity>TODO</Credits_TitleCommunity>
+  <!-- EN: Tester -->
+  <Credit_Tester>TODO</Credit_Tester>
+  <!-- EN: Mod donor -->
+  <Credit_ModDonation>TODO</Credit_ModDonation>
+  <!-- EN: Writing donor -->
+  <Credit_WritingDonation>TODO</Credit_WritingDonation>
+  <!-- EN: Moderator -->
+  <Credit_Moderator>TODO</Credit_Moderator>
+  <!-- EN: Wiki master -->
+  <Credit_WikiMaster>TODO</Credit_WikiMaster>
+
+  <!-- EN: {0} language -->
+  <Credits_TitleLanguage>TODO</Credits_TitleLanguage>
+  <!-- EN: Writer -->
+  <Credit_Writer>TODO</Credit_Writer>
+  <!-- EN: Translator -->
+  <Credit_Translator>TODO</Credit_Translator>
+  <!-- EN: Open source libraries -->
+  <Credit_OpenSourceLibraries>TODO</Credit_OpenSourceLibraries>
+  <!-- EN: Noise generation -->
+  <Credit_NoiseGeneration>TODO</Credit_NoiseGeneration>
+
+  <!-- EN: Thanks for playing! -->
+  <ThanksForPlaying>TODO</ThanksForPlaying>
+
+</LanguageData>

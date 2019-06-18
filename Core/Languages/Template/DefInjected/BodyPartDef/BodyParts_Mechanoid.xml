@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: artificial brain -->
+  <ArtificialBrain.label>TODO</ArtificialBrain.label>
+  
+  <!-- EN: blade -->
+  <Blade.label>TODO</Blade.label>
+  
+  <!-- EN: fluid reprocessor -->
+  <FluidReprocessor.label>TODO</FluidReprocessor.label>
+  
+  <!-- EN: sound sensor -->
+  <HearingSensor.label>TODO</HearingSensor.label>
+  
+  <!-- EN: arm -->
+  <MechanicalArm.label>TODO</MechanicalArm.label>
+  
+  <!-- EN: fifth body ring -->
+  <MechanicalCentipedeBodyFifthRing.label>TODO</MechanicalCentipedeBodyFifthRing.label>
+  <!-- EN: body ring -->
+  <MechanicalCentipedeBodyFifthRing.labelShort>TODO</MechanicalCentipedeBodyFifthRing.labelShort>
+  
+  <!-- EN: first body ring -->
+  <MechanicalCentipedeBodyFirstRing.label>TODO</MechanicalCentipedeBodyFirstRing.label>
+  <!-- EN: body ring -->
+  <MechanicalCentipedeBodyFirstRing.labelShort>TODO</MechanicalCentipedeBodyFirstRing.labelShort>
+  
+  <!-- EN: fourth body ring -->
+  <MechanicalCentipedeBodyFourthRing.label>TODO</MechanicalCentipedeBodyFourthRing.label>
+  <!-- EN: body ring -->
+  <MechanicalCentipedeBodyFourthRing.labelShort>TODO</MechanicalCentipedeBodyFourthRing.labelShort>
+  
+  <!-- EN: second body ring -->
+  <MechanicalCentipedeBodySecondRing.label>TODO</MechanicalCentipedeBodySecondRing.label>
+  <!-- EN: body ring -->
+  <MechanicalCentipedeBodySecondRing.labelShort>TODO</MechanicalCentipedeBodySecondRing.labelShort>
+  
+  <!-- EN: sixth body ring -->
+  <MechanicalCentipedeBodySixthRing.label>TODO</MechanicalCentipedeBodySixthRing.label>
+  <!-- EN: body ring -->
+  <MechanicalCentipedeBodySixthRing.labelShort>TODO</MechanicalCentipedeBodySixthRing.labelShort>
+  
+  <!-- EN: third body ring -->
+  <MechanicalCentipedeBodyThirdRing.label>TODO</MechanicalCentipedeBodyThirdRing.label>
+  <!-- EN: body ring -->
+  <MechanicalCentipedeBodyThirdRing.labelShort>TODO</MechanicalCentipedeBodyThirdRing.labelShort>
+  
+  <!-- EN: finger -->
+  <MechanicalFinger.label>TODO</MechanicalFinger.label>
+  
+  <!-- EN: foot -->
+  <MechanicalFoot.label>TODO</MechanicalFoot.label>
+  
+  <!-- EN: hand -->
+  <MechanicalHand.label>TODO</MechanicalHand.label>
+  
+  <!-- EN: head -->
+  <MechanicalHead.label>TODO</MechanicalHead.label>
+  
+  <!-- EN: leg -->
+  <MechanicalLeg.label>TODO</MechanicalLeg.label>
+  
+  <!-- EN: neck -->
+  <MechanicalNeck.label>TODO</MechanicalNeck.label>
+  
+  <!-- EN: shoulder -->
+  <MechanicalShoulder.label>TODO</MechanicalShoulder.label>
+  
+  <!-- EN: thorax -->
+  <MechanicalThorax.label>TODO</MechanicalThorax.label>
+  
+  <!-- EN: reactor -->
+  <Reactor.label>TODO</Reactor.label>
+  
+  <!-- EN: visual sensor -->
+  <SightSensor.label>TODO</SightSensor.label>
+  
+  <!-- EN: chemical analyzer -->
+  <SmellSensor.label>TODO</SmellSensor.label>
+  
+</LanguageData>

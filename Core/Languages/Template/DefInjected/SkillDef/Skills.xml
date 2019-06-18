@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: animals -->
+  <Animals.label>TODO</Animals.label>
+  <!-- EN: Taming, training, and controlling animals. -->
+  <Animals.description>TODO</Animals.description>
+  <!-- EN: animals -->
+  <Animals.skillLabel>TODO</Animals.skillLabel>
+  
+  <!-- EN: artistic -->
+  <Artistic.label>TODO</Artistic.label>
+  <!-- EN: Crafting art. -->
+  <Artistic.description>TODO</Artistic.description>
+  <!-- EN: artistic -->
+  <Artistic.skillLabel>TODO</Artistic.skillLabel>
+  
+  <!-- EN: construction -->
+  <Construction.label>TODO</Construction.label>
+  <!-- EN: Constructing and deconstructing structures and furniture. -->
+  <Construction.description>TODO</Construction.description>
+  <!-- EN: construction -->
+  <Construction.skillLabel>TODO</Construction.skillLabel>
+  
+  <!-- EN: cooking -->
+  <Cooking.label>TODO</Cooking.label>
+  <!-- EN: Creating meals from raw ingredients quickly and without accidental food poisoning. -->
+  <Cooking.description>TODO</Cooking.description>
+  <!-- EN: cooking -->
+  <Cooking.skillLabel>TODO</Cooking.skillLabel>
+  
+  <!-- EN: crafting -->
+  <Crafting.label>TODO</Crafting.label>
+  <!-- EN: Crafting general items including weapons, components, and refined resources. -->
+  <Crafting.description>TODO</Crafting.description>
+  <!-- EN: crafting -->
+  <Crafting.skillLabel>TODO</Crafting.skillLabel>
+  
+  <!-- EN: intellectual -->
+  <Intellectual.label>TODO</Intellectual.label>
+  <!-- EN: Researching and drug synthesis. -->
+  <Intellectual.description>TODO</Intellectual.description>
+  <!-- EN: intellectual -->
+  <Intellectual.skillLabel>TODO</Intellectual.skillLabel>
+  
+  <!-- EN: medical -->
+  <Medicine.label>TODO</Medicine.label>
+  <!-- EN: Tending wounds and diseases and performing surgery. -->
+  <Medicine.description>TODO</Medicine.description>
+  <!-- EN: medical -->
+  <Medicine.skillLabel>TODO</Medicine.skillLabel>
+  
+  <!-- EN: melee -->
+  <Melee.label>TODO</Melee.label>
+  <!-- EN: Melee combat, both armed and unarmed. -->
+  <Melee.description>TODO</Melee.description>
+  <!-- EN: melee -->
+  <Melee.skillLabel>TODO</Melee.skillLabel>
+  
+  <!-- EN: mining -->
+  <Mining.label>TODO</Mining.label>
+  <!-- EN: Digging tunnels and extracting buried resources. -->
+  <Mining.description>TODO</Mining.description>
+  <!-- EN: mining -->
+  <Mining.skillLabel>TODO</Mining.skillLabel>
+  
+  <!-- EN: plants -->
+  <Plants.label>TODO</Plants.label>
+  <!-- EN: Sowing, caring for and harvesting crops, and foraging for food while traveling. -->
+  <Plants.description>TODO</Plants.description>
+  <!-- EN: plants -->
+  <Plants.skillLabel>TODO</Plants.skillLabel>
+  
+  <!-- EN: shooting -->
+  <Shooting.label>TODO</Shooting.label>
+  <!-- EN: Ranged combat, with both high-tech and low-tech weapons. -->
+  <Shooting.description>TODO</Shooting.description>
+  <!-- EN: shooting -->
+  <Shooting.skillLabel>TODO</Shooting.skillLabel>
+  
+  <!-- EN: social -->
+  <Social.label>TODO</Social.label>
+  <!-- EN: Negotiating, convincing, manipulating, leading, and cheering up others. -->
+  <Social.description>TODO</Social.description>
+  <!-- EN: social -->
+  <Social.skillLabel>TODO</Social.skillLabel>
+  
+</LanguageData>

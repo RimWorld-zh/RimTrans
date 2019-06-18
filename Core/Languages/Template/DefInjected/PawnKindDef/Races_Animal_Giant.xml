@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: elephant -->
+  <Elephant.label>TODO</Elephant.label>
+  <!-- EN: elephant calf -->
+  <Elephant.lifeStages.elephant_calf.label>TODO</Elephant.lifeStages.elephant_calf.label>
+  
+  <!-- EN: megasloth -->
+  <Megasloth.label>TODO</Megasloth.label>
+  
+  <!-- EN: rhinoceros -->
+  <Rhinoceros.label>TODO</Rhinoceros.label>
+  <!-- EN: rhinoceroses -->
+  <Rhinoceros.labelPlural>TODO</Rhinoceros.labelPlural>
+  
+  <!-- EN: thrumbo -->
+  <Thrumbo.label>TODO</Thrumbo.label>
+  <!-- EN: thrumbo calf -->
+  <Thrumbo.lifeStages.thrumbo_calf.label>TODO</Thrumbo.lifeStages.thrumbo_calf.label>
+  <!-- EN: thrumbo calves -->
+  <Thrumbo.lifeStages.thrumbo_calf.labelPlural>TODO</Thrumbo.lifeStages.thrumbo_calf.labelPlural>
+  
+</LanguageData>

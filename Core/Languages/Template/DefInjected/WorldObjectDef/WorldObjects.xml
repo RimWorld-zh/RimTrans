@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: abandoned settlement -->
+  <AbandonedSettlement.label>TODO</AbandonedSettlement.label>
+  <!-- EN: An abandoned settlement. -->
+  <AbandonedSettlement.description>TODO</AbandonedSettlement.description>
+  
+  <!-- EN: attacked caravan -->
+  <AttackedNonPlayerCaravan.label>TODO</AttackedNonPlayerCaravan.label>
+  <!-- EN: A caravan under attack. -->
+  <AttackedNonPlayerCaravan.description>TODO</AttackedNonPlayerCaravan.description>
+  
+  <!-- EN: caravan -->
+  <Caravan.label>TODO</Caravan.label>
+  <!-- EN: A group of traveling people. -->
+  <Caravan.description>TODO</Caravan.description>
+  
+  <!-- EN: destroyed settlement -->
+  <DestroyedSettlement.label>TODO</DestroyedSettlement.label>
+  <!-- EN: A destroyed settlement. -->
+  <DestroyedSettlement.description>TODO</DestroyedSettlement.description>
+  
+  <!-- EN: landed ship -->
+  <EscapeShip.label>TODO</EscapeShip.label>
+  <!-- EN: The location of a hidden ship which can help you escape the planet. -->
+  <EscapeShip.description>TODO</EscapeShip.description>
+  
+  <!-- EN: peace talks -->
+  <PeaceTalks.label>TODO</PeaceTalks.label>
+  <!-- EN: A site designated for peace talks. -->
+  <PeaceTalks.description>TODO</PeaceTalks.description>
+  
+  <!-- EN: waypoint -->
+  <RoutePlannerWaypoint.label>TODO</RoutePlannerWaypoint.label>
+  <!-- EN: A temporary waypoint. -->
+  <RoutePlannerWaypoint.description>TODO</RoutePlannerWaypoint.description>
+  
+  <!-- EN: settlement -->
+  <Settlement.label>TODO</Settlement.label>
+  <!-- EN: A base of one of the factions. -->
+  <Settlement.description>TODO</Settlement.description>
+  
+  <!-- EN: transport pods -->
+  <TravelingTransportPods.label>TODO</TravelingTransportPods.label>
+  <!-- EN: Transport pods in flight. -->
+  <TravelingTransportPods.description>TODO</TravelingTransportPods.description>
+  
+</LanguageData>

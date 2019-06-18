@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: arms -->
+  <Arms.label>TODO</Arms.label>
+  
+  <!-- EN: beak -->
+  <Beak.label>TODO</Beak.label>
+  
+  <!-- EN: eyes -->
+  <Eyes.label>TODO</Eyes.label>
+  
+  <!-- EN: feet -->
+  <Feet.label>TODO</Feet.label>
+  
+  <!-- EN: front left claws -->
+  <FrontLeftClaws.label>TODO</FrontLeftClaws.label>
+  <!-- EN: claws -->
+  <FrontLeftClaws.labelShort>TODO</FrontLeftClaws.labelShort>
+  
+  <!-- EN: front left leg -->
+  <FrontLeftLeg.label>TODO</FrontLeftLeg.label>
+  <!-- EN: leg -->
+  <FrontLeftLeg.labelShort>TODO</FrontLeftLeg.labelShort>
+  
+  <!-- EN: front left paw -->
+  <FrontLeftPaw.label>TODO</FrontLeftPaw.label>
+  <!-- EN: paw -->
+  <FrontLeftPaw.labelShort>TODO</FrontLeftPaw.labelShort>
+  
+  <!-- EN: front right claws -->
+  <FrontRightClaws.label>TODO</FrontRightClaws.label>
+  <!-- EN: claws -->
+  <FrontRightClaws.labelShort>TODO</FrontRightClaws.labelShort>
+  
+  <!-- EN: front right leg -->
+  <FrontRightLeg.label>TODO</FrontRightLeg.label>
+  <!-- EN: leg -->
+  <FrontRightLeg.labelShort>TODO</FrontRightLeg.labelShort>
+  
+  <!-- EN: front right paw -->
+  <FrontRightPaw.label>TODO</FrontRightPaw.label>
+  <!-- EN: paw -->
+  <FrontRightPaw.labelShort>TODO</FrontRightPaw.labelShort>
+  
+  <!-- EN: full head -->
+  <FullHead.label>TODO</FullHead.label>
+  
+  <!-- EN: hands -->
+  <Hands.label>TODO</Hands.label>
+  
+  <!-- EN: head -->
+  <HeadAttackTool.label>TODO</HeadAttackTool.label>
+  
+  <!-- EN: claw -->
+  <HeadClaw.label>TODO</HeadClaw.label>
+  
+  <!-- EN: horn -->
+  <HornAttackTool.label>TODO</HornAttackTool.label>
+  
+  <!-- EN: left blade -->
+  <LeftBlade.label>TODO</LeftBlade.label>
+  <!-- EN: blade -->
+  <LeftBlade.labelShort>TODO</LeftBlade.labelShort>
+  
+  <!-- EN: left fist -->
+  <LeftHand.label>TODO</LeftHand.label>
+  <!-- EN: fist -->
+  <LeftHand.labelShort>TODO</LeftHand.labelShort>
+  
+  <!-- EN: legs -->
+  <Legs.label>TODO</Legs.label>
+  
+  <!-- EN: mouth -->
+  <Mouth.label>TODO</Mouth.label>
+  
+  <!-- EN: neck -->
+  <Neck.label>TODO</Neck.label>
+  
+  <!-- EN: right blade -->
+  <RightBlade.label>TODO</RightBlade.label>
+  <!-- EN: blade -->
+  <RightBlade.labelShort>TODO</RightBlade.labelShort>
+  
+  <!-- EN: right fist -->
+  <RightHand.label>TODO</RightHand.label>
+  <!-- EN: fist -->
+  <RightHand.labelShort>TODO</RightHand.labelShort>
+  
+  <!-- EN: shoulders -->
+  <Shoulders.label>TODO</Shoulders.label>
+  
+  <!-- EN: teeth -->
+  <Teeth.label>TODO</Teeth.label>
+  
+  <!-- EN: torso -->
+  <Torso.label>TODO</Torso.label>
+  
+  <!-- EN: beak -->
+  <TurtleBeakAttackTool.label>TODO</TurtleBeakAttackTool.label>
+  
+  <!-- EN: tusks -->
+  <TuskAttackTool.label>TODO</TuskAttackTool.label>
+  
+  <!-- EN: upper head -->
+  <UpperHead.label>TODO</UpperHead.label>
+  
+  <!-- EN: waist -->
+  <Waist.label>TODO</Waist.label>
+  
+</LanguageData>

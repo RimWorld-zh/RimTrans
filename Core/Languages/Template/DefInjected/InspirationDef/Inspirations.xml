@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: go frenzy -->
+  <Frenzy_Go.label>TODO</Frenzy_Go.label>
+  <!-- EN: Inspired: Go frenzy -->
+  <Frenzy_Go.baseInspectLine>TODO</Frenzy_Go.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\n[PAWN_pronoun] will move faster for the next 8 days. -->
+  <Frenzy_Go.beginLetter>TODO</Frenzy_Go.beginLetter>
+  <!-- EN: {0} is no longer inspired (go frenzy). -->
+  <Frenzy_Go.endMessage>TODO</Frenzy_Go.endMessage>
+  
+  <!-- EN: shoot frenzy -->
+  <Frenzy_Shoot.label>TODO</Frenzy_Shoot.label>
+  <!-- EN: Inspired: Shoot frenzy -->
+  <Frenzy_Shoot.baseInspectLine>TODO</Frenzy_Shoot.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\n[PAWN_pronoun] will shoot more accurately for the next 8 days. -->
+  <Frenzy_Shoot.beginLetter>TODO</Frenzy_Shoot.beginLetter>
+  <!-- EN: {0} is no longer inspired (shoot frenzy). -->
+  <Frenzy_Shoot.endMessage>TODO</Frenzy_Shoot.endMessage>
+  
+  <!-- EN: work frenzy -->
+  <Frenzy_Work.label>TODO</Frenzy_Work.label>
+  <!-- EN: Inspired: Work frenzy -->
+  <Frenzy_Work.baseInspectLine>TODO</Frenzy_Work.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\n[PAWN_pronoun] will work faster for the next 8 days. -->
+  <Frenzy_Work.beginLetter>TODO</Frenzy_Work.beginLetter>
+  <!-- EN: {0} is no longer inspired (work frenzy). -->
+  <Frenzy_Work.endMessage>TODO</Frenzy_Work.endMessage>
+  
+  <!-- EN: inspired creativity -->
+  <Inspired_Creativity.label>TODO</Inspired_Creativity.label>
+  <!-- EN: Inspired: Inspired creativity -->
+  <Inspired_Creativity.baseInspectLine>TODO</Inspired_Creativity.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\nThe next item, art, or furniture [PAWN_pronoun] creates will be two quality levels higher than it would otherwise be. This even allows the creation of legendary items.\n\nThe inspiration will end after 8 days, or when the creation is completed. -->
+  <Inspired_Creativity.beginLetter>TODO</Inspired_Creativity.beginLetter>
+  <!-- EN: {0} is no longer inspired (inspired creativity). -->
+  <Inspired_Creativity.endMessage>TODO</Inspired_Creativity.endMessage>
+  
+  <!-- EN: inspired recruitment -->
+  <Inspired_Recruitment.label>TODO</Inspired_Recruitment.label>
+  <!-- EN: Inspired: Inspired recruitment -->
+  <Inspired_Recruitment.baseInspectLine>TODO</Inspired_Recruitment.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\n[PAWN_pronoun] will successfully recruit the next prisoner regardless of difficulty or resistance.\n\nThe inspiration will end after 8 days, or when the prisoner is recruited. -->
+  <Inspired_Recruitment.beginLetter>TODO</Inspired_Recruitment.beginLetter>
+  <!-- EN: {0} is no longer inspired (inspired recruitment). -->
+  <Inspired_Recruitment.endMessage>TODO</Inspired_Recruitment.endMessage>
+  
+  <!-- EN: inspired surgery -->
+  <Inspired_Surgery.label>TODO</Inspired_Surgery.label>
+  <!-- EN: Inspired: Inspired surgery -->
+  <Inspired_Surgery.baseInspectLine>TODO</Inspired_Surgery.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\nThe next time [PAWN_pronoun] performs a surgery, [PAWN_possessive] chance of success will be doubled. A small minimum chance of failure still applies.\n\nThe inspiration will end after 8 days, or when the surgery is performed. -->
+  <Inspired_Surgery.beginLetter>TODO</Inspired_Surgery.beginLetter>
+  <!-- EN: {0} is no longer inspired (inspired surgery). -->
+  <Inspired_Surgery.endMessage>TODO</Inspired_Surgery.endMessage>
+  
+  <!-- EN: inspired trade -->
+  <Inspired_Trade.label>TODO</Inspired_Trade.label>
+  <!-- EN: Inspired: Inspired trade -->
+  <Inspired_Trade.baseInspectLine>TODO</Inspired_Trade.baseInspectLine>
+  <!-- EN: [PAWN_nameIndef] has experienced an inspiration!\n\n[PAWN_pronoun] will get a significant trade price bonus when closing [PAWN_possessive] next trade deal.\n\nThe inspiration will expire after 8 days, or when the deal is done. -->
+  <Inspired_Trade.beginLetter>TODO</Inspired_Trade.beginLetter>
+  <!-- EN: {0} is no longer inspired (inspired trade). -->
+  <Inspired_Trade.endMessage>TODO</Inspired_Trade.endMessage>
+  
+</LanguageData>

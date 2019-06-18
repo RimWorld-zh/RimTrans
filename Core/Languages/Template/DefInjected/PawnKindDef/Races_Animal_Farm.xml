@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: alpaca -->
+  <Alpaca.label>TODO</Alpaca.label>
+  
+  <!-- EN: chicken -->
+  <Chicken.label>TODO</Chicken.label>
+  <!-- EN: hen -->
+  <Chicken.labelFemale>TODO</Chicken.labelFemale>
+  <!-- EN: rooster -->
+  <Chicken.labelMale>TODO</Chicken.labelMale>
+  <!-- EN: chick -->
+  <Chicken.lifeStages.chick.label>TODO</Chicken.lifeStages.chick.label>
+  <!-- EN: cockerel -->
+  <Chicken.lifeStages.cockerel.labelMale>TODO</Chicken.lifeStages.cockerel.labelMale>
+  
+  <!-- EN: cow -->
+  <Cow.label>TODO</Cow.label>
+  <!-- EN: cow -->
+  <Cow.labelFemale>TODO</Cow.labelFemale>
+  <!-- EN: bull -->
+  <Cow.labelMale>TODO</Cow.labelMale>
+  <!-- EN: calf -->
+  <Cow.lifeStages.calf.label>TODO</Cow.lifeStages.calf.label>
+  <!-- EN: calves -->
+  <Cow.lifeStages.calf.labelPlural>TODO</Cow.lifeStages.calf.labelPlural>
+  
+  <!-- EN: pig -->
+  <Pig.label>TODO</Pig.label>
+  <!-- EN: sow -->
+  <Pig.labelFemale>TODO</Pig.labelFemale>
+  <!-- EN: piglet -->
+  <Pig.lifeStages.piglet.label>TODO</Pig.lifeStages.piglet.label>
+  
+</LanguageData>

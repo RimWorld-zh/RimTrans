@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: burn -->
+  <Burn.label>TODO</Burn.label>
+  <!-- EN: {0} has burned to death. -->
+  <Burn.deathMessage>TODO</Burn.deathMessage>
+  
+  <!-- EN: flame -->
+  <Flame.label>TODO</Flame.label>
+  <!-- EN: {0} has burned to death. -->
+  <Flame.deathMessage>TODO</Flame.deathMessage>
+  
+  <!-- EN: frostbite -->
+  <Frostbite.label>TODO</Frostbite.label>
+  <!-- EN: {0} has succumbed to frostbite. -->
+  <Frostbite.deathMessage>TODO</Frostbite.deathMessage>
+  
+  <!-- EN: scratch -->
+  <TornadoScratch.label>TODO</TornadoScratch.label>
+  <!-- EN: {0} has been killed by a tornado. -->
+  <TornadoScratch.deathMessage>TODO</TornadoScratch.deathMessage>
+  
+</LanguageData>

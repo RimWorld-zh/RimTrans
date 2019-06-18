@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Follow master while the master is drafted. -->
+  <FollowDrafted.headerTip>TODO</FollowDrafted.headerTip>
+  
+  <!-- EN: Follow master while the master is doing field work (hunting or taming animals). -->
+  <FollowFieldwork.headerTip>TODO</FollowFieldwork.headerTip>
+  
+  <!-- EN: Mark animals to be hunted by your hunters. -->
+  <Hunt.headerTip>TODO</Hunt.headerTip>
+  
+  <!-- EN: Slaughter -->
+  <Slaughter.headerTip>TODO</Slaughter.headerTip>
+  
+  <!-- EN: Tame a wild animal. -->
+  <Tame.headerTip>TODO</Tame.headerTip>
+  
+</LanguageData>

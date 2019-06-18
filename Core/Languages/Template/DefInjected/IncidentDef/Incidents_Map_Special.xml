@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: orbital trader arrival -->
+  <OrbitalTraderArrival.label>TODO</OrbitalTraderArrival.label>
+  
+  <!-- EN: enemy raid (special locations) -->
+  <RaidEnemyBeacon.label>TODO</RaidEnemyBeacon.label>
+  
+  <!-- EN: friendly raid -->
+  <RaidFriendly.label>TODO</RaidFriendly.label>
+  
+  <!-- EN: ship chunk drop -->
+  <ShipChunkDrop.label>TODO</ShipChunkDrop.label>
+  
+  <!-- EN: man in black -->
+  <StrangerInBlackJoin.label>TODO</StrangerInBlackJoin.label>
+  <!-- EN: Man in black -->
+  <StrangerInBlackJoin.letterLabel>TODO</StrangerInBlackJoin.letterLabel>
+  <!-- EN: Sensing trouble, a mysterious [PAWN_kind] has arrived.\n\nWill [PAWN_pronoun] be able to set things right in these parts? -->
+  <StrangerInBlackJoin.letterText>TODO</StrangerInBlackJoin.letterText>
+  
+  <!-- EN: trader caravan arrival -->
+  <TraderCaravanArrival.label>TODO</TraderCaravanArrival.label>
+  
+  <!-- EN: traveler group -->
+  <TravelerGroup.label>TODO</TravelerGroup.label>
+  
+  <!-- EN: visitor group -->
+  <VisitorGroup.label>TODO</VisitorGroup.label>
+  
+</LanguageData>

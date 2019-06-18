@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: EMP -->
+  <EMP.label>TODO</EMP.label>
+  <!-- EN: {0} has been EMPed to death. -->
+  <EMP.deathMessage>TODO</EMP.deathMessage>
+  
+  <!-- EN: stun -->
+  <Stun.label>TODO</Stun.label>
+  <!-- EN: {0} has been stunned to death. -->
+  <Stun.deathMessage>TODO</Stun.deathMessage>
+  
+</LanguageData>

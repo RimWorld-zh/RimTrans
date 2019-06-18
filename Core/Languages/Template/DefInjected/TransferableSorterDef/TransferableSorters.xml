@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: category -->
+  <Category.label>TODO</Category.label>
+  
+  <!-- EN: hit points percentage -->
+  <HitPointsPercentage.label>TODO</HitPointsPercentage.label>
+  
+  <!-- EN: market value -->
+  <MarketValue.label>TODO</MarketValue.label>
+  
+  <!-- EN: mass -->
+  <Mass.label>TODO</Mass.label>
+  
+  <!-- EN: name -->
+  <Name.label>TODO</Name.label>
+  
+  <!-- EN: none -->
+  <None.label>TODO</None.label>
+  
+  <!-- EN: quality -->
+  <Quality.label>TODO</Quality.label>
+  
+</LanguageData>

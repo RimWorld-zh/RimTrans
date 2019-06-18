@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: smokeleaf dependence -->
+  <SmokeleafAddiction.label>TODO</SmokeleafAddiction.label>
+  <!-- EN: withdrawal -->
+  <SmokeleafAddiction.stages.withdrawal.label>TODO</SmokeleafAddiction.stages.withdrawal.label>
+  
+  <!-- EN: stoned on smokeleaf -->
+  <SmokeleafHigh.label>TODO</SmokeleafHigh.label>
+  <!-- EN: a smokeleaf high -->
+  <SmokeleafHigh.labelNoun>TODO</SmokeleafHigh.labelNoun>
+  
+  <!-- EN: smokeleaf tolerance -->
+  <SmokeleafTolerance.label>TODO</SmokeleafTolerance.label>
+  <!-- EN: small -->
+  <SmokeleafTolerance.stages.small-0.label>TODO</SmokeleafTolerance.stages.small-0.label>
+  <!-- EN: small -->
+  <SmokeleafTolerance.stages.small-1.label>TODO</SmokeleafTolerance.stages.small-1.label>
+  <!-- EN: large -->
+  <SmokeleafTolerance.stages.large.label>TODO</SmokeleafTolerance.stages.large.label>
+  <!-- EN: massive -->
+  <SmokeleafTolerance.stages.massive.label>TODO</SmokeleafTolerance.stages.massive.label>
+  
+</LanguageData>

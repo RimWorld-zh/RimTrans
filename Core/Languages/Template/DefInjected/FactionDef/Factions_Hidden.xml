@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ancients -->
+  <Ancients.label>TODO</Ancients.label>
+  <!-- EN: Ancients -->
+  <Ancients.fixedName>TODO</Ancients.fixedName>
+  <!-- EN: ancient -->
+  <Ancients.pawnSingular>TODO</Ancients.pawnSingular>
+  <!-- EN: ancients -->
+  <Ancients.pawnsPlural>TODO</Ancients.pawnsPlural>
+  
+  <!-- EN: ancients -->
+  <AncientsHostile.label>TODO</AncientsHostile.label>
+  <!-- EN: Ancients -->
+  <AncientsHostile.fixedName>TODO</AncientsHostile.fixedName>
+  <!-- EN: ancient -->
+  <AncientsHostile.pawnSingular>TODO</AncientsHostile.pawnSingular>
+  <!-- EN: ancients -->
+  <AncientsHostile.pawnsPlural>TODO</AncientsHostile.pawnsPlural>
+  
+  <!-- EN: insects -->
+  <Insect.label>TODO</Insect.label>
+  <!-- EN: insects -->
+  <Insect.fixedName>TODO</Insect.fixedName>
+  <!-- EN: insect -->
+  <Insect.pawnSingular>TODO</Insect.pawnSingular>
+  <!-- EN: insects -->
+  <Insect.pawnsPlural>TODO</Insect.pawnsPlural>
+  
+  <!-- EN: mechanoid hive -->
+  <Mechanoid.label>TODO</Mechanoid.label>
+  <!-- EN: a mechanoid hive -->
+  <Mechanoid.fixedName>TODO</Mechanoid.fixedName>
+  <!-- EN: mechanoid -->
+  <Mechanoid.pawnSingular>TODO</Mechanoid.pawnSingular>
+  <!-- EN: mechanoids -->
+  <Mechanoid.pawnsPlural>TODO</Mechanoid.pawnsPlural>
+  
+</LanguageData>

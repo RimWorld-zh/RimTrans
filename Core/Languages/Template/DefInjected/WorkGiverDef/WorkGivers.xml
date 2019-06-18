@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: release prisoners -->
+  <BasicReleasePrisoner.label>TODO</BasicReleasePrisoner.label>
+  <!-- EN: releasing -->
+  <BasicReleasePrisoner.gerund>TODO</BasicReleasePrisoner.gerund>
+  <!-- EN: release -->
+  <BasicReleasePrisoner.verb>TODO</BasicReleasePrisoner.verb>
+  
+  <!-- EN: build roofs -->
+  <BuildRoofs.label>TODO</BuildRoofs.label>
+  <!-- EN: building roof -->
+  <BuildRoofs.gerund>TODO</BuildRoofs.gerund>
+  <!-- EN: build roof -->
+  <BuildRoofs.verb>TODO</BuildRoofs.verb>
+  
+  <!-- EN: chat with prisoners -->
+  <ChatWithPrisoner.label>TODO</ChatWithPrisoner.label>
+  <!-- EN: chatting with -->
+  <ChatWithPrisoner.gerund>TODO</ChatWithPrisoner.gerund>
+  <!-- EN: chat with -->
+  <ChatWithPrisoner.verb>TODO</ChatWithPrisoner.verb>
+  
+  <!-- EN: clear snow -->
+  <CleanClearSnow.label>TODO</CleanClearSnow.label>
+  <!-- EN: clearing snow -->
+  <CleanClearSnow.gerund>TODO</CleanClearSnow.gerund>
+  <!-- EN: clear snow -->
+  <CleanClearSnow.verb>TODO</CleanClearSnow.verb>
+  
+  <!-- EN: clean filth -->
+  <CleanFilth.label>TODO</CleanFilth.label>
+  <!-- EN: cleaning -->
+  <CleanFilth.gerund>TODO</CleanFilth.gerund>
+  <!-- EN: clean -->
+  <CleanFilth.verb>TODO</CleanFilth.verb>
+  
+  <!-- EN: deliver resources to blueprints -->
+  <ConstructDeliverResourcesToBlueprints.label>TODO</ConstructDeliverResourcesToBlueprints.label>
+  <!-- EN: working on -->
+  <ConstructDeliverResourcesToBlueprints.gerund>TODO</ConstructDeliverResourcesToBlueprints.gerund>
+  <!-- EN: work on -->
+  <ConstructDeliverResourcesToBlueprints.verb>TODO</ConstructDeliverResourcesToBlueprints.verb>
+  
+  <!-- EN: deliver resources to frames -->
+  <ConstructDeliverResourcesToFrames.label>TODO</ConstructDeliverResourcesToFrames.label>
+  <!-- EN: working on -->
+  <ConstructDeliverResourcesToFrames.gerund>TODO</ConstructDeliverResourcesToFrames.gerund>
+  <!-- EN: work on -->
+  <ConstructDeliverResourcesToFrames.verb>TODO</ConstructDeliverResourcesToFrames.verb>
+  
+  <!-- EN: construct placed frames -->
+  <ConstructFinishFrames.label>TODO</ConstructFinishFrames.label>
+  <!-- EN: constructing -->
+  <ConstructFinishFrames.gerund>TODO</ConstructFinishFrames.gerund>
+  <!-- EN: construct -->
+  <ConstructFinishFrames.verb>TODO</ConstructFinishFrames.verb>
+  
+  <!-- EN: remove floors -->
+  <ConstructRemoveFloors.label>TODO</ConstructRemoveFloors.label>
+  <!-- EN: removing floor -->
+  <ConstructRemoveFloors.gerund>TODO</ConstructRemoveFloors.gerund>
+  <!-- EN: remove floor -->
+  <ConstructRemoveFloors.verb>TODO</ConstructRemoveFloors.verb>
+  
+  <!-- EN: smooth floors -->
+  <ConstructSmoothFloors.label>TODO</ConstructSmoothFloors.label>
+  <!-- EN: smoothing -->
+  <ConstructSmoothFloors.gerund>TODO</ConstructSmoothFloors.gerund>
+  <!-- EN: smooth -->
+  <ConstructSmoothFloors.verb>TODO</ConstructSmoothFloors.verb>
+  
+  <!-- EN: smooth walls -->
+  <ConstructSmoothWalls.label>TODO</ConstructSmoothWalls.label>
+  <!-- EN: smoothing -->
+  <ConstructSmoothWalls.gerund>TODO</ConstructSmoothWalls.gerund>
+  <!-- EN: smooth -->
+  <ConstructSmoothWalls.verb>TODO</ConstructSmoothWalls.verb>
+  
+  <!-- EN: fill food hoppers -->
+  <CookFillHopper.label>TODO</CookFillHopper.label>
+  <!-- EN: filling -->
+  <CookFillHopper.gerund>TODO</CookFillHopper.gerund>
+  <!-- EN: fill -->
+  <CookFillHopper.verb>TODO</CookFillHopper.verb>
+  
+  <!-- EN: deconstruct structures -->
+  <Deconstruct.label>TODO</Deconstruct.label>
+  <!-- EN: deconstructing -->
+  <Deconstruct.gerund>TODO</Deconstruct.gerund>
+  <!-- EN: deconstruct -->
+  <Deconstruct.verb>TODO</Deconstruct.verb>
+  
+  <!-- EN: deliver food to prisoners -->
+  <DeliverFoodToPrisoner.label>TODO</DeliverFoodToPrisoner.label>
+  <!-- EN: delivering food for -->
+  <DeliverFoodToPrisoner.gerund>TODO</DeliverFoodToPrisoner.gerund>
+  <!-- EN: deliver food for -->
+  <DeliverFoodToPrisoner.verb>TODO</DeliverFoodToPrisoner.verb>
+  
+  <!-- EN: deliver resources to blueprints -->
+  <DeliverResourcesToBlueprints.label>TODO</DeliverResourcesToBlueprints.label>
+  <!-- EN: delivering to -->
+  <DeliverResourcesToBlueprints.gerund>TODO</DeliverResourcesToBlueprints.gerund>
+  <!-- EN: deliver to -->
+  <DeliverResourcesToBlueprints.verb>TODO</DeliverResourcesToBlueprints.verb>
+  
+  <!-- EN: deliver resources to frames -->
+  <DeliverResourcesToFrames.label>TODO</DeliverResourcesToFrames.label>
+  <!-- EN: delivering to -->
+  <DeliverResourcesToFrames.gerund>TODO</DeliverResourcesToFrames.gerund>
+  <!-- EN: deliver to -->
+  <DeliverResourcesToFrames.verb>TODO</DeliverResourcesToFrames.verb>
+  
+  <!-- EN: brew liquors -->
+  <DoBillsBrew.label>TODO</DoBillsBrew.label>
+  <!-- EN: brewing at -->
+  <DoBillsBrew.gerund>TODO</DoBillsBrew.gerund>
+  <!-- EN: brew -->
+  <DoBillsBrew.verb>TODO</DoBillsBrew.verb>
+  
+  <!-- EN: butcher creatures -->
+  <DoBillsButcherFlesh.label>TODO</DoBillsButcherFlesh.label>
+  <!-- EN: butchering at -->
+  <DoBillsButcherFlesh.gerund>TODO</DoBillsButcherFlesh.gerund>
+  <!-- EN: butcher -->
+  <DoBillsButcherFlesh.verb>TODO</DoBillsButcherFlesh.verb>
+  
+  <!-- EN: cook meals at stove -->
+  <DoBillsCook.label>TODO</DoBillsCook.label>
+  <!-- EN: cooking at -->
+  <DoBillsCook.gerund>TODO</DoBillsCook.gerund>
+  <!-- EN: cook -->
+  <DoBillsCook.verb>TODO</DoBillsCook.verb>
+  
+  <!-- EN: cook meals at campfire -->
+  <DoBillsCookCampfire.label>TODO</DoBillsCookCampfire.label>
+  <!-- EN: cooking at -->
+  <DoBillsCookCampfire.gerund>TODO</DoBillsCookCampfire.gerund>
+  <!-- EN: cook -->
+  <DoBillsCookCampfire.verb>TODO</DoBillsCookCampfire.verb>
+  
+  <!-- EN: do cremation bills -->
+  <DoBillsCremate.label>TODO</DoBillsCremate.label>
+  <!-- EN: cremating at -->
+  <DoBillsCremate.gerund>TODO</DoBillsCremate.gerund>
+  <!-- EN: cremate -->
+  <DoBillsCremate.verb>TODO</DoBillsCremate.verb>
+  
+  <!-- EN: fabricate things -->
+  <DoBillsFabricationBench.label>TODO</DoBillsFabricationBench.label>
+  <!-- EN: fabricating things at -->
+  <DoBillsFabricationBench.gerund>TODO</DoBillsFabricationBench.gerund>
+  <!-- EN: fabricating things -->
+  <DoBillsFabricationBench.verb>TODO</DoBillsFabricationBench.verb>
+  
+  <!-- EN: do bills at campfire -->
+  <DoBillsHaulCampfire.label>TODO</DoBillsHaulCampfire.label>
+  <!-- EN: working at -->
+  <DoBillsHaulCampfire.gerund>TODO</DoBillsHaulCampfire.gerund>
+  <!-- EN: work at -->
+  <DoBillsHaulCampfire.verb>TODO</DoBillsHaulCampfire.verb>
+  
+  <!-- EN: make things at machining table -->
+  <DoBillsMachiningTable.label>TODO</DoBillsMachiningTable.label>
+  <!-- EN: working at -->
+  <DoBillsMachiningTable.gerund>TODO</DoBillsMachiningTable.gerund>
+  <!-- EN: work -->
+  <DoBillsMachiningTable.verb>TODO</DoBillsMachiningTable.verb>
+  
+  <!-- EN: make apparel -->
+  <DoBillsMakeApparel.label>TODO</DoBillsMakeApparel.label>
+  <!-- EN: tailoring at -->
+  <DoBillsMakeApparel.gerund>TODO</DoBillsMakeApparel.gerund>
+  <!-- EN: tailor -->
+  <DoBillsMakeApparel.verb>TODO</DoBillsMakeApparel.verb>
+  
+  <!-- EN: make weapons -->
+  <DoBillsMakeWeapons.label>TODO</DoBillsMakeWeapons.label>
+  <!-- EN: smithing at -->
+  <DoBillsMakeWeapons.gerund>TODO</DoBillsMakeWeapons.gerund>
+  <!-- EN: smith -->
+  <DoBillsMakeWeapons.verb>TODO</DoBillsMakeWeapons.verb>
+  
+  <!-- EN: operate on animals -->
+  <DoBillsMedicalAnimalOperation.label>TODO</DoBillsMedicalAnimalOperation.label>
+  <!-- EN: operating on -->
+  <DoBillsMedicalAnimalOperation.gerund>TODO</DoBillsMedicalAnimalOperation.gerund>
+  <!-- EN: operate on -->
+  <DoBillsMedicalAnimalOperation.verb>TODO</DoBillsMedicalAnimalOperation.verb>
+  
+  <!-- EN: operate on humanlikes -->
+  <DoBillsMedicalHumanOperation.label>TODO</DoBillsMedicalHumanOperation.label>
+  <!-- EN: operating on -->
+  <DoBillsMedicalHumanOperation.gerund>TODO</DoBillsMedicalHumanOperation.gerund>
+  <!-- EN: operate on -->
+  <DoBillsMedicalHumanOperation.verb>TODO</DoBillsMedicalHumanOperation.verb>
+  
+  <!-- EN: synthesize drugs -->
+  <DoBillsProduceDrugs.label>TODO</DoBillsProduceDrugs.label>
+  <!-- EN: producing drugs at -->
+  <DoBillsProduceDrugs.gerund>TODO</DoBillsProduceDrugs.gerund>
+  <!-- EN: produce drugs -->
+  <DoBillsProduceDrugs.verb>TODO</DoBillsProduceDrugs.verb>
+  
+  <!-- EN: work at refinery -->
+  <DoBillsRefinery.label>TODO</DoBillsRefinery.label>
+  <!-- EN: refining chemicals at -->
+  <DoBillsRefinery.gerund>TODO</DoBillsRefinery.gerund>
+  <!-- EN: refine chemicals -->
+  <DoBillsRefinery.verb>TODO</DoBillsRefinery.verb>
+  
+  <!-- EN: make sculptures -->
+  <DoBillsSculpt.label>TODO</DoBillsSculpt.label>
+  <!-- EN: sculpting at -->
+  <DoBillsSculpt.gerund>TODO</DoBillsSculpt.gerund>
+  <!-- EN: sculpt -->
+  <DoBillsSculpt.verb>TODO</DoBillsSculpt.verb>
+  
+  <!-- EN: smelt items -->
+  <DoBillsSmelter.label>TODO</DoBillsSmelter.label>
+  <!-- EN: refining at -->
+  <DoBillsSmelter.gerund>TODO</DoBillsSmelter.gerund>
+  <!-- EN: refine -->
+  <DoBillsSmelter.verb>TODO</DoBillsSmelter.verb>
+  
+  <!-- EN: make stone blocks -->
+  <DoBillsStonecut.label>TODO</DoBillsStonecut.label>
+  <!-- EN: cutting stone blocks at -->
+  <DoBillsStonecut.gerund>TODO</DoBillsStonecut.gerund>
+  <!-- EN: stonecut -->
+  <DoBillsStonecut.verb>TODO</DoBillsStonecut.verb>
+  
+  <!-- EN: make things at crafting spot -->
+  <DoBillsUseCraftingSpot.label>TODO</DoBillsUseCraftingSpot.label>
+  <!-- EN: crafting at -->
+  <DoBillsUseCraftingSpot.gerund>TODO</DoBillsUseCraftingSpot.gerund>
+  <!-- EN: craft -->
+  <DoBillsUseCraftingSpot.verb>TODO</DoBillsUseCraftingSpot.verb>
+  
+  <!-- EN: feed animals -->
+  <DoctorFeedAnimals.label>TODO</DoctorFeedAnimals.label>
+  <!-- EN: feeding -->
+  <DoctorFeedAnimals.gerund>TODO</DoctorFeedAnimals.gerund>
+  <!-- EN: feed -->
+  <DoctorFeedAnimals.verb>TODO</DoctorFeedAnimals.verb>
+  
+  <!-- EN: feed patients -->
+  <DoctorFeedHumanlikes.label>TODO</DoctorFeedHumanlikes.label>
+  <!-- EN: feeding -->
+  <DoctorFeedHumanlikes.gerund>TODO</DoctorFeedHumanlikes.gerund>
+  <!-- EN: feed -->
+  <DoctorFeedHumanlikes.verb>TODO</DoctorFeedHumanlikes.verb>
+  
+  <!-- EN: rescue downed allies to bed -->
+  <DoctorRescue.label>TODO</DoctorRescue.label>
+  <!-- EN: rescuing -->
+  <DoctorRescue.gerund>TODO</DoctorRescue.gerund>
+  <!-- EN: rescue -->
+  <DoctorRescue.verb>TODO</DoctorRescue.verb>
+  
+  <!-- EN: tend to patients with urgent needs -->
+  <DoctorTendEmergency.label>TODO</DoctorTendEmergency.label>
+  <!-- EN: tending to -->
+  <DoctorTendEmergency.gerund>TODO</DoctorTendEmergency.gerund>
+  <!-- EN: tend to -->
+  <DoctorTendEmergency.verb>TODO</DoctorTendEmergency.verb>
+  
+  <!-- EN: tend to animals -->
+  <DoctorTendToAnimals.label>TODO</DoctorTendToAnimals.label>
+  <!-- EN: tending to -->
+  <DoctorTendToAnimals.gerund>TODO</DoctorTendToAnimals.gerund>
+  <!-- EN: tend to -->
+  <DoctorTendToAnimals.verb>TODO</DoctorTendToAnimals.verb>
+  
+  <!-- EN: tend to patients -->
+  <DoctorTendToHumanlikes.label>TODO</DoctorTendToHumanlikes.label>
+  <!-- EN: tending to -->
+  <DoctorTendToHumanlikes.gerund>TODO</DoctorTendToHumanlikes.gerund>
+  <!-- EN: tend to -->
+  <DoctorTendToHumanlikes.verb>TODO</DoctorTendToHumanlikes.verb>
+  
+  <!-- EN: tend to self -->
+  <DoctorTendToSelf.label>TODO</DoctorTendToSelf.label>
+  <!-- EN: tending to -->
+  <DoctorTendToSelf.gerund>TODO</DoctorTendToSelf.gerund>
+  <!-- EN: tend to -->
+  <DoctorTendToSelf.verb>TODO</DoctorTendToSelf.verb>
+  
+  <!-- EN: execute prisoners -->
+  <DoExecution.label>TODO</DoExecution.label>
+  <!-- EN: doing execution on -->
+  <DoExecution.gerund>TODO</DoExecution.gerund>
+  <!-- EN: do execution on -->
+  <DoExecution.verb>TODO</DoExecution.verb>
+  
+  <!-- EN: drill at deep drill -->
+  <Drill.label>TODO</Drill.label>
+  <!-- EN: drilling -->
+  <Drill.gerund>TODO</Drill.gerund>
+  <!-- EN: drill -->
+  <Drill.verb>TODO</Drill.verb>
+  
+  <!-- EN: feed prisoners -->
+  <FeedPrisoner.label>TODO</FeedPrisoner.label>
+  <!-- EN: feeding -->
+  <FeedPrisoner.gerund>TODO</FeedPrisoner.gerund>
+  <!-- EN: feed -->
+  <FeedPrisoner.verb>TODO</FeedPrisoner.verb>
+  
+  <!-- EN: fight fires -->
+  <FightFires.label>TODO</FightFires.label>
+  <!-- EN: extinguishing -->
+  <FightFires.gerund>TODO</FightFires.gerund>
+  <!-- EN: extinguish -->
+  <FightFires.verb>TODO</FightFires.verb>
+  
+  <!-- EN: fill fermenting barrels -->
+  <FillFermentingBarrel.label>TODO</FillFermentingBarrel.label>
+  <!-- EN: filling -->
+  <FillFermentingBarrel.gerund>TODO</FillFermentingBarrel.gerund>
+  <!-- EN: fill -->
+  <FillFermentingBarrel.verb>TODO</FillFermentingBarrel.verb>
+  
+  <!-- EN: fix broken-down buildings -->
+  <FixBrokenDownBuilding.label>TODO</FixBrokenDownBuilding.label>
+  <!-- EN: replacing broken components in -->
+  <FixBrokenDownBuilding.gerund>TODO</FixBrokenDownBuilding.gerund>
+  <!-- EN: replace broken components in -->
+  <FixBrokenDownBuilding.verb>TODO</FixBrokenDownBuilding.verb>
+  
+  <!-- EN: flick switches -->
+  <Flick.label>TODO</Flick.label>
+  <!-- EN: flicking switch on -->
+  <Flick.gerund>TODO</Flick.gerund>
+  <!-- EN: flick switch on -->
+  <Flick.verb>TODO</Flick.verb>
+  
+  <!-- EN: harvest crops -->
+  <GrowerHarvest.label>TODO</GrowerHarvest.label>
+  <!-- EN: harvesting -->
+  <GrowerHarvest.gerund>TODO</GrowerHarvest.gerund>
+  <!-- EN: harvest -->
+  <GrowerHarvest.verb>TODO</GrowerHarvest.verb>
+  
+  <!-- EN: sow crops -->
+  <GrowerSow.label>TODO</GrowerSow.label>
+  <!-- EN: sowing -->
+  <GrowerSow.gerund>TODO</GrowerSow.gerund>
+  <!-- EN: sow -->
+  <GrowerSow.verb>TODO</GrowerSow.verb>
+  
+  <!-- EN: feed animals -->
+  <HandlingFeedPatientAnimals.label>TODO</HandlingFeedPatientAnimals.label>
+  <!-- EN: feeding -->
+  <HandlingFeedPatientAnimals.gerund>TODO</HandlingFeedPatientAnimals.gerund>
+  <!-- EN: feed -->
+  <HandlingFeedPatientAnimals.verb>TODO</HandlingFeedPatientAnimals.verb>
+  
+  <!-- EN: haul corpses -->
+  <HaulCorpses.label>TODO</HaulCorpses.label>
+  <!-- EN: hauling -->
+  <HaulCorpses.gerund>TODO</HaulCorpses.gerund>
+  <!-- EN: haul -->
+  <HaulCorpses.verb>TODO</HaulCorpses.verb>
+  
+  <!-- EN: haul general things -->
+  <HaulGeneral.label>TODO</HaulGeneral.label>
+  <!-- EN: hauling -->
+  <HaulGeneral.gerund>TODO</HaulGeneral.gerund>
+  <!-- EN: haul -->
+  <HaulGeneral.verb>TODO</HaulGeneral.verb>
+  
+  <!-- EN: merge things -->
+  <HaulMerge.label>TODO</HaulMerge.label>
+  <!-- EN: merging -->
+  <HaulMerge.gerund>TODO</HaulMerge.gerund>
+  <!-- EN: merge -->
+  <HaulMerge.verb>TODO</HaulMerge.verb>
+  
+  <!-- EN: load caravan -->
+  <HelpGatheringItemsForCaravan.label>TODO</HelpGatheringItemsForCaravan.label>
+  <!-- EN: loading -->
+  <HelpGatheringItemsForCaravan.gerund>TODO</HelpGatheringItemsForCaravan.gerund>
+  <!-- EN: load -->
+  <HelpGatheringItemsForCaravan.verb>TODO</HelpGatheringItemsForCaravan.verb>
+  
+  <!-- EN: hunt -->
+  <HunterHunt.label>TODO</HunterHunt.label>
+  <!-- EN: hunting -->
+  <HunterHunt.gerund>TODO</HunterHunt.gerund>
+  <!-- EN: hunt -->
+  <HunterHunt.verb>TODO</HunterHunt.verb>
+  
+  <!-- EN: load transporters -->
+  <LoadTransporters.label>TODO</LoadTransporters.label>
+  <!-- EN: loading -->
+  <LoadTransporters.gerund>TODO</LoadTransporters.gerund>
+  <!-- EN: load -->
+  <LoadTransporters.verb>TODO</LoadTransporters.verb>
+  
+  <!-- EN: milk animals -->
+  <Milk.label>TODO</Milk.label>
+  <!-- EN: milking -->
+  <Milk.gerund>TODO</Milk.gerund>
+  <!-- EN: milk -->
+  <Milk.verb>TODO</Milk.verb>
+  
+  <!-- EN: mine -->
+  <Mine.label>TODO</Mine.label>
+  <!-- EN: mining -->
+  <Mine.gerund>TODO</Mine.gerund>
+  <!-- EN: mine -->
+  <Mine.verb>TODO</Mine.verb>
+  
+  <!-- EN: open containers -->
+  <Open.label>TODO</Open.label>
+  <!-- EN: opening -->
+  <Open.gerund>TODO</Open.gerund>
+  <!-- EN: open -->
+  <Open.verb>TODO</Open.verb>
+  
+  <!-- EN: go to bed for emergency treatment -->
+  <PatientGoToBedEmergencyTreatment.label>TODO</PatientGoToBedEmergencyTreatment.label>
+  <!-- EN: receiving treatment in -->
+  <PatientGoToBedEmergencyTreatment.gerund>TODO</PatientGoToBedEmergencyTreatment.gerund>
+  <!-- EN: receive treatment in -->
+  <PatientGoToBedEmergencyTreatment.verb>TODO</PatientGoToBedEmergencyTreatment.verb>
+  
+  <!-- EN: recuperate in bed -->
+  <PatientGoToBedRecuperate.label>TODO</PatientGoToBedRecuperate.label>
+  <!-- EN: getting bed rest in -->
+  <PatientGoToBedRecuperate.gerund>TODO</PatientGoToBedRecuperate.gerund>
+  <!-- EN: get bed rest in -->
+  <PatientGoToBedRecuperate.verb>TODO</PatientGoToBedRecuperate.verb>
+  
+  <!-- EN: go to bed for treatment -->
+  <PatientGoToBedTreatment.label>TODO</PatientGoToBedTreatment.label>
+  <!-- EN: receiving treatment in -->
+  <PatientGoToBedTreatment.gerund>TODO</PatientGoToBedTreatment.gerund>
+  <!-- EN: receive treatment in -->
+  <PatientGoToBedTreatment.verb>TODO</PatientGoToBedTreatment.verb>
+  
+  <!-- EN: cut plants -->
+  <PlantsCut.label>TODO</PlantsCut.label>
+  <!-- EN: cutting -->
+  <PlantsCut.gerund>TODO</PlantsCut.gerund>
+  <!-- EN: cut -->
+  <PlantsCut.verb>TODO</PlantsCut.verb>
+  
+  <!-- EN: rearm turrets -->
+  <RearmTurrets.label>TODO</RearmTurrets.label>
+  <!-- EN: rearming -->
+  <RearmTurrets.gerund>TODO</RearmTurrets.gerund>
+  <!-- EN: rearm -->
+  <RearmTurrets.verb>TODO</RearmTurrets.verb>
+  
+  <!-- EN: refuel fuelable buildings -->
+  <Refuel.label>TODO</Refuel.label>
+  <!-- EN: refueling -->
+  <Refuel.gerund>TODO</Refuel.gerund>
+  <!-- EN: refuel -->
+  <Refuel.verb>TODO</Refuel.verb>
+  
+  <!-- EN: release prisoners -->
+  <ReleasePrisoner.label>TODO</ReleasePrisoner.label>
+  <!-- EN: releasing -->
+  <ReleasePrisoner.gerund>TODO</ReleasePrisoner.gerund>
+  <!-- EN: release -->
+  <ReleasePrisoner.verb>TODO</ReleasePrisoner.verb>
+  
+  <!-- EN: remove roofs -->
+  <RemoveRoofs.label>TODO</RemoveRoofs.label>
+  <!-- EN: removing roof -->
+  <RemoveRoofs.gerund>TODO</RemoveRoofs.gerund>
+  <!-- EN: remove roof -->
+  <RemoveRoofs.verb>TODO</RemoveRoofs.verb>
+  
+  <!-- EN: repair damaged things -->
+  <Repair.label>TODO</Repair.label>
+  <!-- EN: repairing -->
+  <Repair.gerund>TODO</Repair.gerund>
+  <!-- EN: repair -->
+  <Repair.verb>TODO</Repair.verb>
+  
+  <!-- EN: do research -->
+  <Research.label>TODO</Research.label>
+  <!-- EN: researching at -->
+  <Research.gerund>TODO</Research.gerund>
+  <!-- EN: research -->
+  <Research.verb>TODO</Research.verb>
+  
+  <!-- EN: operate scanner -->
+  <Scan.label>TODO</Scan.label>
+  <!-- EN: scanning at -->
+  <Scan.gerund>TODO</Scan.gerund>
+  <!-- EN: scan -->
+  <Scan.verb>TODO</Scan.verb>
+  
+  <!-- EN: shear animals -->
+  <Shear.label>TODO</Shear.label>
+  <!-- EN: shearing -->
+  <Shear.gerund>TODO</Shear.gerund>
+  <!-- EN: shear -->
+  <Shear.verb>TODO</Shear.verb>
+  
+  <!-- EN: slaughter animals -->
+  <Slaughter.label>TODO</Slaughter.label>
+  <!-- EN: slaughtering -->
+  <Slaughter.gerund>TODO</Slaughter.gerund>
+  <!-- EN: slaughter -->
+  <Slaughter.verb>TODO</Slaughter.verb>
+  
+  <!-- EN: strip corpses -->
+  <Strip.label>TODO</Strip.label>
+  <!-- EN: stripping -->
+  <Strip.gerund>TODO</Strip.gerund>
+  <!-- EN: strip -->
+  <Strip.verb>TODO</Strip.verb>
+  
+  <!-- EN: take beer out of fermenting barrels -->
+  <TakeBeerOutOfFermentingBarrel.label>TODO</TakeBeerOutOfFermentingBarrel.label>
+  <!-- EN: taking beer from -->
+  <TakeBeerOutOfFermentingBarrel.gerund>TODO</TakeBeerOutOfFermentingBarrel.gerund>
+  <!-- EN: take beer -->
+  <TakeBeerOutOfFermentingBarrel.verb>TODO</TakeBeerOutOfFermentingBarrel.verb>
+  
+  <!-- EN: take prisoners to bed -->
+  <TakePrisonerToBed.label>TODO</TakePrisonerToBed.label>
+  <!-- EN: taking to bed -->
+  <TakePrisonerToBed.gerund>TODO</TakePrisonerToBed.gerund>
+  <!-- EN: take to bed -->
+  <TakePrisonerToBed.verb>TODO</TakePrisonerToBed.verb>
+  
+  <!-- EN: take patients to bed for operations -->
+  <TakeToBedToOperate.label>TODO</TakeToBedToOperate.label>
+  <!-- EN: taking to operate -->
+  <TakeToBedToOperate.gerund>TODO</TakeToBedToOperate.gerund>
+  <!-- EN: take to operate -->
+  <TakeToBedToOperate.verb>TODO</TakeToBedToOperate.verb>
+  
+  <!-- EN: tame animals -->
+  <Tame.label>TODO</Tame.label>
+  <!-- EN: taming -->
+  <Tame.gerund>TODO</Tame.gerund>
+  <!-- EN: tame -->
+  <Tame.verb>TODO</Tame.verb>
+  
+  <!-- EN: train animals -->
+  <Train.label>TODO</Train.label>
+  <!-- EN: training -->
+  <Train.gerund>TODO</Train.gerund>
+  <!-- EN: train -->
+  <Train.verb>TODO</Train.verb>
+  
+  <!-- EN: uninstall structures -->
+  <Uninstall.label>TODO</Uninstall.label>
+  <!-- EN: uninstalling -->
+  <Uninstall.gerund>TODO</Uninstall.gerund>
+  <!-- EN: uninstall -->
+  <Uninstall.verb>TODO</Uninstall.verb>
+  
+  <!-- EN: unload carriers -->
+  <UnloadCarriers.label>TODO</UnloadCarriers.label>
+  <!-- EN: unloading -->
+  <UnloadCarriers.gerund>TODO</UnloadCarriers.gerund>
+  <!-- EN: unload -->
+  <UnloadCarriers.verb>TODO</UnloadCarriers.verb>
+  
+  <!-- EN: visit sick people -->
+  <VisitSickPawn.label>TODO</VisitSickPawn.label>
+  <!-- EN: visiting -->
+  <VisitSickPawn.gerund>TODO</VisitSickPawn.gerund>
+  <!-- EN: visit -->
+  <VisitSickPawn.verb>TODO</VisitSickPawn.verb>
+  
+</LanguageData>

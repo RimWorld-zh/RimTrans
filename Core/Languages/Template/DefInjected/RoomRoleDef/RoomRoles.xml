@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: barn -->
+  <Barn.label>TODO</Barn.label>
+  
+  <!-- EN: barracks -->
+  <Barracks.label>TODO</Barracks.label>
+  
+  <!-- EN: bedroom -->
+  <Bedroom.label>TODO</Bedroom.label>
+  
+  <!-- EN: dining room -->
+  <DiningRoom.label>TODO</DiningRoom.label>
+  
+  <!-- EN: hospital -->
+  <Hospital.label>TODO</Hospital.label>
+  
+  <!-- EN: kitchen -->
+  <Kitchen.label>TODO</Kitchen.label>
+  
+  <!-- EN: laboratory -->
+  <Laboratory.label>TODO</Laboratory.label>
+  
+  <!-- EN: none -->
+  <None.label>TODO</None.label>
+  
+  <!-- EN: prison barracks -->
+  <PrisonBarracks.label>TODO</PrisonBarracks.label>
+  
+  <!-- EN: prison cell -->
+  <PrisonCell.label>TODO</PrisonCell.label>
+  
+  <!-- EN: rec room -->
+  <RecRoom.label>TODO</RecRoom.label>
+  
+  <!-- EN: room -->
+  <Room.label>TODO</Room.label>
+  
+  <!-- EN: tomb -->
+  <Tomb.label>TODO</Tomb.label>
+  
+  <!-- EN: workshop -->
+  <Workshop.label>TODO</Workshop.label>
+  
+</LanguageData>

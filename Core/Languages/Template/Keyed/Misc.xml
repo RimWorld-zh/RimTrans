@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: Autosaving -->
+  <Autosaving>TODO</Autosaving>
+  <!-- EN: The three of you awake in your cryptosleep sarcophagi to the sound of sirens and ripping metal. You barely get to the escape pods before the ship is torn apart.\n\nSome time later, you land on this unknown rimworld.\n\nAs pieces of the shredded starship fall around you, you start making plans to survive. -->
+  <GameStartDialog>TODO</GameStartDialog>
+  <!-- EN: Colony -->
+  <Colony>TODO</Colony>
+  <!-- EN: You can only change language from the options screen on the main menu. -->
+  <ChangeLanguageFromMainMenu>TODO</ChangeLanguageFromMainMenu>
+  <!-- EN: and -->
+  <AndLower>TODO</AndLower>
+  <!-- EN: disabled -->
+  <DisabledLower>TODO</DisabledLower>
+
+  <!-- EN: Version {0} -->
+  <VersionIndicator>TODO</VersionIndicator>
+  <!-- EN: development build -->
+  <DevelopmentBuildLower>TODO</DevelopmentBuildLower>
+  <!-- EN: Compiled {0} -->
+  <CompiledOn>TODO</CompiledOn>
+  <!-- EN: Logged into Steam as {0} -->
+  <LoggedIntoSteamAs>TODO</LoggedIntoSteamAs>
+
+  <!-- General-use words -->
+  <!-- EN: Yes -->
+  <Yes>TODO</Yes>
+  <!-- EN: No -->
+  <No>TODO</No>
+  <!-- EN: min -->
+  <min>TODO</min>
+  <!-- EN: max -->
+  <max>TODO</max>
+  <!-- EN: chance -->
+  <chance>TODO</chance>
+  <!-- EN: context -->
+  <context>TODO</context>
+  <!-- EN: multiplier -->
+  <multiplier>TODO</multiplier>
+  <!-- EN: damage -->
+  <damage>TODO</damage>
+  <!-- EN: radius -->
+  <radius>TODO</radius>
+  <!-- EN: duration (days) -->
+  <durationDays>TODO</durationDays>
+  <!-- EN: interval (days) -->
+  <intervalDays>TODO</intervalDays>
+  <!-- EN: repeat -->
+  <repeat>TODO</repeat>
+  <!-- EN: default -->
+  <default>TODO</default>
+  <!-- EN: distance -->
+  <distance>TODO</distance>
+  <!-- EN: YES -->
+  <YesUppercase>TODO</YesUppercase>
+  <!-- EN: NO -->
+  <NoUppercase>TODO</NoUppercase>
+  <!-- EN: kg -->
+  <kg>TODO</kg>
+  <!-- EN: Day -->
+  <Day>TODO</Day>
+  <!-- EN: day -->
+  <day>TODO</day>
+  <!-- EN: Default -->
+  <Default>TODO</Default>
+  <!-- EN: Average -->
+  <Average>TODO</Average>
+  <!-- EN: ${0} -->
+  <MoneyFormat>TODO</MoneyFormat>
+
+  <!-- Content generation-->
+  
+  <!-- EN: {0} meat -->
+  <MeatLabel>TODO</MeatLabel>
+  <!-- EN: Raw butchered flesh. Can be cooked into meals, or eaten raw. -->
+  <MeatDesc>TODO</MeatDesc>
+  <!-- EN: Raw butchered flesh. If necessary, can be cooked into meals, or even eaten raw. Extremely unappetizing. -->
+  <MeatInsectDesc>TODO</MeatInsectDesc>
+  <!-- EN: Raw butchered flesh. Can be cooked into meals or eaten raw, although most humans dislike the idea. -->
+  <MeatHumanDesc>TODO</MeatHumanDesc>
+
+  <!-- EN: {0} corpse -->
+  <CorpseLabel>TODO</CorpseLabel>
+  <!-- EN: Dead body of a {0}. -->
+  <CorpseDesc>TODO</CorpseDesc>
+  <!-- EN: {1_label} (dead) -->
+  <DeadLabel>TODO</DeadLabel>
+
+  <!-- EN: rough {0} -->
+  <RoughStoneTerrainLabel>TODO</RoughStoneTerrainLabel>
+  <!-- EN: Rough, natural {0} ground. -->
+  <RoughStoneTerrainDesc>TODO</RoughStoneTerrainDesc>
+  <!-- EN: rough-hewn {0} -->
+  <RoughHewnStoneTerrainLabel>TODO</RoughHewnStoneTerrainLabel>
+  <!-- EN: Roughly cut natural {0} floor. -->
+  <RoughHewnStoneTerrainDesc>TODO</RoughHewnStoneTerrainDesc>
+  <!-- EN: smooth {0} -->
+  <SmoothStoneTerrainLabel>TODO</SmoothStoneTerrainLabel>
+  <!-- EN: Smoothed natural {0} floor. -->
+  <SmoothStoneTerrainDesc>TODO</SmoothStoneTerrainDesc>
+
+  <!-- EN:  (blueprint) -->
+  <BlueprintLabelExtra>TODO</BlueprintLabelExtra>
+  <!-- EN:  (building) -->
+  <FrameLabelExtra>TODO</FrameLabelExtra>
+
+  <!-- EN: Unaffiliated -->
+  <FactionUnaffiliated>TODO</FactionUnaffiliated>
+
+  <!-- For things made of stuff, e.g. "Stone bed" -->
+  <!-- 0 is the stuffAdjective property under stuffProps and 1 is the label -->
+  <!-- EN: {0} {1} -->
+  <ThingMadeOfStuffLabel>TODO</ThingMadeOfStuffLabel>
+
+  <!-- EN: {PAWN_labelShort}'s {1} -->
+  <SomeonesRoom>TODO</SomeonesRoom>
+  <!-- EN: {PAWN1_labelShort} and {PAWN2_labelShort}'s {2} -->
+  <CouplesRoom>TODO</CouplesRoom>
+  
+  <!-- EN: (various) -->
+  <VariousLabel>TODO</VariousLabel>
+
+  <!-- History events -->
+  <!-- EN: Colonist died -->
+  <ColonistDied>TODO</ColonistDied>
+  
+  <!-- Rotation -->
+  <!-- EN: North -->
+  <North>TODO</North>
+  <!-- EN: South -->
+  <South>TODO</South>
+  <!-- EN: West -->
+  <West>TODO</West>
+  <!-- EN: East -->
+  <East>TODO</East>
+  
+</LanguageData>

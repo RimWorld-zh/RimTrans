@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: allowed area -->
+  <AllowedArea.label>TODO</AllowedArea.label>
+  
+  <!-- EN: allowed area -->
+  <AllowedAreaWide.label>TODO</AllowedAreaWide.label>
+  
+  <!-- EN: drug policy -->
+  <DrugPolicy.label>TODO</DrugPolicy.label>
+  
+  <!-- EN: food restriction -->
+  <FoodRestriction.label>TODO</FoodRestriction.label>
+  
+  <!-- EN: Hostility response -->
+  <HostilityResponse.headerTip>TODO</HostilityResponse.headerTip>
+  
+  <!-- EN: master -->
+  <Master.label>TODO</Master.label>
+  
+  <!-- EN: Medical care -->
+  <MedicalCare.headerTip>TODO</MedicalCare.headerTip>
+  
+  <!-- EN: current outfit -->
+  <Outfit.label>TODO</Outfit.label>
+  
+</LanguageData>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: bomb -->
+  <Bomb.label>TODO</Bomb.label>
+  <!-- EN: {0} has died in an explosion. -->
+  <Bomb.deathMessage>TODO</Bomb.deathMessage>
+  
+  <!-- EN: bomb -->
+  <BombSuper.label>TODO</BombSuper.label>
+  <!-- EN: {0} has died in an explosion. -->
+  <BombSuper.deathMessage>TODO</BombSuper.deathMessage>
+  
+  <!-- EN: deterioration -->
+  <Deterioration.label>TODO</Deterioration.label>
+  <!-- EN: {0} has been killed. -->
+  <Deterioration.deathMessage>TODO</Deterioration.deathMessage>
+  
+  <!-- EN: extinguish -->
+  <Extinguish.label>TODO</Extinguish.label>
+  <!-- EN: {0} has been killed. -->
+  <Extinguish.deathMessage>TODO</Extinguish.deathMessage>
+  
+  <!-- EN: mining -->
+  <Mining.label>TODO</Mining.label>
+  <!-- EN: {0} has been killed. -->
+  <Mining.deathMessage>TODO</Mining.deathMessage>
+  
+  <!-- EN: rotting -->
+  <Rotting.label>TODO</Rotting.label>
+  <!-- EN: {0} has been killed. -->
+  <Rotting.deathMessage>TODO</Rotting.deathMessage>
+  
+  <!-- EN: smoke -->
+  <Smoke.label>TODO</Smoke.label>
+  <!-- EN: {0} has been killed. -->
+  <Smoke.deathMessage>TODO</Smoke.deathMessage>
+  
+</LanguageData>

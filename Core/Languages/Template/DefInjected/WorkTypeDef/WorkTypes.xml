@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Create beautiful works of art from raw materials. -->
+  <Art.description>TODO</Art.description>
+  <!-- EN: art -->
+  <Art.gerundLabel>TODO</Art.gerundLabel>
+  <!-- EN: Art -->
+  <Art.labelShort>TODO</Art.labelShort>
+  <!-- EN: Artist -->
+  <Art.pawnLabel>TODO</Art.pawnLabel>
+  <!-- EN: Do art at -->
+  <Art.verb>TODO</Art.verb>
+  
+  <!-- EN: Unskilled and easy tasks. Release prisoners and flick switches on machines. -->
+  <BasicWorker.description>TODO</BasicWorker.description>
+  <!-- EN: dealing with -->
+  <BasicWorker.gerundLabel>TODO</BasicWorker.gerundLabel>
+  <!-- EN: Basic -->
+  <BasicWorker.labelShort>TODO</BasicWorker.labelShort>
+  <!-- EN: Worker -->
+  <BasicWorker.pawnLabel>TODO</BasicWorker.pawnLabel>
+  <!-- EN: Deal with -->
+  <BasicWorker.verb>TODO</BasicWorker.verb>
+  
+  <!-- EN: Clear snow and clean the floor in the home area. -->
+  <Cleaning.description>TODO</Cleaning.description>
+  <!-- EN: cleaning -->
+  <Cleaning.gerundLabel>TODO</Cleaning.gerundLabel>
+  <!-- EN: Clean -->
+  <Cleaning.labelShort>TODO</Cleaning.labelShort>
+  <!-- EN: Cleaner -->
+  <Cleaning.pawnLabel>TODO</Cleaning.pawnLabel>
+  <!-- EN: Clean -->
+  <Cleaning.verb>TODO</Cleaning.verb>
+  
+  <!-- EN: Build things that you've designated, and fix damaged or broken-down buildings. -->
+  <Construction.description>TODO</Construction.description>
+  <!-- EN: constructing -->
+  <Construction.gerundLabel>TODO</Construction.gerundLabel>
+  <!-- EN: Construct -->
+  <Construction.labelShort>TODO</Construction.labelShort>
+  <!-- EN: Constructor -->
+  <Construction.pawnLabel>TODO</Construction.pawnLabel>
+  <!-- EN: Construct -->
+  <Construction.verb>TODO</Construction.verb>
+  
+  <!-- EN: Prepare meals and butcher meat. -->
+  <Cooking.description>TODO</Cooking.description>
+  <!-- EN: cooking -->
+  <Cooking.gerundLabel>TODO</Cooking.gerundLabel>
+  <!-- EN: Cook -->
+  <Cooking.labelShort>TODO</Cooking.labelShort>
+  <!-- EN: Cook -->
+  <Cooking.pawnLabel>TODO</Cooking.pawnLabel>
+  <!-- EN: Cook -->
+  <Cooking.verb>TODO</Cooking.verb>
+  
+  <!-- EN: Do general low-skilled labor at work stations. This includes stonecutting, smelting, and more. -->
+  <Crafting.description>TODO</Crafting.description>
+  <!-- EN: crafting -->
+  <Crafting.gerundLabel>TODO</Crafting.gerundLabel>
+  <!-- EN: Craft -->
+  <Crafting.labelShort>TODO</Crafting.labelShort>
+  <!-- EN: Crafter -->
+  <Crafting.pawnLabel>TODO</Crafting.pawnLabel>
+  <!-- EN: Craft at -->
+  <Crafting.verb>TODO</Crafting.verb>
+  
+  <!-- EN: Treat the sick, bring them food, cheer them up, and perform assigned surgeries. Doctors will care for both colonists and prisoners. -->
+  <Doctor.description>TODO</Doctor.description>
+  <!-- EN: doctoring -->
+  <Doctor.gerundLabel>TODO</Doctor.gerundLabel>
+  <!-- EN: Doctor -->
+  <Doctor.labelShort>TODO</Doctor.labelShort>
+  <!-- EN: Doctor -->
+  <Doctor.pawnLabel>TODO</Doctor.pawnLabel>
+  <!-- EN: Care for -->
+  <Doctor.verb>TODO</Doctor.verb>
+  
+  <!-- EN: Extinguish fires in the colony. -->
+  <Firefighter.description>TODO</Firefighter.description>
+  <!-- EN: firefighting -->
+  <Firefighter.gerundLabel>TODO</Firefighter.gerundLabel>
+  <!-- EN: Firefight -->
+  <Firefighter.labelShort>TODO</Firefighter.labelShort>
+  <!-- EN: Firefighter -->
+  <Firefighter.pawnLabel>TODO</Firefighter.pawnLabel>
+  <!-- EN: Extinguish -->
+  <Firefighter.verb>TODO</Firefighter.verb>
+  
+  <!-- EN: Plant seeds, harvest crops, and forage for wild plants. -->
+  <Growing.description>TODO</Growing.description>
+  <!-- EN: growing -->
+  <Growing.gerundLabel>TODO</Growing.gerundLabel>
+  <!-- EN: Grow -->
+  <Growing.labelShort>TODO</Growing.labelShort>
+  <!-- EN: Grower -->
+  <Growing.pawnLabel>TODO</Growing.pawnLabel>
+  <!-- EN: Grow -->
+  <Growing.verb>TODO</Growing.verb>
+  
+  <!-- EN: Tame, train, harvest resources from and slaughter animals. -->
+  <Handling.description>TODO</Handling.description>
+  <!-- EN: handling -->
+  <Handling.gerundLabel>TODO</Handling.gerundLabel>
+  <!-- EN: Handle -->
+  <Handling.labelShort>TODO</Handling.labelShort>
+  <!-- EN: Handler -->
+  <Handling.pawnLabel>TODO</Handling.pawnLabel>
+  <!-- EN: Handle -->
+  <Handling.verb>TODO</Handling.verb>
+  
+  <!-- EN: Carry things to where they need to be. -->
+  <Hauling.description>TODO</Hauling.description>
+  <!-- EN: hauling -->
+  <Hauling.gerundLabel>TODO</Hauling.gerundLabel>
+  <!-- EN: Haul -->
+  <Hauling.labelShort>TODO</Hauling.labelShort>
+  <!-- EN: Hauler -->
+  <Hauling.pawnLabel>TODO</Hauling.pawnLabel>
+  <!-- EN: Haul -->
+  <Hauling.verb>TODO</Hauling.verb>
+  
+  <!-- EN: Kill animals which are designated to be hunted. -->
+  <Hunting.description>TODO</Hunting.description>
+  <!-- EN: hunting -->
+  <Hunting.gerundLabel>TODO</Hunting.gerundLabel>
+  <!-- EN: Hunt -->
+  <Hunting.labelShort>TODO</Hunting.labelShort>
+  <!-- EN: Hunter -->
+  <Hunting.pawnLabel>TODO</Hunting.pawnLabel>
+  <!-- EN: Hunt -->
+  <Hunting.verb>TODO</Hunting.verb>
+  
+  <!-- EN: Digging and drilling. -->
+  <Mining.description>TODO</Mining.description>
+  <!-- EN: mining -->
+  <Mining.gerundLabel>TODO</Mining.gerundLabel>
+  <!-- EN: Mine -->
+  <Mining.labelShort>TODO</Mining.labelShort>
+  <!-- EN: Miner -->
+  <Mining.pawnLabel>TODO</Mining.pawnLabel>
+  <!-- EN: Mine -->
+  <Mining.verb>TODO</Mining.verb>
+  
+  <!-- EN: Go to a medical bed for treatment if you have an immediately life-threatening health condition. -->
+  <Patient.description>TODO</Patient.description>
+  <!-- EN: patienting -->
+  <Patient.gerundLabel>TODO</Patient.gerundLabel>
+  <!-- EN: Patient -->
+  <Patient.labelShort>TODO</Patient.labelShort>
+  <!-- EN: Patient -->
+  <Patient.pawnLabel>TODO</Patient.pawnLabel>
+  <!-- EN: Become patient -->
+  <Patient.verb>TODO</Patient.verb>
+  
+  <!-- EN: Rest in bed to recuperate from not-immediately-life-threatening medical problems. -->
+  <PatientBedRest.description>TODO</PatientBedRest.description>
+  <!-- EN: resting in bed -->
+  <PatientBedRest.gerundLabel>TODO</PatientBedRest.gerundLabel>
+  <!-- EN: Bed rest -->
+  <PatientBedRest.labelShort>TODO</PatientBedRest.labelShort>
+  <!-- EN: Bed rester -->
+  <PatientBedRest.pawnLabel>TODO</PatientBedRest.pawnLabel>
+  <!-- EN: Become patient -->
+  <PatientBedRest.verb>TODO</PatientBedRest.verb>
+  
+  <!-- EN: Cut or harvest plants as designated. -->
+  <PlantCutting.description>TODO</PlantCutting.description>
+  <!-- EN: plant cutting -->
+  <PlantCutting.gerundLabel>TODO</PlantCutting.gerundLabel>
+  <!-- EN: Plant cut -->
+  <PlantCutting.labelShort>TODO</PlantCutting.labelShort>
+  <!-- EN: Plant cutter -->
+  <PlantCutting.pawnLabel>TODO</PlantCutting.pawnLabel>
+  <!-- EN: Cut -->
+  <PlantCutting.verb>TODO</PlantCutting.verb>
+  
+  <!-- EN: Perform research work. -->
+  <Research.description>TODO</Research.description>
+  <!-- EN: researching -->
+  <Research.gerundLabel>TODO</Research.gerundLabel>
+  <!-- EN: Research -->
+  <Research.labelShort>TODO</Research.labelShort>
+  <!-- EN: Researcher -->
+  <Research.pawnLabel>TODO</Research.pawnLabel>
+  <!-- EN: Research at -->
+  <Research.verb>TODO</Research.verb>
+  
+  <!-- EN: Create weapons and tools from raw materials, either as a blacksmith or by machining. -->
+  <Smithing.description>TODO</Smithing.description>
+  <!-- EN: smithing -->
+  <Smithing.gerundLabel>TODO</Smithing.gerundLabel>
+  <!-- EN: Smith -->
+  <Smithing.labelShort>TODO</Smithing.labelShort>
+  <!-- EN: Smith -->
+  <Smithing.pawnLabel>TODO</Smithing.pawnLabel>
+  <!-- EN: Smith at -->
+  <Smithing.verb>TODO</Smithing.verb>
+  
+  <!-- EN: Create apparel from raw materials. -->
+  <Tailoring.description>TODO</Tailoring.description>
+  <!-- EN: tailoring -->
+  <Tailoring.gerundLabel>TODO</Tailoring.gerundLabel>
+  <!-- EN: Tailor -->
+  <Tailoring.labelShort>TODO</Tailoring.labelShort>
+  <!-- EN: Tailor -->
+  <Tailoring.pawnLabel>TODO</Tailoring.pawnLabel>
+  <!-- EN: Tailor at -->
+  <Tailoring.verb>TODO</Tailoring.verb>
+  
+  <!-- EN: Manage, feed, chat with, and recruit prisoners. -->
+  <Warden.description>TODO</Warden.description>
+  <!-- EN: wardening -->
+  <Warden.gerundLabel>TODO</Warden.gerundLabel>
+  <!-- EN: Warden -->
+  <Warden.labelShort>TODO</Warden.labelShort>
+  <!-- EN: Warden -->
+  <Warden.pawnLabel>TODO</Warden.pawnLabel>
+  <!-- EN: Handle -->
+  <Warden.verb>TODO</Warden.verb>
+  
+</LanguageData>

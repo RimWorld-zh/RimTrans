@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: chemical consumption -->
+  <Chemical.label>TODO</Chemical.label>
+  
+  <!-- EN: cerebral play -->
+  <Gaming_Cerebral.label>TODO</Gaming_Cerebral.label>
+  
+  <!-- EN: dexterity play -->
+  <Gaming_Dexterity.label>TODO</Gaming_Dexterity.label>
+  
+  <!-- EN: food consumption -->
+  <Gluttonous.label>TODO</Gluttonous.label>
+  
+  <!-- EN: solitary relaxation -->
+  <Meditative.label>TODO</Meditative.label>
+  
+  <!-- EN: social interaction -->
+  <Social.label>TODO</Social.label>
+  
+  <!-- EN: telescope study -->
+  <Telescope.label>TODO</Telescope.label>
+  
+  <!-- EN: television watching -->
+  <Television.label>TODO</Television.label>
+  
+</LanguageData>

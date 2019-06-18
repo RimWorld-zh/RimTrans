@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: air conditioning -->
+  <AirConditioning.label>TODO</AirConditioning.label>
+  <!-- EN: Build coolers to make people comfortable in hot weather, or to construct freezers for storing perishable goods. -->
+  <AirConditioning.description>TODO</AirConditioning.description>
+  
+  <!-- EN: autodoor -->
+  <Autodoors.label>TODO</Autodoors.label>
+  <!-- EN: Build autodoors which automatically open when someone approaches, without slowing anyone down. -->
+  <Autodoors.description>TODO</Autodoors.description>
+  
+  <!-- EN: battery -->
+  <Batteries.label>TODO</Batteries.label>
+  <!-- EN: Build batteries for storing electricity. -->
+  <Batteries.description>TODO</Batteries.description>
+  
+  <!-- EN: biofuel refining -->
+  <BiofuelRefining.label>TODO</BiofuelRefining.label>
+  <!-- EN: Build biofuel refineries to make chemfuel from biological matter like wood or foodstuffs. -->
+  <BiofuelRefining.description>TODO</BiofuelRefining.description>
+  
+  <!-- EN: blowback operation -->
+  <BlowbackOperation.label>TODO</BlowbackOperation.label>
+  <!-- EN: Craft low-power blowback-operated guns like autopistols and machine pistols. -->
+  <BlowbackOperation.description>TODO</BlowbackOperation.description>
+  
+  <!-- EN: electricity -->
+  <Electricity.label>TODO</Electricity.label>
+  <!-- EN: Harness the power of electricity for a hundred different tasks. -->
+  <Electricity.description>TODO</Electricity.description>
+  
+  <!-- EN: firefoam -->
+  <Firefoam.label>TODO</Firefoam.label>
+  <!-- EN: Construct firefoam poppers, automatic fire-safety devices which spread fire-retardant foam in response to encroaching flames. -->
+  <Firefoam.description>TODO</Firefoam.description>
+  
+  <!-- EN: flak armor -->
+  <FlakArmor.label>TODO</FlakArmor.label>
+  <!-- EN: Craft clothing with metal armor sewn in to resist bullets and explosions. This weighty armor slows movement slightly. -->
+  <FlakArmor.description>TODO</FlakArmor.description>
+  
+  <!-- EN: gas operation -->
+  <GasOperation.label>TODO</GasOperation.label>
+  <!-- EN: Craft high-power guns like chain shotguns, LMGs, and heavy SMGs. -->
+  <GasOperation.description>TODO</GasOperation.description>
+  
+  <!-- EN: geothermal power -->
+  <GeothermalPower.label>TODO</GeothermalPower.label>
+  <!-- EN: Build geothermal power plants on top of steam geysers, for uninterrupted power. -->
+  <GeothermalPower.description>TODO</GeothermalPower.description>
+  
+  <!-- EN: gunsmithing -->
+  <Gunsmithing.label>TODO</Gunsmithing.label>
+  <!-- EN: Craft simple manually-operated guns like revolvers, pump shotguns, bolt-action rifles, and incendiary launchers. -->
+  <Gunsmithing.description>TODO</Gunsmithing.description>
+  
+  <!-- EN: gun turrets -->
+  <GunTurrets.label>TODO</GunTurrets.label>
+  <!-- EN: Produce simple automated gun turrets. -->
+  <GunTurrets.description>TODO</GunTurrets.description>
+  
+  <!-- EN: hydroponics -->
+  <Hydroponics.label>TODO</Hydroponics.label>
+  <!-- EN: Build hydroponics basins to rapidly grow crops indoors regardless of the terrain or weather outside. -->
+  <Hydroponics.description>TODO</Hydroponics.description>
+  
+  <!-- EN: IEDs -->
+  <IEDs.label>TODO</IEDs.label>
+  <!-- EN: Build improvised traps from any kind of mortar shell. -->
+  <IEDs.description>TODO</IEDs.description>
+  
+  <!-- EN: machining -->
+  <Machining.label>TODO</Machining.label>
+  <!-- EN: Build machining tables to craft guns, grenades, flak armor, and to disassemble dead mechanoids for resources. -->
+  <Machining.description>TODO</Machining.description>
+  
+  <!-- EN: mortars -->
+  <Mortars.label>TODO</Mortars.label>
+  <!-- EN: Build mortars which can lob shells long distances - even over walls. -->
+  <Mortars.description>TODO</Mortars.description>
+  
+  <!-- EN: nutrient paste -->
+  <NutrientPaste.label>TODO</NutrientPaste.label>
+  <!-- EN: Build nutrient paste dispensers which efficiently produce edible meals from raw nutritive feedstocks, while requiring no labor at all. -->
+  <NutrientPaste.description>TODO</NutrientPaste.description>
+  
+  <!-- EN: packaged survival meal -->
+  <PackagedSurvivalMeal.label>TODO</PackagedSurvivalMeal.label>
+  <!-- EN: Produce packaged survival meals which never go bad. Great for traveling. -->
+  <PackagedSurvivalMeal.description>TODO</PackagedSurvivalMeal.description>
+  
+  <!-- EN: prosthetics -->
+  <Prosthetics.label>TODO</Prosthetics.label>
+  <!-- EN: Build inexpensive prosthetic body parts to replace lost limbs. Requires a skilled doctor to attach. -->
+  <Prosthetics.description>TODO</Prosthetics.description>
+  
+  <!-- EN: smokepop belts -->
+  <SmokepopBelt.label>TODO</SmokepopBelt.label>
+  <!-- EN: Build smokepop belts which generate an automatic defensive smokescreen when the user is shot. -->
+  <SmokepopBelt.description>TODO</SmokepopBelt.description>
+  
+  <!-- EN: solar panel -->
+  <SolarPanels.label>TODO</SolarPanels.label>
+  <!-- EN: Build solar panels for electricity generation. -->
+  <SolarPanels.description>TODO</SolarPanels.description>
+  
+  <!-- EN: sterile materials -->
+  <SterileMaterials.label>TODO</SterileMaterials.label>
+  <!-- EN: Construct sterile tiles to make cleanrooms for safer and more effective medical treatment, research, and cooking. -->
+  <SterileMaterials.description>TODO</SterileMaterials.description>
+  
+  <!-- EN: tube television -->
+  <TubeTelevision.label>TODO</TubeTelevision.label>
+  <!-- EN: Produce tube televisions for recreational watching. -->
+  <TubeTelevision.description>TODO</TubeTelevision.description>
+  
+  <!-- EN: watermill generator -->
+  <WatermillGenerator.label>TODO</WatermillGenerator.label>
+  <!-- EN: Build watermill generators on rivers to generate a steady supply of power. -->
+  <WatermillGenerator.description>TODO</WatermillGenerator.description>
+  
+</LanguageData>

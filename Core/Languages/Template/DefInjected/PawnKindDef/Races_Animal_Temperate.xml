@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: caribou -->
+  <Caribou.label>TODO</Caribou.label>
+  <!-- EN: caribou -->
+  <Caribou.labelPlural>TODO</Caribou.labelPlural>
+  <!-- EN: caribou calf -->
+  <Caribou.lifeStages.caribou_calf.label>TODO</Caribou.lifeStages.caribou_calf.label>
+  <!-- EN: caribou calves -->
+  <Caribou.lifeStages.caribou_calf.labelPlural>TODO</Caribou.lifeStages.caribou_calf.labelPlural>
+  
+  <!-- EN: deer -->
+  <Deer.label>TODO</Deer.label>
+  <!-- EN: doe -->
+  <Deer.labelFemale>TODO</Deer.labelFemale>
+  <!-- EN: buck -->
+  <Deer.labelMale>TODO</Deer.labelMale>
+  <!-- EN: deer -->
+  <Deer.labelPlural>TODO</Deer.labelPlural>
+  
+  <!-- EN: elk -->
+  <Elk.label>TODO</Elk.label>
+  <!-- EN: elk -->
+  <Elk.labelPlural>TODO</Elk.labelPlural>
+  <!-- EN: elk calf -->
+  <Elk.lifeStages.elk_calf.label>TODO</Elk.lifeStages.elk_calf.label>
+  <!-- EN: elk calves -->
+  <Elk.lifeStages.elk_calf.labelPlural>TODO</Elk.lifeStages.elk_calf.labelPlural>
+  
+  <!-- EN: ibex -->
+  <Ibex.label>TODO</Ibex.label>
+  <!-- EN: ibex doe -->
+  <Ibex.labelFemale>TODO</Ibex.labelFemale>
+  <!-- EN: ibex ram -->
+  <Ibex.labelMale>TODO</Ibex.labelMale>
+  <!-- EN: ibex -->
+  <Ibex.labelPlural>TODO</Ibex.labelPlural>
+  
+  <!-- EN: tortoise -->
+  <Tortoise.label>TODO</Tortoise.label>
+  
+  <!-- EN: wild boar -->
+  <WildBoar.label>TODO</WildBoar.label>
+  
+</LanguageData>

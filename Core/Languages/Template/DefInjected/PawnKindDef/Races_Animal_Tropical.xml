@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: boomalope -->
+  <Boomalope.label>TODO</Boomalope.label>
+  <!-- EN: boomalope calf -->
+  <Boomalope.lifeStages.boomalope_calf.label>TODO</Boomalope.lifeStages.boomalope_calf.label>
+  <!-- EN: boomalope calves -->
+  <Boomalope.lifeStages.boomalope_calf.labelPlural>TODO</Boomalope.lifeStages.boomalope_calf.labelPlural>
+  
+  <!-- EN: cobra -->
+  <Cobra.label>TODO</Cobra.label>
+  
+  <!-- EN: monkey -->
+  <Monkey.label>TODO</Monkey.label>
+  
+</LanguageData>

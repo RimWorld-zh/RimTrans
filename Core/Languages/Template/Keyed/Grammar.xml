@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: a -->
+  <IndefiniteArticle>TODO</IndefiniteArticle>
+  <!-- EN: the -->
+  <DefiniteArticle>TODO</DefiniteArticle>
+  <!-- EN: a {0} -->
+  <IndefiniteForm>TODO</IndefiniteForm>
+  <!-- EN: the {0} -->
+  <DefiniteForm>TODO</DefiniteForm>
+
+  <!-- EN: its -->
+  <Proits>TODO</Proits>
+  <!-- EN: his -->
+  <Prohis>TODO</Prohis>
+  <!-- EN: her -->
+  <Proher>TODO</Proher>
+  <!-- EN: Its -->
+  <ProitsCap>TODO</ProitsCap>
+  <!-- EN: His -->
+  <ProhisCap>TODO</ProhisCap>
+  <!-- EN: Her -->
+  <ProherCap>TODO</ProherCap>
+
+  <!-- EN: it -->
+  <ProitObj>TODO</ProitObj>
+  <!-- EN: him -->
+  <ProhimObj>TODO</ProhimObj>
+  <!-- EN: her -->
+  <ProherObj>TODO</ProherObj>
+  <!-- EN: It -->
+  <ProitObjCap>TODO</ProitObjCap>
+  <!-- EN: Him -->
+  <ProhimObjCap>TODO</ProhimObjCap>
+  <!-- EN: Her -->
+  <ProherObjCap>TODO</ProherObjCap>
+
+  <!-- EN: he -->
+  <Prohe>TODO</Prohe>
+  <!-- EN: she -->
+  <Proshe>TODO</Proshe>
+  <!-- EN: it -->
+  <Proit>TODO</Proit>
+  <!-- EN: He -->
+  <ProheCap>TODO</ProheCap>
+  <!-- EN: She -->
+  <ProsheCap>TODO</ProsheCap>
+  <!-- EN: It -->
+  <ProitCap>TODO</ProitCap>
+
+</LanguageData>

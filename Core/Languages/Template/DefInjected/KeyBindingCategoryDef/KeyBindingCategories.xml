@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: architect -->
+  <Architect.label>TODO</Architect.label>
+  <!-- EN: General-use controls for the architect mode menu. -->
+  <Architect.description>TODO</Architect.description>
+  
+  <!-- EN: developer tools -->
+  <Development.label>TODO</Development.label>
+  <!-- EN: Controls for developers and modders. Active in development mode only. -->
+  <Development.description>TODO</Development.description>
+  
+  <!-- EN: in-game global -->
+  <Game.label>TODO</Game.label>
+  <!-- EN: Colony mode controls that apply in most situations. -->
+  <Game.description>TODO</Game.description>
+  
+  <!-- EN: camera -->
+  <GameMapCamera.label>TODO</GameMapCamera.label>
+  <!-- EN: Controls for the camera. -->
+  <GameMapCamera.description>TODO</GameMapCamera.description>
+  
+  <!-- EN: main tabs -->
+  <MainTabs.label>TODO</MainTabs.label>
+  <!-- EN: Controls for the main tabs. -->
+  <MainTabs.description>TODO</MainTabs.description>
+  
+  <!-- EN: modifiers -->
+  <Modifiers.label>TODO</Modifiers.label>
+  <!-- EN: Controls used to modify other actions. -->
+  <Modifiers.description>TODO</Modifiers.description>
+  
+  <!-- EN: misc -->
+  <SelectionMisc.label>TODO</SelectionMisc.label>
+  <!-- EN: Generic controls that are re-used by many items and objects throughout the game. -->
+  <SelectionMisc.description>TODO</SelectionMisc.description>
+  
+  <!-- EN: special -->
+  <SelectionSpecial.label>TODO</SelectionSpecial.label>
+  <!-- EN: Special controls reserved for specific functions on specific objects. -->
+  <SelectionSpecial.description>TODO</SelectionSpecial.description>
+  
+</LanguageData>

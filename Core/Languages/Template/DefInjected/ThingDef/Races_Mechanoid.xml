@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: centipede -->
+  <Mech_Centipede.label>TODO</Mech_Centipede.label>
+  <!-- EN: Heavy combat mechanoids that glide on dozens of tiny legs. Their thick carpace and firepower makes them very effective against bunched-up static defenders. They are somewhat vulnerable to mobile hit-and-run tactics. -->
+  <Mech_Centipede.description>TODO</Mech_Centipede.description>
+  <!-- EN: head -->
+  <Mech_Centipede.tools.head.label>TODO</Mech_Centipede.tools.head.label>
+  
+  <!-- EN: lancer -->
+  <Mech_Lancer.label>TODO</Mech_Lancer.label>
+  <!-- EN: A human-sized combat mechanoid with huge optical sensors on its face for aiming weapons at long range. While effective at distance, it is weaker in melee combat. Veterans of mechanoid wars know that often, the safest thing to do against a lancer is to charge. -->
+  <Mech_Lancer.description>TODO</Mech_Lancer.description>
+  <!-- EN: left fist -->
+  <Mech_Lancer.tools.left_fist.label>TODO</Mech_Lancer.tools.left_fist.label>
+  <!-- EN: right fist -->
+  <Mech_Lancer.tools.right_fist.label>TODO</Mech_Lancer.tools.right_fist.label>
+  <!-- EN: head -->
+  <Mech_Lancer.tools.head.label>TODO</Mech_Lancer.tools.head.label>
+  
+  <!-- EN: scyther -->
+  <Mech_Scyther.label>TODO</Mech_Scyther.label>
+  <!-- EN: Fast, spindly, human-sized combat mechanoids specializing in rapid approach and close-range combat. Their bodies are covered in points and blades, but their mostly use two arm blades to lop off limbs or gut their victims alive. -->
+  <Mech_Scyther.description>TODO</Mech_Scyther.description>
+  <!-- EN: left blade -->
+  <Mech_Scyther.tools.left_blade.label>TODO</Mech_Scyther.tools.left_blade.label>
+  <!-- EN: right blade -->
+  <Mech_Scyther.tools.right_blade.label>TODO</Mech_Scyther.tools.right_blade.label>
+  <!-- EN: head -->
+  <Mech_Scyther.tools.head.label>TODO</Mech_Scyther.tools.head.label>
+  
+</LanguageData>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: grenadier -->
+  <Grenadier_Destructive.label>TODO</Grenadier_Destructive.label>
+  
+  <!-- EN: EMP grenadier -->
+  <Grenadier_EMP.label>TODO</Grenadier_EMP.label>
+  
+  <!-- EN: elite mercenary -->
+  <Mercenary_Elite.label>TODO</Mercenary_Elite.label>
+  <!-- EN: elite mercenaries -->
+  <Mercenary_Elite.labelPlural>TODO</Mercenary_Elite.labelPlural>
+  
+  <!-- EN: mercenary gunner -->
+  <Mercenary_Gunner.label>TODO</Mercenary_Gunner.label>
+  
+  <!-- EN: heavy mercenary -->
+  <Mercenary_Heavy.label>TODO</Mercenary_Heavy.label>
+  <!-- EN: heavy mercenaries -->
+  <Mercenary_Heavy.labelPlural>TODO</Mercenary_Heavy.labelPlural>
+  
+  <!-- EN: mercenary slasher -->
+  <Mercenary_Slasher.label>TODO</Mercenary_Slasher.label>
+  
+  <!-- EN: mercenary sniper -->
+  <Mercenary_Sniper.label>TODO</Mercenary_Sniper.label>
+  
+  <!-- EN: boss -->
+  <PirateBoss.label>TODO</PirateBoss.label>
+  <!-- EN: bosses -->
+  <PirateBoss.labelPlural>TODO</PirateBoss.labelPlural>
+  
+</LanguageData>

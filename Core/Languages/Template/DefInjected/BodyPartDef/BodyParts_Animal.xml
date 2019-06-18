@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: jaw -->
+  <AnimalJaw.label>TODO</AnimalJaw.label>
+  
+  <!-- EN: antenna -->
+  <Antenna.label>TODO</Antenna.label>
+  
+  <!-- EN: beak -->
+  <Beak.label>TODO</Beak.label>
+  
+  <!-- EN: body -->
+  <Body.label>TODO</Body.label>
+  
+  <!-- EN: elytra -->
+  <Elytra.label>TODO</Elytra.label>
+  
+  <!-- EN: front claw -->
+  <FrontClaw.label>TODO</FrontClaw.label>
+  <!-- EN: claw -->
+  <FrontClaw.labelShort>TODO</FrontClaw.labelShort>
+  
+  <!-- EN: head claw -->
+  <HeadClaw.label>TODO</HeadClaw.label>
+  
+  <!-- EN: hoof -->
+  <Hoof.label>TODO</Hoof.label>
+  
+  <!-- EN: horn -->
+  <Horn.label>TODO</Horn.label>
+  
+  <!-- EN: hump -->
+  <Hump.label>TODO</Hump.label>
+  
+  <!-- EN: head -->
+  <InsectHead.label>TODO</InsectHead.label>
+  
+  <!-- EN: heart -->
+  <InsectHeart.label>TODO</InsectHeart.label>
+  
+  <!-- EN: leg -->
+  <InsectLeg.label>TODO</InsectLeg.label>
+  
+  <!-- EN: mouth -->
+  <InsectMouth.label>TODO</InsectMouth.label>
+  
+  <!-- EN: nostril -->
+  <InsectNostril.label>TODO</InsectNostril.label>
+  
+  <!-- EN: jowl -->
+  <Jowl.label>TODO</Jowl.label>
+  
+  <!-- EN: paw -->
+  <Paw.label>TODO</Paw.label>
+  
+  <!-- EN: plastron -->
+  <Plastron.label>TODO</Plastron.label>
+  
+  <!-- EN: pronotum -->
+  <Pronotum.label>TODO</Pronotum.label>
+  
+  <!-- EN: rear claw -->
+  <RearClaw.label>TODO</RearClaw.label>
+  <!-- EN: claw -->
+  <RearClaw.labelShort>TODO</RearClaw.labelShort>
+  
+  <!-- EN: shell -->
+  <Shell.label>TODO</Shell.label>
+  
+  <!-- EN: body -->
+  <SnakeBody.label>TODO</SnakeBody.label>
+  
+  <!-- EN: head -->
+  <SnakeHead.label>TODO</SnakeHead.label>
+  
+  <!-- EN: mouth -->
+  <SnakeMouth.label>TODO</SnakeMouth.label>
+  
+  <!-- EN: tail -->
+  <Tail.label>TODO</Tail.label>
+  
+  <!-- EN: trunk -->
+  <Trunk.label>TODO</Trunk.label>
+  
+  <!-- EN: beak -->
+  <TurtleBeak.label>TODO</TurtleBeak.label>
+  
+  <!-- EN: shell -->
+  <TurtleShell.label>TODO</TurtleShell.label>
+  
+  <!-- EN: tusk -->
+  <Tusk.label>TODO</Tusk.label>
+  
+</LanguageData>

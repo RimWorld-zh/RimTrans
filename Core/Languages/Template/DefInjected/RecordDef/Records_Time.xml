@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: time as a colonist -->
+  <TimeAsColonistOrColonyAnimal.label>TODO</TimeAsColonistOrColonyAnimal.label>
+  <!-- EN: Total time spent loyal to your community. -->
+  <TimeAsColonistOrColonyAnimal.description>TODO</TimeAsColonistOrColonyAnimal.description>
+  
+  <!-- EN: time as a prisoner -->
+  <TimeAsPrisoner.label>TODO</TimeAsPrisoner.label>
+  <!-- EN: Total time spent as a prisoner. -->
+  <TimeAsPrisoner.description>TODO</TimeAsPrisoner.description>
+  
+  <!-- EN: time cleaning -->
+  <TimeCleaning.label>TODO</TimeCleaning.label>
+  <!-- EN: Total time spent cleaning. -->
+  <TimeCleaning.description>TODO</TimeCleaning.description>
+  
+  <!-- EN: time constructing -->
+  <TimeConstructing.label>TODO</TimeConstructing.label>
+  <!-- EN: Total time spent constructing and deconstructing buildings. -->
+  <TimeConstructing.description>TODO</TimeConstructing.description>
+  
+  <!-- EN: time downed -->
+  <TimeDowned.label>TODO</TimeDowned.label>
+  <!-- EN: Total time spent downed. -->
+  <TimeDowned.description>TODO</TimeDowned.description>
+  
+  <!-- EN: time drafted -->
+  <TimeDrafted.label>TODO</TimeDrafted.label>
+  <!-- EN: Total time spent drafted. -->
+  <TimeDrafted.description>TODO</TimeDrafted.description>
+  
+  <!-- EN: time firefighting -->
+  <TimeFirefighting.label>TODO</TimeFirefighting.label>
+  <!-- EN: Total time spent firefighting. -->
+  <TimeFirefighting.description>TODO</TimeFirefighting.description>
+  
+  <!-- EN: time finding food and eating -->
+  <TimeGettingFood.label>TODO</TimeGettingFood.label>
+  <!-- EN: Total time spent on finding food and eating. -->
+  <TimeGettingFood.description>TODO</TimeGettingFood.description>
+  
+  <!-- EN: time spent on entertainment -->
+  <TimeGettingJoy.label>TODO</TimeGettingJoy.label>
+  <!-- EN: Total time spent on entertainment. -->
+  <TimeGettingJoy.description>TODO</TimeGettingJoy.description>
+  
+  <!-- EN: time handling animals -->
+  <TimeHandlingAnimals.label>TODO</TimeHandlingAnimals.label>
+  <!-- EN: Total time spent handling animals. -->
+  <TimeHandlingAnimals.description>TODO</TimeHandlingAnimals.description>
+  
+  <!-- EN: time hauling -->
+  <TimeHauling.label>TODO</TimeHauling.label>
+  <!-- EN: Total time spent hauling things. -->
+  <TimeHauling.description>TODO</TimeHauling.description>
+  
+  <!-- EN: time hunting -->
+  <TimeHunting.label>TODO</TimeHunting.label>
+  <!-- EN: Total time spent hunting. -->
+  <TimeHunting.description>TODO</TimeHunting.description>
+  
+  <!-- EN: time in a bed -->
+  <TimeInBed.label>TODO</TimeInBed.label>
+  <!-- EN: Total time spent in bed. -->
+  <TimeInBed.description>TODO</TimeInBed.description>
+  
+  <!-- EN: time in a bed for medical reasons -->
+  <TimeInBedForMedicalReasons.label>TODO</TimeInBedForMedicalReasons.label>
+  <!-- EN: Total time spent in bed for medical reasons: awaiting treatment, recovering from injuries or being operated on. -->
+  <TimeInBedForMedicalReasons.description>TODO</TimeInBedForMedicalReasons.description>
+  
+  <!-- EN: time in mental state -->
+  <TimeInMentalState.label>TODO</TimeInMentalState.label>
+  <!-- EN: Total time spent in an abnormal mental state. -->
+  <TimeInMentalState.description>TODO</TimeInMentalState.description>
+  
+  <!-- EN: time mining -->
+  <TimeMining.label>TODO</TimeMining.label>
+  <!-- EN: Total time spent mining. -->
+  <TimeMining.description>TODO</TimeMining.description>
+  
+  <!-- EN: time on fire -->
+  <TimeOnFire.label>TODO</TimeOnFire.label>
+  <!-- EN: Total time spent on fire. -->
+  <TimeOnFire.description>TODO</TimeOnFire.description>
+  
+  <!-- EN: time repairing -->
+  <TimeRepairing.label>TODO</TimeRepairing.label>
+  <!-- EN: Total time spent repairing. -->
+  <TimeRepairing.description>TODO</TimeRepairing.description>
+  
+  <!-- EN: time researching -->
+  <TimeResearching.label>TODO</TimeResearching.label>
+  <!-- EN: Total time spent researching. -->
+  <TimeResearching.description>TODO</TimeResearching.description>
+  
+  <!-- EN: time sowing and harvesting -->
+  <TimeSowingAndHarvesting.label>TODO</TimeSowingAndHarvesting.label>
+  <!-- EN: Total time spent sowing, harvesting and cutting plants. -->
+  <TimeSowingAndHarvesting.description>TODO</TimeSowingAndHarvesting.description>
+  
+  <!-- EN: time treating and feeding -->
+  <TimeTreatingAndFeeding.label>TODO</TimeTreatingAndFeeding.label>
+  <!-- EN: Total time spent treating and feeding patients. -->
+  <TimeTreatingAndFeeding.description>TODO</TimeTreatingAndFeeding.description>
+  
+  <!-- EN: time under a roof -->
+  <TimeUnderRoof.label>TODO</TimeUnderRoof.label>
+  <!-- EN: Total time spent under a roof. -->
+  <TimeUnderRoof.description>TODO</TimeUnderRoof.description>
+  
+  <!-- EN: time wardening -->
+  <TimeWardening.label>TODO</TimeWardening.label>
+  <!-- EN: Total time spent wardening. -->
+  <TimeWardening.description>TODO</TimeWardening.description>
+  
+</LanguageData>

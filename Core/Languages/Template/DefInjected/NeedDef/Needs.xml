@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: beauty -->
+  <Beauty.label>TODO</Beauty.label>
+  <!-- EN: Beauty reflects how visually pleasing a person has found their surroundings recently. Beautiful things like art improve beauty when viewed, while ugly things like filth and rough stone surfaces reduce it. -->
+  <Beauty.description>TODO</Beauty.description>
+  
+  <!-- EN: comfort -->
+  <Comfort.label>TODO</Comfort.label>
+  <!-- EN: Comfort is gained by sitting in or sleeping on comfortable furniture. It is acquired while laying in bed, sitting in a chair while working, or other times. -->
+  <Comfort.description>TODO</Comfort.description>
+  
+  <!-- EN: food -->
+  <Food.label>TODO</Food.label>
+  <!-- EN: Food is the amount of nutrition a creature has consumed recently. If it is at zero, a creature will become increasingly malnourished and eventually die. -->
+  <Food.description>TODO</Food.description>
+  
+  <!-- EN: recreation -->
+  <Joy.label>TODO</Joy.label>
+  <!-- EN: Recreation is the need to have fun. Repeating the same kind of activity makes it less fun, so variety is necessary. -->
+  <Joy.description>TODO</Joy.description>
+  
+  <!-- EN: mood -->
+  <Mood.label>TODO</Mood.label>
+  <!-- EN: Mood represents how happy or stressed someone is. If mood gets too low, the person may suffer a mental break. Depending on how low his mood is, someone who has a mental break may hide in his room for a day, or may go on a murder spree. -->
+  <Mood.description>TODO</Mood.description>
+  
+  <!-- EN: outdoors -->
+  <Outdoors.label>TODO</Outdoors.label>
+  <!-- EN: Outdoors expresses the need not to be cooped up inside. It is harmed by long periods inside, especially underground. It improves when someone spends time under the sky, especially outdoors. It's not about the size of the rooms, but the need to be outside from time to time. Lack of outdoors time is a significant challenge for people who dwell in underground bases. -->
+  <Outdoors.description>TODO</Outdoors.description>
+  
+  <!-- EN: rest -->
+  <Rest.label>TODO</Rest.label>
+  <!-- EN: Rest is how much sleep a creature has gotten recently. If it is at zero, a creature will eventually fall asleep on the spot. -->
+  <Rest.description>TODO</Rest.description>
+  
+  <!-- EN: room size -->
+  <RoomSize.label>TODO</RoomSize.label>
+  
+</LanguageData>

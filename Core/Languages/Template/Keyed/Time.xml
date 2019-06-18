@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: d -->
+  <LetterDay>TODO</LetterDay>
+  <!-- EN: h -->
+  <LetterHour>TODO</LetterHour>
+  <!-- EN: m -->
+  <LetterMinute>TODO</LetterMinute>
+  <!-- EN: s -->
+  <LetterSecond>TODO</LetterSecond>
+  
+  <!-- EN: days -->
+  <DaysLower>TODO</DaysLower>
+  <!-- EN: seconds -->
+  <SecondsLower>TODO</SecondsLower>
+
+  <!-- EN: spring -->
+  <SeasonSpring>TODO</SeasonSpring>
+  <!-- EN: summer -->
+  <SeasonSummer>TODO</SeasonSummer>
+  <!-- EN: fall -->
+  <SeasonFall>TODO</SeasonFall>
+  <!-- EN: winter -->
+  <SeasonWinter>TODO</SeasonWinter>
+  <!-- EN: permanent summer -->
+  <SeasonPermanentSummer>TODO</SeasonPermanentSummer>
+  <!-- EN: permanent winter -->
+  <SeasonPermanentWinter>TODO</SeasonPermanentWinter>
+
+  <!-- EN: Aprimay -->
+  <QuadrumAprimay>TODO</QuadrumAprimay>
+  <!-- EN: Jugust -->
+  <QuadrumJugust>TODO</QuadrumJugust>
+  <!-- EN: Septober -->
+  <QuadrumSeptober>TODO</QuadrumSeptober>
+  <!-- EN: Decembary -->
+  <QuadrumDecembary>TODO</QuadrumDecembary>
+  
+  <!-- EN: Born: {0} -->
+  <Born>TODO</Born>
+  <!-- EN: Chronological age: {0} years, {1} quadrums, {2} days -->
+  <AgeChronological>TODO</AgeChronological>
+  <!-- EN: Biological age: {0} years, {1} quadrums, {2} days -->
+  <AgeBiological>TODO</AgeBiological>
+
+  <!-- Date periods -->
+  <!-- EN: 1 year -->
+  <Period1Year>TODO</Period1Year>
+  <!-- EN: {0} years -->
+  <PeriodYears>TODO</PeriodYears>
+  <!-- EN: 1 quadrum -->
+  <Period1Quadrum>TODO</Period1Quadrum>
+  <!-- EN: {0} quadrums -->
+  <PeriodQuadrums>TODO</PeriodQuadrums>
+  <!-- EN: 1 day -->
+  <Period1Day>TODO</Period1Day>
+  <!-- EN: {0} days -->
+  <PeriodDays>TODO</PeriodDays>
+  <!-- EN: 1 hour -->
+  <Period1Hour>TODO</Period1Hour>
+  <!-- EN: {0} hours -->
+  <PeriodHours>TODO</PeriodHours>
+  <!-- EN: 1 second -->
+  <Period1Second>TODO</Period1Second>
+  <!-- EN: {0} seconds -->
+  <PeriodSeconds>TODO</PeriodSeconds>
+
+  <!-- Misc -->
+  <!-- EN: Started -->
+  <Started>TODO</Started>
+  <!-- EN: Lasted -->
+  <Lasted>TODO</Lasted>
+  <!-- EN: occurred {0} ago -->
+  <OccurredTimeAgo>TODO</OccurredTimeAgo>
+  
+</LanguageData>

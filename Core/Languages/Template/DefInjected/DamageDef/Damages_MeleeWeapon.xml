@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: bite -->
+  <Bite.label>TODO</Bite.label>
+  <!-- EN: {0} has been bitten to death. -->
+  <Bite.deathMessage>TODO</Bite.deathMessage>
+  
+  <!-- EN: blunt -->
+  <Blunt.label>TODO</Blunt.label>
+  <!-- EN: {0} has been beaten to death. -->
+  <Blunt.deathMessage>TODO</Blunt.deathMessage>
+  
+  <!-- EN: crush -->
+  <Crush.label>TODO</Crush.label>
+  <!-- EN: {0} has been crushed to death. -->
+  <Crush.deathMessage>TODO</Crush.deathMessage>
+  
+  <!-- EN: cut -->
+  <Cut.label>TODO</Cut.label>
+  <!-- EN: {0} has been cut to death. -->
+  <Cut.deathMessage>TODO</Cut.deathMessage>
+  
+  <!-- EN: blunt -->
+  <Poke.label>TODO</Poke.label>
+  <!-- EN: {0} has been beaten to death. -->
+  <Poke.deathMessage>TODO</Poke.deathMessage>
+  
+  <!-- EN: scratch -->
+  <Scratch.label>TODO</Scratch.label>
+  <!-- EN: {0} has been torn to death. -->
+  <Scratch.deathMessage>TODO</Scratch.deathMessage>
+  
+  <!-- EN: stab -->
+  <Stab.label>TODO</Stab.label>
+  <!-- EN: {0} has been stabbed to death. -->
+  <Stab.deathMessage>TODO</Stab.deathMessage>
+  
+  <!-- EN: toxic bite -->
+  <ToxicBite.label>TODO</ToxicBite.label>
+  <!-- EN: {0} has been bitten to death. -->
+  <ToxicBite.deathMessage>TODO</ToxicBite.deathMessage>
+  
+</LanguageData>

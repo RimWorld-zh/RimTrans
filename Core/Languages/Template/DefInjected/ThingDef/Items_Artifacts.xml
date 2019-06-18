@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: psychic animal pulser -->
+  <PsychicAnimalPulser.label>TODO</PsychicAnimalPulser.label>
+  <!-- EN: A one-use broad-wave psychic effector. The psychic pulse fills lower minds with terrifying imagery, driving all animals in the region into a manhunting rage. -->
+  <PsychicAnimalPulser.description>TODO</PsychicAnimalPulser.description>
+  <!-- EN: Activate -->
+  <PsychicAnimalPulser.comps.CompUsable.useLabel>TODO</PsychicAnimalPulser.comps.CompUsable.useLabel>
+  
+  <!-- EN: psychic insanity lance -->
+  <PsychicInsanityLance.label>TODO</PsychicInsanityLance.label>
+  <!-- EN: A one-use psychic effector. It overwhelms the target's mind with terrifying perceptual distortions, driving him into a berserk state. There is a risk of brain damage. It works at long distances, and through walls. -->
+  <PsychicInsanityLance.description>TODO</PsychicInsanityLance.description>
+  <!-- EN: Activate -->
+  <PsychicInsanityLance.comps.CompUsable.useLabel>TODO</PsychicInsanityLance.comps.CompUsable.useLabel>
+  
+  <!-- EN: psychic shock lance -->
+  <PsychicShockLance.label>TODO</PsychicShockLance.label>
+  <!-- EN: A one-use psychic effector. It shocks the target's mind with chaotic images, blocking coherent perception and dropping him into a state of psychic shock. There is a risk of brain damage. It works at long distances, and through walls. -->
+  <PsychicShockLance.description>TODO</PsychicShockLance.description>
+  <!-- EN: Activate -->
+  <PsychicShockLance.comps.CompUsable.useLabel>TODO</PsychicShockLance.comps.CompUsable.useLabel>
+  
+  <!-- EN: psychic soothe pulser -->
+  <PsychicSoothePulser.label>TODO</PsychicSoothePulser.label>
+  <!-- EN: A one-use broad-wave psychic effector. The psychic pulse induces self-satisfying perceptual distortions, giving a temporary mood boost to everyone in the region. -->
+  <PsychicSoothePulser.description>TODO</PsychicSoothePulser.description>
+  <!-- EN: Activate -->
+  <PsychicSoothePulser.comps.CompUsable.useLabel>TODO</PsychicSoothePulser.comps.CompUsable.useLabel>
+  
+</LanguageData>

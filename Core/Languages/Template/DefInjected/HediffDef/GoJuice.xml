@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: go-juice addiction -->
+  <GoJuiceAddiction.label>TODO</GoJuiceAddiction.label>
+  <!-- EN: withdrawal -->
+  <GoJuiceAddiction.stages.withdrawal.label>TODO</GoJuiceAddiction.stages.withdrawal.label>
+  
+  <!-- EN: high on go-juice -->
+  <GoJuiceHigh.label>TODO</GoJuiceHigh.label>
+  <!-- EN: a go-juice high -->
+  <GoJuiceHigh.labelNoun>TODO</GoJuiceHigh.labelNoun>
+  
+  <!-- EN: go-juice tolerance -->
+  <GoJuiceTolerance.label>TODO</GoJuiceTolerance.label>
+  <!-- EN: small -->
+  <GoJuiceTolerance.stages.small-0.label>TODO</GoJuiceTolerance.stages.small-0.label>
+  <!-- EN: small -->
+  <GoJuiceTolerance.stages.small-1.label>TODO</GoJuiceTolerance.stages.small-1.label>
+  <!-- EN: large -->
+  <GoJuiceTolerance.stages.large.label>TODO</GoJuiceTolerance.stages.large.label>
+  <!-- EN: massive -->
+  <GoJuiceTolerance.stages.massive.label>TODO</GoJuiceTolerance.stages.massive.label>
+  
+</LanguageData>

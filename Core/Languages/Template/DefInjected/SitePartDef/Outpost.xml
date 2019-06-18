@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: outpost -->
+  <Outpost.label>TODO</Outpost.label>
+  <!-- EN: A small, guarded outpost. -->
+  <Outpost.description>TODO</Outpost.description>
+  <!-- EN: Attacking {0} -->
+  <Outpost.approachingReportString>TODO</Outpost.approachingReportString>
+  <!-- EN: Attack {0} -->
+  <Outpost.approachOrderString>TODO</Outpost.approachOrderString>
+  <!-- EN: There is an enemy outpost in this area. -->
+  <Outpost.arrivedLetter>TODO</Outpost.arrivedLetter>
+  <!-- EN: there is an enemy outpost at the site guarded by {0} enemies -->
+  <Outpost.descriptionDialogue>TODO</Outpost.descriptionDialogue>
+  
+</LanguageData>

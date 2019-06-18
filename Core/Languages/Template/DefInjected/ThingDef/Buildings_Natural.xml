@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: collapsed rocks -->
+  <CollapsedRocks.label>TODO</CollapsedRocks.label>
+  <!-- EN: Collapsed rocks, packed tightly enough to hold up a roof. -->
+  <CollapsedRocks.description>TODO</CollapsedRocks.description>
+  
+  <!-- EN: glow pod -->
+  <GlowPod.label>TODO</GlowPod.label>
+  <!-- EN: A bioluminescent pod produced by giant insects. Glows under its own light for a long time, then dies. -->
+  <GlowPod.description>TODO</GlowPod.description>
+  
+  <!-- EN: hive -->
+  <Hive.label>TODO</Hive.label>
+  <!-- EN: A hive of giant insects. If activated, it will spawn additional insects and hives over time, as well as valuable insect jelly. -->
+  <Hive.description>TODO</Hive.description>
+  
+  <!-- EN: compacted machinery -->
+  <MineableComponentsIndustrial.label>TODO</MineableComponentsIndustrial.label>
+  <!-- EN: Ancient machinery, compacted over time. Can be mined for useful components. -->
+  <MineableComponentsIndustrial.description>TODO</MineableComponentsIndustrial.description>
+  
+  <!-- EN: gold ore -->
+  <MineableGold.label>TODO</MineableGold.label>
+  <!-- EN: Rock containing bits of gold. -->
+  <MineableGold.description>TODO</MineableGold.description>
+  
+  <!-- EN: jade -->
+  <MineableJade.label>TODO</MineableJade.label>
+  <!-- EN: Rock containing bits of jade. -->
+  <MineableJade.description>TODO</MineableJade.description>
+  
+  <!-- EN: compacted plasteel -->
+  <MineablePlasteel.label>TODO</MineablePlasteel.label>
+  <!-- EN: Ancient compacted rubble rich in plasteel. -->
+  <MineablePlasteel.description>TODO</MineablePlasteel.description>
+  
+  <!-- EN: silver ore -->
+  <MineableSilver.label>TODO</MineableSilver.label>
+  <!-- EN: Rock containing bits of silver. -->
+  <MineableSilver.description>TODO</MineableSilver.description>
+  
+  <!-- EN: compacted steel -->
+  <MineableSteel.label>TODO</MineableSteel.label>
+  <!-- EN: The remains of some ancient, collapsed structure. Rich in steel. -->
+  <MineableSteel.description>TODO</MineableSteel.description>
+  
+  <!-- EN: uranium ore -->
+  <MineableUranium.label>TODO</MineableUranium.label>
+  <!-- EN: Rock containing bits of uranium. -->
+  <MineableUranium.description>TODO</MineableUranium.description>
+  
+  <!-- EN: steam geyser -->
+  <SteamGeyser.label>TODO</SteamGeyser.label>
+  <!-- EN: A natural source of high-pressure steam. Geothermal generators can harness the steam power. Rooms built over this will rapidly cook. -->
+  <SteamGeyser.description>TODO</SteamGeyser.description>
+  
+</LanguageData>

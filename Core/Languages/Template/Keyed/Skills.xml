@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: Level -->
+  <Level>TODO</Level>
+  <!-- EN: Progress to next level -->
+  <ProgressToNextLevel>TODO</ProgressToNextLevel>
+  <!-- EN: Experience -->
+  <Experience>TODO</Experience>
+  <!-- EN: Passion -->
+  <Passion>TODO</Passion>
+  <!-- EN: None\n   -Learns {0} -->
+  <PassionNone>TODO</PassionNone>
+  <!-- EN: Interested\n   -Learns {0} -->
+  <PassionMinor>TODO</PassionMinor>
+  <!-- EN: Burning\n   -Learns {0} -->
+  <PassionMajor>TODO</PassionMajor>
+  <!-- EN: Learned max today ({0}/{1}, further learning multiplied by {2}) -->
+  <LearnedMaxToday>TODO</LearnedMaxToday>
+  <!-- EN: Effects at level {0} -->
+  <EffectsAtLevel>TODO</EffectsAtLevel>
+  <!-- EN: MAX -->
+  <SkillMax>TODO</SkillMax>
+
+  <!-- EN: Barely heard of it -->
+  <Skill0>TODO</Skill0>
+  <!-- EN: Utter beginner -->
+  <Skill1>TODO</Skill1>
+  <!-- EN: Beginner -->
+  <Skill2>TODO</Skill2>
+  <!-- EN: Basic familiarity -->
+  <Skill3>TODO</Skill3>
+  <!-- EN: Some familiarity -->
+  <Skill4>TODO</Skill4>
+  <!-- EN: Significant familiarity -->
+  <Skill5>TODO</Skill5>
+  <!-- EN: Capable amateur -->
+  <Skill6>TODO</Skill6>
+  <!-- EN: Weak professional -->
+  <Skill7>TODO</Skill7>
+  <!-- EN: Employable professional -->
+  <Skill8>TODO</Skill8>
+  <!-- EN: Solid professional -->
+  <Skill9>TODO</Skill9>
+  <!-- EN: Skilled professional -->
+  <Skill10>TODO</Skill10>
+  <!-- EN: Very skilled professional -->
+  <Skill11>TODO</Skill11>
+  <!-- EN: Expert -->
+  <Skill12>TODO</Skill12>
+  <!-- EN: Strong expert -->
+  <Skill13>TODO</Skill13>
+  <!-- EN: Master -->
+  <Skill14>TODO</Skill14>
+  <!-- EN: Strong master -->
+  <Skill15>TODO</Skill15>
+  <!-- EN: Region-known master -->
+  <Skill16>TODO</Skill16>
+  <!-- EN: Region-leading master -->
+  <Skill17>TODO</Skill17>
+  <!-- EN: Planet-known master -->
+  <Skill18>TODO</Skill18>
+  <!-- EN: Planet-leading master -->
+  <Skill19>TODO</Skill19>
+  <!-- EN: Legendary master -->
+  <Skill20>TODO</Skill20>
+  
+</LanguageData>

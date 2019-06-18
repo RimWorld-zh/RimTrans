@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: haul -->
+  <Haul.label>TODO</Haul.label>
+  <!-- EN: The animal will randomly haul items from time to time (though it can't be directed to haul specific items). -->
+  <Haul.description>TODO</Haul.description>
+  
+  <!-- EN: obedience -->
+  <Obedience.label>TODO</Obedience.label>
+  <!-- EN: The animal can be assigned a master who it will follow and defend. -->
+  <Obedience.description>TODO</Obedience.description>
+  
+  <!-- EN: release -->
+  <Release.label>TODO</Release.label>
+  <!-- EN: The animal can be released to attack distant targets instead of just defending its master. -->
+  <Release.description>TODO</Release.description>
+  
+  <!-- EN: rescue -->
+  <Rescue.label>TODO</Rescue.label>
+  <!-- EN: The animal will rescue wounded allies and drag them to safety. -->
+  <Rescue.description>TODO</Rescue.description>
+  
+  <!-- EN: tameness -->
+  <Tameness.label>TODO</Tameness.label>
+  <!-- EN: The animal can learn to consider itself a member of your colony. -->
+  <Tameness.description>TODO</Tameness.description>
+  
+</LanguageData>

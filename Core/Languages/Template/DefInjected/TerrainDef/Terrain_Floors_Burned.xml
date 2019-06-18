@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: burned carpet -->
+  <BurnedCarpet.label>TODO</BurnedCarpet.label>
+  <!-- EN: Burned-out carpet. -->
+  <BurnedCarpet.description>TODO</BurnedCarpet.description>
+  
+  <!-- EN: burned wood floor -->
+  <BurnedWoodPlankFloor.label>TODO</BurnedWoodPlankFloor.label>
+  <!-- EN: Burned-out wood plank flooring. -->
+  <BurnedWoodPlankFloor.description>TODO</BurnedWoodPlankFloor.description>
+  
+</LanguageData>

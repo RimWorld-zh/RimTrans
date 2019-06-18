@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: human -->
+  <Human.label>TODO</Human.label>
+  <!-- EN: A baseline human, mostly unmodified by gene engineering and mostly unchanged by evolutionary pressures on non-Earth planets. -->
+  <Human.description>TODO</Human.description>
+  <!-- EN: left fist -->
+  <Human.tools.left_fist.label>TODO</Human.tools.left_fist.label>
+  <!-- EN: right fist -->
+  <Human.tools.right_fist.label>TODO</Human.tools.right_fist.label>
+  <!-- EN: teeth -->
+  <Human.tools.teeth.label>TODO</Human.tools.teeth.label>
+  <!-- EN: head -->
+  <Human.tools.head.label>TODO</Human.tools.head.label>
+  
+</LanguageData>

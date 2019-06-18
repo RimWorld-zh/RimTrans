@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- WITab titles -->
+  <!-- EN: Terrain -->
+  <TabTerrain>TODO</TabTerrain>
+  <!-- EN: Planet -->
+  <TabPlanet>TODO</TabPlanet>
+  <!-- EN: Social -->
+  <TabCaravanSocial>TODO</TabCaravanSocial>
+  <!-- EN: Health -->
+  <TabCaravanHealth>TODO</TabCaravanHealth>
+  <!-- EN: Needs -->
+  <TabCaravanNeeds>TODO</TabCaravanNeeds>
+  <!-- EN: Gear -->
+  <TabCaravanGear>TODO</TabCaravanGear>
+  <!-- EN: Items -->
+  <TabCaravanItems>TODO</TabCaravanItems>
+  
+  <!-- Misc -->
+  <!-- EN: Abandon {{0}}x {0} -->
+  <AbandonSliderText>TODO</AbandonSliderText>
+  <!-- EN: Do you really want to abandon {0}?\n\nAbandoned items vanish and can never be recovered. -->
+  <ConfirmAbandonItemDialog>TODO</ConfirmAbandonItemDialog>
+  <!-- EN: Abandon -->
+  <AbandonTip>TODO</AbandonTip>
+  <!-- EN: Banish -->
+  <BanishTip>TODO</BanishTip>
+  <!-- EN: Abandon specific count -->
+  <AbandonSpecificCountTip>TODO</AbandonSpecificCountTip>
+  <!-- EN: Abandon (all) -->
+  <AbandonAllTip>TODO</AbandonAllTip>
+  <!-- EN: Abandoned items vanish and can never be recovered. -->
+  <AbandonItemTipExtraText>TODO</AbandonItemTipExtraText>
+  <!-- EN: {1_labelShort} will most likely die. -->
+  <BanishTipWillDie>TODO</BanishTipWillDie>
+  
+  <!-- Caravan inspect -->
+  <!-- EN: Colonists -->
+  <CaravanColonists>TODO</CaravanColonists>
+  <!-- EN: Prisoners and animals -->
+  <CaravanPrisonersAndAnimals>TODO</CaravanPrisonersAndAnimals>
+  <!-- EN: Inventory -->
+  <CaravanItems>TODO</CaravanItems>
+  <!-- EN: Click to open a tab with more details. -->
+  <OpenSpecificTabButtonTip>TODO</OpenSpecificTabButtonTip>
+  <!-- EN: Prisoners -->
+  <CaravanPrisoners>TODO</CaravanPrisoners>
+  <!-- EN: Inventory -->
+  <CaravanWeaponsAndApparel>TODO</CaravanWeaponsAndApparel>
+  <!-- EN: None capable -->
+  <NoneCapable>TODO</NoneCapable>
+  <!-- EN: Caravan not moving -->
+  <GainingJoyBecauseCaravanNotMoving>TODO</GainingJoyBecauseCaravanNotMoving>
+  
+  <!-- Caravan gear -->
+  <!-- EN: Drag to rearrange. -->
+  <DragToRearrange>TODO</DragToRearrange>
+
+  <!-- Caravan items -->
+  <!-- EN: Assign drug policies -->
+  <AssignDrugPolicies>TODO</AssignDrugPolicies>
+
+  <!-- Caravan health -->
+  <!-- EN: Whether this person or animal should be carried by other caravan members when sick.\n\nCarried caravan members can rest even if the caravan is moving, but they slow it down. -->
+  <BeCarriedIfSickTip>TODO</BeCarriedIfSickTip>
+  
+  <!-- Planet -->
+  <!-- EN: Seed -->
+  <PlanetSeed>TODO</PlanetSeed>
+  <!-- EN: Coverage -->
+  <PlanetCoverageShort>TODO</PlanetCoverageShort>
+
+</LanguageData>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: recovery -->
+  <Adaptation.label>TODO</Adaptation.label>
+  <!-- EN: Days -->
+  <Adaptation.graphLabelY>TODO</Adaptation.graphLabelY>
+  
+  <!-- EN: mood -->
+  <ColonistMood.label>TODO</ColonistMood.label>
+  <!-- EN: Percent -->
+  <ColonistMood.graphLabelY>TODO</ColonistMood.graphLabelY>
+  
+  <!-- EN: free colonists -->
+  <FreeColonists.label>TODO</FreeColonists.label>
+  <!-- EN: Colonists -->
+  <FreeColonists.graphLabelY>TODO</FreeColonists.graphLabelY>
+  
+  <!-- EN: pop recovery -->
+  <PopAdaptation.label>TODO</PopAdaptation.label>
+  <!-- EN: Days -->
+  <PopAdaptation.graphLabelY>TODO</PopAdaptation.graphLabelY>
+  
+  <!-- EN: pop intent x10 -->
+  <PopIntent.label>TODO</PopIntent.label>
+  <!-- EN: Days -->
+  <PopIntent.graphLabelY>TODO</PopIntent.graphLabelY>
+  
+  <!-- EN: prisoners -->
+  <Prisoners.label>TODO</Prisoners.label>
+  <!-- EN: Prisoners -->
+  <Prisoners.graphLabelY>TODO</Prisoners.graphLabelY>
+  
+  <!-- EN: fun points /10 -->
+  <ThreatPoints.label>TODO</ThreatPoints.label>
+  <!-- EN: Points -->
+  <ThreatPoints.graphLabelY>TODO</ThreatPoints.graphLabelY>
+  
+  <!-- EN: wealth (buildings) -->
+  <Wealth_Buildings.label>TODO</Wealth_Buildings.label>
+  <!-- EN: Amount -->
+  <Wealth_Buildings.graphLabelY>TODO</Wealth_Buildings.graphLabelY>
+  
+  <!-- EN: wealth (items) -->
+  <Wealth_Items.label>TODO</Wealth_Items.label>
+  <!-- EN: Amount -->
+  <Wealth_Items.graphLabelY>TODO</Wealth_Items.graphLabelY>
+  
+  <!-- EN: wealth (creatures) -->
+  <Wealth_Pawns.label>TODO</Wealth_Pawns.label>
+  <!-- EN: Amount -->
+  <Wealth_Pawns.graphLabelY>TODO</Wealth_Pawns.graphLabelY>
+  
+  <!-- EN: wealth (total) -->
+  <Wealth_Total.label>TODO</Wealth_Total.label>
+  <!-- EN: Amount -->
+  <Wealth_Total.graphLabelY>TODO</Wealth_Total.graphLabelY>
+  
+</LanguageData>

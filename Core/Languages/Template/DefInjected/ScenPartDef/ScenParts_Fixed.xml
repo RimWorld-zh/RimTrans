@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: starting people -->
+  <ConfigPage_ConfigureStartingPawns.label>TODO</ConfigPage_ConfigureStartingPawns.label>
+  
+  <!-- EN: Player faction -->
+  <PlayerFaction.label>TODO</PlayerFaction.label>
+  
+  <!-- EN: arrival method -->
+  <PlayerPawnsArriveMethod.label>TODO</PlayerPawnsArriveMethod.label>
+  
+</LanguageData>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: advanced fabrication -->
+  <AdvancedFabrication.label>TODO</AdvancedFabrication.label>
+  <!-- EN: Fabricate advanced components from standard components and other materials. -->
+  <AdvancedFabrication.description>TODO</AdvancedFabrication.description>
+  
+  <!-- EN: bionics -->
+  <Bionics.label>TODO</Bionics.label>
+  <!-- EN: Build high-tech bionic body parts to replace lost limbs and eyes. Requires a skilled doctor to attach. -->
+  <Bionics.description>TODO</Bionics.description>
+  
+  <!-- EN: pulse-charged munitions -->
+  <ChargedShot.label>TODO</ChargedShot.label>
+  <!-- EN: Build weapons which fire pulse-charged munitions for extra damage. Note that these also require advanced components. -->
+  <ChargedShot.description>TODO</ChargedShot.description>
+  
+  <!-- EN: cryptosleep casket -->
+  <Cryptosleep.label>TODO</Cryptosleep.label>
+  <!-- EN: Construct cryptosleep caskets, which can put living beings in a state of indefinite suspended animation. -->
+  <Cryptosleep.description>TODO</Cryptosleep.description>
+  
+  <!-- EN: deep drilling -->
+  <DeepDrilling.label>TODO</DeepDrilling.label>
+  <!-- EN: Build deep drills for extracting resources from underground. You'll need a ground-penetrating scanner to find the resources. -->
+  <DeepDrilling.description>TODO</DeepDrilling.description>
+  
+  <!-- EN: fabrication -->
+  <Fabrication.label>TODO</Fabrication.label>
+  <!-- EN: Build fabrication benches, capable of high-tech projects ranging from component assembly to power armor construction. -->
+  <Fabrication.description>TODO</Fabrication.description>
+  
+  <!-- EN: ground-penetrating scanner -->
+  <GroundPenetratingScanner.label>TODO</GroundPenetratingScanner.label>
+  <!-- EN: Build ground-penetrating scanners that can detect drillable resources under the surface. Requires advanced components to construct. -->
+  <GroundPenetratingScanner.description>TODO</GroundPenetratingScanner.description>
+  
+  <!-- EN: multi-analyzer -->
+  <MultiAnalyzer.label>TODO</MultiAnalyzer.label>
+  <!-- EN: Build multi-analyzers which increase research speed and allow higher-level research projects. -->
+  <MultiAnalyzer.description>TODO</MultiAnalyzer.description>
+  
+  <!-- EN: powered armor -->
+  <PoweredArmor.label>TODO</PoweredArmor.label>
+  <!-- EN: Build the power armor and power armor helmets. Note that these also require advanced components. -->
+  <PoweredArmor.description>TODO</PoweredArmor.description>
+  
+  <!-- EN: uranium slug turret -->
+  <SniperTurret.label>TODO</SniperTurret.label>
+  <!-- EN: Produce the armor-penetrating uranium slug turret. It fires uranium slugs which tear through plasteel like paper, but it's less effective at close range. -->
+  <SniperTurret.description>TODO</SniperTurret.description>
+  
+  <!-- EN: vitals monitor -->
+  <VitalsMonitor.label>TODO</VitalsMonitor.label>
+  <!-- EN: Build vitals monitors which improve medical outcomes when placed next to hospital beds. -->
+  <VitalsMonitor.description>TODO</VitalsMonitor.description>
+  
+</LanguageData>

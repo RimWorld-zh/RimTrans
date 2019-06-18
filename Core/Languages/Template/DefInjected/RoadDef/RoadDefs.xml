@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ancient asphalt highway -->
+  <AncientAsphaltHighway.label>TODO</AncientAsphaltHighway.label>
+  
+  <!-- EN: ancient asphalt road -->
+  <AncientAsphaltRoad.label>TODO</AncientAsphaltRoad.label>
+  
+  <!-- EN: dirt path -->
+  <DirtPath.label>TODO</DirtPath.label>
+  
+  <!-- EN: dirt road -->
+  <DirtRoad.label>TODO</DirtRoad.label>
+  
+  <!-- EN: stone road -->
+  <StoneRoad.label>TODO</StoneRoad.label>
+  
+</LanguageData>

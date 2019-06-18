@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: cat -->
+  <Cat.label>TODO</Cat.label>
+  <!-- EN: One of mankind's first pets, the cat is a small mammal which hunts vermin. Known for their aloofness, cats are nevertheless popular companions because of their independence, calm disposition, and fine, pettable fur. -->
+  <Cat.description>TODO</Cat.description>
+  <!-- EN: left claw -->
+  <Cat.tools.left_claw.label>TODO</Cat.tools.left_claw.label>
+  <!-- EN: right claw -->
+  <Cat.tools.right_claw.label>TODO</Cat.tools.right_claw.label>
+  <!-- EN: head -->
+  <Cat.tools.head.label>TODO</Cat.tools.head.label>
+  
+  <!-- EN: husky -->
+  <Husky.label>TODO</Husky.label>
+  <!-- EN: A large, energetic dog with a thick fur coat for remaining comfortable in arctic environments. -->
+  <Husky.description>TODO</Husky.description>
+  <!-- EN: left claw -->
+  <Husky.tools.left_claw.label>TODO</Husky.tools.left_claw.label>
+  <!-- EN: right claw -->
+  <Husky.tools.right_claw.label>TODO</Husky.tools.right_claw.label>
+  <!-- EN: head -->
+  <Husky.tools.head.label>TODO</Husky.tools.head.label>
+  
+  <!-- EN: labrador retriever -->
+  <LabradorRetriever.label>TODO</LabradorRetriever.label>
+  <!-- EN: A very versatile, medium-sized dog. Originally bred to retrieve birds shot on the hunt, the lab is also an excellent guard dog, play pal, and family friend. -->
+  <LabradorRetriever.description>TODO</LabradorRetriever.description>
+  <!-- EN: left claw -->
+  <LabradorRetriever.tools.left_claw.label>TODO</LabradorRetriever.tools.left_claw.label>
+  <!-- EN: right claw -->
+  <LabradorRetriever.tools.right_claw.label>TODO</LabradorRetriever.tools.right_claw.label>
+  <!-- EN: head -->
+  <LabradorRetriever.tools.head.label>TODO</LabradorRetriever.tools.head.label>
+  
+  <!-- EN: yorkshire terrier -->
+  <YorkshireTerrier.label>TODO</YorkshireTerrier.label>
+  <!-- EN: A small, even-tempered dog. Originally bred to hunt rats, it later became a show and companionship animal. Some consider it useless, but the mood boost it gives by nuzzling can outweight the cost of feeding it. -->
+  <YorkshireTerrier.description>TODO</YorkshireTerrier.description>
+  <!-- EN: left claw -->
+  <YorkshireTerrier.tools.left_claw.label>TODO</YorkshireTerrier.tools.left_claw.label>
+  <!-- EN: right claw -->
+  <YorkshireTerrier.tools.right_claw.label>TODO</YorkshireTerrier.tools.right_claw.label>
+  <!-- EN: cute little teeth -->
+  <YorkshireTerrier.tools.cute_little_teeth.label>TODO</YorkshireTerrier.tools.cute_little_teeth.label>
+  <!-- EN: head -->
+  <YorkshireTerrier.tools.head.label>TODO</YorkshireTerrier.tools.head.label>
+  
+</LanguageData>

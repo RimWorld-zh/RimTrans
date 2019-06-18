@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: blood filtration -->
+  <BloodFiltration.label>TODO</BloodFiltration.label>
+  <!-- EN: fluid reprocessing -->
+  <BloodFiltration.labelMechanoids>TODO</BloodFiltration.labelMechanoids>
+  
+  <!-- EN: blood pumping -->
+  <BloodPumping.label>TODO</BloodPumping.label>
+  <!-- EN: power generation -->
+  <BloodPumping.labelMechanoids>TODO</BloodPumping.labelMechanoids>
+  
+  <!-- EN: breathing -->
+  <Breathing.label>TODO</Breathing.label>
+  
+  <!-- EN: consciousness -->
+  <Consciousness.label>TODO</Consciousness.label>
+  <!-- EN: Data processing -->
+  <Consciousness.labelMechanoids>TODO</Consciousness.labelMechanoids>
+  
+  <!-- EN: eating -->
+  <Eating.label>TODO</Eating.label>
+  
+  <!-- EN: hearing -->
+  <Hearing.label>TODO</Hearing.label>
+  
+  <!-- EN: manipulation -->
+  <Manipulation.label>TODO</Manipulation.label>
+  
+  <!-- EN: metabolism -->
+  <Metabolism.label>TODO</Metabolism.label>
+  
+  <!-- EN: moving -->
+  <Moving.label>TODO</Moving.label>
+  
+  <!-- EN: sight -->
+  <Sight.label>TODO</Sight.label>
+  
+  <!-- EN: talking -->
+  <Talking.label>TODO</Talking.label>
+  <!-- EN: Communication -->
+  <Talking.labelMechanoids>TODO</Talking.labelMechanoids>
+  
+</LanguageData>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: Armor - Blunt -->
+  <StuffPower_Armor_Blunt.label>TODO</StuffPower_Armor_Blunt.label>
+  <!-- EN: Armor against blunt damage like club impacts, rock falls, and explosions. -->
+  <StuffPower_Armor_Blunt.description>TODO</StuffPower_Armor_Blunt.description>
+  
+  <!-- EN: Armor - Heat -->
+  <StuffPower_Armor_Heat.label>TODO</StuffPower_Armor_Heat.label>
+  <!-- EN: Armor against temperature-related damage like burns. -->
+  <StuffPower_Armor_Heat.description>TODO</StuffPower_Armor_Heat.description>
+  
+  <!-- EN: Armor - Sharp -->
+  <StuffPower_Armor_Sharp.label>TODO</StuffPower_Armor_Sharp.label>
+  <!-- EN: Armor against sharp damage like bullets, knife stabs, and animal bites. -->
+  <StuffPower_Armor_Sharp.description>TODO</StuffPower_Armor_Sharp.description>
+  
+  <!-- EN: Insulation - Cold -->
+  <StuffPower_Insulation_Cold.label>TODO</StuffPower_Insulation_Cold.label>
+  <!-- EN: How much an apparel made of this material improves a wearer's minimum comfortable temperature when worn. -->
+  <StuffPower_Insulation_Cold.description>TODO</StuffPower_Insulation_Cold.description>
+  
+  <!-- EN: Insulation - Heat -->
+  <StuffPower_Insulation_Heat.label>TODO</StuffPower_Insulation_Heat.label>
+  <!-- EN: How much an apparel made of this material improves a wearer's maximum comfortable temperature when worn. -->
+  <StuffPower_Insulation_Heat.description>TODO</StuffPower_Insulation_Heat.description>
+  
+</LanguageData>

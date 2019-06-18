@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- Main menu -->
+  <!-- EN: Tutorial -->
+  <Tutorial>TODO</Tutorial>
+  <!-- EN: New colony -->
+  <NewColony>TODO</NewColony>
+  <!-- EN: Back to game -->
+  <BackToGame>TODO</BackToGame>
+  <!-- EN: Review scenario -->
+  <ReviewScenario>TODO</ReviewScenario>
+  <!-- EN: Save -->
+  <Save>TODO</Save>
+  <!-- EN: Load game -->
+  <LoadGame>TODO</LoadGame>
+  <!-- EN: Options -->
+  <Options>TODO</Options>
+  <!-- EN: Mods -->
+  <Mods>TODO</Mods>
+  <!-- EN: Save translation report -->
+  <SaveTranslationReport>TODO</SaveTranslationReport>
+  <!-- EN: Generating translation report -->
+  <GeneratingTranslationReport>TODO</GeneratingTranslationReport>
+  <!-- EN: Cleanup translation files -->
+  <CleanupTranslationFiles>TODO</CleanupTranslationFiles>
+  <!-- EN: Cleaning translation files -->
+  <CleaningTranslationFiles>TODO</CleaningTranslationFiles>
+  <!-- EN: Credits -->
+  <Credits>TODO</Credits>
+  <!-- EN: Quit to main menu -->
+  <QuitToMainMenu>TODO</QuitToMainMenu>
+  <!-- EN: Save and quit to menu -->
+  <SaveAndQuitToMainMenu>TODO</SaveAndQuitToMainMenu>
+  <!-- EN: Quit to OS -->
+  <QuitToOS>TODO</QuitToOS>
+  <!-- EN: Save and quit to OS -->
+  <SaveAndQuitToOS>TODO</SaveAndQuitToOS>
+  <!-- EN: Fiction primer -->
+  <FictionPrimer>TODO</FictionPrimer>
+  <!-- EN: Ludeon blog -->
+  <LudeonBlog>TODO</LudeonBlog>
+  <!-- EN: Forums -->
+  <Forums>TODO</Forums>
+  <!-- EN: Official wiki -->
+  <OfficialWiki>TODO</OfficialWiki>
+  <!-- EN: Tynan's twitter -->
+  <TynansTwitter>TODO</TynansTwitter>
+  <!-- EN: Tynan's design book -->
+  <TynansDesignBook>TODO</TynansDesignBook>
+  <!-- EN: Help translate RimWorld -->
+  <HelpTranslate>TODO</HelpTranslate>
+  <!-- EN: Buy soundtrack -->
+  <BuySoundtrack>TODO</BuySoundtrack>
+  <!-- EN: Create world -->
+  <CreateWorld>TODO</CreateWorld>
+
+  <!-- Main menu translations info window -->
+  <!-- EN: All translations of RimWorld are fan-made. This fan-made translation was created by the following excellent volunteers:\n\n{0} -->
+  <TranslationThanks>TODO</TranslationThanks>
+  <!-- EN: You can contribute too. Click below to learn more (opens web browser). -->
+  <TranslationHowToContribute>TODO</TranslationHowToContribute>
+  <!-- EN: Learn more -->
+  <LearnMore>TODO</LearnMore>
+
+  <!-- Main menu dev build -->
+  <!-- EN: Warning: This is an unstable development build. This means we are running design experiments and doing technical development.\n\nSome things will be temporarily unbalanced on purpose. This is a classic game design method where we deliberately go too far with a balance change in order to better understand balance boundaries. We can then use that information to decide on the final balance points.\n\nThere will also be bugs, including game-breaking ones. Save compatibility may break any time.\n\nIf you're okay with all of this, thanks for testing! If you don't want to be subject to our experiments, please play the latest stable version. -->
+  <DevBuildWarning>TODO</DevBuildWarning>
+
+  <!-- Create/review world -->
+  <!-- EN: Review world -->
+  <ReviewWorld>TODO</ReviewWorld>
+  <!-- EN: Generate -->
+  <WorldGenerate>TODO</WorldGenerate>
+  <!-- EN: Save and finish -->
+  <WorldSaveAndFinish>TODO</WorldSaveAndFinish>
+  <!-- EN: Reset -->
+  <Reset>TODO</Reset>
+  <!-- EN: Globe coverage -->
+  <PlanetCoverage>TODO</PlanetCoverage>
+  <!-- EN: Overall rainfall -->
+  <PlanetRainfall>TODO</PlanetRainfall>
+  <!-- EN: Overall temperature -->
+  <PlanetTemperature>TODO</PlanetTemperature>
+  <!-- EN: Low -->
+  <PlanetRainfall_Low>TODO</PlanetRainfall_Low>
+  <!-- EN: Normal -->
+  <PlanetRainfall_Normal>TODO</PlanetRainfall_Normal>
+  <!-- EN: High -->
+  <PlanetRainfall_High>TODO</PlanetRainfall_High>
+  <!-- EN: Low -->
+  <PlanetTemperature_Low>TODO</PlanetTemperature_Low>
+  <!-- EN: Normal -->
+  <PlanetTemperature_Normal>TODO</PlanetTemperature_Normal>
+  <!-- EN: High -->
+  <PlanetTemperature_High>TODO</PlanetTemperature_High>
+  <!-- EN: Seed -->
+  <WorldSeed>TODO</WorldSeed>
+  <!-- EN: Randomize seed -->
+  <RandomizeSeed>TODO</RandomizeSeed>
+  <!-- EN: The planet is always the same diameter, but since it’s far larger than needed for play, we don’t generate the whole surface because it can take a very long time. This is the percentage of the surface that you want generated. -->
+  <PlanetCoverageTip>TODO</PlanetCoverageTip>
+  <!-- EN: Factions -->
+  <WorldFactionsTab>TODO</WorldFactionsTab>
+
+  <!-- Select world -->
+  <!-- EN: Select world -->
+  <SelectWorld>TODO</SelectWorld>
+  <!-- EN: Select -->
+  <WorldChooseButton>TODO</WorldChooseButton>
+  <!-- EN: No world files found. Create a world first. -->
+  <NoWorldsFilesFound>TODO</NoWorldsFilesFound>
+  
+  <!-- Version info -->
+  <!-- EN: Version {0} is now available. Check ludeon.com for more info. -->
+  <BuildNowAvailable>TODO</BuildNowAvailable>
+  <!-- EN: This is the latest version. -->
+  <BuildUpToDate>TODO</BuildUpToDate>
+  <!-- EN: Error getting version info: {0} -->
+  <ErrorGettingVersionInfo>TODO</ErrorGettingVersionInfo>
+  <!-- EN: Loading version info... -->
+  <LoadingVersionInfo>TODO</LoadingVersionInfo>
+
+  <!-- World generator -->
+  <!-- EN: Generate world -->
+  <GenerateWorld>TODO</GenerateWorld>
+
+  <!-- Mods config -->
+  <!-- EN: Open Steam Workshop -->
+  <OpenSteamWorkshop>TODO</OpenSteamWorkshop>
+  <!-- EN: Get mods from forum -->
+  <GetModsFromForum>TODO</GetModsFromForum>
+  <!-- EN: Open mods data folder -->
+  <OpenModsDataFolder>TODO</OpenModsDataFolder>
+  <!-- EN: Show mods data location -->
+  <ShowModsDataLocation>TODO</ShowModsDataLocation>
+  <!-- EN: Are you sure you want to disable the core mod? The game won't work at all unless you have another mod that replaces all the core functionality.\n\nRemember, other mods can override defs in the core mod by using the same defName. -->
+  <ConfirmDisableCoreMod>TODO</ConfirmDisableCoreMod>
+  <!-- EN: Are you sure you want to delete all the content for {0}? -->
+  <ConfirmDeleteMod>TODO</ConfirmDeleteMod>
+  <!-- EN: Unsubscribe -->
+  <Unsubscribe>TODO</Unsubscribe>
+  <!-- EN: Are you sure you want to unsubscribe from {0}? -->
+  <ConfirmUnsubscribe>TODO</ConfirmUnsubscribe>
+  <!-- EN: Author -->
+  <Author>TODO</Author>
+  <!-- EN: Workshop page -->
+  <WorkshopPage>TODO</WorkshopPage>
+  <!-- EN: Upload to Steam Workshop -->
+  <UploadToSteamWorkshop>TODO</UploadToSteamWorkshop>
+  <!-- EN: Update on Steam Workshop -->
+  <UpdateOnSteamWorkshop>TODO</UpdateOnSteamWorkshop>
+  <!-- EN: Upload already in progress. -->
+  <UploadAlreadyInProgress>TODO</UploadAlreadyInProgress>
+  <!-- EN: Workshop submission failed.\n\nReason: {0} -->
+  <WorkshopSubmissionFailed>TODO</WorkshopSubmissionFailed>
+  <!-- EN: Successfully uploaded {0}. -->
+  <WorkshopUploadSucceeded>TODO</WorkshopUploadSucceeded>
+  <!-- EN: Downloading -->
+  <Downloading>TODO</Downloading>
+  <!-- EN: Source -->
+  <Source>TODO</Source>
+  <!-- EN: For version(s): {0} -->
+  <ModTargetVersion>TODO</ModTargetVersion>
+  <!-- EN: This mod was not made for this version of RimWorld, and will probably not work correctly. -->
+  <ModNotMadeForThisVersion>TODO</ModNotMadeForThisVersion>
+  <!-- EN: This mod was made for a newer version of RimWorld than this, and will probably not work correctly. -->
+  <ModNotMadeForThisVersion_Newer>TODO</ModNotMadeForThisVersion_Newer>
+  <!-- EN: Mod needs properly formatted supported version information in About.xml. Like this: <supportedVersions><li>{0}</li></supportedVersions> - <targetVersion> is deprecated. Check log for further information. -->
+  <MessageModNeedsWellFormattedTargetVersion>TODO</MessageModNeedsWellFormattedTargetVersion>
+  <!-- EN: Drag to reorder -->
+  <DragToReorder>TODO</DragToReorder>
+  
+  <!-- Select scenario -->
+  <!-- EN: Choose scenario -->
+  <ChooseScenario>TODO</ChooseScenario>
+  <!-- EN: Custom -->
+  <ScenariosCustom>TODO</ScenariosCustom>
+  <!-- EN: Steam Workshop -->
+  <ScenariosSteamWorkshop>TODO</ScenariosSteamWorkshop>
+  <!-- EN: Scenario editor -->
+  <ScenarioEditor>TODO</ScenarioEditor>
+  <!-- EN: Delete -->
+  <Delete>TODO</Delete>
+  
+  <!-- Scenario editor -->
+  <!-- EN: seed -->
+  <Seed>TODO</Seed>
+  <!-- EN: Load -->
+  <Load>TODO</Load>
+  <!-- EN: edit mode -->
+  <EditMode>TODO</EditMode>
+  <!-- EN: Summary -->
+  <Summary>TODO</Summary>
+  <!-- EN: Add part -->
+  <AddPart>TODO</AddPart>
+  <!-- EN: All text fields must be filled. -->
+  <TextFieldsMustBeFilled>TODO</TextFieldsMustBeFilled>
+  <!-- EN: Are you sure you want to upload this to the Steam Workshop?\n\nYou must agree to the Steam Workshop terms of service. Find the full terms here:\n\nhttp://steamcommunity.com/sharedfiles/workshoplegalagreement -->
+  <ConfirmSteamWorkshopUpload>TODO</ConfirmSteamWorkshopUpload>
+  <!-- EN: Obviously you should only upload content that you created yourself.\n\nDid you create this content yourself? -->
+  <ConfirmContentAuthor>TODO</ConfirmContentAuthor>
+  <!-- EN: Incompatible -->
+  <Incompatible>TODO</Incompatible>
+  <!-- EN: Too many (max {0}):  -->
+  <TooMany>TODO</TooMany>
+  <!-- EN: Can be updated on Workshop, since you are the author. -->
+  <CanBeUpdatedOnWorkshop>TODO</CanBeUpdatedOnWorkshop>
+  
+  <!-- Select storyteller -->
+  <!-- EN: Choose AI Storyteller -->
+  <ChooseAIStoryteller>TODO</ChooseAIStoryteller>
+  <!-- EN: The AI Storyteller creates events like pirate raids, resource drops, or animal attacks. Their choices will affect the story of your colony. You can change these settings at any time. -->
+  <HowStorytellersWork>TODO</HowStorytellersWork>
+  <!-- EN: Please choose a difficulty setting. -->
+  <MustChooseDifficulty>TODO</MustChooseDifficulty>
+  <!-- EN: Difficulty -->
+  <Difficulty>TODO</Difficulty>
+  <!-- EN: Commitment mode -->
+  <CommitmentMode>TODO</CommitmentMode>
+  <!-- EN: Reload anytime mode -->
+  <ReloadAnytimeMode>TODO</ReloadAnytimeMode>
+  <!-- EN: Please choose commitment mode or reload anytime mode. -->
+  <MustChoosePermadeath>TODO</MustChoosePermadeath>
+  <!-- EN: You can save and load the game at any time.\n\nThis is a good choice if you're still learning the game, if it fits your personal playstyle, if you're using mods that may break your game, or if you intend to self-enforce commitment mode. -->
+  <ReloadAnytimeModeInfo>TODO</ReloadAnytimeModeInfo>
+  <!-- EN: You can only save when quitting the game.\n\nSince RimWorld is a story generator, even losing all but one person is not the end of the game - it's part of the story. The game is designed to allow recovery after losses.\n\nPlaying out these terrible situations makes a story with both tragedy and triumph. It's the way RimWorld was designed to be played.\n\nThere's a reason Luke Skywalker didn't quit and reload when his family got killed - loss and recovery is dramatic. -->
+  <PermadeathModeInfo>TODO</PermadeathModeInfo>
+  <!-- EN: Storyteller and difficulty can be changed any time. -->
+  <CanChangeStorytellerSettingsDuringPlay>TODO</CanChangeStorytellerSettingsDuringPlay>
+  <!-- EN: Merciless mode -->
+  <UnlockExtremeDifficulty>TODO</UnlockExtremeDifficulty>
+  <!-- EN: Merciless mode is a special game mode where every challenge is turned up to extreme levels.\n\nMerciless mode unlocks automatically when you reach specific milestones. However, you can unlock it now.\n\nThis option is only recommended once you've played a high-difficulty game or two and want to have a good chance at dying despite your best efforts. -->
+  <ConfirmUnlockExtremeDifficulty>TODO</ConfirmUnlockExtremeDifficulty>
+
+  <!-- Site select -->
+  <!-- EN: Select starting site -->
+  <SelectStartingSite>TODO</SelectStartingSite>
+  <!-- EN: Select random site -->
+  <SelectRandomSite>TODO</SelectRandomSite>
+  <!-- EN: Select site -->
+  <SelectSite>TODO</SelectSite>
+  <!-- EN: Please select a site. -->
+  <MustSelectStartingSite>TODO</MustSelectStartingSite>
+  <!-- EN: You cannot land on this biome: {0} -->
+  <CannotLandBiome>TODO</CannotLandBiome>
+  <!-- EN: Biome not implemented -->
+  <BiomeNotImplemented>TODO</BiomeNotImplemented>
+  <!-- EN: You cannot land on impassable mountains. -->
+  <CannotLandImpassableMountains>TODO</CannotLandImpassableMountains>
+  <!-- EN: {0} already have a base there. -->
+  <BaseAlreadyThere>TODO</BaseAlreadyThere>
+  <!-- EN: You already have a base there. -->
+  <YourBaseAlreadyThere>TODO</YourBaseAlreadyThere>
+  <!-- EN: This tile is occupied. -->
+  <TileOccupied>TODO</TileOccupied>
+  <!-- EN: Settlements cannot be directly adjacent to each other. -->
+  <FactionBaseAdjacent>TODO</FactionBaseAdjacent>
+  <!-- EN: Biome -->
+  <Biome>TODO</Biome>
+  <!-- EN: Terrain -->
+  <Terrain>TODO</Terrain>
+  <!-- EN: Road -->
+  <Road>TODO</Road>
+  <!-- EN: River -->
+  <River>TODO</River>
+  <!-- EN: Elevation -->
+  <Elevation>TODO</Elevation>
+  <!-- EN: Fertility -->
+  <Fertility>TODO</Fertility>
+  <!-- EN: Average temperature -->
+  <AvgTemp>TODO</AvgTemp>
+  <!-- EN: Rainfall -->
+  <Rainfall>TODO</Rainfall>
+  <!-- EN: Special features -->
+  <SpecialFeatures>TODO</SpecialFeatures>
+  <!-- EN: northern coast -->
+  <HasCoast0>TODO</HasCoast0>
+  <!-- EN: eastern coast -->
+  <HasCoast1>TODO</HasCoast1>
+  <!-- EN: southern coast -->
+  <HasCoast2>TODO</HasCoast2>
+  <!-- EN: western coast -->
+  <HasCoast3>TODO</HasCoast3>
+  <!-- EN: caves -->
+  <HasCaves>TODO</HasCaves>
+  <!-- EN: Faction base -->
+  <FactionBase>TODO</FactionBase>
+  <!-- EN: Stone types -->
+  <StoneTypesHere>TODO</StoneTypesHere>
+  <!-- EN: Time zone -->
+  <TimeZone>TODO</TimeZone>
+  <!-- EN: Movement difficulty -->
+  <MovementDifficulty>TODO</MovementDifficulty>
+  <!-- EN: Animals can graze now -->
+  <AnimalsCanGrazeNow>TODO</AnimalsCanGrazeNow>
+  <!-- EN: Average disease frequency -->
+  <AverageDiseaseFrequency>TODO</AverageDiseaseFrequency>
+  <!-- EN: per year -->
+  <PerYear>TODO</PerYear>
+  <!-- EN: Forageability -->
+  <Forageability>TODO</Forageability>
+  <!-- EN: None of the selected people can do the following jobs:\n\n{0}\n\nThis can make the game more difficult than usual. Are you sure you want to continue? -->
+  <ConfirmRequiredWorkTypeDisabledForEveryone>TODO</ConfirmRequiredWorkTypeDisabledForEveryone>
+
+  <!-- Character chooser -->
+  <!-- EN: Create characters -->
+  <CreateCharacters>TODO</CreateCharacters>
+  <!-- EN: The character's first name.\n\nThis is only displayed in certain menus. -->
+  <FirstNameDesc>TODO</FirstNameDesc>
+  <!-- EN: The character's short identifier.\n\nThis is displayed at all times. It can be the first or last name, or a completely separate nickname. -->
+  <ShortIdentifierDesc>TODO</ShortIdentifierDesc>
+  <!-- EN: The character's last name.\n\nThis is only displayed in certain menus. -->
+  <LastNameDesc>TODO</LastNameDesc>
+  <!-- EN: Randomize -->
+  <Randomize>TODO</Randomize>
+  <!-- EN: age {0} -->
+  <AgeIndicator>TODO</AgeIndicator>
+  <!-- EN: Backstory -->
+  <Backstory>TODO</Backstory>
+  <!-- EN: Incapable of -->
+  <IncapableOf>TODO</IncapableOf>
+  <!-- EN: Traits -->
+  <Traits>TODO</Traits>
+  <!-- EN: Permanent mood effect -->
+  <PermanentMoodEffect>TODO</PermanentMoodEffect>
+  <!-- EN: Skills -->
+  <Skills>TODO</Skills>
+  <!-- EN: none -->
+  <NoneLower>TODO</NoneLower>
+  <!-- EN: Adulthood -->
+  <Adulthood>TODO</Adulthood>
+  <!-- EN: Childhood -->
+  <Childhood>TODO</Childhood>
+  <!-- EN: Current -->
+  <Current>TODO</Current>
+  <!-- EN: male -->
+  <Male>TODO</Male>
+  <!-- EN: female -->
+  <Female>TODO</Female>
+  <!-- EN: male -->
+  <MaleAnimal>TODO</MaleAnimal>
+  <!-- EN: female -->
+  <FemaleAnimal>TODO</FemaleAnimal>
+  <!-- EN: Pain -->
+  <Pain>TODO</Pain>
+  <!-- EN: Health -->
+  <Health>TODO</Health>
+  <!-- EN: Relations -->
+  <Relations>TODO</Relations>
+  <!-- EN: Team skills -->
+  <TeamSkills>TODO</TeamSkills>
+  <!-- EN: Selected -->
+  <StartingPawnsSelected>TODO</StartingPawnsSelected>
+  <!-- EN: Left behind -->
+  <StartingPawnsLeftBehind>TODO</StartingPawnsLeftBehind>
+  
+  <!-- Misc -->
+  <!-- EN: Start -->
+  <Start>TODO</Start>
+  <!-- EN: Advanced -->
+  <Advanced>TODO</Advanced>
+  <!-- EN: Next -->
+  <Next>TODO</Next>
+  <!-- EN: Back -->
+  <Back>TODO</Back>
+  <!-- EN: Gameplay -->
+  <Gameplay>TODO</Gameplay>
+  <!-- EN: Really quit? You'll lose unsaved progress. -->
+  <ConfirmQuit>TODO</ConfirmQuit>
+  <!-- EN: Each person needs a valid name. -->
+  <EveryoneNeedsValidName>TODO</EveryoneNeedsValidName>
+  <!-- EN: None of the selected people can do the following jobs -->
+  <RequiredWorkTypeDisabledForEveryone>TODO</RequiredWorkTypeDisabledForEveryone>
+  <!-- EN: Quit -->
+  <Quit>TODO</Quit>
+  <!-- EN: Ignore -->
+  <Ignore>TODO</Ignore>
+  
+  <!-- Progress bar -->
+  <!-- EN: Generating world -->
+  <GeneratingWorld>TODO</GeneratingWorld>
+  <!-- EN: Generating planet -->
+  <GeneratingPlanet>TODO</GeneratingPlanet>
+  <!-- EN: Generating map -->
+  <GeneratingMap>TODO</GeneratingMap>
+  <!-- EN: Generating map for new encounter -->
+  <GeneratingMapForNewEncounter>TODO</GeneratingMapForNewEncounter>
+
+</LanguageData>

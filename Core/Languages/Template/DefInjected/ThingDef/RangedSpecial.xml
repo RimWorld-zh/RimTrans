@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: orbital bombardment targeter -->
+  <OrbitalTargeterBombardment.label>TODO</OrbitalTargeterBombardment.label>
+  <!-- EN: An ancient targeting apparatus for an orbital bombardment system. This unit designates a target and transmits the coordinates to a network of satellites, which then bombard the target area with kinetic impactors. This unit has been reprogrammed to accept unauthorized users, but once it is used, the network will detect the incursion and cut off the link permanently. -->
+  <OrbitalTargeterBombardment.description>TODO</OrbitalTargeterBombardment.description>
+  <!-- EN: orbital bombardment targeter -->
+  <OrbitalTargeterBombardment.verbs.Verb_Bombardment.label>TODO</OrbitalTargeterBombardment.verbs.Verb_Bombardment.label>
+  
+  <!-- EN: orbital power beam targeter -->
+  <OrbitalTargeterPowerBeam.label>TODO</OrbitalTargeterPowerBeam.label>
+  <!-- EN: An ancient targeting unit for a network of power-collection satellites. Once aimed at a target, it directs ancient satellites to begin beaming power down in a massive column of electromagnetic energy. This power can safely be collected in a giant absorption dish. Since you have no absorption dish, you'll be aiming it at enemies, at which point the power column will turn the area into a thousand-degree inferno. This will last until the satellites detect the unsafe targeting, shut themselves down, and permanently deactivate the targeter. -->
+  <OrbitalTargeterPowerBeam.description>TODO</OrbitalTargeterPowerBeam.description>
+  <!-- EN: orbital power beam targeter -->
+  <OrbitalTargeterPowerBeam.verbs.Verb_PowerBeam.label>TODO</OrbitalTargeterPowerBeam.verbs.Verb_PowerBeam.label>
+  
+  <!-- EN: tornado generator -->
+  <TornadoGenerator.label>TODO</TornadoGenerator.label>
+  <!-- EN: An ancient control unit for a network of weather-control satellites. This device has had certain failsafes bypassed; it is capable of causing a massive air current disturbance, which will generate a tornado at a chosen location. The weather network will detect this unauthorized intrusion and lock out the device after use, but the tornado will be left to spend its energy normally. -->
+  <TornadoGenerator.description>TODO</TornadoGenerator.description>
+  <!-- EN: tornado generator -->
+  <TornadoGenerator.verbs.Verb_Spawn.label>TODO</TornadoGenerator.verbs.Verb_Spawn.label>
+  
+</LanguageData>

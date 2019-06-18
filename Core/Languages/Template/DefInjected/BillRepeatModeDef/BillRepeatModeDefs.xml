@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: do forever -->
+  <Forever.label>TODO</Forever.label>
+  
+  <!-- EN: do X times -->
+  <RepeatCount.label>TODO</RepeatCount.label>
+  
+  <!-- EN: do until you have X -->
+  <TargetCount.label>TODO</TargetCount.label>
+  
+</LanguageData>

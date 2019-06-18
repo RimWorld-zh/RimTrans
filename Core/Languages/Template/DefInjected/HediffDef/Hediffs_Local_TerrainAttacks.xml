@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: dirt -->
+  <DirtInEyes.label>TODO</DirtInEyes.label>
+  <!-- EN: dirt -->
+  <DirtInEyes.labelNoun>TODO</DirtInEyes.labelNoun>
+  
+  <!-- EN: gravel -->
+  <GravelInEyes.label>TODO</GravelInEyes.label>
+  <!-- EN: gravel -->
+  <GravelInEyes.labelNoun>TODO</GravelInEyes.labelNoun>
+  
+  <!-- EN: mud -->
+  <MudInEyes.label>TODO</MudInEyes.label>
+  <!-- EN: mud -->
+  <MudInEyes.labelNoun>TODO</MudInEyes.labelNoun>
+  
+  <!-- EN: sand -->
+  <SandInEyes.label>TODO</SandInEyes.label>
+  <!-- EN: sand -->
+  <SandInEyes.labelNoun>TODO</SandInEyes.labelNoun>
+  
+  <!-- EN: water -->
+  <WaterInEyes.label>TODO</WaterInEyes.label>
+  <!-- EN: water -->
+  <WaterInEyes.labelNoun>TODO</WaterInEyes.labelNoun>
+  
+</LanguageData>

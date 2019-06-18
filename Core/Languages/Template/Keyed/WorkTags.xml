@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: none -->
+  <WorkTagNone>TODO</WorkTagNone>
+  <!-- EN: intellectual -->
+  <WorkTagIntellectual>TODO</WorkTagIntellectual>
+  <!-- EN: dumb labor -->
+  <WorkTagManualDumb>TODO</WorkTagManualDumb>
+  <!-- EN: skilled labor -->
+  <WorkTagManualSkilled>TODO</WorkTagManualSkilled>
+  <!-- EN: violent -->
+  <WorkTagViolent>TODO</WorkTagViolent>
+  <!-- EN: caring -->
+  <WorkTagCaring>TODO</WorkTagCaring>
+  <!-- EN: social -->
+  <WorkTagSocial>TODO</WorkTagSocial>
+  <!-- EN: animals -->
+  <WorkTagAnimals>TODO</WorkTagAnimals>
+  <!-- EN: artistic -->
+  <WorkTagArtistic>TODO</WorkTagArtistic>
+  <!-- EN: crafting -->
+  <WorkTagCrafting>TODO</WorkTagCrafting>
+  <!-- EN: cooking -->
+  <WorkTagCooking>TODO</WorkTagCooking>
+  <!-- EN: firefighting -->
+  <WorkTagFirefighting>TODO</WorkTagFirefighting>
+  <!-- EN: cleaning -->
+  <WorkTagCleaning>TODO</WorkTagCleaning>
+  <!-- EN: hauling -->
+  <WorkTagHauling>TODO</WorkTagHauling>
+  <!-- EN: plant work -->
+  <WorkTagPlantWork>TODO</WorkTagPlantWork>
+  <!-- EN: mining -->
+  <WorkTagMining>TODO</WorkTagMining>
+
+</LanguageData>

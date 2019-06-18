@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: cat -->
+  <Cat.label>TODO</Cat.label>
+  <!-- EN: kitten -->
+  <Cat.lifeStages.kitten.label>TODO</Cat.lifeStages.kitten.label>
+  
+  <!-- EN: husky -->
+  <Husky.label>TODO</Husky.label>
+  <!-- EN: huskies -->
+  <Husky.labelPlural>TODO</Husky.labelPlural>
+  <!-- EN: husky puppy -->
+  <Husky.lifeStages.husky_puppy.label>TODO</Husky.lifeStages.husky_puppy.label>
+  <!-- EN: husky puppies -->
+  <Husky.lifeStages.husky_puppy.labelPlural>TODO</Husky.lifeStages.husky_puppy.labelPlural>
+  
+  <!-- EN: labrador retriever -->
+  <LabradorRetriever.label>TODO</LabradorRetriever.label>
+  <!-- EN: labrador puppy -->
+  <LabradorRetriever.lifeStages.labrador_puppy.label>TODO</LabradorRetriever.lifeStages.labrador_puppy.label>
+  <!-- EN: labrador puppies -->
+  <LabradorRetriever.lifeStages.labrador_puppy.labelPlural>TODO</LabradorRetriever.lifeStages.labrador_puppy.labelPlural>
+  
+  <!-- EN: yorkshire terrier -->
+  <YorkshireTerrier.label>TODO</YorkshireTerrier.label>
+  <!-- EN: yorkshire terrier puppy -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.label>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.label>
+  <!-- EN: yorkshire terrier puppies -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelPlural>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelPlural>
+  
+</LanguageData>

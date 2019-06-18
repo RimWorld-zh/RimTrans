@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: butcher creature -->
+  <ButcherCorpseFlesh.label>TODO</ButcherCorpseFlesh.label>
+  <!-- EN: Butcher a creature to obtain its meat, leather, and other body products. -->
+  <ButcherCorpseFlesh.description>TODO</ButcherCorpseFlesh.description>
+  <!-- EN: Butchering. -->
+  <ButcherCorpseFlesh.jobString>TODO</ButcherCorpseFlesh.jobString>
+  
+  <!-- EN: disassemble mechanoid -->
+  <ButcherCorpseMechanoid.label>TODO</ButcherCorpseMechanoid.label>
+  <!-- EN: Disassemble a dead mechanoid into its component parts. -->
+  <ButcherCorpseMechanoid.description>TODO</ButcherCorpseMechanoid.description>
+  <!-- EN: Disassembling mechanoid. -->
+  <ButcherCorpseMechanoid.jobString>TODO</ButcherCorpseMechanoid.jobString>
+  
+</LanguageData>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: hare -->
+  <Hare.label>TODO</Hare.label>
+  <!-- EN: This small, solitary herbivore can swiftly hop away from danger. -->
+  <Hare.description>TODO</Hare.description>
+  <!-- EN: head -->
+  <Hare.tools.head.label>TODO</Hare.tools.head.label>
+  
+  <!-- EN: snowhare -->
+  <Snowhare.label>TODO</Snowhare.label>
+  <!-- EN: This hardy animal survives the brutal winters of its homelands by burrowing through snow to find edible plants. -->
+  <Snowhare.description>TODO</Snowhare.description>
+  <!-- EN: head -->
+  <Snowhare.tools.head.label>TODO</Snowhare.tools.head.label>
+  
+</LanguageData>

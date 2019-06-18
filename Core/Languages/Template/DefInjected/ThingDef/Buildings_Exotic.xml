@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ship part (poison) -->
+  <CrashedPoisonShipPart.label>TODO</CrashedPoisonShipPart.label>
+  <!-- EN: A mysterious crashed piece of a spaceship. It may contain any manner of deadly defenders and exotic materials. This one seems to be killing plant life around it. -->
+  <CrashedPoisonShipPart.description>TODO</CrashedPoisonShipPart.description>
+  
+  <!-- EN: ship part (psychic) -->
+  <CrashedPsychicEmanatorShipPart.label>TODO</CrashedPsychicEmanatorShipPart.label>
+  <!-- EN: A mysterious crashed piece of a spaceship. It may contain any manner of deadly defenders and exotic materials. This one seems to be emanating psychic waves. -->
+  <CrashedPsychicEmanatorShipPart.description>TODO</CrashedPsychicEmanatorShipPart.description>
+  
+  <!-- EN: ship chunk -->
+  <ShipChunk.label>TODO</ShipChunk.label>
+  <!-- EN: A chunk of a spacecraft. Can be deconstructed to yield useful resources. -->
+  <ShipChunk.description>TODO</ShipChunk.description>
+  
+</LanguageData>

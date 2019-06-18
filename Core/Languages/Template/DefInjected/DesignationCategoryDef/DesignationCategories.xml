@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: floors -->
+  <Floors.label>TODO</Floors.label>
+  
+  <!-- EN: furniture -->
+  <Furniture.label>TODO</Furniture.label>
+  
+  <!-- EN: recreation -->
+  <Joy.label>TODO</Joy.label>
+  
+  <!-- EN: misc -->
+  <Misc.label>TODO</Misc.label>
+  
+  <!-- EN: orders -->
+  <Orders.label>TODO</Orders.label>
+  
+  <!-- EN: power -->
+  <Power.label>TODO</Power.label>
+  
+  <!-- EN: production -->
+  <Production.label>TODO</Production.label>
+  
+  <!-- EN: security -->
+  <Security.label>TODO</Security.label>
+  
+  <!-- EN: ship -->
+  <Ship.label>TODO</Ship.label>
+  
+  <!-- EN: structure -->
+  <Structure.label>TODO</Structure.label>
+  
+  <!-- EN: temperature -->
+  <Temperature.label>TODO</Temperature.label>
+  
+  <!-- EN: zone -->
+  <Zone.label>TODO</Zone.label>
+  
+</LanguageData>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: kibble -->
+  <Kibble.label>TODO</Kibble.label>
+  <!-- EN: Animal feed made from mixed meat and plant sources. Humans can eat it, but they really, really don't like it. -->
+  <Kibble.description>TODO</Kibble.description>
+  
+  <!-- EN: fine meal -->
+  <MealFine.label>TODO</MealFine.label>
+  <!-- EN: A complex dish assembled with care from a variety of ingredients. -->
+  <MealFine.description>TODO</MealFine.description>
+  
+  <!-- EN: lavish meal -->
+  <MealLavish.label>TODO</MealLavish.label>
+  <!-- EN: A masterpiece of the culinary arts, this meal nourishes the body, mind, and soul. -->
+  <MealLavish.description>TODO</MealLavish.description>
+  
+  <!-- EN: nutrient paste meal -->
+  <MealNutrientPaste.label>TODO</MealNutrientPaste.label>
+  <!-- EN: A synthetic mixture of protein, carbohydrates, and vitamins, amino acids and minerals. Everything the body needs, and absolutely disgusting. -->
+  <MealNutrientPaste.description>TODO</MealNutrientPaste.description>
+  
+  <!-- EN: simple meal -->
+  <MealSimple.label>TODO</MealSimple.label>
+  <!-- EN: A simple meal quickly cooked from one main ingredient. -->
+  <MealSimple.description>TODO</MealSimple.description>
+  
+  <!-- EN: packaged survival meal -->
+  <MealSurvivalPack.label>TODO</MealSurvivalPack.label>
+  <!-- EN: A high-quality packaged meal, manufactured for use in survival situations. While it never rots, it can still deteriorate if left outside. Great for traveling. -->
+  <MealSurvivalPack.description>TODO</MealSurvivalPack.description>
+  
+  <!-- EN: pemmican -->
+  <Pemmican.label>TODO</Pemmican.label>
+  <!-- EN: A preserved mashed mixture of fat and plant food. Tastes bland, but not offensive. It lasts a very long time without refrigeration. Great for traveling. -->
+  <Pemmican.description>TODO</Pemmican.description>
+  
+</LanguageData>

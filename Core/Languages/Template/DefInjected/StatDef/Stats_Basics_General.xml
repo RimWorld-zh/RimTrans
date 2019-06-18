@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: beauty -->
+  <Beauty.label>TODO</Beauty.label>
+  <!-- EN: How enjoyable an object is to look at. Beautiful objects fulfill characters' need for beauty. -->
+  <Beauty.description>TODO</Beauty.description>
+  
+  <!-- EN: cleanliness -->
+  <Cleanliness.label>TODO</Cleanliness.label>
+  <!-- EN: How much an object contributes to an area's cleanliness score. -->
+  <Cleanliness.description>TODO</Cleanliness.description>
+  
+  <!-- EN: comfort -->
+  <Comfort.label>TODO</Comfort.label>
+  <!-- EN: How comfortable an object is to sit or lay on. Using comfortable objects fulfills a character's need for comfort. -->
+  <Comfort.description>TODO</Comfort.description>
+  
+  <!-- EN: deterioration rate -->
+  <DeteriorationRate.label>TODO</DeteriorationRate.label>
+  <!-- EN: The rate at which this item deteriorates when left outside, in average hit points of damage per day. Deterioration rate is also affected by things like weather, roofs, toxic fallout, or being left in shallow water. -->
+  <DeteriorationRate.description>TODO</DeteriorationRate.description>
+  <!-- EN: {0} / day -->
+  <DeteriorationRate.formatString>TODO</DeteriorationRate.formatString>
+  
+  <!-- EN: flammability -->
+  <Flammability.label>TODO</Flammability.label>
+  <!-- EN: How easily an object catches fire and how quickly a fire will grow as it burns. -->
+  <Flammability.description>TODO</Flammability.description>
+  
+  <!-- EN: food poison chance -->
+  <FoodPoisonChanceFixedHuman.label>TODO</FoodPoisonChanceFixedHuman.label>
+  <!-- EN: The chance this food will cause food poisoning. -->
+  <FoodPoisonChanceFixedHuman.description>TODO</FoodPoisonChanceFixedHuman.description>
+  
+  <!-- EN: market value -->
+  <MarketValue.label>TODO</MarketValue.label>
+  <!-- EN: The market value of an object. The actual trade price will be adjusted by negotiation skill, relationship status, and other contextual factors. -->
+  <MarketValue.description>TODO</MarketValue.description>
+  <!-- EN: ${0} -->
+  <MarketValue.formatString>TODO</MarketValue.formatString>
+  
+  <!-- EN: mass -->
+  <Mass.label>TODO</Mass.label>
+  <!-- EN: The physical mass of an object. -->
+  <Mass.description>TODO</Mass.description>
+  <!-- EN: {0} kg -->
+  <Mass.formatString>TODO</Mass.formatString>
+  
+  <!-- EN: max hit points -->
+  <MaxHitPoints.label>TODO</MaxHitPoints.label>
+  <!-- EN: The maximum hit points of an object. This represents how much damage it can take before being destroyed. -->
+  <MaxHitPoints.description>TODO</MaxHitPoints.description>
+  
+  <!-- EN: nutrition -->
+  <Nutrition.label>TODO</Nutrition.label>
+  <!-- EN: How nutritious this food is. -->
+  <Nutrition.description>TODO</Nutrition.description>
+  
+  <!-- EN: sell price multiplier -->
+  <SellPriceFactor.label>TODO</SellPriceFactor.label>
+  <!-- EN: A multiplier on the price at which you can sell items. -->
+  <SellPriceFactor.description>TODO</SellPriceFactor.description>
+  
+  <!-- EN: shooting accuracy -->
+  <ShootingAccuracyTurret.label>TODO</ShootingAccuracyTurret.label>
+  <!-- EN: Base chance to not miss per cell of shot distance. Chance to hit is also affected by many other factors. A hit chance explanation for any shot can be seen by selecting a shooter and mousing over a target. -->
+  <ShootingAccuracyTurret.description>TODO</ShootingAccuracyTurret.description>
+  
+  <!-- EN: work to make -->
+  <WorkToMake.label>TODO</WorkToMake.label>
+  <!-- EN: The base amount of work it takes to make an item, once all materials are gathered. -->
+  <WorkToMake.description>TODO</WorkToMake.description>
+  
+</LanguageData>

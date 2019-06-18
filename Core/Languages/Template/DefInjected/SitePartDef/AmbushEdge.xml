@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ambush -->
+  <AmbushEdge.label>TODO</AmbushEdge.label>
+  <!-- EN: An ambush. -->
+  <AmbushEdge.description>TODO</AmbushEdge.description>
+  <!-- EN: an enemy force is waiting to ambush anyone who comes near -->
+  <AmbushEdge.descriptionDialogue>TODO</AmbushEdge.descriptionDialogue>
+  
+</LanguageData>

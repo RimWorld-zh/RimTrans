@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: grand sculpture -->
+  <SculptureGrand.label>TODO</SculptureGrand.label>
+  <!-- EN: A huge sculpture sized to dominate a room. -->
+  <SculptureGrand.description>TODO</SculptureGrand.description>
+  
+  <!-- EN: large sculpture -->
+  <SculptureLarge.label>TODO</SculptureLarge.label>
+  <!-- EN: A person-sized piece of material sculpted into an artistic form. -->
+  <SculptureLarge.description>TODO</SculptureLarge.description>
+  
+  <!-- EN: small sculpture -->
+  <SculptureSmall.label>TODO</SculptureSmall.label>
+  <!-- EN: A torso-sized piece of material sculpted into an artistic form. -->
+  <SculptureSmall.description>TODO</SculptureSmall.description>
+  
+  <!-- EN: snowman -->
+  <Snowman.label>TODO</Snowman.label>
+  <!-- EN: A set of large snowballs piled and shaped to resemble a person. People make these for the fun of it. -->
+  <Snowman.description>TODO</Snowman.description>
+  
+</LanguageData>

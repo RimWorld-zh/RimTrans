@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: colored lights -->
+  <ColoredLights.label>TODO</ColoredLights.label>
+  <!-- EN: Construct colored lights for decorative purposes. Cosmetic only. -->
+  <ColoredLights.description>TODO</ColoredLights.description>
+  
+  <!-- EN: flatscreen television -->
+  <FlatscreenTelevision.label>TODO</FlatscreenTelevision.label>
+  <!-- EN: Produce high-resolution flatscreen televisions for greater enjoyment. -->
+  <FlatscreenTelevision.description>TODO</FlatscreenTelevision.description>
+  
+  <!-- EN: autocannon turret -->
+  <HeavyTurrets.label>TODO</HeavyTurrets.label>
+  <!-- EN: Produce the heavy, long-ranged autocannon turret. -->
+  <HeavyTurrets.description>TODO</HeavyTurrets.description>
+  
+  <!-- EN: hospital bed -->
+  <HospitalBed.label>TODO</HospitalBed.label>
+  <!-- EN: Construct hospital beds which improve medical outcomes. -->
+  <HospitalBed.description>TODO</HospitalBed.description>
+  
+  <!-- EN: long-range mineral scanner -->
+  <LongRangeMineralScanner.label>TODO</LongRangeMineralScanner.label>
+  <!-- EN: Construct long-range mineral scanners your researchers can use to detect precious minerals across the planet. Can be tuned to find a specific mineral. Requires advanced components to construct. -->
+  <LongRangeMineralScanner.description>TODO</LongRangeMineralScanner.description>
+  
+  <!-- EN: medicine production -->
+  <MedicineProduction.label>TODO</MedicineProduction.label>
+  <!-- EN: Produce standard industrial-tech medicine by combining herbal medicine, neutroamine, and cloth. -->
+  <MedicineProduction.description>TODO</MedicineProduction.description>
+  
+  <!-- EN: microelectronics -->
+  <MicroelectronicsBasics.label>TODO</MicroelectronicsBasics.label>
+  <!-- EN: Work with complex microelectronics. This unlocks the hi-tech research bench and comms console. -->
+  <MicroelectronicsBasics.description>TODO</MicroelectronicsBasics.description>
+  
+  <!-- EN: moisture pump -->
+  <MoisturePump.label>TODO</MoisturePump.label>
+  <!-- EN: Construct moisture pumps, which very slowly normalize the moisture in the ground around them. They can turn wet ground dry and convert soft sand into normal sand. -->
+  <MoisturePump.description>TODO</MoisturePump.description>
+  
+  <!-- EN: multibarrel weapons -->
+  <MultibarrelWeapons.label>TODO</MultibarrelWeapons.label>
+  <!-- EN: Assemble miniguns. -->
+  <MultibarrelWeapons.description>TODO</MultibarrelWeapons.description>
+  
+  <!-- EN: precision rifling -->
+  <PrecisionRifling.label>TODO</PrecisionRifling.label>
+  <!-- EN: Craft precisely-machined guns like assault rifles and sniper rifles. -->
+  <PrecisionRifling.description>TODO</PrecisionRifling.description>
+  
+  <!-- EN: shield belt -->
+  <ShieldBelt.label>TODO</ShieldBelt.label>
+  <!-- EN: Build shield belts, which use momentun-repulsion technology to block ranged attacks coming in or going out. -->
+  <ShieldBelt.description>TODO</ShieldBelt.description>
+  
+  <!-- EN: transport pod -->
+  <TransportPod.label>TODO</TransportPod.label>
+  <!-- EN: Construct launchable transport pods that you can use to send people and supplies long distances across the planet's surface. Can be used for raiding, travel, sending gifts, and more. -->
+  <TransportPod.description>TODO</TransportPod.description>
+  
+</LanguageData>
