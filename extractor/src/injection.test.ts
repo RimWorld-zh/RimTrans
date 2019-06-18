@@ -3,16 +3,19 @@ import * as io from '@rimtrans/io';
 import * as xml from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
-import { parse } from './injection';
+import { InjectionMap, parse, load } from './injection';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
 
 const pathDefs = resolvePath('Core', 'Defs');
+const pathDefInjected = resolvePath('Core', 'Languages', 'Template', 'DefInjected');
 const pathTypePackage = resolvePath('Reflection', 'type-info.json');
 
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
   let classInfoMap: Record<string, typePackage.ClassInfo>;
+  let injectionMapsLoaded: InjectionMap[];
+  let injectionMapsParsed: InjectionMap[];
 
   beforeAll(async () => {
     [defMaps, classInfoMap] = await Promise.all([
@@ -96,13 +99,24 @@ describe('injection', () => {
       ],
       handles: [],
     };
+
+    [injectionMapsLoaded, injectionMapsParsed] = await Promise.all([
+      load([pathDefInjected]),
+      parse(defMaps, classInfoMap),
+    ]);
+  });
+
+  test('load', async () => {
+    await io.save(
+      resolvePath('.tmp', 'injection-maps-loaded.json'),
+      JSON.stringify(injectionMapsLoaded, undefined, '  '),
+    );
   });
 
   test('parse', async () => {
-    const injectionMap = await parse(defMaps, classInfoMap);
     await io.save(
-      resolvePath('.tmp', 'TestLanguage.json'),
-      JSON.stringify(injectionMap, undefined, '  '),
+      resolvePath('.tmp', 'injection-maps-parsed.json'),
+      JSON.stringify(injectionMapsParsed, undefined, '  '),
     );
   });
 });

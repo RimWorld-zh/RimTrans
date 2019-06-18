@@ -17,22 +17,22 @@ export interface DefDocumentMap {
  */
 export async function load(paths: string[]): Promise<DefDocumentMap[]> {
   return Promise.all(
-    paths.map(async path => {
-      const map: Record<string, XMLDocument> = {};
-      if (!(await io.directoryExists(path))) {
+    paths.map(async dir => {
+      const map: DefDocumentMap = {};
+      if (!(await io.directoryExists(dir))) {
         return map;
       }
 
       await io
         .search(['**/*.xml'], {
-          cwd: path,
+          cwd: dir,
           case: false,
           onlyFiles: true,
         })
         .then(files =>
           Promise.all(
             files.map(async file => {
-              map[file] = await xml.load(pth.join(path, file));
+              map[file] = await xml.load(pth.join(dir, file));
             }),
           ),
         );

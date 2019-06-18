@@ -31,7 +31,7 @@ export interface Injection {
   path: PathNode[];
   origin: string | string[];
   translation: string | string[];
-  duplicated: boolean;
+  duplicated?: boolean;
 }
 
 export interface InjectionMap {
@@ -39,6 +39,92 @@ export interface InjectionMap {
     [fileName: string]: (Injection | string)[];
   };
 }
+
+// ----------------------------------------------------------------
+// loading
+
+/**
+ * Load `DefInjected` xml documents and get `InjectionMap`.
+ * @param paths the array of paths to `DefInjected` directories.
+ */
+export async function load(paths: string[]): Promise<any> {
+  return Promise.all(
+    paths.map(
+      async (dir): Promise<InjectionMap> => {
+        const map: InjectionMap = {};
+        if (!(await io.directoryExists(dir))) {
+          return map;
+        }
+
+        await io
+          .search(['*'], {
+            cwd: dir,
+            onlyDirectories: true,
+          })
+          .then(defTypes =>
+            Promise.all(
+              defTypes.map(async defType => {
+                map[defType] = {};
+                const subMap = map[defType];
+
+                const files = await io.search(['*.xml'], {
+                  cwd: io.join(dir, defType),
+                  case: false,
+                  onlyFiles: true,
+                });
+                await Promise.all(
+                  files.map(async xmlFile => {
+                    const filePath = io.join(dir, defType, xmlFile);
+                    const fileName = io.fileName(filePath, true);
+                    subMap[fileName] = [];
+                    const injections = subMap[fileName];
+                    const doc = await xml.load(filePath);
+
+                    let origin: string | string[] = '';
+                    let translation: string | string[] = TEXT_TODO;
+                    Array.from(doc.documentElement.childNodes).forEach(node => {
+                      switch (node.nodeType) {
+                        case node.COMMENT_NODE:
+                          origin = (node.nodeValue || '').trim();
+                          if (origin.startsWith('EN: ')) {
+                            origin = origin.replace('EN: ', '');
+                          } else {
+                            injections.push(origin);
+                            origin = '';
+                          }
+                          break;
+
+                        case node.ELEMENT_NODE:
+                          translation = (node as Element)
+                            .getElements()
+                            .map(li => li.elementValue.trim());
+                          if (translation.length === 0) {
+                            translation = TEXT_TODO;
+                          }
+                          injections.push({
+                            path: (node as Element).tagName.split('.'),
+                            origin,
+                            translation,
+                          });
+                          break;
+
+                        default:
+                      }
+                    });
+                  }),
+                );
+              }),
+            ),
+          );
+
+        return map;
+      },
+    ),
+  );
+}
+
+// ----------------------------------------------------------------
+// Parsing
 
 /**
  * Parse the Def maps and get Def injection maps.
@@ -195,7 +281,6 @@ function generateParseField(
         path: currentPath,
         origin,
         translation,
-        duplicated: false,
       });
       return;
     }
@@ -214,7 +299,6 @@ function generateParseField(
         path: currentPath,
         origin,
         translation: TEXT_TODO,
-        duplicated: false,
       });
       return;
     }
