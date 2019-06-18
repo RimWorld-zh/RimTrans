@@ -41,7 +41,7 @@ export interface InjectionMap {
 }
 
 // ----------------------------------------------------------------
-// loading
+// Loading
 
 /**
  * Load `DefInjected` xml documents and get `InjectionMap`.
@@ -86,8 +86,8 @@ export async function load(paths: string[]): Promise<any> {
                       switch (node.nodeType) {
                         case node.COMMENT_NODE:
                           origin = (node.nodeValue || '').trim();
-                          if (origin.startsWith('EN: ')) {
-                            origin = origin.replace('EN: ', '');
+                          if (origin.startsWith('EN:')) {
+                            origin = origin.replace('EN:', '').trim();
                           } else {
                             injections.push(origin);
                             origin = '';
@@ -102,7 +102,9 @@ export async function load(paths: string[]): Promise<any> {
                             translation = TEXT_TODO;
                           }
                           injections.push({
-                            path: (node as Element).tagName.split('.'),
+                            path: (node as Element).tagName
+                              .split('.')
+                              .map(n => (/^\d+$/.test(n) ? Number.parseInt(n, 10) : n)),
                             origin,
                             translation,
                           });
@@ -122,6 +124,9 @@ export async function load(paths: string[]): Promise<any> {
     ),
   );
 }
+
+// ----------------------------------------------------------------
+// Saving
 
 // ----------------------------------------------------------------
 // Parsing
@@ -357,13 +362,24 @@ export function generateGetPathNodes(
       let handle: string | undefined;
       let priority = -1;
       currentClassInfo.handles.forEach(handleInfo => {
+        const fieldInfo = currentClassInfo.fields.find(
+          fi => fi.name === handleInfo.field,
+        );
+
         let fieldName = handleInfo.field.replace(/^untranslated/, '');
         fieldName = `${fieldName[0].toLowerCase()}${fieldName.substring(1)}`;
+
         const field = li.getElement(fieldName);
-        const currentHandle = normalizeHandle(
-          handleInfo.value || (field && field.elementValue) || '',
-        );
+
+        let currentHandle = (field && field.elementValue) || handleInfo.value || '';
+        if (fieldInfo && fieldInfo.type.category === 'TYPE') {
+          const temp = currentHandle.split('.');
+          currentHandle = temp[temp.length - 1];
+        }
+        currentHandle = normalizeHandle(currentHandle);
+
         const { priority: currentPriority } = handleInfo;
+
         if (currentHandle && currentPriority > priority) {
           handle = currentHandle;
           priority = currentPriority;
@@ -390,4 +406,49 @@ export function generateGetPathNodes(
 
     return pathNodes;
   };
+}
+
+// ----------------------------------------------------------------
+// Merging
+
+export function pathMatch(pathA: PathNode[], pathB: PathNode[]): boolean {
+  if (pathA.length !== pathB.length) {
+    return false;
+  }
+
+  let result = true;
+
+  const { length } = pathA;
+  for (let i = 0; i < length; i++) {
+    const nodeA = pathA[i];
+    const nodeB = pathB[i];
+
+    if (Array.isArray(nodeA) && Array.isArray(nodeB)) {
+      if (nodeA[0] !== nodeB[0] || nodeA[1] !== nodeB[1]) {
+        result = false;
+        break;
+      }
+    } else if (Array.isArray(nodeA)) {
+      if (
+        (typeof nodeB === 'number' && nodeA[0] !== nodeB) ||
+        (typeof nodeB === 'string' && nodeA[1] !== nodeB)
+      ) {
+        result = false;
+        break;
+      }
+    } else if (Array.isArray(nodeB)) {
+      if (
+        (typeof nodeA === 'number' && nodeB[0] !== nodeA) ||
+        (typeof nodeA === 'string' && nodeB[1] !== nodeA)
+      ) {
+        result = false;
+        break;
+      }
+    } else if (nodeA !== nodeB) {
+      result = false;
+      break;
+    }
+  }
+
+  return result;
 }

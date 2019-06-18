@@ -144,7 +144,7 @@ describe('xml', () => {
 
   test('prototype element & elements', () => {
     const { documentElement: root } = xml.parse(
-      '<Defs><MockDef0></MockDef0><MockDef1></MockDef1></Defs>',
+      '<Defs><MockDef0><a></a><b></b></MockDef0><MockDef1></MockDef1></Defs>',
     );
     {
       const first = root.getElement();
@@ -163,10 +163,21 @@ describe('xml', () => {
     }
     {
       const elements = root.getElements();
+      const nodes = Array.from(root.childNodes);
+
       expect(elements.length).toBe(2);
+      expect(nodes.length).toBe(2);
+
+      expect(elements[0] === nodes[0]).toBe(true);
+      expect(elements[0].getElements()[0].tagName).toBe('a');
+      expect(
+        elements[0].getElements()[0] === (nodes[0] as Element).getElements()[0],
+      ).toBe(true);
+
       expect(elements[0].tagName).toBe('MockDef0');
       expect(elements[0]).toBe(root.children[0]);
       expect(elements[1].tagName).toBe('MockDef1');
+
       expect(elements[1]).toBe(root.children[1]);
     }
     {
