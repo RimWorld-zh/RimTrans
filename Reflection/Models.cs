@@ -61,6 +61,7 @@ namespace RimTrans.Reflection {
     public string baseClass;
     public string name;
     public List<FieldInfo> fields;
+    public List<HandleInfo> handles;
 
     public ClassInfo(Type type) {
       this.isAbstract = type.IsAbstract;
@@ -73,7 +74,37 @@ namespace RimTrans.Reflection {
         .GetFields(
           BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly
         ).Select(fi => new FieldInfo(fi)).ToList();
+
+      this.handles = new List<HandleInfo>();
+      foreach (var fieldInfo in type.GetFields(BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)) {
+        var translationHandleAttribute = fieldInfo.GetCustomAttribute<Verse.TranslationHandleAttribute>();
+        if (translationHandleAttribute != null) {
+          var hanlde = new HandleInfo {
+            field = fieldInfo.Name,
+            priority = translationHandleAttribute.Priority,
+            value = "",
+          };
+          this.handles.Add(hanlde);
+          if (fieldInfo.FieldType == typeof(Type)) {
+            try {
+              var instance = Activator.CreateInstance(type);
+              var value = fieldInfo.GetValue(instance) as Type;
+              if (value != null) {
+                hanlde.value = value.Name;
+              }
+            } catch (Exception) {
+              //
+            }
+          }
+        }
+      }
     }
+  }
+
+  class HandleInfo {
+    public string field;
+    public int priority;
+    public string value;
   }
 
   class EnumInfo {

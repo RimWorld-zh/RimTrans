@@ -7,6 +7,13 @@ export interface ClassInfo {
   readonly baseClass: string;
   readonly name: string;
   readonly fields: readonly FieldInfo[];
+  readonly handles: readonly HandleInfo[];
+}
+
+export interface HandleInfo {
+  readonly field: string;
+  readonly priority: number;
+  readonly value: string;
 }
 
 export interface EnumInfo {

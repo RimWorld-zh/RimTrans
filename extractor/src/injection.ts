@@ -3,6 +3,7 @@ import * as xml from './xml';
 import { DefDocumentMap } from './definition';
 import {
   ClassInfo,
+  HandleInfo,
   EnumInfo,
   FieldInfo,
   TypeInfo,
@@ -22,12 +23,11 @@ const ATTRIBUTE_NAME_CLASS = 'Class';
 const TEXT_TODO = 'TODO';
 
 /**
- * The type of path nodes, if is tuple `[number, string]`, means `[index, label]`
+ * The type of path nodes, if is tuple `[number, string]`, means `[index, handle]`
  */
-export type PathNode = string | number;
+export type PathNode = string | number | [number, string];
 
 export interface Injection {
-  rawPath: string;
   path: PathNode[];
   origin: string | string[];
   translation: string | string[];
@@ -49,7 +49,8 @@ export function parse(
   defMaps: DefDocumentMap[],
   classInfoMap: Record<string, ClassInfo>,
 ): InjectionMap[] {
-  const parseField = generateParseField(classInfoMap);
+  const getPathNodes = generateGetPathNodes(classInfoMap);
+  const parseField = generateParseField(classInfoMap, getPathNodes);
   const parseDef = generateParseDef(classInfoMap, parseField);
 
   const result: InjectionMap[] = defMaps.map(defMap => {
@@ -84,12 +85,10 @@ export type ParseField = (
   typeInfo: TypeInfo,
   fieldInfo?: FieldInfo,
   element?: Element,
-  index?: number,
+  pathNode?: PathNode,
 ) => void;
 
-export function getRawPath(path: PathNode[]): string {
-  return path.join('.');
-}
+export type GetParseNodes = (list: Element[], typeInfoOf: TypeInfo) => PathNode[];
 
 export function getTextValue(element: Element): string {
   return (element.elementValue && element.elementValue.trim()).replace(/\n/g, '\\n');
@@ -126,18 +125,42 @@ export function generateParseDef(
   };
 }
 
+export function normalizeHandle(text: string): string {
+  /* eslint-disable no-useless-escape */
+  return text
+    .trim()
+    .replace(/[\ \n\t]+/g, '_')
+    .replace(/[\r\.\-]+/g, '')
+    .replace(/{.*?}/g, '')
+    .replace(/[^0-9A-Za-z\-\_]+/g, '')
+    .replace(/_+/g, '_')
+    .replace(/^_+|_+$/g, '');
+  /* eslint-enable no-useless-escape */
+}
+
 /**
  * High-order function: generate a function for parsing a field element and getting `Injection`
  * @param classInfoMap the `ClassInfo` map
  */
-function generateParseField(classInfoMap: Record<string, ClassInfo>): ParseField {
+function generateParseField(
+  classInfoMap: Record<string, ClassInfo>,
+  getPathNodes: GetParseNodes,
+): ParseField {
+  /**
+   * @param path
+   * @param injections
+   * @param typeInfo
+   * @param fieldInfo if is undefined, means this is a list item
+   * @param element
+   * @param pathNode
+   */
   const parseField: ParseField = (
     path,
     injections,
     typeInfo,
     fieldInfo,
     element,
-    index = -1,
+    pathNode = -1,
   ) => {
     const { of: typeInfoOf } = typeInfo;
 
@@ -169,7 +192,6 @@ function generateParseField(classInfoMap: Record<string, ClassInfo>): ParseField
         translation.push(TEXT_TODO);
       });
       injections.push({
-        rawPath: getRawPath(currentPath),
         path: currentPath,
         origin,
         translation,
@@ -189,7 +211,6 @@ function generateParseField(classInfoMap: Record<string, ClassInfo>): ParseField
       const currentPath = [...path, fieldInfo.name];
       const origin = (element && getTextValue(element)) || '';
       injections.push({
-        rawPath: getRawPath(currentPath),
         path: currentPath,
         origin,
         translation: TEXT_TODO,
@@ -199,9 +220,11 @@ function generateParseField(classInfoMap: Record<string, ClassInfo>): ParseField
     }
 
     if (typeInfo.category === 'LIST' && typeInfoOf && element) {
-      path.push((fieldInfo && fieldInfo.name) || index);
-      element.getElements().forEach((li, i) => {
-        parseField(path, injections, typeInfoOf, undefined, li, i);
+      path.push((fieldInfo && fieldInfo.name) || pathNode);
+      const list = element.getElements();
+      const pathNodes = getPathNodes(list, typeInfoOf);
+      list.forEach((li, index) => {
+        parseField(path, injections, typeInfoOf, undefined, li, pathNodes[index]);
       });
       path.pop();
       return;
@@ -212,7 +235,7 @@ function generateParseField(classInfoMap: Record<string, ClassInfo>): ParseField
       const classInfo: ClassInfo | undefined =
         (attributeClass && classInfoMap[attributeClass]) || classInfoMap[typeInfo.name];
       if (classInfo) {
-        path.push((fieldInfo && fieldInfo.name) || index);
+        path.push((fieldInfo && fieldInfo.name) || pathNode);
         classInfo.fields.forEach(subFieldInfo => {
           parseField(
             path,
@@ -229,4 +252,58 @@ function generateParseField(classInfoMap: Record<string, ClassInfo>): ParseField
   };
 
   return parseField;
+}
+
+export function generateGetPathNodes(
+  classInfoMap: Record<string, ClassInfo>,
+): GetParseNodes {
+  return (list, typeInfoOf) => {
+    const classInfo: ClassInfo | undefined =
+      typeInfoOf.category === 'CLASS' ? classInfoMap[typeInfoOf.name] : undefined;
+    if (!classInfo) {
+      return list.map((li, index) => index);
+    }
+
+    const countMap: Record<string, number[]> = {};
+    const pathNodes = list.map<PathNode>((li, index) => {
+      const attributeClass = li.getAttribute(ATTRIBUTE_NAME_CLASS);
+      const currentClassInfo =
+        (attributeClass && classInfoMap[attributeClass]) || classInfo;
+
+      let handle: string | undefined;
+      let priority = -1;
+      currentClassInfo.handles.forEach(handleInfo => {
+        let fieldName = handleInfo.field.replace(/^untranslated/, '');
+        fieldName = `${fieldName[0].toLowerCase()}${fieldName.substring(1)}`;
+        const field = li.getElement(fieldName);
+        const currentHandle = normalizeHandle(
+          handleInfo.value || (field && field.elementValue) || '',
+        );
+        const { priority: currentPriority } = handleInfo;
+        if (currentHandle && currentPriority > priority) {
+          handle = currentHandle;
+          priority = currentPriority;
+        }
+      });
+
+      if (handle) {
+        (countMap[handle] || (countMap[handle] = [])).push(index);
+        return [index, handle];
+      }
+
+      return index;
+    });
+
+    pathNodes.forEach((node, index) => {
+      if (Array.isArray(node)) {
+        const handle = node[1];
+        if (countMap[handle].length > 1) {
+          const handleIndex = countMap[handle].indexOf(index);
+          node[1] = `${handle}-${handleIndex}`;
+        }
+      }
+    });
+
+    return pathNodes;
+  };
 }

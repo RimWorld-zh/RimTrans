@@ -16,12 +16,15 @@ describe('type-package', () => {
     expect(map.Def.name).toBe('Def');
 
     const classes = Object.values(map);
+
     classes
       .filter(ci => ci.baseClass === 'Def')
       .forEach(ci => {
         expect(ci.fields.some(f => f.name === 'label'));
         expect(ci.fields.some(f => f.name === 'description'));
       });
+
+    classes.forEach(ci => expect(ci.handles.length).toBeGreaterThanOrEqual(0));
 
     // detect ThingDef inherited all fields of BuildableDef
     map.BuildableDef.fields.forEach(f => {

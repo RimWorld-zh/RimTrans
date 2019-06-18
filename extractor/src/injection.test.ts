@@ -68,6 +68,7 @@ describe('injection', () => {
           },
         },
       ],
+      handles: [],
     };
     classInfoMap.SomeObject = {
       isAbstract: false,
@@ -93,6 +94,7 @@ describe('injection', () => {
           },
         },
       ],
+      handles: [],
     };
   });
 
