@@ -64,7 +64,7 @@ describe('io', () => {
     await io.deleteFileOrDirectory(dir);
 
     const typePackage = await io.load(
-      pth.join(__dirname, '..', '..', 'Reflection', 'type-info.json'),
+      pth.join(__dirname, '..', '..', 'Reflection', 'type-package.json'),
     );
     expect(typePackage.classes.length).toBeGreaterThan(0);
   });

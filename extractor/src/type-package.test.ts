@@ -4,7 +4,7 @@ import { load } from './type-package';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
 const paths = [
-  resolvePath('Reflection', 'type-info.json'),
+  resolvePath('Reflection', 'type-package.json'),
   resolvePath('Mock', 'Assemblies'),
 ];
 

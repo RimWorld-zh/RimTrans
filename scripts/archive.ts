@@ -19,7 +19,7 @@ const LIB = 'lib';
 const EXECUTABLE = 'executable';
 const CORE = 'Core';
 const REFLECTION = 'Reflection';
-const TYPE_INFO = 'type-info.json';
+const TYPE_INFO = 'type-package.json';
 
 async function archive(): Promise<void> {
   for (const platform of platforms) {
@@ -36,7 +36,7 @@ async function archive(): Promise<void> {
       resolvePath(REFLECTION, LIB, platform),
       resolvePath(LIB, folder, REFLECTION),
     );
-    // Copy type-info.json
+    // Copy type-package.json
     await copy(resolvePath(REFLECTION, TYPE_INFO), resolvePath(LIB, folder, TYPE_INFO));
 
     // Compress

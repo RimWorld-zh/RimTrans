@@ -10,7 +10,7 @@ const resolvePath = genPathResolve(__dirname, '..', '..');
 const pathDefs = resolvePath('Core', 'Defs');
 const pathDefInjected = resolvePath('Core', 'Languages', 'Template', 'DefInjected');
 const pathDefInjectedMock = resolvePath('Core', 'Languages', 'Mock', 'DefInjected');
-const pathTypePackage = resolvePath('Reflection', 'type-info.json');
+const pathTypePackage = resolvePath('Reflection', 'type-package.json');
 
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
