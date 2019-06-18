@@ -3,6 +3,10 @@ import pth from 'path';
 import * as io from './io';
 
 describe('io', () => {
+  test('join', () => {
+    expect(io.join('a', 'b', 'c', 'd')).toBe(pth.join('a', 'b', 'c', 'd'));
+  });
+
   test('basic', () => {
     expect(io.directoryName('/a/b/c/d/e')).toBe('/a/b/c/d');
     expect(io.fileName('/a/b/c.d')).toBe('c');

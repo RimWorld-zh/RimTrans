@@ -4,6 +4,14 @@ import globby, { GlobbyOptions } from 'globby';
 import rimraf from 'rimraf';
 
 /**
+ * Combine paths to a path string text.
+ * @param paths the array of paths
+ */
+export function join(...paths: string[]): string {
+  return pth.join(...paths);
+}
+
+/**
  * Get the directory of the file.
  * @param path the path
  */
