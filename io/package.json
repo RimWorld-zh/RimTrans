@@ -10,7 +10,7 @@
     "build:types": "tsc",
     "build:babel": "babel ./src -x .ts -d ./lib",
     "build": "yarn build:types && yarn build:babel",
-    "test": "jest --verbose"
+    "test": "jest --maxWorkers=1 --verbose"
   },
   "dependencies": {
     "@types/globby": "^9.1.0",

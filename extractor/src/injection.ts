@@ -48,6 +48,100 @@ export interface InjectionMap {
   };
 }
 
+export interface SerializedInjectionMap {
+  [defType: string]: {
+    [fileName: string]: string;
+  };
+}
+
+// ----------------------------------------------------------------
+// Basic functions
+
+function tryGetElement(parent: Element, fieldInfo: FieldInfo): Element | undefined {
+  let element: Element | undefined;
+  element = parent.getElement(fieldInfo.name);
+  if (!element && fieldInfo.alias) {
+    element = parent.getElement(fieldInfo.alias);
+  }
+  return element;
+}
+
+export function normalizeHandle(text: string): string {
+  /* eslint-disable no-useless-escape */
+  return text
+    .trim()
+    .replace(/[\ \n\t]+/g, '_')
+    .replace(/[\r\.\-]+/g, '')
+    .replace(/{.*?}/g, '')
+    .replace(/[^0-9A-Za-z\-\_]+/g, '')
+    .replace(/_+/g, '_')
+    .replace(/^_+|_+$/g, '');
+  /* eslint-enable no-useless-escape */
+}
+
+/**
+ * Detect tow paths is matched or not.
+ * @param pathA the first path
+ * @param pathB the second path
+ */
+export function pathMatch(pathA: PathNode[], pathB: PathNode[]): boolean {
+  if (pathA.length !== pathB.length) {
+    return false;
+  }
+
+  let result = true;
+
+  const { length } = pathA;
+  for (let i = 0; i < length; i++) {
+    const nodeA = pathA[i];
+    const nodeB = pathB[i];
+
+    if (Array.isArray(nodeA) && Array.isArray(nodeB)) {
+      if (nodeA[0] !== nodeB[0] || nodeA[1] !== nodeB[1]) {
+        result = false;
+        break;
+      }
+    } else if (Array.isArray(nodeA)) {
+      if (
+        (typeof nodeB === 'number' && nodeA[0] !== nodeB) ||
+        (typeof nodeB === 'string' && nodeA[1] !== nodeB)
+      ) {
+        result = false;
+        break;
+      }
+    } else if (Array.isArray(nodeB)) {
+      if (
+        (typeof nodeA === 'number' && nodeB[0] !== nodeA) ||
+        (typeof nodeA === 'string' && nodeB[1] !== nodeA)
+      ) {
+        result = false;
+        break;
+      }
+    } else if (nodeA !== nodeB) {
+      result = false;
+      break;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Serialize a path to text for xml tag name.
+ * @param path the path
+ */
+export function serializePath(path: PathNode[]): string {
+  return path.map(node => (Array.isArray(node) ? node[1] : node)).join('.');
+}
+
+const REGEX_INTEGER = /^\d+$/;
+
+export function deSerializePath(tagName: string): PathNode[] {
+  return tagName
+    .split('.')
+    .map(node => (REGEX_INTEGER.test(node) ? Number.parseInt(node, 10) : node));
+}
+
 // ----------------------------------------------------------------
 // Loading
 
@@ -85,7 +179,7 @@ export async function load(paths: string[]): Promise<any> {
                     const filePath = io.join(dir, defType, xmlFile);
                     const fileName = io.fileName(filePath, true);
                     subMap[fileName] = [];
-                    const injections = subMap[fileName];
+                    const injectionList = subMap[fileName];
                     const doc = await xml.load(filePath);
 
                     let comment = '';
@@ -97,11 +191,10 @@ export async function load(paths: string[]): Promise<any> {
                           comment = (node.nodeValue || '').trim();
                           if (comment === TEXT_UNUSED) {
                             // do nothing
-                          }
-                          if (comment.startsWith(TEXT_EN)) {
+                          } else if (comment.startsWith(TEXT_EN)) {
                             origin = comment.replace(TEXT_EN, '').trim();
                           } else {
-                            injections.push(comment);
+                            injectionList.push(comment);
                           }
                           break;
 
@@ -110,12 +203,10 @@ export async function load(paths: string[]): Promise<any> {
                             .getElements()
                             .map(li => li.elementValue.trim());
                           if (translation.length === 0) {
-                            translation = TEXT_TODO;
+                            translation = (node as Element).elementValue;
                           }
-                          injections.push({
-                            path: (node as Element).tagName
-                              .split('.')
-                              .map(n => (/^\d+$/.test(n) ? Number.parseInt(n, 10) : n)),
+                          injectionList.push({
+                            path: deSerializePath((node as Element).tagName),
                             origin,
                             translation,
                           });
@@ -160,10 +251,10 @@ export function parse(
       defDoc.documentElement.getElements().forEach(def => {
         const defType = def.tagName;
         const injectionFileMap = injectionMap[defType] || (injectionMap[defType] = {});
-        const injections =
+        const injectionList =
           injectionFileMap[filename] || (injectionFileMap[filename] = []);
 
-        parseDef(injections as Injection[], def);
+        parseDef(injectionList as Injection[], def);
       });
     });
 
@@ -174,41 +265,30 @@ export function parse(
 }
 
 // ----------------------------------------------------------------
-// Parsing functions
+// Internal parsing functions
 
-export type ParseDef = (injections: Injection[], def: Element) => void;
+type ParseDef = (injectionList: Injection[], def: Element) => void;
 
-export type ParseField = (
+type ParseField = (
   path: PathNode[],
-  injections: Injection[],
+  injectionList: Injection[],
   typeInfo: TypeInfo,
   fieldInfo?: FieldInfo,
   element?: Element,
   pathNode?: PathNode,
 ) => void;
 
-export type GetParseNodes = (list: Element[], typeInfoOf: TypeInfo) => PathNode[];
-
-function tryGetElement(parent: Element, fieldInfo: FieldInfo): Element | undefined {
-  let element: Element | undefined;
-  if (fieldInfo.name) {
-    element = parent.getElement(fieldInfo.name);
-  }
-  if (!element && fieldInfo.alias) {
-    element = parent.getElement(fieldInfo.alias);
-  }
-  return element;
-}
+type GetParseNodes = (list: Element[], typeInfoOf: TypeInfo) => PathNode[];
 
 /**
  * High-order function: generate a function for parsing a Def element and getting `Injection`.
  * @param classInfoMap the `ClassInfo` map
  */
-export function generateParseDef(
+function generateParseDef(
   classInfoMap: Record<string, ClassInfo>,
   parseField: ParseField,
 ): ParseDef {
-  return (injections, def) => {
+  return (injectionList, def) => {
     const defNameElement = def.getElement(FIELD_NAME_DEF_NAME);
     const defName =
       defNameElement && defNameElement.elementValue && defNameElement.elementValue.trim();
@@ -225,26 +305,13 @@ export function generateParseDef(
       }
       parseField(
         [defName],
-        injections,
+        injectionList,
         fieldInfo.type,
         fieldInfo,
         tryGetElement(def, fieldInfo),
       );
     });
   };
-}
-
-export function normalizeHandle(text: string): string {
-  /* eslint-disable no-useless-escape */
-  return text
-    .trim()
-    .replace(/[\ \n\t]+/g, '_')
-    .replace(/[\r\.\-]+/g, '')
-    .replace(/{.*?}/g, '')
-    .replace(/[^0-9A-Za-z\-\_]+/g, '')
-    .replace(/_+/g, '_')
-    .replace(/^_+|_+$/g, '');
-  /* eslint-enable no-useless-escape */
 }
 
 /**
@@ -257,7 +324,7 @@ function generateParseField(
 ): ParseField {
   /**
    * @param path
-   * @param injections
+   * @param injectionList
    * @param typeInfo
    * @param fieldInfo if is undefined, means this is a list item
    * @param element
@@ -265,7 +332,7 @@ function generateParseField(
    */
   const parseField: ParseField = (
     path,
-    injections,
+    injectionList,
     typeInfo,
     fieldInfo,
     element,
@@ -305,7 +372,7 @@ function generateParseField(
         origin.push(li.elementValue.trim());
         translation.push(TEXT_TODO);
       });
-      injections.push({
+      injectionList.push({
         path: currentPath,
         origin,
         translation,
@@ -322,7 +389,7 @@ function generateParseField(
     ) {
       const currentPath = [...path, fieldInfo.name];
       const origin = (element && element.elementValue.trim()) || '';
-      injections.push({
+      injectionList.push({
         path: currentPath,
         origin,
         translation: TEXT_TODO,
@@ -336,7 +403,7 @@ function generateParseField(
       const list = element.getElements();
       const pathNodes = getPathNodes(list, typeInfoOf);
       list.forEach((li, index) => {
-        parseField(path, injections, typeInfoOf, undefined, li, pathNodes[index]);
+        parseField(path, injectionList, typeInfoOf, undefined, li, pathNodes[index]);
       });
       path.pop();
       return;
@@ -352,7 +419,7 @@ function generateParseField(
         classInfo.fields.forEach(subFieldInfo => {
           parseField(
             path,
-            injections,
+            injectionList,
             subFieldInfo.type,
             subFieldInfo,
             tryGetElement(element, subFieldInfo),
@@ -363,32 +430,30 @@ function generateParseField(
       return;
     }
 
-    // DEBUG
+    // Fuzzy
     if (
-      process.env.NODE_ENV === 'test' &&
       fieldInfo &&
       !noTranslate &&
       typeInfo.category === 'VALUE' &&
       typeInfo.name === TYPE_STRING
     ) {
-      const currentPath = [...path, fieldInfo.name];
       const origin = (element && element.elementValue.trim()) || '';
-      injections.push({
-        path: currentPath,
-        origin,
-        translation: TEXT_TODO,
-        fuzzy: true,
-      });
-      return;
+      if (origin.includes(' ')) {
+        const currentPath = [...path, fieldInfo.name];
+        injectionList.push({
+          path: currentPath,
+          origin,
+          translation: TEXT_TODO,
+          fuzzy: true,
+        });
+      }
     }
   };
 
   return parseField;
 }
 
-export function generateGetPathNodes(
-  classInfoMap: Record<string, ClassInfo>,
-): GetParseNodes {
+function generateGetPathNodes(classInfoMap: Record<string, ClassInfo>): GetParseNodes {
   return (list, typeInfoOf) => {
     const classInfo: ClassInfo | undefined =
       typeInfoOf.category === 'CLASS' ? classInfoMap[typeInfoOf.name] : undefined;
@@ -454,84 +519,137 @@ export function generateGetPathNodes(
 // ----------------------------------------------------------------
 // Merging
 
-export function pathMatch(pathA: PathNode[], pathB: PathNode[]): boolean {
-  if (pathA.length !== pathB.length) {
-    return false;
-  }
+/**
+ * Merge the data of all of a `InjectionMap` to a target `InjectionMap`, return a new `InjectionMap`.
+ * @param target the target `InjectionMap` to merge into
+ * @param source the source `InjectionMap`
+ */
+export function merge(target: InjectionMap, source: InjectionMap): InjectionMap {
+  const targetMap: InjectionMap = JSON.parse(JSON.stringify(target));
+  const sourceMap: InjectionMap = JSON.parse(JSON.stringify(source));
 
-  let result = true;
+  Object.entries(sourceMap).forEach(([defType, subSourceMap]) => {
+    const subTargetMap = targetMap[defType] || (targetMap[defType] = {});
+    Object.entries(subSourceMap).forEach(([fileName, sourceInjectionList]) => {
+      const targetInjectionList = subTargetMap[fileName] || (subTargetMap[fileName] = []);
+      sourceInjectionList.forEach(sourceInjection => {
+        if (typeof sourceInjection === 'string') {
+          targetInjectionList.push(sourceInjection);
+          return;
+        }
+        const targetInjection = targetInjectionList.find(
+          (inj): inj is Injection =>
+            typeof inj === 'object' && pathMatch(inj.path, sourceInjection.path),
+        );
+        if (!targetInjection) {
+          sourceInjection.unused = true;
+          targetInjectionList.push(sourceInjection);
+          return;
+        }
+        if (
+          Array.isArray(targetInjection.translation) &&
+          Array.isArray(sourceInjection.translation)
+        ) {
+          sourceInjection.translation.forEach((sourceText, index) => {
+            if (sourceText && sourceText !== TEXT_TODO) {
+              (targetInjection.translation as string[])[index] = sourceText;
+            }
+          });
+        } else if (
+          typeof targetInjection.translation === 'string' &&
+          typeof sourceInjection.translation === 'string' &&
+          sourceInjection.translation &&
+          sourceInjection.translation !== TEXT_TODO
+        ) {
+          targetInjection.translation = sourceInjection.translation;
+        }
+      });
+    });
+  });
 
-  const { length } = pathA;
-  for (let i = 0; i < length; i++) {
-    const nodeA = pathA[i];
-    const nodeB = pathB[i];
-
-    if (Array.isArray(nodeA) && Array.isArray(nodeB)) {
-      if (nodeA[0] !== nodeB[0] || nodeA[1] !== nodeB[1]) {
-        result = false;
-        break;
-      }
-    } else if (Array.isArray(nodeA)) {
-      if (
-        (typeof nodeB === 'number' && nodeA[0] !== nodeB) ||
-        (typeof nodeB === 'string' && nodeA[1] !== nodeB)
-      ) {
-        result = false;
-        break;
-      }
-    } else if (Array.isArray(nodeB)) {
-      if (
-        (typeof nodeA === 'number' && nodeB[0] !== nodeA) ||
-        (typeof nodeA === 'string' && nodeB[1] !== nodeA)
-      ) {
-        result = false;
-        break;
-      }
-    } else if (nodeA !== nodeB) {
-      result = false;
-      break;
-    }
-  }
-
-  return result;
+  return targetMap;
 }
 
 // ----------------------------------------------------------------
-// Serializing
+// Check duplicated
 
-export interface SerializedInjectionMap {
-  [defType: string]: {
-    [fileName: string]: string;
-  };
+/**
+ * Check all of injections is duplicated or not, should be call after `merge()`
+ * @param injectionMaps the array of `InjectionMap`, `[Core, ...Mods]`
+ */
+export function checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
+  injectionMaps.forEach(map =>
+    Object.entries(map).forEach(([defType, subMap]) => {
+      const visited: Injection[] = [];
+      Object.entries(subMap).forEach(([fileName, injectionList]) =>
+        injectionList.forEach(injection => {
+          if (typeof injection === 'string') {
+            return;
+          }
+          if (visited.some(inj => pathMatch(inj.path, injection.path))) {
+            injection.duplicated = true;
+          } else {
+            visited.push(injection);
+          }
+        }),
+      );
+    }),
+  );
+
+  return injectionMaps;
 }
 
-export type Indent = '\t' | '  ' | '    ';
-export type EndOfLine = '\n' | '\r' | '\r\n';
+// ----------------------------------------------------------------
+// Output
 
-export function serializePath(path: PathNode[]): string {
-  return path.map(node => (Array.isArray(node) ? node[1] : node)).join('.');
+export interface InjectionSerializeConfig {
+  /**
+   * Output fuzzy injections or not.
+   * @default false
+   */
+  fuzzy?: boolean;
+
+  /**
+   * The text for indent, 2 spaces, 4 spaces of tab.
+   * @default 2 spaces
+   */
+  indent?: '  ' | '    ' | '\t';
+
+  /**
+   * The text at the end of lines, LF, CR or CRLF.
+   * @default '\n'
+   */
+  eol?: '\n' | '\r' | '\r\n';
 }
 
+/**
+ * Serialize `InjectionMap` for output
+ * @param injectionMap the `InjectionMap` to serialize
+ */
 export function serialize(
   injectionMap: InjectionMap,
-  indent: Indent = '  ',
-  endOfLine: EndOfLine = '\n',
+  config: InjectionSerializeConfig = {},
 ): SerializedInjectionMap {
+  const { fuzzy = false, indent = '  ', eol = '\n' } = config;
+
   const serializedMap: SerializedInjectionMap = {};
 
   Object.entries(injectionMap).forEach(([defType, subInjectionMap]) => {
     serializedMap[defType] = {};
     const subSerializedMap = serializedMap[defType];
-    Object.entries(subInjectionMap).forEach(([fileName, injections]) => {
+    Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
       const endComments: string[] = [];
       const defTypes: string[] = [];
       const preSerialized: Record<string, string[]> = {};
-      injections.forEach(injection => {
+      injectionList.forEach(injection => {
         if (typeof injection === 'string') {
           endComments.push(`${indent}<!-- ${injection} -->`);
           return;
         }
         if (injection.duplicated) {
+          return;
+        }
+        if (!fuzzy && injection.fuzzy) {
           return;
         }
 
@@ -541,20 +659,18 @@ export function serialize(
         const block =
           preSerialized[currentDefType] || (preSerialized[currentDefType] = []);
 
-        if (injection.unused) {
-          block.push(`${indent}<!-- ${TEXT_UNUSED} -->`);
-        }
         if (injection.fuzzy) {
           block.push(`${indent}<!-- ${TEXT_FUZZY} -->`);
+        }
+        if (injection.unused) {
+          block.push(`${indent}<!-- ${TEXT_UNUSED} -->`);
         }
 
         if (Array.isArray(injection.origin)) {
           const origin = injection.origin
             .map(li => `${indent}${indent}<li>${li}</li>`)
-            .join(endOfLine);
-          block.push(
-            `${indent}<!-- ${TEXT_EN}${endOfLine}${origin}${endOfLine}${indent}-->`,
-          );
+            .join(eol);
+          block.push(`${indent}<!-- ${TEXT_EN}${eol}${origin}${eol}${indent}-->`);
         } else {
           block.push(`${indent}<!-- ${TEXT_EN} ${injection.origin} -->`);
         }
@@ -562,38 +678,39 @@ export function serialize(
         if (Array.isArray(injection.translation)) {
           const translation = injection.translation
             .map(li => `${indent}${indent}<li>${li}</li>`)
-            .join(endOfLine);
-          block.push(`${indent}<${path}>${translation}${endOfLine}${indent}</${path}>`);
+            .join(eol);
+          block.push(`${indent}<${path}>${eol}${translation}${eol}${indent}</${path}>`);
         } else {
           block.push(`${indent}<${path}>${injection.translation}</${path}>`);
         }
       });
 
-      const serializedInjections: string[] = [];
+      const serializedList: string[] = [];
 
-      serializedInjections.push(
-        xml.DEFAULT_DECLARATION,
-        `<${TAG_NAME_LANGUAGE_DATA}>`,
-        '',
-      );
+      serializedList.push(xml.DEFAULT_DECLARATION, `<${TAG_NAME_LANGUAGE_DATA}>`, '');
 
       [...new Set(defTypes)].forEach(currentDefType => {
-        serializedInjections.push(...preSerialized[currentDefType], '');
+        serializedList.push(...preSerialized[currentDefType], '');
       });
 
       if (endComments.length > 0) {
-        serializedInjections.push(...endComments, '');
+        serializedList.push(...endComments, '');
       }
 
-      serializedInjections.push(`</${TAG_NAME_LANGUAGE_DATA}>`, '');
+      serializedList.push(`</${TAG_NAME_LANGUAGE_DATA}>`, '');
 
-      subSerializedMap[fileName] = serializedInjections.join(endOfLine);
+      subSerializedMap[fileName] = serializedList.join(eol);
     });
   });
 
   return serializedMap;
 }
 
+/**
+ * Save a `SerializedInjectionMap`.
+ * @param directory the path to the directory for saving
+ * @param serializedInjectionMap the `SerializedInjectionMap`
+ */
 export async function save(
   directory: string,
   serializedInjectionMap: SerializedInjectionMap,

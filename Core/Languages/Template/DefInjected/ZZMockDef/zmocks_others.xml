@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Some Comments -->
+
+  <!-- UNUSED -->
+  <!-- EN: abandoned settlement -->
+  <AbandonedSettlement.label>TODO</AbandonedSettlement.label>
+  <!-- UNUSED -->
+  <!-- EN: An abandoned settlement. -->
+  <AbandonedSettlement.description>TODO</AbandonedSettlement.description>
+
+  <!-- UNUSED -->
+  <!-- EN: <li>tale_noun->[PAWN_nameDef]'s caravan fleeing danger</li>
+    <li>tale_noun->[PAWN_nameDef]'s caravan escaping danger</li>
+    <li>tale_noun->[PAWN_nameDef]'s caravan narrowly escaping danger</li>
+    <li>tale_noun->[PAWN_nameDef]'s caravan being chased away by enemies</li>
+    <li>image->[PAWN_nameFull] running frantically [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] sprinting [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] tucked behind a [TerrainFeature], hiding [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] putting up a fighting retreat [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] casually strolling away [circumstance_group]</li>
+    <li>circumstance_phrase->as [Quantity_adjphrase] [Enemy]s chase</li>
+    <li>circumstance_phrase->while [Quantity_adjphrase] [Enemy]s search</li>
+    <li>circumstance_phrase->from [Quantity_adjphrase] [Enemy]s</li>
+    <li>circumstance_phrase->from [Quantity_adjphrase] enemy [Animal]s</li>
+    <li>circumstance_phrase->from a [huge] [Enemy]</li>
+    <li>desc_sentence->[PAWN_nameDef]'s pursuers are brandishing [Weapon]s.</li>
+    <li>desc_sentence->[PAWN_nameDef]'s pursuers are wreathed in [Color] smoke.</li>
+    <li>desc_sentence->[PAWN_nameDef]'s pursuers wear [AdjectiveAngsty] expressions.</li>
+    <li>desc_sentence->[PAWN_nameDef]'s pursuers are brandishing [Weapon]s.</li>
+    <li>desc_sentence->[PAWN_nameDef] is sweating.</li>
+    <li>desc_sentence->[PAWN_nameDef] is gasping for breath.</li> -->
+  <CaravanFled.rulePack.rulesStrings>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CaravanFled.rulePack.rulesStrings>
+
+  <!-- UNUSED -->
+  <!-- EN: transport pods -->
+  <TravelingTransportPods.label>TODO</TravelingTransportPods.label>
+  <!-- UNUSED -->
+  <!-- EN: Transport pods in flight. -->
+  <TravelingTransportPods.description>TODO</TravelingTransportPods.description>
+
+</LanguageData>

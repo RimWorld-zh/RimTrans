@@ -7,10 +7,13 @@ import {
   PathNode,
   Injection,
   InjectionMap,
-  parse,
-  load,
   pathMatch,
   serializePath,
+  deSerializePath,
+  parse,
+  load,
+  merge,
+  checkDuplicated,
   serialize,
   save,
 } from './injection';
@@ -32,11 +35,13 @@ const pathTypePackages = [
 
 const pathInjectionMapLoaded = resolvePath('.tmp', 'injection-maps-loaded.json');
 const pathInjectionMapParsed = resolvePath('.tmp', 'injection-maps-parsed.json');
+const pathInjectionMapMerged = resolvePath('.tmp', 'injection-maps-merged.json');
 
 const pathMissing = resolvePath('.tmp', 'missing.txt');
 const pathFuzzy = resolvePath('.tmp', 'fuzzy.txt');
 
 const pathDefInjectedOutput = resolvePath('.tmp', 'DefInjected');
+const pathDefInjectedFuzzy = resolvePath('.tmp', 'DefInjectedFuzzy');
 
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
@@ -49,40 +54,68 @@ describe('injection', () => {
       definition.load([pathDefs]).then(definition.resolveInheritance),
       typePackage.load(pathTypePackages),
     ]);
+    defMaps[0]['zmocks_1.xml'] = xml.parse(
+      `<Defs>
+        <ZMockDef>
+          <defName>Mock1</defName>
+          <label>label</label>
+          <description>description</description>
+          <some>
+            <li>mock text</li>
+            <li>mock text</li>
+          </some>
+          <someList>
+            <li>
+              <li>
+                <a>a0</a>
+              </li>
+              <li>
+                <a>a1</a>
+              </li>
+            </li>
+          </someList>
+          <fuzzy>mock text</fuzzy>
+          <missing>
+            <key>x</key>
+            <value>0</value>
+          </missing>
+        </ZMockDef>
+      </Defs>`,
+    );
     defMaps.push({
       'mock.xml': xml.parse(
-        `<Defs>
-          
-          <MockDef>
-            <defName>Mock</defName>
-            <label>Mock</label>
-            <some>
-              <li>
-                <li>
-                  <a>a</a>
-                  <b>b</b>
-                </li>
-              </li>
-            </some>
-          </MockDef>
-          
+        `<Defs>          
           <UnknownDef>
             <defName>Unknown</defName>
             <label>Unknown</label>
           </UnknownDef>
-
         </Defs>`,
       ),
     });
-    classInfoMap.MockDef = {
+    classInfoMap.ZMockDef = {
       isAbstract: false,
       baseClass: 'Def',
-      name: 'MockDef',
+      name: 'ZMockDef',
       fields: [
         ...classInfoMap.Def.fields,
         {
-          attributes: [],
           name: 'some',
+          attributes: [
+            typePackage.ATTRIBUTE_MUST_TRANSLATE,
+            typePackage.ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
+          ],
+          type: {
+            category: 'LIST',
+            name: 'List',
+            of: {
+              category: 'VALUE',
+              name: 'String',
+            },
+          },
+        },
+        {
+          name: 'someList',
+          attributes: [],
           type: {
             category: 'LIST',
             name: 'List',
@@ -91,30 +124,37 @@ describe('injection', () => {
               name: 'List',
               of: {
                 category: 'CLASS',
-                name: 'SomeObject',
+                name: 'ZMockClass',
               },
             },
           },
         },
-      ],
-      handles: [],
-    };
-    classInfoMap.SomeObject = {
-      isAbstract: false,
-      baseClass: '',
-      name: 'SomeObject',
-      fields: [
         {
-          name: 'a',
-          attributes: [typePackage.ATTRIBUTE_MUST_TRANSLATE],
+          name: 'fuzzy',
+          attributes: [],
           type: {
             category: 'VALUE',
             name: 'String',
           },
         },
         {
-          name: 'b',
+          name: 'missing',
           attributes: [],
+          type: {
+            category: 'CLASS',
+            name: 'ZMockMissingClass',
+          },
+        },
+      ],
+      handles: [],
+    };
+    classInfoMap.ZMockClass = {
+      name: 'ZMockClass',
+      isAbstract: false,
+      fields: [
+        {
+          attributes: [],
+          name: 'a',
           type: {
             category: 'VALUE',
             name: 'String',
@@ -217,9 +257,21 @@ describe('injection', () => {
     expect(serializePath(['Mock', 'some', [0, 'compUsable'], 'a', 'label'])).toBe(
       'Mock.some.compUsable.a.label',
     );
+
+    expect(deSerializePath('Mock.some.0.label')).toEqual(['Mock', 'some', 0, 'label']);
+    expect(deSerializePath('Mock.some.1.label')).toEqual(['Mock', 'some', 1, 'label']);
   });
 
   test('load', async () => {
+    expect(
+      injectionMapsLoaded[0].ZMockDef.zmocks_1.some(
+        inj =>
+          typeof inj === 'object' &&
+          pathMatch(inj.path, ['Mock1', 'label']) &&
+          inj.translation === 'mock label',
+      ),
+    ).toBe(true);
+
     await io.save(
       pathInjectionMapLoaded,
       JSON.stringify(injectionMapsLoaded, undefined, '  '),
@@ -227,6 +279,16 @@ describe('injection', () => {
   });
 
   test('parse', async () => {
+    expect(
+      injectionMapsParsed[0].BiomeDef.Biomes_Temperate.some(
+        inj =>
+          typeof inj === 'object' &&
+          pathMatch(inj.path, ['TemperateForest', 'label']) &&
+          inj.origin === 'temperate forest' &&
+          inj.translation === 'TODO',
+      ),
+    );
+
     await io.save(
       pathInjectionMapParsed,
       JSON.stringify(injectionMapsParsed, undefined, '  '),
@@ -237,47 +299,76 @@ describe('injection', () => {
     const missing: string[] = [];
     const [mapOld] = injectionMapsLoaded;
     const [mapNew] = injectionMapsParsed;
+
+    expect(mapNew.ZZMockDef).toBeFalsy();
+    expect(mapOld.ZZMockDef).toBeTruthy();
+    expect(mapOld.ZZMockDef.zmocks_1).toBeTruthy();
+
     Object.entries(mapOld).forEach(([defType, subMapOld]) => {
-      const subMapNew = mapNew[defType];
-      Object.entries(subMapOld).forEach(([fileName, injectionsOld]) => {
-        const injectionsNew = subMapNew[fileName];
-        injectionsOld.forEach(injOld => {
+      const subMapNew = mapNew[defType] || {};
+      Object.entries(subMapOld).forEach(([fileName, injectionListOld]) => {
+        const injectionListNew = subMapNew[fileName] || [];
+        injectionListOld.forEach(injOld => {
           if (typeof injOld === 'string') {
-            expect(injectionsNew.includes(injOld));
+            expect(injectionListNew.includes(injOld));
           } else {
-            const injNew = injectionsNew.find(
+            const injNew = injectionListNew.find(
               inj => typeof inj !== 'string' && pathMatch(inj.path, injOld.path),
             );
 
             if ((typeof injNew === 'object' && injNew.fuzzy) || !injNew) {
-              missing.push(injOld.path.join('.'));
+              missing.push(`${defType}.${injOld.path.join('.')}`);
             }
           }
         });
       });
     });
-    await io.save(pathMissing, missing.join('\n'));
+    await io.save(pathMissing, missing.sort().join('\n'));
   });
 
   test('fuzzy', async () => {
     const [map] = injectionMapsParsed;
-    const indefinite: string[] = [];
+    const fuzzy: string[] = [];
     Object.entries(map).forEach(([defType, subMap]) =>
       Object.entries(subMap).forEach(([fileName, injections]) =>
         injections.forEach(injection => {
           if (typeof injection === 'object' && injection.fuzzy) {
-            indefinite.push(`${defType}.${injection.path.slice(1).join('.')}`);
+            fuzzy.push(`${defType}.${injection.path.slice(1).join('.')}`);
           }
         }),
       ),
     );
-    await io.save(pathFuzzy, [...new Set(indefinite)].sort().join('\n'));
+    await io.save(pathFuzzy, [...new Set(fuzzy)].sort().join('\n'));
   });
 
   test('output', async () => {
-    const [injectionMap] = injectionMapsParsed;
-    const serializedMap = serialize(injectionMap);
+    const [mapOld] = injectionMapsLoaded;
+    const [mapNew] = injectionMapsParsed;
+
+    const mapMerged = merge(mapNew, mapOld);
+    checkDuplicated([mapMerged]);
+    const serializedMap = serialize(mapMerged);
+
+    expect(mapMerged).not.toBe(mapOld);
+    expect(mapMerged).not.toBe(mapNew);
+
+    expect(mapNew.ZZMockDef).toBeFalsy();
+    expect(mapOld.ZZMockDef).toBeTruthy();
+    expect(mapOld.ZZMockDef.zmocks_1).toBeTruthy();
     expect(typeof serializedMap.BiomeDef.Biomes_Cold).toBe('string');
-    await save(pathDefInjectedOutput, serializedMap);
+
+    await Promise.all([
+      io.save(pathInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
+      save(pathDefInjectedOutput, serializedMap),
+    ]);
+  });
+
+  test('output fuzzy', async () => {
+    const [mapOld] = injectionMapsLoaded;
+    const [mapNew] = injectionMapsParsed;
+    const mapMerged = merge(mapNew, mapOld);
+    checkDuplicated([mapMerged]);
+    const serializedMap = serialize(mapMerged, { fuzzy: true });
+    await Promise.all([save(pathDefInjectedFuzzy, serializedMap)]);
   });
 });
