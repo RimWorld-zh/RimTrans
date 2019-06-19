@@ -28,7 +28,7 @@ export interface EnumValue {
 
 export interface FieldInfo {
   readonly name: string;
-  readonly alias: string;
+  readonly alias?: string;
   readonly attributes: string[];
   readonly type: TypeInfo;
 }

@@ -3,17 +3,40 @@ import * as io from '@rimtrans/io';
 import * as xml from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
-import { PathNode, Injection, InjectionMap, parse, load, pathMatch } from './injection';
+import {
+  PathNode,
+  Injection,
+  InjectionMap,
+  parse,
+  load,
+  pathMatch,
+  serializePath,
+  serialize,
+  save,
+} from './injection';
 
 const resolvePath = genPathResolve(__dirname, '..', '..');
 
 const pathDefs = resolvePath('Core', 'Defs');
-const pathDefInjected = resolvePath('Core', 'Languages', 'Template', 'DefInjected');
+const pathDefInjectedTemplate = resolvePath(
+  'Core',
+  'Languages',
+  'Template',
+  'DefInjected',
+);
 const pathDefInjectedMock = resolvePath('Core', 'Languages', 'Mock', 'DefInjected');
 const pathTypePackages = [
   resolvePath('Reflection', 'type-package.json'),
   resolvePath('Reflection', 'type-package-fix.json'),
 ];
+
+const pathInjectionMapLoaded = resolvePath('.tmp', 'injection-maps-loaded.json');
+const pathInjectionMapParsed = resolvePath('.tmp', 'injection-maps-parsed.json');
+
+const pathMissing = resolvePath('.tmp', 'missing.txt');
+const pathFuzzy = resolvePath('.tmp', 'fuzzy.txt');
+
+const pathDefInjectedOutput = resolvePath('.tmp', 'DefInjected');
 
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
@@ -69,7 +92,6 @@ describe('injection', () => {
               of: {
                 category: 'CLASS',
                 name: 'SomeObject',
-                of: null,
               },
             },
           },
@@ -88,7 +110,6 @@ describe('injection', () => {
           type: {
             category: 'VALUE',
             name: 'String',
-            of: null,
           },
         },
         {
@@ -97,7 +118,6 @@ describe('injection', () => {
           type: {
             category: 'VALUE',
             name: 'String',
-            of: null,
           },
         },
       ],
@@ -105,26 +125,12 @@ describe('injection', () => {
     };
 
     [injectionMapsLoaded, injectionMapsParsed] = await Promise.all([
-      load([pathDefInjected, pathDefInjectedMock]),
+      load([pathDefInjectedTemplate, pathDefInjectedMock]),
       parse(defMaps, classInfoMap),
     ]);
   });
 
-  test('load', async () => {
-    await io.save(
-      resolvePath('.tmp', 'injection-maps-loaded.json'),
-      JSON.stringify(injectionMapsLoaded, undefined, '  '),
-    );
-  });
-
-  test('parse', async () => {
-    await io.save(
-      resolvePath('.tmp', 'injection-maps-parsed.json'),
-      JSON.stringify(injectionMapsParsed, undefined, '  '),
-    );
-  });
-
-  test('pathMatch', () => {
+  test('path', () => {
     expect(pathMatch(['Mock', 'label'], ['Mock', 'label'])).toBe(true);
     expect(pathMatch(['Mock', 'label'], ['Mock', 'description'])).toBe(false);
     expect(
@@ -205,9 +211,29 @@ describe('injection', () => {
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(false);
+
+    expect(serializePath(['Mock', 'some', 'a', 'label'])).toBe('Mock.some.a.label');
+    expect(serializePath(['Mock', 'some', 0, 'label'])).toBe('Mock.some.0.label');
+    expect(serializePath(['Mock', 'some', [0, 'compUsable'], 'a', 'label'])).toBe(
+      'Mock.some.compUsable.a.label',
+    );
   });
 
-  test('verify', async () => {
+  test('load', async () => {
+    await io.save(
+      pathInjectionMapLoaded,
+      JSON.stringify(injectionMapsLoaded, undefined, '  '),
+    );
+  });
+
+  test('parse', async () => {
+    await io.save(
+      pathInjectionMapParsed,
+      JSON.stringify(injectionMapsParsed, undefined, '  '),
+    );
+  });
+
+  test('missing', async () => {
     const missing: string[] = [];
     const [mapOld] = injectionMapsLoaded;
     const [mapNew] = injectionMapsParsed;
@@ -223,32 +249,35 @@ describe('injection', () => {
               inj => typeof inj !== 'string' && pathMatch(inj.path, injOld.path),
             );
 
-            if ((typeof injNew === 'object' && injNew.indefinite) || !injNew) {
+            if ((typeof injNew === 'object' && injNew.fuzzy) || !injNew) {
               missing.push(injOld.path.join('.'));
             }
-            // expect(injNew).toBeTruthy();
           }
         });
       });
     });
-    await io.save(resolvePath('.tmp', 'missing.txt'), missing.join('\n'));
+    await io.save(pathMissing, missing.join('\n'));
   });
 
-  test('indefinite', async () => {
+  test('fuzzy', async () => {
     const [map] = injectionMapsParsed;
     const indefinite: string[] = [];
     Object.entries(map).forEach(([defType, subMap]) =>
       Object.entries(subMap).forEach(([fileName, injections]) =>
         injections.forEach(injection => {
-          if (typeof injection === 'object' && injection.indefinite) {
+          if (typeof injection === 'object' && injection.fuzzy) {
             indefinite.push(`${defType}.${injection.path.slice(1).join('.')}`);
           }
         }),
       ),
     );
-    await io.save(
-      resolvePath('.tmp', 'indefinite.txt'),
-      [...new Set(indefinite)].sort().join('\n'),
-    );
+    await io.save(pathFuzzy, [...new Set(indefinite)].sort().join('\n'));
+  });
+
+  test('output', async () => {
+    const [injectionMap] = injectionMapsParsed;
+    const serializedMap = serialize(injectionMap);
+    expect(typeof serializedMap.BiomeDef.Biomes_Cold).toBe('string');
+    await save(pathDefInjectedOutput, serializedMap);
   });
 });

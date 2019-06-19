@@ -22,8 +22,11 @@ xml.mountDomPrototype();
 const FIELD_NAME_DEF_NAME = 'defName';
 const TAG_NAME_LI = 'li';
 const ATTRIBUTE_NAME_CLASS = 'Class';
+const TAG_NAME_LANGUAGE_DATA = 'LanguageData';
 const TEXT_EN = 'EN:';
 const TEXT_TODO = 'TODO';
+const TEXT_UNUSED = 'UNUSED';
+const TEXT_FUZZY = 'FUZZY';
 
 /**
  * The type of path nodes, if is tuple `[number, string]`, means `[index, handle]`
@@ -34,8 +37,9 @@ export interface Injection {
   path: PathNode[];
   origin: string | string[];
   translation: string | string[];
+  unused?: boolean;
   duplicated?: boolean;
-  indefinite?: boolean;
+  fuzzy?: boolean;
 }
 
 export interface InjectionMap {
@@ -84,17 +88,20 @@ export async function load(paths: string[]): Promise<any> {
                     const injections = subMap[fileName];
                     const doc = await xml.load(filePath);
 
+                    let comment = '';
                     let origin: string | string[] = '';
                     let translation: string | string[] = TEXT_TODO;
                     Array.from(doc.documentElement.childNodes).forEach(node => {
                       switch (node.nodeType) {
                         case node.COMMENT_NODE:
-                          origin = (node.nodeValue || '').trim();
-                          if (origin.startsWith(TEXT_EN)) {
-                            origin = origin.replace(TEXT_EN, '').trim();
+                          comment = (node.nodeValue || '').trim();
+                          if (comment === TEXT_UNUSED) {
+                            // do nothing
+                          }
+                          if (comment.startsWith(TEXT_EN)) {
+                            origin = comment.replace(TEXT_EN, '').trim();
                           } else {
-                            injections.push(origin);
-                            origin = '';
+                            injections.push(comment);
                           }
                           break;
 
@@ -128,9 +135,6 @@ export async function load(paths: string[]): Promise<any> {
     ),
   );
 }
-
-// ----------------------------------------------------------------
-// Saving
 
 // ----------------------------------------------------------------
 // Parsing
@@ -185,8 +189,15 @@ export type ParseField = (
 
 export type GetParseNodes = (list: Element[], typeInfoOf: TypeInfo) => PathNode[];
 
-export function getTextValue(element: Element): string {
-  return (element.elementValue && element.elementValue.trim()).replace(/\n/g, '\\n');
+function tryGetElement(parent: Element, fieldInfo: FieldInfo): Element | undefined {
+  let element: Element | undefined;
+  if (fieldInfo.name) {
+    element = parent.getElement(fieldInfo.name);
+  }
+  if (!element && fieldInfo.alias) {
+    element = parent.getElement(fieldInfo.alias);
+  }
+  return element;
 }
 
 /**
@@ -212,11 +223,13 @@ export function generateParseDef(
       if (fieldInfo.name === FIELD_NAME_DEF_NAME) {
         return;
       }
-      let element = def.getElement(fieldInfo.name);
-      if (!element && fieldInfo.alias) {
-        element = def.getElement(fieldInfo.alias);
-      }
-      parseField([defName], injections, fieldInfo.type, fieldInfo, element);
+      parseField(
+        [defName],
+        injections,
+        fieldInfo.type,
+        fieldInfo,
+        tryGetElement(def, fieldInfo),
+      );
     });
   };
 }
@@ -265,7 +278,7 @@ function generateParseField(
       (fieldInfo.attributes.includes(ATTRIBUTE_UNSAVED) ||
         fieldInfo.attributes.includes(ATTRIBUTE_NO_TRANSLATE));
     const mustTranslate =
-      fieldInfo &&
+      !!fieldInfo &&
       (fieldInfo.attributes.includes(ATTRIBUTE_MUST_TRANSLATE) ||
         fieldInfo.attributes.includes(ATTRIBUTE_MAY_TRANSLATE));
 
@@ -289,7 +302,7 @@ function generateParseField(
       const origin: string[] = [];
       const translation: string[] = [];
       element.getElements().forEach(li => {
-        origin.push(getTextValue(li));
+        origin.push(li.elementValue.trim());
         translation.push(TEXT_TODO);
       });
       injections.push({
@@ -308,7 +321,7 @@ function generateParseField(
       typeInfo.name === TYPE_STRING
     ) {
       const currentPath = [...path, fieldInfo.name];
-      const origin = (element && getTextValue(element)) || '';
+      const origin = (element && element.elementValue.trim()) || '';
       injections.push({
         path: currentPath,
         origin,
@@ -337,11 +350,13 @@ function generateParseField(
       if (classInfo) {
         path.push((fieldInfo && fieldInfo.name) || pathNode);
         classInfo.fields.forEach(subFieldInfo => {
-          let subElement = element.getElement(subFieldInfo.name);
-          if (!subElement && subFieldInfo.alias) {
-            subElement = element.getElement(subFieldInfo.alias);
-          }
-          parseField(path, injections, subFieldInfo.type, subFieldInfo, subElement);
+          parseField(
+            path,
+            injections,
+            subFieldInfo.type,
+            subFieldInfo,
+            tryGetElement(element, subFieldInfo),
+          );
         });
         path.pop();
       }
@@ -357,12 +372,12 @@ function generateParseField(
       typeInfo.name === TYPE_STRING
     ) {
       const currentPath = [...path, fieldInfo.name];
-      const origin = (element && getTextValue(element)) || '';
+      const origin = (element && element.elementValue.trim()) || '';
       injections.push({
         path: currentPath,
         origin,
         translation: TEXT_TODO,
-        indefinite: true,
+        fuzzy: true,
       });
       return;
     }
@@ -479,4 +494,115 @@ export function pathMatch(pathA: PathNode[], pathB: PathNode[]): boolean {
   }
 
   return result;
+}
+
+// ----------------------------------------------------------------
+// Serializing
+
+export interface SerializedInjectionMap {
+  [defType: string]: {
+    [fileName: string]: string;
+  };
+}
+
+export type Indent = '\t' | '  ' | '    ';
+export type EndOfLine = '\n' | '\r' | '\r\n';
+
+export function serializePath(path: PathNode[]): string {
+  return path.map(node => (Array.isArray(node) ? node[1] : node)).join('.');
+}
+
+export function serialize(
+  injectionMap: InjectionMap,
+  indent: Indent = '  ',
+  endOfLine: EndOfLine = '\n',
+): SerializedInjectionMap {
+  const serializedMap: SerializedInjectionMap = {};
+
+  Object.entries(injectionMap).forEach(([defType, subInjectionMap]) => {
+    serializedMap[defType] = {};
+    const subSerializedMap = serializedMap[defType];
+    Object.entries(subInjectionMap).forEach(([fileName, injections]) => {
+      const endComments: string[] = [];
+      const defTypes: string[] = [];
+      const preSerialized: Record<string, string[]> = {};
+      injections.forEach(injection => {
+        if (typeof injection === 'string') {
+          endComments.push(`${indent}<!-- ${injection} -->`);
+          return;
+        }
+        if (injection.duplicated) {
+          return;
+        }
+
+        const currentDefType = injection.path[0] as string;
+        defTypes.push(currentDefType);
+        const path = serializePath(injection.path);
+        const block =
+          preSerialized[currentDefType] || (preSerialized[currentDefType] = []);
+
+        if (injection.unused) {
+          block.push(`${indent}<!-- ${TEXT_UNUSED} -->`);
+        }
+        if (injection.fuzzy) {
+          block.push(`${indent}<!-- ${TEXT_FUZZY} -->`);
+        }
+
+        if (Array.isArray(injection.origin)) {
+          const origin = injection.origin
+            .map(li => `${indent}${indent}<li>${li}</li>`)
+            .join(endOfLine);
+          block.push(
+            `${indent}<!-- ${TEXT_EN}${endOfLine}${origin}${endOfLine}${indent}-->`,
+          );
+        } else {
+          block.push(`${indent}<!-- ${TEXT_EN} ${injection.origin} -->`);
+        }
+
+        if (Array.isArray(injection.translation)) {
+          const translation = injection.translation
+            .map(li => `${indent}${indent}<li>${li}</li>`)
+            .join(endOfLine);
+          block.push(`${indent}<${path}>${translation}${endOfLine}${indent}</${path}>`);
+        } else {
+          block.push(`${indent}<${path}>${injection.translation}</${path}>`);
+        }
+      });
+
+      const serializedInjections: string[] = [];
+
+      serializedInjections.push(
+        xml.DEFAULT_DECLARATION,
+        `<${TAG_NAME_LANGUAGE_DATA}>`,
+        '',
+      );
+
+      [...new Set(defTypes)].forEach(currentDefType => {
+        serializedInjections.push(...preSerialized[currentDefType], '');
+      });
+
+      if (endComments.length > 0) {
+        serializedInjections.push(...endComments, '');
+      }
+
+      serializedInjections.push(`</${TAG_NAME_LANGUAGE_DATA}>`, '');
+
+      subSerializedMap[fileName] = serializedInjections.join(endOfLine);
+    });
+  });
+
+  return serializedMap;
+}
+
+export async function save(
+  directory: string,
+  serializedInjectionMap: SerializedInjectionMap,
+): Promise<void> {
+  const promises: Promise<void>[] = [];
+  Object.entries(serializedInjectionMap).forEach(([defType, subMap]) =>
+    Object.entries(subMap).forEach(([fileName, doc]) =>
+      promises.push(io.save(io.join(directory, defType, `${fileName}.xml`), doc)),
+    ),
+  );
+  await Promise.all(promises);
 }
