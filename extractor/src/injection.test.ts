@@ -1,5 +1,17 @@
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
+import {
+  pathsDefs,
+  pathsDefInjected,
+  pathsTypePackage,
+  outputInjectionMapLoaded,
+  outputInjectionMapParsed,
+  outputInjectionMapMerged,
+  outputMissing,
+  outputFuzzy,
+  outputDefInjected,
+  outputDefInjectedFuzzy,
+} from './utils.test';
 import * as xml from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
@@ -18,31 +30,6 @@ import {
   save,
 } from './injection';
 
-const resolvePath = genPathResolve(__dirname, '..', '..');
-
-const pathDefs = resolvePath('Core', 'Defs');
-const pathDefInjectedTemplate = resolvePath(
-  'Core',
-  'Languages',
-  'Template',
-  'DefInjected',
-);
-const pathDefInjectedMock = resolvePath('Core', 'Languages', 'Mock', 'DefInjected');
-const pathTypePackages = [
-  resolvePath('Reflection', 'type-package.json'),
-  resolvePath('Reflection', 'type-package-fix.json'),
-];
-
-const pathInjectionMapLoaded = resolvePath('.tmp', 'injection-maps-loaded.json');
-const pathInjectionMapParsed = resolvePath('.tmp', 'injection-maps-parsed.json');
-const pathInjectionMapMerged = resolvePath('.tmp', 'injection-maps-merged.json');
-
-const pathMissing = resolvePath('.tmp', 'missing.txt');
-const pathFuzzy = resolvePath('.tmp', 'fuzzy.txt');
-
-const pathDefInjectedOutput = resolvePath('.tmp', 'DefInjected');
-const pathDefInjectedFuzzy = resolvePath('.tmp', 'DefInjectedFuzzy');
-
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
   let classInfoMap: Record<string, typePackage.ClassInfo>;
@@ -51,8 +38,8 @@ describe('injection', () => {
 
   beforeAll(async () => {
     [defMaps, classInfoMap] = await Promise.all([
-      definition.load([pathDefs]).then(definition.resolveInheritance),
-      typePackage.load(pathTypePackages),
+      definition.load(pathsDefs).then(definition.resolveInheritance),
+      typePackage.load(pathsTypePackage),
     ]);
     defMaps[0]['zmocks_1.xml'] = xml.parse(
       `<Defs>
@@ -165,7 +152,7 @@ describe('injection', () => {
     };
 
     [injectionMapsLoaded, injectionMapsParsed] = await Promise.all([
-      load([pathDefInjectedTemplate, pathDefInjectedMock]),
+      load(pathsDefInjected),
       parse(defMaps, classInfoMap),
     ]);
   });
@@ -273,7 +260,7 @@ describe('injection', () => {
     ).toBe(true);
 
     await io.save(
-      pathInjectionMapLoaded,
+      outputInjectionMapLoaded,
       JSON.stringify(injectionMapsLoaded, undefined, '  '),
     );
   });
@@ -290,7 +277,7 @@ describe('injection', () => {
     );
 
     await io.save(
-      pathInjectionMapParsed,
+      outputInjectionMapParsed,
       JSON.stringify(injectionMapsParsed, undefined, '  '),
     );
   });
@@ -323,7 +310,7 @@ describe('injection', () => {
         });
       });
     });
-    await io.save(pathMissing, missing.sort().join('\n'));
+    await io.save(outputMissing, missing.sort().join('\n'));
   });
 
   test('fuzzy', async () => {
@@ -338,7 +325,7 @@ describe('injection', () => {
         }),
       ),
     );
-    await io.save(pathFuzzy, [...new Set(fuzzy)].sort().join('\n'));
+    await io.save(outputFuzzy, [...new Set(fuzzy)].sort().join('\n'));
   });
 
   test('output', async () => {
@@ -347,7 +334,8 @@ describe('injection', () => {
 
     const mapMerged = merge(mapNew, mapOld);
     checkDuplicated([mapMerged]);
-    const serializedMap = serialize(mapMerged);
+    const [serializedMap] = serialize([mapMerged]);
+    const [serializedMapFuzzy] = serialize([mapMerged], { fuzzy: true });
 
     expect(mapMerged).not.toBe(mapOld);
     expect(mapMerged).not.toBe(mapNew);
@@ -358,17 +346,13 @@ describe('injection', () => {
     expect(typeof serializedMap.BiomeDef.Biomes_Cold).toBe('string');
 
     await Promise.all([
-      io.save(pathInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
-      save(pathDefInjectedOutput, serializedMap),
+      io.deleteFileOrDirectory(outputDefInjected),
+      io.deleteFileOrDirectory(outputDefInjectedFuzzy),
     ]);
-  });
-
-  test('output fuzzy', async () => {
-    const [mapOld] = injectionMapsLoaded;
-    const [mapNew] = injectionMapsParsed;
-    const mapMerged = merge(mapNew, mapOld);
-    checkDuplicated([mapMerged]);
-    const serializedMap = serialize(mapMerged, { fuzzy: true });
-    await Promise.all([save(pathDefInjectedFuzzy, serializedMap)]);
+    await Promise.all([
+      io.save(outputInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
+      save(outputDefInjected, serializedMap),
+      save(outputDefInjectedFuzzy, serializedMapFuzzy),
+    ]);
   });
 });

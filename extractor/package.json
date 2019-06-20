@@ -10,10 +10,11 @@
     "build:types": "tsc",
     "build:babel": "babel ./src -x .ts -d ./lib",
     "build": "yarn build:types && yarn build:babel",
-    "test": "jest --maxWorkers=1 --verbose --setupTestFrameworkScriptFile=./jest.setup.js"
+    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=../jest.setup.js",
+    "ts": "ts-node -r tsconfig-paths/register -P ../scripts/tsconfig.json"
   },
   "dependencies": {
-    "@rimtrans/io": "0.3.0",
+    "@rimtrans/io": "0.4.0",
     "@types/jsdom": "^12.2.3",
     "jsdom": "^15.1.1"
   }

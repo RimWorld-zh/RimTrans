@@ -16,8 +16,6 @@ import {
   TYPE_STRING,
 } from './type-package';
 
-xml.mountDomPrototype();
-
 // CONSTANTS
 const FIELD_NAME_DEF_NAME = 'defName';
 const TAG_NAME_LI = 'li';
@@ -149,7 +147,7 @@ export function deSerializePath(tagName: string): PathNode[] {
  * Load `DefInjected` xml documents and get `InjectionMap`.
  * @param paths the array of paths to `DefInjected` directories.
  */
-export async function load(paths: string[]): Promise<any> {
+export async function load(paths: string[]): Promise<InjectionMap[]> {
   return Promise.all(
     paths.map(
       async (dir): Promise<InjectionMap> => {
@@ -627,83 +625,83 @@ export interface InjectionSerializeConfig {
  * @param injectionMap the `InjectionMap` to serialize
  */
 export function serialize(
-  injectionMap: InjectionMap,
-  config: InjectionSerializeConfig = {},
-): SerializedInjectionMap {
-  const { fuzzy = false, indent = '  ', eol = '\n' } = config;
+  injectionMaps: InjectionMap[],
+  config?: InjectionSerializeConfig,
+): SerializedInjectionMap[] {
+  const { fuzzy = false, indent = '  ', eol = '\n' } = config || {};
 
-  const serializedMap: SerializedInjectionMap = {};
+  return injectionMaps.map(injectionMap => {
+    const serializedMap: SerializedInjectionMap = {};
+    Object.entries(injectionMap).forEach(([defType, subInjectionMap]) => {
+      serializedMap[defType] = {};
+      const subSerializedMap = serializedMap[defType];
+      Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
+        const endComments: string[] = [];
+        const defTypes: string[] = [];
+        const preSerialized: Record<string, string[]> = {};
+        injectionList.forEach(injection => {
+          if (typeof injection === 'string') {
+            endComments.push(`${indent}<!-- ${injection} -->`);
+            return;
+          }
+          if (injection.duplicated) {
+            return;
+          }
+          if (!fuzzy && injection.fuzzy) {
+            return;
+          }
 
-  Object.entries(injectionMap).forEach(([defType, subInjectionMap]) => {
-    serializedMap[defType] = {};
-    const subSerializedMap = serializedMap[defType];
-    Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
-      const endComments: string[] = [];
-      const defTypes: string[] = [];
-      const preSerialized: Record<string, string[]> = {};
-      injectionList.forEach(injection => {
-        if (typeof injection === 'string') {
-          endComments.push(`${indent}<!-- ${injection} -->`);
-          return;
-        }
-        if (injection.duplicated) {
-          return;
-        }
-        if (!fuzzy && injection.fuzzy) {
-          return;
+          const currentDefType = injection.path[0] as string;
+          defTypes.push(currentDefType);
+          const path = serializePath(injection.path);
+          const block =
+            preSerialized[currentDefType] || (preSerialized[currentDefType] = []);
+
+          if (injection.fuzzy) {
+            block.push(`${indent}<!-- ${TEXT_FUZZY} -->`);
+          }
+          if (injection.unused) {
+            block.push(`${indent}<!-- ${TEXT_UNUSED} -->`);
+          }
+
+          if (Array.isArray(injection.origin)) {
+            const origin = injection.origin
+              .map(li => `${indent}${indent}<li>${li}</li>`)
+              .join(eol);
+            block.push(`${indent}<!-- ${TEXT_EN}${eol}${origin}${eol}${indent}-->`);
+          } else {
+            block.push(`${indent}<!-- ${TEXT_EN} ${injection.origin} -->`);
+          }
+
+          if (Array.isArray(injection.translation)) {
+            const translation = injection.translation
+              .map(li => `${indent}${indent}<li>${li}</li>`)
+              .join(eol);
+            block.push(`${indent}<${path}>${eol}${translation}${eol}${indent}</${path}>`);
+          } else {
+            block.push(`${indent}<${path}>${injection.translation}</${path}>`);
+          }
+        });
+
+        const serializedList: string[] = [];
+
+        serializedList.push(xml.DEFAULT_DECLARATION, `<${TAG_NAME_LANGUAGE_DATA}>`, '');
+
+        [...new Set(defTypes)].forEach(currentDefType => {
+          serializedList.push(...preSerialized[currentDefType], '');
+        });
+
+        if (endComments.length > 0) {
+          serializedList.push(...endComments, '');
         }
 
-        const currentDefType = injection.path[0] as string;
-        defTypes.push(currentDefType);
-        const path = serializePath(injection.path);
-        const block =
-          preSerialized[currentDefType] || (preSerialized[currentDefType] = []);
+        serializedList.push(`</${TAG_NAME_LANGUAGE_DATA}>`, '');
 
-        if (injection.fuzzy) {
-          block.push(`${indent}<!-- ${TEXT_FUZZY} -->`);
-        }
-        if (injection.unused) {
-          block.push(`${indent}<!-- ${TEXT_UNUSED} -->`);
-        }
-
-        if (Array.isArray(injection.origin)) {
-          const origin = injection.origin
-            .map(li => `${indent}${indent}<li>${li}</li>`)
-            .join(eol);
-          block.push(`${indent}<!-- ${TEXT_EN}${eol}${origin}${eol}${indent}-->`);
-        } else {
-          block.push(`${indent}<!-- ${TEXT_EN} ${injection.origin} -->`);
-        }
-
-        if (Array.isArray(injection.translation)) {
-          const translation = injection.translation
-            .map(li => `${indent}${indent}<li>${li}</li>`)
-            .join(eol);
-          block.push(`${indent}<${path}>${eol}${translation}${eol}${indent}</${path}>`);
-        } else {
-          block.push(`${indent}<${path}>${injection.translation}</${path}>`);
-        }
+        subSerializedMap[fileName] = serializedList.join(eol);
       });
-
-      const serializedList: string[] = [];
-
-      serializedList.push(xml.DEFAULT_DECLARATION, `<${TAG_NAME_LANGUAGE_DATA}>`, '');
-
-      [...new Set(defTypes)].forEach(currentDefType => {
-        serializedList.push(...preSerialized[currentDefType], '');
-      });
-
-      if (endComments.length > 0) {
-        serializedList.push(...endComments, '');
-      }
-
-      serializedList.push(`</${TAG_NAME_LANGUAGE_DATA}>`, '');
-
-      subSerializedMap[fileName] = serializedList.join(eol);
     });
+    return serializedMap;
   });
-
-  return serializedMap;
 }
 
 /**

@@ -1,7 +1,7 @@
 {
   "name": "@rimtrans/io",
   "description": "The io library for RimTrans.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "main": "lib/io.js",
   "types": "types/io.d.ts",
@@ -10,7 +10,7 @@
     "build:types": "tsc",
     "build:babel": "babel ./src -x .ts -d ./lib",
     "build": "yarn build:types && yarn build:babel",
-    "test": "jest --maxWorkers=1 --verbose"
+    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=../jest.setup.js"
   },
   "dependencies": {
     "@types/globby": "^9.1.0",

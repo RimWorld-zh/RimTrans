@@ -252,6 +252,9 @@ paket-files/
 *.sln.iml
 
 # Projects
+.tmp
+.tmp.*
+
 /coverage
 /*/coverage
 /dist

@@ -14,7 +14,7 @@
     "clean": "lerna run clean",
     "build": "lerna run build",
     "archive": "rimraf ./lib && yarn ts ./scripts/archive",
-    "test": "lerna run test",
+    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=./jest.setup.js",
     "ts": "ts-node -r tsconfig-paths/register -P ./scripts/tsconfig.json"
   },
   "devDependencies": {

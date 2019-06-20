@@ -2,6 +2,7 @@ import fs from 'fs';
 import pth from 'path';
 import globby, { GlobbyOptions } from 'globby';
 import rimraf from 'rimraf';
+import { ncp } from 'ncp';
 
 /**
  * Combine paths to a path string text.
@@ -102,6 +103,17 @@ export async function createDirectory(path: string): Promise<void> {
 export async function deleteFileOrDirectory(path: string): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     rimraf(path, fs, error => resolve());
+  });
+}
+
+/**
+ * Copy a file or a directory.
+ * @param source the path to source directory or file to copy
+ * @param target the path to target directory or file to copy to
+ */
+export async function copy(source: string, target: string): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
+    ncp(source, target, error => (error ? reject(error) : resolve()));
   });
 }
 

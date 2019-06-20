@@ -3,6 +3,7 @@
 
 module.exports = {
   collectCoverage: true,
+  coveragePathIgnorePatterns: ['/node_modules/', '/lib/', 'utils.test.ts'],
   coverageDirectory: 'coverage',
   coverageThreshold: {
     global: {
@@ -15,5 +16,6 @@ module.exports = {
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx'],
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['/node_modules/', '/lib/'],
+  testPathIgnorePatterns: ['/node_modules/', '/lib/', 'utils.test.ts'],
+  verbose: true,
 };

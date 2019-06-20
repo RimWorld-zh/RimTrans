@@ -9,6 +9,8 @@ module.exports = {
     'no-param-reassign': ['error', { props: false }],
     'no-return-assign': ['error', 'except-parens'],
     // 'no-useless-return': 'off',
+    'no-restricted-syntax': 'off',
+    'no-await-in-loop': 'off',
 
     '@typescript-eslint/explicit-function-return-type': [
       'error',

@@ -1,18 +1,12 @@
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
+import { pathsTypePackage } from './utils.test';
 import { ClassInfo, FieldInfo, ATTRIBUTE_MUST_TRANSLATE, load } from './type-package';
-
-const resolvePath = genPathResolve(__dirname, '..', '..');
-const paths = [
-  resolvePath('Reflection', 'type-package.json'),
-  resolvePath('Reflection', 'type-package-fix.json'),
-  resolvePath('Mock', 'Assemblies'),
-];
 
 describe('type-package', () => {
   let map: Record<string, ClassInfo>;
   beforeAll(async () => {
-    map = await load(paths);
+    map = await load([...pathsTypePackage, io.join(__dirname, 'Mock')]);
   });
 
   test('load', async () => {
