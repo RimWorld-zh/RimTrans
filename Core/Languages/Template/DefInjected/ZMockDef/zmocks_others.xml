@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-  <!-- Some Comments -->
-
   <!-- UNUSED -->
   <!-- EN: abandoned settlement -->
   <AbandonedSettlement.label>TODO</AbandonedSettlement.label>
@@ -60,5 +58,7 @@
   <!-- UNUSED -->
   <!-- EN: Transport pods in flight. -->
   <TravelingTransportPods.description>TODO</TravelingTransportPods.description>
+
+  <!-- Some Comments -->
 
 </LanguageData>

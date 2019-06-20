@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <CrashedShipPart_Ambience.label>TODO</CrashedShipPart_Ambience.label>
+  <!-- EN:  -->
+  <CrashedShipPart_Ambience.description>TODO</CrashedShipPart_Ambience.description>
+  <!-- EN:  -->
+  <CrashedShipPart_Ambience.subSounds.0.name>TODO</CrashedShipPart_Ambience.subSounds.0.name>
+
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience_Start.label>TODO</GeothermalPlant_Ambience_Start.label>
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience_Start.description>TODO</GeothermalPlant_Ambience_Start.description>
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience_Start.subSounds.0.name>TODO</GeothermalPlant_Ambience_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience_Stop.label>TODO</GeothermalPlant_Ambience_Stop.label>
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience_Stop.description>TODO</GeothermalPlant_Ambience_Stop.description>
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience_Stop.subSounds.0.name>TODO</GeothermalPlant_Ambience_Stop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience.label>TODO</GeothermalPlant_Ambience.label>
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience.description>TODO</GeothermalPlant_Ambience.description>
+  <!-- EN:  -->
+  <GeothermalPlant_Ambience.subSounds.0.name>TODO</GeothermalPlant_Ambience.subSounds.0.name>
+
+</LanguageData>

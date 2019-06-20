@@ -1,147 +1,243 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: hideous environment -->
-  <NeedBeauty.stages.hideous_environment.label>TODO</NeedBeauty.stages.hideous_environment.label>
-  <!-- EN: This place is unbearably grotesque. I can't look at this any more. -->
-  <NeedBeauty.stages.hideous_environment.description>TODO</NeedBeauty.stages.hideous_environment.description>
-  <!-- EN: ugly environment -->
-  <NeedBeauty.stages.ugly_environment.label>TODO</NeedBeauty.stages.ugly_environment.label>
-  <!-- EN: This place is really ugly. I wish I didn't have to look at this any more. -->
-  <NeedBeauty.stages.ugly_environment.description>TODO</NeedBeauty.stages.ugly_environment.description>
-  <!-- EN: unsightly environment -->
-  <NeedBeauty.stages.unsightly_environment.label>TODO</NeedBeauty.stages.unsightly_environment.label>
-  <!-- EN: This place is kind of unsightly. I wish I didn't have to look at all this. -->
-  <NeedBeauty.stages.unsightly_environment.description>TODO</NeedBeauty.stages.unsightly_environment.description>
-  <!-- EN: pretty environment -->
-  <NeedBeauty.stages.pretty_environment.label>TODO</NeedBeauty.stages.pretty_environment.label>
-  <!-- EN: This place looks nice. -->
-  <NeedBeauty.stages.pretty_environment.description>TODO</NeedBeauty.stages.pretty_environment.description>
-  <!-- EN: beautiful environment -->
-  <NeedBeauty.stages.beautiful_environment.label>TODO</NeedBeauty.stages.beautiful_environment.label>
-  <!-- EN: I really like this place. It's beautiful. -->
-  <NeedBeauty.stages.beautiful_environment.description>TODO</NeedBeauty.stages.beautiful_environment.description>
-  <!-- EN: gorgeous environment -->
-  <NeedBeauty.stages.gorgeous_environment.label>TODO</NeedBeauty.stages.gorgeous_environment.label>
-  <!-- EN: This place is beautiful. It lifts me up and makes me love life. -->
-  <NeedBeauty.stages.gorgeous_environment.description>TODO</NeedBeauty.stages.gorgeous_environment.description>
-  
-  <!-- EN: uncomfortable -->
-  <NeedComfort.stages.uncomfortable.label>TODO</NeedComfort.stages.uncomfortable.label>
-  <!-- EN: I've been kind of uncomfortable recently. We need to get something soft to sit on around here. -->
-  <NeedComfort.stages.uncomfortable.description>TODO</NeedComfort.stages.uncomfortable.description>
-  <!-- EN: comfortable -->
-  <NeedComfort.stages.comfortable.label>TODO</NeedComfort.stages.comfortable.label>
-  <!-- EN: I've been comfortable recently. -->
-  <NeedComfort.stages.comfortable.description>TODO</NeedComfort.stages.comfortable.description>
-  <!-- EN: quite comfortable -->
-  <NeedComfort.stages.quite_comfortable.label>TODO</NeedComfort.stages.quite_comfortable.label>
-  <!-- EN: I've been very comfortable recently. -->
-  <NeedComfort.stages.quite_comfortable.description>TODO</NeedComfort.stages.quite_comfortable.description>
-  <!-- EN: extremely comfortable -->
-  <NeedComfort.stages.extremely_comfortable.label>TODO</NeedComfort.stages.extremely_comfortable.label>
-  <!-- EN: I've been extremely comfortable recently. This place is so cushy! -->
-  <NeedComfort.stages.extremely_comfortable.description>TODO</NeedComfort.stages.extremely_comfortable.description>
-  <!-- EN: luxuriantly comfortable -->
-  <NeedComfort.stages.luxuriantly_comfortable.label>TODO</NeedComfort.stages.luxuriantly_comfortable.label>
-  <!-- EN: I am resting on clouds of heaven. -->
-  <NeedComfort.stages.luxuriantly_comfortable.description>TODO</NeedComfort.stages.luxuriantly_comfortable.description>
-  
+
+  <!-- EN:  -->
+  <NeedFood.label>TODO</NeedFood.label>
+  <!-- EN:  -->
+  <NeedFood.description>TODO</NeedFood.description>
   <!-- EN: hungry -->
   <NeedFood.stages.hungry.label>TODO</NeedFood.stages.hungry.label>
+  <!-- EN:  -->
+  <NeedFood.stages.hungry.labelSocial>TODO</NeedFood.stages.hungry.labelSocial>
   <!-- EN: I'm really hungry. -->
   <NeedFood.stages.hungry.description>TODO</NeedFood.stages.hungry.description>
   <!-- EN: ravenously hungry -->
   <NeedFood.stages.ravenously_hungry.label>TODO</NeedFood.stages.ravenously_hungry.label>
+  <!-- EN:  -->
+  <NeedFood.stages.ravenously_hungry.labelSocial>TODO</NeedFood.stages.ravenously_hungry.labelSocial>
   <!-- EN: These hunger pangs are hard to ignore. -->
   <NeedFood.stages.ravenously_hungry.description>TODO</NeedFood.stages.ravenously_hungry.description>
   <!-- EN: malnourished -->
   <NeedFood.stages.malnourished.label>TODO</NeedFood.stages.malnourished.label>
+  <!-- EN:  -->
+  <NeedFood.stages.malnourished.labelSocial>TODO</NeedFood.stages.malnourished.labelSocial>
   <!-- EN: It's been so long since I ate. I'm all fuzzy and it's hard to focus. My body is starting to waste away. -->
   <NeedFood.stages.malnourished.description>TODO</NeedFood.stages.malnourished.description>
   <!-- EN: badly malnourished -->
   <NeedFood.stages.badly_malnourished.label>TODO</NeedFood.stages.badly_malnourished.label>
+  <!-- EN:  -->
+  <NeedFood.stages.badly_malnourished.labelSocial>TODO</NeedFood.stages.badly_malnourished.labelSocial>
   <!-- EN: I can feel my body wasting away. My stomach hurts like never before. -->
   <NeedFood.stages.badly_malnourished.description>TODO</NeedFood.stages.badly_malnourished.description>
   <!-- EN: starving -->
   <NeedFood.stages.starving.label>TODO</NeedFood.stages.starving.label>
+  <!-- EN:  -->
+  <NeedFood.stages.starving.labelSocial>TODO</NeedFood.stages.starving.labelSocial>
   <!-- EN: I can barely think about anything but food. My skin is stretching over my bones. Am I going to die? -->
   <NeedFood.stages.starving.description>TODO</NeedFood.stages.starving.description>
   <!-- EN: advanced starvation -->
   <NeedFood.stages.advanced_starvation.label>TODO</NeedFood.stages.advanced_starvation.label>
+  <!-- EN:  -->
+  <NeedFood.stages.advanced_starvation.labelSocial>TODO</NeedFood.stages.advanced_starvation.labelSocial>
   <!-- EN: I can barely move or think about anything but food. My stomach hurts like never before. I feel like I'm going to pass out. -->
   <NeedFood.stages.advanced_starvation.description>TODO</NeedFood.stages.advanced_starvation.description>
   <!-- EN: extreme starvation -->
   <NeedFood.stages.extreme_starvation.label>TODO</NeedFood.stages.extreme_starvation.label>
+  <!-- EN:  -->
+  <NeedFood.stages.extreme_starvation.labelSocial>TODO</NeedFood.stages.extreme_starvation.labelSocial>
   <!-- EN: Food... food... anything... please... -->
   <NeedFood.stages.extreme_starvation.description>TODO</NeedFood.stages.extreme_starvation.description>
-  
-  <!-- EN: recreation-starved -->
-  <NeedJoy.stages.recreationstarved.label>TODO</NeedJoy.stages.recreationstarved.label>
-  <!-- EN: It's been so long since I did anything for fun on my own time. -->
-  <NeedJoy.stages.recreationstarved.description>TODO</NeedJoy.stages.recreationstarved.description>
-  <!-- EN: recreation-deprived -->
-  <NeedJoy.stages.recreationdeprived.label>TODO</NeedJoy.stages.recreationdeprived.label>
-  <!-- EN: We need more variation in recreation activities, and I need time to enjoy them. This place is really dull. -->
-  <NeedJoy.stages.recreationdeprived.description>TODO</NeedJoy.stages.recreationdeprived.description>
-  <!-- EN: recreation unfulfilled -->
-  <NeedJoy.stages.recreation_unfulfilled.label>TODO</NeedJoy.stages.recreation_unfulfilled.label>
-  <!-- EN: We need more variation in the recreation activities, and I need time to enjoy them. -->
-  <NeedJoy.stages.recreation_unfulfilled.description>TODO</NeedJoy.stages.recreation_unfulfilled.description>
-  <!-- EN: recreation satisfied -->
-  <NeedJoy.stages.recreation_satisfied.label>TODO</NeedJoy.stages.recreation_satisfied.label>
-  <!-- EN: I've been having a great time doing various things I like to do. -->
-  <NeedJoy.stages.recreation_satisfied.description>TODO</NeedJoy.stages.recreation_satisfied.description>
-  <!-- EN: recreation fully satisfied -->
-  <NeedJoy.stages.recreation_fully_satisfied.label>TODO</NeedJoy.stages.recreation_fully_satisfied.label>
-  <!-- EN: I've been enjoying myself so much, I love it! -->
-  <NeedJoy.stages.recreation_fully_satisfied.description>TODO</NeedJoy.stages.recreation_fully_satisfied.description>
-  
-  <!-- EN: entombed underground -->
-  <NeedOutdoors.stages.entombed_underground.label>TODO</NeedOutdoors.stages.entombed_underground.label>
-  <!-- EN: I've been underground too long. I feel like the weight of this mountain is crushing me. I need to see the sky and feel the wind. -->
-  <NeedOutdoors.stages.entombed_underground.description>TODO</NeedOutdoors.stages.entombed_underground.description>
-  <!-- EN: trapped underground -->
-  <NeedOutdoors.stages.trapped_underground.label>TODO</NeedOutdoors.stages.trapped_underground.label>
-  <!-- EN: How long have I been underground? I need to get out in the fresh air and spend some time under the sky. -->
-  <NeedOutdoors.stages.trapped_underground.description>TODO</NeedOutdoors.stages.trapped_underground.description>
-  <!-- EN: cabin fever -->
-  <NeedOutdoors.stages.cabin_fever.label>TODO</NeedOutdoors.stages.cabin_fever.label>
-  <!-- EN: I've spent so long indoors I feel like the roof is pressing in. I need to get out and see the sky. -->
-  <NeedOutdoors.stages.cabin_fever.description>TODO</NeedOutdoors.stages.cabin_fever.description>
-  <!-- EN: trapped indoors -->
-  <NeedOutdoors.stages.trapped_indoors.label>TODO</NeedOutdoors.stages.trapped_indoors.label>
-  <!-- EN: It's been too long since I've seen the sky. -->
-  <NeedOutdoors.stages.trapped_indoors.description>TODO</NeedOutdoors.stages.trapped_indoors.description>
-  <!-- EN: stuck indoors -->
-  <NeedOutdoors.stages.stuck_indoors.label>TODO</NeedOutdoors.stages.stuck_indoors.label>
-  <!-- EN: I'd like to go outside and get some fresh air. -->
-  <NeedOutdoors.stages.stuck_indoors.description>TODO</NeedOutdoors.stages.stuck_indoors.description>
-  
+
+  <!-- EN:  -->
+  <NeedRest.label>TODO</NeedRest.label>
+  <!-- EN:  -->
+  <NeedRest.description>TODO</NeedRest.description>
   <!-- EN: drowsy -->
   <NeedRest.stages.drowsy.label>TODO</NeedRest.stages.drowsy.label>
+  <!-- EN:  -->
+  <NeedRest.stages.drowsy.labelSocial>TODO</NeedRest.stages.drowsy.labelSocial>
   <!-- EN: I haven't slept in a while. It's hard to keep focus. -->
   <NeedRest.stages.drowsy.description>TODO</NeedRest.stages.drowsy.description>
   <!-- EN: tired -->
   <NeedRest.stages.tired.label>TODO</NeedRest.stages.tired.label>
+  <!-- EN:  -->
+  <NeedRest.stages.tired.labelSocial>TODO</NeedRest.stages.tired.labelSocial>
   <!-- EN: I'm so tired. I just want to lay down and rest for a few minutes... -->
   <NeedRest.stages.tired.description>TODO</NeedRest.stages.tired.description>
   <!-- EN: exhausted -->
   <NeedRest.stages.exhausted.label>TODO</NeedRest.stages.exhausted.label>
+  <!-- EN:  -->
+  <NeedRest.stages.exhausted.labelSocial>TODO</NeedRest.stages.exhausted.labelSocial>
   <!-- EN: I'm so exhausted I can barely stand. My eyelids have lead weights on them. Let me sleep... -->
   <NeedRest.stages.exhausted.description>TODO</NeedRest.stages.exhausted.description>
-  
+
+  <!-- EN:  -->
+  <NeedJoy.label>TODO</NeedJoy.label>
+  <!-- EN:  -->
+  <NeedJoy.description>TODO</NeedJoy.description>
+  <!-- EN: recreation-starved -->
+  <NeedJoy.stages.recreationstarved.label>TODO</NeedJoy.stages.recreationstarved.label>
+  <!-- EN:  -->
+  <NeedJoy.stages.recreationstarved.labelSocial>TODO</NeedJoy.stages.recreationstarved.labelSocial>
+  <!-- EN: It's been so long since I did anything for fun on my own time. -->
+  <NeedJoy.stages.recreationstarved.description>TODO</NeedJoy.stages.recreationstarved.description>
+  <!-- EN: recreation-deprived -->
+  <NeedJoy.stages.recreationdeprived.label>TODO</NeedJoy.stages.recreationdeprived.label>
+  <!-- EN:  -->
+  <NeedJoy.stages.recreationdeprived.labelSocial>TODO</NeedJoy.stages.recreationdeprived.labelSocial>
+  <!-- EN: We need more variation in recreation activities, and I need time to enjoy them. This place is really dull. -->
+  <NeedJoy.stages.recreationdeprived.description>TODO</NeedJoy.stages.recreationdeprived.description>
+  <!-- EN: recreation unfulfilled -->
+  <NeedJoy.stages.recreation_unfulfilled.label>TODO</NeedJoy.stages.recreation_unfulfilled.label>
+  <!-- EN:  -->
+  <NeedJoy.stages.recreation_unfulfilled.labelSocial>TODO</NeedJoy.stages.recreation_unfulfilled.labelSocial>
+  <!-- EN: We need more variation in the recreation activities, and I need time to enjoy them. -->
+  <NeedJoy.stages.recreation_unfulfilled.description>TODO</NeedJoy.stages.recreation_unfulfilled.description>
+  <!-- EN: recreation satisfied -->
+  <NeedJoy.stages.recreation_satisfied.label>TODO</NeedJoy.stages.recreation_satisfied.label>
+  <!-- EN:  -->
+  <NeedJoy.stages.recreation_satisfied.labelSocial>TODO</NeedJoy.stages.recreation_satisfied.labelSocial>
+  <!-- EN: I've been having a great time doing various things I like to do. -->
+  <NeedJoy.stages.recreation_satisfied.description>TODO</NeedJoy.stages.recreation_satisfied.description>
+  <!-- EN: recreation fully satisfied -->
+  <NeedJoy.stages.recreation_fully_satisfied.label>TODO</NeedJoy.stages.recreation_fully_satisfied.label>
+  <!-- EN:  -->
+  <NeedJoy.stages.recreation_fully_satisfied.labelSocial>TODO</NeedJoy.stages.recreation_fully_satisfied.labelSocial>
+  <!-- EN: I've been enjoying myself so much, I love it! -->
+  <NeedJoy.stages.recreation_fully_satisfied.description>TODO</NeedJoy.stages.recreation_fully_satisfied.description>
+
+  <!-- EN:  -->
+  <NeedComfort.label>TODO</NeedComfort.label>
+  <!-- EN:  -->
+  <NeedComfort.description>TODO</NeedComfort.description>
+  <!-- EN: uncomfortable -->
+  <NeedComfort.stages.uncomfortable.label>TODO</NeedComfort.stages.uncomfortable.label>
+  <!-- EN:  -->
+  <NeedComfort.stages.uncomfortable.labelSocial>TODO</NeedComfort.stages.uncomfortable.labelSocial>
+  <!-- EN: I've been kind of uncomfortable recently. We need to get something soft to sit on around here. -->
+  <NeedComfort.stages.uncomfortable.description>TODO</NeedComfort.stages.uncomfortable.description>
+  <!-- EN: comfortable -->
+  <NeedComfort.stages.comfortable.label>TODO</NeedComfort.stages.comfortable.label>
+  <!-- EN:  -->
+  <NeedComfort.stages.comfortable.labelSocial>TODO</NeedComfort.stages.comfortable.labelSocial>
+  <!-- EN: I've been comfortable recently. -->
+  <NeedComfort.stages.comfortable.description>TODO</NeedComfort.stages.comfortable.description>
+  <!-- EN: quite comfortable -->
+  <NeedComfort.stages.quite_comfortable.label>TODO</NeedComfort.stages.quite_comfortable.label>
+  <!-- EN:  -->
+  <NeedComfort.stages.quite_comfortable.labelSocial>TODO</NeedComfort.stages.quite_comfortable.labelSocial>
+  <!-- EN: I've been very comfortable recently. -->
+  <NeedComfort.stages.quite_comfortable.description>TODO</NeedComfort.stages.quite_comfortable.description>
+  <!-- EN: extremely comfortable -->
+  <NeedComfort.stages.extremely_comfortable.label>TODO</NeedComfort.stages.extremely_comfortable.label>
+  <!-- EN:  -->
+  <NeedComfort.stages.extremely_comfortable.labelSocial>TODO</NeedComfort.stages.extremely_comfortable.labelSocial>
+  <!-- EN: I've been extremely comfortable recently. This place is so cushy! -->
+  <NeedComfort.stages.extremely_comfortable.description>TODO</NeedComfort.stages.extremely_comfortable.description>
+  <!-- EN: luxuriantly comfortable -->
+  <NeedComfort.stages.luxuriantly_comfortable.label>TODO</NeedComfort.stages.luxuriantly_comfortable.label>
+  <!-- EN:  -->
+  <NeedComfort.stages.luxuriantly_comfortable.labelSocial>TODO</NeedComfort.stages.luxuriantly_comfortable.labelSocial>
+  <!-- EN: I am resting on clouds of heaven. -->
+  <NeedComfort.stages.luxuriantly_comfortable.description>TODO</NeedComfort.stages.luxuriantly_comfortable.description>
+
+  <!-- EN:  -->
+  <NeedBeauty.label>TODO</NeedBeauty.label>
+  <!-- EN:  -->
+  <NeedBeauty.description>TODO</NeedBeauty.description>
+  <!-- EN: hideous environment -->
+  <NeedBeauty.stages.hideous_environment.label>TODO</NeedBeauty.stages.hideous_environment.label>
+  <!-- EN:  -->
+  <NeedBeauty.stages.hideous_environment.labelSocial>TODO</NeedBeauty.stages.hideous_environment.labelSocial>
+  <!-- EN: This place is unbearably grotesque. I can't look at this any more. -->
+  <NeedBeauty.stages.hideous_environment.description>TODO</NeedBeauty.stages.hideous_environment.description>
+  <!-- EN: ugly environment -->
+  <NeedBeauty.stages.ugly_environment.label>TODO</NeedBeauty.stages.ugly_environment.label>
+  <!-- EN:  -->
+  <NeedBeauty.stages.ugly_environment.labelSocial>TODO</NeedBeauty.stages.ugly_environment.labelSocial>
+  <!-- EN: This place is really ugly. I wish I didn't have to look at this any more. -->
+  <NeedBeauty.stages.ugly_environment.description>TODO</NeedBeauty.stages.ugly_environment.description>
+  <!-- EN: unsightly environment -->
+  <NeedBeauty.stages.unsightly_environment.label>TODO</NeedBeauty.stages.unsightly_environment.label>
+  <!-- EN:  -->
+  <NeedBeauty.stages.unsightly_environment.labelSocial>TODO</NeedBeauty.stages.unsightly_environment.labelSocial>
+  <!-- EN: This place is kind of unsightly. I wish I didn't have to look at all this. -->
+  <NeedBeauty.stages.unsightly_environment.description>TODO</NeedBeauty.stages.unsightly_environment.description>
+  <!-- EN: pretty environment -->
+  <NeedBeauty.stages.pretty_environment.label>TODO</NeedBeauty.stages.pretty_environment.label>
+  <!-- EN:  -->
+  <NeedBeauty.stages.pretty_environment.labelSocial>TODO</NeedBeauty.stages.pretty_environment.labelSocial>
+  <!-- EN: This place looks nice. -->
+  <NeedBeauty.stages.pretty_environment.description>TODO</NeedBeauty.stages.pretty_environment.description>
+  <!-- EN: beautiful environment -->
+  <NeedBeauty.stages.beautiful_environment.label>TODO</NeedBeauty.stages.beautiful_environment.label>
+  <!-- EN:  -->
+  <NeedBeauty.stages.beautiful_environment.labelSocial>TODO</NeedBeauty.stages.beautiful_environment.labelSocial>
+  <!-- EN: I really like this place. It's beautiful. -->
+  <NeedBeauty.stages.beautiful_environment.description>TODO</NeedBeauty.stages.beautiful_environment.description>
+  <!-- EN: gorgeous environment -->
+  <NeedBeauty.stages.gorgeous_environment.label>TODO</NeedBeauty.stages.gorgeous_environment.label>
+  <!-- EN:  -->
+  <NeedBeauty.stages.gorgeous_environment.labelSocial>TODO</NeedBeauty.stages.gorgeous_environment.labelSocial>
+  <!-- EN: This place is beautiful. It lifts me up and makes me love life. -->
+  <NeedBeauty.stages.gorgeous_environment.description>TODO</NeedBeauty.stages.gorgeous_environment.description>
+
+  <!-- EN:  -->
+  <NeedRoomSize.label>TODO</NeedRoomSize.label>
+  <!-- EN:  -->
+  <NeedRoomSize.description>TODO</NeedRoomSize.description>
   <!-- EN: confined interior -->
   <NeedRoomSize.stages.confined_interior.label>TODO</NeedRoomSize.stages.confined_interior.label>
+  <!-- EN:  -->
+  <NeedRoomSize.stages.confined_interior.labelSocial>TODO</NeedRoomSize.stages.confined_interior.labelSocial>
   <!-- EN: This space is so tiny. I feel like a rat in a cage. -->
   <NeedRoomSize.stages.confined_interior.description>TODO</NeedRoomSize.stages.confined_interior.description>
   <!-- EN: cramped interior -->
   <NeedRoomSize.stages.cramped_interior.label>TODO</NeedRoomSize.stages.cramped_interior.label>
+  <!-- EN:  -->
+  <NeedRoomSize.stages.cramped_interior.labelSocial>TODO</NeedRoomSize.stages.cramped_interior.labelSocial>
   <!-- EN: This room is too small. I wish I had more space to move around and breathe. -->
   <NeedRoomSize.stages.cramped_interior.description>TODO</NeedRoomSize.stages.cramped_interior.description>
   <!-- EN: spacious interior -->
   <NeedRoomSize.stages.spacious_interior.label>TODO</NeedRoomSize.stages.spacious_interior.label>
+  <!-- EN:  -->
+  <NeedRoomSize.stages.spacious_interior.labelSocial>TODO</NeedRoomSize.stages.spacious_interior.labelSocial>
   <!-- EN: This room is so expansive, I feel free. -->
   <NeedRoomSize.stages.spacious_interior.description>TODO</NeedRoomSize.stages.spacious_interior.description>
-  
+
+  <!-- EN:  -->
+  <NeedOutdoors.label>TODO</NeedOutdoors.label>
+  <!-- EN:  -->
+  <NeedOutdoors.description>TODO</NeedOutdoors.description>
+  <!-- EN: entombed underground -->
+  <NeedOutdoors.stages.entombed_underground.label>TODO</NeedOutdoors.stages.entombed_underground.label>
+  <!-- EN:  -->
+  <NeedOutdoors.stages.entombed_underground.labelSocial>TODO</NeedOutdoors.stages.entombed_underground.labelSocial>
+  <!-- EN: I've been underground too long. I feel like the weight of this mountain is crushing me. I need to see the sky and feel the wind. -->
+  <NeedOutdoors.stages.entombed_underground.description>TODO</NeedOutdoors.stages.entombed_underground.description>
+  <!-- EN: trapped underground -->
+  <NeedOutdoors.stages.trapped_underground.label>TODO</NeedOutdoors.stages.trapped_underground.label>
+  <!-- EN:  -->
+  <NeedOutdoors.stages.trapped_underground.labelSocial>TODO</NeedOutdoors.stages.trapped_underground.labelSocial>
+  <!-- EN: How long have I been underground? I need to get out in the fresh air and spend some time under the sky. -->
+  <NeedOutdoors.stages.trapped_underground.description>TODO</NeedOutdoors.stages.trapped_underground.description>
+  <!-- EN: cabin fever -->
+  <NeedOutdoors.stages.cabin_fever.label>TODO</NeedOutdoors.stages.cabin_fever.label>
+  <!-- EN:  -->
+  <NeedOutdoors.stages.cabin_fever.labelSocial>TODO</NeedOutdoors.stages.cabin_fever.labelSocial>
+  <!-- EN: I've spent so long indoors I feel like the roof is pressing in. I need to get out and see the sky. -->
+  <NeedOutdoors.stages.cabin_fever.description>TODO</NeedOutdoors.stages.cabin_fever.description>
+  <!-- EN: trapped indoors -->
+  <NeedOutdoors.stages.trapped_indoors.label>TODO</NeedOutdoors.stages.trapped_indoors.label>
+  <!-- EN:  -->
+  <NeedOutdoors.stages.trapped_indoors.labelSocial>TODO</NeedOutdoors.stages.trapped_indoors.labelSocial>
+  <!-- EN: It's been too long since I've seen the sky. -->
+  <NeedOutdoors.stages.trapped_indoors.description>TODO</NeedOutdoors.stages.trapped_indoors.description>
+  <!-- EN: stuck indoors -->
+  <NeedOutdoors.stages.stuck_indoors.label>TODO</NeedOutdoors.stages.stuck_indoors.label>
+  <!-- EN:  -->
+  <NeedOutdoors.stages.stuck_indoors.labelSocial>TODO</NeedOutdoors.stages.stuck_indoors.labelSocial>
+  <!-- EN: I'd like to go outside and get some fresh air. -->
+  <NeedOutdoors.stages.stuck_indoors.description>TODO</NeedOutdoors.stages.stuck_indoors.description>
+
 </LanguageData>

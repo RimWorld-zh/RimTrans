@@ -1,12 +1,26 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: beetle-like -->
   <BeetleLike.label>TODO</BeetleLike.label>
+  <!-- EN:  -->
+  <BeetleLike.description>TODO</BeetleLike.description>
+  <!-- EN:  -->
+  <BeetleLike.corePart.customLabel>TODO</BeetleLike.corePart.customLabel>
   <!-- EN: left elytra -->
   <BeetleLike.corePart.parts.left_elytra.customLabel>TODO</BeetleLike.corePart.parts.left_elytra.customLabel>
   <!-- EN: right elytra -->
   <BeetleLike.corePart.parts.right_elytra.customLabel>TODO</BeetleLike.corePart.parts.right_elytra.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.Stomach.customLabel>TODO</BeetleLike.corePart.parts.Stomach.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.InsectHeart.customLabel>TODO</BeetleLike.corePart.parts.InsectHeart.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.Pronotum.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.Brain.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.Brain.customLabel>
   <!-- EN: left eye -->
   <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.left_eye.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.left_eye.customLabel>
   <!-- EN: right eye -->
@@ -15,6 +29,10 @@
   <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.left_antenna.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.left_antenna.customLabel>
   <!-- EN: right antenna -->
   <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.right_antenna.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.right_antenna.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.InsectNostril.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.InsectNostril.customLabel>
+  <!-- EN:  -->
+  <BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.InsectMouth.customLabel>TODO</BeetleLike.corePart.parts.Pronotum.parts.InsectHead.parts.InsectMouth.customLabel>
   <!-- EN: front left leg -->
   <BeetleLike.corePart.parts.front_left_leg.customLabel>TODO</BeetleLike.corePart.parts.front_left_leg.customLabel>
   <!-- EN: front right leg -->
@@ -27,13 +45,27 @@
   <BeetleLike.corePart.parts.rear_left_leg.customLabel>TODO</BeetleLike.corePart.parts.rear_left_leg.customLabel>
   <!-- EN: rear right leg -->
   <BeetleLike.corePart.parts.rear_right_leg.customLabel>TODO</BeetleLike.corePart.parts.rear_right_leg.customLabel>
-  
+
   <!-- EN: beetle-like with claw -->
   <BeetleLikeWithClaw.label>TODO</BeetleLikeWithClaw.label>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.description>TODO</BeetleLikeWithClaw.description>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.customLabel>TODO</BeetleLikeWithClaw.corePart.customLabel>
   <!-- EN: left elytra -->
   <BeetleLikeWithClaw.corePart.parts.left_elytra.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.left_elytra.customLabel>
   <!-- EN: right elytra -->
   <BeetleLikeWithClaw.corePart.parts.right_elytra.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.right_elytra.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Stomach.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Stomach.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.InsectHeart.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.InsectHeart.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Pronotum.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.Brain.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.Brain.customLabel>
   <!-- EN: left eye -->
   <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.left_eye.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.left_eye.customLabel>
   <!-- EN: right eye -->
@@ -42,6 +74,12 @@
   <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.left_antenna.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.left_antenna.customLabel>
   <!-- EN: right antenna -->
   <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.right_antenna.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.right_antenna.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.InsectNostril.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.InsectNostril.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.InsectMouth.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.InsectMouth.customLabel>
+  <!-- EN:  -->
+  <BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.HeadClaw.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.Pronotum.parts.InsectHead.parts.HeadClaw.customLabel>
   <!-- EN: front left leg -->
   <BeetleLikeWithClaw.corePart.parts.front_left_leg.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.front_left_leg.customLabel>
   <!-- EN: front right leg -->
@@ -54,5 +92,5 @@
   <BeetleLikeWithClaw.corePart.parts.rear_left_leg.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.rear_left_leg.customLabel>
   <!-- EN: rear right leg -->
   <BeetleLikeWithClaw.corePart.parts.rear_right_leg.customLabel>TODO</BeetleLikeWithClaw.corePart.parts.rear_right_leg.customLabel>
-  
+
 </LanguageData>

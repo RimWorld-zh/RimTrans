@@ -1,76 +1,124 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: afro -->
   <Afro.label>TODO</Afro.label>
-  
+  <!-- EN:  -->
+  <Afro.description>TODO</Afro.description>
+
   <!-- EN: bob -->
   <Bob.label>TODO</Bob.label>
-  
-  <!-- EN: braided knot -->
-  <BraidedKnot.label>TODO</BraidedKnot.label>
-  
-  <!-- EN: brief ponytail -->
-  <BriefPonytail.label>TODO</BriefPonytail.label>
-  
+  <!-- EN:  -->
+  <Bob.description>TODO</Bob.description>
+
   <!-- EN: burgundy -->
   <Burgundy.label>TODO</Burgundy.label>
-  
-  <!-- EN: curly -->
-  <Curly.label>TODO</Curly.label>
-  
-  <!-- EN: firestarter -->
-  <Firestarter.label>TODO</Firestarter.label>
-  
+  <!-- EN:  -->
+  <Burgundy.description>TODO</Burgundy.description>
+
   <!-- EN: flowy -->
   <Flowy.label>TODO</Flowy.label>
-  
-  <!-- EN: greasy swoop -->
-  <GreasySwoop.label>TODO</GreasySwoop.label>
-  
+  <!-- EN:  -->
+  <Flowy.description>TODO</Flowy.description>
+
   <!-- EN: long -->
   <Long.label>TODO</Long.label>
-  
-  <!-- EN: messy -->
-  <Messy.label>TODO</Messy.label>
-  
+  <!-- EN:  -->
+  <Long.description>TODO</Long.description>
+
   <!-- EN: mohawk -->
   <Mohawk.label>TODO</Mohawk.label>
-  
+  <!-- EN:  -->
+  <Mohawk.description>TODO</Mohawk.description>
+
   <!-- EN: mop -->
   <Mop.label>TODO</Mop.label>
-  
+  <!-- EN:  -->
+  <Mop.description>TODO</Mop.description>
+
   <!-- EN: pigtails -->
   <Pigtails.label>TODO</Pigtails.label>
-  
-  <!-- EN: princess -->
-  <Princess.label>TODO</Princess.label>
-  
-  <!-- EN: scatman -->
-  <Scatman.label>TODO</Scatman.label>
-  
-  <!-- EN: scorpion tail -->
-  <ScorpionTail.label>TODO</ScorpionTail.label>
-  
-  <!-- EN: senorita -->
-  <Senorita.label>TODO</Senorita.label>
-  
+  <!-- EN:  -->
+  <Pigtails.description>TODO</Pigtails.description>
+
   <!-- EN: shaved -->
   <Shaved.label>TODO</Shaved.label>
-  
+  <!-- EN:  -->
+  <Shaved.description>TODO</Shaved.description>
+
   <!-- EN: spikes -->
   <Spikes.label>TODO</Spikes.label>
-  
-  <!-- EN: topdog -->
-  <Topdog.label>TODO</Topdog.label>
-  
-  <!-- EN: troubadour -->
-  <Troubadour.label>TODO</Troubadour.label>
-  
+  <!-- EN:  -->
+  <Spikes.description>TODO</Spikes.description>
+
   <!-- EN: tuft -->
   <Tuft.label>TODO</Tuft.label>
-  
+  <!-- EN:  -->
+  <Tuft.description>TODO</Tuft.description>
+
   <!-- EN: wavy -->
   <Wavy.label>TODO</Wavy.label>
-  
+  <!-- EN:  -->
+  <Wavy.description>TODO</Wavy.description>
+
+  <!-- EN: braided knot -->
+  <BraidedKnot.label>TODO</BraidedKnot.label>
+  <!-- EN:  -->
+  <BraidedKnot.description>TODO</BraidedKnot.description>
+
+  <!-- EN: topdog -->
+  <Topdog.label>TODO</Topdog.label>
+  <!-- EN:  -->
+  <Topdog.description>TODO</Topdog.description>
+
+  <!-- EN: senorita -->
+  <Senorita.label>TODO</Senorita.label>
+  <!-- EN:  -->
+  <Senorita.description>TODO</Senorita.description>
+
+  <!-- EN: scorpion tail -->
+  <ScorpionTail.label>TODO</ScorpionTail.label>
+  <!-- EN:  -->
+  <ScorpionTail.description>TODO</ScorpionTail.description>
+
+  <!-- EN: brief ponytail -->
+  <BriefPonytail.label>TODO</BriefPonytail.label>
+  <!-- EN:  -->
+  <BriefPonytail.description>TODO</BriefPonytail.description>
+
+  <!-- EN: troubadour -->
+  <Troubadour.label>TODO</Troubadour.label>
+  <!-- EN:  -->
+  <Troubadour.description>TODO</Troubadour.description>
+
+  <!-- EN: messy -->
+  <Messy.label>TODO</Messy.label>
+  <!-- EN:  -->
+  <Messy.description>TODO</Messy.description>
+
+  <!-- EN: princess -->
+  <Princess.label>TODO</Princess.label>
+  <!-- EN:  -->
+  <Princess.description>TODO</Princess.description>
+
+  <!-- EN: firestarter -->
+  <Firestarter.label>TODO</Firestarter.label>
+  <!-- EN:  -->
+  <Firestarter.description>TODO</Firestarter.description>
+
+  <!-- EN: greasy swoop -->
+  <GreasySwoop.label>TODO</GreasySwoop.label>
+  <!-- EN:  -->
+  <GreasySwoop.description>TODO</GreasySwoop.description>
+
+  <!-- EN: curly -->
+  <Curly.label>TODO</Curly.label>
+  <!-- EN:  -->
+  <Curly.description>TODO</Curly.description>
+
+  <!-- EN: scatman -->
+  <Scatman.label>TODO</Scatman.label>
+  <!-- EN:  -->
+  <Scatman.description>TODO</Scatman.description>
+
 </LanguageData>

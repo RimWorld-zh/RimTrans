@@ -1,34 +1,124 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: grenadier -->
   <Grenadier_Destructive.label>TODO</Grenadier_Destructive.label>
-  
+  <!-- EN:  -->
+  <Grenadier_Destructive.description>TODO</Grenadier_Destructive.description>
+  <!-- EN:  -->
+  <Grenadier_Destructive.labelPlural>TODO</Grenadier_Destructive.labelPlural>
+  <!-- EN:  -->
+  <Grenadier_Destructive.labelMale>TODO</Grenadier_Destructive.labelMale>
+  <!-- EN:  -->
+  <Grenadier_Destructive.labelMalePlural>TODO</Grenadier_Destructive.labelMalePlural>
+  <!-- EN:  -->
+  <Grenadier_Destructive.labelFemale>TODO</Grenadier_Destructive.labelFemale>
+  <!-- EN:  -->
+  <Grenadier_Destructive.labelFemalePlural>TODO</Grenadier_Destructive.labelFemalePlural>
+
   <!-- EN: EMP grenadier -->
   <Grenadier_EMP.label>TODO</Grenadier_EMP.label>
-  
-  <!-- EN: elite mercenary -->
-  <Mercenary_Elite.label>TODO</Mercenary_Elite.label>
-  <!-- EN: elite mercenaries -->
-  <Mercenary_Elite.labelPlural>TODO</Mercenary_Elite.labelPlural>
-  
+  <!-- EN:  -->
+  <Grenadier_EMP.description>TODO</Grenadier_EMP.description>
+  <!-- EN:  -->
+  <Grenadier_EMP.labelPlural>TODO</Grenadier_EMP.labelPlural>
+  <!-- EN:  -->
+  <Grenadier_EMP.labelMale>TODO</Grenadier_EMP.labelMale>
+  <!-- EN:  -->
+  <Grenadier_EMP.labelMalePlural>TODO</Grenadier_EMP.labelMalePlural>
+  <!-- EN:  -->
+  <Grenadier_EMP.labelFemale>TODO</Grenadier_EMP.labelFemale>
+  <!-- EN:  -->
+  <Grenadier_EMP.labelFemalePlural>TODO</Grenadier_EMP.labelFemalePlural>
+
   <!-- EN: mercenary gunner -->
   <Mercenary_Gunner.label>TODO</Mercenary_Gunner.label>
-  
-  <!-- EN: heavy mercenary -->
-  <Mercenary_Heavy.label>TODO</Mercenary_Heavy.label>
-  <!-- EN: heavy mercenaries -->
-  <Mercenary_Heavy.labelPlural>TODO</Mercenary_Heavy.labelPlural>
-  
-  <!-- EN: mercenary slasher -->
-  <Mercenary_Slasher.label>TODO</Mercenary_Slasher.label>
-  
+  <!-- EN:  -->
+  <Mercenary_Gunner.description>TODO</Mercenary_Gunner.description>
+  <!-- EN:  -->
+  <Mercenary_Gunner.labelPlural>TODO</Mercenary_Gunner.labelPlural>
+  <!-- EN:  -->
+  <Mercenary_Gunner.labelMale>TODO</Mercenary_Gunner.labelMale>
+  <!-- EN:  -->
+  <Mercenary_Gunner.labelMalePlural>TODO</Mercenary_Gunner.labelMalePlural>
+  <!-- EN:  -->
+  <Mercenary_Gunner.labelFemale>TODO</Mercenary_Gunner.labelFemale>
+  <!-- EN:  -->
+  <Mercenary_Gunner.labelFemalePlural>TODO</Mercenary_Gunner.labelFemalePlural>
+
   <!-- EN: mercenary sniper -->
   <Mercenary_Sniper.label>TODO</Mercenary_Sniper.label>
-  
+  <!-- EN:  -->
+  <Mercenary_Sniper.description>TODO</Mercenary_Sniper.description>
+  <!-- EN:  -->
+  <Mercenary_Sniper.labelPlural>TODO</Mercenary_Sniper.labelPlural>
+  <!-- EN:  -->
+  <Mercenary_Sniper.labelMale>TODO</Mercenary_Sniper.labelMale>
+  <!-- EN:  -->
+  <Mercenary_Sniper.labelMalePlural>TODO</Mercenary_Sniper.labelMalePlural>
+  <!-- EN:  -->
+  <Mercenary_Sniper.labelFemale>TODO</Mercenary_Sniper.labelFemale>
+  <!-- EN:  -->
+  <Mercenary_Sniper.labelFemalePlural>TODO</Mercenary_Sniper.labelFemalePlural>
+
+  <!-- EN: mercenary slasher -->
+  <Mercenary_Slasher.label>TODO</Mercenary_Slasher.label>
+  <!-- EN:  -->
+  <Mercenary_Slasher.description>TODO</Mercenary_Slasher.description>
+  <!-- EN:  -->
+  <Mercenary_Slasher.labelPlural>TODO</Mercenary_Slasher.labelPlural>
+  <!-- EN:  -->
+  <Mercenary_Slasher.labelMale>TODO</Mercenary_Slasher.labelMale>
+  <!-- EN:  -->
+  <Mercenary_Slasher.labelMalePlural>TODO</Mercenary_Slasher.labelMalePlural>
+  <!-- EN:  -->
+  <Mercenary_Slasher.labelFemale>TODO</Mercenary_Slasher.labelFemale>
+  <!-- EN:  -->
+  <Mercenary_Slasher.labelFemalePlural>TODO</Mercenary_Slasher.labelFemalePlural>
+
+  <!-- EN: heavy mercenary -->
+  <Mercenary_Heavy.label>TODO</Mercenary_Heavy.label>
+  <!-- EN:  -->
+  <Mercenary_Heavy.description>TODO</Mercenary_Heavy.description>
+  <!-- EN: heavy mercenaries -->
+  <Mercenary_Heavy.labelPlural>TODO</Mercenary_Heavy.labelPlural>
+  <!-- EN:  -->
+  <Mercenary_Heavy.labelMale>TODO</Mercenary_Heavy.labelMale>
+  <!-- EN:  -->
+  <Mercenary_Heavy.labelMalePlural>TODO</Mercenary_Heavy.labelMalePlural>
+  <!-- EN:  -->
+  <Mercenary_Heavy.labelFemale>TODO</Mercenary_Heavy.labelFemale>
+  <!-- EN:  -->
+  <Mercenary_Heavy.labelFemalePlural>TODO</Mercenary_Heavy.labelFemalePlural>
+
   <!-- EN: boss -->
   <PirateBoss.label>TODO</PirateBoss.label>
+  <!-- EN:  -->
+  <PirateBoss.description>TODO</PirateBoss.description>
   <!-- EN: bosses -->
   <PirateBoss.labelPlural>TODO</PirateBoss.labelPlural>
-  
+  <!-- EN:  -->
+  <PirateBoss.labelMale>TODO</PirateBoss.labelMale>
+  <!-- EN:  -->
+  <PirateBoss.labelMalePlural>TODO</PirateBoss.labelMalePlural>
+  <!-- EN:  -->
+  <PirateBoss.labelFemale>TODO</PirateBoss.labelFemale>
+  <!-- EN:  -->
+  <PirateBoss.labelFemalePlural>TODO</PirateBoss.labelFemalePlural>
+
+  <!-- EN: elite mercenary -->
+  <Mercenary_Elite.label>TODO</Mercenary_Elite.label>
+  <!-- EN:  -->
+  <Mercenary_Elite.description>TODO</Mercenary_Elite.description>
+  <!-- EN: elite mercenaries -->
+  <Mercenary_Elite.labelPlural>TODO</Mercenary_Elite.labelPlural>
+  <!-- EN:  -->
+  <Mercenary_Elite.labelMale>TODO</Mercenary_Elite.labelMale>
+  <!-- EN:  -->
+  <Mercenary_Elite.labelMalePlural>TODO</Mercenary_Elite.labelMalePlural>
+  <!-- EN:  -->
+  <Mercenary_Elite.labelFemale>TODO</Mercenary_Elite.labelFemale>
+  <!-- EN:  -->
+  <Mercenary_Elite.labelFemalePlural>TODO</Mercenary_Elite.labelFemalePlural>
+
 </LanguageData>

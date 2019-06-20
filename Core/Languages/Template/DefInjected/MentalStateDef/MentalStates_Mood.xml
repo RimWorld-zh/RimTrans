@@ -1,177 +1,251 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: tantrum -->
-  <BedroomTantrum.label>TODO</BedroomTantrum.label>
-  <!-- EN: Mental state: Tantrum -->
-  <BedroomTantrum.baseInspectLine>TODO</BedroomTantrum.baseInspectLine>
-  <!-- EN: {0} is having a tantrum.\n\n[PAWN_pronoun] is going to smash things in [PAWN_possessive] room. -->
-  <BedroomTantrum.beginLetter>TODO</BedroomTantrum.beginLetter>
-  <!-- EN: {0} is no longer having a tantrum. -->
-  <BedroomTantrum.recoveryMessage>TODO</BedroomTantrum.recoveryMessage>
-  
+
   <!-- EN: berserk -->
   <Berserk.label>TODO</Berserk.label>
-  <!-- EN: Mental state: Berserk -->
-  <Berserk.baseInspectLine>TODO</Berserk.baseInspectLine>
+  <!-- EN:  -->
+  <Berserk.description>TODO</Berserk.description>
   <!-- EN: {0} has gone berserk.\n\n[PAWN_pronoun] will attack anyone [PAWN_pronoun] sees. -->
   <Berserk.beginLetter>TODO</Berserk.beginLetter>
+  <!-- EN:  -->
+  <Berserk.beginLetterLabel>TODO</Berserk.beginLetterLabel>
   <!-- EN: {0}'s berserk rage has come to an end. -->
   <Berserk.recoveryMessage>TODO</Berserk.recoveryMessage>
-  
-  <!-- EN: binging on drug -->
-  <Binging_DrugExtreme.label>TODO</Binging_DrugExtreme.label>
-  <!-- EN: Mental state: Binging on {0} -->
-  <Binging_DrugExtreme.baseInspectLine>TODO</Binging_DrugExtreme.baseInspectLine>
-  
-  <!-- EN: binging on drug -->
-  <Binging_DrugMajor.label>TODO</Binging_DrugMajor.label>
-  <!-- EN: Mental state: Binging on {0} -->
-  <Binging_DrugMajor.baseInspectLine>TODO</Binging_DrugMajor.baseInspectLine>
-  
-  <!-- EN: binging on food -->
-  <Binging_Food.label>TODO</Binging_Food.label>
-  <!-- EN: Mental state: Pigging out -->
-  <Binging_Food.baseInspectLine>TODO</Binging_Food.baseInspectLine>
-  <!-- EN: {0} is pigging out on food. -->
-  <Binging_Food.beginLetter>TODO</Binging_Food.beginLetter>
-  <!-- EN: food binge -->
-  <Binging_Food.beginLetterLabel>TODO</Binging_Food.beginLetterLabel>
-  <!-- EN: {0} is no longer pigging out on food. -->
-  <Binging_Food.recoveryMessage>TODO</Binging_Food.recoveryMessage>
-  
-  <!-- EN: corpse obsession -->
-  <CorpseObsession.label>TODO</CorpseObsession.label>
-  <!-- EN: Mental state: Corpse obsession -->
-  <CorpseObsession.baseInspectLine>TODO</CorpseObsession.baseInspectLine>
-  <!-- EN: {0} has broken inside and become obsessed with corpses.\n\n[PAWN_pronoun] is going to dig up a corpse and present it for all to see. -->
-  <CorpseObsession.beginLetter>TODO</CorpseObsession.beginLetter>
-  <!-- EN: {0} is no longer having a corpse obsession. -->
-  <CorpseObsession.recoveryMessage>TODO</CorpseObsession.recoveryMessage>
-  
+  <!-- EN: Mental state: Berserk -->
+  <Berserk.baseInspectLine>TODO</Berserk.baseInspectLine>
+
   <!-- EN: fire starting spree -->
   <FireStartingSpree.label>TODO</FireStartingSpree.label>
-  <!-- EN: Mental state: Fire starting spree -->
-  <FireStartingSpree.baseInspectLine>TODO</FireStartingSpree.baseInspectLine>
+  <!-- EN:  -->
+  <FireStartingSpree.description>TODO</FireStartingSpree.description>
   <!-- EN: {0} is on a fire starting spree.\n\n[PAWN_pronoun] will wander around for a while, randomly starting fires. -->
   <FireStartingSpree.beginLetter>TODO</FireStartingSpree.beginLetter>
+  <!-- EN:  -->
+  <FireStartingSpree.beginLetterLabel>TODO</FireStartingSpree.beginLetterLabel>
   <!-- EN: {0} is no longer on a fire starting spree. -->
   <FireStartingSpree.recoveryMessage>TODO</FireStartingSpree.recoveryMessage>
-  
-  <!-- EN: giving up and leaving -->
-  <GiveUpExit.label>TODO</GiveUpExit.label>
-  <!-- EN: Mental state: Given up and leaving -->
-  <GiveUpExit.baseInspectLine>TODO</GiveUpExit.baseInspectLine>
-  <!-- EN: {0} has given up on this community.\n\n[PAWN_pronoun] has decided to leave and pursue a better life elsewhere. You can try to arrest [PAWN_objective] as [PAWN_pronoun] leaves. Otherwise, you may still see [PAWN_objective] again some day. -->
-  <GiveUpExit.beginLetter>TODO</GiveUpExit.beginLetter>
-  <!-- EN: gave up -->
-  <GiveUpExit.beginLetterLabel>TODO</GiveUpExit.beginLetterLabel>
-  <!-- EN: {0} has had a change of heart and is coming back to the colony. -->
-  <GiveUpExit.recoveryMessage>TODO</GiveUpExit.recoveryMessage>
-  
-  <!-- EN: insulting spree -->
-  <InsultingSpree.label>TODO</InsultingSpree.label>
-  <!-- EN: Mental state: Insulting spree -->
-  <InsultingSpree.baseInspectLine>TODO</InsultingSpree.baseInspectLine>
-  <!-- EN: {0} is on an insulting spree.\n\n[PAWN_pronoun] will wander around, randomly insulting others. -->
-  <InsultingSpree.beginLetter>TODO</InsultingSpree.beginLetter>
-  <!-- EN: {0} is no longer on an insulting spree. -->
-  <InsultingSpree.recoveryMessage>TODO</InsultingSpree.recoveryMessage>
-  
+  <!-- EN: Mental state: Fire starting spree -->
+  <FireStartingSpree.baseInspectLine>TODO</FireStartingSpree.baseInspectLine>
+
+  <!-- EN: binging on drug -->
+  <Binging_DrugExtreme.label>TODO</Binging_DrugExtreme.label>
+  <!-- EN:  -->
+  <Binging_DrugExtreme.description>TODO</Binging_DrugExtreme.description>
+  <!-- EN:  -->
+  <Binging_DrugExtreme.beginLetter>TODO</Binging_DrugExtreme.beginLetter>
+  <!-- EN:  -->
+  <Binging_DrugExtreme.beginLetterLabel>TODO</Binging_DrugExtreme.beginLetterLabel>
+  <!-- EN:  -->
+  <Binging_DrugExtreme.recoveryMessage>TODO</Binging_DrugExtreme.recoveryMessage>
+  <!-- EN: Mental state: Binging on {0} -->
+  <Binging_DrugExtreme.baseInspectLine>TODO</Binging_DrugExtreme.baseInspectLine>
+
   <!-- EN: inducing prisoner to escape -->
   <Jailbreaker.label>TODO</Jailbreaker.label>
-  <!-- EN: Mental state: Jailbreaker -->
-  <Jailbreaker.baseInspectLine>TODO</Jailbreaker.baseInspectLine>
+  <!-- EN:  -->
+  <Jailbreaker.description>TODO</Jailbreaker.description>
   <!-- EN: {0} has a mental breakdown and is going to induce prisoners to escape. -->
   <Jailbreaker.beginLetter>TODO</Jailbreaker.beginLetter>
   <!-- EN: jailbreaker -->
   <Jailbreaker.beginLetterLabel>TODO</Jailbreaker.beginLetterLabel>
   <!-- EN: {0} is no longer inducing prisoners to escape. -->
   <Jailbreaker.recoveryMessage>TODO</Jailbreaker.recoveryMessage>
-  
-  <!-- EN: murderous rage -->
-  <MurderousRage.label>TODO</MurderousRage.label>
-  <!-- EN: Mental state: Murderous rage -->
-  <MurderousRage.baseInspectLine>TODO</MurderousRage.baseInspectLine>
-  <!-- EN: {0} has flown into a murderous rage.\n\n[PAWN_pronoun] has decided to kill {1}. -->
-  <MurderousRage.beginLetter>TODO</MurderousRage.beginLetter>
-  <!-- EN: {0} is no longer in a murderous rage. -->
-  <MurderousRage.recoveryMessage>TODO</MurderousRage.recoveryMessage>
-  
-  <!-- EN: sadistic rage -->
-  <SadisticRage.label>TODO</SadisticRage.label>
-  <!-- EN: Mental state: Sadistic rage -->
-  <SadisticRage.baseInspectLine>TODO</SadisticRage.baseInspectLine>
-  <!-- EN: {0} has flown into a sadistic rage.\n\n[PAWN_pronoun] is going to vent [PAWN_possessive] anger on the prisoners. -->
-  <SadisticRage.beginLetter>TODO</SadisticRage.beginLetter>
-  <!-- EN: {0} is no longer in a sadistic rage. -->
-  <SadisticRage.recoveryMessage>TODO</SadisticRage.recoveryMessage>
-  
+  <!-- EN: Mental state: Jailbreaker -->
+  <Jailbreaker.baseInspectLine>TODO</Jailbreaker.baseInspectLine>
+
   <!-- EN: slaughterer -->
   <Slaughterer.label>TODO</Slaughterer.label>
-  <!-- EN: Mental state: Slaughterer -->
-  <Slaughterer.baseInspectLine>TODO</Slaughterer.baseInspectLine>
+  <!-- EN:  -->
+  <Slaughterer.description>TODO</Slaughterer.description>
   <!-- EN: {0} has a mental breakdown and is going to vent [PAWN_possessive] anger on your animals. -->
   <Slaughterer.beginLetter>TODO</Slaughterer.beginLetter>
+  <!-- EN:  -->
+  <Slaughterer.beginLetterLabel>TODO</Slaughterer.beginLetterLabel>
   <!-- EN: {0} is no longer slaughtering random animals. -->
   <Slaughterer.recoveryMessage>TODO</Slaughterer.recoveryMessage>
-  
-  <!-- EN: tantrum -->
-  <Tantrum.label>TODO</Tantrum.label>
-  <!-- EN: Mental state: Tantrum -->
-  <Tantrum.baseInspectLine>TODO</Tantrum.baseInspectLine>
-  <!-- EN: {0} is having a tantrum.\n\n[PAWN_pronoun] will smash up random furniture, items and structures. -->
-  <Tantrum.beginLetter>TODO</Tantrum.beginLetter>
-  <!-- EN: {0} is no longer having a tantrum. -->
-  <Tantrum.recoveryMessage>TODO</Tantrum.recoveryMessage>
-  
-  <!-- EN: insulting spree -->
-  <TargetedInsultingSpree.label>TODO</TargetedInsultingSpree.label>
-  <!-- EN: Mental state: Insulting spree against {0} -->
-  <TargetedInsultingSpree.baseInspectLine>TODO</TargetedInsultingSpree.baseInspectLine>
-  <!-- EN: {0} has fixated [PAWN_possessive] rage on {1}.\n\n[PAWN_pronoun] will follow {1} around, hurling insults. -->
-  <TargetedInsultingSpree.beginLetter>TODO</TargetedInsultingSpree.beginLetter>
-  
-  <!-- EN: tantrum -->
-  <TargetedTantrum.label>TODO</TargetedTantrum.label>
-  <!-- EN: Mental state: Tantrum -->
-  <TargetedTantrum.baseInspectLine>TODO</TargetedTantrum.baseInspectLine>
-  <!-- EN: {0} is having a tantrum.\n\n[PAWN_pronoun] is going to destroy {1}. -->
-  <TargetedTantrum.beginLetter>TODO</TargetedTantrum.beginLetter>
-  <!-- EN: {0} is no longer having a tantrum. -->
-  <TargetedTantrum.recoveryMessage>TODO</TargetedTantrum.recoveryMessage>
-  
-  <!-- EN: sitting alone -->
-  <Wander_OwnRoom.label>TODO</Wander_OwnRoom.label>
-  <!-- EN: Mental state: Hiding in room -->
-  <Wander_OwnRoom.baseInspectLine>TODO</Wander_OwnRoom.baseInspectLine>
-  <!-- EN: {0} is hiding in [PAWN_possessive] room. -->
-  <Wander_OwnRoom.beginLetter>TODO</Wander_OwnRoom.beginLetter>
-  <!-- EN: hide in room -->
-  <Wander_OwnRoom.beginLetterLabel>TODO</Wander_OwnRoom.beginLetterLabel>
-  <!-- EN: {0} is no longer hiding in [PAWN_possessive] room. -->
-  <Wander_OwnRoom.recoveryMessage>TODO</Wander_OwnRoom.recoveryMessage>
-  
+  <!-- EN: Mental state: Slaughterer -->
+  <Slaughterer.baseInspectLine>TODO</Slaughterer.baseInspectLine>
+
+  <!-- EN: murderous rage -->
+  <MurderousRage.label>TODO</MurderousRage.label>
+  <!-- EN:  -->
+  <MurderousRage.description>TODO</MurderousRage.description>
+  <!-- EN: {0} has flown into a murderous rage.\n\n[PAWN_pronoun] has decided to kill {1}. -->
+  <MurderousRage.beginLetter>TODO</MurderousRage.beginLetter>
+  <!-- EN:  -->
+  <MurderousRage.beginLetterLabel>TODO</MurderousRage.beginLetterLabel>
+  <!-- EN: {0} is no longer in a murderous rage. -->
+  <MurderousRage.recoveryMessage>TODO</MurderousRage.recoveryMessage>
+  <!-- EN: Mental state: Murderous rage -->
+  <MurderousRage.baseInspectLine>TODO</MurderousRage.baseInspectLine>
+
+  <!-- EN: giving up and leaving -->
+  <GiveUpExit.label>TODO</GiveUpExit.label>
+  <!-- EN:  -->
+  <GiveUpExit.description>TODO</GiveUpExit.description>
+  <!-- EN: {0} has given up on this community.\n\n[PAWN_pronoun] has decided to leave and pursue a better life elsewhere. You can try to arrest [PAWN_objective] as [PAWN_pronoun] leaves. Otherwise, you may still see [PAWN_objective] again some day. -->
+  <GiveUpExit.beginLetter>TODO</GiveUpExit.beginLetter>
+  <!-- EN: gave up -->
+  <GiveUpExit.beginLetterLabel>TODO</GiveUpExit.beginLetterLabel>
+  <!-- EN: {0} has had a change of heart and is coming back to the colony. -->
+  <GiveUpExit.recoveryMessage>TODO</GiveUpExit.recoveryMessage>
+  <!-- EN: Mental state: Given up and leaving -->
+  <GiveUpExit.baseInspectLine>TODO</GiveUpExit.baseInspectLine>
+
+  <!-- EN: binging on drug -->
+  <Binging_DrugMajor.label>TODO</Binging_DrugMajor.label>
+  <!-- EN:  -->
+  <Binging_DrugMajor.description>TODO</Binging_DrugMajor.description>
+  <!-- EN:  -->
+  <Binging_DrugMajor.beginLetter>TODO</Binging_DrugMajor.beginLetter>
+  <!-- EN:  -->
+  <Binging_DrugMajor.beginLetterLabel>TODO</Binging_DrugMajor.beginLetterLabel>
+  <!-- EN:  -->
+  <Binging_DrugMajor.recoveryMessage>TODO</Binging_DrugMajor.recoveryMessage>
+  <!-- EN: Mental state: Binging on {0} -->
+  <Binging_DrugMajor.baseInspectLine>TODO</Binging_DrugMajor.baseInspectLine>
+
   <!-- EN: wandering in psychosis -->
   <Wander_Psychotic.label>TODO</Wander_Psychotic.label>
-  <!-- EN: Mental state: Psychotic wandering -->
-  <Wander_Psychotic.baseInspectLine>TODO</Wander_Psychotic.baseInspectLine>
+  <!-- EN:  -->
+  <Wander_Psychotic.description>TODO</Wander_Psychotic.description>
   <!-- EN: {0} is wandering around in a psychotic state. -->
   <Wander_Psychotic.beginLetter>TODO</Wander_Psychotic.beginLetter>
   <!-- EN: daze -->
   <Wander_Psychotic.beginLetterLabel>TODO</Wander_Psychotic.beginLetterLabel>
   <!-- EN: {0} is no longer wandering in a psychotic state. -->
   <Wander_Psychotic.recoveryMessage>TODO</Wander_Psychotic.recoveryMessage>
-  
+  <!-- EN: Mental state: Psychotic wandering -->
+  <Wander_Psychotic.baseInspectLine>TODO</Wander_Psychotic.baseInspectLine>
+
+  <!-- EN: tantrum -->
+  <Tantrum.label>TODO</Tantrum.label>
+  <!-- EN:  -->
+  <Tantrum.description>TODO</Tantrum.description>
+  <!-- EN: {0} is having a tantrum.\n\n[PAWN_pronoun] will smash up random furniture, items and structures. -->
+  <Tantrum.beginLetter>TODO</Tantrum.beginLetter>
+  <!-- EN:  -->
+  <Tantrum.beginLetterLabel>TODO</Tantrum.beginLetterLabel>
+  <!-- EN: {0} is no longer having a tantrum. -->
+  <Tantrum.recoveryMessage>TODO</Tantrum.recoveryMessage>
+  <!-- EN: Mental state: Tantrum -->
+  <Tantrum.baseInspectLine>TODO</Tantrum.baseInspectLine>
+
+  <!-- EN: tantrum -->
+  <TargetedTantrum.label>TODO</TargetedTantrum.label>
+  <!-- EN:  -->
+  <TargetedTantrum.description>TODO</TargetedTantrum.description>
+  <!-- EN: {0} is having a tantrum.\n\n[PAWN_pronoun] is going to destroy {1}. -->
+  <TargetedTantrum.beginLetter>TODO</TargetedTantrum.beginLetter>
+  <!-- EN:  -->
+  <TargetedTantrum.beginLetterLabel>TODO</TargetedTantrum.beginLetterLabel>
+  <!-- EN: {0} is no longer having a tantrum. -->
+  <TargetedTantrum.recoveryMessage>TODO</TargetedTantrum.recoveryMessage>
+  <!-- EN: Mental state: Tantrum -->
+  <TargetedTantrum.baseInspectLine>TODO</TargetedTantrum.baseInspectLine>
+
+  <!-- EN: tantrum -->
+  <BedroomTantrum.label>TODO</BedroomTantrum.label>
+  <!-- EN:  -->
+  <BedroomTantrum.description>TODO</BedroomTantrum.description>
+  <!-- EN: {0} is having a tantrum.\n\n[PAWN_pronoun] is going to smash things in [PAWN_possessive] room. -->
+  <BedroomTantrum.beginLetter>TODO</BedroomTantrum.beginLetter>
+  <!-- EN:  -->
+  <BedroomTantrum.beginLetterLabel>TODO</BedroomTantrum.beginLetterLabel>
+  <!-- EN: {0} is no longer having a tantrum. -->
+  <BedroomTantrum.recoveryMessage>TODO</BedroomTantrum.recoveryMessage>
+  <!-- EN: Mental state: Tantrum -->
+  <BedroomTantrum.baseInspectLine>TODO</BedroomTantrum.baseInspectLine>
+
+  <!-- EN: sadistic rage -->
+  <SadisticRage.label>TODO</SadisticRage.label>
+  <!-- EN:  -->
+  <SadisticRage.description>TODO</SadisticRage.description>
+  <!-- EN: {0} has flown into a sadistic rage.\n\n[PAWN_pronoun] is going to vent [PAWN_possessive] anger on the prisoners. -->
+  <SadisticRage.beginLetter>TODO</SadisticRage.beginLetter>
+  <!-- EN:  -->
+  <SadisticRage.beginLetterLabel>TODO</SadisticRage.beginLetterLabel>
+  <!-- EN: {0} is no longer in a sadistic rage. -->
+  <SadisticRage.recoveryMessage>TODO</SadisticRage.recoveryMessage>
+  <!-- EN: Mental state: Sadistic rage -->
+  <SadisticRage.baseInspectLine>TODO</SadisticRage.baseInspectLine>
+
+  <!-- EN: corpse obsession -->
+  <CorpseObsession.label>TODO</CorpseObsession.label>
+  <!-- EN:  -->
+  <CorpseObsession.description>TODO</CorpseObsession.description>
+  <!-- EN: {0} has broken inside and become obsessed with corpses.\n\n[PAWN_pronoun] is going to dig up a corpse and present it for all to see. -->
+  <CorpseObsession.beginLetter>TODO</CorpseObsession.beginLetter>
+  <!-- EN:  -->
+  <CorpseObsession.beginLetterLabel>TODO</CorpseObsession.beginLetterLabel>
+  <!-- EN: {0} is no longer having a corpse obsession. -->
+  <CorpseObsession.recoveryMessage>TODO</CorpseObsession.recoveryMessage>
+  <!-- EN: Mental state: Corpse obsession -->
+  <CorpseObsession.baseInspectLine>TODO</CorpseObsession.baseInspectLine>
+
+  <!-- EN: binging on food -->
+  <Binging_Food.label>TODO</Binging_Food.label>
+  <!-- EN:  -->
+  <Binging_Food.description>TODO</Binging_Food.description>
+  <!-- EN: {0} is pigging out on food. -->
+  <Binging_Food.beginLetter>TODO</Binging_Food.beginLetter>
+  <!-- EN: food binge -->
+  <Binging_Food.beginLetterLabel>TODO</Binging_Food.beginLetterLabel>
+  <!-- EN: {0} is no longer pigging out on food. -->
+  <Binging_Food.recoveryMessage>TODO</Binging_Food.recoveryMessage>
+  <!-- EN: Mental state: Pigging out -->
+  <Binging_Food.baseInspectLine>TODO</Binging_Food.baseInspectLine>
+
   <!-- EN: sad wandering -->
   <Wander_Sad.label>TODO</Wander_Sad.label>
-  <!-- EN: Mental state: Sad wandering -->
-  <Wander_Sad.baseInspectLine>TODO</Wander_Sad.baseInspectLine>
+  <!-- EN:  -->
+  <Wander_Sad.description>TODO</Wander_Sad.description>
   <!-- EN: {0} has broken down and is wandering around in sadness. -->
   <Wander_Sad.beginLetter>TODO</Wander_Sad.beginLetter>
   <!-- EN: sad wander -->
   <Wander_Sad.beginLetterLabel>TODO</Wander_Sad.beginLetterLabel>
   <!-- EN: {0} is no longer wandering in sadness. -->
   <Wander_Sad.recoveryMessage>TODO</Wander_Sad.recoveryMessage>
-  
+  <!-- EN: Mental state: Sad wandering -->
+  <Wander_Sad.baseInspectLine>TODO</Wander_Sad.baseInspectLine>
+
+  <!-- EN: sitting alone -->
+  <Wander_OwnRoom.label>TODO</Wander_OwnRoom.label>
+  <!-- EN:  -->
+  <Wander_OwnRoom.description>TODO</Wander_OwnRoom.description>
+  <!-- EN: {0} is hiding in [PAWN_possessive] room. -->
+  <Wander_OwnRoom.beginLetter>TODO</Wander_OwnRoom.beginLetter>
+  <!-- EN: hide in room -->
+  <Wander_OwnRoom.beginLetterLabel>TODO</Wander_OwnRoom.beginLetterLabel>
+  <!-- EN: {0} is no longer hiding in [PAWN_possessive] room. -->
+  <Wander_OwnRoom.recoveryMessage>TODO</Wander_OwnRoom.recoveryMessage>
+  <!-- EN: Mental state: Hiding in room -->
+  <Wander_OwnRoom.baseInspectLine>TODO</Wander_OwnRoom.baseInspectLine>
+
+  <!-- EN: insulting spree -->
+  <InsultingSpree.label>TODO</InsultingSpree.label>
+  <!-- EN:  -->
+  <InsultingSpree.description>TODO</InsultingSpree.description>
+  <!-- EN: {0} is on an insulting spree.\n\n[PAWN_pronoun] will wander around, randomly insulting others. -->
+  <InsultingSpree.beginLetter>TODO</InsultingSpree.beginLetter>
+  <!-- EN:  -->
+  <InsultingSpree.beginLetterLabel>TODO</InsultingSpree.beginLetterLabel>
+  <!-- EN: {0} is no longer on an insulting spree. -->
+  <InsultingSpree.recoveryMessage>TODO</InsultingSpree.recoveryMessage>
+  <!-- EN: Mental state: Insulting spree -->
+  <InsultingSpree.baseInspectLine>TODO</InsultingSpree.baseInspectLine>
+
+  <!-- EN: insulting spree -->
+  <TargetedInsultingSpree.label>TODO</TargetedInsultingSpree.label>
+  <!-- EN:  -->
+  <TargetedInsultingSpree.description>TODO</TargetedInsultingSpree.description>
+  <!-- EN: {0} has fixated [PAWN_possessive] rage on {1}.\n\n[PAWN_pronoun] will follow {1} around, hurling insults. -->
+  <TargetedInsultingSpree.beginLetter>TODO</TargetedInsultingSpree.beginLetter>
+  <!-- EN:  -->
+  <TargetedInsultingSpree.beginLetterLabel>TODO</TargetedInsultingSpree.beginLetterLabel>
+  <!-- EN: {0} is no longer on an insulting spree. -->
+  <TargetedInsultingSpree.recoveryMessage>TODO</TargetedInsultingSpree.recoveryMessage>
+  <!-- EN: Mental state: Insulting spree against {0} -->
+  <TargetedInsultingSpree.baseInspectLine>TODO</TargetedInsultingSpree.baseInspectLine>
+
 </LanguageData>

@@ -1,78 +1,114 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: create incident -->
-  <CreateIncident.label>TODO</CreateIncident.label>
-  
-  <!-- EN: disable incident -->
-  <DisableIncident.label>TODO</DisableIncident.label>
-  
-  <!-- EN: forced health condition -->
-  <ForcedHediff.label>TODO</ForcedHediff.label>
-  
-  <!-- EN: forced trait -->
-  <ForcedTrait.label>TODO</ForcedTrait.label>
-  
-  <!-- EN: planetkiller weapon incoming -->
-  <GameCondition_Planetkiller.label>TODO</GameCondition_Planetkiller.label>
-  
+
   <!-- EN: game start dialog -->
   <GameStartDialog.label>TODO</GameStartDialog.label>
-  
-  <!-- EN: naked -->
-  <Naked.label>TODO</Naked.label>
-  
-  <!-- EN: characters explode on death -->
-  <OnPawnDeathExplode.label>TODO</OnPawnDeathExplode.label>
-  
+  <!-- EN:  -->
+  <GameStartDialog.description>TODO</GameStartDialog.description>
+
   <!-- EN: allowed age range -->
   <PawnFilter_Age.label>TODO</PawnFilter_Age.label>
-  
-  <!-- EN: permanent game condition -->
-  <PermanentGameCondition.label>TODO</PermanentGameCondition.label>
-  
-  <!-- EN: disallow building -->
-  <Rule_DisallowBuilding.label>TODO</Rule_DisallowBuilding.label>
-  
-  <!-- EN: cannot hunt -->
-  <Rule_DisallowDesignator_Hunt.label>TODO</Rule_DisallowDesignator_Hunt.label>
-  <!-- EN: Cannot hunt. -->
-  <Rule_DisallowDesignator_Hunt.description>TODO</Rule_DisallowDesignator_Hunt.description>
-  
-  <!-- EN: cannot mine -->
-  <Rule_DisallowDesignator_Mine.label>TODO</Rule_DisallowDesignator_Mine.label>
-  <!-- EN: Cannot mine. -->
-  <Rule_DisallowDesignator_Mine.description>TODO</Rule_DisallowDesignator_Mine.description>
-  
-  <!-- EN: cannot tame -->
-  <Rule_DisallowDesignator_Tame.label>TODO</Rule_DisallowDesignator_Tame.label>
-  <!-- EN: Cannot tame animals. -->
-  <Rule_DisallowDesignator_Tame.description>TODO</Rule_DisallowDesignator_Tame.description>
-  
+  <!-- EN:  -->
+  <PawnFilter_Age.description>TODO</PawnFilter_Age.description>
+
+  <!-- EN: characters explode on death -->
+  <OnPawnDeathExplode.label>TODO</OnPawnDeathExplode.label>
+  <!-- EN:  -->
+  <OnPawnDeathExplode.description>TODO</OnPawnDeathExplode.description>
+
+  <!-- EN: forced trait -->
+  <ForcedTrait.label>TODO</ForcedTrait.label>
+  <!-- EN:  -->
+  <ForcedTrait.description>TODO</ForcedTrait.description>
+
+  <!-- EN: forced health condition -->
+  <ForcedHediff.label>TODO</ForcedHediff.label>
+  <!-- EN:  -->
+  <ForcedHediff.description>TODO</ForcedHediff.description>
+
+  <!-- EN: naked -->
+  <Naked.label>TODO</Naked.label>
+  <!-- EN:  -->
+  <Naked.description>TODO</Naked.description>
+
+  <!-- EN: set need level -->
+  <SetNeedLevel.label>TODO</SetNeedLevel.label>
+  <!-- EN:  -->
+  <SetNeedLevel.description>TODO</SetNeedLevel.description>
+
+  <!-- EN: start with research -->
+  <StartingResearch.label>TODO</StartingResearch.label>
+  <!-- EN:  -->
+  <StartingResearch.description>TODO</StartingResearch.description>
+
+  <!-- EN: planetkiller weapon incoming -->
+  <GameCondition_Planetkiller.label>TODO</GameCondition_Planetkiller.label>
+  <!-- EN:  -->
+  <GameCondition_Planetkiller.description>TODO</GameCondition_Planetkiller.description>
+
   <!-- EN: cannot sow -->
   <Rule_DisallowDesignator_ZoneAdd_Growing.label>TODO</Rule_DisallowDesignator_ZoneAdd_Growing.label>
   <!-- EN: Cannot sow plants on the ground. -->
   <Rule_DisallowDesignator_ZoneAdd_Growing.description>TODO</Rule_DisallowDesignator_ZoneAdd_Growing.description>
-  
-  <!-- EN: scattered randomly -->
-  <ScatterThingsAnywhere.label>TODO</ScatterThingsAnywhere.label>
-  
-  <!-- EN: start near -->
-  <ScatterThingsNearPlayerStart.label>TODO</ScatterThingsNearPlayerStart.label>
-  
-  <!-- EN: set need level -->
-  <SetNeedLevel.label>TODO</SetNeedLevel.label>
-  
-  <!-- EN: start with animal(s) -->
-  <StartingAnimal.label>TODO</StartingAnimal.label>
-  
-  <!-- EN: start with research -->
-  <StartingResearch.label>TODO</StartingResearch.label>
-  
-  <!-- EN: start with -->
-  <StartingThing_Defined.label>TODO</StartingThing_Defined.label>
-  
+
+  <!-- EN: cannot mine -->
+  <Rule_DisallowDesignator_Mine.label>TODO</Rule_DisallowDesignator_Mine.label>
+  <!-- EN: Cannot mine. -->
+  <Rule_DisallowDesignator_Mine.description>TODO</Rule_DisallowDesignator_Mine.description>
+
+  <!-- EN: cannot hunt -->
+  <Rule_DisallowDesignator_Hunt.label>TODO</Rule_DisallowDesignator_Hunt.label>
+  <!-- EN: Cannot hunt. -->
+  <Rule_DisallowDesignator_Hunt.description>TODO</Rule_DisallowDesignator_Hunt.description>
+
+  <!-- EN: cannot tame -->
+  <Rule_DisallowDesignator_Tame.label>TODO</Rule_DisallowDesignator_Tame.label>
+  <!-- EN: Cannot tame animals. -->
+  <Rule_DisallowDesignator_Tame.description>TODO</Rule_DisallowDesignator_Tame.description>
+
   <!-- EN: stat multiplier -->
   <StatFactor.label>TODO</StatFactor.label>
-  
+  <!-- EN:  -->
+  <StatFactor.description>TODO</StatFactor.description>
+
+  <!-- EN: disable incident -->
+  <DisableIncident.label>TODO</DisableIncident.label>
+  <!-- EN:  -->
+  <DisableIncident.description>TODO</DisableIncident.description>
+
+  <!-- EN: create incident -->
+  <CreateIncident.label>TODO</CreateIncident.label>
+  <!-- EN:  -->
+  <CreateIncident.description>TODO</CreateIncident.description>
+
+  <!-- EN: disallow building -->
+  <Rule_DisallowBuilding.label>TODO</Rule_DisallowBuilding.label>
+  <!-- EN:  -->
+  <Rule_DisallowBuilding.description>TODO</Rule_DisallowBuilding.description>
+
+  <!-- EN: permanent game condition -->
+  <PermanentGameCondition.label>TODO</PermanentGameCondition.label>
+  <!-- EN:  -->
+  <PermanentGameCondition.description>TODO</PermanentGameCondition.description>
+
+  <!-- EN: start with animal(s) -->
+  <StartingAnimal.label>TODO</StartingAnimal.label>
+  <!-- EN:  -->
+  <StartingAnimal.description>TODO</StartingAnimal.description>
+
+  <!-- EN: start with -->
+  <StartingThing_Defined.label>TODO</StartingThing_Defined.label>
+  <!-- EN:  -->
+  <StartingThing_Defined.description>TODO</StartingThing_Defined.description>
+
+  <!-- EN: start near -->
+  <ScatterThingsNearPlayerStart.label>TODO</ScatterThingsNearPlayerStart.label>
+  <!-- EN:  -->
+  <ScatterThingsNearPlayerStart.description>TODO</ScatterThingsNearPlayerStart.description>
+
+  <!-- EN: scattered randomly -->
+  <ScatterThingsAnywhere.label>TODO</ScatterThingsAnywhere.label>
+  <!-- EN:  -->
+  <ScatterThingsAnywhere.description>TODO</ScatterThingsAnywhere.description>
+
 </LanguageData>

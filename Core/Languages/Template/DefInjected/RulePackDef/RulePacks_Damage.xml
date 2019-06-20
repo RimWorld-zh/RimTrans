@@ -1,6 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <Damage_Bomb.label>TODO</Damage_Bomb.label>
+  <!-- EN:  -->
+  <Damage_Bomb.description>TODO</Damage_Bomb.description>
   <!-- EN:
     <li>damaged_past(p=2)->blasted</li>
     <li>damaged_past(p=2)->exploded</li>
@@ -14,25 +18,24 @@
     <li>destroyed_past->annihilated</li>
     <li>destroyed_past->detonated</li>
   -->
-  <Damage_Bomb.rulePack.rulesStrings>TODO</Damage_Bomb.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>damaged_past->electrified</li>
-    <li>damaged_past->shocked</li>
-    <li>damaged_past->zapped</li>
-    <li>destroyed_past->damaged_past</li>
-  -->
-  <Damage_EMP.rulePack.rulesStrings>TODO</Damage_EMP.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>damaged_past->extinguished</li>
-    <li>damaged_past->swamped</li>
-    <li>damaged_past->foamed</li>
-    <li>damaged_past->quenched</li>
-    <li>destroyed_past->damaged_past</li>
-  -->
-  <Damage_Extinguish.rulePack.rulesStrings>TODO</Damage_Extinguish.rulePack.rulesStrings>
-  
+  <Damage_Bomb.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Damage_Bomb.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Damage_Flame.label>TODO</Damage_Flame.label>
+  <!-- EN:  -->
+  <Damage_Flame.description>TODO</Damage_Flame.description>
   <!-- EN:
     <li>damaged_past(p=2)->blasted</li>
     <li>damaged_past(p=2)->scorched</li>
@@ -67,16 +70,64 @@
     <li>destroyed_present->annihilating</li>
     <li>destroyed_present->detonating</li>
   -->
-  <Damage_Flame.rulePack.rulesStrings>TODO</Damage_Flame.rulePack.rulesStrings>
-  
+  <Damage_Flame.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Damage_Flame.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Damage_Extinguish.label>TODO</Damage_Extinguish.label>
+  <!-- EN:  -->
+  <Damage_Extinguish.description>TODO</Damage_Extinguish.description>
   <!-- EN:
-    <li>damaged_past->smoked</li>
-    <li>damaged_past->fogged</li>
-    <li>damaged_past->clouded</li>
+    <li>damaged_past->extinguished</li>
+    <li>damaged_past->swamped</li>
+    <li>damaged_past->foamed</li>
+    <li>damaged_past->quenched</li>
     <li>destroyed_past->damaged_past</li>
   -->
-  <Damage_Smoke.rulePack.rulesStrings>TODO</Damage_Smoke.rulePack.rulesStrings>
-  
+  <Damage_Extinguish.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Damage_Extinguish.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Damage_Stun.label>TODO</Damage_Stun.label>
+  <!-- EN:  -->
+  <Damage_Stun.description>TODO</Damage_Stun.description>
   <!-- EN:
     <li>damaged_past->stunned</li>
     <li>damaged_past->confused</li>
@@ -84,6 +135,46 @@
     <li>damaged_past->dizzied</li>
     <li>destroyed_past->damaged_past</li>
   -->
-  <Damage_Stun.rulePack.rulesStrings>TODO</Damage_Stun.rulePack.rulesStrings>
-  
+  <Damage_Stun.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Damage_Stun.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Damage_EMP.label>TODO</Damage_EMP.label>
+  <!-- EN:  -->
+  <Damage_EMP.description>TODO</Damage_EMP.description>
+  <!-- EN:
+    <li>damaged_past->electrified</li>
+    <li>damaged_past->shocked</li>
+    <li>damaged_past->zapped</li>
+    <li>destroyed_past->damaged_past</li>
+  -->
+  <Damage_EMP.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Damage_EMP.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Damage_Smoke.label>TODO</Damage_Smoke.label>
+  <!-- EN:  -->
+  <Damage_Smoke.description>TODO</Damage_Smoke.description>
+  <!-- EN:
+    <li>damaged_past->smoked</li>
+    <li>damaged_past->fogged</li>
+    <li>damaged_past->clouded</li>
+    <li>destroyed_past->damaged_past</li>
+  -->
+  <Damage_Smoke.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Damage_Smoke.rulePack.rulesStrings>
+
 </LanguageData>

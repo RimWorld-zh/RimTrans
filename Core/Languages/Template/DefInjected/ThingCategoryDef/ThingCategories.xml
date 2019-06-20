@@ -1,145 +1,239 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: animal products -->
-  <AnimalProductRaw.label>TODO</AnimalProductRaw.label>
-  
-  <!-- EN: apparel -->
-  <Apparel.label>TODO</Apparel.label>
-  
-  <!-- EN: artifacts -->
-  <Artifacts.label>TODO</Artifacts.label>
-  
-  <!-- EN: body parts -->
-  <BodyParts.label>TODO</BodyParts.label>
-  
-  <!-- EN: artificial -->
-  <BodyPartsArtificial.label>TODO</BodyPartsArtificial.label>
-  
-  <!-- EN: natural -->
-  <BodyPartsNatural.label>TODO</BodyPartsNatural.label>
-  
-  <!-- EN: buildings -->
-  <Buildings.label>TODO</Buildings.label>
-  
-  <!-- EN: art -->
-  <BuildingsArt.label>TODO</BuildingsArt.label>
-  
-  <!-- EN: furniture -->
-  <BuildingsFurniture.label>TODO</BuildingsFurniture.label>
-  
-  <!-- EN: recreation -->
-  <BuildingsJoy.label>TODO</BuildingsJoy.label>
-  
-  <!-- EN: misc -->
-  <BuildingsMisc.label>TODO</BuildingsMisc.label>
-  
-  <!-- EN: power -->
-  <BuildingsPower.label>TODO</BuildingsPower.label>
-  
-  <!-- EN: production -->
-  <BuildingsProduction.label>TODO</BuildingsProduction.label>
-  
-  <!-- EN: security -->
-  <BuildingsSecurity.label>TODO</BuildingsSecurity.label>
-  
-  <!-- EN: special -->
-  <BuildingsSpecial.label>TODO</BuildingsSpecial.label>
-  
-  <!-- EN: temperature -->
-  <BuildingsTemperature.label>TODO</BuildingsTemperature.label>
-  
-  <!-- EN: chunks -->
-  <Chunks.label>TODO</Chunks.label>
-  
-  <!-- EN: corpses -->
-  <Corpses.label>TODO</Corpses.label>
-  
-  <!-- EN: animal corpses -->
-  <CorpsesAnimal.label>TODO</CorpsesAnimal.label>
-  
-  <!-- EN: humanlike corpses -->
-  <CorpsesHumanlike.label>TODO</CorpsesHumanlike.label>
-  
-  <!-- EN: insect corpses -->
-  <CorpsesInsect.label>TODO</CorpsesInsect.label>
-  
-  <!-- EN: mechanoid corpses -->
-  <CorpsesMechanoid.label>TODO</CorpsesMechanoid.label>
-  
-  <!-- EN: drugs -->
-  <Drugs.label>TODO</Drugs.label>
-  
-  <!-- EN: eggs (fert.) -->
-  <EggsFertilized.label>TODO</EggsFertilized.label>
-  
-  <!-- EN: eggs (unfert.) -->
-  <EggsUnfertilized.label>TODO</EggsUnfertilized.label>
-  
-  <!-- EN: meals -->
-  <FoodMeals.label>TODO</FoodMeals.label>
-  
-  <!-- EN: raw food -->
-  <FoodRaw.label>TODO</FoodRaw.label>
-  
-  <!-- EN: foods -->
-  <Foods.label>TODO</Foods.label>
-  
-  <!-- EN: grenades -->
-  <Grenades.label>TODO</Grenades.label>
-  
-  <!-- EN: headgear -->
-  <Headgear.label>TODO</Headgear.label>
-  
-  <!-- EN: items -->
-  <Items.label>TODO</Items.label>
-  
-  <!-- EN: leathers -->
-  <Leathers.label>TODO</Leathers.label>
-  
-  <!-- EN: manufactured -->
-  <Manufactured.label>TODO</Manufactured.label>
-  
-  <!-- EN: meat -->
-  <MeatRaw.label>TODO</MeatRaw.label>
-  
-  <!-- EN: medicine -->
-  <Medicine.label>TODO</Medicine.label>
-  
-  <!-- EN: mortar shells -->
-  <MortarShells.label>TODO</MortarShells.label>
-  
-  <!-- EN: vegetarian -->
-  <PlantFoodRaw.label>TODO</PlantFoodRaw.label>
-  
-  <!-- EN: plant matter -->
-  <PlantMatter.label>TODO</PlantMatter.label>
-  
-  <!-- EN: raw resources -->
-  <ResourcesRaw.label>TODO</ResourcesRaw.label>
-  
+
   <!-- EN: root -->
   <Root.label>TODO</Root.label>
-  
-  <!-- EN: stone blocks -->
-  <StoneBlocks.label>TODO</StoneBlocks.label>
-  
-  <!-- EN: stone chunks -->
-  <StoneChunks.label>TODO</StoneChunks.label>
-  
+  <!-- EN:  -->
+  <Root.description>TODO</Root.description>
+
+  <!-- EN: foods -->
+  <Foods.label>TODO</Foods.label>
+  <!-- EN:  -->
+  <Foods.description>TODO</Foods.description>
+
+  <!-- EN: meals -->
+  <FoodMeals.label>TODO</FoodMeals.label>
+  <!-- EN:  -->
+  <FoodMeals.description>TODO</FoodMeals.description>
+
+  <!-- EN: raw food -->
+  <FoodRaw.label>TODO</FoodRaw.label>
+  <!-- EN:  -->
+  <FoodRaw.description>TODO</FoodRaw.description>
+
+  <!-- EN: meat -->
+  <MeatRaw.label>TODO</MeatRaw.label>
+  <!-- EN:  -->
+  <MeatRaw.description>TODO</MeatRaw.description>
+
+  <!-- EN: vegetarian -->
+  <PlantFoodRaw.label>TODO</PlantFoodRaw.label>
+  <!-- EN:  -->
+  <PlantFoodRaw.description>TODO</PlantFoodRaw.description>
+
+  <!-- EN: animal products -->
+  <AnimalProductRaw.label>TODO</AnimalProductRaw.label>
+  <!-- EN:  -->
+  <AnimalProductRaw.description>TODO</AnimalProductRaw.description>
+
+  <!-- EN: eggs (unfert.) -->
+  <EggsUnfertilized.label>TODO</EggsUnfertilized.label>
+  <!-- EN:  -->
+  <EggsUnfertilized.description>TODO</EggsUnfertilized.description>
+
+  <!-- EN: eggs (fert.) -->
+  <EggsFertilized.label>TODO</EggsFertilized.label>
+  <!-- EN:  -->
+  <EggsFertilized.description>TODO</EggsFertilized.description>
+
+  <!-- EN: manufactured -->
+  <Manufactured.label>TODO</Manufactured.label>
+  <!-- EN:  -->
+  <Manufactured.description>TODO</Manufactured.description>
+
   <!-- EN: textiles -->
   <Textiles.label>TODO</Textiles.label>
-  
+  <!-- EN:  -->
+  <Textiles.description>TODO</Textiles.description>
+
+  <!-- EN: leathers -->
+  <Leathers.label>TODO</Leathers.label>
+  <!-- EN:  -->
+  <Leathers.description>TODO</Leathers.description>
+
+  <!-- EN: medicine -->
+  <Medicine.label>TODO</Medicine.label>
+  <!-- EN:  -->
+  <Medicine.description>TODO</Medicine.description>
+
+  <!-- EN: drugs -->
+  <Drugs.label>TODO</Drugs.label>
+  <!-- EN:  -->
+  <Drugs.description>TODO</Drugs.description>
+
+  <!-- EN: mortar shells -->
+  <MortarShells.label>TODO</MortarShells.label>
+  <!-- EN:  -->
+  <MortarShells.description>TODO</MortarShells.description>
+
+  <!-- EN: raw resources -->
+  <ResourcesRaw.label>TODO</ResourcesRaw.label>
+  <!-- EN:  -->
+  <ResourcesRaw.description>TODO</ResourcesRaw.description>
+
+  <!-- EN: plant matter -->
+  <PlantMatter.label>TODO</PlantMatter.label>
+  <!-- EN:  -->
+  <PlantMatter.description>TODO</PlantMatter.description>
+
+  <!-- EN: stone blocks -->
+  <StoneBlocks.label>TODO</StoneBlocks.label>
+  <!-- EN:  -->
+  <StoneBlocks.description>TODO</StoneBlocks.description>
+
+  <!-- EN: items -->
+  <Items.label>TODO</Items.label>
+  <!-- EN:  -->
+  <Items.description>TODO</Items.description>
+
   <!-- EN: unfinished -->
   <Unfinished.label>TODO</Unfinished.label>
-  
+  <!-- EN:  -->
+  <Unfinished.description>TODO</Unfinished.description>
+
+  <!-- EN: artifacts -->
+  <Artifacts.label>TODO</Artifacts.label>
+  <!-- EN:  -->
+  <Artifacts.description>TODO</Artifacts.description>
+
+  <!-- EN: body parts -->
+  <BodyParts.label>TODO</BodyParts.label>
+  <!-- EN:  -->
+  <BodyParts.description>TODO</BodyParts.description>
+
+  <!-- EN: natural -->
+  <BodyPartsNatural.label>TODO</BodyPartsNatural.label>
+  <!-- EN:  -->
+  <BodyPartsNatural.description>TODO</BodyPartsNatural.description>
+
+  <!-- EN: artificial -->
+  <BodyPartsArtificial.label>TODO</BodyPartsArtificial.label>
+  <!-- EN:  -->
+  <BodyPartsArtificial.description>TODO</BodyPartsArtificial.description>
+
   <!-- EN: weapons -->
   <Weapons.label>TODO</Weapons.label>
-  
+  <!-- EN:  -->
+  <Weapons.description>TODO</Weapons.description>
+
   <!-- EN: melee weapons -->
   <WeaponsMelee.label>TODO</WeaponsMelee.label>
-  
+  <!-- EN:  -->
+  <WeaponsMelee.description>TODO</WeaponsMelee.description>
+
   <!-- EN: ranged weapons -->
   <WeaponsRanged.label>TODO</WeaponsRanged.label>
-  
+  <!-- EN:  -->
+  <WeaponsRanged.description>TODO</WeaponsRanged.description>
+
+  <!-- EN: grenades -->
+  <Grenades.label>TODO</Grenades.label>
+  <!-- EN:  -->
+  <Grenades.description>TODO</Grenades.description>
+
+  <!-- EN: apparel -->
+  <Apparel.label>TODO</Apparel.label>
+  <!-- EN:  -->
+  <Apparel.description>TODO</Apparel.description>
+
+  <!-- EN: headgear -->
+  <Headgear.label>TODO</Headgear.label>
+  <!-- EN:  -->
+  <Headgear.description>TODO</Headgear.description>
+
+  <!-- EN: buildings -->
+  <Buildings.label>TODO</Buildings.label>
+  <!-- EN:  -->
+  <Buildings.description>TODO</Buildings.description>
+
+  <!-- EN: art -->
+  <BuildingsArt.label>TODO</BuildingsArt.label>
+  <!-- EN:  -->
+  <BuildingsArt.description>TODO</BuildingsArt.description>
+
+  <!-- EN: production -->
+  <BuildingsProduction.label>TODO</BuildingsProduction.label>
+  <!-- EN:  -->
+  <BuildingsProduction.description>TODO</BuildingsProduction.description>
+
+  <!-- EN: furniture -->
+  <BuildingsFurniture.label>TODO</BuildingsFurniture.label>
+  <!-- EN:  -->
+  <BuildingsFurniture.description>TODO</BuildingsFurniture.description>
+
+  <!-- EN: power -->
+  <BuildingsPower.label>TODO</BuildingsPower.label>
+  <!-- EN:  -->
+  <BuildingsPower.description>TODO</BuildingsPower.description>
+
+  <!-- EN: security -->
+  <BuildingsSecurity.label>TODO</BuildingsSecurity.label>
+  <!-- EN:  -->
+  <BuildingsSecurity.description>TODO</BuildingsSecurity.description>
+
+  <!-- EN: misc -->
+  <BuildingsMisc.label>TODO</BuildingsMisc.label>
+  <!-- EN:  -->
+  <BuildingsMisc.description>TODO</BuildingsMisc.description>
+
+  <!-- EN: recreation -->
+  <BuildingsJoy.label>TODO</BuildingsJoy.label>
+  <!-- EN:  -->
+  <BuildingsJoy.description>TODO</BuildingsJoy.description>
+
+  <!-- EN: temperature -->
+  <BuildingsTemperature.label>TODO</BuildingsTemperature.label>
+  <!-- EN:  -->
+  <BuildingsTemperature.description>TODO</BuildingsTemperature.description>
+
+  <!-- EN: special -->
+  <BuildingsSpecial.label>TODO</BuildingsSpecial.label>
+  <!-- EN:  -->
+  <BuildingsSpecial.description>TODO</BuildingsSpecial.description>
+
+  <!-- EN: chunks -->
+  <Chunks.label>TODO</Chunks.label>
+  <!-- EN:  -->
+  <Chunks.description>TODO</Chunks.description>
+
+  <!-- EN: stone chunks -->
+  <StoneChunks.label>TODO</StoneChunks.label>
+  <!-- EN:  -->
+  <StoneChunks.description>TODO</StoneChunks.description>
+
+  <!-- EN: corpses -->
+  <Corpses.label>TODO</Corpses.label>
+  <!-- EN:  -->
+  <Corpses.description>TODO</Corpses.description>
+
+  <!-- EN: humanlike corpses -->
+  <CorpsesHumanlike.label>TODO</CorpsesHumanlike.label>
+  <!-- EN:  -->
+  <CorpsesHumanlike.description>TODO</CorpsesHumanlike.description>
+
+  <!-- EN: animal corpses -->
+  <CorpsesAnimal.label>TODO</CorpsesAnimal.label>
+  <!-- EN:  -->
+  <CorpsesAnimal.description>TODO</CorpsesAnimal.description>
+
+  <!-- EN: insect corpses -->
+  <CorpsesInsect.label>TODO</CorpsesInsect.label>
+  <!-- EN:  -->
+  <CorpsesInsect.description>TODO</CorpsesInsect.description>
+
+  <!-- EN: mechanoid corpses -->
+  <CorpsesMechanoid.label>TODO</CorpsesMechanoid.label>
+  <!-- EN:  -->
+  <CorpsesMechanoid.description>TODO</CorpsesMechanoid.description>
+
 </LanguageData>

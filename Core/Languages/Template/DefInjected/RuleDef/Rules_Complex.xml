@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Settlement.label>TODO</Settlement.label>
+  <!-- EN:  -->
+  <Settlement.description>TODO</Settlement.description>
+
+  <!-- EN:  -->
+  <EdgeDefense.label>TODO</EdgeDefense.label>
+  <!-- EN:  -->
+  <EdgeDefense.description>TODO</EdgeDefense.description>
+
+  <!-- EN:  -->
+  <AncientShrinesGroup.label>TODO</AncientShrinesGroup.label>
+  <!-- EN:  -->
+  <AncientShrinesGroup.description>TODO</AncientShrinesGroup.description>
+
+  <!-- EN:  -->
+  <AncientShrine.label>TODO</AncientShrine.label>
+  <!-- EN:  -->
+  <AncientShrine.description>TODO</AncientShrine.description>
+
+  <!-- EN:  -->
+  <AncientRuins.label>TODO</AncientRuins.label>
+  <!-- EN:  -->
+  <AncientRuins.description>TODO</AncientRuins.description>
+
+  <!-- EN:  -->
+  <RandomMechanoidGroup.label>TODO</RandomMechanoidGroup.label>
+  <!-- EN:  -->
+  <RandomMechanoidGroup.description>TODO</RandomMechanoidGroup.description>
+
+  <!-- EN:  -->
+  <Hives.label>TODO</Hives.label>
+  <!-- EN:  -->
+  <Hives.description>TODO</Hives.description>
+
+  <!-- EN:  -->
+  <FillWithBeds.label>TODO</FillWithBeds.label>
+  <!-- EN:  -->
+  <FillWithBeds.description>TODO</FillWithBeds.description>
+
+  <!-- EN:  -->
+  <Stockpile.label>TODO</Stockpile.label>
+  <!-- EN:  -->
+  <Stockpile.description>TODO</Stockpile.description>
+
+  <!-- EN:  -->
+  <MannedMortar.label>TODO</MannedMortar.label>
+  <!-- EN:  -->
+  <MannedMortar.description>TODO</MannedMortar.description>
+
+  <!-- EN:  -->
+  <EdgeMannedMortar.label>TODO</EdgeMannedMortar.label>
+  <!-- EN:  -->
+  <EdgeMannedMortar.description>TODO</EdgeMannedMortar.description>
+
+  <!-- EN:  -->
+  <Farm.label>TODO</Farm.label>
+  <!-- EN:  -->
+  <Farm.description>TODO</Farm.description>
+
+  <!-- EN:  -->
+  <FillWithThings.label>TODO</FillWithThings.label>
+  <!-- EN:  -->
+  <FillWithThings.description>TODO</FillWithThings.description>
+
+  <!-- EN:  -->
+  <Refuel.label>TODO</Refuel.label>
+  <!-- EN:  -->
+  <Refuel.description>TODO</Refuel.description>
+
+  <!-- EN:  -->
+  <ChargeBatteries.label>TODO</ChargeBatteries.label>
+  <!-- EN:  -->
+  <ChargeBatteries.description>TODO</ChargeBatteries.description>
+
+  <!-- EN:  -->
+  <PlaceChairsNearTables.label>TODO</PlaceChairsNearTables.label>
+  <!-- EN:  -->
+  <PlaceChairsNearTables.description>TODO</PlaceChairsNearTables.description>
+
+  <!-- EN:  -->
+  <RandomlyPlaceMealsOnTables.label>TODO</RandomlyPlaceMealsOnTables.label>
+  <!-- EN:  -->
+  <RandomlyPlaceMealsOnTables.description>TODO</RandomlyPlaceMealsOnTables.description>
+
+  <!-- EN:  -->
+  <AddWortToFermentingBarrels.label>TODO</AddWortToFermentingBarrels.label>
+  <!-- EN:  -->
+  <AddWortToFermentingBarrels.description>TODO</AddWortToFermentingBarrels.description>
+
+  <!-- EN:  -->
+  <Street.label>TODO</Street.label>
+  <!-- EN:  -->
+  <Street.description>TODO</Street.description>
+
+  <!-- EN:  -->
+  <EdgeStreet.label>TODO</EdgeStreet.label>
+  <!-- EN:  -->
+  <EdgeStreet.description>TODO</EdgeStreet.description>
+
+  <!-- EN:  -->
+  <IndoorLighting.label>TODO</IndoorLighting.label>
+  <!-- EN:  -->
+  <IndoorLighting.description>TODO</IndoorLighting.description>
+
+  <!-- EN:  -->
+  <OutdoorLighting.label>TODO</OutdoorLighting.label>
+  <!-- EN:  -->
+  <OutdoorLighting.description>TODO</OutdoorLighting.description>
+
+  <!-- EN:  -->
+  <InnerStockpile.label>TODO</InnerStockpile.label>
+  <!-- EN:  -->
+  <InnerStockpile.description>TODO</InnerStockpile.description>
+
+  <!-- EN:  -->
+  <Brewery.label>TODO</Brewery.label>
+  <!-- EN:  -->
+  <Brewery.description>TODO</Brewery.description>
+
+  <!-- EN:  -->
+  <DiningRoom.label>TODO</DiningRoom.label>
+  <!-- EN:  -->
+  <DiningRoom.description>TODO</DiningRoom.description>
+
+  <!-- EN:  -->
+  <BatteryRoom.label>TODO</BatteryRoom.label>
+  <!-- EN:  -->
+  <BatteryRoom.description>TODO</BatteryRoom.description>
+
+  <!-- EN:  -->
+  <Storage.label>TODO</Storage.label>
+  <!-- EN:  -->
+  <Storage.description>TODO</Storage.description>
+
+  <!-- EN:  -->
+  <Barracks.label>TODO</Barracks.label>
+  <!-- EN:  -->
+  <Barracks.description>TODO</Barracks.description>
+
+  <!-- EN:  -->
+  <PrisonCell.label>TODO</PrisonCell.label>
+  <!-- EN:  -->
+  <PrisonCell.description>TODO</PrisonCell.description>
+
+  <!-- EN:  -->
+  <AncientTemple.label>TODO</AncientTemple.label>
+  <!-- EN:  -->
+  <AncientTemple.description>TODO</AncientTemple.description>
+
+</LanguageData>

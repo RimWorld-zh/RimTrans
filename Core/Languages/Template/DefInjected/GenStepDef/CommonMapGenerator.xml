@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <ElevationFertility.label>TODO</ElevationFertility.label>
+  <!-- EN:  -->
+  <ElevationFertility.description>TODO</ElevationFertility.description>
+
+  <!-- EN:  -->
+  <Caves.label>TODO</Caves.label>
+  <!-- EN:  -->
+  <Caves.description>TODO</Caves.description>
+
+  <!-- EN:  -->
+  <ScatterDeepResourceLumps.label>TODO</ScatterDeepResourceLumps.label>
+  <!-- EN:  -->
+  <ScatterDeepResourceLumps.description>TODO</ScatterDeepResourceLumps.description>
+
+  <!-- EN:  -->
+  <RocksFromGrid.label>TODO</RocksFromGrid.label>
+  <!-- EN:  -->
+  <RocksFromGrid.description>TODO</RocksFromGrid.description>
+
+  <!-- EN:  -->
+  <RocksFromGrid_NoMinerals.label>TODO</RocksFromGrid_NoMinerals.label>
+  <!-- EN:  -->
+  <RocksFromGrid_NoMinerals.description>TODO</RocksFromGrid_NoMinerals.description>
+
+  <!-- EN:  -->
+  <Terrain.label>TODO</Terrain.label>
+  <!-- EN:  -->
+  <Terrain.description>TODO</Terrain.description>
+
+  <!-- EN:  -->
+  <CavesTerrain.label>TODO</CavesTerrain.label>
+  <!-- EN:  -->
+  <CavesTerrain.description>TODO</CavesTerrain.description>
+
+  <!-- EN:  -->
+  <Roads.label>TODO</Roads.label>
+  <!-- EN:  -->
+  <Roads.description>TODO</Roads.description>
+
+  <!-- EN:  -->
+  <RockChunks.label>TODO</RockChunks.label>
+  <!-- EN:  -->
+  <RockChunks.description>TODO</RockChunks.description>
+
+  <!-- EN:  -->
+  <ScatterRuinsSimple.label>TODO</ScatterRuinsSimple.label>
+  <!-- EN:  -->
+  <ScatterRuinsSimple.description>TODO</ScatterRuinsSimple.description>
+
+  <!-- EN:  -->
+  <SteamGeysers.label>TODO</SteamGeysers.label>
+  <!-- EN:  -->
+  <SteamGeysers.description>TODO</SteamGeysers.description>
+
+  <!-- EN:  -->
+  <FindPlayerStartSpot.label>TODO</FindPlayerStartSpot.label>
+  <!-- EN:  -->
+  <FindPlayerStartSpot.description>TODO</FindPlayerStartSpot.description>
+
+  <!-- EN:  -->
+  <ScenParts.label>TODO</ScenParts.label>
+  <!-- EN:  -->
+  <ScenParts.description>TODO</ScenParts.description>
+
+  <!-- EN:  -->
+  <Plants.label>TODO</Plants.label>
+  <!-- EN:  -->
+  <Plants.description>TODO</Plants.description>
+
+  <!-- EN:  -->
+  <Snow.label>TODO</Snow.label>
+  <!-- EN:  -->
+  <Snow.description>TODO</Snow.description>
+
+  <!-- EN:  -->
+  <Animals.label>TODO</Animals.label>
+  <!-- EN:  -->
+  <Animals.description>TODO</Animals.description>
+
+  <!-- EN:  -->
+  <Fog.label>TODO</Fog.label>
+  <!-- EN:  -->
+  <Fog.description>TODO</Fog.description>
+
+</LanguageData>

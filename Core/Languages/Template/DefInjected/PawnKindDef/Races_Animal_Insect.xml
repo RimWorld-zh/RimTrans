@@ -1,13 +1,157 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: megascarab -->
   <Megascarab.label>TODO</Megascarab.label>
-  
-  <!-- EN: megaspider -->
-  <Megaspider.label>TODO</Megaspider.label>
-  
+  <!-- EN:  -->
+  <Megascarab.description>TODO</Megascarab.description>
+  <!-- EN:  -->
+  <Megascarab.labelPlural>TODO</Megascarab.labelPlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.0.label>TODO</Megascarab.lifeStages.0.label>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.0.labelPlural>TODO</Megascarab.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.0.labelMale>TODO</Megascarab.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.0.labelMalePlural>TODO</Megascarab.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.0.labelFemale>TODO</Megascarab.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.0.labelFemalePlural>TODO</Megascarab.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.1.label>TODO</Megascarab.lifeStages.1.label>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.1.labelPlural>TODO</Megascarab.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.1.labelMale>TODO</Megascarab.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.1.labelMalePlural>TODO</Megascarab.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.1.labelFemale>TODO</Megascarab.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.1.labelFemalePlural>TODO</Megascarab.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.2.label>TODO</Megascarab.lifeStages.2.label>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.2.labelPlural>TODO</Megascarab.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.2.labelMale>TODO</Megascarab.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.2.labelMalePlural>TODO</Megascarab.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.2.labelFemale>TODO</Megascarab.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Megascarab.lifeStages.2.labelFemalePlural>TODO</Megascarab.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Megascarab.labelMale>TODO</Megascarab.labelMale>
+  <!-- EN:  -->
+  <Megascarab.labelMalePlural>TODO</Megascarab.labelMalePlural>
+  <!-- EN:  -->
+  <Megascarab.labelFemale>TODO</Megascarab.labelFemale>
+  <!-- EN:  -->
+  <Megascarab.labelFemalePlural>TODO</Megascarab.labelFemalePlural>
+
   <!-- EN: spelopede -->
   <Spelopede.label>TODO</Spelopede.label>
-  
+  <!-- EN:  -->
+  <Spelopede.description>TODO</Spelopede.description>
+  <!-- EN:  -->
+  <Spelopede.labelPlural>TODO</Spelopede.labelPlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.0.label>TODO</Spelopede.lifeStages.0.label>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.0.labelPlural>TODO</Spelopede.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.0.labelMale>TODO</Spelopede.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.0.labelMalePlural>TODO</Spelopede.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.0.labelFemale>TODO</Spelopede.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.0.labelFemalePlural>TODO</Spelopede.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.1.label>TODO</Spelopede.lifeStages.1.label>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.1.labelPlural>TODO</Spelopede.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.1.labelMale>TODO</Spelopede.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.1.labelMalePlural>TODO</Spelopede.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.1.labelFemale>TODO</Spelopede.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.1.labelFemalePlural>TODO</Spelopede.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.2.label>TODO</Spelopede.lifeStages.2.label>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.2.labelPlural>TODO</Spelopede.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.2.labelMale>TODO</Spelopede.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.2.labelMalePlural>TODO</Spelopede.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.2.labelFemale>TODO</Spelopede.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Spelopede.lifeStages.2.labelFemalePlural>TODO</Spelopede.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Spelopede.labelMale>TODO</Spelopede.labelMale>
+  <!-- EN:  -->
+  <Spelopede.labelMalePlural>TODO</Spelopede.labelMalePlural>
+  <!-- EN:  -->
+  <Spelopede.labelFemale>TODO</Spelopede.labelFemale>
+  <!-- EN:  -->
+  <Spelopede.labelFemalePlural>TODO</Spelopede.labelFemalePlural>
+
+  <!-- EN: megaspider -->
+  <Megaspider.label>TODO</Megaspider.label>
+  <!-- EN:  -->
+  <Megaspider.description>TODO</Megaspider.description>
+  <!-- EN:  -->
+  <Megaspider.labelPlural>TODO</Megaspider.labelPlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.0.label>TODO</Megaspider.lifeStages.0.label>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.0.labelPlural>TODO</Megaspider.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.0.labelMale>TODO</Megaspider.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.0.labelMalePlural>TODO</Megaspider.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.0.labelFemale>TODO</Megaspider.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.0.labelFemalePlural>TODO</Megaspider.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.1.label>TODO</Megaspider.lifeStages.1.label>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.1.labelPlural>TODO</Megaspider.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.1.labelMale>TODO</Megaspider.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.1.labelMalePlural>TODO</Megaspider.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.1.labelFemale>TODO</Megaspider.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.1.labelFemalePlural>TODO</Megaspider.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.2.label>TODO</Megaspider.lifeStages.2.label>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.2.labelPlural>TODO</Megaspider.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.2.labelMale>TODO</Megaspider.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.2.labelMalePlural>TODO</Megaspider.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.2.labelFemale>TODO</Megaspider.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Megaspider.lifeStages.2.labelFemalePlural>TODO</Megaspider.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Megaspider.labelMale>TODO</Megaspider.labelMale>
+  <!-- EN:  -->
+  <Megaspider.labelMalePlural>TODO</Megaspider.labelMalePlural>
+  <!-- EN:  -->
+  <Megaspider.labelFemale>TODO</Megaspider.labelFemale>
+  <!-- EN:  -->
+  <Megaspider.labelFemalePlural>TODO</Megaspider.labelFemalePlural>
+
 </LanguageData>

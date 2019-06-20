@@ -1,173 +1,351 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: ascetic has awful bedroom -->
-  <Ascetic.stages.ascetic_has_awful_bedroom.label>TODO</Ascetic.stages.ascetic_has_awful_bedroom.label>
-  <!-- EN: My bedroom is just how I want it to be. Very humble and simple. -->
-  <Ascetic.stages.ascetic_has_awful_bedroom.description>TODO</Ascetic.stages.ascetic_has_awful_bedroom.description>
-  <!-- EN: ascetic has dull bedroom -->
-  <Ascetic.stages.ascetic_has_dull_bedroom.label>TODO</Ascetic.stages.ascetic_has_dull_bedroom.label>
-  <!-- EN: My bedroom is just how I want it to be. Very humble and simple. -->
-  <Ascetic.stages.ascetic_has_dull_bedroom.description>TODO</Ascetic.stages.ascetic_has_dull_bedroom.description>
-  <!-- EN: ascetic has mediocre bedroom -->
-  <Ascetic.stages.ascetic_has_mediocre_bedroom.label>TODO</Ascetic.stages.ascetic_has_mediocre_bedroom.label>
-  <!-- EN: My bedroom is very humble and simple. I like it. -->
-  <Ascetic.stages.ascetic_has_mediocre_bedroom.description>TODO</Ascetic.stages.ascetic_has_mediocre_bedroom.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-0.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-0.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-0.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-0.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-1.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-1.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-1.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-1.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-2.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-2.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-2.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-2.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-3.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-3.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-3.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-3.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-4.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-4.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-4.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-4.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-5.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-5.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-5.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-5.description>
-  <!-- EN: ascetic has impressive bedroom -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-6.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-6.label>
-  <!-- EN: I don't like having an impressive bedroom. -->
-  <Ascetic.stages.ascetic_has_impressive_bedroom-6.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-6.description>
-  
-  <!-- EN: brawler has ranged weapon -->
-  <BrawlerUnhappy.stages.brawler_has_ranged_weapon.label>TODO</BrawlerUnhappy.stages.brawler_has_ranged_weapon.label>
-  <!-- EN: I hate shooting from a distance. I want to get up close and personal! -->
-  <BrawlerUnhappy.stages.brawler_has_ranged_weapon.description>TODO</BrawlerUnhappy.stages.brawler_has_ranged_weapon.description>
-  
-  <!-- EN: constraining clothes -->
-  <ClothedNudist.stages.constraining_clothes.label>TODO</ClothedNudist.stages.constraining_clothes.label>
-  <!-- EN: I'm a nudist but I have to wear these clothes. It's not unbearable - but I still feel constrained and uncomfortable. -->
-  <ClothedNudist.stages.constraining_clothes.description>TODO</ClothedNudist.stages.constraining_clothes.description>
-  
-  <!-- EN: greedy for impressive bedroom -->
-  <Greedy.stages.greedy_for_impressive_bedroom-0.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-0.label>
-  <!-- EN: I'm greedy. I want a really impressive bedroom. -->
-  <Greedy.stages.greedy_for_impressive_bedroom-0.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-0.description>
-  <!-- EN: greedy for impressive bedroom -->
-  <Greedy.stages.greedy_for_impressive_bedroom-1.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-1.label>
-  <!-- EN: I'm greedy. My room is pathetic! I want a really impressive bedroom. -->
-  <Greedy.stages.greedy_for_impressive_bedroom-1.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-1.description>
-  <!-- EN: greedy for impressive bedroom -->
-  <Greedy.stages.greedy_for_impressive_bedroom-2.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-2.label>
-  <!-- EN: I'm greedy. My room isn't nearly good enough. I want a really impressive bedroom. -->
-  <Greedy.stages.greedy_for_impressive_bedroom-2.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-2.description>
-  <!-- EN: greedy for impressive bedroom -->
-  <Greedy.stages.greedy_for_impressive_bedroom-3.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-3.label>
-  <!-- EN: I'm greedy. My room isn't good enough. I want a really impressive bedroom. -->
-  <Greedy.stages.greedy_for_impressive_bedroom-3.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-3.description>
-  <!-- EN: greedy for impressive bedroom -->
-  <Greedy.stages.greedy_for_impressive_bedroom-4.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-4.label>
-  <!-- EN: I'm greedy. My room isn't quite good enough. I want a really impressive bedroom. -->
-  <Greedy.stages.greedy_for_impressive_bedroom-4.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-4.description>
-  
-  <!-- EN: happily nude -->
-  <HappyNude.stages.happily_nude.label>TODO</HappyNude.stages.happily_nude.label>
-  <!-- EN: I'm nude and loving it! I feel so free and unconstrained and in touch with my surroundings! -->
-  <HappyNude.stages.happily_nude.description>TODO</HappyNude.stages.happily_nude.description>
-  
-  <!-- EN: jealous of {0}'s bedroom -->
-  <Jealous.stages.jealous_of_s_bedroom.label>TODO</Jealous.stages.jealous_of_s_bedroom.label>
-  <!-- EN: I need to have the best one! -->
-  <Jealous.stages.jealous_of_s_bedroom.description>TODO</Jealous.stages.jealous_of_s_bedroom.description>
-  
+
+  <!-- EN:  -->
+  <MasochistPain.label>TODO</MasochistPain.label>
+  <!-- EN:  -->
+  <MasochistPain.description>TODO</MasochistPain.description>
   <!-- EN: masochist in minor pain -->
   <MasochistPain.stages.masochist_in_minor_pain.label>TODO</MasochistPain.stages.masochist_in_minor_pain.label>
+  <!-- EN:  -->
+  <MasochistPain.stages.masochist_in_minor_pain.labelSocial>TODO</MasochistPain.stages.masochist_in_minor_pain.labelSocial>
   <!-- EN: Ow... Heh heh heh... I could get used to this! -->
   <MasochistPain.stages.masochist_in_minor_pain.description>TODO</MasochistPain.stages.masochist_in_minor_pain.description>
   <!-- EN: masochist in serious pain -->
   <MasochistPain.stages.masochist_in_serious_pain.label>TODO</MasochistPain.stages.masochist_in_serious_pain.label>
+  <!-- EN:  -->
+  <MasochistPain.stages.masochist_in_serious_pain.labelSocial>TODO</MasochistPain.stages.masochist_in_serious_pain.labelSocial>
   <!-- EN: Ughhh... It hurts, but I love it! Keep it coming! -->
   <MasochistPain.stages.masochist_in_serious_pain.description>TODO</MasochistPain.stages.masochist_in_serious_pain.description>
   <!-- EN: masochist in intense pain -->
   <MasochistPain.stages.masochist_in_intense_pain.label>TODO</MasochistPain.stages.masochist_in_intense_pain.label>
+  <!-- EN:  -->
+  <MasochistPain.stages.masochist_in_intense_pain.labelSocial>TODO</MasochistPain.stages.masochist_in_intense_pain.labelSocial>
   <!-- EN: Ouch... I think something's broken... But what an exquisite feeling! -->
   <MasochistPain.stages.masochist_in_intense_pain.description>TODO</MasochistPain.stages.masochist_in_intense_pain.description>
   <!-- EN: masochist in mind-shattering pain -->
   <MasochistPain.stages.masochist_in_mindshattering_pain.label>TODO</MasochistPain.stages.masochist_in_mindshattering_pain.label>
+  <!-- EN:  -->
+  <MasochistPain.stages.masochist_in_mindshattering_pain.labelSocial>TODO</MasochistPain.stages.masochist_in_mindshattering_pain.labelSocial>
   <!-- EN: Ahhh... Am I in heaven? -->
   <MasochistPain.stages.masochist_in_mindshattering_pain.description>TODO</MasochistPain.stages.masochist_in_mindshattering_pain.description>
-  
-  <!-- EN: night owl in daytime -->
-  <NightOwlDuringTheDay.stages.night_owl_in_daytime.label>TODO</NightOwlDuringTheDay.stages.night_owl_in_daytime.label>
-  <!-- EN: I don't like working during the day. -->
-  <NightOwlDuringTheDay.stages.night_owl_in_daytime.description>TODO</NightOwlDuringTheDay.stages.night_owl_in_daytime.description>
-  
-  <!-- EN: night owl at night -->
-  <NightOwlDuringTheNight.stages.night_owl_at_night.label>TODO</NightOwlDuringTheNight.stages.night_owl_at_night.label>
-  <!-- EN: I feel much better at night. -->
-  <NightOwlDuringTheNight.stages.night_owl_at_night.description>TODO</NightOwlDuringTheNight.stages.night_owl_at_night.description>
-  
+
+  <!-- EN:  -->
+  <ProsthophileNoProsthetic.label>TODO</ProsthophileNoProsthetic.label>
+  <!-- EN:  -->
+  <ProsthophileNoProsthetic.description>TODO</ProsthophileNoProsthetic.description>
+  <!-- EN: transhumanist frustrated -->
+  <ProsthophileNoProsthetic.stages.transhumanist_frustrated.label>TODO</ProsthophileNoProsthetic.stages.transhumanist_frustrated.label>
+  <!-- EN:  -->
+  <ProsthophileNoProsthetic.stages.transhumanist_frustrated.labelSocial>TODO</ProsthophileNoProsthetic.stages.transhumanist_frustrated.labelSocial>
+  <!-- EN: Flesh is so limiting. I wish I had some kind of artificial body part. -->
+  <ProsthophileNoProsthetic.stages.transhumanist_frustrated.description>TODO</ProsthophileNoProsthetic.stages.transhumanist_frustrated.description>
+
+  <!-- EN:  -->
+  <ProsthophileHappy.label>TODO</ProsthophileHappy.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.description>TODO</ProsthophileHappy.description>
   <!-- EN: transhumanist pleased -->
   <ProsthophileHappy.stages.transhumanist_pleased.label>TODO</ProsthophileHappy.stages.transhumanist_pleased.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.stages.transhumanist_pleased.labelSocial>TODO</ProsthophileHappy.stages.transhumanist_pleased.labelSocial>
   <!-- EN: This artificial part is cool. I want more. -->
   <ProsthophileHappy.stages.transhumanist_pleased.description>TODO</ProsthophileHappy.stages.transhumanist_pleased.description>
   <!-- EN: transhumanist quite pleased -->
   <ProsthophileHappy.stages.transhumanist_quite_pleased.label>TODO</ProsthophileHappy.stages.transhumanist_quite_pleased.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.stages.transhumanist_quite_pleased.labelSocial>TODO</ProsthophileHappy.stages.transhumanist_quite_pleased.labelSocial>
   <!-- EN: Two artificial parts are better than one. I wish I had more. -->
   <ProsthophileHappy.stages.transhumanist_quite_pleased.description>TODO</ProsthophileHappy.stages.transhumanist_quite_pleased.description>
   <!-- EN: transhumanist delighted -->
   <ProsthophileHappy.stages.transhumanist_delighted.label>TODO</ProsthophileHappy.stages.transhumanist_delighted.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.stages.transhumanist_delighted.labelSocial>TODO</ProsthophileHappy.stages.transhumanist_delighted.labelSocial>
   <!-- EN: Three artificial parts, and my weak human flesh is receding. But I still want more machine power. -->
   <ProsthophileHappy.stages.transhumanist_delighted.description>TODO</ProsthophileHappy.stages.transhumanist_delighted.description>
   <!-- EN: transhumanist enchanted -->
   <ProsthophileHappy.stages.transhumanist_enchanted.label>TODO</ProsthophileHappy.stages.transhumanist_enchanted.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.stages.transhumanist_enchanted.labelSocial>TODO</ProsthophileHappy.stages.transhumanist_enchanted.labelSocial>
   <!-- EN: Four artificial body parts and I am becoming more than human. But there's still some flesh that needs replacing. -->
   <ProsthophileHappy.stages.transhumanist_enchanted.description>TODO</ProsthophileHappy.stages.transhumanist_enchanted.description>
   <!-- EN: transhumanist overjoyed -->
   <ProsthophileHappy.stages.transhumanist_overjoyed.label>TODO</ProsthophileHappy.stages.transhumanist_overjoyed.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.stages.transhumanist_overjoyed.labelSocial>TODO</ProsthophileHappy.stages.transhumanist_overjoyed.labelSocial>
   <!-- EN: Five artificial body parts! How could an enhanced being like me ever feel sad? -->
   <ProsthophileHappy.stages.transhumanist_overjoyed.description>TODO</ProsthophileHappy.stages.transhumanist_overjoyed.description>
   <!-- EN: machine body is complete -->
   <ProsthophileHappy.stages.machine_body_is_complete.label>TODO</ProsthophileHappy.stages.machine_body_is_complete.label>
+  <!-- EN:  -->
+  <ProsthophileHappy.stages.machine_body_is_complete.labelSocial>TODO</ProsthophileHappy.stages.machine_body_is_complete.labelSocial>
   <!-- EN: I asked for this. -->
   <ProsthophileHappy.stages.machine_body_is_complete.description>TODO</ProsthophileHappy.stages.machine_body_is_complete.description>
-  
-  <!-- EN: transhumanist frustrated -->
-  <ProsthophileNoProsthetic.stages.transhumanist_frustrated.label>TODO</ProsthophileNoProsthetic.stages.transhumanist_frustrated.label>
-  <!-- EN: Flesh is so limiting. I wish I had some kind of artificial body part. -->
-  <ProsthophileNoProsthetic.stages.transhumanist_frustrated.description>TODO</ProsthophileNoProsthetic.stages.transhumanist_frustrated.description>
-  
+
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.label>TODO</ProsthophobeUnhappy.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.description>TODO</ProsthophobeUnhappy.description>
   <!-- EN: body purist squeamish -->
   <ProsthophobeUnhappy.stages.body_purist_squeamish.label>TODO</ProsthophobeUnhappy.stages.body_purist_squeamish.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.stages.body_purist_squeamish.labelSocial>TODO</ProsthophobeUnhappy.stages.body_purist_squeamish.labelSocial>
   <!-- EN: I hate having this unnatural thing attached to me. It feels so filthy! -->
   <ProsthophobeUnhappy.stages.body_purist_squeamish.description>TODO</ProsthophobeUnhappy.stages.body_purist_squeamish.description>
   <!-- EN: body purist disgusted -->
   <ProsthophobeUnhappy.stages.body_purist_disgusted.label>TODO</ProsthophobeUnhappy.stages.body_purist_disgusted.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.stages.body_purist_disgusted.labelSocial>TODO</ProsthophobeUnhappy.stages.body_purist_disgusted.labelSocial>
   <!-- EN: Two artificial parts are sullying my natural, pure body. It makes me sick to think of it. -->
   <ProsthophobeUnhappy.stages.body_purist_disgusted.description>TODO</ProsthophobeUnhappy.stages.body_purist_disgusted.description>
   <!-- EN: body purist violated -->
   <ProsthophobeUnhappy.stages.body_purist_violated.label>TODO</ProsthophobeUnhappy.stages.body_purist_violated.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.stages.body_purist_violated.labelSocial>TODO</ProsthophobeUnhappy.stages.body_purist_violated.labelSocial>
   <!-- EN: Three artificial parts violate my body's pure flesh. I shudder when I think of it... and these objects shudder with me. -->
   <ProsthophobeUnhappy.stages.body_purist_violated.description>TODO</ProsthophobeUnhappy.stages.body_purist_violated.description>
   <!-- EN: body purist horrified -->
   <ProsthophobeUnhappy.stages.body_purist_horrified.label>TODO</ProsthophobeUnhappy.stages.body_purist_horrified.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.stages.body_purist_horrified.labelSocial>TODO</ProsthophobeUnhappy.stages.body_purist_horrified.labelSocial>
   <!-- EN: I have four artificial body parts; it's like I'm becoming a robot. What a horrifying sensation. -->
   <ProsthophobeUnhappy.stages.body_purist_horrified.description>TODO</ProsthophobeUnhappy.stages.body_purist_horrified.description>
   <!-- EN: body purist nightmare -->
   <ProsthophobeUnhappy.stages.body_purist_nightmare.label>TODO</ProsthophobeUnhappy.stages.body_purist_nightmare.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.stages.body_purist_nightmare.labelSocial>TODO</ProsthophobeUnhappy.stages.body_purist_nightmare.labelSocial>
   <!-- EN: Five artificial body parts... Is there anything left of me? Or am I just a robot that thinks it's human? -->
   <ProsthophobeUnhappy.stages.body_purist_nightmare.description>TODO</ProsthophobeUnhappy.stages.body_purist_nightmare.description>
   <!-- EN: I have become what I hate -->
   <ProsthophobeUnhappy.stages.I_have_become_what_I_hate.label>TODO</ProsthophobeUnhappy.stages.I_have_become_what_I_hate.label>
+  <!-- EN:  -->
+  <ProsthophobeUnhappy.stages.I_have_become_what_I_hate.labelSocial>TODO</ProsthophobeUnhappy.stages.I_have_become_what_I_hate.labelSocial>
   <!-- EN: I asked for the exact opposite of this! -->
   <ProsthophobeUnhappy.stages.I_have_become_what_I_hate.description>TODO</ProsthophobeUnhappy.stages.I_have_become_what_I_hate.description>
-  
+
+  <!-- EN:  -->
+  <BrawlerUnhappy.label>TODO</BrawlerUnhappy.label>
+  <!-- EN:  -->
+  <BrawlerUnhappy.description>TODO</BrawlerUnhappy.description>
+  <!-- EN: brawler has ranged weapon -->
+  <BrawlerUnhappy.stages.brawler_has_ranged_weapon.label>TODO</BrawlerUnhappy.stages.brawler_has_ranged_weapon.label>
+  <!-- EN:  -->
+  <BrawlerUnhappy.stages.brawler_has_ranged_weapon.labelSocial>TODO</BrawlerUnhappy.stages.brawler_has_ranged_weapon.labelSocial>
+  <!-- EN: I hate shooting from a distance. I want to get up close and personal! -->
+  <BrawlerUnhappy.stages.brawler_has_ranged_weapon.description>TODO</BrawlerUnhappy.stages.brawler_has_ranged_weapon.description>
+
+  <!-- EN:  -->
+  <PyromaniacHappy.label>TODO</PyromaniacHappy.label>
+  <!-- EN:  -->
+  <PyromaniacHappy.description>TODO</PyromaniacHappy.description>
   <!-- EN: pyromaniac has incendiary weapon -->
   <PyromaniacHappy.stages.pyromaniac_has_incendiary_weapon.label>TODO</PyromaniacHappy.stages.pyromaniac_has_incendiary_weapon.label>
+  <!-- EN:  -->
+  <PyromaniacHappy.stages.pyromaniac_has_incendiary_weapon.labelSocial>TODO</PyromaniacHappy.stages.pyromaniac_has_incendiary_weapon.labelSocial>
   <!-- EN: It makes me think of flame and fire. I'm so happy. -->
   <PyromaniacHappy.stages.pyromaniac_has_incendiary_weapon.description>TODO</PyromaniacHappy.stages.pyromaniac_has_incendiary_weapon.description>
-  
+
+  <!-- EN:  -->
+  <ClothedNudist.label>TODO</ClothedNudist.label>
+  <!-- EN:  -->
+  <ClothedNudist.description>TODO</ClothedNudist.description>
+  <!-- EN: constraining clothes -->
+  <ClothedNudist.stages.constraining_clothes.label>TODO</ClothedNudist.stages.constraining_clothes.label>
+  <!-- EN:  -->
+  <ClothedNudist.stages.constraining_clothes.labelSocial>TODO</ClothedNudist.stages.constraining_clothes.labelSocial>
+  <!-- EN: I'm a nudist but I have to wear these clothes. It's not unbearable - but I still feel constrained and uncomfortable. -->
+  <ClothedNudist.stages.constraining_clothes.description>TODO</ClothedNudist.stages.constraining_clothes.description>
+
+  <!-- EN:  -->
+  <HappyNude.label>TODO</HappyNude.label>
+  <!-- EN:  -->
+  <HappyNude.description>TODO</HappyNude.description>
+  <!-- EN: happily nude -->
+  <HappyNude.stages.happily_nude.label>TODO</HappyNude.stages.happily_nude.label>
+  <!-- EN:  -->
+  <HappyNude.stages.happily_nude.labelSocial>TODO</HappyNude.stages.happily_nude.labelSocial>
+  <!-- EN: I'm nude and loving it! I feel so free and unconstrained and in touch with my surroundings! -->
+  <HappyNude.stages.happily_nude.description>TODO</HappyNude.stages.happily_nude.description>
+
+  <!-- EN:  -->
+  <NightOwlDuringTheDay.label>TODO</NightOwlDuringTheDay.label>
+  <!-- EN:  -->
+  <NightOwlDuringTheDay.description>TODO</NightOwlDuringTheDay.description>
+  <!-- EN: night owl in daytime -->
+  <NightOwlDuringTheDay.stages.night_owl_in_daytime.label>TODO</NightOwlDuringTheDay.stages.night_owl_in_daytime.label>
+  <!-- EN:  -->
+  <NightOwlDuringTheDay.stages.night_owl_in_daytime.labelSocial>TODO</NightOwlDuringTheDay.stages.night_owl_in_daytime.labelSocial>
+  <!-- EN: I don't like working during the day. -->
+  <NightOwlDuringTheDay.stages.night_owl_in_daytime.description>TODO</NightOwlDuringTheDay.stages.night_owl_in_daytime.description>
+
+  <!-- EN:  -->
+  <NightOwlDuringTheNight.label>TODO</NightOwlDuringTheNight.label>
+  <!-- EN:  -->
+  <NightOwlDuringTheNight.description>TODO</NightOwlDuringTheNight.description>
+  <!-- EN: night owl at night -->
+  <NightOwlDuringTheNight.stages.night_owl_at_night.label>TODO</NightOwlDuringTheNight.stages.night_owl_at_night.label>
+  <!-- EN:  -->
+  <NightOwlDuringTheNight.stages.night_owl_at_night.labelSocial>TODO</NightOwlDuringTheNight.stages.night_owl_at_night.labelSocial>
+  <!-- EN: I feel much better at night. -->
+  <NightOwlDuringTheNight.stages.night_owl_at_night.description>TODO</NightOwlDuringTheNight.stages.night_owl_at_night.description>
+
+  <!-- EN:  -->
+  <Greedy.label>TODO</Greedy.label>
+  <!-- EN:  -->
+  <Greedy.description>TODO</Greedy.description>
+  <!-- EN: greedy for impressive bedroom -->
+  <Greedy.stages.greedy_for_impressive_bedroom-0.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-0.label>
+  <!-- EN:  -->
+  <Greedy.stages.greedy_for_impressive_bedroom-0.labelSocial>TODO</Greedy.stages.greedy_for_impressive_bedroom-0.labelSocial>
+  <!-- EN: I'm greedy. I want a really impressive bedroom. -->
+  <Greedy.stages.greedy_for_impressive_bedroom-0.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-0.description>
+  <!-- EN: greedy for impressive bedroom -->
+  <Greedy.stages.greedy_for_impressive_bedroom-1.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-1.label>
+  <!-- EN:  -->
+  <Greedy.stages.greedy_for_impressive_bedroom-1.labelSocial>TODO</Greedy.stages.greedy_for_impressive_bedroom-1.labelSocial>
+  <!-- EN: I'm greedy. My room is pathetic! I want a really impressive bedroom. -->
+  <Greedy.stages.greedy_for_impressive_bedroom-1.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-1.description>
+  <!-- EN: greedy for impressive bedroom -->
+  <Greedy.stages.greedy_for_impressive_bedroom-2.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-2.label>
+  <!-- EN:  -->
+  <Greedy.stages.greedy_for_impressive_bedroom-2.labelSocial>TODO</Greedy.stages.greedy_for_impressive_bedroom-2.labelSocial>
+  <!-- EN: I'm greedy. My room isn't nearly good enough. I want a really impressive bedroom. -->
+  <Greedy.stages.greedy_for_impressive_bedroom-2.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-2.description>
+  <!-- EN: greedy for impressive bedroom -->
+  <Greedy.stages.greedy_for_impressive_bedroom-3.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-3.label>
+  <!-- EN:  -->
+  <Greedy.stages.greedy_for_impressive_bedroom-3.labelSocial>TODO</Greedy.stages.greedy_for_impressive_bedroom-3.labelSocial>
+  <!-- EN: I'm greedy. My room isn't good enough. I want a really impressive bedroom. -->
+  <Greedy.stages.greedy_for_impressive_bedroom-3.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-3.description>
+  <!-- EN: greedy for impressive bedroom -->
+  <Greedy.stages.greedy_for_impressive_bedroom-4.label>TODO</Greedy.stages.greedy_for_impressive_bedroom-4.label>
+  <!-- EN:  -->
+  <Greedy.stages.greedy_for_impressive_bedroom-4.labelSocial>TODO</Greedy.stages.greedy_for_impressive_bedroom-4.labelSocial>
+  <!-- EN: I'm greedy. My room isn't quite good enough. I want a really impressive bedroom. -->
+  <Greedy.stages.greedy_for_impressive_bedroom-4.description>TODO</Greedy.stages.greedy_for_impressive_bedroom-4.description>
+  <!-- EN:  -->
+  <Greedy.stages.5.label>TODO</Greedy.stages.5.label>
+  <!-- EN:  -->
+  <Greedy.stages.5.labelSocial>TODO</Greedy.stages.5.labelSocial>
+  <!-- EN:  -->
+  <Greedy.stages.5.description>TODO</Greedy.stages.5.description>
+  <!-- EN:  -->
+  <Greedy.stages.6.label>TODO</Greedy.stages.6.label>
+  <!-- EN:  -->
+  <Greedy.stages.6.labelSocial>TODO</Greedy.stages.6.labelSocial>
+  <!-- EN:  -->
+  <Greedy.stages.6.description>TODO</Greedy.stages.6.description>
+  <!-- EN:  -->
+  <Greedy.stages.7.label>TODO</Greedy.stages.7.label>
+  <!-- EN:  -->
+  <Greedy.stages.7.labelSocial>TODO</Greedy.stages.7.labelSocial>
+  <!-- EN:  -->
+  <Greedy.stages.7.description>TODO</Greedy.stages.7.description>
+  <!-- EN:  -->
+  <Greedy.stages.8.label>TODO</Greedy.stages.8.label>
+  <!-- EN:  -->
+  <Greedy.stages.8.labelSocial>TODO</Greedy.stages.8.labelSocial>
+  <!-- EN:  -->
+  <Greedy.stages.8.description>TODO</Greedy.stages.8.description>
+  <!-- EN:  -->
+  <Greedy.stages.9.label>TODO</Greedy.stages.9.label>
+  <!-- EN:  -->
+  <Greedy.stages.9.labelSocial>TODO</Greedy.stages.9.labelSocial>
+  <!-- EN:  -->
+  <Greedy.stages.9.description>TODO</Greedy.stages.9.description>
+  <!-- EN:  -->
+  <Greedy.stages.10.label>TODO</Greedy.stages.10.label>
+  <!-- EN:  -->
+  <Greedy.stages.10.labelSocial>TODO</Greedy.stages.10.labelSocial>
+  <!-- EN:  -->
+  <Greedy.stages.10.description>TODO</Greedy.stages.10.description>
+
+  <!-- EN:  -->
+  <Jealous.label>TODO</Jealous.label>
+  <!-- EN:  -->
+  <Jealous.description>TODO</Jealous.description>
+  <!-- EN: jealous of {0}'s bedroom -->
+  <Jealous.stages.jealous_of_s_bedroom.label>TODO</Jealous.stages.jealous_of_s_bedroom.label>
+  <!-- EN:  -->
+  <Jealous.stages.jealous_of_s_bedroom.labelSocial>TODO</Jealous.stages.jealous_of_s_bedroom.labelSocial>
+  <!-- EN: I need to have the best one! -->
+  <Jealous.stages.jealous_of_s_bedroom.description>TODO</Jealous.stages.jealous_of_s_bedroom.description>
+
+  <!-- EN:  -->
+  <Ascetic.label>TODO</Ascetic.label>
+  <!-- EN:  -->
+  <Ascetic.description>TODO</Ascetic.description>
+  <!-- EN: ascetic has awful bedroom -->
+  <Ascetic.stages.ascetic_has_awful_bedroom.label>TODO</Ascetic.stages.ascetic_has_awful_bedroom.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_awful_bedroom.labelSocial>TODO</Ascetic.stages.ascetic_has_awful_bedroom.labelSocial>
+  <!-- EN: My bedroom is just how I want it to be. Very humble and simple. -->
+  <Ascetic.stages.ascetic_has_awful_bedroom.description>TODO</Ascetic.stages.ascetic_has_awful_bedroom.description>
+  <!-- EN: ascetic has dull bedroom -->
+  <Ascetic.stages.ascetic_has_dull_bedroom.label>TODO</Ascetic.stages.ascetic_has_dull_bedroom.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_dull_bedroom.labelSocial>TODO</Ascetic.stages.ascetic_has_dull_bedroom.labelSocial>
+  <!-- EN: My bedroom is just how I want it to be. Very humble and simple. -->
+  <Ascetic.stages.ascetic_has_dull_bedroom.description>TODO</Ascetic.stages.ascetic_has_dull_bedroom.description>
+  <!-- EN: ascetic has mediocre bedroom -->
+  <Ascetic.stages.ascetic_has_mediocre_bedroom.label>TODO</Ascetic.stages.ascetic_has_mediocre_bedroom.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_mediocre_bedroom.labelSocial>TODO</Ascetic.stages.ascetic_has_mediocre_bedroom.labelSocial>
+  <!-- EN: My bedroom is very humble and simple. I like it. -->
+  <Ascetic.stages.ascetic_has_mediocre_bedroom.description>TODO</Ascetic.stages.ascetic_has_mediocre_bedroom.description>
+  <!-- EN:  -->
+  <Ascetic.stages.3.label>TODO</Ascetic.stages.3.label>
+  <!-- EN:  -->
+  <Ascetic.stages.3.labelSocial>TODO</Ascetic.stages.3.labelSocial>
+  <!-- EN:  -->
+  <Ascetic.stages.3.description>TODO</Ascetic.stages.3.description>
+  <!-- EN:  -->
+  <Ascetic.stages.4.label>TODO</Ascetic.stages.4.label>
+  <!-- EN:  -->
+  <Ascetic.stages.4.labelSocial>TODO</Ascetic.stages.4.labelSocial>
+  <!-- EN:  -->
+  <Ascetic.stages.4.description>TODO</Ascetic.stages.4.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-0.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-0.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-0.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-0.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-0.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-0.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-1.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-1.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-1.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-1.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-1.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-1.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-2.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-2.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-2.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-2.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-2.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-2.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-3.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-3.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-3.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-3.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-3.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-3.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-4.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-4.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-4.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-4.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-4.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-4.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-5.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-5.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-5.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-5.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-5.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-5.description>
+  <!-- EN: ascetic has impressive bedroom -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-6.label>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-6.label>
+  <!-- EN:  -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-6.labelSocial>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-6.labelSocial>
+  <!-- EN: I don't like having an impressive bedroom. -->
+  <Ascetic.stages.ascetic_has_impressive_bedroom-6.description>TODO</Ascetic.stages.ascetic_has_impressive_bedroom-6.description>
+
 </LanguageData>

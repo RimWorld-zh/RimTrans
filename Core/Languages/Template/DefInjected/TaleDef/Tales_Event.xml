@@ -1,27 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: collapse dodged -->
-  <CollapseDodged.label>TODO</CollapseDodged.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef] dodging a cave-in</li>
-    <li>tale_noun->[PAWN_nameDef] nearly crushed by falling objects</li>
-    <li>image->[PAWN_nameFull] leaping away from a collapse of debris [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] narrowly avoiding a cave-in [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] avoiding a falling ceiling [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] avoiding certain death by a falling rock [circumstance_group]</li>
-    <li>circumstance_phrase->that vanishes behind a curtain of debris and dust</li>
-    <li>circumstance_phrase->that pulverizes everything beneath it</li>
-    <li>circumstance_phrase->which impacts with incredible force</li>
-    <li>desc_sentence->[PAWN_pronoun] is sweating with exertion.</li>
-    <li>desc_sentence->[PAWN_pronoun] appears to be terrified.</li>
-    <li>desc_sentence->[PAWN_pronoun] is scratched and bleeding.</li>
-    <li>desc_sentence->[PAWN_pronoun] has lost [PAWN_possessive] balance.</li>
-  -->
-  <CollapseDodged.rulePack.rulesStrings>TODO</CollapseDodged.rulePack.rulesStrings>
-  
+
   <!-- EN: launched ship -->
   <LaunchedShip.label>TODO</LaunchedShip.label>
+  <!-- EN:  -->
+  <LaunchedShip.description>TODO</LaunchedShip.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef] escaping the planet</li>
     <li>tale_noun->[PAWN_nameDef] taking off in a spaceship</li>
@@ -45,10 +28,34 @@
     <li>desc_sentence->There is a [TerrainFeature] in the background.</li>
     <li>desc_sentence->A [PersonJob] watches silently from afar.</li>
   -->
-  <LaunchedShip.rulePack.rulesStrings>TODO</LaunchedShip.rulePack.rulesStrings>
-  
+  <LaunchedShip.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </LaunchedShip.rulePack.rulesStrings>
+
   <!-- EN: social fight -->
   <SocialFight.label>TODO</SocialFight.label>
+  <!-- EN:  -->
+  <SocialFight.description>TODO</SocialFight.description>
   <!-- EN:
     <li>tale_noun->[INITIATOR_nameDef] [fight_name_present] [RESPONDER_nameDef]</li>
     <li>image->[INITIATOR_nameFull] insulting [RESPONDER_nameFull] [circumstance_group]</li>
@@ -82,6 +89,73 @@
     <li>target->[INITIATOR_nameDef]</li>
     <li>target->[RESPONDER_nameDef]</li>
   -->
-  <SocialFight.rulePack.rulesStrings>TODO</SocialFight.rulePack.rulesStrings>
-  
+  <SocialFight.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </SocialFight.rulePack.rulesStrings>
+
+  <!-- EN: collapse dodged -->
+  <CollapseDodged.label>TODO</CollapseDodged.label>
+  <!-- EN:  -->
+  <CollapseDodged.description>TODO</CollapseDodged.description>
+  <!-- EN:
+    <li>tale_noun->[PAWN_nameDef] dodging a cave-in</li>
+    <li>tale_noun->[PAWN_nameDef] nearly crushed by falling objects</li>
+    <li>image->[PAWN_nameFull] leaping away from a collapse of debris [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] narrowly avoiding a cave-in [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] avoiding a falling ceiling [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] avoiding certain death by a falling rock [circumstance_group]</li>
+    <li>circumstance_phrase->that vanishes behind a curtain of debris and dust</li>
+    <li>circumstance_phrase->that pulverizes everything beneath it</li>
+    <li>circumstance_phrase->which impacts with incredible force</li>
+    <li>desc_sentence->[PAWN_pronoun] is sweating with exertion.</li>
+    <li>desc_sentence->[PAWN_pronoun] appears to be terrified.</li>
+    <li>desc_sentence->[PAWN_pronoun] is scratched and bleeding.</li>
+    <li>desc_sentence->[PAWN_pronoun] has lost [PAWN_possessive] balance.</li>
+  -->
+  <CollapseDodged.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CollapseDodged.rulePack.rulesStrings>
+
 </LanguageData>

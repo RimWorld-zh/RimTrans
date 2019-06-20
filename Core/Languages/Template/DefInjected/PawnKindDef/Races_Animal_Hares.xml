@@ -1,10 +1,106 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: hare -->
   <Hare.label>TODO</Hare.label>
-  
+  <!-- EN:  -->
+  <Hare.description>TODO</Hare.description>
+  <!-- EN:  -->
+  <Hare.labelPlural>TODO</Hare.labelPlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.0.label>TODO</Hare.lifeStages.0.label>
+  <!-- EN:  -->
+  <Hare.lifeStages.0.labelPlural>TODO</Hare.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.0.labelMale>TODO</Hare.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Hare.lifeStages.0.labelMalePlural>TODO</Hare.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.0.labelFemale>TODO</Hare.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Hare.lifeStages.0.labelFemalePlural>TODO</Hare.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.1.label>TODO</Hare.lifeStages.1.label>
+  <!-- EN:  -->
+  <Hare.lifeStages.1.labelPlural>TODO</Hare.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.1.labelMale>TODO</Hare.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Hare.lifeStages.1.labelMalePlural>TODO</Hare.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.1.labelFemale>TODO</Hare.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Hare.lifeStages.1.labelFemalePlural>TODO</Hare.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.2.label>TODO</Hare.lifeStages.2.label>
+  <!-- EN:  -->
+  <Hare.lifeStages.2.labelPlural>TODO</Hare.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.2.labelMale>TODO</Hare.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Hare.lifeStages.2.labelMalePlural>TODO</Hare.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Hare.lifeStages.2.labelFemale>TODO</Hare.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Hare.lifeStages.2.labelFemalePlural>TODO</Hare.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Hare.labelMale>TODO</Hare.labelMale>
+  <!-- EN:  -->
+  <Hare.labelMalePlural>TODO</Hare.labelMalePlural>
+  <!-- EN:  -->
+  <Hare.labelFemale>TODO</Hare.labelFemale>
+  <!-- EN:  -->
+  <Hare.labelFemalePlural>TODO</Hare.labelFemalePlural>
+
   <!-- EN: snowhare -->
   <Snowhare.label>TODO</Snowhare.label>
-  
+  <!-- EN:  -->
+  <Snowhare.description>TODO</Snowhare.description>
+  <!-- EN:  -->
+  <Snowhare.labelPlural>TODO</Snowhare.labelPlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.0.label>TODO</Snowhare.lifeStages.0.label>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.0.labelPlural>TODO</Snowhare.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.0.labelMale>TODO</Snowhare.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.0.labelMalePlural>TODO</Snowhare.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.0.labelFemale>TODO</Snowhare.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.0.labelFemalePlural>TODO</Snowhare.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.1.label>TODO</Snowhare.lifeStages.1.label>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.1.labelPlural>TODO</Snowhare.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.1.labelMale>TODO</Snowhare.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.1.labelMalePlural>TODO</Snowhare.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.1.labelFemale>TODO</Snowhare.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.1.labelFemalePlural>TODO</Snowhare.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.2.label>TODO</Snowhare.lifeStages.2.label>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.2.labelPlural>TODO</Snowhare.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.2.labelMale>TODO</Snowhare.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.2.labelMalePlural>TODO</Snowhare.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.2.labelFemale>TODO</Snowhare.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Snowhare.lifeStages.2.labelFemalePlural>TODO</Snowhare.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Snowhare.labelMale>TODO</Snowhare.labelMale>
+  <!-- EN:  -->
+  <Snowhare.labelMalePlural>TODO</Snowhare.labelMalePlural>
+  <!-- EN:  -->
+  <Snowhare.labelFemale>TODO</Snowhare.labelFemale>
+  <!-- EN:  -->
+  <Snowhare.labelFemalePlural>TODO</Snowhare.labelFemalePlural>
+
 </LanguageData>

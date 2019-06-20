@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Clock_Stop.label>TODO</Clock_Stop.label>
+  <!-- EN:  -->
+  <Clock_Stop.description>TODO</Clock_Stop.description>
+  <!-- EN:  -->
+  <Clock_Stop.subSounds.0.name>TODO</Clock_Stop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Clock_Normal.label>TODO</Clock_Normal.label>
+  <!-- EN:  -->
+  <Clock_Normal.description>TODO</Clock_Normal.description>
+  <!-- EN:  -->
+  <Clock_Normal.subSounds.0.name>TODO</Clock_Normal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Clock_Fast.label>TODO</Clock_Fast.label>
+  <!-- EN:  -->
+  <Clock_Fast.description>TODO</Clock_Fast.description>
+  <!-- EN:  -->
+  <Clock_Fast.subSounds.0.name>TODO</Clock_Fast.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Clock_Superfast.label>TODO</Clock_Superfast.label>
+  <!-- EN:  -->
+  <Clock_Superfast.description>TODO</Clock_Superfast.description>
+  <!-- EN:  -->
+  <Clock_Superfast.subSounds.0.name>TODO</Clock_Superfast.subSounds.0.name>
+
+</LanguageData>

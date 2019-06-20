@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <ButcherFlesh.label>TODO</ButcherFlesh.label>
+  <!-- EN:  -->
+  <ButcherFlesh.description>TODO</ButcherFlesh.description>
+
+  <!-- EN:  -->
+  <ButcherMechanoid.label>TODO</ButcherMechanoid.label>
+  <!-- EN:  -->
+  <ButcherMechanoid.description>TODO</ButcherMechanoid.description>
+
+  <!-- EN:  -->
+  <Surgery.label>TODO</Surgery.label>
+  <!-- EN:  -->
+  <Surgery.description>TODO</Surgery.description>
+
+  <!-- EN:  -->
+  <CutStone.label>TODO</CutStone.label>
+  <!-- EN:  -->
+  <CutStone.description>TODO</CutStone.description>
+
+  <!-- EN:  -->
+  <Tailor.label>TODO</Tailor.label>
+  <!-- EN:  -->
+  <Tailor.description>TODO</Tailor.description>
+
+  <!-- EN:  -->
+  <Smith.label>TODO</Smith.label>
+  <!-- EN:  -->
+  <Smith.description>TODO</Smith.description>
+
+  <!-- EN:  -->
+  <Sculpt.label>TODO</Sculpt.label>
+  <!-- EN:  -->
+  <Sculpt.description>TODO</Sculpt.description>
+
+  <!-- EN:  -->
+  <MakeWoodPlanks_Hand.label>TODO</MakeWoodPlanks_Hand.label>
+  <!-- EN:  -->
+  <MakeWoodPlanks_Hand.description>TODO</MakeWoodPlanks_Hand.description>
+
+  <!-- EN:  -->
+  <MakeWoodPlanks_Electric.label>TODO</MakeWoodPlanks_Electric.label>
+  <!-- EN:  -->
+  <MakeWoodPlanks_Electric.description>TODO</MakeWoodPlanks_Electric.description>
+
+  <!-- EN:  -->
+  <Smelt.label>TODO</Smelt.label>
+  <!-- EN:  -->
+  <Smelt.description>TODO</Smelt.description>
+
+  <!-- EN:  -->
+  <Cook.label>TODO</Cook.label>
+  <!-- EN:  -->
+  <Cook.description>TODO</Cook.description>
+
+  <!-- EN:  -->
+  <Cremate.label>TODO</Cremate.label>
+  <!-- EN:  -->
+  <Cremate.description>TODO</Cremate.description>
+
+  <!-- EN:  -->
+  <BurnDrug.label>TODO</BurnDrug.label>
+  <!-- EN:  -->
+  <BurnDrug.description>TODO</BurnDrug.description>
+
+</LanguageData>

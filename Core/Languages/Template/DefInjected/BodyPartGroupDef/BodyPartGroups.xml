@@ -1,111 +1,207 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: arms -->
-  <Arms.label>TODO</Arms.label>
-  
-  <!-- EN: beak -->
-  <Beak.label>TODO</Beak.label>
-  
-  <!-- EN: eyes -->
-  <Eyes.label>TODO</Eyes.label>
-  
-  <!-- EN: feet -->
-  <Feet.label>TODO</Feet.label>
-  
-  <!-- EN: front left claws -->
-  <FrontLeftClaws.label>TODO</FrontLeftClaws.label>
-  <!-- EN: claws -->
-  <FrontLeftClaws.labelShort>TODO</FrontLeftClaws.labelShort>
-  
-  <!-- EN: front left leg -->
-  <FrontLeftLeg.label>TODO</FrontLeftLeg.label>
-  <!-- EN: leg -->
-  <FrontLeftLeg.labelShort>TODO</FrontLeftLeg.labelShort>
-  
-  <!-- EN: front left paw -->
-  <FrontLeftPaw.label>TODO</FrontLeftPaw.label>
-  <!-- EN: paw -->
-  <FrontLeftPaw.labelShort>TODO</FrontLeftPaw.labelShort>
-  
-  <!-- EN: front right claws -->
-  <FrontRightClaws.label>TODO</FrontRightClaws.label>
-  <!-- EN: claws -->
-  <FrontRightClaws.labelShort>TODO</FrontRightClaws.labelShort>
-  
-  <!-- EN: front right leg -->
-  <FrontRightLeg.label>TODO</FrontRightLeg.label>
-  <!-- EN: leg -->
-  <FrontRightLeg.labelShort>TODO</FrontRightLeg.labelShort>
-  
-  <!-- EN: front right paw -->
-  <FrontRightPaw.label>TODO</FrontRightPaw.label>
-  <!-- EN: paw -->
-  <FrontRightPaw.labelShort>TODO</FrontRightPaw.labelShort>
-  
-  <!-- EN: full head -->
-  <FullHead.label>TODO</FullHead.label>
-  
-  <!-- EN: hands -->
-  <Hands.label>TODO</Hands.label>
-  
-  <!-- EN: head -->
-  <HeadAttackTool.label>TODO</HeadAttackTool.label>
-  
-  <!-- EN: claw -->
-  <HeadClaw.label>TODO</HeadClaw.label>
-  
-  <!-- EN: horn -->
-  <HornAttackTool.label>TODO</HornAttackTool.label>
-  
-  <!-- EN: left blade -->
-  <LeftBlade.label>TODO</LeftBlade.label>
-  <!-- EN: blade -->
-  <LeftBlade.labelShort>TODO</LeftBlade.labelShort>
-  
-  <!-- EN: left fist -->
-  <LeftHand.label>TODO</LeftHand.label>
-  <!-- EN: fist -->
-  <LeftHand.labelShort>TODO</LeftHand.labelShort>
-  
-  <!-- EN: legs -->
-  <Legs.label>TODO</Legs.label>
-  
-  <!-- EN: mouth -->
-  <Mouth.label>TODO</Mouth.label>
-  
-  <!-- EN: neck -->
-  <Neck.label>TODO</Neck.label>
-  
-  <!-- EN: right blade -->
-  <RightBlade.label>TODO</RightBlade.label>
-  <!-- EN: blade -->
-  <RightBlade.labelShort>TODO</RightBlade.labelShort>
-  
-  <!-- EN: right fist -->
-  <RightHand.label>TODO</RightHand.label>
-  <!-- EN: fist -->
-  <RightHand.labelShort>TODO</RightHand.labelShort>
-  
-  <!-- EN: shoulders -->
-  <Shoulders.label>TODO</Shoulders.label>
-  
-  <!-- EN: teeth -->
-  <Teeth.label>TODO</Teeth.label>
-  
+
   <!-- EN: torso -->
   <Torso.label>TODO</Torso.label>
-  
-  <!-- EN: beak -->
-  <TurtleBeakAttackTool.label>TODO</TurtleBeakAttackTool.label>
-  
-  <!-- EN: tusks -->
-  <TuskAttackTool.label>TODO</TuskAttackTool.label>
-  
+  <!-- EN:  -->
+  <Torso.description>TODO</Torso.description>
+  <!-- EN:  -->
+  <Torso.labelShort>TODO</Torso.labelShort>
+
   <!-- EN: upper head -->
   <UpperHead.label>TODO</UpperHead.label>
-  
+  <!-- EN:  -->
+  <UpperHead.description>TODO</UpperHead.description>
+  <!-- EN:  -->
+  <UpperHead.labelShort>TODO</UpperHead.labelShort>
+
+  <!-- EN: full head -->
+  <FullHead.label>TODO</FullHead.label>
+  <!-- EN:  -->
+  <FullHead.description>TODO</FullHead.description>
+  <!-- EN:  -->
+  <FullHead.labelShort>TODO</FullHead.labelShort>
+
+  <!-- EN: eyes -->
+  <Eyes.label>TODO</Eyes.label>
+  <!-- EN:  -->
+  <Eyes.description>TODO</Eyes.description>
+  <!-- EN:  -->
+  <Eyes.labelShort>TODO</Eyes.labelShort>
+
+  <!-- EN: teeth -->
+  <Teeth.label>TODO</Teeth.label>
+  <!-- EN:  -->
+  <Teeth.description>TODO</Teeth.description>
+  <!-- EN:  -->
+  <Teeth.labelShort>TODO</Teeth.labelShort>
+
+  <!-- EN: mouth -->
+  <Mouth.label>TODO</Mouth.label>
+  <!-- EN:  -->
+  <Mouth.description>TODO</Mouth.description>
+  <!-- EN:  -->
+  <Mouth.labelShort>TODO</Mouth.labelShort>
+
+  <!-- EN: neck -->
+  <Neck.label>TODO</Neck.label>
+  <!-- EN:  -->
+  <Neck.description>TODO</Neck.description>
+  <!-- EN:  -->
+  <Neck.labelShort>TODO</Neck.labelShort>
+
+  <!-- EN: arms -->
+  <Arms.label>TODO</Arms.label>
+  <!-- EN:  -->
+  <Arms.description>TODO</Arms.description>
+  <!-- EN:  -->
+  <Arms.labelShort>TODO</Arms.labelShort>
+
+  <!-- EN: shoulders -->
+  <Shoulders.label>TODO</Shoulders.label>
+  <!-- EN:  -->
+  <Shoulders.description>TODO</Shoulders.description>
+  <!-- EN:  -->
+  <Shoulders.labelShort>TODO</Shoulders.labelShort>
+
+  <!-- EN: hands -->
+  <Hands.label>TODO</Hands.label>
+  <!-- EN:  -->
+  <Hands.description>TODO</Hands.description>
+  <!-- EN:  -->
+  <Hands.labelShort>TODO</Hands.labelShort>
+
+  <!-- EN: left fist -->
+  <LeftHand.label>TODO</LeftHand.label>
+  <!-- EN:  -->
+  <LeftHand.description>TODO</LeftHand.description>
+  <!-- EN: fist -->
+  <LeftHand.labelShort>TODO</LeftHand.labelShort>
+
+  <!-- EN: right fist -->
+  <RightHand.label>TODO</RightHand.label>
+  <!-- EN:  -->
+  <RightHand.description>TODO</RightHand.description>
+  <!-- EN: fist -->
+  <RightHand.labelShort>TODO</RightHand.labelShort>
+
   <!-- EN: waist -->
   <Waist.label>TODO</Waist.label>
-  
+  <!-- EN:  -->
+  <Waist.description>TODO</Waist.description>
+  <!-- EN:  -->
+  <Waist.labelShort>TODO</Waist.labelShort>
+
+  <!-- EN: legs -->
+  <Legs.label>TODO</Legs.label>
+  <!-- EN:  -->
+  <Legs.description>TODO</Legs.description>
+  <!-- EN:  -->
+  <Legs.labelShort>TODO</Legs.labelShort>
+
+  <!-- EN: feet -->
+  <Feet.label>TODO</Feet.label>
+  <!-- EN:  -->
+  <Feet.description>TODO</Feet.description>
+  <!-- EN:  -->
+  <Feet.labelShort>TODO</Feet.labelShort>
+
+  <!-- EN: front left paw -->
+  <FrontLeftPaw.label>TODO</FrontLeftPaw.label>
+  <!-- EN:  -->
+  <FrontLeftPaw.description>TODO</FrontLeftPaw.description>
+  <!-- EN: paw -->
+  <FrontLeftPaw.labelShort>TODO</FrontLeftPaw.labelShort>
+
+  <!-- EN: front right paw -->
+  <FrontRightPaw.label>TODO</FrontRightPaw.label>
+  <!-- EN:  -->
+  <FrontRightPaw.description>TODO</FrontRightPaw.description>
+  <!-- EN: paw -->
+  <FrontRightPaw.labelShort>TODO</FrontRightPaw.labelShort>
+
+  <!-- EN: head -->
+  <HeadAttackTool.label>TODO</HeadAttackTool.label>
+  <!-- EN:  -->
+  <HeadAttackTool.description>TODO</HeadAttackTool.description>
+  <!-- EN:  -->
+  <HeadAttackTool.labelShort>TODO</HeadAttackTool.labelShort>
+
+  <!-- EN: front left leg -->
+  <FrontLeftLeg.label>TODO</FrontLeftLeg.label>
+  <!-- EN:  -->
+  <FrontLeftLeg.description>TODO</FrontLeftLeg.description>
+  <!-- EN: leg -->
+  <FrontLeftLeg.labelShort>TODO</FrontLeftLeg.labelShort>
+
+  <!-- EN: front right leg -->
+  <FrontRightLeg.label>TODO</FrontRightLeg.label>
+  <!-- EN:  -->
+  <FrontRightLeg.description>TODO</FrontRightLeg.description>
+  <!-- EN: leg -->
+  <FrontRightLeg.labelShort>TODO</FrontRightLeg.labelShort>
+
+  <!-- EN: front left claws -->
+  <FrontLeftClaws.label>TODO</FrontLeftClaws.label>
+  <!-- EN:  -->
+  <FrontLeftClaws.description>TODO</FrontLeftClaws.description>
+  <!-- EN: claws -->
+  <FrontLeftClaws.labelShort>TODO</FrontLeftClaws.labelShort>
+
+  <!-- EN: front right claws -->
+  <FrontRightClaws.label>TODO</FrontRightClaws.label>
+  <!-- EN:  -->
+  <FrontRightClaws.description>TODO</FrontRightClaws.description>
+  <!-- EN: claws -->
+  <FrontRightClaws.labelShort>TODO</FrontRightClaws.labelShort>
+
+  <!-- EN: left blade -->
+  <LeftBlade.label>TODO</LeftBlade.label>
+  <!-- EN:  -->
+  <LeftBlade.description>TODO</LeftBlade.description>
+  <!-- EN: blade -->
+  <LeftBlade.labelShort>TODO</LeftBlade.labelShort>
+
+  <!-- EN: right blade -->
+  <RightBlade.label>TODO</RightBlade.label>
+  <!-- EN:  -->
+  <RightBlade.description>TODO</RightBlade.description>
+  <!-- EN: blade -->
+  <RightBlade.labelShort>TODO</RightBlade.labelShort>
+
+  <!-- EN: tusks -->
+  <TuskAttackTool.label>TODO</TuskAttackTool.label>
+  <!-- EN:  -->
+  <TuskAttackTool.description>TODO</TuskAttackTool.description>
+  <!-- EN:  -->
+  <TuskAttackTool.labelShort>TODO</TuskAttackTool.labelShort>
+
+  <!-- EN: horn -->
+  <HornAttackTool.label>TODO</HornAttackTool.label>
+  <!-- EN:  -->
+  <HornAttackTool.description>TODO</HornAttackTool.description>
+  <!-- EN:  -->
+  <HornAttackTool.labelShort>TODO</HornAttackTool.labelShort>
+
+  <!-- EN: claw -->
+  <HeadClaw.label>TODO</HeadClaw.label>
+  <!-- EN:  -->
+  <HeadClaw.description>TODO</HeadClaw.description>
+  <!-- EN:  -->
+  <HeadClaw.labelShort>TODO</HeadClaw.labelShort>
+
+  <!-- EN: beak -->
+  <TurtleBeakAttackTool.label>TODO</TurtleBeakAttackTool.label>
+  <!-- EN:  -->
+  <TurtleBeakAttackTool.description>TODO</TurtleBeakAttackTool.description>
+  <!-- EN:  -->
+  <TurtleBeakAttackTool.labelShort>TODO</TurtleBeakAttackTool.labelShort>
+
+  <!-- EN: beak -->
+  <Beak.label>TODO</Beak.label>
+  <!-- EN:  -->
+  <Beak.description>TODO</Beak.description>
+  <!-- EN:  -->
+  <Beak.labelShort>TODO</Beak.labelShort>
+
 </LanguageData>

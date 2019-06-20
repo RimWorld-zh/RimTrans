@@ -1,19 +1,25 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <NamerAnimalUtility.label>TODO</NamerAnimalUtility.label>
+  <!-- EN:  -->
+  <NamerAnimalUtility.description>TODO</NamerAnimalUtility.description>
   <!-- EN:
-    <li>r_name(p=6)->[NameAnimalUnisex]</li>
-    <li>r_name(p=6)->[NameAnimalFemale]</li>
-    <li>r_name(p=6)->[NamePersonFemale]</li>
-    <li>r_name->[exoticname]</li>
-    <li>exoticname(p=2)->[AdjectiveBadass]</li>
-    <li>exoticname(p=2)->[PersonBadass]</li>
-    <li>exoticname->[Enemy]</li>
-    <li>exoticname->[ConceptAny]</li>
-    <li>exoticname->[Color]</li>
+    <li>NameAnimalUnisex->Names/Animal_Unisex</li>
+    <li>NameAnimalMale->Names/Animal_Male</li>
+    <li>NameAnimalFemale->Names/Animal_Female</li>
   -->
-  <NamerAnimalGenericFemale.rulePack.rulesStrings>TODO</NamerAnimalGenericFemale.rulePack.rulesStrings>
-  
+  <NamerAnimalUtility.rulePack.rulesFiles>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerAnimalUtility.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <NamerAnimalGenericMale.label>TODO</NamerAnimalGenericMale.label>
+  <!-- EN:  -->
+  <NamerAnimalGenericMale.description>TODO</NamerAnimalGenericMale.description>
   <!-- EN:
     <li>r_name(p=6)->[NameAnimalUnisex]</li>
     <li>r_name(p=6)->[NameAnimalMale]</li>
@@ -25,6 +31,43 @@
     <li>exoticname->[ConceptAny]</li>
     <li>exoticname->[Color]</li>
   -->
-  <NamerAnimalGenericMale.rulePack.rulesStrings>TODO</NamerAnimalGenericMale.rulePack.rulesStrings>
-  
+  <NamerAnimalGenericMale.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerAnimalGenericMale.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <NamerAnimalGenericFemale.label>TODO</NamerAnimalGenericFemale.label>
+  <!-- EN:  -->
+  <NamerAnimalGenericFemale.description>TODO</NamerAnimalGenericFemale.description>
+  <!-- EN:
+    <li>r_name(p=6)->[NameAnimalUnisex]</li>
+    <li>r_name(p=6)->[NameAnimalFemale]</li>
+    <li>r_name(p=6)->[NamePersonFemale]</li>
+    <li>r_name->[exoticname]</li>
+    <li>exoticname(p=2)->[AdjectiveBadass]</li>
+    <li>exoticname(p=2)->[PersonBadass]</li>
+    <li>exoticname->[Enemy]</li>
+    <li>exoticname->[ConceptAny]</li>
+    <li>exoticname->[Color]</li>
+  -->
+  <NamerAnimalGenericFemale.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerAnimalGenericFemale.rulePack.rulesStrings>
+
 </LanguageData>

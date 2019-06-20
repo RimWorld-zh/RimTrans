@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: heatstroke -->
   <Heatstroke.label>TODO</Heatstroke.label>
+  <!-- EN:  -->
+  <Heatstroke.description>TODO</Heatstroke.description>
   <!-- EN: initial -->
   <Heatstroke.stages.initial-0.label>TODO</Heatstroke.stages.initial-0.label>
   <!-- EN: initial -->
@@ -13,9 +15,17 @@
   <Heatstroke.stages.serious.label>TODO</Heatstroke.stages.serious.label>
   <!-- EN: extreme -->
   <Heatstroke.stages.extreme.label>TODO</Heatstroke.stages.extreme.label>
-  
+  <!-- EN:  -->
+  <Heatstroke.battleStateLabel>TODO</Heatstroke.battleStateLabel>
+  <!-- EN:  -->
+  <Heatstroke.labelNounPretty>TODO</Heatstroke.labelNounPretty>
+  <!-- EN:  -->
+  <Heatstroke.labelNoun>TODO</Heatstroke.labelNoun>
+
   <!-- EN: hypothermia -->
   <Hypothermia.label>TODO</Hypothermia.label>
+  <!-- EN:  -->
+  <Hypothermia.description>TODO</Hypothermia.description>
   <!-- EN: shivering -->
   <Hypothermia.stages.shivering-0.label>TODO</Hypothermia.stages.shivering-0.label>
   <!-- EN: shivering -->
@@ -26,9 +36,17 @@
   <Hypothermia.stages.serious.label>TODO</Hypothermia.stages.serious.label>
   <!-- EN: extreme -->
   <Hypothermia.stages.extreme.label>TODO</Hypothermia.stages.extreme.label>
-  
+  <!-- EN:  -->
+  <Hypothermia.battleStateLabel>TODO</Hypothermia.battleStateLabel>
+  <!-- EN:  -->
+  <Hypothermia.labelNounPretty>TODO</Hypothermia.labelNounPretty>
+  <!-- EN:  -->
+  <Hypothermia.labelNoun>TODO</Hypothermia.labelNoun>
+
   <!-- EN: hypothermic slowdown -->
   <HypothermicSlowdown.label>TODO</HypothermicSlowdown.label>
+  <!-- EN:  -->
+  <HypothermicSlowdown.description>TODO</HypothermicSlowdown.description>
   <!-- EN: minor -->
   <HypothermicSlowdown.stages.minor-0.label>TODO</HypothermicSlowdown.stages.minor-0.label>
   <!-- EN: minor -->
@@ -39,5 +57,11 @@
   <HypothermicSlowdown.stages.serious.label>TODO</HypothermicSlowdown.stages.serious.label>
   <!-- EN: extreme -->
   <HypothermicSlowdown.stages.extreme.label>TODO</HypothermicSlowdown.stages.extreme.label>
-  
+  <!-- EN:  -->
+  <HypothermicSlowdown.battleStateLabel>TODO</HypothermicSlowdown.battleStateLabel>
+  <!-- EN:  -->
+  <HypothermicSlowdown.labelNounPretty>TODO</HypothermicSlowdown.labelNounPretty>
+  <!-- EN:  -->
+  <HypothermicSlowdown.labelNoun>TODO</HypothermicSlowdown.labelNoun>
+
 </LanguageData>

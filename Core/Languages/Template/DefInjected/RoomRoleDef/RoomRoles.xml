@@ -1,46 +1,74 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: barn -->
-  <Barn.label>TODO</Barn.label>
-  
-  <!-- EN: barracks -->
-  <Barracks.label>TODO</Barracks.label>
-  
-  <!-- EN: bedroom -->
-  <Bedroom.label>TODO</Bedroom.label>
-  
-  <!-- EN: dining room -->
-  <DiningRoom.label>TODO</DiningRoom.label>
-  
-  <!-- EN: hospital -->
-  <Hospital.label>TODO</Hospital.label>
-  
-  <!-- EN: kitchen -->
-  <Kitchen.label>TODO</Kitchen.label>
-  
-  <!-- EN: laboratory -->
-  <Laboratory.label>TODO</Laboratory.label>
-  
+
   <!-- EN: none -->
   <None.label>TODO</None.label>
-  
-  <!-- EN: prison barracks -->
-  <PrisonBarracks.label>TODO</PrisonBarracks.label>
-  
-  <!-- EN: prison cell -->
-  <PrisonCell.label>TODO</PrisonCell.label>
-  
-  <!-- EN: rec room -->
-  <RecRoom.label>TODO</RecRoom.label>
-  
+  <!-- EN:  -->
+  <None.description>TODO</None.description>
+
   <!-- EN: room -->
   <Room.label>TODO</Room.label>
-  
-  <!-- EN: tomb -->
-  <Tomb.label>TODO</Tomb.label>
-  
+  <!-- EN:  -->
+  <Room.description>TODO</Room.description>
+
+  <!-- EN: bedroom -->
+  <Bedroom.label>TODO</Bedroom.label>
+  <!-- EN:  -->
+  <Bedroom.description>TODO</Bedroom.description>
+
+  <!-- EN: prison cell -->
+  <PrisonCell.label>TODO</PrisonCell.label>
+  <!-- EN:  -->
+  <PrisonCell.description>TODO</PrisonCell.description>
+
+  <!-- EN: dining room -->
+  <DiningRoom.label>TODO</DiningRoom.label>
+  <!-- EN:  -->
+  <DiningRoom.description>TODO</DiningRoom.description>
+
+  <!-- EN: rec room -->
+  <RecRoom.label>TODO</RecRoom.label>
+  <!-- EN:  -->
+  <RecRoom.description>TODO</RecRoom.description>
+
+  <!-- EN: hospital -->
+  <Hospital.label>TODO</Hospital.label>
+  <!-- EN:  -->
+  <Hospital.description>TODO</Hospital.description>
+
+  <!-- EN: laboratory -->
+  <Laboratory.label>TODO</Laboratory.label>
+  <!-- EN:  -->
+  <Laboratory.description>TODO</Laboratory.description>
+
   <!-- EN: workshop -->
   <Workshop.label>TODO</Workshop.label>
-  
+  <!-- EN:  -->
+  <Workshop.description>TODO</Workshop.description>
+
+  <!-- EN: barracks -->
+  <Barracks.label>TODO</Barracks.label>
+  <!-- EN:  -->
+  <Barracks.description>TODO</Barracks.description>
+
+  <!-- EN: prison barracks -->
+  <PrisonBarracks.label>TODO</PrisonBarracks.label>
+  <!-- EN:  -->
+  <PrisonBarracks.description>TODO</PrisonBarracks.description>
+
+  <!-- EN: kitchen -->
+  <Kitchen.label>TODO</Kitchen.label>
+  <!-- EN:  -->
+  <Kitchen.description>TODO</Kitchen.description>
+
+  <!-- EN: tomb -->
+  <Tomb.label>TODO</Tomb.label>
+  <!-- EN:  -->
+  <Tomb.description>TODO</Tomb.description>
+
+  <!-- EN: barn -->
+  <Barn.label>TODO</Barn.label>
+  <!-- EN:  -->
+  <Barn.description>TODO</Barn.description>
+
 </LanguageData>

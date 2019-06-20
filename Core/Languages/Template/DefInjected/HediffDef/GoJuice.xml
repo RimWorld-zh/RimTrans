@@ -1,18 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: go-juice addiction -->
-  <GoJuiceAddiction.label>TODO</GoJuiceAddiction.label>
-  <!-- EN: withdrawal -->
-  <GoJuiceAddiction.stages.withdrawal.label>TODO</GoJuiceAddiction.stages.withdrawal.label>
-  
+
   <!-- EN: high on go-juice -->
   <GoJuiceHigh.label>TODO</GoJuiceHigh.label>
+  <!-- EN:  -->
+  <GoJuiceHigh.description>TODO</GoJuiceHigh.description>
+  <!-- EN:  -->
+  <GoJuiceHigh.stages.0.label>TODO</GoJuiceHigh.stages.0.label>
+  <!-- EN:  -->
+  <GoJuiceHigh.battleStateLabel>TODO</GoJuiceHigh.battleStateLabel>
+  <!-- EN:  -->
+  <GoJuiceHigh.labelNounPretty>TODO</GoJuiceHigh.labelNounPretty>
   <!-- EN: a go-juice high -->
   <GoJuiceHigh.labelNoun>TODO</GoJuiceHigh.labelNoun>
-  
+
   <!-- EN: go-juice tolerance -->
   <GoJuiceTolerance.label>TODO</GoJuiceTolerance.label>
+  <!-- EN:  -->
+  <GoJuiceTolerance.description>TODO</GoJuiceTolerance.description>
   <!-- EN: small -->
   <GoJuiceTolerance.stages.small-0.label>TODO</GoJuiceTolerance.stages.small-0.label>
   <!-- EN: small -->
@@ -21,5 +26,26 @@
   <GoJuiceTolerance.stages.large.label>TODO</GoJuiceTolerance.stages.large.label>
   <!-- EN: massive -->
   <GoJuiceTolerance.stages.massive.label>TODO</GoJuiceTolerance.stages.massive.label>
-  
+  <!-- EN:  -->
+  <GoJuiceTolerance.battleStateLabel>TODO</GoJuiceTolerance.battleStateLabel>
+  <!-- EN:  -->
+  <GoJuiceTolerance.labelNounPretty>TODO</GoJuiceTolerance.labelNounPretty>
+  <!-- EN:  -->
+  <GoJuiceTolerance.labelNoun>TODO</GoJuiceTolerance.labelNoun>
+
+  <!-- EN: go-juice addiction -->
+  <GoJuiceAddiction.label>TODO</GoJuiceAddiction.label>
+  <!-- EN:  -->
+  <GoJuiceAddiction.description>TODO</GoJuiceAddiction.description>
+  <!-- EN:  -->
+  <GoJuiceAddiction.stages.0.label>TODO</GoJuiceAddiction.stages.0.label>
+  <!-- EN: withdrawal -->
+  <GoJuiceAddiction.stages.withdrawal.label>TODO</GoJuiceAddiction.stages.withdrawal.label>
+  <!-- EN:  -->
+  <GoJuiceAddiction.battleStateLabel>TODO</GoJuiceAddiction.battleStateLabel>
+  <!-- EN:  -->
+  <GoJuiceAddiction.labelNounPretty>TODO</GoJuiceAddiction.labelNounPretty>
+  <!-- EN:  -->
+  <GoJuiceAddiction.labelNoun>TODO</GoJuiceAddiction.labelNoun>
+
 </LanguageData>

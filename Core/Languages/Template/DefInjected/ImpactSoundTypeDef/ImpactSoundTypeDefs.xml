@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Bullet.label>TODO</Bullet.label>
+  <!-- EN:  -->
+  <Bullet.description>TODO</Bullet.description>
+
+  <!-- EN:  -->
+  <Slice.label>TODO</Slice.label>
+  <!-- EN:  -->
+  <Slice.description>TODO</Slice.description>
+
+  <!-- EN:  -->
+  <Blunt.label>TODO</Blunt.label>
+  <!-- EN:  -->
+  <Blunt.description>TODO</Blunt.description>
+
+  <!-- EN:  -->
+  <Electric.label>TODO</Electric.label>
+  <!-- EN:  -->
+  <Electric.description>TODO</Electric.description>
+
+  <!-- EN:  -->
+  <Tornado.label>TODO</Tornado.label>
+  <!-- EN:  -->
+  <Tornado.description>TODO</Tornado.description>
+
+</LanguageData>

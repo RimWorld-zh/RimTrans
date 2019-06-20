@@ -1,102 +1,210 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: archotech arm -->
-  <ArchotechArm.label>TODO</ArchotechArm.label>
-  <!-- EN: fist -->
-  <ArchotechArm.comps.HediffComp_VerbGiver.tools.fist.label>TODO</ArchotechArm.comps.HediffComp_VerbGiver.tools.fist.label>
-  <!-- EN: an archotech arm -->
-  <ArchotechArm.labelNoun>TODO</ArchotechArm.labelNoun>
-  
-  <!-- EN: archotech eye -->
-  <ArchotechEye.label>TODO</ArchotechEye.label>
-  <!-- EN: an archotech eye -->
-  <ArchotechEye.labelNoun>TODO</ArchotechEye.labelNoun>
-  
-  <!-- EN: archotech leg -->
-  <ArchotechLeg.label>TODO</ArchotechLeg.label>
-  <!-- EN: an archotech leg -->
-  <ArchotechLeg.labelNoun>TODO</ArchotechLeg.labelNoun>
-  
-  <!-- EN: bionic arm -->
-  <BionicArm.label>TODO</BionicArm.label>
-  <!-- EN: fist -->
-  <BionicArm.comps.HediffComp_VerbGiver.tools.fist.label>TODO</BionicArm.comps.HediffComp_VerbGiver.tools.fist.label>
-  <!-- EN: a bionic arm -->
-  <BionicArm.labelNoun>TODO</BionicArm.labelNoun>
-  
-  <!-- EN: bionic ear -->
-  <BionicEar.label>TODO</BionicEar.label>
-  <!-- EN: a bionic ear -->
-  <BionicEar.labelNoun>TODO</BionicEar.labelNoun>
-  
-  <!-- EN: bionic eye -->
-  <BionicEye.label>TODO</BionicEye.label>
-  <!-- EN: a bionic eye -->
-  <BionicEye.labelNoun>TODO</BionicEye.labelNoun>
-  
-  <!-- EN: bionic heart -->
-  <BionicHeart.label>TODO</BionicHeart.label>
-  <!-- EN: a bionic heart -->
-  <BionicHeart.labelNoun>TODO</BionicHeart.labelNoun>
-  
-  <!-- EN: bionic leg -->
-  <BionicLeg.label>TODO</BionicLeg.label>
-  <!-- EN: a bionic leg -->
-  <BionicLeg.labelNoun>TODO</BionicLeg.labelNoun>
-  
-  <!-- EN: bionic spine -->
-  <BionicSpine.label>TODO</BionicSpine.label>
-  <!-- EN: a bionic spine -->
-  <BionicSpine.labelNoun>TODO</BionicSpine.labelNoun>
-  
-  <!-- EN: bionic stomach -->
-  <BionicStomach.label>TODO</BionicStomach.label>
-  <!-- EN: a bionic stomach -->
-  <BionicStomach.labelNoun>TODO</BionicStomach.labelNoun>
-  
-  <!-- EN: cochlear implant -->
-  <CochlearImplant.label>TODO</CochlearImplant.label>
-  <!-- EN: a cochlear implant -->
-  <CochlearImplant.labelNoun>TODO</CochlearImplant.labelNoun>
-  
-  <!-- EN: denture -->
-  <Denture.label>TODO</Denture.label>
-  <!-- EN: a denture -->
-  <Denture.labelNoun>TODO</Denture.labelNoun>
-  
+
   <!-- EN: peg leg -->
   <PegLeg.label>TODO</PegLeg.label>
+  <!-- EN:  -->
+  <PegLeg.description>TODO</PegLeg.description>
+  <!-- EN:  -->
+  <PegLeg.battleStateLabel>TODO</PegLeg.battleStateLabel>
+  <!-- EN:  -->
+  <PegLeg.labelNounPretty>TODO</PegLeg.labelNounPretty>
   <!-- EN: a peg leg -->
   <PegLeg.labelNoun>TODO</PegLeg.labelNoun>
-  
-  <!-- EN: power claw -->
-  <PowerClaw.label>TODO</PowerClaw.label>
-  <!-- EN: claw -->
-  <PowerClaw.comps.HediffComp_VerbGiver.tools.claw.label>TODO</PowerClaw.comps.HediffComp_VerbGiver.tools.claw.label>
-  <!-- EN: a power claw -->
-  <PowerClaw.labelNoun>TODO</PowerClaw.labelNoun>
-  
-  <!-- EN: prosthetic arm -->
-  <SimpleProstheticArm.label>TODO</SimpleProstheticArm.label>
-  <!-- EN: fist -->
-  <SimpleProstheticArm.comps.HediffComp_VerbGiver.tools.fist.label>TODO</SimpleProstheticArm.comps.HediffComp_VerbGiver.tools.fist.label>
-  <!-- EN: a prosthetic arm -->
-  <SimpleProstheticArm.labelNoun>TODO</SimpleProstheticArm.labelNoun>
-  
-  <!-- EN: prosthetic heart -->
-  <SimpleProstheticHeart.label>TODO</SimpleProstheticHeart.label>
-  <!-- EN: a prosthetic heart -->
-  <SimpleProstheticHeart.labelNoun>TODO</SimpleProstheticHeart.labelNoun>
-  
-  <!-- EN: prosthetic leg -->
-  <SimpleProstheticLeg.label>TODO</SimpleProstheticLeg.label>
-  <!-- EN: a prosthetic leg -->
-  <SimpleProstheticLeg.labelNoun>TODO</SimpleProstheticLeg.labelNoun>
-  
+
   <!-- EN: wooden foot -->
   <WoodenFoot.label>TODO</WoodenFoot.label>
+  <!-- EN:  -->
+  <WoodenFoot.description>TODO</WoodenFoot.description>
+  <!-- EN:  -->
+  <WoodenFoot.battleStateLabel>TODO</WoodenFoot.battleStateLabel>
+  <!-- EN:  -->
+  <WoodenFoot.labelNounPretty>TODO</WoodenFoot.labelNounPretty>
   <!-- EN: a wooden foot -->
   <WoodenFoot.labelNoun>TODO</WoodenFoot.labelNoun>
-  
+
+  <!-- EN: denture -->
+  <Denture.label>TODO</Denture.label>
+  <!-- EN:  -->
+  <Denture.description>TODO</Denture.description>
+  <!-- EN:  -->
+  <Denture.battleStateLabel>TODO</Denture.battleStateLabel>
+  <!-- EN:  -->
+  <Denture.labelNounPretty>TODO</Denture.labelNounPretty>
+  <!-- EN: a denture -->
+  <Denture.labelNoun>TODO</Denture.labelNoun>
+
+  <!-- EN: prosthetic leg -->
+  <SimpleProstheticLeg.label>TODO</SimpleProstheticLeg.label>
+  <!-- EN:  -->
+  <SimpleProstheticLeg.description>TODO</SimpleProstheticLeg.description>
+  <!-- EN:  -->
+  <SimpleProstheticLeg.battleStateLabel>TODO</SimpleProstheticLeg.battleStateLabel>
+  <!-- EN:  -->
+  <SimpleProstheticLeg.labelNounPretty>TODO</SimpleProstheticLeg.labelNounPretty>
+  <!-- EN: a prosthetic leg -->
+  <SimpleProstheticLeg.labelNoun>TODO</SimpleProstheticLeg.labelNoun>
+
+  <!-- EN: prosthetic arm -->
+  <SimpleProstheticArm.label>TODO</SimpleProstheticArm.label>
+  <!-- EN:  -->
+  <SimpleProstheticArm.description>TODO</SimpleProstheticArm.description>
+  <!-- EN: fist -->
+  <SimpleProstheticArm.comps.HediffComp_VerbGiver.tools.fist.label>TODO</SimpleProstheticArm.comps.HediffComp_VerbGiver.tools.fist.label>
+  <!-- EN:  -->
+  <SimpleProstheticArm.battleStateLabel>TODO</SimpleProstheticArm.battleStateLabel>
+  <!-- EN:  -->
+  <SimpleProstheticArm.labelNounPretty>TODO</SimpleProstheticArm.labelNounPretty>
+  <!-- EN: a prosthetic arm -->
+  <SimpleProstheticArm.labelNoun>TODO</SimpleProstheticArm.labelNoun>
+
+  <!-- EN: prosthetic heart -->
+  <SimpleProstheticHeart.label>TODO</SimpleProstheticHeart.label>
+  <!-- EN:  -->
+  <SimpleProstheticHeart.description>TODO</SimpleProstheticHeart.description>
+  <!-- EN:  -->
+  <SimpleProstheticHeart.battleStateLabel>TODO</SimpleProstheticHeart.battleStateLabel>
+  <!-- EN:  -->
+  <SimpleProstheticHeart.labelNounPretty>TODO</SimpleProstheticHeart.labelNounPretty>
+  <!-- EN: a prosthetic heart -->
+  <SimpleProstheticHeart.labelNoun>TODO</SimpleProstheticHeart.labelNoun>
+
+  <!-- EN: cochlear implant -->
+  <CochlearImplant.label>TODO</CochlearImplant.label>
+  <!-- EN:  -->
+  <CochlearImplant.description>TODO</CochlearImplant.description>
+  <!-- EN:  -->
+  <CochlearImplant.battleStateLabel>TODO</CochlearImplant.battleStateLabel>
+  <!-- EN:  -->
+  <CochlearImplant.labelNounPretty>TODO</CochlearImplant.labelNounPretty>
+  <!-- EN: a cochlear implant -->
+  <CochlearImplant.labelNoun>TODO</CochlearImplant.labelNoun>
+
+  <!-- EN: bionic eye -->
+  <BionicEye.label>TODO</BionicEye.label>
+  <!-- EN:  -->
+  <BionicEye.description>TODO</BionicEye.description>
+  <!-- EN:  -->
+  <BionicEye.battleStateLabel>TODO</BionicEye.battleStateLabel>
+  <!-- EN:  -->
+  <BionicEye.labelNounPretty>TODO</BionicEye.labelNounPretty>
+  <!-- EN: a bionic eye -->
+  <BionicEye.labelNoun>TODO</BionicEye.labelNoun>
+
+  <!-- EN: bionic arm -->
+  <BionicArm.label>TODO</BionicArm.label>
+  <!-- EN:  -->
+  <BionicArm.description>TODO</BionicArm.description>
+  <!-- EN: fist -->
+  <BionicArm.comps.HediffComp_VerbGiver.tools.fist.label>TODO</BionicArm.comps.HediffComp_VerbGiver.tools.fist.label>
+  <!-- EN:  -->
+  <BionicArm.battleStateLabel>TODO</BionicArm.battleStateLabel>
+  <!-- EN:  -->
+  <BionicArm.labelNounPretty>TODO</BionicArm.labelNounPretty>
+  <!-- EN: a bionic arm -->
+  <BionicArm.labelNoun>TODO</BionicArm.labelNoun>
+
+  <!-- EN: bionic leg -->
+  <BionicLeg.label>TODO</BionicLeg.label>
+  <!-- EN:  -->
+  <BionicLeg.description>TODO</BionicLeg.description>
+  <!-- EN:  -->
+  <BionicLeg.battleStateLabel>TODO</BionicLeg.battleStateLabel>
+  <!-- EN:  -->
+  <BionicLeg.labelNounPretty>TODO</BionicLeg.labelNounPretty>
+  <!-- EN: a bionic leg -->
+  <BionicLeg.labelNoun>TODO</BionicLeg.labelNoun>
+
+  <!-- EN: bionic spine -->
+  <BionicSpine.label>TODO</BionicSpine.label>
+  <!-- EN:  -->
+  <BionicSpine.description>TODO</BionicSpine.description>
+  <!-- EN:  -->
+  <BionicSpine.battleStateLabel>TODO</BionicSpine.battleStateLabel>
+  <!-- EN:  -->
+  <BionicSpine.labelNounPretty>TODO</BionicSpine.labelNounPretty>
+  <!-- EN: a bionic spine -->
+  <BionicSpine.labelNoun>TODO</BionicSpine.labelNoun>
+
+  <!-- EN: bionic heart -->
+  <BionicHeart.label>TODO</BionicHeart.label>
+  <!-- EN:  -->
+  <BionicHeart.description>TODO</BionicHeart.description>
+  <!-- EN:  -->
+  <BionicHeart.battleStateLabel>TODO</BionicHeart.battleStateLabel>
+  <!-- EN:  -->
+  <BionicHeart.labelNounPretty>TODO</BionicHeart.labelNounPretty>
+  <!-- EN: a bionic heart -->
+  <BionicHeart.labelNoun>TODO</BionicHeart.labelNoun>
+
+  <!-- EN: bionic stomach -->
+  <BionicStomach.label>TODO</BionicStomach.label>
+  <!-- EN:  -->
+  <BionicStomach.description>TODO</BionicStomach.description>
+  <!-- EN:  -->
+  <BionicStomach.battleStateLabel>TODO</BionicStomach.battleStateLabel>
+  <!-- EN:  -->
+  <BionicStomach.labelNounPretty>TODO</BionicStomach.labelNounPretty>
+  <!-- EN: a bionic stomach -->
+  <BionicStomach.labelNoun>TODO</BionicStomach.labelNoun>
+
+  <!-- EN: bionic ear -->
+  <BionicEar.label>TODO</BionicEar.label>
+  <!-- EN:  -->
+  <BionicEar.description>TODO</BionicEar.description>
+  <!-- EN:  -->
+  <BionicEar.battleStateLabel>TODO</BionicEar.battleStateLabel>
+  <!-- EN:  -->
+  <BionicEar.labelNounPretty>TODO</BionicEar.labelNounPretty>
+  <!-- EN: a bionic ear -->
+  <BionicEar.labelNoun>TODO</BionicEar.labelNoun>
+
+  <!-- EN: power claw -->
+  <PowerClaw.label>TODO</PowerClaw.label>
+  <!-- EN:  -->
+  <PowerClaw.description>TODO</PowerClaw.description>
+  <!-- EN: claw -->
+  <PowerClaw.comps.HediffComp_VerbGiver.tools.claw.label>TODO</PowerClaw.comps.HediffComp_VerbGiver.tools.claw.label>
+  <!-- EN:  -->
+  <PowerClaw.battleStateLabel>TODO</PowerClaw.battleStateLabel>
+  <!-- EN:  -->
+  <PowerClaw.labelNounPretty>TODO</PowerClaw.labelNounPretty>
+  <!-- EN: a power claw -->
+  <PowerClaw.labelNoun>TODO</PowerClaw.labelNoun>
+
+  <!-- EN: archotech eye -->
+  <ArchotechEye.label>TODO</ArchotechEye.label>
+  <!-- EN:  -->
+  <ArchotechEye.description>TODO</ArchotechEye.description>
+  <!-- EN:  -->
+  <ArchotechEye.battleStateLabel>TODO</ArchotechEye.battleStateLabel>
+  <!-- EN:  -->
+  <ArchotechEye.labelNounPretty>TODO</ArchotechEye.labelNounPretty>
+  <!-- EN: an archotech eye -->
+  <ArchotechEye.labelNoun>TODO</ArchotechEye.labelNoun>
+
+  <!-- EN: archotech arm -->
+  <ArchotechArm.label>TODO</ArchotechArm.label>
+  <!-- EN:  -->
+  <ArchotechArm.description>TODO</ArchotechArm.description>
+  <!-- EN: fist -->
+  <ArchotechArm.comps.HediffComp_VerbGiver.tools.fist.label>TODO</ArchotechArm.comps.HediffComp_VerbGiver.tools.fist.label>
+  <!-- EN:  -->
+  <ArchotechArm.battleStateLabel>TODO</ArchotechArm.battleStateLabel>
+  <!-- EN:  -->
+  <ArchotechArm.labelNounPretty>TODO</ArchotechArm.labelNounPretty>
+  <!-- EN: an archotech arm -->
+  <ArchotechArm.labelNoun>TODO</ArchotechArm.labelNoun>
+
+  <!-- EN: archotech leg -->
+  <ArchotechLeg.label>TODO</ArchotechLeg.label>
+  <!-- EN:  -->
+  <ArchotechLeg.description>TODO</ArchotechLeg.description>
+  <!-- EN:  -->
+  <ArchotechLeg.battleStateLabel>TODO</ArchotechLeg.battleStateLabel>
+  <!-- EN:  -->
+  <ArchotechLeg.labelNounPretty>TODO</ArchotechLeg.labelNounPretty>
+  <!-- EN: an archotech leg -->
+  <ArchotechLeg.labelNoun>TODO</ArchotechLeg.labelNoun>
+
 </LanguageData>

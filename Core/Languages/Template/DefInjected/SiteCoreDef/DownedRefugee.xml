@@ -1,9 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: incapacitated refugee -->
   <DownedRefugee.label>TODO</DownedRefugee.label>
   <!-- EN: A stranded, incapacitated refugee begging for help. -->
   <DownedRefugee.description>TODO</DownedRefugee.description>
-  
+  <!-- EN:  -->
+  <DownedRefugee.approachOrderString>TODO</DownedRefugee.approachOrderString>
+  <!-- EN:  -->
+  <DownedRefugee.approachingReportString>TODO</DownedRefugee.approachingReportString>
+  <!-- EN:  -->
+  <DownedRefugee.arrivedLetter>TODO</DownedRefugee.arrivedLetter>
+  <!-- EN:  -->
+  <DownedRefugee.arrivedLetterLabelPart>TODO</DownedRefugee.arrivedLetterLabelPart>
+  <!-- EN:  -->
+  <DownedRefugee.descriptionDialogue>TODO</DownedRefugee.descriptionDialogue>
+
 </LanguageData>

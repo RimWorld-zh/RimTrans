@@ -1,145 +1,333 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: arresting TargetA. -->
-  <Arrest.reportString>TODO</Arrest.reportString>
-  
-  <!-- EN: building roof. -->
-  <BuildRoof.reportString>TODO</BuildRoof.reportString>
-  
-  <!-- EN: capturing TargetA. -->
-  <Capture.reportString>TODO</Capture.reportString>
-  
-  <!-- EN: carrying TargetA. -->
-  <CarryDownedPawnToExit.reportString>TODO</CarryDownedPawnToExit.reportString>
-  
-  <!-- EN: carrying TargetA to cryptosleep casket. -->
-  <CarryToCryptosleepCasket.reportString>TODO</CarryToCryptosleepCasket.reportString>
-  
-  <!-- EN: cleaning TargetA. -->
-  <Clean.reportString>TODO</Clean.reportString>
-  
-  <!-- EN: cutting TargetA. -->
-  <CutPlant.reportString>TODO</CutPlant.reportString>
-  
-  <!-- EN: cutting TargetA. -->
-  <CutPlantDesignated.reportString>TODO</CutPlantDesignated.reportString>
-  
-  <!-- EN: deconstructing TargetA. -->
-  <Deconstruct.reportString>TODO</Deconstruct.reportString>
-  
-  <!-- EN: feeding TargetA to TargetB. -->
-  <DeliverFood.reportString>TODO</DeliverFood.reportString>
-  
-  <!-- EN: doing bill at TargetA. -->
-  <DoBill.reportString>TODO</DoBill.reportString>
-  
-  <!-- EN: escorting prisoner TargetA. -->
-  <EscortPrisonerToBed.reportString>TODO</EscortPrisonerToBed.reportString>
-  
-  <!-- EN: feeding TargetA to TargetB. -->
-  <FeedPatient.reportString>TODO</FeedPatient.reportString>
-  
-  <!-- EN: building TargetA. -->
-  <FinishFrame.reportString>TODO</FinishFrame.reportString>
-  
-  <!-- EN: replacing broken components in TargetA. -->
-  <FixBrokenDownBuilding.reportString>TODO</FixBrokenDownBuilding.reportString>
-  
-  <!-- EN: harvesting TargetA. -->
-  <Harvest.reportString>TODO</Harvest.reportString>
-  
-  <!-- EN: harvesting TargetA. -->
-  <HarvestDesignated.reportString>TODO</HarvestDesignated.reportString>
-  
+
+  <!-- EN:  -->
+  <HaulToCell.label>TODO</HaulToCell.label>
+  <!-- EN:  -->
+  <HaulToCell.description>TODO</HaulToCell.description>
   <!-- EN: hauling TargetA. -->
   <HaulToCell.reportString>TODO</HaulToCell.reportString>
-  
+
+  <!-- EN:  -->
+  <HaulToContainer.label>TODO</HaulToContainer.label>
+  <!-- EN:  -->
+  <HaulToContainer.description>TODO</HaulToContainer.description>
   <!-- EN: hauling TargetA. -->
   <HaulToContainer.reportString>TODO</HaulToContainer.reportString>
-  
-  <!-- EN: hunting TargetA. -->
-  <Hunt.reportString>TODO</Hunt.reportString>
-  
-  <!-- EN: kidnapping TargetA. -->
-  <Kidnap.reportString>TODO</Kidnap.reportString>
-  
-  <!-- EN: milking TargetA. -->
-  <Milk.reportString>TODO</Milk.reportString>
-  
-  <!-- EN: digging at TargetA. -->
-  <Mine.reportString>TODO</Mine.reportString>
-  
-  <!-- EN: drilling at TargetA. -->
-  <OperateDeepDrill.reportString>TODO</OperateDeepDrill.reportString>
-  
-  <!-- EN: scanning at TargetA. -->
-  <OperateScanner.reportString>TODO</OperateScanner.reportString>
-  
-  <!-- EN: building TargetA. -->
-  <PlaceNoCostFrame.reportString>TODO</PlaceNoCostFrame.reportString>
-  
-  <!-- EN: attempting to recruit TargetA. -->
-  <PrisonerAttemptRecruit.reportString>TODO</PrisonerAttemptRecruit.reportString>
-  
-  <!-- EN: executing TargetA. -->
-  <PrisonerExecution.reportString>TODO</PrisonerExecution.reportString>
-  
-  <!-- EN: releasing TargetA. -->
-  <ReleasePrisoner.reportString>TODO</ReleasePrisoner.reportString>
-  
-  <!-- EN: removing floor. -->
-  <RemoveFloor.reportString>TODO</RemoveFloor.reportString>
-  
-  <!-- EN: removing roof. -->
-  <RemoveRoof.reportString>TODO</RemoveRoof.reportString>
-  
-  <!-- EN: repairing TargetA. -->
-  <Repair.reportString>TODO</Repair.reportString>
-  
-  <!-- EN: rescuing TargetA. -->
-  <Rescue.reportString>TODO</Rescue.reportString>
-  
-  <!-- EN: researching. -->
-  <Research.reportString>TODO</Research.reportString>
-  
-  <!-- EN: shearing TargetA. -->
-  <Shear.reportString>TODO</Shear.reportString>
-  
-  <!-- EN: slaughtering TargetA. -->
-  <Slaughter.reportString>TODO</Slaughter.reportString>
-  
-  <!-- EN: smoothing floor. -->
-  <SmoothFloor.reportString>TODO</SmoothFloor.reportString>
-  
-  <!-- EN: smoothing wall. -->
-  <SmoothWall.reportString>TODO</SmoothWall.reportString>
-  
-  <!-- EN: sowing TargetA. -->
-  <Sow.reportString>TODO</Sow.reportString>
-  
+
+  <!-- EN:  -->
+  <Steal.label>TODO</Steal.label>
+  <!-- EN:  -->
+  <Steal.description>TODO</Steal.description>
   <!-- EN: stealing TargetA. -->
   <Steal.reportString>TODO</Steal.reportString>
-  
-  <!-- EN: taking TargetA to bed. -->
-  <TakeToBedToOperate.reportString>TODO</TakeToBedToOperate.reportString>
-  
+
+  <!-- EN:  -->
+  <Kidnap.label>TODO</Kidnap.label>
+  <!-- EN:  -->
+  <Kidnap.description>TODO</Kidnap.description>
+  <!-- EN: kidnapping TargetA. -->
+  <Kidnap.reportString>TODO</Kidnap.reportString>
+
+  <!-- EN:  -->
+  <CarryDownedPawnToExit.label>TODO</CarryDownedPawnToExit.label>
+  <!-- EN:  -->
+  <CarryDownedPawnToExit.description>TODO</CarryDownedPawnToExit.description>
+  <!-- EN: carrying TargetA. -->
+  <CarryDownedPawnToExit.reportString>TODO</CarryDownedPawnToExit.reportString>
+
+  <!-- EN:  -->
+  <Rescue.label>TODO</Rescue.label>
+  <!-- EN:  -->
+  <Rescue.description>TODO</Rescue.description>
+  <!-- EN: rescuing TargetA. -->
+  <Rescue.reportString>TODO</Rescue.reportString>
+
+  <!-- EN:  -->
+  <CarryToCryptosleepCasket.label>TODO</CarryToCryptosleepCasket.label>
+  <!-- EN:  -->
+  <CarryToCryptosleepCasket.description>TODO</CarryToCryptosleepCasket.description>
+  <!-- EN: carrying TargetA to cryptosleep casket. -->
+  <CarryToCryptosleepCasket.reportString>TODO</CarryToCryptosleepCasket.reportString>
+
+  <!-- EN:  -->
+  <Capture.label>TODO</Capture.label>
+  <!-- EN:  -->
+  <Capture.description>TODO</Capture.description>
+  <!-- EN: capturing TargetA. -->
+  <Capture.reportString>TODO</Capture.reportString>
+
+  <!-- EN:  -->
+  <Arrest.label>TODO</Arrest.label>
+  <!-- EN:  -->
+  <Arrest.description>TODO</Arrest.description>
+  <!-- EN: arresting TargetA. -->
+  <Arrest.reportString>TODO</Arrest.reportString>
+
+  <!-- EN:  -->
+  <ReleasePrisoner.label>TODO</ReleasePrisoner.label>
+  <!-- EN:  -->
+  <ReleasePrisoner.description>TODO</ReleasePrisoner.description>
+  <!-- EN: releasing TargetA. -->
+  <ReleasePrisoner.reportString>TODO</ReleasePrisoner.reportString>
+
+  <!-- EN:  -->
+  <EscortPrisonerToBed.label>TODO</EscortPrisonerToBed.label>
+  <!-- EN:  -->
+  <EscortPrisonerToBed.description>TODO</EscortPrisonerToBed.description>
+  <!-- EN: escorting prisoner TargetA. -->
+  <EscortPrisonerToBed.reportString>TODO</EscortPrisonerToBed.reportString>
+
+  <!-- EN:  -->
+  <TakeWoundedPrisonerToBed.label>TODO</TakeWoundedPrisonerToBed.label>
+  <!-- EN:  -->
+  <TakeWoundedPrisonerToBed.description>TODO</TakeWoundedPrisonerToBed.description>
   <!-- EN: taking wounded prisoner TargetA. -->
   <TakeWoundedPrisonerToBed.reportString>TODO</TakeWoundedPrisonerToBed.reportString>
-  
+
+  <!-- EN:  -->
+  <TakeToBedToOperate.label>TODO</TakeToBedToOperate.label>
+  <!-- EN:  -->
+  <TakeToBedToOperate.description>TODO</TakeToBedToOperate.description>
+  <!-- EN: taking TargetA to bed. -->
+  <TakeToBedToOperate.reportString>TODO</TakeToBedToOperate.reportString>
+
+  <!-- EN:  -->
+  <Slaughter.label>TODO</Slaughter.label>
+  <!-- EN:  -->
+  <Slaughter.description>TODO</Slaughter.description>
+  <!-- EN: slaughtering TargetA. -->
+  <Slaughter.reportString>TODO</Slaughter.reportString>
+
+  <!-- EN:  -->
+  <Milk.label>TODO</Milk.label>
+  <!-- EN:  -->
+  <Milk.description>TODO</Milk.description>
+  <!-- EN: milking TargetA. -->
+  <Milk.reportString>TODO</Milk.reportString>
+
+  <!-- EN:  -->
+  <Shear.label>TODO</Shear.label>
+  <!-- EN:  -->
+  <Shear.description>TODO</Shear.description>
+  <!-- EN: shearing TargetA. -->
+  <Shear.reportString>TODO</Shear.reportString>
+
+  <!-- EN:  -->
+  <Tame.label>TODO</Tame.label>
+  <!-- EN:  -->
+  <Tame.description>TODO</Tame.description>
   <!-- EN: taming TargetA. -->
   <Tame.reportString>TODO</Tame.reportString>
-  
-  <!-- EN: tending to TargetA. -->
-  <TendPatient.reportString>TODO</TendPatient.reportString>
-  
+
+  <!-- EN:  -->
+  <Train.label>TODO</Train.label>
+  <!-- EN:  -->
+  <Train.description>TODO</Train.description>
   <!-- EN: training TargetA. -->
   <Train.reportString>TODO</Train.reportString>
-  
+
+  <!-- EN:  -->
+  <PlaceNoCostFrame.label>TODO</PlaceNoCostFrame.label>
+  <!-- EN:  -->
+  <PlaceNoCostFrame.description>TODO</PlaceNoCostFrame.description>
+  <!-- EN: building TargetA. -->
+  <PlaceNoCostFrame.reportString>TODO</PlaceNoCostFrame.reportString>
+
+  <!-- EN:  -->
+  <FinishFrame.label>TODO</FinishFrame.label>
+  <!-- EN:  -->
+  <FinishFrame.description>TODO</FinishFrame.description>
+  <!-- EN: building TargetA. -->
+  <FinishFrame.reportString>TODO</FinishFrame.reportString>
+
+  <!-- EN:  -->
+  <Deconstruct.label>TODO</Deconstruct.label>
+  <!-- EN:  -->
+  <Deconstruct.description>TODO</Deconstruct.description>
+  <!-- EN: deconstructing TargetA. -->
+  <Deconstruct.reportString>TODO</Deconstruct.reportString>
+
+  <!-- EN:  -->
+  <Uninstall.label>TODO</Uninstall.label>
+  <!-- EN:  -->
+  <Uninstall.description>TODO</Uninstall.description>
   <!-- EN: uninstalling TargetA. -->
   <Uninstall.reportString>TODO</Uninstall.reportString>
-  
+
+  <!-- EN:  -->
+  <Repair.label>TODO</Repair.label>
+  <!-- EN:  -->
+  <Repair.description>TODO</Repair.description>
+  <!-- EN: repairing TargetA. -->
+  <Repair.reportString>TODO</Repair.reportString>
+
+  <!-- EN:  -->
+  <FixBrokenDownBuilding.label>TODO</FixBrokenDownBuilding.label>
+  <!-- EN:  -->
+  <FixBrokenDownBuilding.description>TODO</FixBrokenDownBuilding.description>
+  <!-- EN: replacing broken components in TargetA. -->
+  <FixBrokenDownBuilding.reportString>TODO</FixBrokenDownBuilding.reportString>
+
+  <!-- EN:  -->
+  <BuildRoof.label>TODO</BuildRoof.label>
+  <!-- EN:  -->
+  <BuildRoof.description>TODO</BuildRoof.description>
+  <!-- EN: building roof. -->
+  <BuildRoof.reportString>TODO</BuildRoof.reportString>
+
+  <!-- EN:  -->
+  <RemoveRoof.label>TODO</RemoveRoof.label>
+  <!-- EN:  -->
+  <RemoveRoof.description>TODO</RemoveRoof.description>
+  <!-- EN: removing roof. -->
+  <RemoveRoof.reportString>TODO</RemoveRoof.reportString>
+
+  <!-- EN:  -->
+  <FeedPatient.label>TODO</FeedPatient.label>
+  <!-- EN:  -->
+  <FeedPatient.description>TODO</FeedPatient.description>
+  <!-- EN: feeding TargetA to TargetB. -->
+  <FeedPatient.reportString>TODO</FeedPatient.reportString>
+
+  <!-- EN:  -->
+  <TendPatient.label>TODO</TendPatient.label>
+  <!-- EN:  -->
+  <TendPatient.description>TODO</TendPatient.description>
+  <!-- EN: tending to TargetA. -->
+  <TendPatient.reportString>TODO</TendPatient.reportString>
+
+  <!-- EN:  -->
+  <DeliverFood.label>TODO</DeliverFood.label>
+  <!-- EN:  -->
+  <DeliverFood.description>TODO</DeliverFood.description>
+  <!-- EN: feeding TargetA to TargetB. -->
+  <DeliverFood.reportString>TODO</DeliverFood.reportString>
+
+  <!-- EN:  -->
+  <DoBill.label>TODO</DoBill.label>
+  <!-- EN:  -->
+  <DoBill.description>TODO</DoBill.description>
+  <!-- EN: doing bill at TargetA. -->
+  <DoBill.reportString>TODO</DoBill.reportString>
+
+  <!-- EN:  -->
+  <OperateDeepDrill.label>TODO</OperateDeepDrill.label>
+  <!-- EN:  -->
+  <OperateDeepDrill.description>TODO</OperateDeepDrill.description>
+  <!-- EN: drilling at TargetA. -->
+  <OperateDeepDrill.reportString>TODO</OperateDeepDrill.reportString>
+
+  <!-- EN:  -->
+  <OperateScanner.label>TODO</OperateScanner.label>
+  <!-- EN:  -->
+  <OperateScanner.description>TODO</OperateScanner.description>
+  <!-- EN: scanning at TargetA. -->
+  <OperateScanner.reportString>TODO</OperateScanner.reportString>
+
+  <!-- EN:  -->
+  <Clean.label>TODO</Clean.label>
+  <!-- EN:  -->
+  <Clean.description>TODO</Clean.description>
+  <!-- EN: cleaning TargetA. -->
+  <Clean.reportString>TODO</Clean.reportString>
+
+  <!-- EN:  -->
+  <Research.label>TODO</Research.label>
+  <!-- EN:  -->
+  <Research.description>TODO</Research.description>
+  <!-- EN: researching. -->
+  <Research.reportString>TODO</Research.reportString>
+
+  <!-- EN:  -->
+  <Hunt.label>TODO</Hunt.label>
+  <!-- EN:  -->
+  <Hunt.description>TODO</Hunt.description>
+  <!-- EN: hunting TargetA. -->
+  <Hunt.reportString>TODO</Hunt.reportString>
+
+  <!-- EN:  -->
+  <UseCommsConsole.label>TODO</UseCommsConsole.label>
+  <!-- EN:  -->
+  <UseCommsConsole.description>TODO</UseCommsConsole.description>
   <!-- EN: using comms console. -->
   <UseCommsConsole.reportString>TODO</UseCommsConsole.reportString>
-  
+
+  <!-- EN:  -->
+  <Mine.label>TODO</Mine.label>
+  <!-- EN:  -->
+  <Mine.description>TODO</Mine.description>
+  <!-- EN: digging at TargetA. -->
+  <Mine.reportString>TODO</Mine.reportString>
+
+  <!-- EN:  -->
+  <SmoothFloor.label>TODO</SmoothFloor.label>
+  <!-- EN:  -->
+  <SmoothFloor.description>TODO</SmoothFloor.description>
+  <!-- EN: smoothing floor. -->
+  <SmoothFloor.reportString>TODO</SmoothFloor.reportString>
+
+  <!-- EN:  -->
+  <RemoveFloor.label>TODO</RemoveFloor.label>
+  <!-- EN:  -->
+  <RemoveFloor.description>TODO</RemoveFloor.description>
+  <!-- EN: removing floor. -->
+  <RemoveFloor.reportString>TODO</RemoveFloor.reportString>
+
+  <!-- EN:  -->
+  <SmoothWall.label>TODO</SmoothWall.label>
+  <!-- EN:  -->
+  <SmoothWall.description>TODO</SmoothWall.description>
+  <!-- EN: smoothing wall. -->
+  <SmoothWall.reportString>TODO</SmoothWall.reportString>
+
+  <!-- EN:  -->
+  <Sow.label>TODO</Sow.label>
+  <!-- EN:  -->
+  <Sow.description>TODO</Sow.description>
+  <!-- EN: sowing TargetA. -->
+  <Sow.reportString>TODO</Sow.reportString>
+
+  <!-- EN:  -->
+  <Harvest.label>TODO</Harvest.label>
+  <!-- EN:  -->
+  <Harvest.description>TODO</Harvest.description>
+  <!-- EN: harvesting TargetA. -->
+  <Harvest.reportString>TODO</Harvest.reportString>
+
+  <!-- EN:  -->
+  <HarvestDesignated.label>TODO</HarvestDesignated.label>
+  <!-- EN:  -->
+  <HarvestDesignated.description>TODO</HarvestDesignated.description>
+  <!-- EN: harvesting TargetA. -->
+  <HarvestDesignated.reportString>TODO</HarvestDesignated.reportString>
+
+  <!-- EN:  -->
+  <CutPlant.label>TODO</CutPlant.label>
+  <!-- EN:  -->
+  <CutPlant.description>TODO</CutPlant.description>
+  <!-- EN: cutting TargetA. -->
+  <CutPlant.reportString>TODO</CutPlant.reportString>
+
+  <!-- EN:  -->
+  <CutPlantDesignated.label>TODO</CutPlantDesignated.label>
+  <!-- EN:  -->
+  <CutPlantDesignated.description>TODO</CutPlantDesignated.description>
+  <!-- EN: cutting TargetA. -->
+  <CutPlantDesignated.reportString>TODO</CutPlantDesignated.reportString>
+
+  <!-- EN:  -->
+  <PrisonerAttemptRecruit.label>TODO</PrisonerAttemptRecruit.label>
+  <!-- EN:  -->
+  <PrisonerAttemptRecruit.description>TODO</PrisonerAttemptRecruit.description>
+  <!-- EN: attempting to recruit TargetA. -->
+  <PrisonerAttemptRecruit.reportString>TODO</PrisonerAttemptRecruit.reportString>
+
+  <!-- EN:  -->
+  <PrisonerExecution.label>TODO</PrisonerExecution.label>
+  <!-- EN:  -->
+  <PrisonerExecution.description>TODO</PrisonerExecution.description>
+  <!-- EN: executing TargetA. -->
+  <PrisonerExecution.reportString>TODO</PrisonerExecution.reportString>
+
 </LanguageData>

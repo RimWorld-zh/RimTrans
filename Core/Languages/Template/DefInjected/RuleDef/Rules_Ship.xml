@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Ship_Core.label>TODO</Ship_Core.label>
+  <!-- EN:  -->
+  <Ship_Core.description>TODO</Ship_Core.description>
+
+  <!-- EN:  -->
+  <Ship_Pregen.label>TODO</Ship_Pregen.label>
+  <!-- EN:  -->
+  <Ship_Pregen.description>TODO</Ship_Pregen.description>
+
+  <!-- EN:  -->
+  <Ship_Spine.label>TODO</Ship_Spine.label>
+  <!-- EN:  -->
+  <Ship_Spine.description>TODO</Ship_Spine.description>
+
+  <!-- EN:  -->
+  <Ship_Populate.label>TODO</Ship_Populate.label>
+  <!-- EN:  -->
+  <Ship_Populate.description>TODO</Ship_Populate.description>
+
+</LanguageData>

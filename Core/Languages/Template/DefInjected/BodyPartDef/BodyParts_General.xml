@@ -1,40 +1,88 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: brain -->
-  <Brain.label>TODO</Brain.label>
-  
-  <!-- EN: ear -->
-  <Ear.label>TODO</Ear.label>
-  
-  <!-- EN: eye -->
-  <Eye.label>TODO</Eye.label>
-  
-  <!-- EN: foot -->
-  <Foot.label>TODO</Foot.label>
-  
+
   <!-- EN: head -->
   <Head.label>TODO</Head.label>
-  
-  <!-- EN: jaw -->
-  <Jaw.label>TODO</Jaw.label>
-  
-  <!-- EN: leg -->
-  <Leg.label>TODO</Leg.label>
-  
-  <!-- EN: neck -->
-  <Neck.label>TODO</Neck.label>
-  
-  <!-- EN: nose -->
-  <Nose.label>TODO</Nose.label>
-  
-  <!-- EN: ribcage -->
-  <Ribcage.label>TODO</Ribcage.label>
-  
+  <!-- EN:  -->
+  <Head.description>TODO</Head.description>
+  <!-- EN:  -->
+  <Head.labelShort>TODO</Head.labelShort>
+
   <!-- EN: skull -->
   <Skull.label>TODO</Skull.label>
-  
+  <!-- EN:  -->
+  <Skull.description>TODO</Skull.description>
+  <!-- EN:  -->
+  <Skull.labelShort>TODO</Skull.labelShort>
+
+  <!-- EN: brain -->
+  <Brain.label>TODO</Brain.label>
+  <!-- EN:  -->
+  <Brain.description>TODO</Brain.description>
+  <!-- EN:  -->
+  <Brain.labelShort>TODO</Brain.labelShort>
+
+  <!-- EN: eye -->
+  <Eye.label>TODO</Eye.label>
+  <!-- EN:  -->
+  <Eye.description>TODO</Eye.description>
+  <!-- EN:  -->
+  <Eye.labelShort>TODO</Eye.labelShort>
+
+  <!-- EN: ear -->
+  <Ear.label>TODO</Ear.label>
+  <!-- EN:  -->
+  <Ear.description>TODO</Ear.description>
+  <!-- EN:  -->
+  <Ear.labelShort>TODO</Ear.labelShort>
+
+  <!-- EN: nose -->
+  <Nose.label>TODO</Nose.label>
+  <!-- EN:  -->
+  <Nose.description>TODO</Nose.description>
+  <!-- EN:  -->
+  <Nose.labelShort>TODO</Nose.labelShort>
+
+  <!-- EN: jaw -->
+  <Jaw.label>TODO</Jaw.label>
+  <!-- EN:  -->
+  <Jaw.description>TODO</Jaw.description>
+  <!-- EN:  -->
+  <Jaw.labelShort>TODO</Jaw.labelShort>
+
+  <!-- EN: neck -->
+  <Neck.label>TODO</Neck.label>
+  <!-- EN:  -->
+  <Neck.description>TODO</Neck.description>
+  <!-- EN:  -->
+  <Neck.labelShort>TODO</Neck.labelShort>
+
+  <!-- EN: ribcage -->
+  <Ribcage.label>TODO</Ribcage.label>
+  <!-- EN:  -->
+  <Ribcage.description>TODO</Ribcage.description>
+  <!-- EN:  -->
+  <Ribcage.labelShort>TODO</Ribcage.labelShort>
+
   <!-- EN: spine -->
   <Spine.label>TODO</Spine.label>
-  
+  <!-- EN:  -->
+  <Spine.description>TODO</Spine.description>
+  <!-- EN:  -->
+  <Spine.labelShort>TODO</Spine.labelShort>
+
+  <!-- EN: leg -->
+  <Leg.label>TODO</Leg.label>
+  <!-- EN:  -->
+  <Leg.description>TODO</Leg.description>
+  <!-- EN:  -->
+  <Leg.labelShort>TODO</Leg.labelShort>
+
+  <!-- EN: foot -->
+  <Foot.label>TODO</Foot.label>
+  <!-- EN:  -->
+  <Foot.description>TODO</Foot.description>
+  <!-- EN:  -->
+  <Foot.labelShort>TODO</Foot.labelShort>
+
 </LanguageData>

@@ -1,28 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: charge blaster shot -->
   <Bullet_ChargeBlasterHeavy.label>TODO</Bullet_ChargeBlasterHeavy.label>
-  
-  <!-- EN: inferno cannon shell -->
-  <Bullet_InfernoCannon.label>TODO</Bullet_InfernoCannon.label>
-  
+  <!-- EN:  -->
+  <Bullet_ChargeBlasterHeavy.description>TODO</Bullet_ChargeBlasterHeavy.description>
+
   <!-- EN: heavy charge blaster -->
   <Gun_ChargeBlasterHeavy.label>TODO</Gun_ChargeBlasterHeavy.label>
   <!-- EN: A pulse-charged rapid-fire blaster for area suppressive fire. -->
   <Gun_ChargeBlasterHeavy.description>TODO</Gun_ChargeBlasterHeavy.description>
+  <!-- EN:  -->
+  <Gun_ChargeBlasterHeavy.verbs.Verb_Shoot.label>TODO</Gun_ChargeBlasterHeavy.verbs.Verb_Shoot.label>
   <!-- EN: barrel -->
   <Gun_ChargeBlasterHeavy.tools.barrel.label>TODO</Gun_ChargeBlasterHeavy.tools.barrel.label>
-  <!-- EN: heavy charge blaster -->
-  <Gun_ChargeBlasterHeavy.verbs.Verb_Shoot.label>TODO</Gun_ChargeBlasterHeavy.verbs.Verb_Shoot.label>
-  
+
+  <!-- EN: inferno cannon shell -->
+  <Bullet_InfernoCannon.label>TODO</Bullet_InfernoCannon.label>
+  <!-- EN:  -->
+  <Bullet_InfernoCannon.description>TODO</Bullet_InfernoCannon.description>
+
   <!-- EN: inferno cannon -->
   <Gun_InfernoCannon.label>TODO</Gun_InfernoCannon.label>
   <!-- EN: An incendiary-shot mini-artillery device. It fires a large incendiary warhead. -->
   <Gun_InfernoCannon.description>TODO</Gun_InfernoCannon.description>
+  <!-- EN:  -->
+  <Gun_InfernoCannon.verbs.Verb_Shoot.label>TODO</Gun_InfernoCannon.verbs.Verb_Shoot.label>
   <!-- EN: barrel -->
   <Gun_InfernoCannon.tools.barrel.label>TODO</Gun_InfernoCannon.tools.barrel.label>
-  <!-- EN: inferno cannon -->
-  <Gun_InfernoCannon.verbs.Verb_Shoot.label>TODO</Gun_InfernoCannon.verbs.Verb_Shoot.label>
-  
+
 </LanguageData>

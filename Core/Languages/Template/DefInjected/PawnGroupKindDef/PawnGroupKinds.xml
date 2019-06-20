@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Combat.label>TODO</Combat.label>
+  <!-- EN:  -->
+  <Combat.description>TODO</Combat.description>
+
+  <!-- EN:  -->
+  <Trader.label>TODO</Trader.label>
+  <!-- EN:  -->
+  <Trader.description>TODO</Trader.description>
+
+  <!-- EN:  -->
+  <Peaceful.label>TODO</Peaceful.label>
+  <!-- EN:  -->
+  <Peaceful.description>TODO</Peaceful.description>
+
+  <!-- EN:  -->
+  <Settlement.label>TODO</Settlement.label>
+  <!-- EN:  -->
+  <Settlement.description>TODO</Settlement.description>
+
+</LanguageData>

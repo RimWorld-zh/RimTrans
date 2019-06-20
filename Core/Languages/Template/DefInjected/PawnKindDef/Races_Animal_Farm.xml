@@ -1,36 +1,208 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: alpaca -->
-  <Alpaca.label>TODO</Alpaca.label>
-  
+
   <!-- EN: chicken -->
   <Chicken.label>TODO</Chicken.label>
-  <!-- EN: hen -->
-  <Chicken.labelFemale>TODO</Chicken.labelFemale>
-  <!-- EN: rooster -->
-  <Chicken.labelMale>TODO</Chicken.labelMale>
+  <!-- EN:  -->
+  <Chicken.description>TODO</Chicken.description>
+  <!-- EN:  -->
+  <Chicken.labelPlural>TODO</Chicken.labelPlural>
   <!-- EN: chick -->
   <Chicken.lifeStages.chick.label>TODO</Chicken.lifeStages.chick.label>
+  <!-- EN:  -->
+  <Chicken.lifeStages.chick.labelPlural>TODO</Chicken.lifeStages.chick.labelPlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.chick.labelMale>TODO</Chicken.lifeStages.chick.labelMale>
+  <!-- EN:  -->
+  <Chicken.lifeStages.chick.labelMalePlural>TODO</Chicken.lifeStages.chick.labelMalePlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.chick.labelFemale>TODO</Chicken.lifeStages.chick.labelFemale>
+  <!-- EN:  -->
+  <Chicken.lifeStages.chick.labelFemalePlural>TODO</Chicken.lifeStages.chick.labelFemalePlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.cockerel.label>TODO</Chicken.lifeStages.cockerel.label>
+  <!-- EN:  -->
+  <Chicken.lifeStages.cockerel.labelPlural>TODO</Chicken.lifeStages.cockerel.labelPlural>
   <!-- EN: cockerel -->
   <Chicken.lifeStages.cockerel.labelMale>TODO</Chicken.lifeStages.cockerel.labelMale>
-  
+  <!-- EN:  -->
+  <Chicken.lifeStages.cockerel.labelMalePlural>TODO</Chicken.lifeStages.cockerel.labelMalePlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.cockerel.labelFemale>TODO</Chicken.lifeStages.cockerel.labelFemale>
+  <!-- EN:  -->
+  <Chicken.lifeStages.cockerel.labelFemalePlural>TODO</Chicken.lifeStages.cockerel.labelFemalePlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.2.label>TODO</Chicken.lifeStages.2.label>
+  <!-- EN:  -->
+  <Chicken.lifeStages.2.labelPlural>TODO</Chicken.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.2.labelMale>TODO</Chicken.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Chicken.lifeStages.2.labelMalePlural>TODO</Chicken.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Chicken.lifeStages.2.labelFemale>TODO</Chicken.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Chicken.lifeStages.2.labelFemalePlural>TODO</Chicken.lifeStages.2.labelFemalePlural>
+  <!-- EN: rooster -->
+  <Chicken.labelMale>TODO</Chicken.labelMale>
+  <!-- EN:  -->
+  <Chicken.labelMalePlural>TODO</Chicken.labelMalePlural>
+  <!-- EN: hen -->
+  <Chicken.labelFemale>TODO</Chicken.labelFemale>
+  <!-- EN:  -->
+  <Chicken.labelFemalePlural>TODO</Chicken.labelFemalePlural>
+
+  <!-- EN: pig -->
+  <Pig.label>TODO</Pig.label>
+  <!-- EN:  -->
+  <Pig.description>TODO</Pig.description>
+  <!-- EN:  -->
+  <Pig.labelPlural>TODO</Pig.labelPlural>
+  <!-- EN: piglet -->
+  <Pig.lifeStages.piglet.label>TODO</Pig.lifeStages.piglet.label>
+  <!-- EN:  -->
+  <Pig.lifeStages.piglet.labelPlural>TODO</Pig.lifeStages.piglet.labelPlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.piglet.labelMale>TODO</Pig.lifeStages.piglet.labelMale>
+  <!-- EN:  -->
+  <Pig.lifeStages.piglet.labelMalePlural>TODO</Pig.lifeStages.piglet.labelMalePlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.piglet.labelFemale>TODO</Pig.lifeStages.piglet.labelFemale>
+  <!-- EN:  -->
+  <Pig.lifeStages.piglet.labelFemalePlural>TODO</Pig.lifeStages.piglet.labelFemalePlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.1.label>TODO</Pig.lifeStages.1.label>
+  <!-- EN:  -->
+  <Pig.lifeStages.1.labelPlural>TODO</Pig.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.1.labelMale>TODO</Pig.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Pig.lifeStages.1.labelMalePlural>TODO</Pig.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.1.labelFemale>TODO</Pig.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Pig.lifeStages.1.labelFemalePlural>TODO</Pig.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.2.label>TODO</Pig.lifeStages.2.label>
+  <!-- EN:  -->
+  <Pig.lifeStages.2.labelPlural>TODO</Pig.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.2.labelMale>TODO</Pig.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Pig.lifeStages.2.labelMalePlural>TODO</Pig.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Pig.lifeStages.2.labelFemale>TODO</Pig.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Pig.lifeStages.2.labelFemalePlural>TODO</Pig.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Pig.labelMale>TODO</Pig.labelMale>
+  <!-- EN:  -->
+  <Pig.labelMalePlural>TODO</Pig.labelMalePlural>
+  <!-- EN: sow -->
+  <Pig.labelFemale>TODO</Pig.labelFemale>
+  <!-- EN:  -->
+  <Pig.labelFemalePlural>TODO</Pig.labelFemalePlural>
+
   <!-- EN: cow -->
   <Cow.label>TODO</Cow.label>
-  <!-- EN: cow -->
-  <Cow.labelFemale>TODO</Cow.labelFemale>
-  <!-- EN: bull -->
-  <Cow.labelMale>TODO</Cow.labelMale>
+  <!-- EN:  -->
+  <Cow.description>TODO</Cow.description>
+  <!-- EN:  -->
+  <Cow.labelPlural>TODO</Cow.labelPlural>
   <!-- EN: calf -->
   <Cow.lifeStages.calf.label>TODO</Cow.lifeStages.calf.label>
   <!-- EN: calves -->
   <Cow.lifeStages.calf.labelPlural>TODO</Cow.lifeStages.calf.labelPlural>
-  
-  <!-- EN: pig -->
-  <Pig.label>TODO</Pig.label>
-  <!-- EN: sow -->
-  <Pig.labelFemale>TODO</Pig.labelFemale>
-  <!-- EN: piglet -->
-  <Pig.lifeStages.piglet.label>TODO</Pig.lifeStages.piglet.label>
-  
+  <!-- EN:  -->
+  <Cow.lifeStages.calf.labelMale>TODO</Cow.lifeStages.calf.labelMale>
+  <!-- EN:  -->
+  <Cow.lifeStages.calf.labelMalePlural>TODO</Cow.lifeStages.calf.labelMalePlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.calf.labelFemale>TODO</Cow.lifeStages.calf.labelFemale>
+  <!-- EN:  -->
+  <Cow.lifeStages.calf.labelFemalePlural>TODO</Cow.lifeStages.calf.labelFemalePlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.1.label>TODO</Cow.lifeStages.1.label>
+  <!-- EN:  -->
+  <Cow.lifeStages.1.labelPlural>TODO</Cow.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.1.labelMale>TODO</Cow.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Cow.lifeStages.1.labelMalePlural>TODO</Cow.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.1.labelFemale>TODO</Cow.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Cow.lifeStages.1.labelFemalePlural>TODO</Cow.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.2.label>TODO</Cow.lifeStages.2.label>
+  <!-- EN:  -->
+  <Cow.lifeStages.2.labelPlural>TODO</Cow.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.2.labelMale>TODO</Cow.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Cow.lifeStages.2.labelMalePlural>TODO</Cow.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Cow.lifeStages.2.labelFemale>TODO</Cow.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Cow.lifeStages.2.labelFemalePlural>TODO</Cow.lifeStages.2.labelFemalePlural>
+  <!-- EN: bull -->
+  <Cow.labelMale>TODO</Cow.labelMale>
+  <!-- EN:  -->
+  <Cow.labelMalePlural>TODO</Cow.labelMalePlural>
+  <!-- EN: cow -->
+  <Cow.labelFemale>TODO</Cow.labelFemale>
+  <!-- EN:  -->
+  <Cow.labelFemalePlural>TODO</Cow.labelFemalePlural>
+
+  <!-- EN: alpaca -->
+  <Alpaca.label>TODO</Alpaca.label>
+  <!-- EN:  -->
+  <Alpaca.description>TODO</Alpaca.description>
+  <!-- EN:  -->
+  <Alpaca.labelPlural>TODO</Alpaca.labelPlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.0.label>TODO</Alpaca.lifeStages.0.label>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.0.labelPlural>TODO</Alpaca.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.0.labelMale>TODO</Alpaca.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.0.labelMalePlural>TODO</Alpaca.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.0.labelFemale>TODO</Alpaca.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.0.labelFemalePlural>TODO</Alpaca.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.1.label>TODO</Alpaca.lifeStages.1.label>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.1.labelPlural>TODO</Alpaca.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.1.labelMale>TODO</Alpaca.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.1.labelMalePlural>TODO</Alpaca.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.1.labelFemale>TODO</Alpaca.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.1.labelFemalePlural>TODO</Alpaca.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.2.label>TODO</Alpaca.lifeStages.2.label>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.2.labelPlural>TODO</Alpaca.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.2.labelMale>TODO</Alpaca.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.2.labelMalePlural>TODO</Alpaca.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.2.labelFemale>TODO</Alpaca.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Alpaca.lifeStages.2.labelFemalePlural>TODO</Alpaca.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Alpaca.labelMale>TODO</Alpaca.labelMale>
+  <!-- EN:  -->
+  <Alpaca.labelMalePlural>TODO</Alpaca.labelMalePlural>
+  <!-- EN:  -->
+  <Alpaca.labelFemale>TODO</Alpaca.labelFemale>
+  <!-- EN:  -->
+  <Alpaca.labelFemalePlural>TODO</Alpaca.labelFemalePlural>
+
 </LanguageData>

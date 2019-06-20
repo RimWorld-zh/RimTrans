@@ -1,25 +1,31 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: aurora -->
-  <Aurora.label>TODO</Aurora.label>
-  <!-- EN: Aurora -->
-  <Aurora.letterLabel>TODO</Aurora.letterLabel>
-  <!-- EN: A beautiful aurora is lighting up the sky.\n\nThe undulating colors will boost the mood of anyone outside to see them, and make the night brighter. -->
-  <Aurora.letterText>TODO</Aurora.letterText>
-  
+
   <!-- EN: eclipse -->
   <Eclipse.label>TODO</Eclipse.label>
-  <!-- EN: Eclipse -->
-  <Eclipse.letterLabel>TODO</Eclipse.letterLabel>
+  <!-- EN:  -->
+  <Eclipse.description>TODO</Eclipse.description>
   <!-- EN: One of the moons of this planet has orbited in front of the sun. An eclipse has begun. -->
   <Eclipse.letterText>TODO</Eclipse.letterText>
-  
+  <!-- EN: Eclipse -->
+  <Eclipse.letterLabel>TODO</Eclipse.letterLabel>
+
   <!-- EN: solar flare -->
   <SolarFlare.label>TODO</SolarFlare.label>
-  <!-- EN: Solar flare -->
-  <SolarFlare.letterLabel>TODO</SolarFlare.letterLabel>
+  <!-- EN:  -->
+  <SolarFlare.description>TODO</SolarFlare.description>
   <!-- EN: A solar flare has begun.\n\nThe intense radiation will shut down all electrical devices.\n\nIt should pass in about a day. -->
   <SolarFlare.letterText>TODO</SolarFlare.letterText>
-  
+  <!-- EN: Solar flare -->
+  <SolarFlare.letterLabel>TODO</SolarFlare.letterLabel>
+
+  <!-- EN: aurora -->
+  <Aurora.label>TODO</Aurora.label>
+  <!-- EN:  -->
+  <Aurora.description>TODO</Aurora.description>
+  <!-- EN: A beautiful aurora is lighting up the sky.\n\nThe undulating colors will boost the mood of anyone outside to see them, and make the night brighter. -->
+  <Aurora.letterText>TODO</Aurora.letterText>
+  <!-- EN: Aurora -->
+  <Aurora.letterLabel>TODO</Aurora.letterLabel>
+
 </LanguageData>

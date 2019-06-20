@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Designate_DragStandard_Changed.label>TODO</Designate_DragStandard_Changed.label>
+  <!-- EN:  -->
+  <Designate_DragStandard_Changed.description>TODO</Designate_DragStandard_Changed.description>
+  <!-- EN:  -->
+  <Designate_DragStandard_Changed.subSounds.0.name>TODO</Designate_DragStandard_Changed.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_DragBuilding_Start.label>TODO</Designate_DragBuilding_Start.label>
+  <!-- EN:  -->
+  <Designate_DragBuilding_Start.description>TODO</Designate_DragBuilding_Start.description>
+  <!-- EN:  -->
+  <Designate_DragBuilding_Start.subSounds.0.name>TODO</Designate_DragBuilding_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_DragAreaAdd_Start.label>TODO</Designate_DragAreaAdd_Start.label>
+  <!-- EN:  -->
+  <Designate_DragAreaAdd_Start.description>TODO</Designate_DragAreaAdd_Start.description>
+  <!-- EN:  -->
+  <Designate_DragAreaAdd_Start.subSounds.0.name>TODO</Designate_DragAreaAdd_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_DragAreaDelete_Start.label>TODO</Designate_DragAreaDelete_Start.label>
+  <!-- EN:  -->
+  <Designate_DragAreaDelete_Start.description>TODO</Designate_DragAreaDelete_Start.description>
+  <!-- EN:  -->
+  <Designate_DragAreaDelete_Start.subSounds.0.name>TODO</Designate_DragAreaDelete_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_PlaceBuilding.label>TODO</Designate_PlaceBuilding.label>
+  <!-- EN:  -->
+  <Designate_PlaceBuilding.description>TODO</Designate_PlaceBuilding.description>
+  <!-- EN:  -->
+  <Designate_PlaceBuilding.subSounds.0.name>TODO</Designate_PlaceBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Cancel.label>TODO</Designate_Cancel.label>
+  <!-- EN:  -->
+  <Designate_Cancel.description>TODO</Designate_Cancel.description>
+  <!-- EN:  -->
+  <Designate_Cancel.subSounds.0.name>TODO</Designate_Cancel.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Deconstruct.label>TODO</Designate_Deconstruct.label>
+  <!-- EN:  -->
+  <Designate_Deconstruct.description>TODO</Designate_Deconstruct.description>
+  <!-- EN:  -->
+  <Designate_Deconstruct.subSounds.0.name>TODO</Designate_Deconstruct.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Mine.label>TODO</Designate_Mine.label>
+  <!-- EN:  -->
+  <Designate_Mine.description>TODO</Designate_Mine.description>
+  <!-- EN:  -->
+  <Designate_Mine.subSounds.0.name>TODO</Designate_Mine.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Failed.label>TODO</Designate_Failed.label>
+  <!-- EN:  -->
+  <Designate_Failed.description>TODO</Designate_Failed.description>
+  <!-- EN:  -->
+  <Designate_Failed.subSounds.0.name>TODO</Designate_Failed.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_ZoneAdd.label>TODO</Designate_ZoneAdd.label>
+  <!-- EN:  -->
+  <Designate_ZoneAdd.description>TODO</Designate_ZoneAdd.description>
+  <!-- EN:  -->
+  <Designate_ZoneAdd.subSounds.0.name>TODO</Designate_ZoneAdd.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_ZoneDelete.label>TODO</Designate_ZoneDelete.label>
+  <!-- EN:  -->
+  <Designate_ZoneDelete.description>TODO</Designate_ZoneDelete.description>
+  <!-- EN:  -->
+  <Designate_ZoneDelete.subSounds.0.name>TODO</Designate_ZoneDelete.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Haul.label>TODO</Designate_Haul.label>
+  <!-- EN:  -->
+  <Designate_Haul.description>TODO</Designate_Haul.description>
+  <!-- EN:  -->
+  <Designate_Haul.subSounds.0.name>TODO</Designate_Haul.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Hunt.label>TODO</Designate_Hunt.label>
+  <!-- EN:  -->
+  <Designate_Hunt.description>TODO</Designate_Hunt.description>
+  <!-- EN:  -->
+  <Designate_Hunt.subSounds.0.name>TODO</Designate_Hunt.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_CutPlants.label>TODO</Designate_CutPlants.label>
+  <!-- EN:  -->
+  <Designate_CutPlants.description>TODO</Designate_CutPlants.description>
+  <!-- EN:  -->
+  <Designate_CutPlants.subSounds.0.name>TODO</Designate_CutPlants.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Harvest.label>TODO</Designate_Harvest.label>
+  <!-- EN:  -->
+  <Designate_Harvest.description>TODO</Designate_Harvest.description>
+  <!-- EN:  -->
+  <Designate_Harvest.subSounds.0.name>TODO</Designate_Harvest.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_SmoothSurface.label>TODO</Designate_SmoothSurface.label>
+  <!-- EN:  -->
+  <Designate_SmoothSurface.description>TODO</Designate_SmoothSurface.description>
+  <!-- EN:  -->
+  <Designate_SmoothSurface.subSounds.0.name>TODO</Designate_SmoothSurface.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_PlanAdd.label>TODO</Designate_PlanAdd.label>
+  <!-- EN:  -->
+  <Designate_PlanAdd.description>TODO</Designate_PlanAdd.description>
+  <!-- EN:  -->
+  <Designate_PlanAdd.subSounds.0.name>TODO</Designate_PlanAdd.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_PlanRemove.label>TODO</Designate_PlanRemove.label>
+  <!-- EN:  -->
+  <Designate_PlanRemove.description>TODO</Designate_PlanRemove.description>
+  <!-- EN:  -->
+  <Designate_PlanRemove.subSounds.0.name>TODO</Designate_PlanRemove.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_Claim.label>TODO</Designate_Claim.label>
+  <!-- EN:  -->
+  <Designate_Claim.description>TODO</Designate_Claim.description>
+  <!-- EN:  -->
+  <Designate_Claim.subSounds.0.name>TODO</Designate_Claim.subSounds.0.name>
+
+</LanguageData>

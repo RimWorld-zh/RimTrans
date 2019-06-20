@@ -1,13 +1,85 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: centipede -->
   <Mech_Centipede.label>TODO</Mech_Centipede.label>
-  
+  <!-- EN:  -->
+  <Mech_Centipede.description>TODO</Mech_Centipede.description>
+  <!-- EN:  -->
+  <Mech_Centipede.labelPlural>TODO</Mech_Centipede.labelPlural>
+  <!-- EN:  -->
+  <Mech_Centipede.lifeStages.0.label>TODO</Mech_Centipede.lifeStages.0.label>
+  <!-- EN:  -->
+  <Mech_Centipede.lifeStages.0.labelPlural>TODO</Mech_Centipede.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Mech_Centipede.lifeStages.0.labelMale>TODO</Mech_Centipede.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Mech_Centipede.lifeStages.0.labelMalePlural>TODO</Mech_Centipede.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Mech_Centipede.lifeStages.0.labelFemale>TODO</Mech_Centipede.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Mech_Centipede.lifeStages.0.labelFemalePlural>TODO</Mech_Centipede.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Mech_Centipede.labelMale>TODO</Mech_Centipede.labelMale>
+  <!-- EN:  -->
+  <Mech_Centipede.labelMalePlural>TODO</Mech_Centipede.labelMalePlural>
+  <!-- EN:  -->
+  <Mech_Centipede.labelFemale>TODO</Mech_Centipede.labelFemale>
+  <!-- EN:  -->
+  <Mech_Centipede.labelFemalePlural>TODO</Mech_Centipede.labelFemalePlural>
+
   <!-- EN: lancer -->
   <Mech_Lancer.label>TODO</Mech_Lancer.label>
-  
+  <!-- EN:  -->
+  <Mech_Lancer.description>TODO</Mech_Lancer.description>
+  <!-- EN:  -->
+  <Mech_Lancer.labelPlural>TODO</Mech_Lancer.labelPlural>
+  <!-- EN:  -->
+  <Mech_Lancer.lifeStages.0.label>TODO</Mech_Lancer.lifeStages.0.label>
+  <!-- EN:  -->
+  <Mech_Lancer.lifeStages.0.labelPlural>TODO</Mech_Lancer.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Mech_Lancer.lifeStages.0.labelMale>TODO</Mech_Lancer.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Mech_Lancer.lifeStages.0.labelMalePlural>TODO</Mech_Lancer.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Mech_Lancer.lifeStages.0.labelFemale>TODO</Mech_Lancer.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Mech_Lancer.lifeStages.0.labelFemalePlural>TODO</Mech_Lancer.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Mech_Lancer.labelMale>TODO</Mech_Lancer.labelMale>
+  <!-- EN:  -->
+  <Mech_Lancer.labelMalePlural>TODO</Mech_Lancer.labelMalePlural>
+  <!-- EN:  -->
+  <Mech_Lancer.labelFemale>TODO</Mech_Lancer.labelFemale>
+  <!-- EN:  -->
+  <Mech_Lancer.labelFemalePlural>TODO</Mech_Lancer.labelFemalePlural>
+
   <!-- EN: scyther -->
   <Mech_Scyther.label>TODO</Mech_Scyther.label>
-  
+  <!-- EN:  -->
+  <Mech_Scyther.description>TODO</Mech_Scyther.description>
+  <!-- EN:  -->
+  <Mech_Scyther.labelPlural>TODO</Mech_Scyther.labelPlural>
+  <!-- EN:  -->
+  <Mech_Scyther.lifeStages.0.label>TODO</Mech_Scyther.lifeStages.0.label>
+  <!-- EN:  -->
+  <Mech_Scyther.lifeStages.0.labelPlural>TODO</Mech_Scyther.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Mech_Scyther.lifeStages.0.labelMale>TODO</Mech_Scyther.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Mech_Scyther.lifeStages.0.labelMalePlural>TODO</Mech_Scyther.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Mech_Scyther.lifeStages.0.labelFemale>TODO</Mech_Scyther.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Mech_Scyther.lifeStages.0.labelFemalePlural>TODO</Mech_Scyther.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Mech_Scyther.labelMale>TODO</Mech_Scyther.labelMale>
+  <!-- EN:  -->
+  <Mech_Scyther.labelMalePlural>TODO</Mech_Scyther.labelMalePlural>
+  <!-- EN:  -->
+  <Mech_Scyther.labelFemale>TODO</Mech_Scyther.labelFemale>
+  <!-- EN:  -->
+  <Mech_Scyther.labelFemalePlural>TODO</Mech_Scyther.labelFemalePlural>
+
 </LanguageData>

@@ -1,13 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: constructed roof -->
   <RoofConstructed.label>TODO</RoofConstructed.label>
-  
-  <!-- EN: overhead mountain -->
-  <RoofRockThick.label>TODO</RoofRockThick.label>
-  
+  <!-- EN:  -->
+  <RoofConstructed.description>TODO</RoofConstructed.description>
+
   <!-- EN: rock roof (thin) -->
   <RoofRockThin.label>TODO</RoofRockThin.label>
-  
+  <!-- EN:  -->
+  <RoofRockThin.description>TODO</RoofRockThin.description>
+
+  <!-- EN: overhead mountain -->
+  <RoofRockThick.label>TODO</RoofRockThick.label>
+  <!-- EN:  -->
+  <RoofRockThick.description>TODO</RoofRockThick.description>
+
 </LanguageData>

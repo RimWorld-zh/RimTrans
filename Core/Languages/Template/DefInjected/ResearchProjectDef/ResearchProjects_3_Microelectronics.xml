@@ -1,64 +1,112 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: colored lights -->
-  <ColoredLights.label>TODO</ColoredLights.label>
-  <!-- EN: Construct colored lights for decorative purposes. Cosmetic only. -->
-  <ColoredLights.description>TODO</ColoredLights.description>
-  
-  <!-- EN: flatscreen television -->
-  <FlatscreenTelevision.label>TODO</FlatscreenTelevision.label>
-  <!-- EN: Produce high-resolution flatscreen televisions for greater enjoyment. -->
-  <FlatscreenTelevision.description>TODO</FlatscreenTelevision.description>
-  
-  <!-- EN: autocannon turret -->
-  <HeavyTurrets.label>TODO</HeavyTurrets.label>
-  <!-- EN: Produce the heavy, long-ranged autocannon turret. -->
-  <HeavyTurrets.description>TODO</HeavyTurrets.description>
-  
-  <!-- EN: hospital bed -->
-  <HospitalBed.label>TODO</HospitalBed.label>
-  <!-- EN: Construct hospital beds which improve medical outcomes. -->
-  <HospitalBed.description>TODO</HospitalBed.description>
-  
-  <!-- EN: long-range mineral scanner -->
-  <LongRangeMineralScanner.label>TODO</LongRangeMineralScanner.label>
-  <!-- EN: Construct long-range mineral scanners your researchers can use to detect precious minerals across the planet. Can be tuned to find a specific mineral. Requires advanced components to construct. -->
-  <LongRangeMineralScanner.description>TODO</LongRangeMineralScanner.description>
-  
-  <!-- EN: medicine production -->
-  <MedicineProduction.label>TODO</MedicineProduction.label>
-  <!-- EN: Produce standard industrial-tech medicine by combining herbal medicine, neutroamine, and cloth. -->
-  <MedicineProduction.description>TODO</MedicineProduction.description>
-  
+
   <!-- EN: microelectronics -->
   <MicroelectronicsBasics.label>TODO</MicroelectronicsBasics.label>
   <!-- EN: Work with complex microelectronics. This unlocks the hi-tech research bench and comms console. -->
   <MicroelectronicsBasics.description>TODO</MicroelectronicsBasics.description>
-  
+  <!-- EN:  -->
+  <MicroelectronicsBasics.discoveredLetterTitle>TODO</MicroelectronicsBasics.discoveredLetterTitle>
+  <!-- EN:  -->
+  <MicroelectronicsBasics.discoveredLetterText>TODO</MicroelectronicsBasics.discoveredLetterText>
+
+  <!-- EN: flatscreen television -->
+  <FlatscreenTelevision.label>TODO</FlatscreenTelevision.label>
+  <!-- EN: Produce high-resolution flatscreen televisions for greater enjoyment. -->
+  <FlatscreenTelevision.description>TODO</FlatscreenTelevision.description>
+  <!-- EN:  -->
+  <FlatscreenTelevision.discoveredLetterTitle>TODO</FlatscreenTelevision.discoveredLetterTitle>
+  <!-- EN:  -->
+  <FlatscreenTelevision.discoveredLetterText>TODO</FlatscreenTelevision.discoveredLetterText>
+
+  <!-- EN: colored lights -->
+  <ColoredLights.label>TODO</ColoredLights.label>
+  <!-- EN: Construct colored lights for decorative purposes. Cosmetic only. -->
+  <ColoredLights.description>TODO</ColoredLights.description>
+  <!-- EN:  -->
+  <ColoredLights.discoveredLetterTitle>TODO</ColoredLights.discoveredLetterTitle>
+  <!-- EN:  -->
+  <ColoredLights.discoveredLetterText>TODO</ColoredLights.discoveredLetterText>
+
   <!-- EN: moisture pump -->
   <MoisturePump.label>TODO</MoisturePump.label>
   <!-- EN: Construct moisture pumps, which very slowly normalize the moisture in the ground around them. They can turn wet ground dry and convert soft sand into normal sand. -->
   <MoisturePump.description>TODO</MoisturePump.description>
-  
-  <!-- EN: multibarrel weapons -->
-  <MultibarrelWeapons.label>TODO</MultibarrelWeapons.label>
-  <!-- EN: Assemble miniguns. -->
-  <MultibarrelWeapons.description>TODO</MultibarrelWeapons.description>
-  
-  <!-- EN: precision rifling -->
-  <PrecisionRifling.label>TODO</PrecisionRifling.label>
-  <!-- EN: Craft precisely-machined guns like assault rifles and sniper rifles. -->
-  <PrecisionRifling.description>TODO</PrecisionRifling.description>
-  
-  <!-- EN: shield belt -->
-  <ShieldBelt.label>TODO</ShieldBelt.label>
-  <!-- EN: Build shield belts, which use momentun-repulsion technology to block ranged attacks coming in or going out. -->
-  <ShieldBelt.description>TODO</ShieldBelt.description>
-  
+  <!-- EN:  -->
+  <MoisturePump.discoveredLetterTitle>TODO</MoisturePump.discoveredLetterTitle>
+  <!-- EN:  -->
+  <MoisturePump.discoveredLetterText>TODO</MoisturePump.discoveredLetterText>
+
+  <!-- EN: hospital bed -->
+  <HospitalBed.label>TODO</HospitalBed.label>
+  <!-- EN: Construct hospital beds which improve medical outcomes. -->
+  <HospitalBed.description>TODO</HospitalBed.description>
+  <!-- EN:  -->
+  <HospitalBed.discoveredLetterTitle>TODO</HospitalBed.discoveredLetterTitle>
+  <!-- EN:  -->
+  <HospitalBed.discoveredLetterText>TODO</HospitalBed.discoveredLetterText>
+
   <!-- EN: transport pod -->
   <TransportPod.label>TODO</TransportPod.label>
   <!-- EN: Construct launchable transport pods that you can use to send people and supplies long distances across the planet's surface. Can be used for raiding, travel, sending gifts, and more. -->
   <TransportPod.description>TODO</TransportPod.description>
-  
+  <!-- EN:  -->
+  <TransportPod.discoveredLetterTitle>TODO</TransportPod.discoveredLetterTitle>
+  <!-- EN:  -->
+  <TransportPod.discoveredLetterText>TODO</TransportPod.discoveredLetterText>
+
+  <!-- EN: medicine production -->
+  <MedicineProduction.label>TODO</MedicineProduction.label>
+  <!-- EN: Produce standard industrial-tech medicine by combining herbal medicine, neutroamine, and cloth. -->
+  <MedicineProduction.description>TODO</MedicineProduction.description>
+  <!-- EN:  -->
+  <MedicineProduction.discoveredLetterTitle>TODO</MedicineProduction.discoveredLetterTitle>
+  <!-- EN:  -->
+  <MedicineProduction.discoveredLetterText>TODO</MedicineProduction.discoveredLetterText>
+
+  <!-- EN: long-range mineral scanner -->
+  <LongRangeMineralScanner.label>TODO</LongRangeMineralScanner.label>
+  <!-- EN: Construct long-range mineral scanners your researchers can use to detect precious minerals across the planet. Can be tuned to find a specific mineral. Requires advanced components to construct. -->
+  <LongRangeMineralScanner.description>TODO</LongRangeMineralScanner.description>
+  <!-- EN:  -->
+  <LongRangeMineralScanner.discoveredLetterTitle>TODO</LongRangeMineralScanner.discoveredLetterTitle>
+  <!-- EN:  -->
+  <LongRangeMineralScanner.discoveredLetterText>TODO</LongRangeMineralScanner.discoveredLetterText>
+
+  <!-- EN: shield belt -->
+  <ShieldBelt.label>TODO</ShieldBelt.label>
+  <!-- EN: Build shield belts, which use momentun-repulsion technology to block ranged attacks coming in or going out. -->
+  <ShieldBelt.description>TODO</ShieldBelt.description>
+  <!-- EN:  -->
+  <ShieldBelt.discoveredLetterTitle>TODO</ShieldBelt.discoveredLetterTitle>
+  <!-- EN:  -->
+  <ShieldBelt.discoveredLetterText>TODO</ShieldBelt.discoveredLetterText>
+
+  <!-- EN: precision rifling -->
+  <PrecisionRifling.label>TODO</PrecisionRifling.label>
+  <!-- EN: Craft precisely-machined guns like assault rifles and sniper rifles. -->
+  <PrecisionRifling.description>TODO</PrecisionRifling.description>
+  <!-- EN:  -->
+  <PrecisionRifling.discoveredLetterTitle>TODO</PrecisionRifling.discoveredLetterTitle>
+  <!-- EN:  -->
+  <PrecisionRifling.discoveredLetterText>TODO</PrecisionRifling.discoveredLetterText>
+
+  <!-- EN: autocannon turret -->
+  <HeavyTurrets.label>TODO</HeavyTurrets.label>
+  <!-- EN: Produce the heavy, long-ranged autocannon turret. -->
+  <HeavyTurrets.description>TODO</HeavyTurrets.description>
+  <!-- EN:  -->
+  <HeavyTurrets.discoveredLetterTitle>TODO</HeavyTurrets.discoveredLetterTitle>
+  <!-- EN:  -->
+  <HeavyTurrets.discoveredLetterText>TODO</HeavyTurrets.discoveredLetterText>
+
+  <!-- EN: multibarrel weapons -->
+  <MultibarrelWeapons.label>TODO</MultibarrelWeapons.label>
+  <!-- EN: Assemble miniguns. -->
+  <MultibarrelWeapons.description>TODO</MultibarrelWeapons.description>
+  <!-- EN:  -->
+  <MultibarrelWeapons.discoveredLetterTitle>TODO</MultibarrelWeapons.discoveredLetterTitle>
+  <!-- EN:  -->
+  <MultibarrelWeapons.discoveredLetterText>TODO</MultibarrelWeapons.discoveredLetterText>
+
 </LanguageData>

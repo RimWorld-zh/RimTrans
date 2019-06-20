@@ -1,8 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: human -->
   <Human.label>TODO</Human.label>
+  <!-- EN:  -->
+  <Human.description>TODO</Human.description>
+  <!-- EN:  -->
+  <Human.corePart.customLabel>TODO</Human.corePart.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Ribcage.customLabel>TODO</Human.corePart.parts.Ribcage.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Sternum.customLabel>TODO</Human.corePart.parts.Sternum.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Pelvis.customLabel>TODO</Human.corePart.parts.Pelvis.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Spine.customLabel>TODO</Human.corePart.parts.Spine.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Stomach.customLabel>TODO</Human.corePart.parts.Stomach.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Heart.customLabel>TODO</Human.corePart.parts.Heart.customLabel>
   <!-- EN: left lung -->
   <Human.corePart.parts.left_lung.customLabel>TODO</Human.corePart.parts.left_lung.customLabel>
   <!-- EN: right lung -->
@@ -11,6 +27,16 @@
   <Human.corePart.parts.left_kidney.customLabel>TODO</Human.corePart.parts.left_kidney.customLabel>
   <!-- EN: right kidney -->
   <Human.corePart.parts.right_kidney.customLabel>TODO</Human.corePart.parts.right_kidney.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Liver.customLabel>TODO</Human.corePart.parts.Liver.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Neck.customLabel>TODO</Human.corePart.parts.Neck.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Neck.parts.Head.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Neck.parts.Head.parts.Skull.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.Skull.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Neck.parts.Head.parts.Skull.parts.Brain.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.Skull.parts.Brain.customLabel>
   <!-- EN: left eye -->
   <Human.corePart.parts.Neck.parts.Head.parts.left_eye.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.left_eye.customLabel>
   <!-- EN: right eye -->
@@ -19,6 +45,10 @@
   <Human.corePart.parts.Neck.parts.Head.parts.left_ear.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.left_ear.customLabel>
   <!-- EN: right ear -->
   <Human.corePart.parts.Neck.parts.Head.parts.right_ear.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.right_ear.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Neck.parts.Head.parts.Nose.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.Nose.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Neck.parts.Head.parts.Jaw.customLabel>TODO</Human.corePart.parts.Neck.parts.Head.parts.Jaw.customLabel>
   <!-- EN: left shoulder -->
   <Human.corePart.parts.left_shoulder.customLabel>TODO</Human.corePart.parts.left_shoulder.customLabel>
   <!-- EN: left clavicle -->
@@ -63,6 +93,8 @@
   <Human.corePart.parts.right_shoulder.parts.right_arm.parts.right_hand.parts.right_index_finger.customLabel>TODO</Human.corePart.parts.right_shoulder.parts.right_arm.parts.right_hand.parts.right_index_finger.customLabel>
   <!-- EN: right thumb -->
   <Human.corePart.parts.right_shoulder.parts.right_arm.parts.right_hand.parts.right_thumb.customLabel>TODO</Human.corePart.parts.right_shoulder.parts.right_arm.parts.right_hand.parts.right_thumb.customLabel>
+  <!-- EN:  -->
+  <Human.corePart.parts.Waist.customLabel>TODO</Human.corePart.parts.Waist.customLabel>
   <!-- EN: left leg -->
   <Human.corePart.parts.left_leg.customLabel>TODO</Human.corePart.parts.left_leg.customLabel>
   <!-- EN: left femur -->
@@ -99,5 +131,5 @@
   <Human.corePart.parts.right_leg.parts.right_foot.parts.right_second_toe.customLabel>TODO</Human.corePart.parts.right_leg.parts.right_foot.parts.right_second_toe.customLabel>
   <!-- EN: right big toe -->
   <Human.corePart.parts.right_leg.parts.right_foot.parts.right_big_toe.customLabel>TODO</Human.corePart.parts.right_leg.parts.right_foot.parts.right_big_toe.customLabel>
-  
+
 </LanguageData>

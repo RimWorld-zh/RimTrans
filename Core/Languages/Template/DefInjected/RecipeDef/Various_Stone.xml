@@ -1,39 +1,69 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: make granite blocks -->
-  <Make_StoneBlocksGranite.label>TODO</Make_StoneBlocksGranite.label>
-  <!-- EN: Cuts granite chunks into usable blocks. -->
-  <Make_StoneBlocksGranite.description>TODO</Make_StoneBlocksGranite.description>
-  <!-- EN: Cutting stone blocks from chunk. -->
-  <Make_StoneBlocksGranite.jobString>TODO</Make_StoneBlocksGranite.jobString>
-  
-  <!-- EN: make limestone blocks -->
-  <Make_StoneBlocksLimestone.label>TODO</Make_StoneBlocksLimestone.label>
-  <!-- EN: Cuts limestone chunks into usable blocks. -->
-  <Make_StoneBlocksLimestone.description>TODO</Make_StoneBlocksLimestone.description>
-  <!-- EN: Cutting stone blocks from chunk. -->
-  <Make_StoneBlocksLimestone.jobString>TODO</Make_StoneBlocksLimestone.jobString>
-  
-  <!-- EN: make marble blocks -->
-  <Make_StoneBlocksMarble.label>TODO</Make_StoneBlocksMarble.label>
-  <!-- EN: Cuts marble chunks into usable blocks. -->
-  <Make_StoneBlocksMarble.description>TODO</Make_StoneBlocksMarble.description>
-  <!-- EN: Cutting stone blocks from chunk. -->
-  <Make_StoneBlocksMarble.jobString>TODO</Make_StoneBlocksMarble.jobString>
-  
+
   <!-- EN: make sandstone blocks -->
   <Make_StoneBlocksSandstone.label>TODO</Make_StoneBlocksSandstone.label>
   <!-- EN: Cuts sandstone chunks into usable blocks. -->
   <Make_StoneBlocksSandstone.description>TODO</Make_StoneBlocksSandstone.description>
   <!-- EN: Cutting stone blocks from chunk. -->
   <Make_StoneBlocksSandstone.jobString>TODO</Make_StoneBlocksSandstone.jobString>
-  
+  <!-- EN:  -->
+  <Make_StoneBlocksSandstone.ingredients.0.filter.customSummary>TODO</Make_StoneBlocksSandstone.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksSandstone.fixedIngredientFilter.customSummary>TODO</Make_StoneBlocksSandstone.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksSandstone.successfullyRemovedHediffMessage>TODO</Make_StoneBlocksSandstone.successfullyRemovedHediffMessage>
+
+  <!-- EN: make granite blocks -->
+  <Make_StoneBlocksGranite.label>TODO</Make_StoneBlocksGranite.label>
+  <!-- EN: Cuts granite chunks into usable blocks. -->
+  <Make_StoneBlocksGranite.description>TODO</Make_StoneBlocksGranite.description>
+  <!-- EN: Cutting stone blocks from chunk. -->
+  <Make_StoneBlocksGranite.jobString>TODO</Make_StoneBlocksGranite.jobString>
+  <!-- EN:  -->
+  <Make_StoneBlocksGranite.ingredients.0.filter.customSummary>TODO</Make_StoneBlocksGranite.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksGranite.fixedIngredientFilter.customSummary>TODO</Make_StoneBlocksGranite.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksGranite.successfullyRemovedHediffMessage>TODO</Make_StoneBlocksGranite.successfullyRemovedHediffMessage>
+
+  <!-- EN: make limestone blocks -->
+  <Make_StoneBlocksLimestone.label>TODO</Make_StoneBlocksLimestone.label>
+  <!-- EN: Cuts limestone chunks into usable blocks. -->
+  <Make_StoneBlocksLimestone.description>TODO</Make_StoneBlocksLimestone.description>
+  <!-- EN: Cutting stone blocks from chunk. -->
+  <Make_StoneBlocksLimestone.jobString>TODO</Make_StoneBlocksLimestone.jobString>
+  <!-- EN:  -->
+  <Make_StoneBlocksLimestone.ingredients.0.filter.customSummary>TODO</Make_StoneBlocksLimestone.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksLimestone.fixedIngredientFilter.customSummary>TODO</Make_StoneBlocksLimestone.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksLimestone.successfullyRemovedHediffMessage>TODO</Make_StoneBlocksLimestone.successfullyRemovedHediffMessage>
+
   <!-- EN: make slate blocks -->
   <Make_StoneBlocksSlate.label>TODO</Make_StoneBlocksSlate.label>
   <!-- EN: Cuts slate chunks into usable blocks. -->
   <Make_StoneBlocksSlate.description>TODO</Make_StoneBlocksSlate.description>
   <!-- EN: Cutting stone blocks from chunk. -->
   <Make_StoneBlocksSlate.jobString>TODO</Make_StoneBlocksSlate.jobString>
-  
+  <!-- EN:  -->
+  <Make_StoneBlocksSlate.ingredients.0.filter.customSummary>TODO</Make_StoneBlocksSlate.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksSlate.fixedIngredientFilter.customSummary>TODO</Make_StoneBlocksSlate.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksSlate.successfullyRemovedHediffMessage>TODO</Make_StoneBlocksSlate.successfullyRemovedHediffMessage>
+
+  <!-- EN: make marble blocks -->
+  <Make_StoneBlocksMarble.label>TODO</Make_StoneBlocksMarble.label>
+  <!-- EN: Cuts marble chunks into usable blocks. -->
+  <Make_StoneBlocksMarble.description>TODO</Make_StoneBlocksMarble.description>
+  <!-- EN: Cutting stone blocks from chunk. -->
+  <Make_StoneBlocksMarble.jobString>TODO</Make_StoneBlocksMarble.jobString>
+  <!-- EN:  -->
+  <Make_StoneBlocksMarble.ingredients.0.filter.customSummary>TODO</Make_StoneBlocksMarble.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksMarble.fixedIngredientFilter.customSummary>TODO</Make_StoneBlocksMarble.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <Make_StoneBlocksMarble.successfullyRemovedHediffMessage>TODO</Make_StoneBlocksMarble.successfullyRemovedHediffMessage>
+
 </LanguageData>

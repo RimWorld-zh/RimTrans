@@ -1,17 +1,157 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN: cobra -->
+  <Cobra.label>TODO</Cobra.label>
+  <!-- EN:  -->
+  <Cobra.description>TODO</Cobra.description>
+  <!-- EN:  -->
+  <Cobra.labelPlural>TODO</Cobra.labelPlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.0.label>TODO</Cobra.lifeStages.0.label>
+  <!-- EN:  -->
+  <Cobra.lifeStages.0.labelPlural>TODO</Cobra.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.0.labelMale>TODO</Cobra.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Cobra.lifeStages.0.labelMalePlural>TODO</Cobra.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.0.labelFemale>TODO</Cobra.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Cobra.lifeStages.0.labelFemalePlural>TODO</Cobra.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.1.label>TODO</Cobra.lifeStages.1.label>
+  <!-- EN:  -->
+  <Cobra.lifeStages.1.labelPlural>TODO</Cobra.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.1.labelMale>TODO</Cobra.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Cobra.lifeStages.1.labelMalePlural>TODO</Cobra.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.1.labelFemale>TODO</Cobra.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Cobra.lifeStages.1.labelFemalePlural>TODO</Cobra.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.2.label>TODO</Cobra.lifeStages.2.label>
+  <!-- EN:  -->
+  <Cobra.lifeStages.2.labelPlural>TODO</Cobra.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.2.labelMale>TODO</Cobra.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Cobra.lifeStages.2.labelMalePlural>TODO</Cobra.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Cobra.lifeStages.2.labelFemale>TODO</Cobra.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Cobra.lifeStages.2.labelFemalePlural>TODO</Cobra.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Cobra.labelMale>TODO</Cobra.labelMale>
+  <!-- EN:  -->
+  <Cobra.labelMalePlural>TODO</Cobra.labelMalePlural>
+  <!-- EN:  -->
+  <Cobra.labelFemale>TODO</Cobra.labelFemale>
+  <!-- EN:  -->
+  <Cobra.labelFemalePlural>TODO</Cobra.labelFemalePlural>
+
+  <!-- EN: monkey -->
+  <Monkey.label>TODO</Monkey.label>
+  <!-- EN:  -->
+  <Monkey.description>TODO</Monkey.description>
+  <!-- EN:  -->
+  <Monkey.labelPlural>TODO</Monkey.labelPlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.0.label>TODO</Monkey.lifeStages.0.label>
+  <!-- EN:  -->
+  <Monkey.lifeStages.0.labelPlural>TODO</Monkey.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.0.labelMale>TODO</Monkey.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Monkey.lifeStages.0.labelMalePlural>TODO</Monkey.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.0.labelFemale>TODO</Monkey.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Monkey.lifeStages.0.labelFemalePlural>TODO</Monkey.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.1.label>TODO</Monkey.lifeStages.1.label>
+  <!-- EN:  -->
+  <Monkey.lifeStages.1.labelPlural>TODO</Monkey.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.1.labelMale>TODO</Monkey.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Monkey.lifeStages.1.labelMalePlural>TODO</Monkey.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.1.labelFemale>TODO</Monkey.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Monkey.lifeStages.1.labelFemalePlural>TODO</Monkey.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.2.label>TODO</Monkey.lifeStages.2.label>
+  <!-- EN:  -->
+  <Monkey.lifeStages.2.labelPlural>TODO</Monkey.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.2.labelMale>TODO</Monkey.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Monkey.lifeStages.2.labelMalePlural>TODO</Monkey.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Monkey.lifeStages.2.labelFemale>TODO</Monkey.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Monkey.lifeStages.2.labelFemalePlural>TODO</Monkey.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Monkey.labelMale>TODO</Monkey.labelMale>
+  <!-- EN:  -->
+  <Monkey.labelMalePlural>TODO</Monkey.labelMalePlural>
+  <!-- EN:  -->
+  <Monkey.labelFemale>TODO</Monkey.labelFemale>
+  <!-- EN:  -->
+  <Monkey.labelFemalePlural>TODO</Monkey.labelFemalePlural>
+
   <!-- EN: boomalope -->
   <Boomalope.label>TODO</Boomalope.label>
+  <!-- EN:  -->
+  <Boomalope.description>TODO</Boomalope.description>
+  <!-- EN:  -->
+  <Boomalope.labelPlural>TODO</Boomalope.labelPlural>
   <!-- EN: boomalope calf -->
   <Boomalope.lifeStages.boomalope_calf.label>TODO</Boomalope.lifeStages.boomalope_calf.label>
   <!-- EN: boomalope calves -->
   <Boomalope.lifeStages.boomalope_calf.labelPlural>TODO</Boomalope.lifeStages.boomalope_calf.labelPlural>
-  
-  <!-- EN: cobra -->
-  <Cobra.label>TODO</Cobra.label>
-  
-  <!-- EN: monkey -->
-  <Monkey.label>TODO</Monkey.label>
-  
+  <!-- EN:  -->
+  <Boomalope.lifeStages.boomalope_calf.labelMale>TODO</Boomalope.lifeStages.boomalope_calf.labelMale>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.boomalope_calf.labelMalePlural>TODO</Boomalope.lifeStages.boomalope_calf.labelMalePlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.boomalope_calf.labelFemale>TODO</Boomalope.lifeStages.boomalope_calf.labelFemale>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.boomalope_calf.labelFemalePlural>TODO</Boomalope.lifeStages.boomalope_calf.labelFemalePlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.1.label>TODO</Boomalope.lifeStages.1.label>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.1.labelPlural>TODO</Boomalope.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.1.labelMale>TODO</Boomalope.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.1.labelMalePlural>TODO</Boomalope.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.1.labelFemale>TODO</Boomalope.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.1.labelFemalePlural>TODO</Boomalope.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.2.label>TODO</Boomalope.lifeStages.2.label>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.2.labelPlural>TODO</Boomalope.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.2.labelMale>TODO</Boomalope.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.2.labelMalePlural>TODO</Boomalope.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.2.labelFemale>TODO</Boomalope.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Boomalope.lifeStages.2.labelFemalePlural>TODO</Boomalope.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Boomalope.labelMale>TODO</Boomalope.labelMale>
+  <!-- EN:  -->
+  <Boomalope.labelMalePlural>TODO</Boomalope.labelMalePlural>
+  <!-- EN:  -->
+  <Boomalope.labelFemale>TODO</Boomalope.labelFemale>
+  <!-- EN:  -->
+  <Boomalope.labelFemalePlural>TODO</Boomalope.labelFemalePlural>
+
 </LanguageData>

@@ -1,19 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: heart -->
   <Heart.label>TODO</Heart.label>
-  
-  <!-- EN: kidney -->
-  <Kidney.label>TODO</Kidney.label>
-  
-  <!-- EN: liver -->
-  <Liver.label>TODO</Liver.label>
-  
+  <!-- EN:  -->
+  <Heart.description>TODO</Heart.description>
+  <!-- EN:  -->
+  <Heart.labelShort>TODO</Heart.labelShort>
+
   <!-- EN: lung -->
   <Lung.label>TODO</Lung.label>
-  
+  <!-- EN:  -->
+  <Lung.description>TODO</Lung.description>
+  <!-- EN:  -->
+  <Lung.labelShort>TODO</Lung.labelShort>
+
+  <!-- EN: kidney -->
+  <Kidney.label>TODO</Kidney.label>
+  <!-- EN:  -->
+  <Kidney.description>TODO</Kidney.description>
+  <!-- EN:  -->
+  <Kidney.labelShort>TODO</Kidney.labelShort>
+
+  <!-- EN: liver -->
+  <Liver.label>TODO</Liver.label>
+  <!-- EN:  -->
+  <Liver.description>TODO</Liver.description>
+  <!-- EN:  -->
+  <Liver.labelShort>TODO</Liver.labelShort>
+
   <!-- EN: stomach -->
   <Stomach.label>TODO</Stomach.label>
-  
+  <!-- EN:  -->
+  <Stomach.description>TODO</Stomach.description>
+  <!-- EN:  -->
+  <Stomach.labelShort>TODO</Stomach.labelShort>
+
 </LanguageData>

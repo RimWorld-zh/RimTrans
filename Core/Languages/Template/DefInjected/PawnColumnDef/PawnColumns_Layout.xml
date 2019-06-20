@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <GapTiny.label>TODO</GapTiny.label>
+  <!-- EN:  -->
+  <GapTiny.description>TODO</GapTiny.description>
+  <!-- EN:  -->
+  <GapTiny.headerTip>TODO</GapTiny.headerTip>
+
+  <!-- EN:  -->
+  <GapSmall.label>TODO</GapSmall.label>
+  <!-- EN:  -->
+  <GapSmall.description>TODO</GapSmall.description>
+  <!-- EN:  -->
+  <GapSmall.headerTip>TODO</GapSmall.headerTip>
+
+  <!-- EN:  -->
+  <Gap.label>TODO</Gap.label>
+  <!-- EN:  -->
+  <Gap.description>TODO</Gap.description>
+  <!-- EN:  -->
+  <Gap.headerTip>TODO</Gap.headerTip>
+
+  <!-- EN:  -->
+  <GapWide.label>TODO</GapWide.label>
+  <!-- EN:  -->
+  <GapWide.description>TODO</GapWide.description>
+  <!-- EN:  -->
+  <GapWide.headerTip>TODO</GapWide.headerTip>
+
+  <!-- EN:  -->
+  <RemainingSpace.label>TODO</RemainingSpace.label>
+  <!-- EN:  -->
+  <RemainingSpace.description>TODO</RemainingSpace.description>
+  <!-- EN:  -->
+  <RemainingSpace.headerTip>TODO</RemainingSpace.headerTip>
+
+</LanguageData>

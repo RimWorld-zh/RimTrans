@@ -1,19 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: Follow master while the master is drafted. -->
-  <FollowDrafted.headerTip>TODO</FollowDrafted.headerTip>
-  
-  <!-- EN: Follow master while the master is doing field work (hunting or taming animals). -->
-  <FollowFieldwork.headerTip>TODO</FollowFieldwork.headerTip>
-  
-  <!-- EN: Mark animals to be hunted by your hunters. -->
-  <Hunt.headerTip>TODO</Hunt.headerTip>
-  
+
+  <!-- EN:  -->
+  <Slaughter.label>TODO</Slaughter.label>
+  <!-- EN:  -->
+  <Slaughter.description>TODO</Slaughter.description>
   <!-- EN: Slaughter -->
   <Slaughter.headerTip>TODO</Slaughter.headerTip>
-  
+
+  <!-- EN:  -->
+  <FollowDrafted.label>TODO</FollowDrafted.label>
+  <!-- EN:  -->
+  <FollowDrafted.description>TODO</FollowDrafted.description>
+  <!-- EN: Follow master while the master is drafted. -->
+  <FollowDrafted.headerTip>TODO</FollowDrafted.headerTip>
+
+  <!-- EN:  -->
+  <FollowFieldwork.label>TODO</FollowFieldwork.label>
+  <!-- EN:  -->
+  <FollowFieldwork.description>TODO</FollowFieldwork.description>
+  <!-- EN: Follow master while the master is doing field work (hunting or taming animals). -->
+  <FollowFieldwork.headerTip>TODO</FollowFieldwork.headerTip>
+
+  <!-- EN:  -->
+  <Hunt.label>TODO</Hunt.label>
+  <!-- EN:  -->
+  <Hunt.description>TODO</Hunt.description>
+  <!-- EN: Mark animals to be hunted by your hunters. -->
+  <Hunt.headerTip>TODO</Hunt.headerTip>
+
+  <!-- EN:  -->
+  <Tame.label>TODO</Tame.label>
+  <!-- EN:  -->
+  <Tame.description>TODO</Tame.description>
   <!-- EN: Tame a wild animal. -->
   <Tame.headerTip>TODO</Tame.headerTip>
-  
+
 </LanguageData>

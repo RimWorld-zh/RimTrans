@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <ProgressBar.label>TODO</ProgressBar.label>
+  <!-- EN:  -->
+  <ProgressBar.description>TODO</ProgressBar.description>
+
+  <!-- EN:  -->
+  <Research.label>TODO</Research.label>
+  <!-- EN:  -->
+  <Research.description>TODO</Research.description>
+
+  <!-- EN:  -->
+  <Repair.label>TODO</Repair.label>
+  <!-- EN:  -->
+  <Repair.description>TODO</Repair.description>
+
+  <!-- EN:  -->
+  <Mine.label>TODO</Mine.label>
+  <!-- EN:  -->
+  <Mine.description>TODO</Mine.description>
+
+  <!-- EN:  -->
+  <Drill.label>TODO</Drill.label>
+  <!-- EN:  -->
+  <Drill.description>TODO</Drill.description>
+
+  <!-- EN:  -->
+  <Sow.label>TODO</Sow.label>
+  <!-- EN:  -->
+  <Sow.description>TODO</Sow.description>
+
+  <!-- EN:  -->
+  <Harvest.label>TODO</Harvest.label>
+  <!-- EN:  -->
+  <Harvest.description>TODO</Harvest.description>
+
+  <!-- EN:  -->
+  <Clean.label>TODO</Clean.label>
+  <!-- EN:  -->
+  <Clean.description>TODO</Clean.description>
+
+  <!-- EN:  -->
+  <ClearSnow.label>TODO</ClearSnow.label>
+  <!-- EN:  -->
+  <ClearSnow.description>TODO</ClearSnow.description>
+
+</LanguageData>

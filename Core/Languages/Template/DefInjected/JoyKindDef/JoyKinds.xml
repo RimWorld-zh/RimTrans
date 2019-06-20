@@ -1,28 +1,44 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: chemical consumption -->
-  <Chemical.label>TODO</Chemical.label>
-  
-  <!-- EN: cerebral play -->
-  <Gaming_Cerebral.label>TODO</Gaming_Cerebral.label>
-  
-  <!-- EN: dexterity play -->
-  <Gaming_Dexterity.label>TODO</Gaming_Dexterity.label>
-  
-  <!-- EN: food consumption -->
-  <Gluttonous.label>TODO</Gluttonous.label>
-  
+
   <!-- EN: solitary relaxation -->
   <Meditative.label>TODO</Meditative.label>
-  
+  <!-- EN:  -->
+  <Meditative.description>TODO</Meditative.description>
+
   <!-- EN: social interaction -->
   <Social.label>TODO</Social.label>
-  
-  <!-- EN: telescope study -->
-  <Telescope.label>TODO</Telescope.label>
-  
+  <!-- EN:  -->
+  <Social.description>TODO</Social.description>
+
+  <!-- EN: dexterity play -->
+  <Gaming_Dexterity.label>TODO</Gaming_Dexterity.label>
+  <!-- EN:  -->
+  <Gaming_Dexterity.description>TODO</Gaming_Dexterity.description>
+
+  <!-- EN: cerebral play -->
+  <Gaming_Cerebral.label>TODO</Gaming_Cerebral.label>
+  <!-- EN:  -->
+  <Gaming_Cerebral.description>TODO</Gaming_Cerebral.description>
+
   <!-- EN: television watching -->
   <Television.label>TODO</Television.label>
-  
+  <!-- EN:  -->
+  <Television.description>TODO</Television.description>
+
+  <!-- EN: telescope study -->
+  <Telescope.label>TODO</Telescope.label>
+  <!-- EN:  -->
+  <Telescope.description>TODO</Telescope.description>
+
+  <!-- EN: chemical consumption -->
+  <Chemical.label>TODO</Chemical.label>
+  <!-- EN:  -->
+  <Chemical.description>TODO</Chemical.description>
+
+  <!-- EN: food consumption -->
+  <Gluttonous.label>TODO</Gluttonous.label>
+  <!-- EN:  -->
+  <Gluttonous.description>TODO</Gluttonous.description>
+
 </LanguageData>

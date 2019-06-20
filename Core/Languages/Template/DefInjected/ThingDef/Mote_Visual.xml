@@ -1,106 +1,174 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: Mote -->
-  <Mote_AirPuff.label>TODO</Mote_AirPuff.label>
-  
-  <!-- EN: Mote -->
-  <Mote_BlastDry.label>TODO</Mote_BlastDry.label>
-  
-  <!-- EN: Mote -->
-  <Mote_BlastEMP.label>TODO</Mote_BlastEMP.label>
-  
-  <!-- EN: Mote -->
-  <Mote_BlastExtinguisher.label>TODO</Mote_BlastExtinguisher.label>
-  
-  <!-- EN: Mote -->
-  <Mote_BlastFlame.label>TODO</Mote_BlastFlame.label>
-  
-  <!-- EN: Mote -->
-  <Mote_Bombardment.label>TODO</Mote_Bombardment.label>
-  
-  <!-- EN: Mote -->
-  <Mote_CookBit.label>TODO</Mote_CookBit.label>
-  
-  <!-- EN: Mote -->
-  <Mote_DustPuff.label>TODO</Mote_DustPuff.label>
-  
-  <!-- EN: Mote -->
-  <Mote_DustPuffThick.label>TODO</Mote_DustPuffThick.label>
-  
-  <!-- EN: Mote -->
-  <Mote_DustSlow.label>TODO</Mote_DustSlow.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ElectricalSpark.label>TODO</Mote_ElectricalSpark.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ExplosionFlash.label>TODO</Mote_ExplosionFlash.label>
-  
-  <!-- EN: Mote -->
-  <Mote_FireGlow.label>TODO</Mote_FireGlow.label>
-  
-  <!-- EN: Mote -->
-  <Mote_FoodBitMeat.label>TODO</Mote_FoodBitMeat.label>
-  
-  <!-- EN: Mote -->
-  <Mote_FoodBitVegetarian.label>TODO</Mote_FoodBitVegetarian.label>
-  
-  <!-- EN: Mote -->
-  <Mote_GiantExplosion.label>TODO</Mote_GiantExplosion.label>
-  
-  <!-- EN: Mote -->
-  <Mote_GiantExplosionInner.label>TODO</Mote_GiantExplosionInner.label>
-  
-  <!-- EN: Mote -->
-  <Mote_HeatGlow.label>TODO</Mote_HeatGlow.label>
-  
-  <!-- EN: Mote -->
-  <Mote_Leaf.label>TODO</Mote_Leaf.label>
-  
-  <!-- EN: Mote -->
-  <Mote_LightningGlow.label>TODO</Mote_LightningGlow.label>
-  
-  <!-- EN: Mote -->
-  <Mote_MetaPuff.label>TODO</Mote_MetaPuff.label>
-  
-  <!-- EN: Mote -->
-  <Mote_MicroSparks.label>TODO</Mote_MicroSparks.label>
-  
-  <!-- EN: Mote -->
-  <Mote_MicroSparksFast.label>TODO</Mote_MicroSparksFast.label>
-  
-  <!-- EN: Mote -->
-  <Mote_PowerBeam.label>TODO</Mote_PowerBeam.label>
-  
-  <!-- EN: Mote -->
-  <Mote_SandInEyes.label>TODO</Mote_SandInEyes.label>
-  
+
   <!-- EN: Mote -->
   <Mote_ShotFlash.label>TODO</Mote_ShotFlash.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ShotHit_Dirt.label>TODO</Mote_ShotHit_Dirt.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ShotHit_Spark.label>TODO</Mote_ShotHit_Spark.label>
-  
-  <!-- EN: Mote -->
-  <Mote_Smoke.label>TODO</Mote_Smoke.label>
-  
+  <!-- EN:  -->
+  <Mote_ShotFlash.description>TODO</Mote_ShotFlash.description>
+
   <!-- EN: Mote -->
   <Mote_SparkFlash.label>TODO</Mote_SparkFlash.label>
-  
-  <!-- EN: Mote -->
-  <Mote_StoneBit.label>TODO</Mote_StoneBit.label>
-  
-  <!-- EN: Mote -->
-  <Mote_TornadoDustPuff.label>TODO</Mote_TornadoDustPuff.label>
-  
-  <!-- EN: Mote -->
-  <Mote_VomitBit.label>TODO</Mote_VomitBit.label>
-  
+  <!-- EN:  -->
+  <Mote_SparkFlash.description>TODO</Mote_SparkFlash.description>
+
   <!-- EN: Mote -->
   <Mote_YellowSparkFlash.label>TODO</Mote_YellowSparkFlash.label>
-  
+  <!-- EN:  -->
+  <Mote_YellowSparkFlash.description>TODO</Mote_YellowSparkFlash.description>
+
+  <!-- EN: Mote -->
+  <Mote_ExplosionFlash.label>TODO</Mote_ExplosionFlash.label>
+  <!-- EN:  -->
+  <Mote_ExplosionFlash.description>TODO</Mote_ExplosionFlash.description>
+
+  <!-- EN: Mote -->
+  <Mote_ShotHit_Spark.label>TODO</Mote_ShotHit_Spark.label>
+  <!-- EN:  -->
+  <Mote_ShotHit_Spark.description>TODO</Mote_ShotHit_Spark.description>
+
+  <!-- EN: Mote -->
+  <Mote_ShotHit_Dirt.label>TODO</Mote_ShotHit_Dirt.label>
+  <!-- EN:  -->
+  <Mote_ShotHit_Dirt.description>TODO</Mote_ShotHit_Dirt.description>
+
+  <!-- EN: Mote -->
+  <Mote_Leaf.label>TODO</Mote_Leaf.label>
+  <!-- EN:  -->
+  <Mote_Leaf.description>TODO</Mote_Leaf.description>
+
+  <!-- EN: Mote -->
+  <Mote_SandInEyes.label>TODO</Mote_SandInEyes.label>
+  <!-- EN:  -->
+  <Mote_SandInEyes.description>TODO</Mote_SandInEyes.description>
+
+  <!-- EN: Mote -->
+  <Mote_BlastDry.label>TODO</Mote_BlastDry.label>
+  <!-- EN:  -->
+  <Mote_BlastDry.description>TODO</Mote_BlastDry.description>
+
+  <!-- EN: Mote -->
+  <Mote_BlastEMP.label>TODO</Mote_BlastEMP.label>
+  <!-- EN:  -->
+  <Mote_BlastEMP.description>TODO</Mote_BlastEMP.description>
+
+  <!-- EN: Mote -->
+  <Mote_BlastFlame.label>TODO</Mote_BlastFlame.label>
+  <!-- EN:  -->
+  <Mote_BlastFlame.description>TODO</Mote_BlastFlame.description>
+
+  <!-- EN: Mote -->
+  <Mote_ElectricalSpark.label>TODO</Mote_ElectricalSpark.label>
+  <!-- EN:  -->
+  <Mote_ElectricalSpark.description>TODO</Mote_ElectricalSpark.description>
+
+  <!-- EN: Mote -->
+  <Mote_BlastExtinguisher.label>TODO</Mote_BlastExtinguisher.label>
+  <!-- EN:  -->
+  <Mote_BlastExtinguisher.description>TODO</Mote_BlastExtinguisher.description>
+
+  <!-- EN: Mote -->
+  <Mote_FireGlow.label>TODO</Mote_FireGlow.label>
+  <!-- EN:  -->
+  <Mote_FireGlow.description>TODO</Mote_FireGlow.description>
+
+  <!-- EN: Mote -->
+  <Mote_MicroSparks.label>TODO</Mote_MicroSparks.label>
+  <!-- EN:  -->
+  <Mote_MicroSparks.description>TODO</Mote_MicroSparks.description>
+
+  <!-- EN: Mote -->
+  <Mote_MicroSparksFast.label>TODO</Mote_MicroSparksFast.label>
+  <!-- EN:  -->
+  <Mote_MicroSparksFast.description>TODO</Mote_MicroSparksFast.description>
+
+  <!-- EN: Mote -->
+  <Mote_HeatGlow.label>TODO</Mote_HeatGlow.label>
+  <!-- EN:  -->
+  <Mote_HeatGlow.description>TODO</Mote_HeatGlow.description>
+
+  <!-- EN: Mote -->
+  <Mote_LightningGlow.label>TODO</Mote_LightningGlow.label>
+  <!-- EN:  -->
+  <Mote_LightningGlow.description>TODO</Mote_LightningGlow.description>
+
+  <!-- EN: Mote -->
+  <Mote_FoodBitVegetarian.label>TODO</Mote_FoodBitVegetarian.label>
+  <!-- EN:  -->
+  <Mote_FoodBitVegetarian.description>TODO</Mote_FoodBitVegetarian.description>
+
+  <!-- EN: Mote -->
+  <Mote_FoodBitMeat.label>TODO</Mote_FoodBitMeat.label>
+  <!-- EN:  -->
+  <Mote_FoodBitMeat.description>TODO</Mote_FoodBitMeat.description>
+
+  <!-- EN: Mote -->
+  <Mote_StoneBit.label>TODO</Mote_StoneBit.label>
+  <!-- EN:  -->
+  <Mote_StoneBit.description>TODO</Mote_StoneBit.description>
+
+  <!-- EN: Mote -->
+  <Mote_CookBit.label>TODO</Mote_CookBit.label>
+  <!-- EN:  -->
+  <Mote_CookBit.description>TODO</Mote_CookBit.description>
+
+  <!-- EN: Mote -->
+  <Mote_VomitBit.label>TODO</Mote_VomitBit.label>
+  <!-- EN:  -->
+  <Mote_VomitBit.description>TODO</Mote_VomitBit.description>
+
+  <!-- EN: Mote -->
+  <Mote_AirPuff.label>TODO</Mote_AirPuff.label>
+  <!-- EN:  -->
+  <Mote_AirPuff.description>TODO</Mote_AirPuff.description>
+
+  <!-- EN: Mote -->
+  <Mote_DustPuff.label>TODO</Mote_DustPuff.label>
+  <!-- EN:  -->
+  <Mote_DustPuff.description>TODO</Mote_DustPuff.description>
+
+  <!-- EN: Mote -->
+  <Mote_DustPuffThick.label>TODO</Mote_DustPuffThick.label>
+  <!-- EN:  -->
+  <Mote_DustPuffThick.description>TODO</Mote_DustPuffThick.description>
+
+  <!-- EN: Mote -->
+  <Mote_MetaPuff.label>TODO</Mote_MetaPuff.label>
+  <!-- EN:  -->
+  <Mote_MetaPuff.description>TODO</Mote_MetaPuff.description>
+
+  <!-- EN: Mote -->
+  <Mote_TornadoDustPuff.label>TODO</Mote_TornadoDustPuff.label>
+  <!-- EN:  -->
+  <Mote_TornadoDustPuff.description>TODO</Mote_TornadoDustPuff.description>
+
+  <!-- EN: Mote -->
+  <Mote_Smoke.label>TODO</Mote_Smoke.label>
+  <!-- EN:  -->
+  <Mote_Smoke.description>TODO</Mote_Smoke.description>
+
+  <!-- EN: Mote -->
+  <Mote_DustSlow.label>TODO</Mote_DustSlow.label>
+  <!-- EN:  -->
+  <Mote_DustSlow.description>TODO</Mote_DustSlow.description>
+
+  <!-- EN: Mote -->
+  <Mote_Bombardment.label>TODO</Mote_Bombardment.label>
+  <!-- EN:  -->
+  <Mote_Bombardment.description>TODO</Mote_Bombardment.description>
+
+  <!-- EN: Mote -->
+  <Mote_PowerBeam.label>TODO</Mote_PowerBeam.label>
+  <!-- EN:  -->
+  <Mote_PowerBeam.description>TODO</Mote_PowerBeam.description>
+
+  <!-- EN: Mote -->
+  <Mote_GiantExplosion.label>TODO</Mote_GiantExplosion.label>
+  <!-- EN:  -->
+  <Mote_GiantExplosion.description>TODO</Mote_GiantExplosion.description>
+
+  <!-- EN: Mote -->
+  <Mote_GiantExplosionInner.label>TODO</Mote_GiantExplosionInner.label>
+  <!-- EN:  -->
+  <Mote_GiantExplosionInner.description>TODO</Mote_GiantExplosionInner.description>
+
 </LanguageData>

@@ -1,57 +1,89 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: amniotic fluid -->
-  <Filth_AmnioticFluid.label>TODO</Filth_AmnioticFluid.label>
-  
-  <!-- EN: animal filth -->
-  <Filth_AnimalFilth.label>TODO</Filth_AnimalFilth.label>
-  
-  <!-- EN: ash -->
-  <Filth_Ash.label>TODO</Filth_Ash.label>
-  
-  <!-- EN: blood -->
-  <Filth_Blood.label>TODO</Filth_Blood.label>
-  
-  <!-- EN: bugblood -->
-  <Filth_BloodInsect.label>TODO</Filth_BloodInsect.label>
-  
-  <!-- EN: corpse bile -->
-  <Filth_CorpseBile.label>TODO</Filth_CorpseBile.label>
-  
+
   <!-- EN: dirt -->
   <Filth_Dirt.label>TODO</Filth_Dirt.label>
-  
+  <!-- EN:  -->
+  <Filth_Dirt.description>TODO</Filth_Dirt.description>
+
+  <!-- EN: animal filth -->
+  <Filth_AnimalFilth.label>TODO</Filth_AnimalFilth.label>
+  <!-- EN:  -->
+  <Filth_AnimalFilth.description>TODO</Filth_AnimalFilth.description>
+
+  <!-- EN: trash -->
+  <Filth_Trash.label>TODO</Filth_Trash.label>
+  <!-- EN:  -->
+  <Filth_Trash.description>TODO</Filth_Trash.description>
+
+  <!-- EN: sand -->
+  <Filth_Sand.label>TODO</Filth_Sand.label>
+  <!-- EN:  -->
+  <Filth_Sand.description>TODO</Filth_Sand.description>
+
+  <!-- EN: rock rubble -->
+  <Filth_RubbleRock.label>TODO</Filth_RubbleRock.label>
+  <!-- EN:  -->
+  <Filth_RubbleRock.description>TODO</Filth_RubbleRock.description>
+
+  <!-- EN: building rubble -->
+  <Filth_RubbleBuilding.label>TODO</Filth_RubbleBuilding.label>
+  <!-- EN:  -->
+  <Filth_RubbleBuilding.description>TODO</Filth_RubbleBuilding.description>
+
+  <!-- EN: scattered slag -->
+  <SlagRubble.label>TODO</SlagRubble.label>
+  <!-- EN:  -->
+  <SlagRubble.description>TODO</SlagRubble.description>
+
+  <!-- EN: scattered sandbags -->
+  <SandbagRubble.label>TODO</SandbagRubble.label>
+  <!-- EN:  -->
+  <SandbagRubble.description>TODO</SandbagRubble.description>
+
+  <!-- EN: blood -->
+  <Filth_Blood.label>TODO</Filth_Blood.label>
+  <!-- EN:  -->
+  <Filth_Blood.description>TODO</Filth_Blood.description>
+
+  <!-- EN: bugblood -->
+  <Filth_BloodInsect.label>TODO</Filth_BloodInsect.label>
+  <!-- EN:  -->
+  <Filth_BloodInsect.description>TODO</Filth_BloodInsect.description>
+
+  <!-- EN: amniotic fluid -->
+  <Filth_AmnioticFluid.label>TODO</Filth_AmnioticFluid.label>
+  <!-- EN:  -->
+  <Filth_AmnioticFluid.description>TODO</Filth_AmnioticFluid.description>
+
+  <!-- EN: slime -->
+  <Filth_Slime.label>TODO</Filth_Slime.label>
+  <!-- EN:  -->
+  <Filth_Slime.description>TODO</Filth_Slime.description>
+
+  <!-- EN: vomit -->
+  <Filth_Vomit.label>TODO</Filth_Vomit.label>
+  <!-- EN:  -->
+  <Filth_Vomit.description>TODO</Filth_Vomit.description>
+
   <!-- EN: firefoam -->
   <Filth_FireFoam.label>TODO</Filth_FireFoam.label>
-  
+  <!-- EN:  -->
+  <Filth_FireFoam.description>TODO</Filth_FireFoam.description>
+
   <!-- EN: chemfuel puddle -->
   <Filth_Fuel.label>TODO</Filth_Fuel.label>
   <!-- EN: A puddle of flammable chemfuel. -->
   <Filth_Fuel.description>TODO</Filth_Fuel.description>
-  
-  <!-- EN: building rubble -->
-  <Filth_RubbleBuilding.label>TODO</Filth_RubbleBuilding.label>
-  
-  <!-- EN: rock rubble -->
-  <Filth_RubbleRock.label>TODO</Filth_RubbleRock.label>
-  
-  <!-- EN: sand -->
-  <Filth_Sand.label>TODO</Filth_Sand.label>
-  
-  <!-- EN: slime -->
-  <Filth_Slime.label>TODO</Filth_Slime.label>
-  
-  <!-- EN: trash -->
-  <Filth_Trash.label>TODO</Filth_Trash.label>
-  
-  <!-- EN: vomit -->
-  <Filth_Vomit.label>TODO</Filth_Vomit.label>
-  
-  <!-- EN: scattered sandbags -->
-  <SandbagRubble.label>TODO</SandbagRubble.label>
-  
-  <!-- EN: scattered slag -->
-  <SlagRubble.label>TODO</SlagRubble.label>
-  
+
+  <!-- EN: corpse bile -->
+  <Filth_CorpseBile.label>TODO</Filth_CorpseBile.label>
+  <!-- EN:  -->
+  <Filth_CorpseBile.description>TODO</Filth_CorpseBile.description>
+
+  <!-- EN: ash -->
+  <Filth_Ash.label>TODO</Filth_Ash.label>
+  <!-- EN:  -->
+  <Filth_Ash.description>TODO</Filth_Ash.description>
+
 </LanguageData>

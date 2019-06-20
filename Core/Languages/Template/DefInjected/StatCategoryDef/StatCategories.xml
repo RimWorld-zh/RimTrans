@@ -1,49 +1,79 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: Apparel -->
-  <Apparel.label>TODO</Apparel.label>
-  
+
   <!-- EN: Basics -->
   <Basics.label>TODO</Basics.label>
-  
-  <!-- EN: Basics -->
-  <BasicsNonPawn.label>TODO</BasicsNonPawn.label>
-  
+  <!-- EN:  -->
+  <Basics.description>TODO</Basics.description>
+
   <!-- EN: Basics -->
   <BasicsPawn.label>TODO</BasicsPawn.label>
-  
-  <!-- EN: Building -->
-  <Building.label>TODO</Building.label>
-  
-  <!-- EN: Offsets when equipped -->
-  <EquippedStatOffsets.label>TODO</EquippedStatOffsets.label>
-  
-  <!-- EN: Combat -->
-  <PawnCombat.label>TODO</PawnCombat.label>
-  
-  <!-- EN: Misc -->
-  <PawnMisc.label>TODO</PawnMisc.label>
-  
-  <!-- EN: Social -->
-  <PawnSocial.label>TODO</PawnSocial.label>
-  
-  <!-- EN: Work -->
-  <PawnWork.label>TODO</PawnWork.label>
-  
-  <!-- EN: Multipliers when equipment made of this -->
-  <StuffOfEquipmentStatFactors.label>TODO</StuffOfEquipmentStatFactors.label>
-  
-  <!-- EN: Multipliers when made of this -->
-  <StuffStatFactors.label>TODO</StuffStatFactors.label>
-  
-  <!-- EN: Offsets when made of this -->
-  <StuffStatOffsets.label>TODO</StuffStatOffsets.label>
-  
-  <!-- EN: Surgical -->
-  <Surgery.label>TODO</Surgery.label>
-  
+  <!-- EN:  -->
+  <BasicsPawn.description>TODO</BasicsPawn.description>
+
+  <!-- EN: Basics -->
+  <BasicsNonPawn.label>TODO</BasicsNonPawn.label>
+  <!-- EN:  -->
+  <BasicsNonPawn.description>TODO</BasicsNonPawn.description>
+
+  <!-- EN: Apparel -->
+  <Apparel.label>TODO</Apparel.label>
+  <!-- EN:  -->
+  <Apparel.description>TODO</Apparel.description>
+
   <!-- EN: Weapon -->
   <Weapon.label>TODO</Weapon.label>
-  
+  <!-- EN:  -->
+  <Weapon.description>TODO</Weapon.description>
+
+  <!-- EN: Building -->
+  <Building.label>TODO</Building.label>
+  <!-- EN:  -->
+  <Building.description>TODO</Building.description>
+
+  <!-- EN: Offsets when equipped -->
+  <EquippedStatOffsets.label>TODO</EquippedStatOffsets.label>
+  <!-- EN:  -->
+  <EquippedStatOffsets.description>TODO</EquippedStatOffsets.description>
+
+  <!-- EN: Multipliers when made of this -->
+  <StuffStatFactors.label>TODO</StuffStatFactors.label>
+  <!-- EN:  -->
+  <StuffStatFactors.description>TODO</StuffStatFactors.description>
+
+  <!-- EN: Offsets when made of this -->
+  <StuffStatOffsets.label>TODO</StuffStatOffsets.label>
+  <!-- EN:  -->
+  <StuffStatOffsets.description>TODO</StuffStatOffsets.description>
+
+  <!-- EN: Multipliers when equipment made of this -->
+  <StuffOfEquipmentStatFactors.label>TODO</StuffOfEquipmentStatFactors.label>
+  <!-- EN:  -->
+  <StuffOfEquipmentStatFactors.description>TODO</StuffOfEquipmentStatFactors.description>
+
+  <!-- EN: Surgical -->
+  <Surgery.label>TODO</Surgery.label>
+  <!-- EN:  -->
+  <Surgery.description>TODO</Surgery.description>
+
+  <!-- EN: Combat -->
+  <PawnCombat.label>TODO</PawnCombat.label>
+  <!-- EN:  -->
+  <PawnCombat.description>TODO</PawnCombat.description>
+
+  <!-- EN: Social -->
+  <PawnSocial.label>TODO</PawnSocial.label>
+  <!-- EN:  -->
+  <PawnSocial.description>TODO</PawnSocial.description>
+
+  <!-- EN: Misc -->
+  <PawnMisc.label>TODO</PawnMisc.label>
+  <!-- EN:  -->
+  <PawnMisc.description>TODO</PawnMisc.description>
+
+  <!-- EN: Work -->
+  <PawnWork.label>TODO</PawnWork.label>
+  <!-- EN:  -->
+  <PawnWork.description>TODO</PawnWork.description>
+
 </LanguageData>

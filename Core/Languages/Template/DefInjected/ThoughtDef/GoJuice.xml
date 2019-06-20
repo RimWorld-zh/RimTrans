@@ -1,14 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <GoJuiceHigh.label>TODO</GoJuiceHigh.label>
+  <!-- EN:  -->
+  <GoJuiceHigh.description>TODO</GoJuiceHigh.description>
   <!-- EN: high on go-juice -->
   <GoJuiceHigh.stages.high_on_gojuice.label>TODO</GoJuiceHigh.stages.high_on_gojuice.label>
+  <!-- EN:  -->
+  <GoJuiceHigh.stages.high_on_gojuice.labelSocial>TODO</GoJuiceHigh.stages.high_on_gojuice.labelSocial>
   <!-- EN: I feel pumped but steady. I am the bullet in flight, ready to cut through you. -->
   <GoJuiceHigh.stages.high_on_gojuice.description>TODO</GoJuiceHigh.stages.high_on_gojuice.description>
-  
+
+  <!-- EN:  -->
+  <GoJuiceWithdrawal.label>TODO</GoJuiceWithdrawal.label>
+  <!-- EN:  -->
+  <GoJuiceWithdrawal.description>TODO</GoJuiceWithdrawal.description>
+  <!-- EN:  -->
+  <GoJuiceWithdrawal.stages.0.label>TODO</GoJuiceWithdrawal.stages.0.label>
+  <!-- EN:  -->
+  <GoJuiceWithdrawal.stages.0.labelSocial>TODO</GoJuiceWithdrawal.stages.0.labelSocial>
+  <!-- EN:  -->
+  <GoJuiceWithdrawal.stages.0.description>TODO</GoJuiceWithdrawal.stages.0.description>
   <!-- EN: go-juice withdrawal -->
   <GoJuiceWithdrawal.stages.gojuice_withdrawal.label>TODO</GoJuiceWithdrawal.stages.gojuice_withdrawal.label>
+  <!-- EN:  -->
+  <GoJuiceWithdrawal.stages.gojuice_withdrawal.labelSocial>TODO</GoJuiceWithdrawal.stages.gojuice_withdrawal.labelSocial>
   <!-- EN: I'm all fuzzy and can't think straight. My limbs feel heavy, I'm tired and hungry, everything hurts. And why won't my eyes focus properly? -->
   <GoJuiceWithdrawal.stages.gojuice_withdrawal.description>TODO</GoJuiceWithdrawal.stages.gojuice_withdrawal.description>
-  
+
 </LanguageData>

@@ -1,20 +1,208 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: cassowary -->
   <Cassowary.label>TODO</Cassowary.label>
+  <!-- EN:  -->
+  <Cassowary.description>TODO</Cassowary.description>
   <!-- EN: cassowaries -->
   <Cassowary.labelPlural>TODO</Cassowary.labelPlural>
-  
+  <!-- EN:  -->
+  <Cassowary.lifeStages.0.label>TODO</Cassowary.lifeStages.0.label>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.0.labelPlural>TODO</Cassowary.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.0.labelMale>TODO</Cassowary.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.0.labelMalePlural>TODO</Cassowary.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.0.labelFemale>TODO</Cassowary.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.0.labelFemalePlural>TODO</Cassowary.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.1.label>TODO</Cassowary.lifeStages.1.label>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.1.labelPlural>TODO</Cassowary.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.1.labelMale>TODO</Cassowary.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.1.labelMalePlural>TODO</Cassowary.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.1.labelFemale>TODO</Cassowary.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.1.labelFemalePlural>TODO</Cassowary.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.2.label>TODO</Cassowary.lifeStages.2.label>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.2.labelPlural>TODO</Cassowary.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.2.labelMale>TODO</Cassowary.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.2.labelMalePlural>TODO</Cassowary.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.2.labelFemale>TODO</Cassowary.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Cassowary.lifeStages.2.labelFemalePlural>TODO</Cassowary.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Cassowary.labelMale>TODO</Cassowary.labelMale>
+  <!-- EN:  -->
+  <Cassowary.labelMalePlural>TODO</Cassowary.labelMalePlural>
+  <!-- EN:  -->
+  <Cassowary.labelFemale>TODO</Cassowary.labelFemale>
+  <!-- EN:  -->
+  <Cassowary.labelFemalePlural>TODO</Cassowary.labelFemalePlural>
+
   <!-- EN: emu -->
   <Emu.label>TODO</Emu.label>
-  
+  <!-- EN:  -->
+  <Emu.description>TODO</Emu.description>
+  <!-- EN:  -->
+  <Emu.labelPlural>TODO</Emu.labelPlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.0.label>TODO</Emu.lifeStages.0.label>
+  <!-- EN:  -->
+  <Emu.lifeStages.0.labelPlural>TODO</Emu.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.0.labelMale>TODO</Emu.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Emu.lifeStages.0.labelMalePlural>TODO</Emu.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.0.labelFemale>TODO</Emu.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Emu.lifeStages.0.labelFemalePlural>TODO</Emu.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.1.label>TODO</Emu.lifeStages.1.label>
+  <!-- EN:  -->
+  <Emu.lifeStages.1.labelPlural>TODO</Emu.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.1.labelMale>TODO</Emu.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Emu.lifeStages.1.labelMalePlural>TODO</Emu.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.1.labelFemale>TODO</Emu.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Emu.lifeStages.1.labelFemalePlural>TODO</Emu.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.2.label>TODO</Emu.lifeStages.2.label>
+  <!-- EN:  -->
+  <Emu.lifeStages.2.labelPlural>TODO</Emu.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.2.labelMale>TODO</Emu.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Emu.lifeStages.2.labelMalePlural>TODO</Emu.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Emu.lifeStages.2.labelFemale>TODO</Emu.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Emu.lifeStages.2.labelFemalePlural>TODO</Emu.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Emu.labelMale>TODO</Emu.labelMale>
+  <!-- EN:  -->
+  <Emu.labelMalePlural>TODO</Emu.labelMalePlural>
+  <!-- EN:  -->
+  <Emu.labelFemale>TODO</Emu.labelFemale>
+  <!-- EN:  -->
+  <Emu.labelFemalePlural>TODO</Emu.labelFemalePlural>
+
   <!-- EN: ostrich -->
   <Ostrich.label>TODO</Ostrich.label>
+  <!-- EN:  -->
+  <Ostrich.description>TODO</Ostrich.description>
   <!-- EN: ostriches -->
   <Ostrich.labelPlural>TODO</Ostrich.labelPlural>
-  
+  <!-- EN:  -->
+  <Ostrich.lifeStages.0.label>TODO</Ostrich.lifeStages.0.label>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.0.labelPlural>TODO</Ostrich.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.0.labelMale>TODO</Ostrich.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.0.labelMalePlural>TODO</Ostrich.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.0.labelFemale>TODO</Ostrich.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.0.labelFemalePlural>TODO</Ostrich.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.1.label>TODO</Ostrich.lifeStages.1.label>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.1.labelPlural>TODO</Ostrich.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.1.labelMale>TODO</Ostrich.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.1.labelMalePlural>TODO</Ostrich.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.1.labelFemale>TODO</Ostrich.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.1.labelFemalePlural>TODO</Ostrich.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.2.label>TODO</Ostrich.lifeStages.2.label>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.2.labelPlural>TODO</Ostrich.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.2.labelMale>TODO</Ostrich.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.2.labelMalePlural>TODO</Ostrich.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.2.labelFemale>TODO</Ostrich.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Ostrich.lifeStages.2.labelFemalePlural>TODO</Ostrich.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Ostrich.labelMale>TODO</Ostrich.labelMale>
+  <!-- EN:  -->
+  <Ostrich.labelMalePlural>TODO</Ostrich.labelMalePlural>
+  <!-- EN:  -->
+  <Ostrich.labelFemale>TODO</Ostrich.labelFemale>
+  <!-- EN:  -->
+  <Ostrich.labelFemalePlural>TODO</Ostrich.labelFemalePlural>
+
   <!-- EN: turkey -->
   <Turkey.label>TODO</Turkey.label>
-  
+  <!-- EN:  -->
+  <Turkey.description>TODO</Turkey.description>
+  <!-- EN:  -->
+  <Turkey.labelPlural>TODO</Turkey.labelPlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.0.label>TODO</Turkey.lifeStages.0.label>
+  <!-- EN:  -->
+  <Turkey.lifeStages.0.labelPlural>TODO</Turkey.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.0.labelMale>TODO</Turkey.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Turkey.lifeStages.0.labelMalePlural>TODO</Turkey.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.0.labelFemale>TODO</Turkey.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Turkey.lifeStages.0.labelFemalePlural>TODO</Turkey.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.1.label>TODO</Turkey.lifeStages.1.label>
+  <!-- EN:  -->
+  <Turkey.lifeStages.1.labelPlural>TODO</Turkey.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.1.labelMale>TODO</Turkey.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Turkey.lifeStages.1.labelMalePlural>TODO</Turkey.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.1.labelFemale>TODO</Turkey.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Turkey.lifeStages.1.labelFemalePlural>TODO</Turkey.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.2.label>TODO</Turkey.lifeStages.2.label>
+  <!-- EN:  -->
+  <Turkey.lifeStages.2.labelPlural>TODO</Turkey.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.2.labelMale>TODO</Turkey.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Turkey.lifeStages.2.labelMalePlural>TODO</Turkey.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Turkey.lifeStages.2.labelFemale>TODO</Turkey.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Turkey.lifeStages.2.labelFemalePlural>TODO</Turkey.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Turkey.labelMale>TODO</Turkey.labelMale>
+  <!-- EN:  -->
+  <Turkey.labelMalePlural>TODO</Turkey.labelMalePlural>
+  <!-- EN:  -->
+  <Turkey.labelFemale>TODO</Turkey.labelFemale>
+  <!-- EN:  -->
+  <Turkey.labelFemalePlural>TODO</Turkey.labelFemalePlural>
+
 </LanguageData>

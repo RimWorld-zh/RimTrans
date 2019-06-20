@@ -1,19 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: grizzly bear -->
   <Bear_Grizzly.label>TODO</Bear_Grizzly.label>
   <!-- EN: A huge omnivorous mammal adapted for cold climates. Bears' thick blubber and fur keeps them warm in winter.\n\nWhile their usual diet consists of fish, berries, honey, and scavenged meat, the grizzly is capable of using its massive strength and deadly claws to kill live prey. They are startlingly quick for such lumbering creatures. -->
   <Bear_Grizzly.description>TODO</Bear_Grizzly.description>
-  <!-- EN: bear meat -->
-  <Bear_Grizzly.race.meatLabel>TODO</Bear_Grizzly.race.meatLabel>
   <!-- EN: left claw -->
   <Bear_Grizzly.tools.left_claw.label>TODO</Bear_Grizzly.tools.left_claw.label>
   <!-- EN: right claw -->
   <Bear_Grizzly.tools.right_claw.label>TODO</Bear_Grizzly.tools.right_claw.label>
+  <!-- EN:  -->
+  <Bear_Grizzly.tools.2.label>TODO</Bear_Grizzly.tools.2.label>
   <!-- EN: head -->
   <Bear_Grizzly.tools.head.label>TODO</Bear_Grizzly.tools.head.label>
-  
+  <!-- EN: bear meat -->
+  <Bear_Grizzly.race.meatLabel>TODO</Bear_Grizzly.race.meatLabel>
+
   <!-- EN: polar bear -->
   <Bear_Polar.label>TODO</Bear_Polar.label>
   <!-- EN: A great white bear adapted for frozen climates. Their thick blubber and fur keep them warm in winter.\n\nWhile their usual diet consists of fish and scavenged meat, the polar bear can also use its massive strength and deadly claws to kill live prey. They are startlingly quick for such lumbering creatures. -->
@@ -22,7 +24,11 @@
   <Bear_Polar.tools.left_claw.label>TODO</Bear_Polar.tools.left_claw.label>
   <!-- EN: right claw -->
   <Bear_Polar.tools.right_claw.label>TODO</Bear_Polar.tools.right_claw.label>
+  <!-- EN:  -->
+  <Bear_Polar.tools.2.label>TODO</Bear_Polar.tools.2.label>
   <!-- EN: head -->
   <Bear_Polar.tools.head.label>TODO</Bear_Polar.tools.head.label>
-  
+  <!-- EN:  -->
+  <Bear_Polar.race.meatLabel>TODO</Bear_Polar.race.meatLabel>
+
 </LanguageData>

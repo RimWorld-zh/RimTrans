@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Work.label>TODO</Work.label>
+  <!-- EN:  -->
+  <Work.description>TODO</Work.description>
+
+  <!-- EN:  -->
+  <Assign.label>TODO</Assign.label>
+  <!-- EN:  -->
+  <Assign.description>TODO</Assign.description>
+
+  <!-- EN:  -->
+  <Restrict.label>TODO</Restrict.label>
+  <!-- EN:  -->
+  <Restrict.description>TODO</Restrict.description>
+
+  <!-- EN:  -->
+  <Animals.label>TODO</Animals.label>
+  <!-- EN:  -->
+  <Animals.description>TODO</Animals.description>
+
+  <!-- EN:  -->
+  <Wildlife.label>TODO</Wildlife.label>
+  <!-- EN:  -->
+  <Wildlife.description>TODO</Wildlife.description>
+
+</LanguageData>

@@ -1,19 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: laying egg. -->
-  <LayEgg.reportString>TODO</LayEgg.reportString>
-  
-  <!-- EN: maintaining TargetA. -->
-  <Maintain.reportString>TODO</Maintain.reportString>
-  
-  <!-- EN: mating with TargetA. -->
-  <Mate.reportString>TODO</Mate.reportString>
-  
+
+  <!-- EN:  -->
+  <Nuzzle.label>TODO</Nuzzle.label>
+  <!-- EN:  -->
+  <Nuzzle.description>TODO</Nuzzle.description>
   <!-- EN: nuzzling TargetA. -->
   <Nuzzle.reportString>TODO</Nuzzle.reportString>
-  
+
+  <!-- EN:  -->
+  <Mate.label>TODO</Mate.label>
+  <!-- EN:  -->
+  <Mate.description>TODO</Mate.description>
+  <!-- EN: mating with TargetA. -->
+  <Mate.reportString>TODO</Mate.reportString>
+
+  <!-- EN:  -->
+  <LayEgg.label>TODO</LayEgg.label>
+  <!-- EN:  -->
+  <LayEgg.description>TODO</LayEgg.description>
+  <!-- EN: laying egg. -->
+  <LayEgg.reportString>TODO</LayEgg.reportString>
+
+  <!-- EN:  -->
+  <PredatorHunt.label>TODO</PredatorHunt.label>
+  <!-- EN:  -->
+  <PredatorHunt.description>TODO</PredatorHunt.description>
   <!-- EN: hunting TargetA. -->
   <PredatorHunt.reportString>TODO</PredatorHunt.reportString>
-  
+
+  <!-- EN:  -->
+  <Maintain.label>TODO</Maintain.label>
+  <!-- EN:  -->
+  <Maintain.description>TODO</Maintain.description>
+  <!-- EN: maintaining TargetA. -->
+  <Maintain.reportString>TODO</Maintain.reportString>
+
 </LanguageData>

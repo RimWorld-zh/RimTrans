@@ -1,18 +1,64 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: town councilman -->
-  <Town_Councilman.label>TODO</Town_Councilman.label>
-  <!-- EN: town councilmen -->
-  <Town_Councilman.labelPlural>TODO</Town_Councilman.labelPlural>
-  
-  <!-- EN: town guard -->
-  <Town_Guard.label>TODO</Town_Guard.label>
-  
-  <!-- EN: town trader -->
-  <Town_Trader.label>TODO</Town_Trader.label>
-  
+
   <!-- EN: villager -->
   <Villager.label>TODO</Villager.label>
-  
+  <!-- EN:  -->
+  <Villager.description>TODO</Villager.description>
+  <!-- EN:  -->
+  <Villager.labelPlural>TODO</Villager.labelPlural>
+  <!-- EN:  -->
+  <Villager.labelMale>TODO</Villager.labelMale>
+  <!-- EN:  -->
+  <Villager.labelMalePlural>TODO</Villager.labelMalePlural>
+  <!-- EN:  -->
+  <Villager.labelFemale>TODO</Villager.labelFemale>
+  <!-- EN:  -->
+  <Villager.labelFemalePlural>TODO</Villager.labelFemalePlural>
+
+  <!-- EN: town guard -->
+  <Town_Guard.label>TODO</Town_Guard.label>
+  <!-- EN:  -->
+  <Town_Guard.description>TODO</Town_Guard.description>
+  <!-- EN:  -->
+  <Town_Guard.labelPlural>TODO</Town_Guard.labelPlural>
+  <!-- EN:  -->
+  <Town_Guard.labelMale>TODO</Town_Guard.labelMale>
+  <!-- EN:  -->
+  <Town_Guard.labelMalePlural>TODO</Town_Guard.labelMalePlural>
+  <!-- EN:  -->
+  <Town_Guard.labelFemale>TODO</Town_Guard.labelFemale>
+  <!-- EN:  -->
+  <Town_Guard.labelFemalePlural>TODO</Town_Guard.labelFemalePlural>
+
+  <!-- EN: town trader -->
+  <Town_Trader.label>TODO</Town_Trader.label>
+  <!-- EN:  -->
+  <Town_Trader.description>TODO</Town_Trader.description>
+  <!-- EN:  -->
+  <Town_Trader.labelPlural>TODO</Town_Trader.labelPlural>
+  <!-- EN:  -->
+  <Town_Trader.labelMale>TODO</Town_Trader.labelMale>
+  <!-- EN:  -->
+  <Town_Trader.labelMalePlural>TODO</Town_Trader.labelMalePlural>
+  <!-- EN:  -->
+  <Town_Trader.labelFemale>TODO</Town_Trader.labelFemale>
+  <!-- EN:  -->
+  <Town_Trader.labelFemalePlural>TODO</Town_Trader.labelFemalePlural>
+
+  <!-- EN: town councilman -->
+  <Town_Councilman.label>TODO</Town_Councilman.label>
+  <!-- EN:  -->
+  <Town_Councilman.description>TODO</Town_Councilman.description>
+  <!-- EN: town councilmen -->
+  <Town_Councilman.labelPlural>TODO</Town_Councilman.labelPlural>
+  <!-- EN:  -->
+  <Town_Councilman.labelMale>TODO</Town_Councilman.labelMale>
+  <!-- EN:  -->
+  <Town_Councilman.labelMalePlural>TODO</Town_Councilman.labelMalePlural>
+  <!-- EN:  -->
+  <Town_Councilman.labelFemale>TODO</Town_Councilman.labelFemale>
+  <!-- EN:  -->
+  <Town_Councilman.labelFemalePlural>TODO</Town_Councilman.labelFemalePlural>
+
 </LanguageData>

@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <GameStartSting.label>TODO</GameStartSting.label>
+  <!-- EN:  -->
+  <GameStartSting.description>TODO</GameStartSting.description>
+  <!-- EN:  -->
+  <GameStartSting.subSounds.0.name>TODO</GameStartSting.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TinyBell.label>TODO</TinyBell.label>
+  <!-- EN:  -->
+  <TinyBell.description>TODO</TinyBell.description>
+  <!-- EN:  -->
+  <TinyBell.subSounds.0.name>TODO</TinyBell.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TabOpen.label>TODO</TabOpen.label>
+  <!-- EN:  -->
+  <TabOpen.description>TODO</TabOpen.description>
+  <!-- EN:  -->
+  <TabOpen.subSounds.0.name>TODO</TabOpen.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TabClose.label>TODO</TabClose.label>
+  <!-- EN:  -->
+  <TabClose.description>TODO</TabClose.description>
+  <!-- EN:  -->
+  <TabClose.subSounds.0.name>TODO</TabClose.subSounds.0.name>
+
+  <!-- EN:  -->
+  <PageChange.label>TODO</PageChange.label>
+  <!-- EN:  -->
+  <PageChange.description>TODO</PageChange.description>
+  <!-- EN:  -->
+  <PageChange.subSounds.0.name>TODO</PageChange.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tick_Tiny.label>TODO</Tick_Tiny.label>
+  <!-- EN:  -->
+  <Tick_Tiny.description>TODO</Tick_Tiny.description>
+  <!-- EN:  -->
+  <Tick_Tiny.subSounds.0.name>TODO</Tick_Tiny.subSounds.0.name>
+
+  <!-- EN:  -->
+  <CancelMode.label>TODO</CancelMode.label>
+  <!-- EN:  -->
+  <CancelMode.description>TODO</CancelMode.description>
+  <!-- EN:  -->
+  <CancelMode.subSounds.0.name>TODO</CancelMode.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tick_Low.label>TODO</Tick_Low.label>
+  <!-- EN:  -->
+  <Tick_Low.description>TODO</Tick_Low.description>
+  <!-- EN:  -->
+  <Tick_Low.subSounds.0.name>TODO</Tick_Low.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tick_High.label>TODO</Tick_High.label>
+  <!-- EN:  -->
+  <Tick_High.description>TODO</Tick_High.description>
+  <!-- EN:  -->
+  <Tick_High.subSounds.0.name>TODO</Tick_High.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Crunch.label>TODO</Crunch.label>
+  <!-- EN:  -->
+  <Crunch.description>TODO</Crunch.description>
+  <!-- EN:  -->
+  <Crunch.subSounds.0.name>TODO</Crunch.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Click.label>TODO</Click.label>
+  <!-- EN:  -->
+  <Click.description>TODO</Click.description>
+  <!-- EN:  -->
+  <Click.subSounds.0.name>TODO</Click.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ClickReject.label>TODO</ClickReject.label>
+  <!-- EN:  -->
+  <ClickReject.description>TODO</ClickReject.description>
+  <!-- EN:  -->
+  <ClickReject.subSounds.0.name>TODO</ClickReject.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mouseover_ButtonToggle.label>TODO</Mouseover_ButtonToggle.label>
+  <!-- EN:  -->
+  <Mouseover_ButtonToggle.description>TODO</Mouseover_ButtonToggle.description>
+  <!-- EN:  -->
+  <Mouseover_ButtonToggle.subSounds.0.name>TODO</Mouseover_ButtonToggle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TutorMessageAppear.label>TODO</TutorMessageAppear.label>
+  <!-- EN:  -->
+  <TutorMessageAppear.description>TODO</TutorMessageAppear.description>
+  <!-- EN:  -->
+  <TutorMessageAppear.subSounds.0.name>TODO</TutorMessageAppear.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ArchitectCategorySelect.label>TODO</ArchitectCategorySelect.label>
+  <!-- EN:  -->
+  <ArchitectCategorySelect.description>TODO</ArchitectCategorySelect.description>
+  <!-- EN:  -->
+  <ArchitectCategorySelect.subSounds.0.name>TODO</ArchitectCategorySelect.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ExecuteTrade.label>TODO</ExecuteTrade.label>
+  <!-- EN:  -->
+  <ExecuteTrade.description>TODO</ExecuteTrade.description>
+  <!-- EN:  -->
+  <ExecuteTrade.subSounds.0.name>TODO</ExecuteTrade.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mouseover_Standard.label>TODO</Mouseover_Standard.label>
+  <!-- EN:  -->
+  <Mouseover_Standard.description>TODO</Mouseover_Standard.description>
+  <!-- EN:  -->
+  <Mouseover_Standard.subSounds.0.name>TODO</Mouseover_Standard.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mouseover_Thump.label>TODO</Mouseover_Thump.label>
+  <!-- EN:  -->
+  <Mouseover_Thump.description>TODO</Mouseover_Thump.description>
+  <!-- EN:  -->
+  <Mouseover_Thump.subSounds.0.name>TODO</Mouseover_Thump.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mouseover_Category.label>TODO</Mouseover_Category.label>
+  <!-- EN:  -->
+  <Mouseover_Category.description>TODO</Mouseover_Category.description>
+  <!-- EN:  -->
+  <Mouseover_Category.subSounds.0.name>TODO</Mouseover_Category.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mouseover_Command.label>TODO</Mouseover_Command.label>
+  <!-- EN:  -->
+  <Mouseover_Command.description>TODO</Mouseover_Command.description>
+  <!-- EN:  -->
+  <Mouseover_Command.subSounds.0.name>TODO</Mouseover_Command.subSounds.0.name>
+
+  <!-- EN:  -->
+  <FloatMenu_Open.label>TODO</FloatMenu_Open.label>
+  <!-- EN:  -->
+  <FloatMenu_Open.description>TODO</FloatMenu_Open.description>
+  <!-- EN:  -->
+  <FloatMenu_Open.subSounds.0.name>TODO</FloatMenu_Open.subSounds.0.name>
+
+  <!-- EN:  -->
+  <FloatMenu_Cancel.label>TODO</FloatMenu_Cancel.label>
+  <!-- EN:  -->
+  <FloatMenu_Cancel.description>TODO</FloatMenu_Cancel.description>
+  <!-- EN:  -->
+  <FloatMenu_Cancel.subSounds.0.name>TODO</FloatMenu_Cancel.subSounds.0.name>
+
+  <!-- EN:  -->
+  <LetterArrive.label>TODO</LetterArrive.label>
+  <!-- EN:  -->
+  <LetterArrive.description>TODO</LetterArrive.description>
+  <!-- EN:  -->
+  <LetterArrive.subSounds.0.name>TODO</LetterArrive.subSounds.0.name>
+
+  <!-- EN:  -->
+  <LetterArrive_BadUrgent.label>TODO</LetterArrive_BadUrgent.label>
+  <!-- EN:  -->
+  <LetterArrive_BadUrgent.description>TODO</LetterArrive_BadUrgent.description>
+  <!-- EN:  -->
+  <LetterArrive_BadUrgent.subSounds.0.name>TODO</LetterArrive_BadUrgent.subSounds.0.name>
+
+  <!-- EN:  -->
+  <LetterArrive_BadUrgentBig.label>TODO</LetterArrive_BadUrgentBig.label>
+  <!-- EN:  -->
+  <LetterArrive_BadUrgentBig.description>TODO</LetterArrive_BadUrgentBig.description>
+  <!-- EN:  -->
+  <LetterArrive_BadUrgentBig.subSounds.0.name>TODO</LetterArrive_BadUrgentBig.subSounds.0.name>
+
+  <!-- EN:  -->
+  <LetterArrive_BadUrgentSmall.label>TODO</LetterArrive_BadUrgentSmall.label>
+  <!-- EN:  -->
+  <LetterArrive_BadUrgentSmall.description>TODO</LetterArrive_BadUrgentSmall.description>
+  <!-- EN:  -->
+  <LetterArrive_BadUrgentSmall.subSounds.0.name>TODO</LetterArrive_BadUrgentSmall.subSounds.0.name>
+
+  <!-- EN:  -->
+  <LetterArrive_Good.label>TODO</LetterArrive_Good.label>
+  <!-- EN:  -->
+  <LetterArrive_Good.description>TODO</LetterArrive_Good.description>
+  <!-- EN:  -->
+  <LetterArrive_Good.subSounds.0.name>TODO</LetterArrive_Good.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DraftOn.label>TODO</DraftOn.label>
+  <!-- EN:  -->
+  <DraftOn.description>TODO</DraftOn.description>
+  <!-- EN:  -->
+  <DraftOn.subSounds.0.name>TODO</DraftOn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DraftOff.label>TODO</DraftOff.label>
+  <!-- EN:  -->
+  <DraftOff.description>TODO</DraftOff.description>
+  <!-- EN:  -->
+  <DraftOff.subSounds.0.name>TODO</DraftOff.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ResearchStart.label>TODO</ResearchStart.label>
+  <!-- EN:  -->
+  <ResearchStart.description>TODO</ResearchStart.description>
+  <!-- EN:  -->
+  <ResearchStart.subSounds.0.name>TODO</ResearchStart.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ThingSelected.label>TODO</ThingSelected.label>
+  <!-- EN:  -->
+  <ThingSelected.description>TODO</ThingSelected.description>
+  <!-- EN:  -->
+  <ThingSelected.subSounds.0.name>TODO</ThingSelected.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MapSelected.label>TODO</MapSelected.label>
+  <!-- EN:  -->
+  <MapSelected.description>TODO</MapSelected.description>
+  <!-- EN:  -->
+  <MapSelected.subSounds.0.name>TODO</MapSelected.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ColonistSelected.label>TODO</ColonistSelected.label>
+  <!-- EN:  -->
+  <ColonistSelected.description>TODO</ColonistSelected.description>
+  <!-- EN:  -->
+  <ColonistSelected.subSounds.0.name>TODO</ColonistSelected.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ColonistOrdered.label>TODO</ColonistOrdered.label>
+  <!-- EN:  -->
+  <ColonistOrdered.description>TODO</ColonistOrdered.description>
+  <!-- EN:  -->
+  <ColonistOrdered.subSounds.0.name>TODO</ColonistOrdered.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_NeutralEvent.label>TODO</Message_NeutralEvent.label>
+  <!-- EN:  -->
+  <Message_NeutralEvent.description>TODO</Message_NeutralEvent.description>
+  <!-- EN:  -->
+  <Message_NeutralEvent.subSounds.0.name>TODO</Message_NeutralEvent.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_PositiveEvent.label>TODO</Message_PositiveEvent.label>
+  <!-- EN:  -->
+  <Message_PositiveEvent.description>TODO</Message_PositiveEvent.description>
+  <!-- EN:  -->
+  <Message_PositiveEvent.subSounds.0.name>TODO</Message_PositiveEvent.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_NegativeEvent.label>TODO</Message_NegativeEvent.label>
+  <!-- EN:  -->
+  <Message_NegativeEvent.description>TODO</Message_NegativeEvent.description>
+  <!-- EN:  -->
+  <Message_NegativeEvent.subSounds.0.name>TODO</Message_NegativeEvent.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_ThreatBig.label>TODO</Message_ThreatBig.label>
+  <!-- EN:  -->
+  <Message_ThreatBig.description>TODO</Message_ThreatBig.description>
+  <!-- EN:  -->
+  <Message_ThreatBig.subSounds.0.name>TODO</Message_ThreatBig.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_ThreatSmall.label>TODO</Message_ThreatSmall.label>
+  <!-- EN:  -->
+  <Message_ThreatSmall.description>TODO</Message_ThreatSmall.description>
+  <!-- EN:  -->
+  <Message_ThreatSmall.subSounds.0.name>TODO</Message_ThreatSmall.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_PawnDeath.label>TODO</Message_PawnDeath.label>
+  <!-- EN:  -->
+  <Message_PawnDeath.description>TODO</Message_PawnDeath.description>
+  <!-- EN:  -->
+  <Message_PawnDeath.subSounds.0.name>TODO</Message_PawnDeath.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_NegativeHealthEvent.label>TODO</Message_NegativeHealthEvent.label>
+  <!-- EN:  -->
+  <Message_NegativeHealthEvent.description>TODO</Message_NegativeHealthEvent.description>
+  <!-- EN:  -->
+  <Message_NegativeHealthEvent.subSounds.0.name>TODO</Message_NegativeHealthEvent.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Message_TaskCompletion.label>TODO</Message_TaskCompletion.label>
+  <!-- EN:  -->
+  <Message_TaskCompletion.description>TODO</Message_TaskCompletion.description>
+  <!-- EN:  -->
+  <Message_TaskCompletion.subSounds.0.name>TODO</Message_TaskCompletion.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DialogBoxAppear.label>TODO</DialogBoxAppear.label>
+  <!-- EN:  -->
+  <DialogBoxAppear.description>TODO</DialogBoxAppear.description>
+  <!-- EN:  -->
+  <DialogBoxAppear.subSounds.0.name>TODO</DialogBoxAppear.subSounds.0.name>
+
+  <!-- EN:  -->
+  <CommsWindow_Open.label>TODO</CommsWindow_Open.label>
+  <!-- EN:  -->
+  <CommsWindow_Open.description>TODO</CommsWindow_Open.description>
+  <!-- EN:  -->
+  <CommsWindow_Open.subSounds.0.name>TODO</CommsWindow_Open.subSounds.0.name>
+
+  <!-- EN:  -->
+  <CommsWindow_Close.label>TODO</CommsWindow_Close.label>
+  <!-- EN:  -->
+  <CommsWindow_Close.description>TODO</CommsWindow_Close.description>
+  <!-- EN:  -->
+  <CommsWindow_Close.subSounds.0.name>TODO</CommsWindow_Close.subSounds.0.name>
+
+  <!-- EN:  -->
+  <InfoCard_Open.label>TODO</InfoCard_Open.label>
+  <!-- EN:  -->
+  <InfoCard_Open.description>TODO</InfoCard_Open.description>
+  <!-- EN:  -->
+  <InfoCard_Open.subSounds.0.name>TODO</InfoCard_Open.subSounds.0.name>
+
+  <!-- EN:  -->
+  <InfoCard_Close.label>TODO</InfoCard_Close.label>
+  <!-- EN:  -->
+  <InfoCard_Close.description>TODO</InfoCard_Close.description>
+  <!-- EN:  -->
+  <InfoCard_Close.subSounds.0.name>TODO</InfoCard_Close.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DragSlider.label>TODO</DragSlider.label>
+  <!-- EN:  -->
+  <DragSlider.description>TODO</DragSlider.description>
+  <!-- EN:  -->
+  <DragSlider.subSounds.0.name>TODO</DragSlider.subSounds.0.name>
+
+  <!-- EN:  -->
+  <RowTabSelect.label>TODO</RowTabSelect.label>
+  <!-- EN:  -->
+  <RowTabSelect.description>TODO</RowTabSelect.description>
+  <!-- EN:  -->
+  <RowTabSelect.subSounds.0.name>TODO</RowTabSelect.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mouseover_Tab.label>TODO</Mouseover_Tab.label>
+  <!-- EN:  -->
+  <Mouseover_Tab.description>TODO</Mouseover_Tab.description>
+  <!-- EN:  -->
+  <Mouseover_Tab.subSounds.0.name>TODO</Mouseover_Tab.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Checkbox_TurnedOn.label>TODO</Checkbox_TurnedOn.label>
+  <!-- EN:  -->
+  <Checkbox_TurnedOn.description>TODO</Checkbox_TurnedOn.description>
+  <!-- EN:  -->
+  <Checkbox_TurnedOn.subSounds.0.name>TODO</Checkbox_TurnedOn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Checkbox_TurnedOff.label>TODO</Checkbox_TurnedOff.label>
+  <!-- EN:  -->
+  <Checkbox_TurnedOff.description>TODO</Checkbox_TurnedOff.description>
+  <!-- EN:  -->
+  <Checkbox_TurnedOff.subSounds.0.name>TODO</Checkbox_TurnedOff.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Lesson_Activated.label>TODO</Lesson_Activated.label>
+  <!-- EN:  -->
+  <Lesson_Activated.description>TODO</Lesson_Activated.description>
+  <!-- EN:  -->
+  <Lesson_Activated.subSounds.0.name>TODO</Lesson_Activated.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Lesson_Deactivated.label>TODO</Lesson_Deactivated.label>
+  <!-- EN:  -->
+  <Lesson_Deactivated.description>TODO</Lesson_Deactivated.description>
+  <!-- EN:  -->
+  <Lesson_Deactivated.subSounds.0.name>TODO</Lesson_Deactivated.subSounds.0.name>
+
+  <!-- EN:  -->
+  <PlanetkillerImpact.label>TODO</PlanetkillerImpact.label>
+  <!-- EN:  -->
+  <PlanetkillerImpact.description>TODO</PlanetkillerImpact.description>
+  <!-- EN:  -->
+  <PlanetkillerImpact.subSounds.0.name>TODO</PlanetkillerImpact.subSounds.0.name>
+
+</LanguageData>

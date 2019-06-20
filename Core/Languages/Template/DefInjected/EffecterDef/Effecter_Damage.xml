@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Deflect_Metal.label>TODO</Deflect_Metal.label>
+  <!-- EN:  -->
+  <Deflect_Metal.description>TODO</Deflect_Metal.description>
+
+  <!-- EN:  -->
+  <Deflect_Metal_Bullet.label>TODO</Deflect_Metal_Bullet.label>
+  <!-- EN:  -->
+  <Deflect_Metal_Bullet.description>TODO</Deflect_Metal_Bullet.description>
+
+  <!-- EN:  -->
+  <Deflect_General.label>TODO</Deflect_General.label>
+  <!-- EN:  -->
+  <Deflect_General.description>TODO</Deflect_General.description>
+
+  <!-- EN:  -->
+  <Deflect_General_Bullet.label>TODO</Deflect_General_Bullet.label>
+  <!-- EN:  -->
+  <Deflect_General_Bullet.description>TODO</Deflect_General_Bullet.description>
+
+  <!-- EN:  -->
+  <DamageDiminished_Metal.label>TODO</DamageDiminished_Metal.label>
+  <!-- EN:  -->
+  <DamageDiminished_Metal.description>TODO</DamageDiminished_Metal.description>
+
+  <!-- EN:  -->
+  <DamageDiminished_General.label>TODO</DamageDiminished_General.label>
+  <!-- EN:  -->
+  <DamageDiminished_General.description>TODO</DamageDiminished_General.description>
+
+  <!-- EN:  -->
+  <Bridge_Collapse.label>TODO</Bridge_Collapse.label>
+  <!-- EN:  -->
+  <Bridge_Collapse.description>TODO</Bridge_Collapse.description>
+
+  <!-- EN:  -->
+  <Bridge_CollapseWater.label>TODO</Bridge_CollapseWater.label>
+  <!-- EN:  -->
+  <Bridge_CollapseWater.description>TODO</Bridge_CollapseWater.description>
+
+</LanguageData>

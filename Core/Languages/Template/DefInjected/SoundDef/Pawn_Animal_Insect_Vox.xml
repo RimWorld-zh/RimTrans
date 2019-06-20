@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Pawn_Megascarab_Call.label>TODO</Pawn_Megascarab_Call.label>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Call.description>TODO</Pawn_Megascarab_Call.description>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Call.subSounds.0.name>TODO</Pawn_Megascarab_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Megascarab_Angry.label>TODO</Pawn_Megascarab_Angry.label>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Angry.description>TODO</Pawn_Megascarab_Angry.description>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Angry.subSounds.0.name>TODO</Pawn_Megascarab_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Megascarab_Death.label>TODO</Pawn_Megascarab_Death.label>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Death.description>TODO</Pawn_Megascarab_Death.description>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Death.subSounds.0.name>TODO</Pawn_Megascarab_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Megascarab_Wounded.label>TODO</Pawn_Megascarab_Wounded.label>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Wounded.description>TODO</Pawn_Megascarab_Wounded.description>
+  <!-- EN:  -->
+  <Pawn_Megascarab_Wounded.subSounds.0.name>TODO</Pawn_Megascarab_Wounded.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_BigInsect_Call.label>TODO</Pawn_BigInsect_Call.label>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Call.description>TODO</Pawn_BigInsect_Call.description>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Call.subSounds.0.name>TODO</Pawn_BigInsect_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_BigInsect_Angry.label>TODO</Pawn_BigInsect_Angry.label>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Angry.description>TODO</Pawn_BigInsect_Angry.description>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Angry.subSounds.0.name>TODO</Pawn_BigInsect_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_BigInsect_Death.label>TODO</Pawn_BigInsect_Death.label>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Death.description>TODO</Pawn_BigInsect_Death.description>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Death.subSounds.0.name>TODO</Pawn_BigInsect_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_BigInsect_Pain.label>TODO</Pawn_BigInsect_Pain.label>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Pain.description>TODO</Pawn_BigInsect_Pain.description>
+  <!-- EN:  -->
+  <Pawn_BigInsect_Pain.subSounds.0.name>TODO</Pawn_BigInsect_Pain.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Spelopede_Call.label>TODO</Pawn_Spelopede_Call.label>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Call.description>TODO</Pawn_Spelopede_Call.description>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Call.subSounds.0.name>TODO</Pawn_Spelopede_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Spelopede_Angry.label>TODO</Pawn_Spelopede_Angry.label>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Angry.description>TODO</Pawn_Spelopede_Angry.description>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Angry.subSounds.0.name>TODO</Pawn_Spelopede_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Spelopede_Death.label>TODO</Pawn_Spelopede_Death.label>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Death.description>TODO</Pawn_Spelopede_Death.description>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Death.subSounds.0.name>TODO</Pawn_Spelopede_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Spelopede_Pain.label>TODO</Pawn_Spelopede_Pain.label>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Pain.description>TODO</Pawn_Spelopede_Pain.description>
+  <!-- EN:  -->
+  <Pawn_Spelopede_Pain.subSounds.0.name>TODO</Pawn_Spelopede_Pain.subSounds.0.name>
+
+</LanguageData>

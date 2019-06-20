@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Pawn_Chick_Call.label>TODO</Pawn_Chick_Call.label>
+  <!-- EN:  -->
+  <Pawn_Chick_Call.description>TODO</Pawn_Chick_Call.description>
+  <!-- EN:  -->
+  <Pawn_Chick_Call.subSounds.0.name>TODO</Pawn_Chick_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Chicken_Call.label>TODO</Pawn_Chicken_Call.label>
+  <!-- EN:  -->
+  <Pawn_Chicken_Call.description>TODO</Pawn_Chicken_Call.description>
+  <!-- EN:  -->
+  <Pawn_Chicken_Call.subSounds.0.name>TODO</Pawn_Chicken_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Chicken_Angry.label>TODO</Pawn_Chicken_Angry.label>
+  <!-- EN:  -->
+  <Pawn_Chicken_Angry.description>TODO</Pawn_Chicken_Angry.description>
+  <!-- EN:  -->
+  <Pawn_Chicken_Angry.subSounds.0.name>TODO</Pawn_Chicken_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Chicken_Wounded.label>TODO</Pawn_Chicken_Wounded.label>
+  <!-- EN:  -->
+  <Pawn_Chicken_Wounded.description>TODO</Pawn_Chicken_Wounded.description>
+  <!-- EN:  -->
+  <Pawn_Chicken_Wounded.subSounds.0.name>TODO</Pawn_Chicken_Wounded.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Chicken_Death.label>TODO</Pawn_Chicken_Death.label>
+  <!-- EN:  -->
+  <Pawn_Chicken_Death.description>TODO</Pawn_Chicken_Death.description>
+  <!-- EN:  -->
+  <Pawn_Chicken_Death.subSounds.0.name>TODO</Pawn_Chicken_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_DogSmall_Call.label>TODO</Pawn_DogSmall_Call.label>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Call.description>TODO</Pawn_DogSmall_Call.description>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Call.subSounds.0.name>TODO</Pawn_DogSmall_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_DogSmall_Angry.label>TODO</Pawn_DogSmall_Angry.label>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Angry.description>TODO</Pawn_DogSmall_Angry.description>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Angry.subSounds.0.name>TODO</Pawn_DogSmall_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_DogSmall_Injured.label>TODO</Pawn_DogSmall_Injured.label>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Injured.description>TODO</Pawn_DogSmall_Injured.description>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Injured.subSounds.0.name>TODO</Pawn_DogSmall_Injured.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_DogSmall_Dead.label>TODO</Pawn_DogSmall_Dead.label>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Dead.description>TODO</Pawn_DogSmall_Dead.description>
+  <!-- EN:  -->
+  <Pawn_DogSmall_Dead.subSounds.0.name>TODO</Pawn_DogSmall_Dead.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Dog_Call.label>TODO</Pawn_Dog_Call.label>
+  <!-- EN:  -->
+  <Pawn_Dog_Call.description>TODO</Pawn_Dog_Call.description>
+  <!-- EN:  -->
+  <Pawn_Dog_Call.subSounds.0.name>TODO</Pawn_Dog_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Dog_Angry.label>TODO</Pawn_Dog_Angry.label>
+  <!-- EN:  -->
+  <Pawn_Dog_Angry.description>TODO</Pawn_Dog_Angry.description>
+  <!-- EN:  -->
+  <Pawn_Dog_Angry.subSounds.0.name>TODO</Pawn_Dog_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Dog_Injured.label>TODO</Pawn_Dog_Injured.label>
+  <!-- EN:  -->
+  <Pawn_Dog_Injured.description>TODO</Pawn_Dog_Injured.description>
+  <!-- EN:  -->
+  <Pawn_Dog_Injured.subSounds.0.name>TODO</Pawn_Dog_Injured.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Dog_Death.label>TODO</Pawn_Dog_Death.label>
+  <!-- EN:  -->
+  <Pawn_Dog_Death.description>TODO</Pawn_Dog_Death.description>
+  <!-- EN:  -->
+  <Pawn_Dog_Death.subSounds.0.name>TODO</Pawn_Dog_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Cat_Call.label>TODO</Pawn_Cat_Call.label>
+  <!-- EN:  -->
+  <Pawn_Cat_Call.description>TODO</Pawn_Cat_Call.description>
+  <!-- EN:  -->
+  <Pawn_Cat_Call.subSounds.0.name>TODO</Pawn_Cat_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Cat_Angry.label>TODO</Pawn_Cat_Angry.label>
+  <!-- EN:  -->
+  <Pawn_Cat_Angry.description>TODO</Pawn_Cat_Angry.description>
+  <!-- EN:  -->
+  <Pawn_Cat_Angry.subSounds.0.name>TODO</Pawn_Cat_Angry.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Cat_Injured.label>TODO</Pawn_Cat_Injured.label>
+  <!-- EN:  -->
+  <Pawn_Cat_Injured.description>TODO</Pawn_Cat_Injured.description>
+  <!-- EN:  -->
+  <Pawn_Cat_Injured.subSounds.0.name>TODO</Pawn_Cat_Injured.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Cat_Death.label>TODO</Pawn_Cat_Death.label>
+  <!-- EN:  -->
+  <Pawn_Cat_Death.description>TODO</Pawn_Cat_Death.description>
+  <!-- EN:  -->
+  <Pawn_Cat_Death.subSounds.0.name>TODO</Pawn_Cat_Death.subSounds.0.name>
+
+</LanguageData>

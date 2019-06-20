@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Reward_StandardByDropPod.label>TODO</Reward_StandardByDropPod.label>
+  <!-- EN:  -->
+  <Reward_StandardByDropPod.description>TODO</Reward_StandardByDropPod.description>
+
+  <!-- EN:  -->
+  <Reward_ItemStashQuestContents.label>TODO</Reward_ItemStashQuestContents.label>
+  <!-- EN:  -->
+  <Reward_ItemStashQuestContents.description>TODO</Reward_ItemStashQuestContents.description>
+
+  <!-- EN:  -->
+  <Reward_TradeRequest.label>TODO</Reward_TradeRequest.label>
+  <!-- EN:  -->
+  <Reward_TradeRequest.description>TODO</Reward_TradeRequest.description>
+
+  <!-- EN:  -->
+  <Reward_PeaceTalksGift.label>TODO</Reward_PeaceTalksGift.label>
+  <!-- EN:  -->
+  <Reward_PeaceTalksGift.description>TODO</Reward_PeaceTalksGift.description>
+
+</LanguageData>

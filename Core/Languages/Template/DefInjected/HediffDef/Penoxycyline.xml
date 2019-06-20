@@ -1,7 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: penoxycyline -->
   <PenoxycylineHigh.label>TODO</PenoxycylineHigh.label>
-  
+  <!-- EN:  -->
+  <PenoxycylineHigh.description>TODO</PenoxycylineHigh.description>
+  <!-- EN:  -->
+  <PenoxycylineHigh.stages.0.label>TODO</PenoxycylineHigh.stages.0.label>
+  <!-- EN:  -->
+  <PenoxycylineHigh.battleStateLabel>TODO</PenoxycylineHigh.battleStateLabel>
+  <!-- EN:  -->
+  <PenoxycylineHigh.labelNounPretty>TODO</PenoxycylineHigh.labelNounPretty>
+  <!-- EN:  -->
+  <PenoxycylineHigh.labelNoun>TODO</PenoxycylineHigh.labelNoun>
+
 </LanguageData>

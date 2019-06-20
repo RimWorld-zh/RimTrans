@@ -1,46 +1,310 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: caribou -->
-  <Caribou.label>TODO</Caribou.label>
-  <!-- EN: caribou -->
-  <Caribou.labelPlural>TODO</Caribou.labelPlural>
-  <!-- EN: caribou calf -->
-  <Caribou.lifeStages.caribou_calf.label>TODO</Caribou.lifeStages.caribou_calf.label>
-  <!-- EN: caribou calves -->
-  <Caribou.lifeStages.caribou_calf.labelPlural>TODO</Caribou.lifeStages.caribou_calf.labelPlural>
-  
+
   <!-- EN: deer -->
   <Deer.label>TODO</Deer.label>
-  <!-- EN: doe -->
-  <Deer.labelFemale>TODO</Deer.labelFemale>
-  <!-- EN: buck -->
-  <Deer.labelMale>TODO</Deer.labelMale>
+  <!-- EN:  -->
+  <Deer.description>TODO</Deer.description>
   <!-- EN: deer -->
   <Deer.labelPlural>TODO</Deer.labelPlural>
-  
+  <!-- EN:  -->
+  <Deer.lifeStages.0.label>TODO</Deer.lifeStages.0.label>
+  <!-- EN:  -->
+  <Deer.lifeStages.0.labelPlural>TODO</Deer.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.0.labelMale>TODO</Deer.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Deer.lifeStages.0.labelMalePlural>TODO</Deer.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.0.labelFemale>TODO</Deer.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Deer.lifeStages.0.labelFemalePlural>TODO</Deer.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.1.label>TODO</Deer.lifeStages.1.label>
+  <!-- EN:  -->
+  <Deer.lifeStages.1.labelPlural>TODO</Deer.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.1.labelMale>TODO</Deer.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Deer.lifeStages.1.labelMalePlural>TODO</Deer.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.1.labelFemale>TODO</Deer.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Deer.lifeStages.1.labelFemalePlural>TODO</Deer.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.2.label>TODO</Deer.lifeStages.2.label>
+  <!-- EN:  -->
+  <Deer.lifeStages.2.labelPlural>TODO</Deer.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.2.labelMale>TODO</Deer.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Deer.lifeStages.2.labelMalePlural>TODO</Deer.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Deer.lifeStages.2.labelFemale>TODO</Deer.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Deer.lifeStages.2.labelFemalePlural>TODO</Deer.lifeStages.2.labelFemalePlural>
+  <!-- EN: buck -->
+  <Deer.labelMale>TODO</Deer.labelMale>
+  <!-- EN:  -->
+  <Deer.labelMalePlural>TODO</Deer.labelMalePlural>
+  <!-- EN: doe -->
+  <Deer.labelFemale>TODO</Deer.labelFemale>
+  <!-- EN:  -->
+  <Deer.labelFemalePlural>TODO</Deer.labelFemalePlural>
+
+  <!-- EN: ibex -->
+  <Ibex.label>TODO</Ibex.label>
+  <!-- EN:  -->
+  <Ibex.description>TODO</Ibex.description>
+  <!-- EN: ibex -->
+  <Ibex.labelPlural>TODO</Ibex.labelPlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.0.label>TODO</Ibex.lifeStages.0.label>
+  <!-- EN:  -->
+  <Ibex.lifeStages.0.labelPlural>TODO</Ibex.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.0.labelMale>TODO</Ibex.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Ibex.lifeStages.0.labelMalePlural>TODO</Ibex.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.0.labelFemale>TODO</Ibex.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Ibex.lifeStages.0.labelFemalePlural>TODO</Ibex.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.1.label>TODO</Ibex.lifeStages.1.label>
+  <!-- EN:  -->
+  <Ibex.lifeStages.1.labelPlural>TODO</Ibex.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.1.labelMale>TODO</Ibex.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Ibex.lifeStages.1.labelMalePlural>TODO</Ibex.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.1.labelFemale>TODO</Ibex.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Ibex.lifeStages.1.labelFemalePlural>TODO</Ibex.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.2.label>TODO</Ibex.lifeStages.2.label>
+  <!-- EN:  -->
+  <Ibex.lifeStages.2.labelPlural>TODO</Ibex.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.2.labelMale>TODO</Ibex.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Ibex.lifeStages.2.labelMalePlural>TODO</Ibex.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Ibex.lifeStages.2.labelFemale>TODO</Ibex.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Ibex.lifeStages.2.labelFemalePlural>TODO</Ibex.lifeStages.2.labelFemalePlural>
+  <!-- EN: ibex ram -->
+  <Ibex.labelMale>TODO</Ibex.labelMale>
+  <!-- EN:  -->
+  <Ibex.labelMalePlural>TODO</Ibex.labelMalePlural>
+  <!-- EN: ibex doe -->
+  <Ibex.labelFemale>TODO</Ibex.labelFemale>
+  <!-- EN:  -->
+  <Ibex.labelFemalePlural>TODO</Ibex.labelFemalePlural>
+
   <!-- EN: elk -->
   <Elk.label>TODO</Elk.label>
+  <!-- EN:  -->
+  <Elk.description>TODO</Elk.description>
   <!-- EN: elk -->
   <Elk.labelPlural>TODO</Elk.labelPlural>
   <!-- EN: elk calf -->
   <Elk.lifeStages.elk_calf.label>TODO</Elk.lifeStages.elk_calf.label>
   <!-- EN: elk calves -->
   <Elk.lifeStages.elk_calf.labelPlural>TODO</Elk.lifeStages.elk_calf.labelPlural>
-  
-  <!-- EN: ibex -->
-  <Ibex.label>TODO</Ibex.label>
-  <!-- EN: ibex doe -->
-  <Ibex.labelFemale>TODO</Ibex.labelFemale>
-  <!-- EN: ibex ram -->
-  <Ibex.labelMale>TODO</Ibex.labelMale>
-  <!-- EN: ibex -->
-  <Ibex.labelPlural>TODO</Ibex.labelPlural>
-  
-  <!-- EN: tortoise -->
-  <Tortoise.label>TODO</Tortoise.label>
-  
+  <!-- EN:  -->
+  <Elk.lifeStages.elk_calf.labelMale>TODO</Elk.lifeStages.elk_calf.labelMale>
+  <!-- EN:  -->
+  <Elk.lifeStages.elk_calf.labelMalePlural>TODO</Elk.lifeStages.elk_calf.labelMalePlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.elk_calf.labelFemale>TODO</Elk.lifeStages.elk_calf.labelFemale>
+  <!-- EN:  -->
+  <Elk.lifeStages.elk_calf.labelFemalePlural>TODO</Elk.lifeStages.elk_calf.labelFemalePlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.1.label>TODO</Elk.lifeStages.1.label>
+  <!-- EN:  -->
+  <Elk.lifeStages.1.labelPlural>TODO</Elk.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.1.labelMale>TODO</Elk.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Elk.lifeStages.1.labelMalePlural>TODO</Elk.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.1.labelFemale>TODO</Elk.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Elk.lifeStages.1.labelFemalePlural>TODO</Elk.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.2.label>TODO</Elk.lifeStages.2.label>
+  <!-- EN:  -->
+  <Elk.lifeStages.2.labelPlural>TODO</Elk.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.2.labelMale>TODO</Elk.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Elk.lifeStages.2.labelMalePlural>TODO</Elk.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Elk.lifeStages.2.labelFemale>TODO</Elk.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Elk.lifeStages.2.labelFemalePlural>TODO</Elk.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Elk.labelMale>TODO</Elk.labelMale>
+  <!-- EN:  -->
+  <Elk.labelMalePlural>TODO</Elk.labelMalePlural>
+  <!-- EN:  -->
+  <Elk.labelFemale>TODO</Elk.labelFemale>
+  <!-- EN:  -->
+  <Elk.labelFemalePlural>TODO</Elk.labelFemalePlural>
+
+  <!-- EN: caribou -->
+  <Caribou.label>TODO</Caribou.label>
+  <!-- EN:  -->
+  <Caribou.description>TODO</Caribou.description>
+  <!-- EN: caribou -->
+  <Caribou.labelPlural>TODO</Caribou.labelPlural>
+  <!-- EN: caribou calf -->
+  <Caribou.lifeStages.caribou_calf.label>TODO</Caribou.lifeStages.caribou_calf.label>
+  <!-- EN: caribou calves -->
+  <Caribou.lifeStages.caribou_calf.labelPlural>TODO</Caribou.lifeStages.caribou_calf.labelPlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.caribou_calf.labelMale>TODO</Caribou.lifeStages.caribou_calf.labelMale>
+  <!-- EN:  -->
+  <Caribou.lifeStages.caribou_calf.labelMalePlural>TODO</Caribou.lifeStages.caribou_calf.labelMalePlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.caribou_calf.labelFemale>TODO</Caribou.lifeStages.caribou_calf.labelFemale>
+  <!-- EN:  -->
+  <Caribou.lifeStages.caribou_calf.labelFemalePlural>TODO</Caribou.lifeStages.caribou_calf.labelFemalePlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.1.label>TODO</Caribou.lifeStages.1.label>
+  <!-- EN:  -->
+  <Caribou.lifeStages.1.labelPlural>TODO</Caribou.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.1.labelMale>TODO</Caribou.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Caribou.lifeStages.1.labelMalePlural>TODO</Caribou.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.1.labelFemale>TODO</Caribou.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Caribou.lifeStages.1.labelFemalePlural>TODO</Caribou.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.2.label>TODO</Caribou.lifeStages.2.label>
+  <!-- EN:  -->
+  <Caribou.lifeStages.2.labelPlural>TODO</Caribou.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.2.labelMale>TODO</Caribou.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Caribou.lifeStages.2.labelMalePlural>TODO</Caribou.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Caribou.lifeStages.2.labelFemale>TODO</Caribou.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Caribou.lifeStages.2.labelFemalePlural>TODO</Caribou.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Caribou.labelMale>TODO</Caribou.labelMale>
+  <!-- EN:  -->
+  <Caribou.labelMalePlural>TODO</Caribou.labelMalePlural>
+  <!-- EN:  -->
+  <Caribou.labelFemale>TODO</Caribou.labelFemale>
+  <!-- EN:  -->
+  <Caribou.labelFemalePlural>TODO</Caribou.labelFemalePlural>
+
   <!-- EN: wild boar -->
   <WildBoar.label>TODO</WildBoar.label>
-  
+  <!-- EN:  -->
+  <WildBoar.description>TODO</WildBoar.description>
+  <!-- EN:  -->
+  <WildBoar.labelPlural>TODO</WildBoar.labelPlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.0.label>TODO</WildBoar.lifeStages.0.label>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.0.labelPlural>TODO</WildBoar.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.0.labelMale>TODO</WildBoar.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.0.labelMalePlural>TODO</WildBoar.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.0.labelFemale>TODO</WildBoar.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.0.labelFemalePlural>TODO</WildBoar.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.1.label>TODO</WildBoar.lifeStages.1.label>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.1.labelPlural>TODO</WildBoar.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.1.labelMale>TODO</WildBoar.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.1.labelMalePlural>TODO</WildBoar.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.1.labelFemale>TODO</WildBoar.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.1.labelFemalePlural>TODO</WildBoar.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.2.label>TODO</WildBoar.lifeStages.2.label>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.2.labelPlural>TODO</WildBoar.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.2.labelMale>TODO</WildBoar.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.2.labelMalePlural>TODO</WildBoar.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.2.labelFemale>TODO</WildBoar.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <WildBoar.lifeStages.2.labelFemalePlural>TODO</WildBoar.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <WildBoar.labelMale>TODO</WildBoar.labelMale>
+  <!-- EN:  -->
+  <WildBoar.labelMalePlural>TODO</WildBoar.labelMalePlural>
+  <!-- EN:  -->
+  <WildBoar.labelFemale>TODO</WildBoar.labelFemale>
+  <!-- EN:  -->
+  <WildBoar.labelFemalePlural>TODO</WildBoar.labelFemalePlural>
+
+  <!-- EN: tortoise -->
+  <Tortoise.label>TODO</Tortoise.label>
+  <!-- EN:  -->
+  <Tortoise.description>TODO</Tortoise.description>
+  <!-- EN:  -->
+  <Tortoise.labelPlural>TODO</Tortoise.labelPlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.0.label>TODO</Tortoise.lifeStages.0.label>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.0.labelPlural>TODO</Tortoise.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.0.labelMale>TODO</Tortoise.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.0.labelMalePlural>TODO</Tortoise.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.0.labelFemale>TODO</Tortoise.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.0.labelFemalePlural>TODO</Tortoise.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.1.label>TODO</Tortoise.lifeStages.1.label>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.1.labelPlural>TODO</Tortoise.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.1.labelMale>TODO</Tortoise.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.1.labelMalePlural>TODO</Tortoise.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.1.labelFemale>TODO</Tortoise.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.1.labelFemalePlural>TODO</Tortoise.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.2.label>TODO</Tortoise.lifeStages.2.label>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.2.labelPlural>TODO</Tortoise.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.2.labelMale>TODO</Tortoise.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.2.labelMalePlural>TODO</Tortoise.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.2.labelFemale>TODO</Tortoise.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Tortoise.lifeStages.2.labelFemalePlural>TODO</Tortoise.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Tortoise.labelMale>TODO</Tortoise.labelMale>
+  <!-- EN:  -->
+  <Tortoise.labelMalePlural>TODO</Tortoise.labelMalePlural>
+  <!-- EN:  -->
+  <Tortoise.labelFemale>TODO</Tortoise.labelFemale>
+  <!-- EN:  -->
+  <Tortoise.labelFemalePlural>TODO</Tortoise.labelFemalePlural>
+
 </LanguageData>

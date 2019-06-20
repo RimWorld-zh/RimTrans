@@ -1,6 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <ArtNameUtility.label>TODO</ArtNameUtility.label>
+  <!-- EN:  -->
+  <ArtNameUtility.description>TODO</ArtNameUtility.description>
+  <!-- EN:
+    <li>Artwork->Words/Nouns/Artworks</li>
+  -->
+  <ArtNameUtility.rulePack.rulesFiles>
+    <li>TODO</li>
+  </ArtNameUtility.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <NamerArtCommon.label>TODO</NamerArtCommon.label>
+  <!-- EN:  -->
+  <NamerArtCommon.description>TODO</NamerArtCommon.description>
   <!-- EN:
     <li>r_art_name(p=4)->[Artwork] [Trans] [ConceptAny]</li>
     <li>r_art_name(p=4)->[maybe_a] [maybe_adjective] [Artwork]</li>
@@ -44,8 +59,69 @@
     <li>maybe_adjective->[AdjectiveBadass]</li>
     <li>maybe_adjective->[Color]</li>
   -->
-  <NamerArtCommon.rulePack.rulesStrings>TODO</NamerArtCommon.rulePack.rulesStrings>
-  
+  <NamerArtCommon.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerArtCommon.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <NamerArtSculpture.label>TODO</NamerArtSculpture.label>
+  <!-- EN:  -->
+  <NamerArtSculpture.description>TODO</NamerArtSculpture.description>
+
+  <!-- EN:  -->
+  <NamerArtFurniture.label>TODO</NamerArtFurniture.label>
+  <!-- EN:  -->
+  <NamerArtFurniture.description>TODO</NamerArtFurniture.description>
+
+  <!-- EN:  -->
+  <NamerArtSarcophagusPlate.label>TODO</NamerArtSarcophagusPlate.label>
+  <!-- EN:  -->
+  <NamerArtSarcophagusPlate.description>TODO</NamerArtSarcophagusPlate.description>
+
+  <!-- EN:  -->
+  <NamerArtWeapon.label>TODO</NamerArtWeapon.label>
+  <!-- EN:  -->
+  <NamerArtWeapon.description>TODO</NamerArtWeapon.description>
   <!-- EN:
     <li>r_art_name->[ConceptBadass]</li>
     <li>r_art_name->The [AnimalBadass]</li>
@@ -60,6 +136,29 @@
     <li>r_art_name(p=3)->[ConceptBadass] of [ANYPAWN_nameIndef]</li>
     <li>r_art_name(p=3)->[ColorBadass] [ANYPAWN_nameIndef]</li>
   -->
-  <NamerArtWeapon.rulePack.rulesStrings>TODO</NamerArtWeapon.rulePack.rulesStrings>
-  
+  <NamerArtWeapon.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerArtWeapon.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <NamerArtWeaponMelee.label>TODO</NamerArtWeaponMelee.label>
+  <!-- EN:  -->
+  <NamerArtWeaponMelee.description>TODO</NamerArtWeaponMelee.description>
+
+  <!-- EN:  -->
+  <NamerArtWeaponGun.label>TODO</NamerArtWeaponGun.label>
+  <!-- EN:  -->
+  <NamerArtWeaponGun.description>TODO</NamerArtWeaponGun.description>
+
 </LanguageData>

@@ -1,18 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: wake-up addiction -->
-  <WakeUpAddiction.label>TODO</WakeUpAddiction.label>
-  <!-- EN: withdrawal -->
-  <WakeUpAddiction.stages.withdrawal.label>TODO</WakeUpAddiction.stages.withdrawal.label>
-  
+
   <!-- EN: high on wake-up -->
   <WakeUpHigh.label>TODO</WakeUpHigh.label>
+  <!-- EN:  -->
+  <WakeUpHigh.description>TODO</WakeUpHigh.description>
+  <!-- EN:  -->
+  <WakeUpHigh.stages.0.label>TODO</WakeUpHigh.stages.0.label>
+  <!-- EN:  -->
+  <WakeUpHigh.battleStateLabel>TODO</WakeUpHigh.battleStateLabel>
+  <!-- EN:  -->
+  <WakeUpHigh.labelNounPretty>TODO</WakeUpHigh.labelNounPretty>
   <!-- EN: a wake-up high -->
   <WakeUpHigh.labelNoun>TODO</WakeUpHigh.labelNoun>
-  
+
   <!-- EN: wake-up tolerance -->
   <WakeUpTolerance.label>TODO</WakeUpTolerance.label>
+  <!-- EN:  -->
+  <WakeUpTolerance.description>TODO</WakeUpTolerance.description>
   <!-- EN: small -->
   <WakeUpTolerance.stages.small-0.label>TODO</WakeUpTolerance.stages.small-0.label>
   <!-- EN: small -->
@@ -21,5 +26,26 @@
   <WakeUpTolerance.stages.large.label>TODO</WakeUpTolerance.stages.large.label>
   <!-- EN: massive -->
   <WakeUpTolerance.stages.massive.label>TODO</WakeUpTolerance.stages.massive.label>
-  
+  <!-- EN:  -->
+  <WakeUpTolerance.battleStateLabel>TODO</WakeUpTolerance.battleStateLabel>
+  <!-- EN:  -->
+  <WakeUpTolerance.labelNounPretty>TODO</WakeUpTolerance.labelNounPretty>
+  <!-- EN:  -->
+  <WakeUpTolerance.labelNoun>TODO</WakeUpTolerance.labelNoun>
+
+  <!-- EN: wake-up addiction -->
+  <WakeUpAddiction.label>TODO</WakeUpAddiction.label>
+  <!-- EN:  -->
+  <WakeUpAddiction.description>TODO</WakeUpAddiction.description>
+  <!-- EN:  -->
+  <WakeUpAddiction.stages.0.label>TODO</WakeUpAddiction.stages.0.label>
+  <!-- EN: withdrawal -->
+  <WakeUpAddiction.stages.withdrawal.label>TODO</WakeUpAddiction.stages.withdrawal.label>
+  <!-- EN:  -->
+  <WakeUpAddiction.battleStateLabel>TODO</WakeUpAddiction.battleStateLabel>
+  <!-- EN:  -->
+  <WakeUpAddiction.labelNounPretty>TODO</WakeUpAddiction.labelNounPretty>
+  <!-- EN:  -->
+  <WakeUpAddiction.labelNoun>TODO</WakeUpAddiction.labelNoun>
+
 </LanguageData>

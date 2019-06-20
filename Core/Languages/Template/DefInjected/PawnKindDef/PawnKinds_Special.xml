@@ -1,25 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: slave -->
   <Slave.label>TODO</Slave.label>
-  
-  <!-- EN: stranger in black -->
-  <StrangerInBlack.label>TODO</StrangerInBlack.label>
-  <!-- EN: woman in black -->
-  <StrangerInBlack.labelFemale>TODO</StrangerInBlack.labelFemale>
-  <!-- EN: man in black -->
-  <StrangerInBlack.labelMale>TODO</StrangerInBlack.labelMale>
-  <!-- EN: strangers in black -->
-  <StrangerInBlack.labelPlural>TODO</StrangerInBlack.labelPlural>
-  
+  <!-- EN:  -->
+  <Slave.description>TODO</Slave.description>
+  <!-- EN:  -->
+  <Slave.labelPlural>TODO</Slave.labelPlural>
+  <!-- EN:  -->
+  <Slave.labelMale>TODO</Slave.labelMale>
+  <!-- EN:  -->
+  <Slave.labelMalePlural>TODO</Slave.labelMalePlural>
+  <!-- EN:  -->
+  <Slave.labelFemale>TODO</Slave.labelFemale>
+  <!-- EN:  -->
+  <Slave.labelFemalePlural>TODO</Slave.labelFemalePlural>
+
   <!-- EN: wild man -->
   <WildMan.label>TODO</WildMan.label>
+  <!-- EN:  -->
+  <WildMan.description>TODO</WildMan.description>
+  <!-- EN: wild men -->
+  <WildMan.labelPlural>TODO</WildMan.labelPlural>
+  <!-- EN:  -->
+  <WildMan.labelMale>TODO</WildMan.labelMale>
+  <!-- EN:  -->
+  <WildMan.labelMalePlural>TODO</WildMan.labelMalePlural>
   <!-- EN: wild woman -->
   <WildMan.labelFemale>TODO</WildMan.labelFemale>
   <!-- EN: wild women -->
   <WildMan.labelFemalePlural>TODO</WildMan.labelFemalePlural>
-  <!-- EN: wild men -->
-  <WildMan.labelPlural>TODO</WildMan.labelPlural>
-  
+
+  <!-- EN: stranger in black -->
+  <StrangerInBlack.label>TODO</StrangerInBlack.label>
+  <!-- EN:  -->
+  <StrangerInBlack.description>TODO</StrangerInBlack.description>
+  <!-- EN: strangers in black -->
+  <StrangerInBlack.labelPlural>TODO</StrangerInBlack.labelPlural>
+  <!-- EN: man in black -->
+  <StrangerInBlack.labelMale>TODO</StrangerInBlack.labelMale>
+  <!-- EN:  -->
+  <StrangerInBlack.labelMalePlural>TODO</StrangerInBlack.labelMalePlural>
+  <!-- EN: woman in black -->
+  <StrangerInBlack.labelFemale>TODO</StrangerInBlack.labelFemale>
+  <!-- EN:  -->
+  <StrangerInBlack.labelFemalePlural>TODO</StrangerInBlack.labelFemalePlural>
+
 </LanguageData>

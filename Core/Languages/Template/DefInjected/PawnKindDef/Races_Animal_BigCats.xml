@@ -1,17 +1,157 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: cougar -->
   <Cougar.label>TODO</Cougar.label>
-  
+  <!-- EN:  -->
+  <Cougar.description>TODO</Cougar.description>
+  <!-- EN:  -->
+  <Cougar.labelPlural>TODO</Cougar.labelPlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.0.label>TODO</Cougar.lifeStages.0.label>
+  <!-- EN:  -->
+  <Cougar.lifeStages.0.labelPlural>TODO</Cougar.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.0.labelMale>TODO</Cougar.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Cougar.lifeStages.0.labelMalePlural>TODO</Cougar.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.0.labelFemale>TODO</Cougar.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Cougar.lifeStages.0.labelFemalePlural>TODO</Cougar.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.1.label>TODO</Cougar.lifeStages.1.label>
+  <!-- EN:  -->
+  <Cougar.lifeStages.1.labelPlural>TODO</Cougar.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.1.labelMale>TODO</Cougar.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Cougar.lifeStages.1.labelMalePlural>TODO</Cougar.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.1.labelFemale>TODO</Cougar.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Cougar.lifeStages.1.labelFemalePlural>TODO</Cougar.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.2.label>TODO</Cougar.lifeStages.2.label>
+  <!-- EN:  -->
+  <Cougar.lifeStages.2.labelPlural>TODO</Cougar.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.2.labelMale>TODO</Cougar.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Cougar.lifeStages.2.labelMalePlural>TODO</Cougar.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Cougar.lifeStages.2.labelFemale>TODO</Cougar.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Cougar.lifeStages.2.labelFemalePlural>TODO</Cougar.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Cougar.labelMale>TODO</Cougar.labelMale>
+  <!-- EN:  -->
+  <Cougar.labelMalePlural>TODO</Cougar.labelMalePlural>
+  <!-- EN:  -->
+  <Cougar.labelFemale>TODO</Cougar.labelFemale>
+  <!-- EN:  -->
+  <Cougar.labelFemalePlural>TODO</Cougar.labelFemalePlural>
+
+  <!-- EN: panther -->
+  <Panther.label>TODO</Panther.label>
+  <!-- EN:  -->
+  <Panther.description>TODO</Panther.description>
+  <!-- EN:  -->
+  <Panther.labelPlural>TODO</Panther.labelPlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.0.label>TODO</Panther.lifeStages.0.label>
+  <!-- EN:  -->
+  <Panther.lifeStages.0.labelPlural>TODO</Panther.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.0.labelMale>TODO</Panther.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Panther.lifeStages.0.labelMalePlural>TODO</Panther.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.0.labelFemale>TODO</Panther.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Panther.lifeStages.0.labelFemalePlural>TODO</Panther.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.1.label>TODO</Panther.lifeStages.1.label>
+  <!-- EN:  -->
+  <Panther.lifeStages.1.labelPlural>TODO</Panther.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.1.labelMale>TODO</Panther.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Panther.lifeStages.1.labelMalePlural>TODO</Panther.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.1.labelFemale>TODO</Panther.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Panther.lifeStages.1.labelFemalePlural>TODO</Panther.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.2.label>TODO</Panther.lifeStages.2.label>
+  <!-- EN:  -->
+  <Panther.lifeStages.2.labelPlural>TODO</Panther.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.2.labelMale>TODO</Panther.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Panther.lifeStages.2.labelMalePlural>TODO</Panther.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Panther.lifeStages.2.labelFemale>TODO</Panther.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Panther.lifeStages.2.labelFemalePlural>TODO</Panther.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Panther.labelMale>TODO</Panther.labelMale>
+  <!-- EN:  -->
+  <Panther.labelMalePlural>TODO</Panther.labelMalePlural>
+  <!-- EN:  -->
+  <Panther.labelFemale>TODO</Panther.labelFemale>
+  <!-- EN:  -->
+  <Panther.labelFemalePlural>TODO</Panther.labelFemalePlural>
+
   <!-- EN: lynx -->
   <Lynx.label>TODO</Lynx.label>
+  <!-- EN:  -->
+  <Lynx.description>TODO</Lynx.description>
   <!-- EN: lynx -->
   <Lynx.labelPlural>TODO</Lynx.labelPlural>
   <!-- EN: lynx kitten -->
   <Lynx.lifeStages.lynx_kitten.label>TODO</Lynx.lifeStages.lynx_kitten.label>
-  
-  <!-- EN: panther -->
-  <Panther.label>TODO</Panther.label>
-  
+  <!-- EN:  -->
+  <Lynx.lifeStages.lynx_kitten.labelPlural>TODO</Lynx.lifeStages.lynx_kitten.labelPlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.lynx_kitten.labelMale>TODO</Lynx.lifeStages.lynx_kitten.labelMale>
+  <!-- EN:  -->
+  <Lynx.lifeStages.lynx_kitten.labelMalePlural>TODO</Lynx.lifeStages.lynx_kitten.labelMalePlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.lynx_kitten.labelFemale>TODO</Lynx.lifeStages.lynx_kitten.labelFemale>
+  <!-- EN:  -->
+  <Lynx.lifeStages.lynx_kitten.labelFemalePlural>TODO</Lynx.lifeStages.lynx_kitten.labelFemalePlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.1.label>TODO</Lynx.lifeStages.1.label>
+  <!-- EN:  -->
+  <Lynx.lifeStages.1.labelPlural>TODO</Lynx.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.1.labelMale>TODO</Lynx.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Lynx.lifeStages.1.labelMalePlural>TODO</Lynx.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.1.labelFemale>TODO</Lynx.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Lynx.lifeStages.1.labelFemalePlural>TODO</Lynx.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.2.label>TODO</Lynx.lifeStages.2.label>
+  <!-- EN:  -->
+  <Lynx.lifeStages.2.labelPlural>TODO</Lynx.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.2.labelMale>TODO</Lynx.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Lynx.lifeStages.2.labelMalePlural>TODO</Lynx.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Lynx.lifeStages.2.labelFemale>TODO</Lynx.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Lynx.lifeStages.2.labelFemalePlural>TODO</Lynx.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Lynx.labelMale>TODO</Lynx.labelMale>
+  <!-- EN:  -->
+  <Lynx.labelMalePlural>TODO</Lynx.labelMalePlural>
+  <!-- EN:  -->
+  <Lynx.labelFemale>TODO</Lynx.labelFemale>
+  <!-- EN:  -->
+  <Lynx.labelFemalePlural>TODO</Lynx.labelFemalePlural>
+
 </LanguageData>

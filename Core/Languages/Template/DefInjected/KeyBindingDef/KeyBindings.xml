@@ -1,151 +1,249 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: accept -->
-  <Accept.label>TODO</Accept.label>
-  
-  <!-- EN: cancel -->
-  <Cancel.label>TODO</Cancel.label>
-  
-  <!-- EN: draft -->
-  <Command_ColonistDraft.label>TODO</Command_ColonistDraft.label>
-  
-  <!-- EN: toggle forbidden -->
-  <Command_ItemForbid.label>TODO</Command_ItemForbid.label>
-  
-  <!-- EN: toggle power -->
-  <Command_TogglePower.label>TODO</Command_TogglePower.label>
-  
-  <!-- EN: cancel -->
-  <Designator_Cancel.label>TODO</Designator_Cancel.label>
-  
-  <!-- EN: deconstruct -->
-  <Designator_Deconstruct.label>TODO</Designator_Deconstruct.label>
-  
-  <!-- EN: rotate left -->
-  <Designator_RotateLeft.label>TODO</Designator_RotateLeft.label>
-  
-  <!-- EN: rotate right -->
-  <Designator_RotateRight.label>TODO</Designator_RotateRight.label>
-  
-  <!-- EN: tick once -->
-  <Dev_TickOnce.label>TODO</Dev_TickOnce.label>
-  
-  <!-- EN: toggle debug actions menu -->
-  <Dev_ToggleDebugActionsMenu.label>TODO</Dev_ToggleDebugActionsMenu.label>
-  
-  <!-- EN: toggle debug inspector -->
-  <Dev_ToggleDebugInspector.label>TODO</Dev_ToggleDebugInspector.label>
-  
-  <!-- EN: toggle debug log -->
-  <Dev_ToggleDebugLog.label>TODO</Dev_ToggleDebugLog.label>
-  
-  <!-- EN: toggle debug log menu -->
-  <Dev_ToggleDebugLogMenu.label>TODO</Dev_ToggleDebugLogMenu.label>
-  
-  <!-- EN: toggle debug settings menu -->
-  <Dev_ToggleDebugSettingsMenu.label>TODO</Dev_ToggleDebugSettingsMenu.label>
-  
-  <!-- EN: toggle god mode -->
-  <Dev_ToggleGodMode.label>TODO</Dev_ToggleGodMode.label>
-  
-  <!-- EN: dolly down -->
-  <MapDolly_Down.label>TODO</MapDolly_Down.label>
-  
-  <!-- EN: dolly left -->
-  <MapDolly_Left.label>TODO</MapDolly_Left.label>
-  
-  <!-- EN: dolly right -->
-  <MapDolly_Right.label>TODO</MapDolly_Right.label>
-  
+
   <!-- EN: dolly up -->
   <MapDolly_Up.label>TODO</MapDolly_Up.label>
-  
+  <!-- EN:  -->
+  <MapDolly_Up.description>TODO</MapDolly_Up.description>
+
+  <!-- EN: dolly down -->
+  <MapDolly_Down.label>TODO</MapDolly_Down.label>
+  <!-- EN:  -->
+  <MapDolly_Down.description>TODO</MapDolly_Down.description>
+
+  <!-- EN: dolly left -->
+  <MapDolly_Left.label>TODO</MapDolly_Left.label>
+  <!-- EN:  -->
+  <MapDolly_Left.description>TODO</MapDolly_Left.description>
+
+  <!-- EN: dolly right -->
+  <MapDolly_Right.label>TODO</MapDolly_Right.label>
+  <!-- EN:  -->
+  <MapDolly_Right.description>TODO</MapDolly_Right.description>
+
   <!-- EN: zoom in -->
   <MapZoom_In.label>TODO</MapZoom_In.label>
-  
+  <!-- EN:  -->
+  <MapZoom_In.description>TODO</MapZoom_In.description>
+
   <!-- EN: zoom out -->
   <MapZoom_Out.label>TODO</MapZoom_Out.label>
-  
-  <!-- EN: Misc 1 -->
-  <Misc1.label>TODO</Misc1.label>
-  
-  <!-- EN: Misc 10 -->
-  <Misc10.label>TODO</Misc10.label>
-  
-  <!-- EN: Misc 11 -->
-  <Misc11.label>TODO</Misc11.label>
-  
-  <!-- EN: Misc 12 -->
-  <Misc12.label>TODO</Misc12.label>
-  
-  <!-- EN: Misc 2 -->
-  <Misc2.label>TODO</Misc2.label>
-  
-  <!-- EN: Misc 3 -->
-  <Misc3.label>TODO</Misc3.label>
-  
-  <!-- EN: Misc 4 -->
-  <Misc4.label>TODO</Misc4.label>
-  
-  <!-- EN: Misc 5 -->
-  <Misc5.label>TODO</Misc5.label>
-  
-  <!-- EN: Misc 6 -->
-  <Misc6.label>TODO</Misc6.label>
-  
-  <!-- EN: Misc 7 -->
-  <Misc7.label>TODO</Misc7.label>
-  
-  <!-- EN: Misc 8 -->
-  <Misc8.label>TODO</Misc8.label>
-  
-  <!-- EN: Misc 9 -->
-  <Misc9.label>TODO</Misc9.label>
-  
-  <!-- EN: increment 100x -->
-  <ModifierIncrement_100x.label>TODO</ModifierIncrement_100x.label>
-  
-  <!-- EN: increment 10x -->
-  <ModifierIncrement_10x.label>TODO</ModifierIncrement_10x.label>
-  
-  <!-- EN: next colonist -->
-  <NextColonist.label>TODO</NextColonist.label>
-  
-  <!-- EN: previous colonist -->
-  <PreviousColonist.label>TODO</PreviousColonist.label>
-  
-  <!-- EN: queue order -->
-  <QueueOrder.label>TODO</QueueOrder.label>
-  
-  <!-- EN: select next in cell -->
-  <SelectNextInCell.label>TODO</SelectNextInCell.label>
-  
+  <!-- EN:  -->
+  <MapZoom_Out.description>TODO</MapZoom_Out.description>
+
+  <!-- EN: accept -->
+  <Accept.label>TODO</Accept.label>
+  <!-- EN:  -->
+  <Accept.description>TODO</Accept.description>
+
+  <!-- EN: cancel -->
+  <Cancel.label>TODO</Cancel.label>
+  <!-- EN:  -->
+  <Cancel.description>TODO</Cancel.description>
+
   <!-- EN: take screenshot -->
   <TakeScreenshot.label>TODO</TakeScreenshot.label>
-  
-  <!-- EN: game speed: Fast -->
-  <TimeSpeed_Fast.label>TODO</TimeSpeed_Fast.label>
-  
-  <!-- EN: game speed: Normal -->
-  <TimeSpeed_Normal.label>TODO</TimeSpeed_Normal.label>
-  
-  <!-- EN: game speed: Super fast -->
-  <TimeSpeed_Superfast.label>TODO</TimeSpeed_Superfast.label>
-  
-  <!-- EN: game speed: Ultra fast (debug) -->
-  <TimeSpeed_Ultrafast.label>TODO</TimeSpeed_Ultrafast.label>
-  
-  <!-- EN: toggle beauty display -->
-  <ToggleBeautyDisplay.label>TODO</ToggleBeautyDisplay.label>
-  
-  <!-- EN: pause/resume game -->
-  <TogglePause.label>TODO</TogglePause.label>
-  
-  <!-- EN: toggle room stats display -->
-  <ToggleRoomStatsDisplay.label>TODO</ToggleRoomStatsDisplay.label>
-  
+  <!-- EN:  -->
+  <TakeScreenshot.description>TODO</TakeScreenshot.description>
+
   <!-- EN: toggle screenshot mode -->
   <ToggleScreenshotMode.label>TODO</ToggleScreenshotMode.label>
-  
+  <!-- EN:  -->
+  <ToggleScreenshotMode.description>TODO</ToggleScreenshotMode.description>
+
+  <!-- EN: select next in cell -->
+  <SelectNextInCell.label>TODO</SelectNextInCell.label>
+  <!-- EN:  -->
+  <SelectNextInCell.description>TODO</SelectNextInCell.description>
+
+  <!-- EN: pause/resume game -->
+  <TogglePause.label>TODO</TogglePause.label>
+  <!-- EN:  -->
+  <TogglePause.description>TODO</TogglePause.description>
+
+  <!-- EN: game speed: Normal -->
+  <TimeSpeed_Normal.label>TODO</TimeSpeed_Normal.label>
+  <!-- EN:  -->
+  <TimeSpeed_Normal.description>TODO</TimeSpeed_Normal.description>
+
+  <!-- EN: game speed: Fast -->
+  <TimeSpeed_Fast.label>TODO</TimeSpeed_Fast.label>
+  <!-- EN:  -->
+  <TimeSpeed_Fast.description>TODO</TimeSpeed_Fast.description>
+
+  <!-- EN: game speed: Super fast -->
+  <TimeSpeed_Superfast.label>TODO</TimeSpeed_Superfast.label>
+  <!-- EN:  -->
+  <TimeSpeed_Superfast.description>TODO</TimeSpeed_Superfast.description>
+
+  <!-- EN: game speed: Ultra fast (debug) -->
+  <TimeSpeed_Ultrafast.label>TODO</TimeSpeed_Ultrafast.label>
+  <!-- EN:  -->
+  <TimeSpeed_Ultrafast.description>TODO</TimeSpeed_Ultrafast.description>
+
+  <!-- EN: previous colonist -->
+  <PreviousColonist.label>TODO</PreviousColonist.label>
+  <!-- EN:  -->
+  <PreviousColonist.description>TODO</PreviousColonist.description>
+
+  <!-- EN: next colonist -->
+  <NextColonist.label>TODO</NextColonist.label>
+  <!-- EN:  -->
+  <NextColonist.description>TODO</NextColonist.description>
+
+  <!-- EN: toggle room stats display -->
+  <ToggleRoomStatsDisplay.label>TODO</ToggleRoomStatsDisplay.label>
+  <!-- EN:  -->
+  <ToggleRoomStatsDisplay.description>TODO</ToggleRoomStatsDisplay.description>
+
+  <!-- EN: toggle beauty display -->
+  <ToggleBeautyDisplay.label>TODO</ToggleBeautyDisplay.label>
+  <!-- EN:  -->
+  <ToggleBeautyDisplay.description>TODO</ToggleBeautyDisplay.description>
+
+  <!-- EN: Misc 1 -->
+  <Misc1.label>TODO</Misc1.label>
+  <!-- EN:  -->
+  <Misc1.description>TODO</Misc1.description>
+
+  <!-- EN: Misc 2 -->
+  <Misc2.label>TODO</Misc2.label>
+  <!-- EN:  -->
+  <Misc2.description>TODO</Misc2.description>
+
+  <!-- EN: Misc 3 -->
+  <Misc3.label>TODO</Misc3.label>
+  <!-- EN:  -->
+  <Misc3.description>TODO</Misc3.description>
+
+  <!-- EN: Misc 4 -->
+  <Misc4.label>TODO</Misc4.label>
+  <!-- EN:  -->
+  <Misc4.description>TODO</Misc4.description>
+
+  <!-- EN: Misc 5 -->
+  <Misc5.label>TODO</Misc5.label>
+  <!-- EN:  -->
+  <Misc5.description>TODO</Misc5.description>
+
+  <!-- EN: Misc 6 -->
+  <Misc6.label>TODO</Misc6.label>
+  <!-- EN:  -->
+  <Misc6.description>TODO</Misc6.description>
+
+  <!-- EN: Misc 7 -->
+  <Misc7.label>TODO</Misc7.label>
+  <!-- EN:  -->
+  <Misc7.description>TODO</Misc7.description>
+
+  <!-- EN: Misc 8 -->
+  <Misc8.label>TODO</Misc8.label>
+  <!-- EN:  -->
+  <Misc8.description>TODO</Misc8.description>
+
+  <!-- EN: Misc 9 -->
+  <Misc9.label>TODO</Misc9.label>
+  <!-- EN:  -->
+  <Misc9.description>TODO</Misc9.description>
+
+  <!-- EN: Misc 10 -->
+  <Misc10.label>TODO</Misc10.label>
+  <!-- EN:  -->
+  <Misc10.description>TODO</Misc10.description>
+
+  <!-- EN: Misc 11 -->
+  <Misc11.label>TODO</Misc11.label>
+  <!-- EN:  -->
+  <Misc11.description>TODO</Misc11.description>
+
+  <!-- EN: Misc 12 -->
+  <Misc12.label>TODO</Misc12.label>
+  <!-- EN:  -->
+  <Misc12.description>TODO</Misc12.description>
+
+  <!-- EN: toggle power -->
+  <Command_TogglePower.label>TODO</Command_TogglePower.label>
+  <!-- EN:  -->
+  <Command_TogglePower.description>TODO</Command_TogglePower.description>
+
+  <!-- EN: toggle forbidden -->
+  <Command_ItemForbid.label>TODO</Command_ItemForbid.label>
+  <!-- EN:  -->
+  <Command_ItemForbid.description>TODO</Command_ItemForbid.description>
+
+  <!-- EN: draft -->
+  <Command_ColonistDraft.label>TODO</Command_ColonistDraft.label>
+  <!-- EN:  -->
+  <Command_ColonistDraft.description>TODO</Command_ColonistDraft.description>
+
+  <!-- EN: cancel -->
+  <Designator_Cancel.label>TODO</Designator_Cancel.label>
+  <!-- EN:  -->
+  <Designator_Cancel.description>TODO</Designator_Cancel.description>
+
+  <!-- EN: deconstruct -->
+  <Designator_Deconstruct.label>TODO</Designator_Deconstruct.label>
+  <!-- EN:  -->
+  <Designator_Deconstruct.description>TODO</Designator_Deconstruct.description>
+
+  <!-- EN: rotate left -->
+  <Designator_RotateLeft.label>TODO</Designator_RotateLeft.label>
+  <!-- EN:  -->
+  <Designator_RotateLeft.description>TODO</Designator_RotateLeft.description>
+
+  <!-- EN: rotate right -->
+  <Designator_RotateRight.label>TODO</Designator_RotateRight.label>
+  <!-- EN:  -->
+  <Designator_RotateRight.description>TODO</Designator_RotateRight.description>
+
+  <!-- EN: increment 10x -->
+  <ModifierIncrement_10x.label>TODO</ModifierIncrement_10x.label>
+  <!-- EN:  -->
+  <ModifierIncrement_10x.description>TODO</ModifierIncrement_10x.description>
+
+  <!-- EN: increment 100x -->
+  <ModifierIncrement_100x.label>TODO</ModifierIncrement_100x.label>
+  <!-- EN:  -->
+  <ModifierIncrement_100x.description>TODO</ModifierIncrement_100x.description>
+
+  <!-- EN: queue order -->
+  <QueueOrder.label>TODO</QueueOrder.label>
+  <!-- EN:  -->
+  <QueueOrder.description>TODO</QueueOrder.description>
+
+  <!-- EN: tick once -->
+  <Dev_TickOnce.label>TODO</Dev_TickOnce.label>
+  <!-- EN:  -->
+  <Dev_TickOnce.description>TODO</Dev_TickOnce.description>
+
+  <!-- EN: toggle god mode -->
+  <Dev_ToggleGodMode.label>TODO</Dev_ToggleGodMode.label>
+  <!-- EN:  -->
+  <Dev_ToggleGodMode.description>TODO</Dev_ToggleGodMode.description>
+
+  <!-- EN: toggle debug log -->
+  <Dev_ToggleDebugLog.label>TODO</Dev_ToggleDebugLog.label>
+  <!-- EN:  -->
+  <Dev_ToggleDebugLog.description>TODO</Dev_ToggleDebugLog.description>
+
+  <!-- EN: toggle debug actions menu -->
+  <Dev_ToggleDebugActionsMenu.label>TODO</Dev_ToggleDebugActionsMenu.label>
+  <!-- EN:  -->
+  <Dev_ToggleDebugActionsMenu.description>TODO</Dev_ToggleDebugActionsMenu.description>
+
+  <!-- EN: toggle debug log menu -->
+  <Dev_ToggleDebugLogMenu.label>TODO</Dev_ToggleDebugLogMenu.label>
+  <!-- EN:  -->
+  <Dev_ToggleDebugLogMenu.description>TODO</Dev_ToggleDebugLogMenu.description>
+
+  <!-- EN: toggle debug inspector -->
+  <Dev_ToggleDebugInspector.label>TODO</Dev_ToggleDebugInspector.label>
+  <!-- EN:  -->
+  <Dev_ToggleDebugInspector.description>TODO</Dev_ToggleDebugInspector.description>
+
+  <!-- EN: toggle debug settings menu -->
+  <Dev_ToggleDebugSettingsMenu.label>TODO</Dev_ToggleDebugSettingsMenu.label>
+  <!-- EN:  -->
+  <Dev_ToggleDebugSettingsMenu.description>TODO</Dev_ToggleDebugSettingsMenu.description>
+
 </LanguageData>

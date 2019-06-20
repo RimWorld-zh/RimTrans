@@ -1,13 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: take to best stockpile -->
-  <BestStockpile.label>TODO</BestStockpile.label>
-  
+
   <!-- EN: drop on floor -->
   <DropOnFloor.label>TODO</DropOnFloor.label>
-  
+  <!-- EN:  -->
+  <DropOnFloor.description>TODO</DropOnFloor.description>
+
+  <!-- EN: take to best stockpile -->
+  <BestStockpile.label>TODO</BestStockpile.label>
+  <!-- EN:  -->
+  <BestStockpile.description>TODO</BestStockpile.description>
+
   <!-- EN: take to {0} -->
   <SpecificStockpile.label>TODO</SpecificStockpile.label>
-  
+  <!-- EN:  -->
+  <SpecificStockpile.description>TODO</SpecificStockpile.description>
+
 </LanguageData>

@@ -1,6 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <NamerInitialSettlementColony.label>TODO</NamerInitialSettlementColony.label>
+  <!-- EN:  -->
+  <NamerInitialSettlementColony.description>TODO</NamerInitialSettlementColony.description>
+  <!-- EN:
+    <li>r_name->Colony</li>
+  -->
+  <NamerInitialSettlementColony.rulePack.rulesStrings>
+    <li>TODO</li>
+  </NamerInitialSettlementColony.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <NamerInitialSettlementTribe.label>TODO</NamerInitialSettlementTribe.label>
+  <!-- EN:  -->
+  <NamerInitialSettlementTribe.description>TODO</NamerInitialSettlementTribe.description>
+  <!-- EN:
+    <li>r_name->Village</li>
+  -->
+  <NamerInitialSettlementTribe.rulePack.rulesStrings>
+    <li>TODO</li>
+  </NamerInitialSettlementTribe.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <NamerFactionOutlander.label>TODO</NamerFactionOutlander.label>
+  <!-- EN:  -->
+  <NamerFactionOutlander.description>TODO</NamerFactionOutlander.description>
   <!-- EN:
     <li>r_name(p=3)->[nearnameinitial]</li>
     <li>r_name->[nearnameinitial] [political_union_outlander]</li>
@@ -10,59 +36,28 @@
     <li>nearnameinitial(p=3)->[PlaceOutlander]</li>
     <li>nearnameinitial->[Direction] [PlaceOutlander]</li>
   -->
-  <NamerFactionOutlander.rulePack.rulesStrings>TODO</NamerFactionOutlander.rulePack.rulesStrings>
-  
+  <NamerFactionOutlander.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerFactionOutlander.rulePack.rulesStrings>
   <!-- EN:
-    <li>r_name->The [AnimalBadass]s</li>
-    <li>r_name->The [AnimalBadass] Men</li>
-    <li>r_name->The [AnimalBadass]s of [ConceptBadass]</li>
-    <li>r_name->The [PersonBadass]s of [ConceptBadass]</li>
-    <li>r_name->The [PersonBadass]s</li>
-    <li>r_name->The [Enemy]s</li>
-    <li>r_name->The [Weapon] Men</li>
-    <li>r_name->The [Weapon]s</li>
-    <li>r_name->The [Weapon] [AnimalBadass]s</li>
-    <li>r_name->The [Weapon] [Enemy]s</li>
-    <li>r_name->The [ColorBadass] [Weapon]s</li>
-    <li>r_name->The [ColorBadass] [AnimalBadass]s</li>
-    <li>r_name->The [ColorBadass] [PersonBadass]s</li>
-    <li>r_name->The [ColorBadass] [Enemy]s</li>
-    <li>r_name->The [PersonBadass] [groupname]</li>
-    <li>r_name->The [Enemy] [Enemy]s</li>
-    <li>r_name->The [AdjectiveBadass] [groupname]</li>
-    <li>r_name->The [AdjectiveBadass] [AnimalBadass]s</li>
-    <li>r_name->The [AdjectiveBadass] [Enemy]s</li>
-    <li>r_name->The [AdjectiveBadass] [PersonBadass]s</li>
-    <li>r_name->The [PersonAlly]s of [ConceptBadass]</li>
-    <li>r_name(p=0.4)->The Eaters of [Gore]</li>
-    <li>r_name->[NamePerson]'s [Enemy]s</li>
-    <li>r_name->[NamePerson]'s [AnimalBadass]s</li>
-    <li>r_name->[NamePerson]'s [Weapon]s</li>
-    <li>r_name->[Weapon] [groupname]</li>
-    <li>r_name->[ConceptBadass] [groupname]</li>
+    <li>political_union_outlander->Words/Nouns/PoliticalUnions_Outlander</li>
+    <li>political_adjective->Words/Adjectives/PoliticalUnions</li>
   -->
-  <NamerFactionPirate.rulePack.rulesStrings>TODO</NamerFactionPirate.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>r_name->[tribalworld] [political_union_tribal]</li>
-    <li>r_name->The [tribalworld] [political_union_tribal]</li>
-    <li>r_name->The [Color] [TerrainFeature] [political_union_tribal]</li>
-    <li>r_name->[political_union_tribal] of [WordTribal]</li>
-    <li>r_name->The [Color] [Animal] [WordTribal]</li>
-    <li>r_name->The [WordTribal] of the [TerrainFeature]</li>
-  -->
-  <NamerFactionTribal.rulePack.rulesStrings>TODO</NamerFactionTribal.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>r_name->Colony</li>
-  -->
-  <NamerInitialSettlementColony.rulePack.rulesStrings>TODO</NamerInitialSettlementColony.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>r_name->Village</li>
-  -->
-  <NamerInitialSettlementTribe.rulePack.rulesStrings>TODO</NamerInitialSettlementTribe.rulePack.rulesStrings>
-  
+  <NamerFactionOutlander.rulePack.rulesFiles>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerFactionOutlander.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <NamerSettlementOutlander.label>TODO</NamerSettlementOutlander.label>
+  <!-- EN:  -->
+  <NamerSettlementOutlander.description>TODO</NamerSettlementOutlander.description>
   <!-- EN:
     <li>r_name(p=12)->[townname_wordgen]</li>
     <li>r_name(p=6)->[townname_fixed]</li>
@@ -115,8 +110,184 @@
     <li>townend->ron</li>
     <li>townend->well</li>
   -->
-  <NamerSettlementOutlander.rulePack.rulesStrings>TODO</NamerSettlementOutlander.rulePack.rulesStrings>
-  
+  <NamerSettlementOutlander.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerSettlementOutlander.rulePack.rulesStrings>
+  <!-- EN:
+    <li>townname_fixed->Names/OutlanderTown</li>
+    <li>concept_positive->Words/Nouns/Concepts_Positive</li>
+  -->
+  <NamerSettlementOutlander.rulePack.rulesFiles>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerSettlementOutlander.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <NamerFactionTribal.label>TODO</NamerFactionTribal.label>
+  <!-- EN:  -->
+  <NamerFactionTribal.description>TODO</NamerFactionTribal.description>
+  <!-- EN:
+    <li>r_name->[tribalworld] [political_union_tribal]</li>
+    <li>r_name->The [tribalworld] [political_union_tribal]</li>
+    <li>r_name->The [Color] [TerrainFeature] [political_union_tribal]</li>
+    <li>r_name->[political_union_tribal] of [WordTribal]</li>
+    <li>r_name->The [Color] [Animal] [WordTribal]</li>
+    <li>r_name->The [WordTribal] of the [TerrainFeature]</li>
+  -->
+  <NamerFactionTribal.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerFactionTribal.rulePack.rulesStrings>
+  <!-- EN:
+    <li>political_union_tribal->Words/Nouns/PoliticalUnions_Tribal</li>
+  -->
+  <NamerFactionTribal.rulePack.rulesFiles>
+    <li>TODO</li>
+  </NamerFactionTribal.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <NamerSettlementTribal.label>TODO</NamerSettlementTribal.label>
+  <!-- EN:  -->
+  <NamerSettlementTribal.description>TODO</NamerSettlementTribal.description>
+  <!-- EN:
+    <li>r_name(p=2)->[WordTribal]</li>
+    <li>r_name->[Color] [WordTribal]</li>
+    <li>r_name->[Color] [TerrainFeature]</li>
+    <li>r_name->[WordTribal] [TerrainFeature]</li>
+  -->
+  <NamerSettlementTribal.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerSettlementTribal.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <NamerFactionPirate.label>TODO</NamerFactionPirate.label>
+  <!-- EN:  -->
+  <NamerFactionPirate.description>TODO</NamerFactionPirate.description>
+  <!-- EN:
+    <li>r_name->The [AnimalBadass]s</li>
+    <li>r_name->The [AnimalBadass] Men</li>
+    <li>r_name->The [AnimalBadass]s of [ConceptBadass]</li>
+    <li>r_name->The [PersonBadass]s of [ConceptBadass]</li>
+    <li>r_name->The [PersonBadass]s</li>
+    <li>r_name->The [Enemy]s</li>
+    <li>r_name->The [Weapon] Men</li>
+    <li>r_name->The [Weapon]s</li>
+    <li>r_name->The [Weapon] [AnimalBadass]s</li>
+    <li>r_name->The [Weapon] [Enemy]s</li>
+    <li>r_name->The [ColorBadass] [Weapon]s</li>
+    <li>r_name->The [ColorBadass] [AnimalBadass]s</li>
+    <li>r_name->The [ColorBadass] [PersonBadass]s</li>
+    <li>r_name->The [ColorBadass] [Enemy]s</li>
+    <li>r_name->The [PersonBadass] [groupname]</li>
+    <li>r_name->The [Enemy] [Enemy]s</li>
+    <li>r_name->The [AdjectiveBadass] [groupname]</li>
+    <li>r_name->The [AdjectiveBadass] [AnimalBadass]s</li>
+    <li>r_name->The [AdjectiveBadass] [Enemy]s</li>
+    <li>r_name->The [AdjectiveBadass] [PersonBadass]s</li>
+    <li>r_name->The [PersonAlly]s of [ConceptBadass]</li>
+    <li>r_name(p=0.4)->The Eaters of [Gore]</li>
+    <li>r_name->[NamePerson]'s [Enemy]s</li>
+    <li>r_name->[NamePerson]'s [AnimalBadass]s</li>
+    <li>r_name->[NamePerson]'s [Weapon]s</li>
+    <li>r_name->[Weapon] [groupname]</li>
+    <li>r_name->[ConceptBadass] [groupname]</li>
+  -->
+  <NamerFactionPirate.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerFactionPirate.rulePack.rulesStrings>
+  <!-- EN:
+    <li>groupname->Words/Nouns/GroupNames</li>
+  -->
+  <NamerFactionPirate.rulePack.rulesFiles>
+    <li>TODO</li>
+  </NamerFactionPirate.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <NamerSettlementPirate.label>TODO</NamerSettlementPirate.label>
+  <!-- EN:  -->
+  <NamerSettlementPirate.description>TODO</NamerSettlementPirate.description>
   <!-- EN:
     <li>r_name(p=4)->[townname_combo]</li>
     <li>r_name->[townname_wordgen]</li>
@@ -159,14 +330,47 @@
     <li>townendevil->thard</li>
     <li>townendevil->thad</li>
   -->
-  <NamerSettlementPirate.rulePack.rulesStrings>TODO</NamerSettlementPirate.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>r_name(p=2)->[WordTribal]</li>
-    <li>r_name->[Color] [WordTribal]</li>
-    <li>r_name->[Color] [TerrainFeature]</li>
-    <li>r_name->[WordTribal] [TerrainFeature]</li>
-  -->
-  <NamerSettlementTribal.rulePack.rulesStrings>TODO</NamerSettlementTribal.rulePack.rulesStrings>
-  
+  <NamerSettlementPirate.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerSettlementPirate.rulePack.rulesStrings>
+
 </LanguageData>

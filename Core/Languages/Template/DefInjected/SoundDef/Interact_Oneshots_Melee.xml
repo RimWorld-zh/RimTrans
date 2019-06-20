@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_HitPawn.label>TODO</Pawn_Melee_Punch_HitPawn.label>
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_HitPawn.description>TODO</Pawn_Melee_Punch_HitPawn.description>
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_HitPawn.subSounds.0.name>TODO</Pawn_Melee_Punch_HitPawn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_HitBuilding.label>TODO</Pawn_Melee_Punch_HitBuilding.label>
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_HitBuilding.description>TODO</Pawn_Melee_Punch_HitBuilding.description>
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_HitBuilding.subSounds.0.name>TODO</Pawn_Melee_Punch_HitBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_Miss.label>TODO</Pawn_Melee_Punch_Miss.label>
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_Miss.description>TODO</Pawn_Melee_Punch_Miss.description>
+  <!-- EN:  -->
+  <Pawn_Melee_Punch_Miss.subSounds.0.name>TODO</Pawn_Melee_Punch_Miss.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_HitPawn.label>TODO</Pawn_Melee_SmallScratch_HitPawn.label>
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_HitPawn.description>TODO</Pawn_Melee_SmallScratch_HitPawn.description>
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_HitPawn.subSounds.0.name>TODO</Pawn_Melee_SmallScratch_HitPawn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_HitBuilding.label>TODO</Pawn_Melee_SmallScratch_HitBuilding.label>
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_HitBuilding.description>TODO</Pawn_Melee_SmallScratch_HitBuilding.description>
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_HitBuilding.subSounds.0.name>TODO</Pawn_Melee_SmallScratch_HitBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_Miss.label>TODO</Pawn_Melee_SmallScratch_Miss.label>
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_Miss.description>TODO</Pawn_Melee_SmallScratch_Miss.description>
+  <!-- EN:  -->
+  <Pawn_Melee_SmallScratch_Miss.subSounds.0.name>TODO</Pawn_Melee_SmallScratch_Miss.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_HitPawn.label>TODO</Pawn_Melee_BigBash_HitPawn.label>
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_HitPawn.description>TODO</Pawn_Melee_BigBash_HitPawn.description>
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_HitPawn.subSounds.0.name>TODO</Pawn_Melee_BigBash_HitPawn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_HitBuilding.label>TODO</Pawn_Melee_BigBash_HitBuilding.label>
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_HitBuilding.description>TODO</Pawn_Melee_BigBash_HitBuilding.description>
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_HitBuilding.subSounds.0.name>TODO</Pawn_Melee_BigBash_HitBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_Miss.label>TODO</Pawn_Melee_BigBash_Miss.label>
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_Miss.description>TODO</Pawn_Melee_BigBash_Miss.description>
+  <!-- EN:  -->
+  <Pawn_Melee_BigBash_Miss.subSounds.0.name>TODO</Pawn_Melee_BigBash_Miss.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_HitPawn.label>TODO</Pawn_Melee_MechanoidBash_HitPawn.label>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_HitPawn.description>TODO</Pawn_Melee_MechanoidBash_HitPawn.description>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_HitPawn.subSounds.0.name>TODO</Pawn_Melee_MechanoidBash_HitPawn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_HitBuilding.label>TODO</Pawn_Melee_MechanoidBash_HitBuilding.label>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_HitBuilding.description>TODO</Pawn_Melee_MechanoidBash_HitBuilding.description>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_HitBuilding.subSounds.0.name>TODO</Pawn_Melee_MechanoidBash_HitBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_Miss.label>TODO</Pawn_Melee_MechanoidBash_Miss.label>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_Miss.description>TODO</Pawn_Melee_MechanoidBash_Miss.description>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidBash_Miss.subSounds.0.name>TODO</Pawn_Melee_MechanoidBash_Miss.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_HitPawn.label>TODO</Pawn_Melee_MechanoidSlash_HitPawn.label>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_HitPawn.description>TODO</Pawn_Melee_MechanoidSlash_HitPawn.description>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_HitPawn.subSounds.0.name>TODO</Pawn_Melee_MechanoidSlash_HitPawn.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_HitBuilding.label>TODO</Pawn_Melee_MechanoidSlash_HitBuilding.label>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_HitBuilding.description>TODO</Pawn_Melee_MechanoidSlash_HitBuilding.description>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_HitBuilding.subSounds.0.name>TODO</Pawn_Melee_MechanoidSlash_HitBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_Miss.label>TODO</Pawn_Melee_MechanoidSlash_Miss.label>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_Miss.description>TODO</Pawn_Melee_MechanoidSlash_Miss.description>
+  <!-- EN:  -->
+  <Pawn_Melee_MechanoidSlash_Miss.subSounds.0.name>TODO</Pawn_Melee_MechanoidSlash_Miss.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MeleeHit_Metal_Sharp.label>TODO</MeleeHit_Metal_Sharp.label>
+  <!-- EN:  -->
+  <MeleeHit_Metal_Sharp.description>TODO</MeleeHit_Metal_Sharp.description>
+  <!-- EN:  -->
+  <MeleeHit_Metal_Sharp.subSounds.0.name>TODO</MeleeHit_Metal_Sharp.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MeleeHit_Metal_Blunt.label>TODO</MeleeHit_Metal_Blunt.label>
+  <!-- EN:  -->
+  <MeleeHit_Metal_Blunt.description>TODO</MeleeHit_Metal_Blunt.description>
+  <!-- EN:  -->
+  <MeleeHit_Metal_Blunt.subSounds.0.name>TODO</MeleeHit_Metal_Blunt.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MeleeHit_Stone.label>TODO</MeleeHit_Stone.label>
+  <!-- EN:  -->
+  <MeleeHit_Stone.description>TODO</MeleeHit_Stone.description>
+  <!-- EN:  -->
+  <MeleeHit_Stone.subSounds.0.name>TODO</MeleeHit_Stone.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MeleeHit_Wood.label>TODO</MeleeHit_Wood.label>
+  <!-- EN:  -->
+  <MeleeHit_Wood.description>TODO</MeleeHit_Wood.description>
+  <!-- EN:  -->
+  <MeleeHit_Wood.subSounds.0.name>TODO</MeleeHit_Wood.subSounds.0.name>
+
+</LanguageData>

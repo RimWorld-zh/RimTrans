@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Interact_BeatFire.label>TODO</Interact_BeatFire.label>
+  <!-- EN:  -->
+  <Interact_BeatFire.description>TODO</Interact_BeatFire.description>
+  <!-- EN:  -->
+  <Interact_BeatFire.subSounds.0.name>TODO</Interact_BeatFire.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Ignite.label>TODO</Interact_Ignite.label>
+  <!-- EN:  -->
+  <Interact_Ignite.description>TODO</Interact_Ignite.description>
+  <!-- EN:  -->
+  <Interact_Ignite.subSounds.0.name>TODO</Interact_Ignite.subSounds.0.name>
+
+</LanguageData>

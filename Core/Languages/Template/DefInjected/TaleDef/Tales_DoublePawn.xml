@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: person captured -->
   <Captured.label>TODO</Captured.label>
+  <!-- EN:  -->
+  <Captured.description>TODO</Captured.description>
   <!-- EN:
     <li>tale_noun->[CAPTURER_nameDef] capturing [PRISONER_nameDef]</li>
     <li>tale_noun->[PRISONER_nameDef] being captured by [CAPTURER_nameDef]</li>
@@ -28,13 +30,108 @@
     <li>desc_sentence->[CAPTURER_nameDef] is laughing as tears well up in [PRISONER_nameDef]'s eyes.</li>
     <li>desc_sentence->[CAPTURER_nameDef] is kicking [PRISONER_nameDef] for no obvious reason.</li>
   -->
-  <Captured.rulePack.rulesStrings>TODO</Captured.rulePack.rulesStrings>
-  
-  <!-- EN: defeated hostile leader -->
-  <DefeatedHostileFactionLeader.label>TODO</DefeatedHostileFactionLeader.label>
-  
+  <Captured.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Captured.rulePack.rulesStrings>
+
+  <!-- EN: person recruited -->
+  <Recruited.label>TODO</Recruited.label>
+  <!-- EN:  -->
+  <Recruited.description>TODO</Recruited.description>
+  <!-- EN:
+    <li>tale_noun->[RECRUITER_nameDef] recruiting [JOINER_nameDef]</li>
+    <li>tale_noun->[JOINER_nameDef] being recruited by [RECRUITER_nameDef]</li>
+    <li>tale_noun->the recruitment of [JOINER_nameDef]</li>
+    <li>image->[RECRUITER_nameFull] recruiting [JOINER_nameFull] [circumstance_group]</li>
+    <li>image->[RECRUITER_nameFull] welcoming [JOINER_nameFull] as [JOINER_pronoun] becomes a colonist [circumstance_group]</li>
+    <li>image->[RECRUITER_nameFull] speaking convincingly to [JOINER_nameFull] [circumstance_group]</li>
+    <li>circumstance_phrase->with obvious goodwill</li>
+    <li>circumstance_phrase->with a hearty handshake</li>
+    <li>circumstance_phrase->with smiles all around</li>
+    <li>circumstance_phrase->in front of the whole colony</li>
+    <li>circumstance_phrase->in a prison cell</li>
+    <li>desc_sentence->[JOINER_nameDef] is nodding in understanding.</li>
+    <li>desc_sentence->[JOINER_nameDef] is smiling and making eye contact.</li>
+    <li>desc_sentence->[JOINER_nameDef] looks relieved.</li>
+    <li>desc_sentence->[JOINER_nameDef] looks hopeful.</li>
+  -->
+  <Recruited.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Recruited.rulePack.rulesStrings>
+
+  <!-- EN: animal hunted -->
+  <Hunted.label>TODO</Hunted.label>
+  <!-- EN:  -->
+  <Hunted.description>TODO</Hunted.description>
+  <!-- EN:
+    <li>tale_noun->[HUNTER_nameDef] hunting [PREY_nameDef]</li>
+    <li>tale_noun->[PREY_nameDef] being hunted by [HUNTER_nameDef]</li>
+    <li>tale_noun->[HUNTER_nameDef]'s successful hunt</li>
+    <li>image->[PREY_nameFull] being hunted by [HUNTER_nameFull] [circumstance_group]</li>
+    <li>image->[HUNTER_nameFull] stalking [PREY_nameFull] from afar [circumstance_group]</li>
+    <li>image->[HUNTER_nameFull] hunting [PREY_nameFull] [circumstance_group]</li>
+    <li>circumstance_phrase->as [PREY_nameDef] relaxes</li>
+    <li>circumstance_phrase->as [PREY_nameDef] travels</li>
+    <li>circumstance_phrase->as [PREY_nameDef] eats</li>
+    <li>desc_sentence->[PREY_nameDef] seems totally oblivious.</li>
+    <li>desc_sentence->[HUNTER_nameDef] is gripping [HUNTER_possessive] weapon tightly.</li>
+    <li>desc_sentence->[PREY_nameDef] is looking around as though [PREY_pronoun] senses that something is wrong.</li>
+  -->
+  <Hunted.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Hunted.rulePack.rulesStrings>
+
   <!-- EN: surgery performed -->
   <DidSurgery.label>TODO</DidSurgery.label>
+  <!-- EN:  -->
+  <DidSurgery.description>TODO</DidSurgery.description>
   <!-- EN:
     <li>tale_noun->[SURGEON_nameDef] operating on [PATIENT_nameDef]</li>
     <li>tale_noun->[SURGEON_nameDef] performing a medical operation on [PATIENT_nameDef]</li>
@@ -51,10 +148,27 @@
     <li>desc_sentence->[SURGEON_nameDef] has blood smeared on [SURGEON_possessive] face.</li>
     <li>desc_sentence->[PATIENT_nameDef] is shaking and writhing.</li>
   -->
-  <DidSurgery.rulePack.rulesStrings>TODO</DidSurgery.rulePack.rulesStrings>
-  
+  <DidSurgery.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </DidSurgery.rulePack.rulesStrings>
+
   <!-- EN: prisoner executed -->
   <ExecutedPrisoner.label>TODO</ExecutedPrisoner.label>
+  <!-- EN:  -->
+  <ExecutedPrisoner.description>TODO</ExecutedPrisoner.description>
   <!-- EN:
     <li>tale_noun->[executioner] executing [PRISONER_nameDef]</li>
     <li>tale_noun->[PRISONER_nameDef] being executed by [EXECUTIONER_nameDef]</li>
@@ -84,28 +198,40 @@
     <li>desc_sentence->[PRISONER_nameDef] has closed [PRISONER_possessive] eyes, seeming to pray to a higher power.</li>
     <li>desc_sentence->[PRISONER_nameDef] looks defiant.</li>
   -->
-  <ExecutedPrisoner.rulePack.rulesStrings>TODO</ExecutedPrisoner.rulePack.rulesStrings>
-  
-  <!-- EN: animal hunted -->
-  <Hunted.label>TODO</Hunted.label>
-  <!-- EN:
-    <li>tale_noun->[HUNTER_nameDef] hunting [PREY_nameDef]</li>
-    <li>tale_noun->[PREY_nameDef] being hunted by [HUNTER_nameDef]</li>
-    <li>tale_noun->[HUNTER_nameDef]'s successful hunt</li>
-    <li>image->[PREY_nameFull] being hunted by [HUNTER_nameFull] [circumstance_group]</li>
-    <li>image->[HUNTER_nameFull] stalking [PREY_nameFull] from afar [circumstance_group]</li>
-    <li>image->[HUNTER_nameFull] hunting [PREY_nameFull] [circumstance_group]</li>
-    <li>circumstance_phrase->as [PREY_nameDef] relaxes</li>
-    <li>circumstance_phrase->as [PREY_nameDef] travels</li>
-    <li>circumstance_phrase->as [PREY_nameDef] eats</li>
-    <li>desc_sentence->[PREY_nameDef] seems totally oblivious.</li>
-    <li>desc_sentence->[HUNTER_nameDef] is gripping [HUNTER_possessive] weapon tightly.</li>
-    <li>desc_sentence->[PREY_nameDef] is looking around as though [PREY_pronoun] senses that something is wrong.</li>
-  -->
-  <Hunted.rulePack.rulesStrings>TODO</Hunted.rulePack.rulesStrings>
-  
+  <ExecutedPrisoner.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ExecutedPrisoner.rulePack.rulesStrings>
+
   <!-- EN: colonist kidnapped -->
   <KidnappedColonist.label>TODO</KidnappedColonist.label>
+  <!-- EN:  -->
+  <KidnappedColonist.description>TODO</KidnappedColonist.description>
   <!-- EN:
     <li>tale_noun->[KIDNAPPER_nameDef] kidnapping [VICTIM_nameDef]</li>
     <li>tale_noun->[VICTIM_nameDef] being kidnapped by [KIDNAPPER_nameDef]</li>
@@ -127,10 +253,71 @@
     <li>desc_sentence->[VICTIM_nameDef] looks broken and exhausted.</li>
     <li>desc_sentence->[VICTIM_nameDef] appears to be badly wounded.</li>
   -->
-  <KidnappedColonist.rulePack.rulesStrings>TODO</KidnappedColonist.rulePack.rulesStrings>
-  
+  <KidnappedColonist.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </KidnappedColonist.rulePack.rulesStrings>
+
+  <!-- EN: animal tamed -->
+  <TamedAnimal.label>TODO</TamedAnimal.label>
+  <!-- EN:  -->
+  <TamedAnimal.description>TODO</TamedAnimal.description>
+  <!-- EN:
+    <li>tale_noun->the taming of [ANIMAL_nameDef] by [TAMER_nameDef]</li>
+    <li>tale_noun->[TAMER_nameDef]'s taming of [ANIMAL_nameDef]</li>
+    <li>image->[TAMER_nameFull] taming [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>image->[TAMER_nameFull] offering a morsel of food to [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>image->[TAMER_nameFull] whispering to a skittish [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>image->[TAMER_nameFull] calming a wild [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>circumstance_phrase->with great care and caution</li>
+    <li>circumstance_phrase->with a smile</li>
+    <li>circumstance_phrase->while exhausted but happy</li>
+    <li>desc_sentence->[ANIMAL_nameDef] is snarling aggressively.</li>
+    <li>desc_sentence->[ANIMAL_nameDef] looks sleepy and drunk with love.</li>
+    <li>desc_sentence->[ANIMAL_nameDef] appears to be in some sort of hypnotic state.</li>
+    <li>desc_sentence->[ANIMAL_nameDef] looks scared but interested.</li>
+    <li>desc_sentence->[ANIMAL_nameDef] appears fascinated.</li>
+    <li>desc_sentence->[TAMER_nameDef] is projecting a powerful sense of love towards [ANIMAL_nameDef].</li>
+  -->
+  <TamedAnimal.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </TamedAnimal.rulePack.rulesStrings>
+
   <!-- EN: death -->
   <KilledBy.label>TODO</KilledBy.label>
+  <!-- EN:  -->
+  <KilledBy.description>TODO</KilledBy.description>
   <!-- EN:
     <li>tale_noun->[KILLER_nameDef] killing [VICTIM_nameDef]</li>
     <li>tale_noun->[VICTIM_nameDef] being killed by [KILLER_nameDef]</li>
@@ -159,37 +346,39 @@
     <li>desc_sentence->[KILLER_nameDef] looks pleased with the situation.</li>
     <li>desc_sentence->[KILLER_nameDef] looks triumphant.</li>
   -->
-  <KilledBy.rulePack.rulesStrings>TODO</KilledBy.rulePack.rulesStrings>
-  
-  <!-- EN: colonist killed -->
-  <KilledColonist.label>TODO</KilledColonist.label>
-  
-  <!-- EN: colony animal killed -->
-  <KilledColonyAnimal.label>TODO</KilledColonyAnimal.label>
-  
-  <!-- EN: person recruited -->
-  <Recruited.label>TODO</Recruited.label>
-  <!-- EN:
-    <li>tale_noun->[RECRUITER_nameDef] recruiting [JOINER_nameDef]</li>
-    <li>tale_noun->[JOINER_nameDef] being recruited by [RECRUITER_nameDef]</li>
-    <li>tale_noun->the recruitment of [JOINER_nameDef]</li>
-    <li>image->[RECRUITER_nameFull] recruiting [JOINER_nameFull] [circumstance_group]</li>
-    <li>image->[RECRUITER_nameFull] welcoming [JOINER_nameFull] as [JOINER_pronoun] becomes a colonist [circumstance_group]</li>
-    <li>image->[RECRUITER_nameFull] speaking convincingly to [JOINER_nameFull] [circumstance_group]</li>
-    <li>circumstance_phrase->with obvious goodwill</li>
-    <li>circumstance_phrase->with a hearty handshake</li>
-    <li>circumstance_phrase->with smiles all around</li>
-    <li>circumstance_phrase->in front of the whole colony</li>
-    <li>circumstance_phrase->in a prison cell</li>
-    <li>desc_sentence->[JOINER_nameDef] is nodding in understanding.</li>
-    <li>desc_sentence->[JOINER_nameDef] is smiling and making eye contact.</li>
-    <li>desc_sentence->[JOINER_nameDef] looks relieved.</li>
-    <li>desc_sentence->[JOINER_nameDef] looks hopeful.</li>
-  -->
-  <Recruited.rulePack.rulesStrings>TODO</Recruited.rulePack.rulesStrings>
-  
+  <KilledBy.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </KilledBy.rulePack.rulesStrings>
+
   <!-- EN: prisoner sold -->
   <SoldPrisoner.label>TODO</SoldPrisoner.label>
+  <!-- EN:  -->
+  <SoldPrisoner.description>TODO</SoldPrisoner.description>
   <!-- EN:
     <li>tale_noun->the selling of [PRISONER_nameDef] to a trader</li>
     <li>tale_noun->[SELLER_nameDef] selling [PRISONER_nameDef] as a slave</li>
@@ -212,50 +401,33 @@
     <li>desc_sentence->[SELLER_nameDef] is thrusting the chains of [PRISONER_nameDef] into [TRADER_nameDef]'s hands.</li>
     <li>desc_sentence->An air of hopelessness pervades the situation.</li>
   -->
-  <SoldPrisoner.rulePack.rulesStrings>TODO</SoldPrisoner.rulePack.rulesStrings>
-  
-  <!-- EN: animal tamed -->
-  <TamedAnimal.label>TODO</TamedAnimal.label>
-  <!-- EN:
-    <li>tale_noun->the taming of [ANIMAL_nameDef] by [TAMER_nameDef]</li>
-    <li>tale_noun->[TAMER_nameDef]'s taming of [ANIMAL_nameDef]</li>
-    <li>image->[TAMER_nameFull] taming [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>image->[TAMER_nameFull] offering a morsel of food to [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>image->[TAMER_nameFull] whispering to a skittish [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>image->[TAMER_nameFull] calming a wild [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>circumstance_phrase->with great care and caution</li>
-    <li>circumstance_phrase->with a smile</li>
-    <li>circumstance_phrase->while exhausted but happy</li>
-    <li>desc_sentence->[ANIMAL_nameDef] is snarling aggressively.</li>
-    <li>desc_sentence->[ANIMAL_nameDef] looks sleepy and drunk with love.</li>
-    <li>desc_sentence->[ANIMAL_nameDef] appears to be in some sort of hypnotic state.</li>
-    <li>desc_sentence->[ANIMAL_nameDef] looks scared but interested.</li>
-    <li>desc_sentence->[ANIMAL_nameDef] appears fascinated.</li>
-    <li>desc_sentence->[TAMER_nameDef] is projecting a powerful sense of love towards [ANIMAL_nameDef].</li>
-  -->
-  <TamedAnimal.rulePack.rulesStrings>TODO</TamedAnimal.rulePack.rulesStrings>
-  
-  <!-- EN: traded with someone -->
-  <TradedWith.label>TODO</TradedWith.label>
-  <!-- EN:
-    <li>tale_noun->a trade between [SELLER_nameFull] and [BUYER_nameFull]</li>
-    <li>image->[BUYER_nameFull] buying goods from [SELLER_nameFull] [circumstance_group]</li>
-    <li>image->[SELLER_nameFull] selling goods to [BUYER_nameFull] [circumstance_group]</li>
-    <li>circumstance_phrase->with greedy intent</li>
-    <li>circumstance_phrase->while [SELLER_nameDef] smirks at [BUYER_shortNameDef]</li>
-    <li>desc_sentence->[BUYER_nameDef] is examining [SELLER_nameDef]'s wares.</li>
-    <li>desc_sentence->[SELLER_nameDef] considers an item.</li>
-    <li>desc_sentence->[SELLER_nameDef] starts haggling.</li>
-    <li>desc_sentence->[BUYER_nameDef] argues with [SELLER_nameDef].</li>
-    <li>desc_sentence->[SELLER_nameDef] and [BUYER_nameDef] agree on a price.</li>
-    <li>desc_sentence->[BUYER_nameDef] pays for the item.</li>
-    <li>desc_sentence->[SELLER_nameDef] is counting [SELLER_possessive] money.</li>
-    <li>desc_sentence->[BUYER_nameDef] is taking [BUYER_possessive] goods.</li>
-  -->
-  <TradedWith.rulePack.rulesStrings>TODO</TradedWith.rulePack.rulesStrings>
-  
+  <SoldPrisoner.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </SoldPrisoner.rulePack.rulesStrings>
+
   <!-- EN: animal trained -->
   <TrainedAnimal.label>TODO</TrainedAnimal.label>
+  <!-- EN:  -->
+  <TrainedAnimal.description>TODO</TrainedAnimal.description>
   <!-- EN:
     <li>tale_noun->[TRAINER_nameDef] training [ANIMAL_nameDef]</li>
     <li>tale_noun->the training of [ANIMAL_nameDef]</li>
@@ -290,6 +462,89 @@
     <li>desc_sentence->[TRAINER_nameDef] is depicted with [quantity] arms.</li>
     <li>desc_sentence->[TRAINER_nameDef] is morphing into [ANIMAL_ShortDefinite].</li>
   -->
-  <TrainedAnimal.rulePack.rulesStrings>TODO</TrainedAnimal.rulePack.rulesStrings>
-  
+  <TrainedAnimal.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </TrainedAnimal.rulePack.rulesStrings>
+
+  <!-- EN: colonist killed -->
+  <KilledColonist.label>TODO</KilledColonist.label>
+  <!-- EN:  -->
+  <KilledColonist.description>TODO</KilledColonist.description>
+
+  <!-- EN: colony animal killed -->
+  <KilledColonyAnimal.label>TODO</KilledColonyAnimal.label>
+  <!-- EN:  -->
+  <KilledColonyAnimal.description>TODO</KilledColonyAnimal.description>
+
+  <!-- EN: defeated hostile leader -->
+  <DefeatedHostileFactionLeader.label>TODO</DefeatedHostileFactionLeader.label>
+  <!-- EN:  -->
+  <DefeatedHostileFactionLeader.description>TODO</DefeatedHostileFactionLeader.description>
+
+  <!-- EN: traded with someone -->
+  <TradedWith.label>TODO</TradedWith.label>
+  <!-- EN:  -->
+  <TradedWith.description>TODO</TradedWith.description>
+  <!-- EN:
+    <li>tale_noun->a trade between [SELLER_nameFull] and [BUYER_nameFull]</li>
+    <li>image->[BUYER_nameFull] buying goods from [SELLER_nameFull] [circumstance_group]</li>
+    <li>image->[SELLER_nameFull] selling goods to [BUYER_nameFull] [circumstance_group]</li>
+    <li>circumstance_phrase->with greedy intent</li>
+    <li>circumstance_phrase->while [SELLER_nameDef] smirks at [BUYER_shortNameDef]</li>
+    <li>desc_sentence->[BUYER_nameDef] is examining [SELLER_nameDef]'s wares.</li>
+    <li>desc_sentence->[SELLER_nameDef] considers an item.</li>
+    <li>desc_sentence->[SELLER_nameDef] starts haggling.</li>
+    <li>desc_sentence->[BUYER_nameDef] argues with [SELLER_nameDef].</li>
+    <li>desc_sentence->[SELLER_nameDef] and [BUYER_nameDef] agree on a price.</li>
+    <li>desc_sentence->[BUYER_nameDef] pays for the item.</li>
+    <li>desc_sentence->[SELLER_nameDef] is counting [SELLER_possessive] money.</li>
+    <li>desc_sentence->[BUYER_nameDef] is taking [BUYER_possessive] goods.</li>
+  -->
+  <TradedWith.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </TradedWith.rulePack.rulesStrings>
+
 </LanguageData>

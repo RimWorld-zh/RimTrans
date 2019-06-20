@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Standard_Pickup.label>TODO</Standard_Pickup.label>
+  <!-- EN:  -->
+  <Standard_Pickup.description>TODO</Standard_Pickup.description>
+  <!-- EN:  -->
+  <Standard_Pickup.subSounds.0.name>TODO</Standard_Pickup.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Standard_Drop.label>TODO</Standard_Drop.label>
+  <!-- EN:  -->
+  <Standard_Drop.description>TODO</Standard_Drop.description>
+  <!-- EN:  -->
+  <Standard_Drop.subSounds.0.name>TODO</Standard_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Grain_Drop.label>TODO</Grain_Drop.label>
+  <!-- EN:  -->
+  <Grain_Drop.description>TODO</Grain_Drop.description>
+  <!-- EN:  -->
+  <Grain_Drop.subSounds.0.name>TODO</Grain_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Metal_Drop.label>TODO</Metal_Drop.label>
+  <!-- EN:  -->
+  <Metal_Drop.description>TODO</Metal_Drop.description>
+  <!-- EN:  -->
+  <Metal_Drop.subSounds.0.name>TODO</Metal_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Corpse_Drop.label>TODO</Corpse_Drop.label>
+  <!-- EN:  -->
+  <Corpse_Drop.description>TODO</Corpse_Drop.description>
+  <!-- EN:  -->
+  <Corpse_Drop.subSounds.0.name>TODO</Corpse_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Wood_Drop.label>TODO</Wood_Drop.label>
+  <!-- EN:  -->
+  <Wood_Drop.description>TODO</Wood_Drop.description>
+  <!-- EN:  -->
+  <Wood_Drop.subSounds.0.name>TODO</Wood_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Silver_Drop.label>TODO</Silver_Drop.label>
+  <!-- EN:  -->
+  <Silver_Drop.description>TODO</Silver_Drop.description>
+  <!-- EN:  -->
+  <Silver_Drop.subSounds.0.name>TODO</Silver_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Stone_Drop.label>TODO</Stone_Drop.label>
+  <!-- EN:  -->
+  <Stone_Drop.description>TODO</Stone_Drop.description>
+  <!-- EN:  -->
+  <Stone_Drop.subSounds.0.name>TODO</Stone_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ChunkRock_Drop.label>TODO</ChunkRock_Drop.label>
+  <!-- EN:  -->
+  <ChunkRock_Drop.description>TODO</ChunkRock_Drop.description>
+  <!-- EN:  -->
+  <ChunkRock_Drop.subSounds.0.name>TODO</ChunkRock_Drop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ChunkSlag_Drop.label>TODO</ChunkSlag_Drop.label>
+  <!-- EN:  -->
+  <ChunkSlag_Drop.description>TODO</ChunkSlag_Drop.description>
+  <!-- EN:  -->
+  <ChunkSlag_Drop.subSounds.0.name>TODO</ChunkSlag_Drop.subSounds.0.name>
+
+</LanguageData>

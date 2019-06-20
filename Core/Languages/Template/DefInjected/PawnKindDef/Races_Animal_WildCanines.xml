@@ -1,56 +1,310 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: arctic fox -->
-  <Fox_Arctic.label>TODO</Fox_Arctic.label>
-  <!-- EN: arctic foxes -->
-  <Fox_Arctic.labelPlural>TODO</Fox_Arctic.labelPlural>
-  <!-- EN: arctic fox puppy -->
-  <Fox_Arctic.lifeStages.arctic_fox_puppy.label>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.label>
-  <!-- EN: arctic fox puppies -->
-  <Fox_Arctic.lifeStages.arctic_fox_puppy.labelPlural>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.labelPlural>
-  
-  <!-- EN: fennec fox -->
-  <Fox_Fennec.label>TODO</Fox_Fennec.label>
-  <!-- EN: fennec foxes -->
-  <Fox_Fennec.labelPlural>TODO</Fox_Fennec.labelPlural>
-  <!-- EN: fennec fox puppy -->
-  <Fox_Fennec.lifeStages.fennec_fox_puppy.label>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.label>
-  <!-- EN: fennec fox puppies -->
-  <Fox_Fennec.lifeStages.fennec_fox_puppy.labelPlural>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.labelPlural>
-  
-  <!-- EN: red fox -->
-  <Fox_Red.label>TODO</Fox_Red.label>
-  <!-- EN: red foxes -->
-  <Fox_Red.labelPlural>TODO</Fox_Red.labelPlural>
-  <!-- EN: red fox puppy -->
-  <Fox_Red.lifeStages.red_fox_puppy.label>TODO</Fox_Red.lifeStages.red_fox_puppy.label>
-  <!-- EN: red fox puppies -->
-  <Fox_Red.lifeStages.red_fox_puppy.labelPlural>TODO</Fox_Red.lifeStages.red_fox_puppy.labelPlural>
-  
+
   <!-- EN: warg -->
   <Warg.label>TODO</Warg.label>
+  <!-- EN:  -->
+  <Warg.description>TODO</Warg.description>
+  <!-- EN:  -->
+  <Warg.labelPlural>TODO</Warg.labelPlural>
   <!-- EN: warg puppy -->
   <Warg.lifeStages.warg_puppy.label>TODO</Warg.lifeStages.warg_puppy.label>
   <!-- EN: warg puppies -->
   <Warg.lifeStages.warg_puppy.labelPlural>TODO</Warg.lifeStages.warg_puppy.labelPlural>
-  
-  <!-- EN: arctic wolf -->
-  <Wolf_Arctic.label>TODO</Wolf_Arctic.label>
-  <!-- EN: arctic wolves -->
-  <Wolf_Arctic.labelPlural>TODO</Wolf_Arctic.labelPlural>
-  <!-- EN: arctic wolf puppy -->
-  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.label>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.label>
-  <!-- EN: arctic wolf puppies -->
-  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelPlural>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelPlural>
-  
+  <!-- EN:  -->
+  <Warg.lifeStages.warg_puppy.labelMale>TODO</Warg.lifeStages.warg_puppy.labelMale>
+  <!-- EN:  -->
+  <Warg.lifeStages.warg_puppy.labelMalePlural>TODO</Warg.lifeStages.warg_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.warg_puppy.labelFemale>TODO</Warg.lifeStages.warg_puppy.labelFemale>
+  <!-- EN:  -->
+  <Warg.lifeStages.warg_puppy.labelFemalePlural>TODO</Warg.lifeStages.warg_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.1.label>TODO</Warg.lifeStages.1.label>
+  <!-- EN:  -->
+  <Warg.lifeStages.1.labelPlural>TODO</Warg.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.1.labelMale>TODO</Warg.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Warg.lifeStages.1.labelMalePlural>TODO</Warg.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.1.labelFemale>TODO</Warg.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Warg.lifeStages.1.labelFemalePlural>TODO</Warg.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.2.label>TODO</Warg.lifeStages.2.label>
+  <!-- EN:  -->
+  <Warg.lifeStages.2.labelPlural>TODO</Warg.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.2.labelMale>TODO</Warg.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Warg.lifeStages.2.labelMalePlural>TODO</Warg.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Warg.lifeStages.2.labelFemale>TODO</Warg.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Warg.lifeStages.2.labelFemalePlural>TODO</Warg.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Warg.labelMale>TODO</Warg.labelMale>
+  <!-- EN:  -->
+  <Warg.labelMalePlural>TODO</Warg.labelMalePlural>
+  <!-- EN:  -->
+  <Warg.labelFemale>TODO</Warg.labelFemale>
+  <!-- EN:  -->
+  <Warg.labelFemalePlural>TODO</Warg.labelFemalePlural>
+
   <!-- EN: timber wolf -->
   <Wolf_Timber.label>TODO</Wolf_Timber.label>
+  <!-- EN:  -->
+  <Wolf_Timber.description>TODO</Wolf_Timber.description>
   <!-- EN: timber wolves -->
   <Wolf_Timber.labelPlural>TODO</Wolf_Timber.labelPlural>
   <!-- EN: timber wolf puppy -->
   <Wolf_Timber.lifeStages.timber_wolf_puppy.label>TODO</Wolf_Timber.lifeStages.timber_wolf_puppy.label>
   <!-- EN: timber wolf puppies -->
   <Wolf_Timber.lifeStages.timber_wolf_puppy.labelPlural>TODO</Wolf_Timber.lifeStages.timber_wolf_puppy.labelPlural>
-  
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.timber_wolf_puppy.labelMale>TODO</Wolf_Timber.lifeStages.timber_wolf_puppy.labelMale>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.timber_wolf_puppy.labelMalePlural>TODO</Wolf_Timber.lifeStages.timber_wolf_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.timber_wolf_puppy.labelFemale>TODO</Wolf_Timber.lifeStages.timber_wolf_puppy.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.timber_wolf_puppy.labelFemalePlural>TODO</Wolf_Timber.lifeStages.timber_wolf_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.1.label>TODO</Wolf_Timber.lifeStages.1.label>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.1.labelPlural>TODO</Wolf_Timber.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.1.labelMale>TODO</Wolf_Timber.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.1.labelMalePlural>TODO</Wolf_Timber.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.1.labelFemale>TODO</Wolf_Timber.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.1.labelFemalePlural>TODO</Wolf_Timber.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.2.label>TODO</Wolf_Timber.lifeStages.2.label>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.2.labelPlural>TODO</Wolf_Timber.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.2.labelMale>TODO</Wolf_Timber.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.2.labelMalePlural>TODO</Wolf_Timber.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.2.labelFemale>TODO</Wolf_Timber.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Timber.lifeStages.2.labelFemalePlural>TODO</Wolf_Timber.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.labelMale>TODO</Wolf_Timber.labelMale>
+  <!-- EN:  -->
+  <Wolf_Timber.labelMalePlural>TODO</Wolf_Timber.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Timber.labelFemale>TODO</Wolf_Timber.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Timber.labelFemalePlural>TODO</Wolf_Timber.labelFemalePlural>
+
+  <!-- EN: arctic wolf -->
+  <Wolf_Arctic.label>TODO</Wolf_Arctic.label>
+  <!-- EN:  -->
+  <Wolf_Arctic.description>TODO</Wolf_Arctic.description>
+  <!-- EN: arctic wolves -->
+  <Wolf_Arctic.labelPlural>TODO</Wolf_Arctic.labelPlural>
+  <!-- EN: arctic wolf puppy -->
+  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.label>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.label>
+  <!-- EN: arctic wolf puppies -->
+  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelPlural>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelPlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelMale>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelMale>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelMalePlural>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelFemale>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelFemalePlural>TODO</Wolf_Arctic.lifeStages.arctic_wolf_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.1.label>TODO</Wolf_Arctic.lifeStages.1.label>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.1.labelPlural>TODO</Wolf_Arctic.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.1.labelMale>TODO</Wolf_Arctic.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.1.labelMalePlural>TODO</Wolf_Arctic.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.1.labelFemale>TODO</Wolf_Arctic.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.1.labelFemalePlural>TODO</Wolf_Arctic.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.2.label>TODO</Wolf_Arctic.lifeStages.2.label>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.2.labelPlural>TODO</Wolf_Arctic.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.2.labelMale>TODO</Wolf_Arctic.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.2.labelMalePlural>TODO</Wolf_Arctic.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.2.labelFemale>TODO</Wolf_Arctic.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Arctic.lifeStages.2.labelFemalePlural>TODO</Wolf_Arctic.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.labelMale>TODO</Wolf_Arctic.labelMale>
+  <!-- EN:  -->
+  <Wolf_Arctic.labelMalePlural>TODO</Wolf_Arctic.labelMalePlural>
+  <!-- EN:  -->
+  <Wolf_Arctic.labelFemale>TODO</Wolf_Arctic.labelFemale>
+  <!-- EN:  -->
+  <Wolf_Arctic.labelFemalePlural>TODO</Wolf_Arctic.labelFemalePlural>
+
+  <!-- EN: fennec fox -->
+  <Fox_Fennec.label>TODO</Fox_Fennec.label>
+  <!-- EN:  -->
+  <Fox_Fennec.description>TODO</Fox_Fennec.description>
+  <!-- EN: fennec foxes -->
+  <Fox_Fennec.labelPlural>TODO</Fox_Fennec.labelPlural>
+  <!-- EN: fennec fox puppy -->
+  <Fox_Fennec.lifeStages.fennec_fox_puppy.label>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.label>
+  <!-- EN: fennec fox puppies -->
+  <Fox_Fennec.lifeStages.fennec_fox_puppy.labelPlural>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.labelPlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.fennec_fox_puppy.labelMale>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.labelMale>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.fennec_fox_puppy.labelMalePlural>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.fennec_fox_puppy.labelFemale>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.labelFemale>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.fennec_fox_puppy.labelFemalePlural>TODO</Fox_Fennec.lifeStages.fennec_fox_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.1.label>TODO</Fox_Fennec.lifeStages.1.label>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.1.labelPlural>TODO</Fox_Fennec.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.1.labelMale>TODO</Fox_Fennec.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.1.labelMalePlural>TODO</Fox_Fennec.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.1.labelFemale>TODO</Fox_Fennec.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.1.labelFemalePlural>TODO</Fox_Fennec.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.2.label>TODO</Fox_Fennec.lifeStages.2.label>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.2.labelPlural>TODO</Fox_Fennec.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.2.labelMale>TODO</Fox_Fennec.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.2.labelMalePlural>TODO</Fox_Fennec.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.2.labelFemale>TODO</Fox_Fennec.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Fox_Fennec.lifeStages.2.labelFemalePlural>TODO</Fox_Fennec.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.labelMale>TODO</Fox_Fennec.labelMale>
+  <!-- EN:  -->
+  <Fox_Fennec.labelMalePlural>TODO</Fox_Fennec.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Fennec.labelFemale>TODO</Fox_Fennec.labelFemale>
+  <!-- EN:  -->
+  <Fox_Fennec.labelFemalePlural>TODO</Fox_Fennec.labelFemalePlural>
+
+  <!-- EN: red fox -->
+  <Fox_Red.label>TODO</Fox_Red.label>
+  <!-- EN:  -->
+  <Fox_Red.description>TODO</Fox_Red.description>
+  <!-- EN: red foxes -->
+  <Fox_Red.labelPlural>TODO</Fox_Red.labelPlural>
+  <!-- EN: red fox puppy -->
+  <Fox_Red.lifeStages.red_fox_puppy.label>TODO</Fox_Red.lifeStages.red_fox_puppy.label>
+  <!-- EN: red fox puppies -->
+  <Fox_Red.lifeStages.red_fox_puppy.labelPlural>TODO</Fox_Red.lifeStages.red_fox_puppy.labelPlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.red_fox_puppy.labelMale>TODO</Fox_Red.lifeStages.red_fox_puppy.labelMale>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.red_fox_puppy.labelMalePlural>TODO</Fox_Red.lifeStages.red_fox_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.red_fox_puppy.labelFemale>TODO</Fox_Red.lifeStages.red_fox_puppy.labelFemale>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.red_fox_puppy.labelFemalePlural>TODO</Fox_Red.lifeStages.red_fox_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.1.label>TODO</Fox_Red.lifeStages.1.label>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.1.labelPlural>TODO</Fox_Red.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.1.labelMale>TODO</Fox_Red.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.1.labelMalePlural>TODO</Fox_Red.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.1.labelFemale>TODO</Fox_Red.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.1.labelFemalePlural>TODO</Fox_Red.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.2.label>TODO</Fox_Red.lifeStages.2.label>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.2.labelPlural>TODO</Fox_Red.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.2.labelMale>TODO</Fox_Red.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.2.labelMalePlural>TODO</Fox_Red.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.2.labelFemale>TODO</Fox_Red.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Fox_Red.lifeStages.2.labelFemalePlural>TODO</Fox_Red.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Red.labelMale>TODO</Fox_Red.labelMale>
+  <!-- EN:  -->
+  <Fox_Red.labelMalePlural>TODO</Fox_Red.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Red.labelFemale>TODO</Fox_Red.labelFemale>
+  <!-- EN:  -->
+  <Fox_Red.labelFemalePlural>TODO</Fox_Red.labelFemalePlural>
+
+  <!-- EN: arctic fox -->
+  <Fox_Arctic.label>TODO</Fox_Arctic.label>
+  <!-- EN:  -->
+  <Fox_Arctic.description>TODO</Fox_Arctic.description>
+  <!-- EN: arctic foxes -->
+  <Fox_Arctic.labelPlural>TODO</Fox_Arctic.labelPlural>
+  <!-- EN: arctic fox puppy -->
+  <Fox_Arctic.lifeStages.arctic_fox_puppy.label>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.label>
+  <!-- EN: arctic fox puppies -->
+  <Fox_Arctic.lifeStages.arctic_fox_puppy.labelPlural>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.labelPlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.arctic_fox_puppy.labelMale>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.labelMale>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.arctic_fox_puppy.labelMalePlural>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.arctic_fox_puppy.labelFemale>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.labelFemale>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.arctic_fox_puppy.labelFemalePlural>TODO</Fox_Arctic.lifeStages.arctic_fox_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.1.label>TODO</Fox_Arctic.lifeStages.1.label>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.1.labelPlural>TODO</Fox_Arctic.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.1.labelMale>TODO</Fox_Arctic.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.1.labelMalePlural>TODO</Fox_Arctic.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.1.labelFemale>TODO</Fox_Arctic.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.1.labelFemalePlural>TODO</Fox_Arctic.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.2.label>TODO</Fox_Arctic.lifeStages.2.label>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.2.labelPlural>TODO</Fox_Arctic.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.2.labelMale>TODO</Fox_Arctic.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.2.labelMalePlural>TODO</Fox_Arctic.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.2.labelFemale>TODO</Fox_Arctic.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Fox_Arctic.lifeStages.2.labelFemalePlural>TODO</Fox_Arctic.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.labelMale>TODO</Fox_Arctic.labelMale>
+  <!-- EN:  -->
+  <Fox_Arctic.labelMalePlural>TODO</Fox_Arctic.labelMalePlural>
+  <!-- EN:  -->
+  <Fox_Arctic.labelFemale>TODO</Fox_Arctic.labelFemale>
+  <!-- EN:  -->
+  <Fox_Arctic.labelFemalePlural>TODO</Fox_Arctic.labelFemalePlural>
+
 </LanguageData>

@@ -1,13 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: psychite addiction -->
-  <PsychiteAddiction.label>TODO</PsychiteAddiction.label>
-  <!-- EN: withdrawal -->
-  <PsychiteAddiction.stages.withdrawal.label>TODO</PsychiteAddiction.stages.withdrawal.label>
-  
+
+  <!-- EN: high on yayo -->
+  <YayoHigh.label>TODO</YayoHigh.label>
+  <!-- EN:  -->
+  <YayoHigh.description>TODO</YayoHigh.description>
+  <!-- EN:  -->
+  <YayoHigh.stages.0.label>TODO</YayoHigh.stages.0.label>
+  <!-- EN:  -->
+  <YayoHigh.battleStateLabel>TODO</YayoHigh.battleStateLabel>
+  <!-- EN:  -->
+  <YayoHigh.labelNounPretty>TODO</YayoHigh.labelNounPretty>
+  <!-- EN: a yayo high -->
+  <YayoHigh.labelNoun>TODO</YayoHigh.labelNoun>
+
   <!-- EN: psychite tolerance -->
   <PsychiteTolerance.label>TODO</PsychiteTolerance.label>
+  <!-- EN:  -->
+  <PsychiteTolerance.description>TODO</PsychiteTolerance.description>
   <!-- EN: small -->
   <PsychiteTolerance.stages.small-0.label>TODO</PsychiteTolerance.stages.small-0.label>
   <!-- EN: small -->
@@ -16,10 +26,26 @@
   <PsychiteTolerance.stages.large.label>TODO</PsychiteTolerance.stages.large.label>
   <!-- EN: massive -->
   <PsychiteTolerance.stages.massive.label>TODO</PsychiteTolerance.stages.massive.label>
-  
-  <!-- EN: high on yayo -->
-  <YayoHigh.label>TODO</YayoHigh.label>
-  <!-- EN: a yayo high -->
-  <YayoHigh.labelNoun>TODO</YayoHigh.labelNoun>
-  
+  <!-- EN:  -->
+  <PsychiteTolerance.battleStateLabel>TODO</PsychiteTolerance.battleStateLabel>
+  <!-- EN:  -->
+  <PsychiteTolerance.labelNounPretty>TODO</PsychiteTolerance.labelNounPretty>
+  <!-- EN:  -->
+  <PsychiteTolerance.labelNoun>TODO</PsychiteTolerance.labelNoun>
+
+  <!-- EN: psychite addiction -->
+  <PsychiteAddiction.label>TODO</PsychiteAddiction.label>
+  <!-- EN:  -->
+  <PsychiteAddiction.description>TODO</PsychiteAddiction.description>
+  <!-- EN:  -->
+  <PsychiteAddiction.stages.0.label>TODO</PsychiteAddiction.stages.0.label>
+  <!-- EN: withdrawal -->
+  <PsychiteAddiction.stages.withdrawal.label>TODO</PsychiteAddiction.stages.withdrawal.label>
+  <!-- EN:  -->
+  <PsychiteAddiction.battleStateLabel>TODO</PsychiteAddiction.battleStateLabel>
+  <!-- EN:  -->
+  <PsychiteAddiction.labelNounPretty>TODO</PsychiteAddiction.labelNounPretty>
+  <!-- EN:  -->
+  <PsychiteAddiction.labelNoun>TODO</PsychiteAddiction.labelNoun>
+
 </LanguageData>

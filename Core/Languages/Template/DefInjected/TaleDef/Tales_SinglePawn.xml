@@ -1,72 +1,104 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: raw humanlike meat eaten -->
-  <AteRawHumanlikeMeat.label>TODO</AteRawHumanlikeMeat.label>
+
+  <!-- EN: landed in pod -->
+  <LandedInPod.label>TODO</LandedInPod.label>
+  <!-- EN:  -->
+  <LandedInPod.description>TODO</LandedInPod.description>
   <!-- EN:
-    <li>tale_noun->[PAWN_nameDef]'s eating of human meat</li>
-    <li>image->[PAWN_nameFull] [eat_gerund] the meat of a fellow humanoid [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] [eat_gerund] meat from a humanlike arm [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] [eat_gerund] flesh of a humanoid [circumstance_group]</li>
-    <li>eat_gerund->eating</li>
-    <li>eat_gerund->ingesting</li>
-    <li>eat_gerund->chewing</li>
-    <li>eat_gerund->chowing down on</li>
-    <li>eat_gerund->consuming</li>
-    <li>eat_gerund->swallowing</li>
-    <li>eat_gerund->cannibalizing</li>
-    <li>circumstance_phrase->with a sense of purpose</li>
-    <li>circumstance_phrase->with no hint of shame</li>
-    <li>circumstance_phrase->with a look of shame</li>
-    <li>circumstance_phrase->while others look on</li>
-    <li>circumstance_phrase->with gusto</li>
-    <li>circumstance_phrase->frantically, like [PAWN_possessive] life depended on it</li>
-    <li>desc_sentence->[PAWN_nameDef]'s face is covered with blood and fluid.</li>
-    <li>desc_sentence->[PAWN_nameDef] is licking [PAWN_possessive] fingers.</li>
-    <li>desc_sentence->[PAWN_nameDef] has blood and gore bits all down [PAWN_possessive] front.</li>
-    <li>desc_sentence->[PAWN_nameDef] is in the middle of a large pool of blood.</li>
-    <li>desc_sentence->[PAWN_nameDef] is eyeing someone else nearby with dark interest.</li>
-    <li>desc_sentence->The meat is glistening and appears very succulent.</li>
-    <li>desc_sentence->The meat is spilling all over [PAWN_nameDef]'s body.</li>
+    <li>tale_noun->[PAWN_nameDef]'s landing in a drop pod</li>
+    <li>image->[PAWN_nameFull] landing in a drop pod [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] touching down in a drop pod [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] striking earth in a drop pod [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] riding in a drop pod [circumstance_group]</li>
+    <li>circumstance_phrase->in front of a [TerrainFeature]</li>
+    <li>circumstance_phrase->with incredible force</li>
+    <li>circumstance_phrase->in a plume of dust and rocks</li>
+    <li>circumstance_phrase->with retro-rockets firing dramatically</li>
+    <li>circumstance_phrase->in a precision landing</li>
+    <li>desc_sentence->[PAWN_pronoun] is concentrating intently on the controls.</li>
+    <li>desc_sentence->[PAWN_pronoun] has [PAWN_possessive] eyes closed and looks afraid.</li>
+    <li>desc_sentence->[PAWN_pronoun] is unconscious, [PAWN_possessive] tongue lolling out, drool dripping.</li>
+    <li>desc_sentence->[PAWN_pronoun] is smiling with grim joy.</li>
+    <li>desc_sentence->[PAWN_pronoun] seems to have no idea what [PAWN_pronoun] is doing.</li>
+    <li>desc_sentence->[PAWN_pronoun] is strapped in with [PAWN_possessive] eyes closed, totally helpless.</li>
+    <li>desc_sentence->There is a flame trail licking off the back of the pod.</li>
+    <li>desc_sentence->A nearby [Animal] is looking up, startled.</li>
+    <li>desc_sentence->A [Animal] is fleeing the impact in fear.</li>
+    <li>desc_sentence->There is a [TerrainFeature] in the background.</li>
+    <li>desc_sentence->A [PersonJob] watches silently from afar.</li>
   -->
-  <AteRawHumanlikeMeat.rulePack.rulesStrings>TODO</AteRawHumanlikeMeat.rulePack.rulesStrings>
-  
-  <!-- EN: humanlike corpse butchered -->
-  <ButcheredHumanlikeCorpse.label>TODO</ButcheredHumanlikeCorpse.label>
-  
-  <!-- EN: art crafted -->
-  <CraftedArt.label>TODO</CraftedArt.label>
+  <LandedInPod.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </LandedInPod.rulePack.rulesStrings>
+
+  <!-- EN: vomited -->
+  <Vomited.label>TODO</Vomited.label>
+  <!-- EN:  -->
+  <Vomited.description>TODO</Vomited.description>
   <!-- EN:
-    <li>tale_noun->the time [PAWN_nameDef] crafted [THING_indefinite]</li>
-    <li>image->[PAWN_nameFull] crafting [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
-    <li>image->[PAWN_nameFull] completing [PAWN_possessive] work on [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
-    <li>image->[PAWN_nameFull] working on [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
-    <li>image->[PAWN_nameFull] making [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
-    <li>circumstance_phrase->with total concentration</li>
-    <li>circumstance_phrase->with a look of satisfaction on [PAWN_possessive] face</li>
-    <li>circumstance_phrase->at [PAWN_possessive] work bench</li>
-    <li>circumstance_phrase->with great intensity</li>
-    <li>desc_sentence->There are tools scattered all around.</li>
-    <li>desc_sentence->[PAWN_pronoun] is scratched and scarred from work injuries.</li>
-    <li>desc_sentence->[PAWN_pronoun] is covered in sweat.</li>
-    <li>desc_sentence->The work area is highly organized, with every tool in its proper place.</li>
-    <li>desc_sentence->[PAWN_pronoun] is rendered in an exaggerated way to appear more powerful.</li>
-    <li>desc_sentence->The size of [THING_definite] is exaggerated to emphasize its importance.</li>
-    <li>desc_sentence->[THING_definite] has an artistic glow added to it. It seems almost angelic.</li>
-    <li>desc_sentence->[PAWN_nameDef] is faded into the background to emphasize [PAWN_possessive] new creation.</li>
-    <li>desc_sentence->[Quantity_adjphrase] onlookers surround [PAWN_objective].</li>
-    <li>desc_sentence->A crowd cheers from the background.</li>
-    <li>quality_sentence->[THING_definite] looks to be of [THING_quality] quality</li>
-    <li>quality_sentence->[THING_definite] is of [THING_quality] quality</li>
-    <li>quality_sentence->[PAWN_nameDef]'s work is of [THING_quality] quality</li>
-    <li>title_sentence->[PAWN_nameDef]'s title for [THING_definite] is written underneath: [THING_title]</li>
-    <li>title_sentence->[THING_definite] is emblazoned with its title: [THING_title]</li>
-    <li>title_sentence->The title of [THING_definite], [THING_title], hangs in the background</li>
+    <li>tale_noun->[PAWN_nameDef]'s vomiting</li>
+    <li>image->[PAWN_nameFull] spewing vomit onto the ground [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] looking disgusted while covered with dried vomit [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] doubled over and retching onto the floor [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] on [PAWN_possessive] knees, vomiting on the floor [circumstance_group]</li>
+    <li>circumstance_phrase->while looking pained</li>
+    <li>circumstance_phrase->with great shame</li>
+    <li>circumstance_phrase->as others look on</li>
+    <li>desc_sentence->[PAWN_pronoun] seems totally unaware of what is around [PAWN_objective].</li>
+    <li>desc_sentence->[PAWN_possessive] face itself seems to be swelling.</li>
+    <li>desc_sentence->[PAWN_pronoun] is nearly unconscious, [PAWN_possessive] tongue lolling out, drool dripping.</li>
+    <li>desc_sentence->[PAWN_pronoun] is convulsing violently.</li>
+    <li>desc_sentence->[PAWN_pronoun] looks ashamed.</li>
+    <li>desc_sentence->[PAWN_pronoun] seems to be trying to laugh, despite the circumstances.</li>
+    <li>desc_sentence->[PAWN_pronoun] looks almost deflated, as though totally emptied by the intense vomiting.</li>
+    <li>desc_sentence->[PAWN_pronoun] is surrounded by an artistically rendered halo of filth.</li>
+    <li>desc_sentence->A [Animal] is eating from the trail of vomit in the background.</li>
   -->
-  <CraftedArt.rulePack.rulesStrings>TODO</CraftedArt.rulePack.rulesStrings>
-  
+  <Vomited.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Vomited.rulePack.rulesStrings>
+
   <!-- EN: drunk -->
   <Drunk.label>TODO</Drunk.label>
+  <!-- EN:  -->
+  <Drunk.description>TODO</Drunk.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef]'s extreme drunkenness</li>
     <li>tale_noun->[PAWN_nameDef] getting extremely drunk</li>
@@ -99,55 +131,88 @@
     <li>desc_sentence->[PAWN_pronoun] seems to have lost a shoe.</li>
     <li>desc_sentence->[PAWN_possessive] hair is totally mussed up.</li>
   -->
-  <Drunk.rulePack.rulesStrings>TODO</Drunk.rulePack.rulesStrings>
-  
-  <!-- EN: research project finished -->
-  <FinishedResearchProject.label>TODO</FinishedResearchProject.label>
+  <Drunk.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Drunk.rulePack.rulesStrings>
+
+  <!-- EN: on fire -->
+  <WasOnFire.label>TODO</WasOnFire.label>
+  <!-- EN:  -->
+  <WasOnFire.description>TODO</WasOnFire.description>
   <!-- EN:
-    <li>tale_noun->[PAWN_nameDef] finishing research on [PROJECT_label]</li>
-    <li>image->[PAWN_nameFull] working on [PROJECT_label] research project [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] studying the secrets of [PROJECT_label] [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] researching [PROJECT_label] [circumstance_group]</li>
-    <li>circumstance_phrase->with great intensity</li>
-    <li>circumstance_phrase->alone at [PAWN_possessive] bench</li>
-    <li>circumstance_phrase->while holding papers in [PAWN_possessive] hand</li>
-    <li>circumstance_phrase->with a look of gleeful fascination</li>
-    <li>desc_sentence->[PAWN_nameDef] is sweating.</li>
-    <li>desc_sentence->The work appears to be exceptionally complex.</li>
-    <li>desc_sentence->[PAWN_nameDef] is completely surrounded by an array of tools and apparatuses.</li>
-    <li>desc_sentence->[PAWN_nameDef] is staring at [PAWN_possessive] discovery with a sense of wonder.</li>
+    <li>tale_noun->[PAWN_nameDef] catching fire</li>
+    <li>image->[PAWN_nameFull] frantically beating out a fire attached to [PAWN_possessive] body [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] enveloped by flame [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] kneeling, hands over head, trying to extinguish flames on [PAWN_possessive] body [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] rolling on the floor while burning [circumstance_group]</li>
+    <li>circumstance_phrase->while others look on</li>
+    <li>circumstance_phrase->while nearly naked</li>
+    <li>circumstance_phrase->with focused intent</li>
+    <li>desc_sentence->[PAWN_possessive] flesh is visibly charring.</li>
+    <li>desc_sentence->[PAWN_possessive] eyes are wide with panic.</li>
+    <li>desc_sentence->[PAWN_pronoun] seems to be barely conscious; [PAWN_possessive] eyes are lifeless.</li>
+    <li>desc_sentence->[PAWN_possessive] mouth is open as [PAWN_pronoun] screams for help.</li>
+    <li>desc_sentence->The flames are about to envelope his head.</li>
+    <li>desc_sentence->A symbolic halo of fire surrounds his face.</li>
+    <li>desc_sentence->[PAWN_pronoun] is laughing maniacally.</li>
+    <li>desc_sentence->[PAWN_pronoun] seems to be losing [PAWN_objective]self.</li>
+    <li>desc_sentence->A plume of smoke is rising off [PAWN_objective].</li>
+    <li>desc_sentence->[PAWN_pronoun] is rendered artistically in a corpse-like way.</li>
   -->
-  <FinishedResearchProject.rulePack.rulesStrings>TODO</FinishedResearchProject.rulePack.rulesStrings>
-  
-  <!-- EN: landed in pod -->
-  <LandedInPod.label>TODO</LandedInPod.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef]'s landing in a drop pod</li>
-    <li>image->[PAWN_nameFull] landing in a drop pod [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] touching down in a drop pod [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] striking earth in a drop pod [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] riding in a drop pod [circumstance_group]</li>
-    <li>circumstance_phrase->in front of a [TerrainFeature]</li>
-    <li>circumstance_phrase->with incredible force</li>
-    <li>circumstance_phrase->in a plume of dust and rocks</li>
-    <li>circumstance_phrase->with retro-rockets firing dramatically</li>
-    <li>circumstance_phrase->in a precision landing</li>
-    <li>desc_sentence->[PAWN_pronoun] is concentrating intently on the controls.</li>
-    <li>desc_sentence->[PAWN_pronoun] has [PAWN_possessive] eyes closed and looks afraid.</li>
-    <li>desc_sentence->[PAWN_pronoun] is unconscious, [PAWN_possessive] tongue lolling out, drool dripping.</li>
-    <li>desc_sentence->[PAWN_pronoun] is smiling with grim joy.</li>
-    <li>desc_sentence->[PAWN_pronoun] seems to have no idea what [PAWN_pronoun] is doing.</li>
-    <li>desc_sentence->[PAWN_pronoun] is strapped in with [PAWN_possessive] eyes closed, totally helpless.</li>
-    <li>desc_sentence->There is a flame trail licking off the back of the pod.</li>
-    <li>desc_sentence->A nearby [Animal] is looking up, startled.</li>
-    <li>desc_sentence->A [Animal] is fleeing the impact in fear.</li>
-    <li>desc_sentence->There is a [TerrainFeature] in the background.</li>
-    <li>desc_sentence->A [PersonJob] watches silently from afar.</li>
-  -->
-  <LandedInPod.rulePack.rulesStrings>TODO</LandedInPod.rulePack.rulesStrings>
-  
+  <WasOnFire.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </WasOnFire.rulePack.rulesStrings>
+
   <!-- EN: berserk rage -->
   <MentalStateBerserk.label>TODO</MentalStateBerserk.label>
+  <!-- EN:  -->
+  <MentalStateBerserk.description>TODO</MentalStateBerserk.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef] going berserk</li>
     <li>image->[PAWN_nameFull] flying into a berserk rage [circumstance_group]</li>
@@ -173,10 +238,36 @@
     <li>desc_sentence->[PAWN_possessive] face is set in a look of twisted serenity.</li>
     <li>desc_sentence->A single tear rolls down [PAWN_possessive] face.</li>
   -->
-  <MentalStateBerserk.rulePack.rulesStrings>TODO</MentalStateBerserk.rulePack.rulesStrings>
-  
+  <MentalStateBerserk.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </MentalStateBerserk.rulePack.rulesStrings>
+
   <!-- EN: gave up -->
   <MentalStateGaveUp.label>TODO</MentalStateGaveUp.label>
+  <!-- EN:  -->
+  <MentalStateGaveUp.description>TODO</MentalStateGaveUp.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef] giving up in despair</li>
     <li>image->[PAWN_nameFull] finally giving up under stress [circumstance_group]</li>
@@ -198,53 +289,32 @@
     <li>desc_sentence->[PAWN_pronoun] seems to have lost a shoe.</li>
     <li>desc_sentence->[PAWN_possessive] hair is totally mussed up.</li>
   -->
-  <MentalStateGaveUp.rulePack.rulesStrings>TODO</MentalStateGaveUp.rulePack.rulesStrings>
-  
-  <!-- EN: struck mineable -->
-  <StruckMineable.label>TODO</StruckMineable.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef] striking [THING_label]</li>
-    <li>image->[PAWN_nameFull] striking [THING_label] [circumstance_group]</li>
-    <li>circumstance_phrase->while mining</li>
-    <li>circumstance_phrase->while digging</li>
-    <li>circumstance_phrase->while tunnelling</li>
-    <li>circumstance_phrase->with a look of surprise</li>
-    <li>circumstance_phrase->with a satisfied expression</li>
-    <li>desc_sentence->[PAWN_nameDef] is wiping [PAWN_possessive] brow.</li>
-    <li>desc_sentence->[PAWN_nameDef] is jumping for joy.</li>
-    <li>desc_sentence->[PAWN_nameDef] is high-fiving a friend.</li>
-    <li>desc_sentence->[PAWN_nameDef] is screaming with happiness.</li>
-    <li>desc_sentence->[PAWN_nameDef] is laughing uncontrollably.</li>
-    <li>desc_sentence->[PAWN_nameDef] is sweaty and dirty from work.</li>
-    <li>desc_sentence->[PAWN_nameDef] is sweaty and dirty from work.</li>
-  -->
-  <StruckMineable.rulePack.rulesStrings>TODO</StruckMineable.rulePack.rulesStrings>
-  
-  <!-- EN: vomited -->
-  <Vomited.label>TODO</Vomited.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef]'s vomiting</li>
-    <li>image->[PAWN_nameFull] spewing vomit onto the ground [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] looking disgusted while covered with dried vomit [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] doubled over and retching onto the floor [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] on [PAWN_possessive] knees, vomiting on the floor [circumstance_group]</li>
-    <li>circumstance_phrase->while looking pained</li>
-    <li>circumstance_phrase->with great shame</li>
-    <li>circumstance_phrase->as others look on</li>
-    <li>desc_sentence->[PAWN_pronoun] seems totally unaware of what is around [PAWN_objective].</li>
-    <li>desc_sentence->[PAWN_possessive] face itself seems to be swelling.</li>
-    <li>desc_sentence->[PAWN_pronoun] is nearly unconscious, [PAWN_possessive] tongue lolling out, drool dripping.</li>
-    <li>desc_sentence->[PAWN_pronoun] is convulsing violently.</li>
-    <li>desc_sentence->[PAWN_pronoun] looks ashamed.</li>
-    <li>desc_sentence->[PAWN_pronoun] seems to be trying to laugh, despite the circumstances.</li>
-    <li>desc_sentence->[PAWN_pronoun] looks almost deflated, as though totally emptied by the intense vomiting.</li>
-    <li>desc_sentence->[PAWN_pronoun] is surrounded by an artistically rendered halo of filth.</li>
-    <li>desc_sentence->A [Animal] is eating from the trail of vomit in the background.</li>
-  -->
-  <Vomited.rulePack.rulesStrings>TODO</Vomited.rulePack.rulesStrings>
-  
+  <MentalStateGaveUp.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </MentalStateGaveUp.rulePack.rulesStrings>
+
   <!-- EN: walked naked -->
   <WalkedNaked.label>TODO</WalkedNaked.label>
+  <!-- EN:  -->
+  <WalkedNaked.description>TODO</WalkedNaked.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef] walking around naked</li>
     <li>image->[PAWN_nameFull] [nude_action] while in a state of nature [circumstance_group]</li>
@@ -270,30 +340,221 @@
     <li>desc_sentence->[PAWN_nameDef] is breathing heavily for no obvious reason.</li>
     <li>desc_sentence->[PAWN_nameDef] is fondling a shrub.</li>
   -->
-  <WalkedNaked.rulePack.rulesStrings>TODO</WalkedNaked.rulePack.rulesStrings>
-  
-  <!-- EN: on fire -->
-  <WasOnFire.label>TODO</WasOnFire.label>
+  <WalkedNaked.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </WalkedNaked.rulePack.rulesStrings>
+
+  <!-- EN: raw humanlike meat eaten -->
+  <AteRawHumanlikeMeat.label>TODO</AteRawHumanlikeMeat.label>
+  <!-- EN:  -->
+  <AteRawHumanlikeMeat.description>TODO</AteRawHumanlikeMeat.description>
   <!-- EN:
-    <li>tale_noun->[PAWN_nameDef] catching fire</li>
-    <li>image->[PAWN_nameFull] frantically beating out a fire attached to [PAWN_possessive] body [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] enveloped by flame [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] kneeling, hands over head, trying to extinguish flames on [PAWN_possessive] body [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] rolling on the floor while burning [circumstance_group]</li>
+    <li>tale_noun->[PAWN_nameDef]'s eating of human meat</li>
+    <li>image->[PAWN_nameFull] [eat_gerund] the meat of a fellow humanoid [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] [eat_gerund] meat from a humanlike arm [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] [eat_gerund] flesh of a humanoid [circumstance_group]</li>
+    <li>eat_gerund->eating</li>
+    <li>eat_gerund->ingesting</li>
+    <li>eat_gerund->chewing</li>
+    <li>eat_gerund->chowing down on</li>
+    <li>eat_gerund->consuming</li>
+    <li>eat_gerund->swallowing</li>
+    <li>eat_gerund->cannibalizing</li>
+    <li>circumstance_phrase->with a sense of purpose</li>
+    <li>circumstance_phrase->with no hint of shame</li>
+    <li>circumstance_phrase->with a look of shame</li>
     <li>circumstance_phrase->while others look on</li>
-    <li>circumstance_phrase->while nearly naked</li>
-    <li>circumstance_phrase->with focused intent</li>
-    <li>desc_sentence->[PAWN_possessive] flesh is visibly charring.</li>
-    <li>desc_sentence->[PAWN_possessive] eyes are wide with panic.</li>
-    <li>desc_sentence->[PAWN_pronoun] seems to be barely conscious; [PAWN_possessive] eyes are lifeless.</li>
-    <li>desc_sentence->[PAWN_possessive] mouth is open as [PAWN_pronoun] screams for help.</li>
-    <li>desc_sentence->The flames are about to envelope his head.</li>
-    <li>desc_sentence->A symbolic halo of fire surrounds his face.</li>
-    <li>desc_sentence->[PAWN_pronoun] is laughing maniacally.</li>
-    <li>desc_sentence->[PAWN_pronoun] seems to be losing [PAWN_objective]self.</li>
-    <li>desc_sentence->A plume of smoke is rising off [PAWN_objective].</li>
-    <li>desc_sentence->[PAWN_pronoun] is rendered artistically in a corpse-like way.</li>
+    <li>circumstance_phrase->with gusto</li>
+    <li>circumstance_phrase->frantically, like [PAWN_possessive] life depended on it</li>
+    <li>desc_sentence->[PAWN_nameDef]'s face is covered with blood and fluid.</li>
+    <li>desc_sentence->[PAWN_nameDef] is licking [PAWN_possessive] fingers.</li>
+    <li>desc_sentence->[PAWN_nameDef] has blood and gore bits all down [PAWN_possessive] front.</li>
+    <li>desc_sentence->[PAWN_nameDef] is in the middle of a large pool of blood.</li>
+    <li>desc_sentence->[PAWN_nameDef] is eyeing someone else nearby with dark interest.</li>
+    <li>desc_sentence->The meat is glistening and appears very succulent.</li>
+    <li>desc_sentence->The meat is spilling all over [PAWN_nameDef]'s body.</li>
   -->
-  <WasOnFire.rulePack.rulesStrings>TODO</WasOnFire.rulePack.rulesStrings>
-  
+  <AteRawHumanlikeMeat.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </AteRawHumanlikeMeat.rulePack.rulesStrings>
+
+  <!-- EN: art crafted -->
+  <CraftedArt.label>TODO</CraftedArt.label>
+  <!-- EN:  -->
+  <CraftedArt.description>TODO</CraftedArt.description>
+  <!-- EN:
+    <li>tale_noun->the time [PAWN_nameDef] crafted [THING_indefinite]</li>
+    <li>image->[PAWN_nameFull] crafting [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
+    <li>image->[PAWN_nameFull] completing [PAWN_possessive] work on [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
+    <li>image->[PAWN_nameFull] working on [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
+    <li>image->[PAWN_nameFull] making [THING_indefinite] [circumstance_group]. [quality_sentence]. [title_sentence]</li>
+    <li>circumstance_phrase->with total concentration</li>
+    <li>circumstance_phrase->with a look of satisfaction on [PAWN_possessive] face</li>
+    <li>circumstance_phrase->at [PAWN_possessive] work bench</li>
+    <li>circumstance_phrase->with great intensity</li>
+    <li>desc_sentence->There are tools scattered all around.</li>
+    <li>desc_sentence->[PAWN_pronoun] is scratched and scarred from work injuries.</li>
+    <li>desc_sentence->[PAWN_pronoun] is covered in sweat.</li>
+    <li>desc_sentence->The work area is highly organized, with every tool in its proper place.</li>
+    <li>desc_sentence->[PAWN_pronoun] is rendered in an exaggerated way to appear more powerful.</li>
+    <li>desc_sentence->The size of [THING_definite] is exaggerated to emphasize its importance.</li>
+    <li>desc_sentence->[THING_definite] has an artistic glow added to it. It seems almost angelic.</li>
+    <li>desc_sentence->[PAWN_nameDef] is faded into the background to emphasize [PAWN_possessive] new creation.</li>
+    <li>desc_sentence->[Quantity_adjphrase] onlookers surround [PAWN_objective].</li>
+    <li>desc_sentence->A crowd cheers from the background.</li>
+    <li>quality_sentence->[THING_definite] looks to be of [THING_quality] quality</li>
+    <li>quality_sentence->[THING_definite] is of [THING_quality] quality</li>
+    <li>quality_sentence->[PAWN_nameDef]'s work is of [THING_quality] quality</li>
+    <li>title_sentence->[PAWN_nameDef]'s title for [THING_definite] is written underneath: [THING_title]</li>
+    <li>title_sentence->[THING_definite] is emblazoned with its title: [THING_title]</li>
+    <li>title_sentence->The title of [THING_definite], [THING_title], hangs in the background</li>
+  -->
+  <CraftedArt.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CraftedArt.rulePack.rulesStrings>
+
+  <!-- EN: struck mineable -->
+  <StruckMineable.label>TODO</StruckMineable.label>
+  <!-- EN:  -->
+  <StruckMineable.description>TODO</StruckMineable.description>
+  <!-- EN:
+    <li>tale_noun->[PAWN_nameDef] striking [THING_label]</li>
+    <li>image->[PAWN_nameFull] striking [THING_label] [circumstance_group]</li>
+    <li>circumstance_phrase->while mining</li>
+    <li>circumstance_phrase->while digging</li>
+    <li>circumstance_phrase->while tunnelling</li>
+    <li>circumstance_phrase->with a look of surprise</li>
+    <li>circumstance_phrase->with a satisfied expression</li>
+    <li>desc_sentence->[PAWN_nameDef] is wiping [PAWN_possessive] brow.</li>
+    <li>desc_sentence->[PAWN_nameDef] is jumping for joy.</li>
+    <li>desc_sentence->[PAWN_nameDef] is high-fiving a friend.</li>
+    <li>desc_sentence->[PAWN_nameDef] is screaming with happiness.</li>
+    <li>desc_sentence->[PAWN_nameDef] is laughing uncontrollably.</li>
+    <li>desc_sentence->[PAWN_nameDef] is sweaty and dirty from work.</li>
+    <li>desc_sentence->[PAWN_nameDef] is sweaty and dirty from work.</li>
+  -->
+  <StruckMineable.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </StruckMineable.rulePack.rulesStrings>
+
+  <!-- EN: research project finished -->
+  <FinishedResearchProject.label>TODO</FinishedResearchProject.label>
+  <!-- EN:  -->
+  <FinishedResearchProject.description>TODO</FinishedResearchProject.description>
+  <!-- EN:
+    <li>tale_noun->[PAWN_nameDef] finishing research on [PROJECT_label]</li>
+    <li>image->[PAWN_nameFull] working on [PROJECT_label] research project [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] studying the secrets of [PROJECT_label] [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] researching [PROJECT_label] [circumstance_group]</li>
+    <li>circumstance_phrase->with great intensity</li>
+    <li>circumstance_phrase->alone at [PAWN_possessive] bench</li>
+    <li>circumstance_phrase->while holding papers in [PAWN_possessive] hand</li>
+    <li>circumstance_phrase->with a look of gleeful fascination</li>
+    <li>desc_sentence->[PAWN_nameDef] is sweating.</li>
+    <li>desc_sentence->The work appears to be exceptionally complex.</li>
+    <li>desc_sentence->[PAWN_nameDef] is completely surrounded by an array of tools and apparatuses.</li>
+    <li>desc_sentence->[PAWN_nameDef] is staring at [PAWN_possessive] discovery with a sense of wonder.</li>
+  -->
+  <FinishedResearchProject.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </FinishedResearchProject.rulePack.rulesStrings>
+
+  <!-- EN: humanlike corpse butchered -->
+  <ButcheredHumanlikeCorpse.label>TODO</ButcheredHumanlikeCorpse.label>
+  <!-- EN:  -->
+  <ButcheredHumanlikeCorpse.description>TODO</ButcheredHumanlikeCorpse.description>
+
 </LanguageData>

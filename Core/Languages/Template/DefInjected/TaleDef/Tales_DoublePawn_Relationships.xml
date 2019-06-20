@@ -1,8 +1,41 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN: bond developed -->
+  <BondedWithAnimal.label>TODO</BondedWithAnimal.label>
+  <!-- EN:  -->
+  <BondedWithAnimal.description>TODO</BondedWithAnimal.description>
+  <!-- EN:
+    <li>tale_noun->[HUMAN_nameDef]'s bonding with [ANIMAL_nameDef]</li>
+    <li>image->[HUMAN_nameFull] bonding with [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>image->[HUMAN_nameFull] forming a deep bond with [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>image->[HUMAN_nameFull] realizing [HUMAN_possessive] truly loves [ANIMAL_nameFull] [circumstance_group]</li>
+    <li>circumstance_phrase->while other animals look on</li>
+    <li>circumstance_phrase->while looking into [ANIMAL_nameDef]'s eyes</li>
+    <li>circumstance_phrase->with a sense of satisfaction</li>
+    <li>desc_sentence->[ANIMAL_nameDef] is snuggling up against [HUMAN_nameDef].</li>
+    <li>desc_sentence->[ANIMAL_nameDef] looks sleepy and drunk with love.</li>
+    <li>desc_sentence->[ANIMAL_nameDef] stands tall and looks noble.</li>
+    <li>desc_sentence->[ANIMAL_nameDef] is responding positively.</li>
+  -->
+  <BondedWithAnimal.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </BondedWithAnimal.rulePack.rulesStrings>
+
   <!-- EN: became lover -->
   <BecameLover.label>TODO</BecameLover.label>
+  <!-- EN:  -->
+  <BecameLover.description>TODO</BecameLover.description>
   <!-- EN:
     <li>tale_noun->[PURSUER_nameDef] and [ACCEPTER_nameDef] becoming lovers</li>
     <li>image->[PURSUER_nameFull] whispering sweet nothings into [ACCEPTER_nameFull]'s ear [circumstance_group]</li>
@@ -20,27 +53,28 @@
     <li>desc_sentence->[PURSUER_nameDef] is a near-mirror image of [ACCEPTER_nameDef].</li>
     <li>desc_sentence->[PURSUER_nameDef] is touching [ACCEPTER_nameDef] aggressively.</li>
   -->
-  <BecameLover.rulePack.rulesStrings>TODO</BecameLover.rulePack.rulesStrings>
-  
-  <!-- EN: bond developed -->
-  <BondedWithAnimal.label>TODO</BondedWithAnimal.label>
-  <!-- EN:
-    <li>tale_noun->[HUMAN_nameDef]'s bonding with [ANIMAL_nameDef]</li>
-    <li>image->[HUMAN_nameFull] bonding with [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>image->[HUMAN_nameFull] forming a deep bond with [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>image->[HUMAN_nameFull] realizing [HUMAN_possessive] truly loves [ANIMAL_nameFull] [circumstance_group]</li>
-    <li>circumstance_phrase->while other animals look on</li>
-    <li>circumstance_phrase->while looking into [ANIMAL_nameDef]'s eyes</li>
-    <li>circumstance_phrase->with a sense of satisfaction</li>
-    <li>desc_sentence->[ANIMAL_nameDef] is snuggling up against [HUMAN_nameDef].</li>
-    <li>desc_sentence->[ANIMAL_nameDef] looks sleepy and drunk with love.</li>
-    <li>desc_sentence->[ANIMAL_nameDef] stands tall and looks noble.</li>
-    <li>desc_sentence->[ANIMAL_nameDef] is responding positively.</li>
-  -->
-  <BondedWithAnimal.rulePack.rulesStrings>TODO</BondedWithAnimal.rulePack.rulesStrings>
-  
+  <BecameLover.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </BecameLover.rulePack.rulesStrings>
+
   <!-- EN: breakup -->
   <Breakup.label>TODO</Breakup.label>
+  <!-- EN:  -->
+  <Breakup.description>TODO</Breakup.description>
   <!-- EN:
     <li>tale_noun->the breakup of [DUMPER_nameDef] and [REJECTED_nameDef]</li>
     <li>image->[DUMPER_nameFull] sitting [REJECTED_nameFull] down for an unpleasant talk [circumstance_group]</li>
@@ -57,10 +91,27 @@
     <li>desc_sentence->[REJECTED_nameDef] has collapsed on the floor in a quivering heap.</li>
     <li>desc_sentence->[REJECTED_nameDef] is gesticulating angrily at [DUMPER_nameDef].</li>
   -->
-  <Breakup.rulePack.rulesStrings>TODO</Breakup.rulePack.rulesStrings>
-  
+  <Breakup.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Breakup.rulePack.rulesStrings>
+
   <!-- EN: marriage -->
   <Marriage.label>TODO</Marriage.label>
+  <!-- EN:  -->
+  <Marriage.description>TODO</Marriage.description>
   <!-- EN:
     <li>tale_noun->the marriage of [SPOUSE1_nameDef] and [SPOUSE2_nameDef]</li>
     <li>image->[SPOUSE1_nameFull] marrying [SPOUSE2_nameFull] [circumstance_group]</li>
@@ -77,6 +128,21 @@
     <li>desc_sentence->[SPOUSE1_nameDef] is a near-mirror image of [SPOUSE2_nameDef].</li>
     <li>desc_sentence->[SPOUSE1_nameDef] is touching [SPOUSE2_nameDef] aggressively.</li>
   -->
-  <Marriage.rulePack.rulesStrings>TODO</Marriage.rulePack.rulesStrings>
-  
+  <Marriage.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Marriage.rulePack.rulesStrings>
+
 </LanguageData>

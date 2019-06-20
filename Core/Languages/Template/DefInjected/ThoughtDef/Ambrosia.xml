@@ -1,14 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <AmbrosiaHigh.label>TODO</AmbrosiaHigh.label>
+  <!-- EN:  -->
+  <AmbrosiaHigh.description>TODO</AmbrosiaHigh.description>
   <!-- EN: ambrosia warmth -->
   <AmbrosiaHigh.stages.ambrosia_warmth.label>TODO</AmbrosiaHigh.stages.ambrosia_warmth.label>
+  <!-- EN:  -->
+  <AmbrosiaHigh.stages.ambrosia_warmth.labelSocial>TODO</AmbrosiaHigh.stages.ambrosia_warmth.labelSocial>
   <!-- EN: That ambrosia makes me feel more relaxed, and gives me energy at the same time. -->
   <AmbrosiaHigh.stages.ambrosia_warmth.description>TODO</AmbrosiaHigh.stages.ambrosia_warmth.description>
-  
+
+  <!-- EN:  -->
+  <AmbrosiaWithdrawal.label>TODO</AmbrosiaWithdrawal.label>
+  <!-- EN:  -->
+  <AmbrosiaWithdrawal.description>TODO</AmbrosiaWithdrawal.description>
+  <!-- EN:  -->
+  <AmbrosiaWithdrawal.stages.0.label>TODO</AmbrosiaWithdrawal.stages.0.label>
+  <!-- EN:  -->
+  <AmbrosiaWithdrawal.stages.0.labelSocial>TODO</AmbrosiaWithdrawal.stages.0.labelSocial>
+  <!-- EN:  -->
+  <AmbrosiaWithdrawal.stages.0.description>TODO</AmbrosiaWithdrawal.stages.0.description>
   <!-- EN: ambrosia withdrawal -->
   <AmbrosiaWithdrawal.stages.ambrosia_withdrawal.label>TODO</AmbrosiaWithdrawal.stages.ambrosia_withdrawal.label>
+  <!-- EN:  -->
+  <AmbrosiaWithdrawal.stages.ambrosia_withdrawal.labelSocial>TODO</AmbrosiaWithdrawal.stages.ambrosia_withdrawal.labelSocial>
   <!-- EN: I feel heavy and cold all the time. I never thought I'd want a piece of fruit so much. -->
   <AmbrosiaWithdrawal.stages.ambrosia_withdrawal.description>TODO</AmbrosiaWithdrawal.stages.ambrosia_withdrawal.description>
-  
+
 </LanguageData>

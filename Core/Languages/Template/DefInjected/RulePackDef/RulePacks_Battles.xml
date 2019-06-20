@@ -1,29 +1,59 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN:
-    <li>r_battlename->Free-for-all</li>
-  -->
-  <Battle_Brawl.rulePack.rulesStrings>TODO</Battle_Brawl.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>r_battlename->[PARTICIPANT1_nameDef] vs [PARTICIPANT2_nameDef]</li>
-  -->
-  <Battle_Duel.rulePack.rulesStrings>TODO</Battle_Duel.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>r_battlename->[FACTION1_name] internal conflict</li>
-  -->
-  <Battle_Internal.rulePack.rulesStrings>TODO</Battle_Internal.rulePack.rulesStrings>
-  
+
+  <!-- EN:  -->
+  <Battle_Solo.label>TODO</Battle_Solo.label>
+  <!-- EN:  -->
+  <Battle_Solo.description>TODO</Battle_Solo.description>
   <!-- EN:
     <li>r_battlename->[PARTICIPANT1_nameDef]'s report</li>
   -->
-  <Battle_Solo.rulePack.rulesStrings>TODO</Battle_Solo.rulePack.rulesStrings>
-  
+  <Battle_Solo.rulePack.rulesStrings>
+    <li>TODO</li>
+  </Battle_Solo.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Battle_Duel.label>TODO</Battle_Duel.label>
+  <!-- EN:  -->
+  <Battle_Duel.description>TODO</Battle_Duel.description>
+  <!-- EN:
+    <li>r_battlename->[PARTICIPANT1_nameDef] vs [PARTICIPANT2_nameDef]</li>
+  -->
+  <Battle_Duel.rulePack.rulesStrings>
+    <li>TODO</li>
+  </Battle_Duel.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Battle_Internal.label>TODO</Battle_Internal.label>
+  <!-- EN:  -->
+  <Battle_Internal.description>TODO</Battle_Internal.description>
+  <!-- EN:
+    <li>r_battlename->[FACTION1_name] internal conflict</li>
+  -->
+  <Battle_Internal.rulePack.rulesStrings>
+    <li>TODO</li>
+  </Battle_Internal.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Battle_War.label>TODO</Battle_War.label>
+  <!-- EN:  -->
+  <Battle_War.description>TODO</Battle_War.description>
   <!-- EN:
     <li>r_battlename->[FACTION1_name] vs [FACTION2_name]</li>
   -->
-  <Battle_War.rulePack.rulesStrings>TODO</Battle_War.rulePack.rulesStrings>
-  
+  <Battle_War.rulePack.rulesStrings>
+    <li>TODO</li>
+  </Battle_War.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <Battle_Brawl.label>TODO</Battle_Brawl.label>
+  <!-- EN:  -->
+  <Battle_Brawl.description>TODO</Battle_Brawl.description>
+  <!-- EN:
+    <li>r_battlename->Free-for-all</li>
+  -->
+  <Battle_Brawl.rulePack.rulesStrings>
+    <li>TODO</li>
+  </Battle_Brawl.rulePack.rulesStrings>
+
 </LanguageData>

@@ -1,10 +1,46 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <Gender.label>TODO</Gender.label>
+  <!-- EN:  -->
+  <Gender.description>TODO</Gender.description>
+  <!-- EN:  -->
+  <Gender.headerTip>TODO</Gender.headerTip>
+
+  <!-- EN:  -->
+  <LifeStage.label>TODO</LifeStage.label>
+  <!-- EN:  -->
+  <LifeStage.description>TODO</LifeStage.description>
+  <!-- EN:  -->
+  <LifeStage.headerTip>TODO</LifeStage.headerTip>
+
+  <!-- EN:  -->
+  <Pregnant.label>TODO</Pregnant.label>
+  <!-- EN:  -->
+  <Pregnant.description>TODO</Pregnant.description>
+  <!-- EN:  -->
+  <Pregnant.headerTip>TODO</Pregnant.headerTip>
+
+  <!-- EN:  -->
+  <Bond.label>TODO</Bond.label>
+  <!-- EN:  -->
+  <Bond.description>TODO</Bond.description>
   <!-- EN: Bond -->
   <Bond.headerTip>TODO</Bond.headerTip>
-  
+
+  <!-- EN:  -->
+  <Info.label>TODO</Info.label>
+  <!-- EN:  -->
+  <Info.description>TODO</Info.description>
   <!-- EN: Info -->
   <Info.headerTip>TODO</Info.headerTip>
-  
+
+  <!-- EN:  -->
+  <Predator.label>TODO</Predator.label>
+  <!-- EN:  -->
+  <Predator.description>TODO</Predator.description>
+  <!-- EN:  -->
+  <Predator.headerTip>TODO</Predator.headerTip>
+
 </LanguageData>

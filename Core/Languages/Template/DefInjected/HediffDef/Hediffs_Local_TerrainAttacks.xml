@@ -1,29 +1,69 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: dirt -->
-  <DirtInEyes.label>TODO</DirtInEyes.label>
-  <!-- EN: dirt -->
-  <DirtInEyes.labelNoun>TODO</DirtInEyes.labelNoun>
-  
-  <!-- EN: gravel -->
-  <GravelInEyes.label>TODO</GravelInEyes.label>
-  <!-- EN: gravel -->
-  <GravelInEyes.labelNoun>TODO</GravelInEyes.labelNoun>
-  
-  <!-- EN: mud -->
-  <MudInEyes.label>TODO</MudInEyes.label>
-  <!-- EN: mud -->
-  <MudInEyes.labelNoun>TODO</MudInEyes.labelNoun>
-  
+
   <!-- EN: sand -->
   <SandInEyes.label>TODO</SandInEyes.label>
+  <!-- EN:  -->
+  <SandInEyes.description>TODO</SandInEyes.description>
+  <!-- EN:  -->
+  <SandInEyes.stages.0.label>TODO</SandInEyes.stages.0.label>
+  <!-- EN: blind -->
+  <SandInEyes.battleStateLabel>TODO</SandInEyes.battleStateLabel>
+  <!-- EN:  -->
+  <SandInEyes.labelNounPretty>TODO</SandInEyes.labelNounPretty>
   <!-- EN: sand -->
   <SandInEyes.labelNoun>TODO</SandInEyes.labelNoun>
-  
+
+  <!-- EN: dirt -->
+  <DirtInEyes.label>TODO</DirtInEyes.label>
+  <!-- EN:  -->
+  <DirtInEyes.description>TODO</DirtInEyes.description>
+  <!-- EN:  -->
+  <DirtInEyes.stages.0.label>TODO</DirtInEyes.stages.0.label>
+  <!-- EN: blind -->
+  <DirtInEyes.battleStateLabel>TODO</DirtInEyes.battleStateLabel>
+  <!-- EN:  -->
+  <DirtInEyes.labelNounPretty>TODO</DirtInEyes.labelNounPretty>
+  <!-- EN: dirt -->
+  <DirtInEyes.labelNoun>TODO</DirtInEyes.labelNoun>
+
+  <!-- EN: mud -->
+  <MudInEyes.label>TODO</MudInEyes.label>
+  <!-- EN:  -->
+  <MudInEyes.description>TODO</MudInEyes.description>
+  <!-- EN:  -->
+  <MudInEyes.stages.0.label>TODO</MudInEyes.stages.0.label>
+  <!-- EN: blind -->
+  <MudInEyes.battleStateLabel>TODO</MudInEyes.battleStateLabel>
+  <!-- EN:  -->
+  <MudInEyes.labelNounPretty>TODO</MudInEyes.labelNounPretty>
+  <!-- EN: mud -->
+  <MudInEyes.labelNoun>TODO</MudInEyes.labelNoun>
+
+  <!-- EN: gravel -->
+  <GravelInEyes.label>TODO</GravelInEyes.label>
+  <!-- EN:  -->
+  <GravelInEyes.description>TODO</GravelInEyes.description>
+  <!-- EN:  -->
+  <GravelInEyes.stages.0.label>TODO</GravelInEyes.stages.0.label>
+  <!-- EN: blind -->
+  <GravelInEyes.battleStateLabel>TODO</GravelInEyes.battleStateLabel>
+  <!-- EN:  -->
+  <GravelInEyes.labelNounPretty>TODO</GravelInEyes.labelNounPretty>
+  <!-- EN: gravel -->
+  <GravelInEyes.labelNoun>TODO</GravelInEyes.labelNoun>
+
   <!-- EN: water -->
   <WaterInEyes.label>TODO</WaterInEyes.label>
+  <!-- EN:  -->
+  <WaterInEyes.description>TODO</WaterInEyes.description>
+  <!-- EN:  -->
+  <WaterInEyes.stages.0.label>TODO</WaterInEyes.stages.0.label>
+  <!-- EN: blind -->
+  <WaterInEyes.battleStateLabel>TODO</WaterInEyes.battleStateLabel>
+  <!-- EN:  -->
+  <WaterInEyes.labelNounPretty>TODO</WaterInEyes.labelNounPretty>
   <!-- EN: water -->
   <WaterInEyes.labelNoun>TODO</WaterInEyes.labelNoun>
-  
+
 </LanguageData>

@@ -1,34 +1,54 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: minified thing -->
-  <MinifiedThing.label>TODO</MinifiedThing.label>
-  
-  <!-- EN: unfinished apparel -->
-  <UnfinishedApparel.label>TODO</UnfinishedApparel.label>
-  
-  <!-- EN: unfinished armor -->
-  <UnfinishedArmor.label>TODO</UnfinishedArmor.label>
-  
-  <!-- EN: unfinished belt -->
-  <UnfinishedBelt.label>TODO</UnfinishedBelt.label>
-  
-  <!-- EN: unfinished component -->
-  <UnfinishedComponent.label>TODO</UnfinishedComponent.label>
-  
-  <!-- EN: unfinished gun -->
-  <UnfinishedGun.label>TODO</UnfinishedGun.label>
-  
-  <!-- EN: unfinished armor -->
-  <UnfinishedMetallicTechArmor.label>TODO</UnfinishedMetallicTechArmor.label>
-  
+
   <!-- EN: unfinished sculpture -->
   <UnfinishedSculpture.label>TODO</UnfinishedSculpture.label>
-  
-  <!-- EN: unfinished armor -->
-  <UnfinishedTechArmor.label>TODO</UnfinishedTechArmor.label>
-  
+  <!-- EN:  -->
+  <UnfinishedSculpture.description>TODO</UnfinishedSculpture.description>
+
+  <!-- EN: unfinished gun -->
+  <UnfinishedGun.label>TODO</UnfinishedGun.label>
+  <!-- EN:  -->
+  <UnfinishedGun.description>TODO</UnfinishedGun.description>
+
   <!-- EN: unfinished weapon -->
   <UnfinishedWeapon.label>TODO</UnfinishedWeapon.label>
-  
+  <!-- EN:  -->
+  <UnfinishedWeapon.description>TODO</UnfinishedWeapon.description>
+
+  <!-- EN: unfinished armor -->
+  <UnfinishedArmor.label>TODO</UnfinishedArmor.label>
+  <!-- EN:  -->
+  <UnfinishedArmor.description>TODO</UnfinishedArmor.description>
+
+  <!-- EN: unfinished armor -->
+  <UnfinishedTechArmor.label>TODO</UnfinishedTechArmor.label>
+  <!-- EN:  -->
+  <UnfinishedTechArmor.description>TODO</UnfinishedTechArmor.description>
+
+  <!-- EN: unfinished armor -->
+  <UnfinishedMetallicTechArmor.label>TODO</UnfinishedMetallicTechArmor.label>
+  <!-- EN:  -->
+  <UnfinishedMetallicTechArmor.description>TODO</UnfinishedMetallicTechArmor.description>
+
+  <!-- EN: unfinished apparel -->
+  <UnfinishedApparel.label>TODO</UnfinishedApparel.label>
+  <!-- EN:  -->
+  <UnfinishedApparel.description>TODO</UnfinishedApparel.description>
+
+  <!-- EN: unfinished belt -->
+  <UnfinishedBelt.label>TODO</UnfinishedBelt.label>
+  <!-- EN:  -->
+  <UnfinishedBelt.description>TODO</UnfinishedBelt.description>
+
+  <!-- EN: unfinished component -->
+  <UnfinishedComponent.label>TODO</UnfinishedComponent.label>
+  <!-- EN:  -->
+  <UnfinishedComponent.description>TODO</UnfinishedComponent.description>
+
+  <!-- EN: minified thing -->
+  <MinifiedThing.label>TODO</MinifiedThing.label>
+  <!-- EN:  -->
+  <MinifiedThing.description>TODO</MinifiedThing.description>
+
 </LanguageData>

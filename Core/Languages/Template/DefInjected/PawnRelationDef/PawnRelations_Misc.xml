@@ -1,7 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: bond -->
   <Bond.label>TODO</Bond.label>
-  
+  <!-- EN:  -->
+  <Bond.description>TODO</Bond.description>
+  <!-- EN:  -->
+  <Bond.labelFemale>TODO</Bond.labelFemale>
+
 </LanguageData>

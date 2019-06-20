@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Clear.label>TODO</Clear.label>
+  <!-- EN:  -->
+  <Clear.description>TODO</Clear.description>
+
+  <!-- EN:  -->
+  <SingleThing.label>TODO</SingleThing.label>
+  <!-- EN:  -->
+  <SingleThing.description>TODO</SingleThing.description>
+
+  <!-- EN:  -->
+  <SinglePawn.label>TODO</SinglePawn.label>
+  <!-- EN:  -->
+  <SinglePawn.description>TODO</SinglePawn.description>
+
+  <!-- EN:  -->
+  <FloorFill.label>TODO</FloorFill.label>
+  <!-- EN:  -->
+  <FloorFill.description>TODO</FloorFill.description>
+
+  <!-- EN:  -->
+  <Roof.label>TODO</Roof.label>
+  <!-- EN:  -->
+  <Roof.description>TODO</Roof.description>
+
+  <!-- EN:  -->
+  <EnsureCanReachMapEdge.label>TODO</EnsureCanReachMapEdge.label>
+  <!-- EN:  -->
+  <EnsureCanReachMapEdge.description>TODO</EnsureCanReachMapEdge.description>
+
+  <!-- EN:  -->
+  <EnsureCanHoldRoof.label>TODO</EnsureCanHoldRoof.label>
+  <!-- EN:  -->
+  <EnsureCanHoldRoof.description>TODO</EnsureCanHoldRoof.description>
+
+  <!-- EN:  -->
+  <OutdoorsCampfire.label>TODO</OutdoorsCampfire.label>
+  <!-- EN:  -->
+  <OutdoorsCampfire.description>TODO</OutdoorsCampfire.description>
+
+  <!-- EN:  -->
+  <FirefoamPopper.label>TODO</FirefoamPopper.label>
+  <!-- EN:  -->
+  <FirefoamPopper.description>TODO</FirefoamPopper.description>
+
+  <!-- EN:  -->
+  <PawnGroup.label>TODO</PawnGroup.label>
+  <!-- EN:  -->
+  <PawnGroup.description>TODO</PawnGroup.description>
+
+  <!-- EN:  -->
+  <ThingSet.label>TODO</ThingSet.label>
+  <!-- EN:  -->
+  <ThingSet.description>TODO</ThingSet.description>
+
+  <!-- EN:  -->
+  <EmptyRoom.label>TODO</EmptyRoom.label>
+  <!-- EN:  -->
+  <EmptyRoom.description>TODO</EmptyRoom.description>
+
+  <!-- EN:  -->
+  <Doors.label>TODO</Doors.label>
+  <!-- EN:  -->
+  <Doors.description>TODO</Doors.description>
+
+  <!-- EN:  -->
+  <ExtraDoor.label>TODO</ExtraDoor.label>
+  <!-- EN:  -->
+  <ExtraDoor.description>TODO</ExtraDoor.description>
+
+  <!-- EN:  -->
+  <EdgeSandbags.label>TODO</EdgeSandbags.label>
+  <!-- EN:  -->
+  <EdgeSandbags.description>TODO</EdgeSandbags.description>
+
+  <!-- EN:  -->
+  <EdgeWalls.label>TODO</EdgeWalls.label>
+  <!-- EN:  -->
+  <EdgeWalls.description>TODO</EdgeWalls.description>
+
+  <!-- EN:  -->
+  <EdgeFloor.label>TODO</EdgeFloor.label>
+  <!-- EN:  -->
+  <EdgeFloor.description>TODO</EdgeFloor.description>
+
+  <!-- EN:  -->
+  <AncientCryptosleepCasket.label>TODO</AncientCryptosleepCasket.label>
+  <!-- EN:  -->
+  <AncientCryptosleepCasket.description>TODO</AncientCryptosleepCasket.description>
+
+  <!-- EN:  -->
+  <EdgeThing.label>TODO</EdgeThing.label>
+  <!-- EN:  -->
+  <EdgeThing.description>TODO</EdgeThing.description>
+
+  <!-- EN:  -->
+  <CultivatedPlants.label>TODO</CultivatedPlants.label>
+  <!-- EN:  -->
+  <CultivatedPlants.description>TODO</CultivatedPlants.description>
+
+  <!-- EN:  -->
+  <Bed.label>TODO</Bed.label>
+  <!-- EN:  -->
+  <Bed.description>TODO</Bed.description>
+
+  <!-- EN:  -->
+  <PrisonerBed.label>TODO</PrisonerBed.label>
+  <!-- EN:  -->
+  <PrisonerBed.description>TODO</PrisonerBed.description>
+
+</LanguageData>

@@ -1,8 +1,55 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN: mechanical centipede -->
+  <MechanicalCentipede.label>TODO</MechanicalCentipede.label>
+  <!-- EN:  -->
+  <MechanicalCentipede.description>TODO</MechanicalCentipede.description>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.customLabel>TODO</MechanicalCentipede.corePart.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.ArtificialBrain.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.ArtificialBrain.customLabel>
+  <!-- EN: left sight sensor -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_sight_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_sight_sensor.customLabel>
+  <!-- EN: right sight sensor -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_sight_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_sight_sensor.customLabel>
+  <!-- EN: left hearing sensor -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>
+  <!-- EN: right hearing sensor -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.SmellSensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.SmellSensor.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.parts.MechanicalCentipedeBodyFourthRing.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.parts.MechanicalCentipedeBodyFourthRing.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.parts.MechanicalCentipedeBodyFourthRing.parts.MechanicalCentipedeBodyFifthRing.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.parts.MechanicalCentipedeBodyFourthRing.parts.MechanicalCentipedeBodyFifthRing.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.parts.MechanicalCentipedeBodyFourthRing.parts.MechanicalCentipedeBodyFifthRing.parts.MechanicalCentipedeBodySixthRing.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalCentipedeBodySecondRing.parts.MechanicalCentipedeBodyThirdRing.parts.MechanicalCentipedeBodyFourthRing.parts.MechanicalCentipedeBodyFifthRing.parts.MechanicalCentipedeBodySixthRing.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.Reactor.customLabel>TODO</MechanicalCentipede.corePart.parts.Reactor.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.FluidReprocessor-0.customLabel>TODO</MechanicalCentipede.corePart.parts.FluidReprocessor-0.customLabel>
+  <!-- EN:  -->
+  <MechanicalCentipede.corePart.parts.FluidReprocessor-1.customLabel>TODO</MechanicalCentipede.corePart.parts.FluidReprocessor-1.customLabel>
+
   <!-- EN: lancer -->
   <Lancer.label>TODO</Lancer.label>
+  <!-- EN:  -->
+  <Lancer.description>TODO</Lancer.description>
+  <!-- EN:  -->
+  <Lancer.corePart.customLabel>TODO</Lancer.corePart.customLabel>
+  <!-- EN:  -->
+  <Lancer.corePart.parts.MechanicalNeck.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.customLabel>
+  <!-- EN:  -->
+  <Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.customLabel>
+  <!-- EN:  -->
+  <Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.ArtificialBrain.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.ArtificialBrain.customLabel>
   <!-- EN: left sight sensor -->
   <Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_sight_sensor.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_sight_sensor.customLabel>
   <!-- EN: right sight sensor -->
@@ -11,6 +58,8 @@
   <Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>
   <!-- EN: right hearing sensor -->
   <Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>
+  <!-- EN:  -->
+  <Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.SmellSensor.customLabel>TODO</Lancer.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.SmellSensor.customLabel>
   <!-- EN: left shoulder -->
   <Lancer.corePart.parts.left_shoulder.customLabel>TODO</Lancer.corePart.parts.left_shoulder.customLabel>
   <!-- EN: left arm -->
@@ -47,20 +96,25 @@
   <Lancer.corePart.parts.right_leg.customLabel>TODO</Lancer.corePart.parts.right_leg.customLabel>
   <!-- EN: right foot -->
   <Lancer.corePart.parts.right_leg.parts.right_foot.customLabel>TODO</Lancer.corePart.parts.right_leg.parts.right_foot.customLabel>
-  
-  <!-- EN: mechanical centipede -->
-  <MechanicalCentipede.label>TODO</MechanicalCentipede.label>
-  <!-- EN: left sight sensor -->
-  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_sight_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_sight_sensor.customLabel>
-  <!-- EN: right sight sensor -->
-  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_sight_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_sight_sensor.customLabel>
-  <!-- EN: left hearing sensor -->
-  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>
-  <!-- EN: right hearing sensor -->
-  <MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>TODO</MechanicalCentipede.corePart.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>
-  
+  <!-- EN:  -->
+  <Lancer.corePart.parts.Reactor.customLabel>TODO</Lancer.corePart.parts.Reactor.customLabel>
+  <!-- EN:  -->
+  <Lancer.corePart.parts.FluidReprocessor-0.customLabel>TODO</Lancer.corePart.parts.FluidReprocessor-0.customLabel>
+  <!-- EN:  -->
+  <Lancer.corePart.parts.FluidReprocessor-1.customLabel>TODO</Lancer.corePart.parts.FluidReprocessor-1.customLabel>
+
   <!-- EN: scyther -->
   <Scyther.label>TODO</Scyther.label>
+  <!-- EN:  -->
+  <Scyther.description>TODO</Scyther.description>
+  <!-- EN:  -->
+  <Scyther.corePart.customLabel>TODO</Scyther.corePart.customLabel>
+  <!-- EN:  -->
+  <Scyther.corePart.parts.MechanicalNeck.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.customLabel>
+  <!-- EN:  -->
+  <Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.customLabel>
+  <!-- EN:  -->
+  <Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.ArtificialBrain.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.ArtificialBrain.customLabel>
   <!-- EN: left sight sensor -->
   <Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_sight_sensor.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_sight_sensor.customLabel>
   <!-- EN: right sight sensor -->
@@ -69,6 +123,8 @@
   <Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.left_hearing_sensor.customLabel>
   <!-- EN: right hearing sensor -->
   <Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.right_hearing_sensor.customLabel>
+  <!-- EN:  -->
+  <Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.SmellSensor.customLabel>TODO</Scyther.corePart.parts.MechanicalNeck.parts.MechanicalHead.parts.SmellSensor.customLabel>
   <!-- EN: left shoulder -->
   <Scyther.corePart.parts.left_shoulder.customLabel>TODO</Scyther.corePart.parts.left_shoulder.customLabel>
   <!-- EN: left arm -->
@@ -109,5 +165,11 @@
   <Scyther.corePart.parts.right_leg.customLabel>TODO</Scyther.corePart.parts.right_leg.customLabel>
   <!-- EN: right foot -->
   <Scyther.corePart.parts.right_leg.parts.right_foot.customLabel>TODO</Scyther.corePart.parts.right_leg.parts.right_foot.customLabel>
-  
+  <!-- EN:  -->
+  <Scyther.corePart.parts.Reactor.customLabel>TODO</Scyther.corePart.parts.Reactor.customLabel>
+  <!-- EN:  -->
+  <Scyther.corePart.parts.FluidReprocessor-0.customLabel>TODO</Scyther.corePart.parts.FluidReprocessor-0.customLabel>
+  <!-- EN:  -->
+  <Scyther.corePart.parts.FluidReprocessor-1.customLabel>TODO</Scyther.corePart.parts.FluidReprocessor-1.customLabel>
+
 </LanguageData>

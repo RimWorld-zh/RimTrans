@@ -1,6 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <NamerWorld.label>TODO</NamerWorld.label>
+  <!-- EN:  -->
+  <NamerWorld.description>TODO</NamerWorld.description>
   <!-- EN:
     <li>r_name->[celestial_name]</li>
     <li>r_name->[celestial_prefix] [celestial_name]</li>
@@ -23,6 +27,37 @@
     <li>planet->World</li>
     <li>planet->Planet</li>
   -->
-  <NamerWorld.rulePack.rulesStrings>TODO</NamerWorld.rulePack.rulesStrings>
-  
+  <NamerWorld.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerWorld.rulePack.rulesStrings>
+  <!-- EN:
+    <li>celestial_name->Names/Celestial</li>
+    <li>celestial_suffix->Names/CelestialSuffix</li>
+    <li>celestial_prefix->Names/CelestialPrefix</li>
+  -->
+  <NamerWorld.rulePack.rulesFiles>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerWorld.rulePack.rulesFiles>
+
 </LanguageData>

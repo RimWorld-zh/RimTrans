@@ -1,24 +1,208 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: elephant -->
-  <Elephant.label>TODO</Elephant.label>
-  <!-- EN: elephant calf -->
-  <Elephant.lifeStages.elephant_calf.label>TODO</Elephant.lifeStages.elephant_calf.label>
-  
-  <!-- EN: megasloth -->
-  <Megasloth.label>TODO</Megasloth.label>
-  
+
   <!-- EN: rhinoceros -->
   <Rhinoceros.label>TODO</Rhinoceros.label>
+  <!-- EN:  -->
+  <Rhinoceros.description>TODO</Rhinoceros.description>
   <!-- EN: rhinoceroses -->
   <Rhinoceros.labelPlural>TODO</Rhinoceros.labelPlural>
-  
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.0.label>TODO</Rhinoceros.lifeStages.0.label>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.0.labelPlural>TODO</Rhinoceros.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.0.labelMale>TODO</Rhinoceros.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.0.labelMalePlural>TODO</Rhinoceros.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.0.labelFemale>TODO</Rhinoceros.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.0.labelFemalePlural>TODO</Rhinoceros.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.1.label>TODO</Rhinoceros.lifeStages.1.label>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.1.labelPlural>TODO</Rhinoceros.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.1.labelMale>TODO</Rhinoceros.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.1.labelMalePlural>TODO</Rhinoceros.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.1.labelFemale>TODO</Rhinoceros.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.1.labelFemalePlural>TODO</Rhinoceros.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.2.label>TODO</Rhinoceros.lifeStages.2.label>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.2.labelPlural>TODO</Rhinoceros.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.2.labelMale>TODO</Rhinoceros.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.2.labelMalePlural>TODO</Rhinoceros.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.2.labelFemale>TODO</Rhinoceros.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Rhinoceros.lifeStages.2.labelFemalePlural>TODO</Rhinoceros.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.labelMale>TODO</Rhinoceros.labelMale>
+  <!-- EN:  -->
+  <Rhinoceros.labelMalePlural>TODO</Rhinoceros.labelMalePlural>
+  <!-- EN:  -->
+  <Rhinoceros.labelFemale>TODO</Rhinoceros.labelFemale>
+  <!-- EN:  -->
+  <Rhinoceros.labelFemalePlural>TODO</Rhinoceros.labelFemalePlural>
+
+  <!-- EN: elephant -->
+  <Elephant.label>TODO</Elephant.label>
+  <!-- EN:  -->
+  <Elephant.description>TODO</Elephant.description>
+  <!-- EN:  -->
+  <Elephant.labelPlural>TODO</Elephant.labelPlural>
+  <!-- EN: elephant calf -->
+  <Elephant.lifeStages.elephant_calf.label>TODO</Elephant.lifeStages.elephant_calf.label>
+  <!-- EN:  -->
+  <Elephant.lifeStages.elephant_calf.labelPlural>TODO</Elephant.lifeStages.elephant_calf.labelPlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.elephant_calf.labelMale>TODO</Elephant.lifeStages.elephant_calf.labelMale>
+  <!-- EN:  -->
+  <Elephant.lifeStages.elephant_calf.labelMalePlural>TODO</Elephant.lifeStages.elephant_calf.labelMalePlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.elephant_calf.labelFemale>TODO</Elephant.lifeStages.elephant_calf.labelFemale>
+  <!-- EN:  -->
+  <Elephant.lifeStages.elephant_calf.labelFemalePlural>TODO</Elephant.lifeStages.elephant_calf.labelFemalePlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.1.label>TODO</Elephant.lifeStages.1.label>
+  <!-- EN:  -->
+  <Elephant.lifeStages.1.labelPlural>TODO</Elephant.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.1.labelMale>TODO</Elephant.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Elephant.lifeStages.1.labelMalePlural>TODO</Elephant.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.1.labelFemale>TODO</Elephant.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Elephant.lifeStages.1.labelFemalePlural>TODO</Elephant.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.2.label>TODO</Elephant.lifeStages.2.label>
+  <!-- EN:  -->
+  <Elephant.lifeStages.2.labelPlural>TODO</Elephant.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.2.labelMale>TODO</Elephant.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Elephant.lifeStages.2.labelMalePlural>TODO</Elephant.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Elephant.lifeStages.2.labelFemale>TODO</Elephant.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Elephant.lifeStages.2.labelFemalePlural>TODO</Elephant.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Elephant.labelMale>TODO</Elephant.labelMale>
+  <!-- EN:  -->
+  <Elephant.labelMalePlural>TODO</Elephant.labelMalePlural>
+  <!-- EN:  -->
+  <Elephant.labelFemale>TODO</Elephant.labelFemale>
+  <!-- EN:  -->
+  <Elephant.labelFemalePlural>TODO</Elephant.labelFemalePlural>
+
+  <!-- EN: megasloth -->
+  <Megasloth.label>TODO</Megasloth.label>
+  <!-- EN:  -->
+  <Megasloth.description>TODO</Megasloth.description>
+  <!-- EN:  -->
+  <Megasloth.labelPlural>TODO</Megasloth.labelPlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.0.label>TODO</Megasloth.lifeStages.0.label>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.0.labelPlural>TODO</Megasloth.lifeStages.0.labelPlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.0.labelMale>TODO</Megasloth.lifeStages.0.labelMale>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.0.labelMalePlural>TODO</Megasloth.lifeStages.0.labelMalePlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.0.labelFemale>TODO</Megasloth.lifeStages.0.labelFemale>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.0.labelFemalePlural>TODO</Megasloth.lifeStages.0.labelFemalePlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.1.label>TODO</Megasloth.lifeStages.1.label>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.1.labelPlural>TODO</Megasloth.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.1.labelMale>TODO</Megasloth.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.1.labelMalePlural>TODO</Megasloth.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.1.labelFemale>TODO</Megasloth.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.1.labelFemalePlural>TODO</Megasloth.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.2.label>TODO</Megasloth.lifeStages.2.label>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.2.labelPlural>TODO</Megasloth.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.2.labelMale>TODO</Megasloth.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.2.labelMalePlural>TODO</Megasloth.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.2.labelFemale>TODO</Megasloth.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Megasloth.lifeStages.2.labelFemalePlural>TODO</Megasloth.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Megasloth.labelMale>TODO</Megasloth.labelMale>
+  <!-- EN:  -->
+  <Megasloth.labelMalePlural>TODO</Megasloth.labelMalePlural>
+  <!-- EN:  -->
+  <Megasloth.labelFemale>TODO</Megasloth.labelFemale>
+  <!-- EN:  -->
+  <Megasloth.labelFemalePlural>TODO</Megasloth.labelFemalePlural>
+
   <!-- EN: thrumbo -->
   <Thrumbo.label>TODO</Thrumbo.label>
+  <!-- EN:  -->
+  <Thrumbo.description>TODO</Thrumbo.description>
+  <!-- EN:  -->
+  <Thrumbo.labelPlural>TODO</Thrumbo.labelPlural>
   <!-- EN: thrumbo calf -->
   <Thrumbo.lifeStages.thrumbo_calf.label>TODO</Thrumbo.lifeStages.thrumbo_calf.label>
   <!-- EN: thrumbo calves -->
   <Thrumbo.lifeStages.thrumbo_calf.labelPlural>TODO</Thrumbo.lifeStages.thrumbo_calf.labelPlural>
-  
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.thrumbo_calf.labelMale>TODO</Thrumbo.lifeStages.thrumbo_calf.labelMale>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.thrumbo_calf.labelMalePlural>TODO</Thrumbo.lifeStages.thrumbo_calf.labelMalePlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.thrumbo_calf.labelFemale>TODO</Thrumbo.lifeStages.thrumbo_calf.labelFemale>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.thrumbo_calf.labelFemalePlural>TODO</Thrumbo.lifeStages.thrumbo_calf.labelFemalePlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.1.label>TODO</Thrumbo.lifeStages.1.label>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.1.labelPlural>TODO</Thrumbo.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.1.labelMale>TODO</Thrumbo.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.1.labelMalePlural>TODO</Thrumbo.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.1.labelFemale>TODO</Thrumbo.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.1.labelFemalePlural>TODO</Thrumbo.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.2.label>TODO</Thrumbo.lifeStages.2.label>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.2.labelPlural>TODO</Thrumbo.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.2.labelMale>TODO</Thrumbo.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.2.labelMalePlural>TODO</Thrumbo.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.2.labelFemale>TODO</Thrumbo.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Thrumbo.lifeStages.2.labelFemalePlural>TODO</Thrumbo.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Thrumbo.labelMale>TODO</Thrumbo.labelMale>
+  <!-- EN:  -->
+  <Thrumbo.labelMalePlural>TODO</Thrumbo.labelMalePlural>
+  <!-- EN:  -->
+  <Thrumbo.labelFemale>TODO</Thrumbo.labelFemale>
+  <!-- EN:  -->
+  <Thrumbo.labelFemalePlural>TODO</Thrumbo.labelFemalePlural>
+
 </LanguageData>

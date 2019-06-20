@@ -1,19 +1,37 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: agarilux -->
-  <Agarilux.label>TODO</Agarilux.label>
-  <!-- EN: An enormous purple mushroom. Its size and glowing protrusions make this fungus beautiful to look at. It dies when exposed to light. -->
-  <Agarilux.description>TODO</Agarilux.description>
-  
-  <!-- EN: bryolux -->
-  <Bryolux.label>TODO</Bryolux.label>
-  <!-- EN: A blue moss typically found in deep, dark caves. It is sticky, with tangled fibers, which slows anyone walking over it. Dies when exposed to light. -->
-  <Bryolux.description>TODO</Bryolux.description>
-  
+
   <!-- EN: glowstool -->
   <Glowstool.label>TODO</Glowstool.label>
   <!-- EN: A small brown mushroom typically found in caves. It smells like an old, dirty rag pulled from the stomach of a rotting muffalo - but it tastes surprisingly good when cooked. Dies when exposed to light. -->
   <Glowstool.description>TODO</Glowstool.description>
-  
+  <!-- EN:  -->
+  <Glowstool.ingestible.ingestCommandString>TODO</Glowstool.ingestible.ingestCommandString>
+  <!-- EN:  -->
+  <Glowstool.ingestible.ingestReportString>TODO</Glowstool.ingestible.ingestReportString>
+  <!-- EN:  -->
+  <Glowstool.ingestible.ingestReportStringEat>TODO</Glowstool.ingestible.ingestReportStringEat>
+
+  <!-- EN: agarilux -->
+  <Agarilux.label>TODO</Agarilux.label>
+  <!-- EN: An enormous purple mushroom. Its size and glowing protrusions make this fungus beautiful to look at. It dies when exposed to light. -->
+  <Agarilux.description>TODO</Agarilux.description>
+  <!-- EN:  -->
+  <Agarilux.ingestible.ingestCommandString>TODO</Agarilux.ingestible.ingestCommandString>
+  <!-- EN:  -->
+  <Agarilux.ingestible.ingestReportString>TODO</Agarilux.ingestible.ingestReportString>
+  <!-- EN:  -->
+  <Agarilux.ingestible.ingestReportStringEat>TODO</Agarilux.ingestible.ingestReportStringEat>
+
+  <!-- EN: bryolux -->
+  <Bryolux.label>TODO</Bryolux.label>
+  <!-- EN: A blue moss typically found in deep, dark caves. It is sticky, with tangled fibers, which slows anyone walking over it. Dies when exposed to light. -->
+  <Bryolux.description>TODO</Bryolux.description>
+  <!-- EN:  -->
+  <Bryolux.ingestible.ingestCommandString>TODO</Bryolux.ingestible.ingestCommandString>
+  <!-- EN:  -->
+  <Bryolux.ingestible.ingestReportString>TODO</Bryolux.ingestible.ingestReportString>
+  <!-- EN:  -->
+  <Bryolux.ingestible.ingestReportStringEat>TODO</Bryolux.ingestible.ingestReportStringEat>
+
 </LanguageData>

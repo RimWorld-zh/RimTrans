@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <CopyPasteWorkPriorities.label>TODO</CopyPasteWorkPriorities.label>
+  <!-- EN:  -->
+  <CopyPasteWorkPriorities.description>TODO</CopyPasteWorkPriorities.description>
+  <!-- EN:  -->
+  <CopyPasteWorkPriorities.headerTip>TODO</CopyPasteWorkPriorities.headerTip>
+
+  <!-- EN:  -->
+  <CopyPasteTimetable.label>TODO</CopyPasteTimetable.label>
+  <!-- EN:  -->
+  <CopyPasteTimetable.description>TODO</CopyPasteTimetable.description>
+  <!-- EN:  -->
+  <CopyPasteTimetable.headerTip>TODO</CopyPasteTimetable.headerTip>
+
+</LanguageData>

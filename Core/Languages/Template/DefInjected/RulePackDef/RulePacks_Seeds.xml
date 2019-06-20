@@ -1,6 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <SeedGenerator.label>TODO</SeedGenerator.label>
+  <!-- EN:  -->
+  <SeedGenerator.description>TODO</SeedGenerator.description>
   <!-- EN:
     <li>r_seed(p=3)->[NamePerson]</li>
     <li>r_seed->[Animal]</li>
@@ -19,6 +23,31 @@
     <li>r_seed->[businesstype]</li>
     <li>r_seed->[Community]</li>
   -->
-  <SeedGenerator.rulePack.rulesStrings>TODO</SeedGenerator.rulePack.rulesStrings>
-  
+  <SeedGenerator.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </SeedGenerator.rulePack.rulesStrings>
+  <!-- EN:
+    <li>businessname->Names/Business</li>
+    <li>businesstype->Words/Nouns/BusinessTypes</li>
+  -->
+  <SeedGenerator.rulePack.rulesFiles>
+    <li>TODO</li>
+    <li>TODO</li>
+  </SeedGenerator.rulePack.rulesFiles>
+
 </LanguageData>

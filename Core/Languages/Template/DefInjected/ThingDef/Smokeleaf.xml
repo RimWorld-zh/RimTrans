@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: smokeleaf joint -->
   <SmokeleafJoint.label>TODO</SmokeleafJoint.label>
   <!-- EN: Smokeleaf leaves prepared in small rolls for smoking. The drug improves mood, but also increases appetite, reduces focus and slows movement. Smokeleaf use can produce a dependency.\n\nJoints can be produced at a crafting spot without equipment, and are a fixture in many traditional low-industriousness cultures. -->
@@ -11,5 +11,5 @@
   <SmokeleafJoint.ingestible.ingestReportString>TODO</SmokeleafJoint.ingestible.ingestReportString>
   <!-- EN: Consuming {0}. -->
   <SmokeleafJoint.ingestible.ingestReportStringEat>TODO</SmokeleafJoint.ingestible.ingestReportStringEat>
-  
+
 </LanguageData>

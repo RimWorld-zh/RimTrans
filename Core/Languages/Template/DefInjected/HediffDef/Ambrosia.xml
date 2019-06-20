@@ -1,16 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: ambrosia addiction -->
-  <AmbrosiaAddiction.label>TODO</AmbrosiaAddiction.label>
-  <!-- EN: withdrawal -->
-  <AmbrosiaAddiction.stages.withdrawal.label>TODO</AmbrosiaAddiction.stages.withdrawal.label>
-  
+
   <!-- EN: ambrosia warmth -->
   <AmbrosiaHigh.label>TODO</AmbrosiaHigh.label>
-  
+  <!-- EN:  -->
+  <AmbrosiaHigh.description>TODO</AmbrosiaHigh.description>
+  <!-- EN:  -->
+  <AmbrosiaHigh.stages.0.label>TODO</AmbrosiaHigh.stages.0.label>
+  <!-- EN:  -->
+  <AmbrosiaHigh.battleStateLabel>TODO</AmbrosiaHigh.battleStateLabel>
+  <!-- EN:  -->
+  <AmbrosiaHigh.labelNounPretty>TODO</AmbrosiaHigh.labelNounPretty>
+  <!-- EN:  -->
+  <AmbrosiaHigh.labelNoun>TODO</AmbrosiaHigh.labelNoun>
+
   <!-- EN: ambrosia tolerance -->
   <AmbrosiaTolerance.label>TODO</AmbrosiaTolerance.label>
+  <!-- EN:  -->
+  <AmbrosiaTolerance.description>TODO</AmbrosiaTolerance.description>
   <!-- EN: small -->
   <AmbrosiaTolerance.stages.small-0.label>TODO</AmbrosiaTolerance.stages.small-0.label>
   <!-- EN: small -->
@@ -19,5 +26,26 @@
   <AmbrosiaTolerance.stages.large.label>TODO</AmbrosiaTolerance.stages.large.label>
   <!-- EN: massive -->
   <AmbrosiaTolerance.stages.massive.label>TODO</AmbrosiaTolerance.stages.massive.label>
-  
+  <!-- EN:  -->
+  <AmbrosiaTolerance.battleStateLabel>TODO</AmbrosiaTolerance.battleStateLabel>
+  <!-- EN:  -->
+  <AmbrosiaTolerance.labelNounPretty>TODO</AmbrosiaTolerance.labelNounPretty>
+  <!-- EN:  -->
+  <AmbrosiaTolerance.labelNoun>TODO</AmbrosiaTolerance.labelNoun>
+
+  <!-- EN: ambrosia addiction -->
+  <AmbrosiaAddiction.label>TODO</AmbrosiaAddiction.label>
+  <!-- EN:  -->
+  <AmbrosiaAddiction.description>TODO</AmbrosiaAddiction.description>
+  <!-- EN:  -->
+  <AmbrosiaAddiction.stages.0.label>TODO</AmbrosiaAddiction.stages.0.label>
+  <!-- EN: withdrawal -->
+  <AmbrosiaAddiction.stages.withdrawal.label>TODO</AmbrosiaAddiction.stages.withdrawal.label>
+  <!-- EN:  -->
+  <AmbrosiaAddiction.battleStateLabel>TODO</AmbrosiaAddiction.battleStateLabel>
+  <!-- EN:  -->
+  <AmbrosiaAddiction.labelNounPretty>TODO</AmbrosiaAddiction.labelNounPretty>
+  <!-- EN:  -->
+  <AmbrosiaAddiction.labelNoun>TODO</AmbrosiaAddiction.labelNoun>
+
 </LanguageData>

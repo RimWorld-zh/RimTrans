@@ -1,14 +1,26 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <DebugBad.label>TODO</DebugBad.label>
+  <!-- EN:  -->
+  <DebugBad.description>TODO</DebugBad.description>
   <!-- EN: debug bad thought -->
   <DebugBad.stages.debug_bad_thought.label>TODO</DebugBad.stages.debug_bad_thought.label>
+  <!-- EN:  -->
+  <DebugBad.stages.debug_bad_thought.labelSocial>TODO</DebugBad.stages.debug_bad_thought.labelSocial>
   <!-- EN: Test thought for debugging. -->
   <DebugBad.stages.debug_bad_thought.description>TODO</DebugBad.stages.debug_bad_thought.description>
-  
+
+  <!-- EN:  -->
+  <DebugGood.label>TODO</DebugGood.label>
+  <!-- EN:  -->
+  <DebugGood.description>TODO</DebugGood.description>
   <!-- EN: debug good thought -->
   <DebugGood.stages.debug_good_thought.label>TODO</DebugGood.stages.debug_good_thought.label>
+  <!-- EN:  -->
+  <DebugGood.stages.debug_good_thought.labelSocial>TODO</DebugGood.stages.debug_good_thought.labelSocial>
   <!-- EN: Test thought for debugging. -->
   <DebugGood.stages.debug_good_thought.description>TODO</DebugGood.stages.debug_good_thought.description>
-  
+
 </LanguageData>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <TravelOrLeave.label>TODO</TravelOrLeave.label>
+  <!-- EN:  -->
+  <TravelOrLeave.description>TODO</TravelOrLeave.description>
+
+  <!-- EN:  -->
+  <TravelOrWait.label>TODO</TravelOrWait.label>
+  <!-- EN:  -->
+  <TravelOrWait.description>TODO</TravelOrWait.description>
+
+  <!-- EN:  -->
+  <Defend.label>TODO</Defend.label>
+  <!-- EN:  -->
+  <Defend.description>TODO</Defend.description>
+
+  <!-- EN:  -->
+  <Follow.label>TODO</Follow.label>
+  <!-- EN:  -->
+  <Follow.description>TODO</Follow.description>
+
+  <!-- EN:  -->
+  <Build.label>TODO</Build.label>
+  <!-- EN:  -->
+  <Build.description>TODO</Build.description>
+
+  <!-- EN:  -->
+  <AssaultColony.label>TODO</AssaultColony.label>
+  <!-- EN:  -->
+  <AssaultColony.description>TODO</AssaultColony.description>
+
+  <!-- EN:  -->
+  <Sapper.label>TODO</Sapper.label>
+  <!-- EN:  -->
+  <Sapper.description>TODO</Sapper.description>
+
+  <!-- EN:  -->
+  <Escort.label>TODO</Escort.label>
+  <!-- EN:  -->
+  <Escort.description>TODO</Escort.description>
+
+  <!-- EN:  -->
+  <HuntEnemiesIndividual.label>TODO</HuntEnemiesIndividual.label>
+  <!-- EN:  -->
+  <HuntEnemiesIndividual.description>TODO</HuntEnemiesIndividual.description>
+
+  <!-- EN:  -->
+  <Kidnap.label>TODO</Kidnap.label>
+  <!-- EN:  -->
+  <Kidnap.description>TODO</Kidnap.description>
+
+  <!-- EN:  -->
+  <TakeWoundedGuest.label>TODO</TakeWoundedGuest.label>
+  <!-- EN:  -->
+  <TakeWoundedGuest.description>TODO</TakeWoundedGuest.description>
+
+  <!-- EN:  -->
+  <Steal.label>TODO</Steal.label>
+  <!-- EN:  -->
+  <Steal.description>TODO</Steal.description>
+
+  <!-- EN:  -->
+  <PrisonerEscape.label>TODO</PrisonerEscape.label>
+  <!-- EN:  -->
+  <PrisonerEscape.description>TODO</PrisonerEscape.description>
+
+  <!-- EN:  -->
+  <PrisonerEscapeSapper.label>TODO</PrisonerEscapeSapper.label>
+  <!-- EN:  -->
+  <PrisonerEscapeSapper.description>TODO</PrisonerEscapeSapper.description>
+
+  <!-- EN:  -->
+  <DefendAndExpandHive.label>TODO</DefendAndExpandHive.label>
+  <!-- EN:  -->
+  <DefendAndExpandHive.description>TODO</DefendAndExpandHive.description>
+
+  <!-- EN:  -->
+  <DefendHiveAggressively.label>TODO</DefendHiveAggressively.label>
+  <!-- EN:  -->
+  <DefendHiveAggressively.description>TODO</DefendHiveAggressively.description>
+
+  <!-- EN:  -->
+  <ExitMapRandom.label>TODO</ExitMapRandom.label>
+  <!-- EN:  -->
+  <ExitMapRandom.description>TODO</ExitMapRandom.description>
+
+  <!-- EN:  -->
+  <ExitMapBest.label>TODO</ExitMapBest.label>
+  <!-- EN:  -->
+  <ExitMapBest.description>TODO</ExitMapBest.description>
+
+  <!-- EN:  -->
+  <ExitMapBestAndDefendSelf.label>TODO</ExitMapBestAndDefendSelf.label>
+  <!-- EN:  -->
+  <ExitMapBestAndDefendSelf.description>TODO</ExitMapBestAndDefendSelf.description>
+
+  <!-- EN:  -->
+  <ExitMapNearDutyTarget.label>TODO</ExitMapNearDutyTarget.label>
+  <!-- EN:  -->
+  <ExitMapNearDutyTarget.description>TODO</ExitMapNearDutyTarget.description>
+
+  <!-- EN:  -->
+  <LoadAndEnterTransporters.label>TODO</LoadAndEnterTransporters.label>
+  <!-- EN:  -->
+  <LoadAndEnterTransporters.description>TODO</LoadAndEnterTransporters.description>
+
+  <!-- EN:  -->
+  <ManClosestTurret.label>TODO</ManClosestTurret.label>
+  <!-- EN:  -->
+  <ManClosestTurret.description>TODO</ManClosestTurret.description>
+
+  <!-- EN:  -->
+  <SleepForever.label>TODO</SleepForever.label>
+  <!-- EN:  -->
+  <SleepForever.description>TODO</SleepForever.description>
+
+</LanguageData>

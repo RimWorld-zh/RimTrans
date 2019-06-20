@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <BasePart.label>TODO</BasePart.label>
+  <!-- EN:  -->
+  <BasePart.description>TODO</BasePart.description>
+
+  <!-- EN:  -->
+  <BasePart_Indoors_Division.label>TODO</BasePart_Indoors_Division.label>
+  <!-- EN:  -->
+  <BasePart_Indoors_Division.description>TODO</BasePart_Indoors_Division.description>
+
+  <!-- EN:  -->
+  <BasePart_Indoors_Leaf.label>TODO</BasePart_Indoors_Leaf.label>
+  <!-- EN:  -->
+  <BasePart_Indoors_Leaf.description>TODO</BasePart_Indoors_Leaf.description>
+
+</LanguageData>

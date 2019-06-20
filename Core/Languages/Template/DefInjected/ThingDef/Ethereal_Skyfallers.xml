@@ -1,19 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: crashed ship part (incoming) -->
-  <CrashedShipPartIncoming.label>TODO</CrashedShipPartIncoming.label>
-  
+
   <!-- EN: drop pod (incoming) -->
   <DropPodIncoming.label>TODO</DropPodIncoming.label>
-  
+  <!-- EN:  -->
+  <DropPodIncoming.description>TODO</DropPodIncoming.description>
+
   <!-- EN: drop pod (leaving) -->
   <DropPodLeaving.label>TODO</DropPodLeaving.label>
-  
-  <!-- EN: meteorite (incoming) -->
-  <MeteoriteIncoming.label>TODO</MeteoriteIncoming.label>
-  
+  <!-- EN:  -->
+  <DropPodLeaving.description>TODO</DropPodLeaving.description>
+
   <!-- EN: ship chunk (incoming) -->
   <ShipChunkIncoming.label>TODO</ShipChunkIncoming.label>
-  
+  <!-- EN:  -->
+  <ShipChunkIncoming.description>TODO</ShipChunkIncoming.description>
+
+  <!-- EN: crashed ship part (incoming) -->
+  <CrashedShipPartIncoming.label>TODO</CrashedShipPartIncoming.label>
+  <!-- EN:  -->
+  <CrashedShipPartIncoming.description>TODO</CrashedShipPartIncoming.description>
+
+  <!-- EN: meteorite (incoming) -->
+  <MeteoriteIncoming.label>TODO</MeteoriteIncoming.label>
+  <!-- EN:  -->
+  <MeteoriteIncoming.description>TODO</MeteoriteIncoming.description>
+
 </LanguageData>

@@ -1,118 +1,362 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <Affair.label>TODO</Affair.label>
+  <!-- EN:  -->
+  <Affair.description>TODO</Affair.description>
   <!-- EN: affair -->
   <Affair.stages.affair.label>TODO</Affair.stages.affair.label>
-  
+  <!-- EN:  -->
+  <Affair.stages.affair.labelSocial>TODO</Affair.stages.affair.labelSocial>
+  <!-- EN:  -->
+  <Affair.stages.affair.description>TODO</Affair.stages.affair.description>
+
+  <!-- EN:  -->
+  <Incestuous.label>TODO</Incestuous.label>
+  <!-- EN:  -->
+  <Incestuous.description>TODO</Incestuous.description>
+  <!-- EN: incestuous -->
+  <Incestuous.stages.incestuous.label>TODO</Incestuous.stages.incestuous.label>
+  <!-- EN:  -->
+  <Incestuous.stages.incestuous.labelSocial>TODO</Incestuous.stages.incestuous.labelSocial>
+  <!-- EN:  -->
+  <Incestuous.stages.incestuous.description>TODO</Incestuous.stages.incestuous.description>
+
+  <!-- EN:  -->
+  <Disfigured.label>TODO</Disfigured.label>
+  <!-- EN:  -->
+  <Disfigured.description>TODO</Disfigured.description>
+  <!-- EN: disfigured -->
+  <Disfigured.stages.disfigured.label>TODO</Disfigured.stages.disfigured.label>
+  <!-- EN:  -->
+  <Disfigured.stages.disfigured.labelSocial>TODO</Disfigured.stages.disfigured.labelSocial>
+  <!-- EN:  -->
+  <Disfigured.stages.disfigured.description>TODO</Disfigured.stages.disfigured.description>
+
+  <!-- EN:  -->
+  <HardWorkerVsLazy.label>TODO</HardWorkerVsLazy.label>
+  <!-- EN:  -->
+  <HardWorkerVsLazy.description>TODO</HardWorkerVsLazy.description>
+  <!-- EN: hard worker vs lazy -->
+  <HardWorkerVsLazy.stages.hard_worker_vs_lazy.label>TODO</HardWorkerVsLazy.stages.hard_worker_vs_lazy.label>
+  <!-- EN:  -->
+  <HardWorkerVsLazy.stages.hard_worker_vs_lazy.labelSocial>TODO</HardWorkerVsLazy.stages.hard_worker_vs_lazy.labelSocial>
+  <!-- EN:  -->
+  <HardWorkerVsLazy.stages.hard_worker_vs_lazy.description>TODO</HardWorkerVsLazy.stages.hard_worker_vs_lazy.description>
+
+  <!-- EN:  -->
+  <TeetotalerVsChemicalInterest.label>TODO</TeetotalerVsChemicalInterest.label>
+  <!-- EN:  -->
+  <TeetotalerVsChemicalInterest.description>TODO</TeetotalerVsChemicalInterest.description>
+  <!-- EN: teetotaler vs chemical interest -->
+  <TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.label>TODO</TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.label>
+  <!-- EN:  -->
+  <TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.labelSocial>TODO</TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.labelSocial>
+  <!-- EN:  -->
+  <TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.description>TODO</TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.description>
+
+  <!-- EN:  -->
+  <TeetotalerVsAddict.label>TODO</TeetotalerVsAddict.label>
+  <!-- EN:  -->
+  <TeetotalerVsAddict.description>TODO</TeetotalerVsAddict.description>
+  <!-- EN: teetotaler vs addict -->
+  <TeetotalerVsAddict.stages.teetotaler_vs_addict.label>TODO</TeetotalerVsAddict.stages.teetotaler_vs_addict.label>
+  <!-- EN:  -->
+  <TeetotalerVsAddict.stages.teetotaler_vs_addict.labelSocial>TODO</TeetotalerVsAddict.stages.teetotaler_vs_addict.labelSocial>
+  <!-- EN:  -->
+  <TeetotalerVsAddict.stages.teetotaler_vs_addict.description>TODO</TeetotalerVsAddict.stages.teetotaler_vs_addict.description>
+
+  <!-- EN:  -->
+  <ChemicalInterestVsTeetotaler.label>TODO</ChemicalInterestVsTeetotaler.label>
+  <!-- EN:  -->
+  <ChemicalInterestVsTeetotaler.description>TODO</ChemicalInterestVsTeetotaler.description>
+  <!-- EN: chemical interest vs teetotaler -->
+  <ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.label>TODO</ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.label>
+  <!-- EN:  -->
+  <ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.labelSocial>TODO</ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.labelSocial>
+  <!-- EN:  -->
+  <ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.description>TODO</ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.description>
+
+  <!-- EN:  -->
+  <Drunk.label>TODO</Drunk.label>
+  <!-- EN:  -->
+  <Drunk.description>TODO</Drunk.description>
+  <!-- EN: drunk -->
+  <Drunk.stages.drunk.label>TODO</Drunk.stages.drunk.label>
+  <!-- EN:  -->
+  <Drunk.stages.drunk.labelSocial>TODO</Drunk.stages.drunk.labelSocial>
+  <!-- EN:  -->
+  <Drunk.stages.drunk.description>TODO</Drunk.stages.drunk.description>
+
+  <!-- EN:  -->
+  <Pretty.label>TODO</Pretty.label>
+  <!-- EN:  -->
+  <Pretty.description>TODO</Pretty.description>
+  <!-- EN: pretty -->
+  <Pretty.stages.pretty.label>TODO</Pretty.stages.pretty.label>
+  <!-- EN:  -->
+  <Pretty.stages.pretty.labelSocial>TODO</Pretty.stages.pretty.labelSocial>
+  <!-- EN:  -->
+  <Pretty.stages.pretty.description>TODO</Pretty.stages.pretty.description>
+  <!-- EN: beautiful -->
+  <Pretty.stages.beautiful.label>TODO</Pretty.stages.beautiful.label>
+  <!-- EN:  -->
+  <Pretty.stages.beautiful.labelSocial>TODO</Pretty.stages.beautiful.labelSocial>
+  <!-- EN:  -->
+  <Pretty.stages.beautiful.description>TODO</Pretty.stages.beautiful.description>
+
+  <!-- EN:  -->
+  <Ugly.label>TODO</Ugly.label>
+  <!-- EN:  -->
+  <Ugly.description>TODO</Ugly.description>
+  <!-- EN: ugly -->
+  <Ugly.stages.ugly.label>TODO</Ugly.stages.ugly.label>
+  <!-- EN:  -->
+  <Ugly.stages.ugly.labelSocial>TODO</Ugly.stages.ugly.labelSocial>
+  <!-- EN:  -->
+  <Ugly.stages.ugly.description>TODO</Ugly.stages.ugly.description>
+  <!-- EN: staggeringly ugly -->
+  <Ugly.stages.staggeringly_ugly.label>TODO</Ugly.stages.staggeringly_ugly.label>
+  <!-- EN:  -->
+  <Ugly.stages.staggeringly_ugly.labelSocial>TODO</Ugly.stages.staggeringly_ugly.labelSocial>
+  <!-- EN:  -->
+  <Ugly.stages.staggeringly_ugly.description>TODO</Ugly.stages.staggeringly_ugly.description>
+
+  <!-- EN:  -->
+  <AnnoyingVoice.label>TODO</AnnoyingVoice.label>
+  <!-- EN:  -->
+  <AnnoyingVoice.description>TODO</AnnoyingVoice.description>
   <!-- EN: annoying voice -->
   <AnnoyingVoice.stages.annoying_voice.label>TODO</AnnoyingVoice.stages.annoying_voice.label>
-  
-  <!-- EN: ate raw humanlike meat -->
-  <AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.label>TODO</AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.label>
-  
+  <!-- EN:  -->
+  <AnnoyingVoice.stages.annoying_voice.labelSocial>TODO</AnnoyingVoice.stages.annoying_voice.labelSocial>
+  <!-- EN:  -->
+  <AnnoyingVoice.stages.annoying_voice.description>TODO</AnnoyingVoice.stages.annoying_voice.description>
+
+  <!-- EN:  -->
+  <CreepyBreathing.label>TODO</CreepyBreathing.label>
+  <!-- EN:  -->
+  <CreepyBreathing.description>TODO</CreepyBreathing.description>
+  <!-- EN: creepy breathing -->
+  <CreepyBreathing.stages.creepy_breathing.label>TODO</CreepyBreathing.stages.creepy_breathing.label>
+  <!-- EN:  -->
+  <CreepyBreathing.stages.creepy_breathing.labelSocial>TODO</CreepyBreathing.stages.creepy_breathing.labelSocial>
+  <!-- EN:  -->
+  <CreepyBreathing.stages.creepy_breathing.description>TODO</CreepyBreathing.stages.creepy_breathing.description>
+
+  <!-- EN:  -->
+  <Man.label>TODO</Man.label>
+  <!-- EN:  -->
+  <Man.description>TODO</Man.description>
+  <!-- EN: man -->
+  <Man.stages.man.label>TODO</Man.stages.man.label>
+  <!-- EN:  -->
+  <Man.stages.man.labelSocial>TODO</Man.stages.man.labelSocial>
+  <!-- EN:  -->
+  <Man.stages.man.description>TODO</Man.stages.man.description>
+
+  <!-- EN:  -->
+  <Woman.label>TODO</Woman.label>
+  <!-- EN:  -->
+  <Woman.description>TODO</Woman.description>
+  <!-- EN: woman -->
+  <Woman.stages.woman.label>TODO</Woman.stages.woman.label>
+  <!-- EN:  -->
+  <Woman.stages.woman.labelSocial>TODO</Woman.stages.woman.labelSocial>
+  <!-- EN:  -->
+  <Woman.stages.woman.description>TODO</Woman.stages.woman.description>
+
+  <!-- EN:  -->
+  <TranshumanistAppreciation.label>TODO</TranshumanistAppreciation.label>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.description>TODO</TranshumanistAppreciation.description>
+  <!-- EN: transhumanist appreciation -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-0.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-0.label>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-0.labelSocial>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-0.labelSocial>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-0.description>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-0.description>
+  <!-- EN: transhumanist appreciation -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-1.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-1.label>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-1.labelSocial>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-1.labelSocial>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-1.description>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-1.description>
+  <!-- EN: transhumanist appreciation -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-2.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-2.label>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-2.labelSocial>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-2.labelSocial>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-2.description>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-2.description>
+  <!-- EN: transhumanist appreciation -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-3.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-3.label>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-3.labelSocial>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-3.labelSocial>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-3.description>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-3.description>
+  <!-- EN: transhumanist appreciation -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-4.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-4.label>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-4.labelSocial>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-4.labelSocial>
+  <!-- EN:  -->
+  <TranshumanistAppreciation.stages.transhumanist_appreciation-4.description>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-4.description>
+
+  <!-- EN:  -->
+  <BodyPuristDisgust.label>TODO</BodyPuristDisgust.label>
+  <!-- EN:  -->
+  <BodyPuristDisgust.description>TODO</BodyPuristDisgust.description>
   <!-- EN: body purist disgust -->
   <BodyPuristDisgust.stages.body_purist_disgust-0.label>TODO</BodyPuristDisgust.stages.body_purist_disgust-0.label>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-0.labelSocial>TODO</BodyPuristDisgust.stages.body_purist_disgust-0.labelSocial>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-0.description>TODO</BodyPuristDisgust.stages.body_purist_disgust-0.description>
   <!-- EN: body purist disgust -->
   <BodyPuristDisgust.stages.body_purist_disgust-1.label>TODO</BodyPuristDisgust.stages.body_purist_disgust-1.label>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-1.labelSocial>TODO</BodyPuristDisgust.stages.body_purist_disgust-1.labelSocial>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-1.description>TODO</BodyPuristDisgust.stages.body_purist_disgust-1.description>
   <!-- EN: body purist disgust -->
   <BodyPuristDisgust.stages.body_purist_disgust-2.label>TODO</BodyPuristDisgust.stages.body_purist_disgust-2.label>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-2.labelSocial>TODO</BodyPuristDisgust.stages.body_purist_disgust-2.labelSocial>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-2.description>TODO</BodyPuristDisgust.stages.body_purist_disgust-2.description>
   <!-- EN: body purist disgust -->
   <BodyPuristDisgust.stages.body_purist_disgust-3.label>TODO</BodyPuristDisgust.stages.body_purist_disgust-3.label>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-3.labelSocial>TODO</BodyPuristDisgust.stages.body_purist_disgust-3.labelSocial>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-3.description>TODO</BodyPuristDisgust.stages.body_purist_disgust-3.description>
   <!-- EN: body purist disgust -->
   <BodyPuristDisgust.stages.body_purist_disgust-4.label>TODO</BodyPuristDisgust.stages.body_purist_disgust-4.label>
-  
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-4.labelSocial>TODO</BodyPuristDisgust.stages.body_purist_disgust-4.labelSocial>
+  <!-- EN:  -->
+  <BodyPuristDisgust.stages.body_purist_disgust-4.description>TODO</BodyPuristDisgust.stages.body_purist_disgust-4.description>
+
+  <!-- EN:  -->
+  <ButcheredHumanlikeCorpseOpinion.label>TODO</ButcheredHumanlikeCorpseOpinion.label>
+  <!-- EN:  -->
+  <ButcheredHumanlikeCorpseOpinion.description>TODO</ButcheredHumanlikeCorpseOpinion.description>
+  <!-- EN: butchered humanlike corpse -->
+  <ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.label>TODO</ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.label>
+  <!-- EN:  -->
+  <ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.labelSocial>TODO</ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.labelSocial>
+  <!-- EN:  -->
+  <ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.description>TODO</ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.description>
+
+  <!-- EN:  -->
+  <AteRawHumanlikeMeat.label>TODO</AteRawHumanlikeMeat.label>
+  <!-- EN:  -->
+  <AteRawHumanlikeMeat.description>TODO</AteRawHumanlikeMeat.description>
+  <!-- EN: ate raw humanlike meat -->
+  <AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.label>TODO</AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.label>
+  <!-- EN:  -->
+  <AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.labelSocial>TODO</AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.labelSocial>
+  <!-- EN:  -->
+  <AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.description>TODO</AteRawHumanlikeMeat.stages.ate_raw_humanlike_meat.description>
+
+  <!-- EN:  -->
+  <SoldPrisoner.label>TODO</SoldPrisoner.label>
+  <!-- EN:  -->
+  <SoldPrisoner.description>TODO</SoldPrisoner.description>
+  <!-- EN: sold prisoner to slavery -->
+  <SoldPrisoner.stages.sold_prisoner_to_slavery.label>TODO</SoldPrisoner.stages.sold_prisoner_to_slavery.label>
+  <!-- EN:  -->
+  <SoldPrisoner.stages.sold_prisoner_to_slavery.labelSocial>TODO</SoldPrisoner.stages.sold_prisoner_to_slavery.labelSocial>
+  <!-- EN:  -->
+  <SoldPrisoner.stages.sold_prisoner_to_slavery.description>TODO</SoldPrisoner.stages.sold_prisoner_to_slavery.description>
+
+  <!-- EN:  -->
+  <ExecutedPrisoner.label>TODO</ExecutedPrisoner.label>
+  <!-- EN:  -->
+  <ExecutedPrisoner.description>TODO</ExecutedPrisoner.description>
+  <!-- EN: executed prisoner -->
+  <ExecutedPrisoner.stages.executed_prisoner.label>TODO</ExecutedPrisoner.stages.executed_prisoner.label>
+  <!-- EN:  -->
+  <ExecutedPrisoner.stages.executed_prisoner.labelSocial>TODO</ExecutedPrisoner.stages.executed_prisoner.labelSocial>
+  <!-- EN:  -->
+  <ExecutedPrisoner.stages.executed_prisoner.description>TODO</ExecutedPrisoner.stages.executed_prisoner.description>
+
+  <!-- EN:  -->
+  <KilledColonist.label>TODO</KilledColonist.label>
+  <!-- EN:  -->
+  <KilledColonist.description>TODO</KilledColonist.description>
+  <!-- EN: killed colonist -->
+  <KilledColonist.stages.killed_colonist.label>TODO</KilledColonist.stages.killed_colonist.label>
+  <!-- EN:  -->
+  <KilledColonist.stages.killed_colonist.labelSocial>TODO</KilledColonist.stages.killed_colonist.labelSocial>
+  <!-- EN:  -->
+  <KilledColonist.stages.killed_colonist.description>TODO</KilledColonist.stages.killed_colonist.description>
+
+  <!-- EN:  -->
+  <KilledColonyAnimal.label>TODO</KilledColonyAnimal.label>
+  <!-- EN:  -->
+  <KilledColonyAnimal.description>TODO</KilledColonyAnimal.description>
+  <!-- EN: killed colony animal -->
+  <KilledColonyAnimal.stages.killed_colony_animal.label>TODO</KilledColonyAnimal.stages.killed_colony_animal.label>
+  <!-- EN:  -->
+  <KilledColonyAnimal.stages.killed_colony_animal.labelSocial>TODO</KilledColonyAnimal.stages.killed_colony_animal.labelSocial>
+  <!-- EN:  -->
+  <KilledColonyAnimal.stages.killed_colony_animal.description>TODO</KilledColonyAnimal.stages.killed_colony_animal.description>
+
+  <!-- EN:  -->
+  <OpinionOfMyLover.label>TODO</OpinionOfMyLover.label>
+  <!-- EN:  -->
+  <OpinionOfMyLover.description>TODO</OpinionOfMyLover.description>
+  <!-- EN: opinion of my {0} {1} -->
+  <OpinionOfMyLover.stages.opinion_of_my.label>TODO</OpinionOfMyLover.stages.opinion_of_my.label>
+  <!-- EN:  -->
+  <OpinionOfMyLover.stages.opinion_of_my.labelSocial>TODO</OpinionOfMyLover.stages.opinion_of_my.labelSocial>
+  <!-- EN: Being with my lover makes me feel this way. -->
+  <OpinionOfMyLover.stages.opinion_of_my.description>TODO</OpinionOfMyLover.stages.opinion_of_my.description>
+
+  <!-- EN:  -->
+  <BondedAnimalMaster.label>TODO</BondedAnimalMaster.label>
+  <!-- EN:  -->
+  <BondedAnimalMaster.description>TODO</BondedAnimalMaster.description>
   <!-- EN: {0}'s master -->
   <BondedAnimalMaster.stages.s_master.label>TODO</BondedAnimalMaster.stages.s_master.label>
+  <!-- EN:  -->
+  <BondedAnimalMaster.stages.s_master.labelSocial>TODO</BondedAnimalMaster.stages.s_master.labelSocial>
   <!-- EN: Being together with my bonded animal makes me feel better. -->
   <BondedAnimalMaster.stages.s_master.description>TODO</BondedAnimalMaster.stages.s_master.description>
   <!-- EN: master of {0} -->
   <BondedAnimalMaster.stages.master_of.label>TODO</BondedAnimalMaster.stages.master_of.label>
+  <!-- EN:  -->
+  <BondedAnimalMaster.stages.master_of.labelSocial>TODO</BondedAnimalMaster.stages.master_of.labelSocial>
   <!-- EN: Being together with my bonded animals makes me feel better. -->
   <BondedAnimalMaster.stages.master_of.description>TODO</BondedAnimalMaster.stages.master_of.description>
-  
-  <!-- EN: butchered humanlike corpse -->
-  <ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.label>TODO</ButcheredHumanlikeCorpseOpinion.stages.butchered_humanlike_corpse.label>
-  
-  <!-- EN: chemical interest vs teetotaler -->
-  <ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.label>TODO</ChemicalInterestVsTeetotaler.stages.chemical_interest_vs_teetotaler.label>
-  
-  <!-- EN: creepy breathing -->
-  <CreepyBreathing.stages.creepy_breathing.label>TODO</CreepyBreathing.stages.creepy_breathing.label>
-  
-  <!-- EN: disfigured -->
-  <Disfigured.stages.disfigured.label>TODO</Disfigured.stages.disfigured.label>
-  
-  <!-- EN: drunk -->
-  <Drunk.stages.drunk.label>TODO</Drunk.stages.drunk.label>
-  
-  <!-- EN: executed prisoner -->
-  <ExecutedPrisoner.stages.executed_prisoner.label>TODO</ExecutedPrisoner.stages.executed_prisoner.label>
-  
-  <!-- EN: hard worker vs lazy -->
-  <HardWorkerVsLazy.stages.hard_worker_vs_lazy.label>TODO</HardWorkerVsLazy.stages.hard_worker_vs_lazy.label>
-  
-  <!-- EN: incestuous -->
-  <Incestuous.stages.incestuous.label>TODO</Incestuous.stages.incestuous.label>
-  
-  <!-- EN: killed colonist -->
-  <KilledColonist.stages.killed_colonist.label>TODO</KilledColonist.stages.killed_colonist.label>
-  
-  <!-- EN: killed colony animal -->
-  <KilledColonyAnimal.stages.killed_colony_animal.label>TODO</KilledColonyAnimal.stages.killed_colony_animal.label>
-  
-  <!-- EN: man -->
-  <Man.stages.man.label>TODO</Man.stages.man.label>
-  
+
+  <!-- EN:  -->
+  <NotBondedAnimalMaster.label>TODO</NotBondedAnimalMaster.label>
+  <!-- EN:  -->
+  <NotBondedAnimalMaster.description>TODO</NotBondedAnimalMaster.description>
   <!-- EN: not {0}'s master -->
   <NotBondedAnimalMaster.stages.not_s_master.label>TODO</NotBondedAnimalMaster.stages.not_s_master.label>
+  <!-- EN:  -->
+  <NotBondedAnimalMaster.stages.not_s_master.labelSocial>TODO</NotBondedAnimalMaster.stages.not_s_master.labelSocial>
   <!-- EN: I should be together with my bonded animal. -->
   <NotBondedAnimalMaster.stages.not_s_master.description>TODO</NotBondedAnimalMaster.stages.not_s_master.description>
   <!-- EN: not master of {0} -->
   <NotBondedAnimalMaster.stages.not_master_of.label>TODO</NotBondedAnimalMaster.stages.not_master_of.label>
+  <!-- EN:  -->
+  <NotBondedAnimalMaster.stages.not_master_of.labelSocial>TODO</NotBondedAnimalMaster.stages.not_master_of.labelSocial>
   <!-- EN: I should be together with my bonded animals. -->
   <NotBondedAnimalMaster.stages.not_master_of.description>TODO</NotBondedAnimalMaster.stages.not_master_of.description>
-  
-  <!-- EN: opinion of my {0} {1} -->
-  <OpinionOfMyLover.stages.opinion_of_my.label>TODO</OpinionOfMyLover.stages.opinion_of_my.label>
-  <!-- EN: Being with my lover makes me feel this way. -->
-  <OpinionOfMyLover.stages.opinion_of_my.description>TODO</OpinionOfMyLover.stages.opinion_of_my.description>
-  
-  <!-- EN: pretty -->
-  <Pretty.stages.pretty.label>TODO</Pretty.stages.pretty.label>
-  <!-- EN: beautiful -->
-  <Pretty.stages.beautiful.label>TODO</Pretty.stages.beautiful.label>
-  
-  <!-- EN: sold prisoner to slavery -->
-  <SoldPrisoner.stages.sold_prisoner_to_slavery.label>TODO</SoldPrisoner.stages.sold_prisoner_to_slavery.label>
-  
-  <!-- EN: teetotaler vs addict -->
-  <TeetotalerVsAddict.stages.teetotaler_vs_addict.label>TODO</TeetotalerVsAddict.stages.teetotaler_vs_addict.label>
-  
-  <!-- EN: teetotaler vs chemical interest -->
-  <TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.label>TODO</TeetotalerVsChemicalInterest.stages.teetotaler_vs_chemical_interest.label>
-  
-  <!-- EN: transhumanist appreciation -->
-  <TranshumanistAppreciation.stages.transhumanist_appreciation-0.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-0.label>
-  <!-- EN: transhumanist appreciation -->
-  <TranshumanistAppreciation.stages.transhumanist_appreciation-1.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-1.label>
-  <!-- EN: transhumanist appreciation -->
-  <TranshumanistAppreciation.stages.transhumanist_appreciation-2.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-2.label>
-  <!-- EN: transhumanist appreciation -->
-  <TranshumanistAppreciation.stages.transhumanist_appreciation-3.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-3.label>
-  <!-- EN: transhumanist appreciation -->
-  <TranshumanistAppreciation.stages.transhumanist_appreciation-4.label>TODO</TranshumanistAppreciation.stages.transhumanist_appreciation-4.label>
-  
-  <!-- EN: ugly -->
-  <Ugly.stages.ugly.label>TODO</Ugly.stages.ugly.label>
-  <!-- EN: staggeringly ugly -->
-  <Ugly.stages.staggeringly_ugly.label>TODO</Ugly.stages.staggeringly_ugly.label>
-  
+
+  <!-- EN:  -->
+  <WantToSleepWithSpouseOrLover.label>TODO</WantToSleepWithSpouseOrLover.label>
+  <!-- EN:  -->
+  <WantToSleepWithSpouseOrLover.description>TODO</WantToSleepWithSpouseOrLover.description>
   <!-- EN: want to sleep with {0} -->
   <WantToSleepWithSpouseOrLover.stages.want_to_sleep_with.label>TODO</WantToSleepWithSpouseOrLover.stages.want_to_sleep_with.label>
+  <!-- EN:  -->
+  <WantToSleepWithSpouseOrLover.stages.want_to_sleep_with.labelSocial>TODO</WantToSleepWithSpouseOrLover.stages.want_to_sleep_with.labelSocial>
   <!-- EN: I don't like sleeping apart from my partner. -->
   <WantToSleepWithSpouseOrLover.stages.want_to_sleep_with.description>TODO</WantToSleepWithSpouseOrLover.stages.want_to_sleep_with.description>
-  
-  <!-- EN: woman -->
-  <Woman.stages.woman.label>TODO</Woman.stages.woman.label>
-  
+
 </LanguageData>

@@ -1,5 +1,11 @@
 import * as io from '@rimtrans/io';
-import { pathCore, pathTestMods, pathsTypePackage, outputExtractor } from './utils.test';
+import {
+  resolvePath,
+  pathCore,
+  pathTestMods,
+  pathsTypePackage,
+  outputExtractor,
+} from './utils.test';
 import { ExtractorSolution, extract } from './extractor';
 
 describe('extractor', () => {
@@ -28,7 +34,7 @@ describe('extractor', () => {
       modPaths: [pathCore],
       enabledMods: [true],
       languages: ['Template'],
-      outputDirectory: outputExtractor,
+      outputDirectory: resolvePath(),
     };
 
     await extract(sln);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <ThreatBig.label>TODO</ThreatBig.label>
+  <!-- EN:  -->
+  <ThreatBig.description>TODO</ThreatBig.description>
+
+  <!-- EN:  -->
+  <ThreatSmall.label>TODO</ThreatSmall.label>
+  <!-- EN:  -->
+  <ThreatSmall.description>TODO</ThreatSmall.description>
+
+  <!-- EN:  -->
+  <NegativeEvent.label>TODO</NegativeEvent.label>
+  <!-- EN:  -->
+  <NegativeEvent.description>TODO</NegativeEvent.description>
+
+  <!-- EN:  -->
+  <NeutralEvent.label>TODO</NeutralEvent.label>
+  <!-- EN:  -->
+  <NeutralEvent.description>TODO</NeutralEvent.description>
+
+  <!-- EN:  -->
+  <PositiveEvent.label>TODO</PositiveEvent.label>
+  <!-- EN:  -->
+  <PositiveEvent.description>TODO</PositiveEvent.description>
+
+</LanguageData>

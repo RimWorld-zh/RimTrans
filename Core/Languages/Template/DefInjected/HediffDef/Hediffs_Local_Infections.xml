@@ -1,59 +1,171 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: flu -->
-  <Animal_Flu.label>TODO</Animal_Flu.label>
-  <!-- EN: minor -->
-  <Animal_Flu.stages.minor.label>TODO</Animal_Flu.stages.minor.label>
-  <!-- EN: major -->
-  <Animal_Flu.stages.major.label>TODO</Animal_Flu.stages.major.label>
-  <!-- EN: extreme -->
-  <Animal_Flu.stages.extreme.label>TODO</Animal_Flu.stages.extreme.label>
-  
-  <!-- EN: plague -->
-  <Animal_Plague.label>TODO</Animal_Plague.label>
-  <!-- EN: minor -->
-  <Animal_Plague.stages.minor.label>TODO</Animal_Plague.stages.minor.label>
-  <!-- EN: major -->
-  <Animal_Plague.stages.major.label>TODO</Animal_Plague.stages.major.label>
-  <!-- EN: extreme -->
-  <Animal_Plague.stages.extreme-0.label>TODO</Animal_Plague.stages.extreme-0.label>
-  <!-- EN: extreme -->
-  <Animal_Plague.stages.extreme-1.label>TODO</Animal_Plague.stages.extreme-1.label>
-  
+
+  <!-- EN: gut worms -->
+  <GutWorms.label>TODO</GutWorms.label>
+  <!-- EN:  -->
+  <GutWorms.description>TODO</GutWorms.description>
+  <!-- EN:  -->
+  <GutWorms.comps.HediffComp_TendDuration.labelTendedWell>TODO</GutWorms.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <GutWorms.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</GutWorms.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <GutWorms.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</GutWorms.comps.HediffComp_TendDuration.labelSolidTendedWell>
+  <!-- EN:  -->
+  <GutWorms.stages.0.label>TODO</GutWorms.stages.0.label>
+  <!-- EN:  -->
+  <GutWorms.battleStateLabel>TODO</GutWorms.battleStateLabel>
+  <!-- EN:  -->
+  <GutWorms.labelNounPretty>TODO</GutWorms.labelNounPretty>
+  <!-- EN:  -->
+  <GutWorms.labelNoun>TODO</GutWorms.labelNoun>
+
+  <!-- EN: muscle parasites -->
+  <MuscleParasites.label>TODO</MuscleParasites.label>
+  <!-- EN:  -->
+  <MuscleParasites.description>TODO</MuscleParasites.description>
+  <!-- EN:  -->
+  <MuscleParasites.comps.HediffComp_TendDuration.labelTendedWell>TODO</MuscleParasites.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <MuscleParasites.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</MuscleParasites.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <MuscleParasites.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</MuscleParasites.comps.HediffComp_TendDuration.labelSolidTendedWell>
+  <!-- EN:  -->
+  <MuscleParasites.stages.0.label>TODO</MuscleParasites.stages.0.label>
+  <!-- EN:  -->
+  <MuscleParasites.battleStateLabel>TODO</MuscleParasites.battleStateLabel>
+  <!-- EN:  -->
+  <MuscleParasites.labelNounPretty>TODO</MuscleParasites.labelNounPretty>
+  <!-- EN:  -->
+  <MuscleParasites.labelNoun>TODO</MuscleParasites.labelNoun>
+
   <!-- EN: fibrous mechanites -->
   <FibrousMechanites.label>TODO</FibrousMechanites.label>
+  <!-- EN:  -->
+  <FibrousMechanites.description>TODO</FibrousMechanites.description>
+  <!-- EN:  -->
+  <FibrousMechanites.comps.HediffComp_TendDuration.labelTendedWell>TODO</FibrousMechanites.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <FibrousMechanites.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</FibrousMechanites.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <FibrousMechanites.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</FibrousMechanites.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: mild pain -->
   <FibrousMechanites.stages.mild_pain.label>TODO</FibrousMechanites.stages.mild_pain.label>
   <!-- EN: intense pain -->
   <FibrousMechanites.stages.intense_pain.label>TODO</FibrousMechanites.stages.intense_pain.label>
-  
+  <!-- EN:  -->
+  <FibrousMechanites.battleStateLabel>TODO</FibrousMechanites.battleStateLabel>
+  <!-- EN:  -->
+  <FibrousMechanites.labelNounPretty>TODO</FibrousMechanites.labelNounPretty>
+  <!-- EN:  -->
+  <FibrousMechanites.labelNoun>TODO</FibrousMechanites.labelNoun>
+
+  <!-- EN: sensory mechanites -->
+  <SensoryMechanites.label>TODO</SensoryMechanites.label>
+  <!-- EN:  -->
+  <SensoryMechanites.description>TODO</SensoryMechanites.description>
+  <!-- EN:  -->
+  <SensoryMechanites.comps.HediffComp_TendDuration.labelTendedWell>TODO</SensoryMechanites.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <SensoryMechanites.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</SensoryMechanites.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <SensoryMechanites.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</SensoryMechanites.comps.HediffComp_TendDuration.labelSolidTendedWell>
+  <!-- EN: mild pain -->
+  <SensoryMechanites.stages.mild_pain.label>TODO</SensoryMechanites.stages.mild_pain.label>
+  <!-- EN: intense pain -->
+  <SensoryMechanites.stages.intense_pain.label>TODO</SensoryMechanites.stages.intense_pain.label>
+  <!-- EN:  -->
+  <SensoryMechanites.battleStateLabel>TODO</SensoryMechanites.battleStateLabel>
+  <!-- EN:  -->
+  <SensoryMechanites.labelNounPretty>TODO</SensoryMechanites.labelNounPretty>
+  <!-- EN:  -->
+  <SensoryMechanites.labelNoun>TODO</SensoryMechanites.labelNoun>
+
+  <!-- EN: infection -->
+  <WoundInfection.label>TODO</WoundInfection.label>
+  <!-- EN:  -->
+  <WoundInfection.description>TODO</WoundInfection.description>
+  <!-- EN:  -->
+  <WoundInfection.comps.HediffComp_TendDuration.labelTendedWell>TODO</WoundInfection.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <WoundInfection.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</WoundInfection.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <WoundInfection.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</WoundInfection.comps.HediffComp_TendDuration.labelSolidTendedWell>
+  <!-- EN:  -->
+  <WoundInfection.comps.HediffComp_Discoverable.discoverLetterLabel>TODO</WoundInfection.comps.HediffComp_Discoverable.discoverLetterLabel>
+  <!-- EN:  -->
+  <WoundInfection.comps.HediffComp_Discoverable.discoverLetterText>TODO</WoundInfection.comps.HediffComp_Discoverable.discoverLetterText>
+  <!-- EN: minor -->
+  <WoundInfection.stages.minor.label>TODO</WoundInfection.stages.minor.label>
+  <!-- EN: major -->
+  <WoundInfection.stages.major.label>TODO</WoundInfection.stages.major.label>
+  <!-- EN: extreme -->
+  <WoundInfection.stages.extreme-0.label>TODO</WoundInfection.stages.extreme-0.label>
+  <!-- EN: extreme -->
+  <WoundInfection.stages.extreme-1.label>TODO</WoundInfection.stages.extreme-1.label>
+  <!-- EN:  -->
+  <WoundInfection.battleStateLabel>TODO</WoundInfection.battleStateLabel>
+  <!-- EN:  -->
+  <WoundInfection.labelNounPretty>TODO</WoundInfection.labelNounPretty>
+  <!-- EN: an infection -->
+  <WoundInfection.labelNoun>TODO</WoundInfection.labelNoun>
+
   <!-- EN: flu -->
   <Flu.label>TODO</Flu.label>
+  <!-- EN:  -->
+  <Flu.description>TODO</Flu.description>
+  <!-- EN:  -->
+  <Flu.comps.HediffComp_TendDuration.labelTendedWell>TODO</Flu.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Flu.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Flu.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Flu.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Flu.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: minor -->
   <Flu.stages.minor.label>TODO</Flu.stages.minor.label>
   <!-- EN: major -->
   <Flu.stages.major.label>TODO</Flu.stages.major.label>
   <!-- EN: extreme -->
   <Flu.stages.extreme.label>TODO</Flu.stages.extreme.label>
-  
-  <!-- EN: gut worms -->
-  <GutWorms.label>TODO</GutWorms.label>
-  
-  <!-- EN: malaria -->
-  <Malaria.label>TODO</Malaria.label>
+  <!-- EN:  -->
+  <Flu.battleStateLabel>TODO</Flu.battleStateLabel>
+  <!-- EN:  -->
+  <Flu.labelNounPretty>TODO</Flu.labelNounPretty>
+  <!-- EN:  -->
+  <Flu.labelNoun>TODO</Flu.labelNoun>
+
+  <!-- EN: flu -->
+  <Animal_Flu.label>TODO</Animal_Flu.label>
+  <!-- EN:  -->
+  <Animal_Flu.description>TODO</Animal_Flu.description>
+  <!-- EN:  -->
+  <Animal_Flu.comps.HediffComp_TendDuration.labelTendedWell>TODO</Animal_Flu.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Animal_Flu.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Animal_Flu.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Animal_Flu.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Animal_Flu.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: minor -->
-  <Malaria.stages.minor.label>TODO</Malaria.stages.minor.label>
+  <Animal_Flu.stages.minor.label>TODO</Animal_Flu.stages.minor.label>
   <!-- EN: major -->
-  <Malaria.stages.major.label>TODO</Malaria.stages.major.label>
+  <Animal_Flu.stages.major.label>TODO</Animal_Flu.stages.major.label>
   <!-- EN: extreme -->
-  <Malaria.stages.extreme.label>TODO</Malaria.stages.extreme.label>
-  
-  <!-- EN: muscle parasites -->
-  <MuscleParasites.label>TODO</MuscleParasites.label>
-  
+  <Animal_Flu.stages.extreme.label>TODO</Animal_Flu.stages.extreme.label>
+  <!-- EN:  -->
+  <Animal_Flu.battleStateLabel>TODO</Animal_Flu.battleStateLabel>
+  <!-- EN:  -->
+  <Animal_Flu.labelNounPretty>TODO</Animal_Flu.labelNounPretty>
+  <!-- EN:  -->
+  <Animal_Flu.labelNoun>TODO</Animal_Flu.labelNoun>
+
   <!-- EN: plague -->
   <Plague.label>TODO</Plague.label>
+  <!-- EN:  -->
+  <Plague.description>TODO</Plague.description>
+  <!-- EN:  -->
+  <Plague.comps.HediffComp_TendDuration.labelTendedWell>TODO</Plague.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Plague.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Plague.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Plague.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Plague.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: minor -->
   <Plague.stages.minor.label>TODO</Plague.stages.minor.label>
   <!-- EN: major -->
@@ -62,16 +174,71 @@
   <Plague.stages.extreme-0.label>TODO</Plague.stages.extreme-0.label>
   <!-- EN: extreme -->
   <Plague.stages.extreme-1.label>TODO</Plague.stages.extreme-1.label>
-  
-  <!-- EN: sensory mechanites -->
-  <SensoryMechanites.label>TODO</SensoryMechanites.label>
-  <!-- EN: mild pain -->
-  <SensoryMechanites.stages.mild_pain.label>TODO</SensoryMechanites.stages.mild_pain.label>
-  <!-- EN: intense pain -->
-  <SensoryMechanites.stages.intense_pain.label>TODO</SensoryMechanites.stages.intense_pain.label>
-  
+  <!-- EN:  -->
+  <Plague.battleStateLabel>TODO</Plague.battleStateLabel>
+  <!-- EN:  -->
+  <Plague.labelNounPretty>TODO</Plague.labelNounPretty>
+  <!-- EN:  -->
+  <Plague.labelNoun>TODO</Plague.labelNoun>
+
+  <!-- EN: plague -->
+  <Animal_Plague.label>TODO</Animal_Plague.label>
+  <!-- EN:  -->
+  <Animal_Plague.description>TODO</Animal_Plague.description>
+  <!-- EN:  -->
+  <Animal_Plague.comps.HediffComp_TendDuration.labelTendedWell>TODO</Animal_Plague.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Animal_Plague.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Animal_Plague.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Animal_Plague.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Animal_Plague.comps.HediffComp_TendDuration.labelSolidTendedWell>
+  <!-- EN: minor -->
+  <Animal_Plague.stages.minor.label>TODO</Animal_Plague.stages.minor.label>
+  <!-- EN: major -->
+  <Animal_Plague.stages.major.label>TODO</Animal_Plague.stages.major.label>
+  <!-- EN: extreme -->
+  <Animal_Plague.stages.extreme-0.label>TODO</Animal_Plague.stages.extreme-0.label>
+  <!-- EN: extreme -->
+  <Animal_Plague.stages.extreme-1.label>TODO</Animal_Plague.stages.extreme-1.label>
+  <!-- EN:  -->
+  <Animal_Plague.battleStateLabel>TODO</Animal_Plague.battleStateLabel>
+  <!-- EN:  -->
+  <Animal_Plague.labelNounPretty>TODO</Animal_Plague.labelNounPretty>
+  <!-- EN:  -->
+  <Animal_Plague.labelNoun>TODO</Animal_Plague.labelNoun>
+
+  <!-- EN: malaria -->
+  <Malaria.label>TODO</Malaria.label>
+  <!-- EN:  -->
+  <Malaria.description>TODO</Malaria.description>
+  <!-- EN:  -->
+  <Malaria.comps.HediffComp_TendDuration.labelTendedWell>TODO</Malaria.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Malaria.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Malaria.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Malaria.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Malaria.comps.HediffComp_TendDuration.labelSolidTendedWell>
+  <!-- EN: minor -->
+  <Malaria.stages.minor.label>TODO</Malaria.stages.minor.label>
+  <!-- EN: major -->
+  <Malaria.stages.major.label>TODO</Malaria.stages.major.label>
+  <!-- EN: extreme -->
+  <Malaria.stages.extreme.label>TODO</Malaria.stages.extreme.label>
+  <!-- EN:  -->
+  <Malaria.battleStateLabel>TODO</Malaria.battleStateLabel>
+  <!-- EN:  -->
+  <Malaria.labelNounPretty>TODO</Malaria.labelNounPretty>
+  <!-- EN:  -->
+  <Malaria.labelNoun>TODO</Malaria.labelNoun>
+
   <!-- EN: sleeping sickness -->
   <SleepingSickness.label>TODO</SleepingSickness.label>
+  <!-- EN:  -->
+  <SleepingSickness.description>TODO</SleepingSickness.description>
+  <!-- EN:  -->
+  <SleepingSickness.comps.HediffComp_TendDuration.labelTendedWell>TODO</SleepingSickness.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <SleepingSickness.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</SleepingSickness.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <SleepingSickness.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</SleepingSickness.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: minor -->
   <SleepingSickness.stages.minor-0.label>TODO</SleepingSickness.stages.minor-0.label>
   <!-- EN: minor -->
@@ -82,18 +249,11 @@
   <SleepingSickness.stages.extreme-0.label>TODO</SleepingSickness.stages.extreme-0.label>
   <!-- EN: extreme -->
   <SleepingSickness.stages.extreme-1.label>TODO</SleepingSickness.stages.extreme-1.label>
-  
-  <!-- EN: infection -->
-  <WoundInfection.label>TODO</WoundInfection.label>
-  <!-- EN: an infection -->
-  <WoundInfection.labelNoun>TODO</WoundInfection.labelNoun>
-  <!-- EN: minor -->
-  <WoundInfection.stages.minor.label>TODO</WoundInfection.stages.minor.label>
-  <!-- EN: major -->
-  <WoundInfection.stages.major.label>TODO</WoundInfection.stages.major.label>
-  <!-- EN: extreme -->
-  <WoundInfection.stages.extreme-0.label>TODO</WoundInfection.stages.extreme-0.label>
-  <!-- EN: extreme -->
-  <WoundInfection.stages.extreme-1.label>TODO</WoundInfection.stages.extreme-1.label>
-  
+  <!-- EN:  -->
+  <SleepingSickness.battleStateLabel>TODO</SleepingSickness.battleStateLabel>
+  <!-- EN:  -->
+  <SleepingSickness.labelNounPretty>TODO</SleepingSickness.labelNounPretty>
+  <!-- EN:  -->
+  <SleepingSickness.labelNoun>TODO</SleepingSickness.labelNoun>
+
 </LanguageData>

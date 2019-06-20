@@ -1,31 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: bridgeable -->
-  <Bridgeable.label>TODO</Bridgeable.label>
-  
-  <!-- EN: diggable -->
-  <Diggable.label>TODO</Diggable.label>
-  
-  <!-- EN: growable -->
-  <GrowSoil.label>TODO</GrowSoil.label>
-  
-  <!-- EN: heavy -->
-  <Heavy.label>TODO</Heavy.label>
-  
+
   <!-- EN: light -->
   <Light.label>TODO</Light.label>
-  
+  <!-- EN:  -->
+  <Light.description>TODO</Light.description>
+
   <!-- EN: medium -->
   <Medium.label>TODO</Medium.label>
-  
-  <!-- EN: moving water -->
-  <MovingFluid.label>TODO</MovingFluid.label>
-  
+  <!-- EN:  -->
+  <Medium.description>TODO</Medium.description>
+
+  <!-- EN: heavy -->
+  <Heavy.label>TODO</Heavy.label>
+  <!-- EN:  -->
+  <Heavy.description>TODO</Heavy.description>
+
   <!-- EN: shallow water -->
   <ShallowWater.label>TODO</ShallowWater.label>
-  
+  <!-- EN:  -->
+  <ShallowWater.description>TODO</ShallowWater.description>
+
+  <!-- EN: moving water -->
+  <MovingFluid.label>TODO</MovingFluid.label>
+  <!-- EN:  -->
+  <MovingFluid.description>TODO</MovingFluid.description>
+
+  <!-- EN: bridgeable -->
+  <Bridgeable.label>TODO</Bridgeable.label>
+  <!-- EN:  -->
+  <Bridgeable.description>TODO</Bridgeable.description>
+
+  <!-- EN: growable -->
+  <GrowSoil.label>TODO</GrowSoil.label>
+  <!-- EN:  -->
+  <GrowSoil.description>TODO</GrowSoil.description>
+
+  <!-- EN: diggable -->
+  <Diggable.label>TODO</Diggable.label>
+  <!-- EN:  -->
+  <Diggable.description>TODO</Diggable.description>
+
   <!-- EN: smoothable -->
   <SmoothableStone.label>TODO</SmoothableStone.label>
-  
+  <!-- EN:  -->
+  <SmoothableStone.description>TODO</SmoothableStone.description>
+
 </LanguageData>

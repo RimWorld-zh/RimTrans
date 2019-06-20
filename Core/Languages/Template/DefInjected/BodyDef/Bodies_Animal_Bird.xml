@@ -1,8 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: bird -->
   <Bird.label>TODO</Bird.label>
+  <!-- EN:  -->
+  <Bird.description>TODO</Bird.description>
+  <!-- EN:  -->
+  <Bird.corePart.customLabel>TODO</Bird.corePart.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Tail.customLabel>TODO</Bird.corePart.parts.Tail.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Spine.customLabel>TODO</Bird.corePart.parts.Spine.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Stomach.customLabel>TODO</Bird.corePart.parts.Stomach.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Heart.customLabel>TODO</Bird.corePart.parts.Heart.customLabel>
   <!-- EN: left lung -->
   <Bird.corePart.parts.left_lung.customLabel>TODO</Bird.corePart.parts.left_lung.customLabel>
   <!-- EN: right lung -->
@@ -11,10 +23,22 @@
   <Bird.corePart.parts.left_kidney.customLabel>TODO</Bird.corePart.parts.left_kidney.customLabel>
   <!-- EN: right kidney -->
   <Bird.corePart.parts.right_kidney.customLabel>TODO</Bird.corePart.parts.right_kidney.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Liver.customLabel>TODO</Bird.corePart.parts.Liver.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Neck.customLabel>TODO</Bird.corePart.parts.Neck.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Neck.parts.Head.customLabel>TODO</Bird.corePart.parts.Neck.parts.Head.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Neck.parts.Head.parts.Skull.customLabel>TODO</Bird.corePart.parts.Neck.parts.Head.parts.Skull.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Neck.parts.Head.parts.Skull.parts.Brain.customLabel>TODO</Bird.corePart.parts.Neck.parts.Head.parts.Skull.parts.Brain.customLabel>
   <!-- EN: left eye -->
   <Bird.corePart.parts.Neck.parts.Head.parts.left_eye.customLabel>TODO</Bird.corePart.parts.Neck.parts.Head.parts.left_eye.customLabel>
   <!-- EN: right eye -->
   <Bird.corePart.parts.Neck.parts.Head.parts.right_eye.customLabel>TODO</Bird.corePart.parts.Neck.parts.Head.parts.right_eye.customLabel>
+  <!-- EN:  -->
+  <Bird.corePart.parts.Neck.parts.Head.parts.Beak.customLabel>TODO</Bird.corePart.parts.Neck.parts.Head.parts.Beak.customLabel>
   <!-- EN: left leg -->
   <Bird.corePart.parts.left_leg.customLabel>TODO</Bird.corePart.parts.left_leg.customLabel>
   <!-- EN: left foot -->
@@ -23,5 +47,5 @@
   <Bird.corePart.parts.right_leg.customLabel>TODO</Bird.corePart.parts.right_leg.customLabel>
   <!-- EN: right foot -->
   <Bird.corePart.parts.right_leg.parts.right_foot.customLabel>TODO</Bird.corePart.parts.right_leg.parts.right_foot.customLabel>
-  
+
 </LanguageData>

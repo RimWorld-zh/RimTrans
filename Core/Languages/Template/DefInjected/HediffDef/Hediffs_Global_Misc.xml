@@ -1,11 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: anesthetic -->
-  <Anesthetic.label>TODO</Anesthetic.label>
-  
+
   <!-- EN: blood loss -->
   <BloodLoss.label>TODO</BloodLoss.label>
+  <!-- EN:  -->
+  <BloodLoss.description>TODO</BloodLoss.description>
   <!-- EN: minor -->
   <BloodLoss.stages.minor-0.label>TODO</BloodLoss.stages.minor-0.label>
   <!-- EN: minor -->
@@ -16,75 +15,86 @@
   <BloodLoss.stages.severe.label>TODO</BloodLoss.stages.severe.label>
   <!-- EN: extreme -->
   <BloodLoss.stages.extreme.label>TODO</BloodLoss.stages.extreme.label>
-  
+  <!-- EN:  -->
+  <BloodLoss.battleStateLabel>TODO</BloodLoss.battleStateLabel>
+  <!-- EN:  -->
+  <BloodLoss.labelNounPretty>TODO</BloodLoss.labelNounPretty>
+  <!-- EN:  -->
+  <BloodLoss.labelNoun>TODO</BloodLoss.labelNoun>
+
+  <!-- EN: anesthetic -->
+  <Anesthetic.label>TODO</Anesthetic.label>
+  <!-- EN:  -->
+  <Anesthetic.description>TODO</Anesthetic.description>
+  <!-- EN:  -->
+  <Anesthetic.stages.0.label>TODO</Anesthetic.stages.0.label>
+  <!-- EN:  -->
+  <Anesthetic.battleStateLabel>TODO</Anesthetic.battleStateLabel>
+  <!-- EN:  -->
+  <Anesthetic.labelNounPretty>TODO</Anesthetic.labelNounPretty>
+  <!-- EN:  -->
+  <Anesthetic.labelNoun>TODO</Anesthetic.labelNoun>
+
   <!-- EN: catatonic breakdown -->
   <CatatonicBreakdown.label>TODO</CatatonicBreakdown.label>
+  <!-- EN:  -->
+  <CatatonicBreakdown.description>TODO</CatatonicBreakdown.description>
+  <!-- EN:  -->
+  <CatatonicBreakdown.stages.0.label>TODO</CatatonicBreakdown.stages.0.label>
+  <!-- EN:  -->
+  <CatatonicBreakdown.battleStateLabel>TODO</CatatonicBreakdown.battleStateLabel>
+  <!-- EN:  -->
+  <CatatonicBreakdown.labelNounPretty>TODO</CatatonicBreakdown.labelNounPretty>
   <!-- EN: a catatonic breakdown -->
   <CatatonicBreakdown.labelNoun>TODO</CatatonicBreakdown.labelNoun>
-  
+
+  <!-- EN: psychic shock -->
+  <PsychicShock.label>TODO</PsychicShock.label>
+  <!-- EN:  -->
+  <PsychicShock.description>TODO</PsychicShock.description>
+  <!-- EN:  -->
+  <PsychicShock.stages.0.label>TODO</PsychicShock.stages.0.label>
+  <!-- EN:  -->
+  <PsychicShock.battleStateLabel>TODO</PsychicShock.battleStateLabel>
+  <!-- EN:  -->
+  <PsychicShock.labelNounPretty>TODO</PsychicShock.labelNounPretty>
+  <!-- EN: a psychic shock -->
+  <PsychicShock.labelNoun>TODO</PsychicShock.labelNoun>
+
   <!-- EN: cryptosleep sickness -->
   <CryptosleepSickness.label>TODO</CryptosleepSickness.label>
-  
-  <!-- EN: drug overdose -->
-  <DrugOverdose.label>TODO</DrugOverdose.label>
-  <!-- EN: Overdose: {0} -->
-  <DrugOverdose.comps.HediffComp_Discoverable.discoverLetterLabel>TODO</DrugOverdose.comps.HediffComp_Discoverable.discoverLetterLabel>
-  <!-- EN: {0} is overdosing! -->
-  <DrugOverdose.comps.HediffComp_Discoverable.discoverLetterText>TODO</DrugOverdose.comps.HediffComp_Discoverable.discoverLetterText>
-  <!-- EN: a drug overdose -->
-  <DrugOverdose.labelNoun>TODO</DrugOverdose.labelNoun>
-  <!-- EN: minor -->
-  <DrugOverdose.stages.minor-0.label>TODO</DrugOverdose.stages.minor-0.label>
-  <!-- EN: minor -->
-  <DrugOverdose.stages.minor-1.label>TODO</DrugOverdose.stages.minor-1.label>
-  <!-- EN: major -->
-  <DrugOverdose.stages.major.label>TODO</DrugOverdose.stages.major.label>
-  
+  <!-- EN:  -->
+  <CryptosleepSickness.description>TODO</CryptosleepSickness.description>
+  <!-- EN:  -->
+  <CryptosleepSickness.stages.0.label>TODO</CryptosleepSickness.stages.0.label>
+  <!-- EN:  -->
+  <CryptosleepSickness.battleStateLabel>TODO</CryptosleepSickness.battleStateLabel>
+  <!-- EN:  -->
+  <CryptosleepSickness.labelNounPretty>TODO</CryptosleepSickness.labelNounPretty>
+  <!-- EN:  -->
+  <CryptosleepSickness.labelNoun>TODO</CryptosleepSickness.labelNoun>
+
   <!-- EN: food poisoning -->
   <FoodPoisoning.label>TODO</FoodPoisoning.label>
+  <!-- EN:  -->
+  <FoodPoisoning.description>TODO</FoodPoisoning.description>
   <!-- EN: recovering -->
   <FoodPoisoning.stages.recovering.label>TODO</FoodPoisoning.stages.recovering.label>
   <!-- EN: major -->
   <FoodPoisoning.stages.major.label>TODO</FoodPoisoning.stages.major.label>
   <!-- EN: initial -->
   <FoodPoisoning.stages.initial.label>TODO</FoodPoisoning.stages.initial.label>
-  
-  <!-- EN: heart attack -->
-  <HeartAttack.label>TODO</HeartAttack.label>
-  <!-- EN: a heart attack -->
-  <HeartAttack.labelNoun>TODO</HeartAttack.labelNoun>
-  <!-- EN: painful -->
-  <HeartAttack.stages.painful.label>TODO</HeartAttack.stages.painful.label>
-  <!-- EN: debilitating -->
-  <HeartAttack.stages.debilitating.label>TODO</HeartAttack.stages.debilitating.label>
-  <!-- EN: fatal -->
-  <HeartAttack.stages.fatal.label>TODO</HeartAttack.stages.fatal.label>
-  
-  <!-- EN: pregnant -->
-  <Pregnant.label>TODO</Pregnant.label>
-  <!-- EN: {0} pregnant -->
-  <Pregnant.comps.HediffComp_Discoverable.discoverLetterLabel>TODO</Pregnant.comps.HediffComp_Discoverable.discoverLetterLabel>
-  <!-- EN: {0} is pregnant! -->
-  <Pregnant.comps.HediffComp_Discoverable.discoverLetterText>TODO</Pregnant.comps.HediffComp_Discoverable.discoverLetterText>
-  <!-- EN: pregnancy -->
-  <Pregnant.labelNoun>TODO</Pregnant.labelNoun>
-  <!-- EN: early-stage -->
-  <Pregnant.stages.earlystage.label>TODO</Pregnant.stages.earlystage.label>
-  <!-- EN: middle-stage -->
-  <Pregnant.stages.middlestage.label>TODO</Pregnant.stages.middlestage.label>
-  <!-- EN: late-stage -->
-  <Pregnant.stages.latestage.label>TODO</Pregnant.stages.latestage.label>
-  
-  <!-- EN: psychic shock -->
-  <PsychicShock.label>TODO</PsychicShock.label>
-  <!-- EN: a psychic shock -->
-  <PsychicShock.labelNoun>TODO</PsychicShock.labelNoun>
-  
-  <!-- EN: resurrection sickness -->
-  <ResurrectionSickness.label>TODO</ResurrectionSickness.label>
-  
+  <!-- EN:  -->
+  <FoodPoisoning.battleStateLabel>TODO</FoodPoisoning.battleStateLabel>
+  <!-- EN:  -->
+  <FoodPoisoning.labelNounPretty>TODO</FoodPoisoning.labelNounPretty>
+  <!-- EN:  -->
+  <FoodPoisoning.labelNoun>TODO</FoodPoisoning.labelNoun>
+
   <!-- EN: toxic buildup -->
   <ToxicBuildup.label>TODO</ToxicBuildup.label>
+  <!-- EN:  -->
+  <ToxicBuildup.description>TODO</ToxicBuildup.description>
   <!-- EN: initial -->
   <ToxicBuildup.stages.initial-0.label>TODO</ToxicBuildup.stages.initial-0.label>
   <!-- EN: initial -->
@@ -97,5 +107,83 @@
   <ToxicBuildup.stages.serious.label>TODO</ToxicBuildup.stages.serious.label>
   <!-- EN: extreme -->
   <ToxicBuildup.stages.extreme.label>TODO</ToxicBuildup.stages.extreme.label>
-  
+  <!-- EN:  -->
+  <ToxicBuildup.battleStateLabel>TODO</ToxicBuildup.battleStateLabel>
+  <!-- EN:  -->
+  <ToxicBuildup.labelNounPretty>TODO</ToxicBuildup.labelNounPretty>
+  <!-- EN:  -->
+  <ToxicBuildup.labelNoun>TODO</ToxicBuildup.labelNoun>
+
+  <!-- EN: pregnant -->
+  <Pregnant.label>TODO</Pregnant.label>
+  <!-- EN:  -->
+  <Pregnant.description>TODO</Pregnant.description>
+  <!-- EN: {0} pregnant -->
+  <Pregnant.comps.HediffComp_Discoverable.discoverLetterLabel>TODO</Pregnant.comps.HediffComp_Discoverable.discoverLetterLabel>
+  <!-- EN: {0} is pregnant! -->
+  <Pregnant.comps.HediffComp_Discoverable.discoverLetterText>TODO</Pregnant.comps.HediffComp_Discoverable.discoverLetterText>
+  <!-- EN: early-stage -->
+  <Pregnant.stages.earlystage.label>TODO</Pregnant.stages.earlystage.label>
+  <!-- EN: middle-stage -->
+  <Pregnant.stages.middlestage.label>TODO</Pregnant.stages.middlestage.label>
+  <!-- EN: late-stage -->
+  <Pregnant.stages.latestage.label>TODO</Pregnant.stages.latestage.label>
+  <!-- EN:  -->
+  <Pregnant.battleStateLabel>TODO</Pregnant.battleStateLabel>
+  <!-- EN:  -->
+  <Pregnant.labelNounPretty>TODO</Pregnant.labelNounPretty>
+  <!-- EN: pregnancy -->
+  <Pregnant.labelNoun>TODO</Pregnant.labelNoun>
+
+  <!-- EN: heart attack -->
+  <HeartAttack.label>TODO</HeartAttack.label>
+  <!-- EN:  -->
+  <HeartAttack.description>TODO</HeartAttack.description>
+  <!-- EN: painful -->
+  <HeartAttack.stages.painful.label>TODO</HeartAttack.stages.painful.label>
+  <!-- EN: debilitating -->
+  <HeartAttack.stages.debilitating.label>TODO</HeartAttack.stages.debilitating.label>
+  <!-- EN: fatal -->
+  <HeartAttack.stages.fatal.label>TODO</HeartAttack.stages.fatal.label>
+  <!-- EN:  -->
+  <HeartAttack.battleStateLabel>TODO</HeartAttack.battleStateLabel>
+  <!-- EN:  -->
+  <HeartAttack.labelNounPretty>TODO</HeartAttack.labelNounPretty>
+  <!-- EN: a heart attack -->
+  <HeartAttack.labelNoun>TODO</HeartAttack.labelNoun>
+
+  <!-- EN: drug overdose -->
+  <DrugOverdose.label>TODO</DrugOverdose.label>
+  <!-- EN:  -->
+  <DrugOverdose.description>TODO</DrugOverdose.description>
+  <!-- EN: Overdose: {0} -->
+  <DrugOverdose.comps.HediffComp_Discoverable.discoverLetterLabel>TODO</DrugOverdose.comps.HediffComp_Discoverable.discoverLetterLabel>
+  <!-- EN: {0} is overdosing! -->
+  <DrugOverdose.comps.HediffComp_Discoverable.discoverLetterText>TODO</DrugOverdose.comps.HediffComp_Discoverable.discoverLetterText>
+  <!-- EN: minor -->
+  <DrugOverdose.stages.minor-0.label>TODO</DrugOverdose.stages.minor-0.label>
+  <!-- EN: minor -->
+  <DrugOverdose.stages.minor-1.label>TODO</DrugOverdose.stages.minor-1.label>
+  <!-- EN: major -->
+  <DrugOverdose.stages.major.label>TODO</DrugOverdose.stages.major.label>
+  <!-- EN:  -->
+  <DrugOverdose.battleStateLabel>TODO</DrugOverdose.battleStateLabel>
+  <!-- EN:  -->
+  <DrugOverdose.labelNounPretty>TODO</DrugOverdose.labelNounPretty>
+  <!-- EN: a drug overdose -->
+  <DrugOverdose.labelNoun>TODO</DrugOverdose.labelNoun>
+
+  <!-- EN: resurrection sickness -->
+  <ResurrectionSickness.label>TODO</ResurrectionSickness.label>
+  <!-- EN:  -->
+  <ResurrectionSickness.description>TODO</ResurrectionSickness.description>
+  <!-- EN:  -->
+  <ResurrectionSickness.stages.0.label>TODO</ResurrectionSickness.stages.0.label>
+  <!-- EN:  -->
+  <ResurrectionSickness.battleStateLabel>TODO</ResurrectionSickness.battleStateLabel>
+  <!-- EN:  -->
+  <ResurrectionSickness.labelNounPretty>TODO</ResurrectionSickness.labelNounPretty>
+  <!-- EN:  -->
+  <ResurrectionSickness.labelNoun>TODO</ResurrectionSickness.labelNoun>
+
 </LanguageData>

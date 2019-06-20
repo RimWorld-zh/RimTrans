@@ -1,21 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN:
-    <li>physical_description_root->This furniture is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
-    <li>physical_description_root->This furniture bears a [depiction] of [image]. [desc_sentence_group]</li>
-    <li>physical_description_root->An engraving on this furniture [depicts] [image]. [desc_sentence_group]</li>
-  -->
-  <ArtDescription_Furniture.rulePack.rulesStrings>TODO</ArtDescription_Furniture.rulePack.rulesStrings>
-  
-  <!-- EN:
-    <li>physical_description_root->The sarcophagus is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
-    <li>physical_description_root->The sarcophagus bears a [depiction] of [image]. [desc_sentence_group]</li>
-    <li>physical_description_root->The sarcophagus is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
-    <li>physical_description_root->An engraving on this sarcophagus [depicts] [image]. [desc_sentence_group]</li>
-  -->
-  <ArtDescription_SarcophagusPlate.rulePack.rulesStrings>TODO</ArtDescription_SarcophagusPlate.rulePack.rulesStrings>
-  
+
+  <!-- EN:  -->
+  <ArtDescription_Sculpture.label>TODO</ArtDescription_Sculpture.label>
+  <!-- EN:  -->
+  <ArtDescription_Sculpture.description>TODO</ArtDescription_Sculpture.description>
   <!-- EN:
     <li>physical_description_root->This [sculpture] [depicts] [image]. [desc_sentence_group]</li>
     <li>physical_description_root->This [sculpture] bears a [depiction] of [image]. [desc_sentence_group]</li>
@@ -25,20 +14,76 @@
     <li>sculpture->piece</li>
     <li>sculpture->carving</li>
   -->
-  <ArtDescription_Sculpture.rulePack.rulesStrings>TODO</ArtDescription_Sculpture.rulePack.rulesStrings>
-  
+  <ArtDescription_Sculpture.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ArtDescription_Sculpture.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <ArtDescription_WeaponMelee.label>TODO</ArtDescription_WeaponMelee.label>
+  <!-- EN:  -->
+  <ArtDescription_WeaponMelee.description>TODO</ArtDescription_WeaponMelee.description>
   <!-- EN:
     <li>physical_description_root->This weapon is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
     <li>physical_description_root->This weapon bears a [depiction] of [image]. [desc_sentence_group]</li>
     <li>physical_description_root->An engraving on this weapon [depicts] [image]. [desc_sentence_group]</li>
   -->
-  <ArtDescription_WeaponGun.rulePack.rulesStrings>TODO</ArtDescription_WeaponGun.rulePack.rulesStrings>
-  
+  <ArtDescription_WeaponMelee.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ArtDescription_WeaponMelee.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <ArtDescription_WeaponGun.label>TODO</ArtDescription_WeaponGun.label>
+  <!-- EN:  -->
+  <ArtDescription_WeaponGun.description>TODO</ArtDescription_WeaponGun.description>
   <!-- EN:
     <li>physical_description_root->This weapon is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
     <li>physical_description_root->This weapon bears a [depiction] of [image]. [desc_sentence_group]</li>
     <li>physical_description_root->An engraving on this weapon [depicts] [image]. [desc_sentence_group]</li>
   -->
-  <ArtDescription_WeaponMelee.rulePack.rulesStrings>TODO</ArtDescription_WeaponMelee.rulePack.rulesStrings>
-  
+  <ArtDescription_WeaponGun.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ArtDescription_WeaponGun.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <ArtDescription_Furniture.label>TODO</ArtDescription_Furniture.label>
+  <!-- EN:  -->
+  <ArtDescription_Furniture.description>TODO</ArtDescription_Furniture.description>
+  <!-- EN:
+    <li>physical_description_root->This furniture is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
+    <li>physical_description_root->This furniture bears a [depiction] of [image]. [desc_sentence_group]</li>
+    <li>physical_description_root->An engraving on this furniture [depicts] [image]. [desc_sentence_group]</li>
+  -->
+  <ArtDescription_Furniture.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ArtDescription_Furniture.rulePack.rulesStrings>
+
+  <!-- EN:  -->
+  <ArtDescription_SarcophagusPlate.label>TODO</ArtDescription_SarcophagusPlate.label>
+  <!-- EN:  -->
+  <ArtDescription_SarcophagusPlate.description>TODO</ArtDescription_SarcophagusPlate.description>
+  <!-- EN:
+    <li>physical_description_root->The sarcophagus is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
+    <li>physical_description_root->The sarcophagus bears a [depiction] of [image]. [desc_sentence_group]</li>
+    <li>physical_description_root->The sarcophagus is engraved with a [depiction] of [image]. [desc_sentence_group]</li>
+    <li>physical_description_root->An engraving on this sarcophagus [depicts] [image]. [desc_sentence_group]</li>
+  -->
+  <ArtDescription_SarcophagusPlate.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ArtDescription_SarcophagusPlate.rulePack.rulesStrings>
+
 </LanguageData>

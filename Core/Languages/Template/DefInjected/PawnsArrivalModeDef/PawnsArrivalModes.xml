@@ -1,34 +1,58 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: A group of {0} from {1} have dropped in right on top of you! -->
-  <CenterDrop.textEnemy>TODO</CenterDrop.textEnemy>
-  <!-- EN: A group of friendly {0} from {1} have dropped in right on top of you! -->
-  <CenterDrop.textFriendly>TODO</CenterDrop.textFriendly>
-  
-  <!-- EN: A group of {0} from {1} have arrived in transport pods nearby. -->
-  <EdgeDrop.textEnemy>TODO</EdgeDrop.textEnemy>
-  <!-- EN: A group of friendly {0} from {1} have arrived in transport pods nearby. -->
-  <EdgeDrop.textFriendly>TODO</EdgeDrop.textFriendly>
-  
-  <!-- EN: Several separate groups of {0} from {1} have arrived in transport pods nearby. -->
-  <EdgeDropGroups.textEnemy>TODO</EdgeDropGroups.textEnemy>
-  <!-- EN: Several separate groups of friendly {0} from {1} have arrived in transport pods nearby. -->
-  <EdgeDropGroups.textFriendly>TODO</EdgeDropGroups.textFriendly>
-  
+
+  <!-- EN:  -->
+  <EdgeWalkIn.label>TODO</EdgeWalkIn.label>
+  <!-- EN:  -->
+  <EdgeWalkIn.description>TODO</EdgeWalkIn.description>
   <!-- EN: A group of {0} from {1} have arrived nearby. -->
   <EdgeWalkIn.textEnemy>TODO</EdgeWalkIn.textEnemy>
   <!-- EN: A group of friendly {0} from {1} have arrived nearby. -->
   <EdgeWalkIn.textFriendly>TODO</EdgeWalkIn.textFriendly>
-  
+
+  <!-- EN:  -->
+  <EdgeDrop.label>TODO</EdgeDrop.label>
+  <!-- EN:  -->
+  <EdgeDrop.description>TODO</EdgeDrop.description>
+  <!-- EN: A group of {0} from {1} have arrived in transport pods nearby. -->
+  <EdgeDrop.textEnemy>TODO</EdgeDrop.textEnemy>
+  <!-- EN: A group of friendly {0} from {1} have arrived in transport pods nearby. -->
+  <EdgeDrop.textFriendly>TODO</EdgeDrop.textFriendly>
+
+  <!-- EN:  -->
+  <EdgeWalkInGroups.label>TODO</EdgeWalkInGroups.label>
+  <!-- EN:  -->
+  <EdgeWalkInGroups.description>TODO</EdgeWalkInGroups.description>
   <!-- EN: Several separate groups of {0} from {1} have arrived nearby. -->
   <EdgeWalkInGroups.textEnemy>TODO</EdgeWalkInGroups.textEnemy>
   <!-- EN: Several separate groups of friendly {0} from {1} have arrived nearby. -->
   <EdgeWalkInGroups.textFriendly>TODO</EdgeWalkInGroups.textFriendly>
-  
+
+  <!-- EN:  -->
+  <EdgeDropGroups.label>TODO</EdgeDropGroups.label>
+  <!-- EN:  -->
+  <EdgeDropGroups.description>TODO</EdgeDropGroups.description>
+  <!-- EN: Several separate groups of {0} from {1} have arrived in transport pods nearby. -->
+  <EdgeDropGroups.textEnemy>TODO</EdgeDropGroups.textEnemy>
+  <!-- EN: Several separate groups of friendly {0} from {1} have arrived in transport pods nearby. -->
+  <EdgeDropGroups.textFriendly>TODO</EdgeDropGroups.textFriendly>
+
+  <!-- EN:  -->
+  <CenterDrop.label>TODO</CenterDrop.label>
+  <!-- EN:  -->
+  <CenterDrop.description>TODO</CenterDrop.description>
+  <!-- EN: A group of {0} from {1} have dropped in right on top of you! -->
+  <CenterDrop.textEnemy>TODO</CenterDrop.textEnemy>
+  <!-- EN: A group of friendly {0} from {1} have dropped in right on top of you! -->
+  <CenterDrop.textFriendly>TODO</CenterDrop.textFriendly>
+
+  <!-- EN:  -->
+  <RandomDrop.label>TODO</RandomDrop.label>
+  <!-- EN:  -->
+  <RandomDrop.description>TODO</RandomDrop.description>
   <!-- EN: A group of {0} from {1} have arrived in transport pods. Their pods went haywire and are landing scattered all over the area! -->
   <RandomDrop.textEnemy>TODO</RandomDrop.textEnemy>
   <!-- EN: A group of friendly {0} from {1} have arrived in transport pods. Their pods went haywire and are landing scattered all over the area! -->
   <RandomDrop.textFriendly>TODO</RandomDrop.textFriendly>
-  
+
 </LanguageData>

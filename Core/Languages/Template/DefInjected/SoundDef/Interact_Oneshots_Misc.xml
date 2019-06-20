@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Building_Complete.label>TODO</Building_Complete.label>
+  <!-- EN:  -->
+  <Building_Complete.description>TODO</Building_Complete.description>
+  <!-- EN:  -->
+  <Building_Complete.subSounds.0.name>TODO</Building_Complete.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Building_Deconstructed.label>TODO</Building_Deconstructed.label>
+  <!-- EN:  -->
+  <Building_Deconstructed.description>TODO</Building_Deconstructed.description>
+  <!-- EN:  -->
+  <Building_Deconstructed.subSounds.0.name>TODO</Building_Deconstructed.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ThingUninstalled.label>TODO</ThingUninstalled.label>
+  <!-- EN:  -->
+  <ThingUninstalled.description>TODO</ThingUninstalled.description>
+  <!-- EN:  -->
+  <ThingUninstalled.subSounds.0.name>TODO</ThingUninstalled.subSounds.0.name>
+
+  <!-- EN:  -->
+  <PickHit.label>TODO</PickHit.label>
+  <!-- EN:  -->
+  <PickHit.description>TODO</PickHit.description>
+  <!-- EN:  -->
+  <PickHit.subSounds.0.name>TODO</PickHit.subSounds.0.name>
+
+  <!-- EN:  -->
+  <FlickSwitch.label>TODO</FlickSwitch.label>
+  <!-- EN:  -->
+  <FlickSwitch.description>TODO</FlickSwitch.description>
+  <!-- EN:  -->
+  <FlickSwitch.subSounds.0.name>TODO</FlickSwitch.subSounds.0.name>
+
+  <!-- EN:  -->
+  <HorseshoeImpact.label>TODO</HorseshoeImpact.label>
+  <!-- EN:  -->
+  <HorseshoeImpact.description>TODO</HorseshoeImpact.description>
+  <!-- EN:  -->
+  <HorseshoeImpact.subSounds.0.name>TODO</HorseshoeImpact.subSounds.0.name>
+
+  <!-- EN:  -->
+  <StoneImpact.label>TODO</StoneImpact.label>
+  <!-- EN:  -->
+  <StoneImpact.description>TODO</StoneImpact.description>
+  <!-- EN:  -->
+  <StoneImpact.subSounds.0.name>TODO</StoneImpact.subSounds.0.name>
+
+  <!-- EN:  -->
+  <PlayBilliards.label>TODO</PlayBilliards.label>
+  <!-- EN:  -->
+  <PlayBilliards.description>TODO</PlayBilliards.description>
+  <!-- EN:  -->
+  <PlayBilliards.subSounds.0.name>TODO</PlayBilliards.subSounds.0.name>
+
+  <!-- EN:  -->
+  <PokerChips.label>TODO</PokerChips.label>
+  <!-- EN:  -->
+  <PokerChips.description>TODO</PokerChips.description>
+  <!-- EN:  -->
+  <PokerChips.subSounds.0.name>TODO</PokerChips.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TechMedicineUsed.label>TODO</TechMedicineUsed.label>
+  <!-- EN:  -->
+  <TechMedicineUsed.description>TODO</TechMedicineUsed.description>
+  <!-- EN:  -->
+  <TechMedicineUsed.subSounds.0.name>TODO</TechMedicineUsed.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Roof_Start.label>TODO</Roof_Start.label>
+  <!-- EN:  -->
+  <Roof_Start.description>TODO</Roof_Start.description>
+  <!-- EN:  -->
+  <Roof_Start.subSounds.0.name>TODO</Roof_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Roof_Finish.label>TODO</Roof_Finish.label>
+  <!-- EN:  -->
+  <Roof_Finish.description>TODO</Roof_Finish.description>
+  <!-- EN:  -->
+  <Roof_Finish.subSounds.0.name>TODO</Roof_Finish.subSounds.0.name>
+
+</LanguageData>

@@ -1,31 +1,139 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: archer -->
-  <Tribal_Archer.label>TODO</Tribal_Archer.label>
-  
-  <!-- EN: berserker -->
-  <Tribal_Berserker.label>TODO</Tribal_Berserker.label>
-  
-  <!-- EN: berserker chief -->
-  <Tribal_ChiefMelee.label>TODO</Tribal_ChiefMelee.label>
-  
-  <!-- EN: archer chief -->
-  <Tribal_ChiefRanged.label>TODO</Tribal_ChiefRanged.label>
-  
-  <!-- EN: heavy archer -->
-  <Tribal_HeavyArcher.label>TODO</Tribal_HeavyArcher.label>
-  
-  <!-- EN: hunter -->
-  <Tribal_Hunter.label>TODO</Tribal_Hunter.label>
-  
+
   <!-- EN: penitent -->
   <Tribal_Penitent.label>TODO</Tribal_Penitent.label>
-  
-  <!-- EN: trader -->
-  <Tribal_Trader.label>TODO</Tribal_Trader.label>
-  
+  <!-- EN:  -->
+  <Tribal_Penitent.description>TODO</Tribal_Penitent.description>
+  <!-- EN:  -->
+  <Tribal_Penitent.labelPlural>TODO</Tribal_Penitent.labelPlural>
+  <!-- EN:  -->
+  <Tribal_Penitent.labelMale>TODO</Tribal_Penitent.labelMale>
+  <!-- EN:  -->
+  <Tribal_Penitent.labelMalePlural>TODO</Tribal_Penitent.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_Penitent.labelFemale>TODO</Tribal_Penitent.labelFemale>
+  <!-- EN:  -->
+  <Tribal_Penitent.labelFemalePlural>TODO</Tribal_Penitent.labelFemalePlural>
+
+  <!-- EN: archer -->
+  <Tribal_Archer.label>TODO</Tribal_Archer.label>
+  <!-- EN:  -->
+  <Tribal_Archer.description>TODO</Tribal_Archer.description>
+  <!-- EN:  -->
+  <Tribal_Archer.labelPlural>TODO</Tribal_Archer.labelPlural>
+  <!-- EN:  -->
+  <Tribal_Archer.labelMale>TODO</Tribal_Archer.labelMale>
+  <!-- EN:  -->
+  <Tribal_Archer.labelMalePlural>TODO</Tribal_Archer.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_Archer.labelFemale>TODO</Tribal_Archer.labelFemale>
+  <!-- EN:  -->
+  <Tribal_Archer.labelFemalePlural>TODO</Tribal_Archer.labelFemalePlural>
+
   <!-- EN: warrior -->
   <Tribal_Warrior.label>TODO</Tribal_Warrior.label>
-  
+  <!-- EN:  -->
+  <Tribal_Warrior.description>TODO</Tribal_Warrior.description>
+  <!-- EN:  -->
+  <Tribal_Warrior.labelPlural>TODO</Tribal_Warrior.labelPlural>
+  <!-- EN:  -->
+  <Tribal_Warrior.labelMale>TODO</Tribal_Warrior.labelMale>
+  <!-- EN:  -->
+  <Tribal_Warrior.labelMalePlural>TODO</Tribal_Warrior.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_Warrior.labelFemale>TODO</Tribal_Warrior.labelFemale>
+  <!-- EN:  -->
+  <Tribal_Warrior.labelFemalePlural>TODO</Tribal_Warrior.labelFemalePlural>
+
+  <!-- EN: hunter -->
+  <Tribal_Hunter.label>TODO</Tribal_Hunter.label>
+  <!-- EN:  -->
+  <Tribal_Hunter.description>TODO</Tribal_Hunter.description>
+  <!-- EN:  -->
+  <Tribal_Hunter.labelPlural>TODO</Tribal_Hunter.labelPlural>
+  <!-- EN:  -->
+  <Tribal_Hunter.labelMale>TODO</Tribal_Hunter.labelMale>
+  <!-- EN:  -->
+  <Tribal_Hunter.labelMalePlural>TODO</Tribal_Hunter.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_Hunter.labelFemale>TODO</Tribal_Hunter.labelFemale>
+  <!-- EN:  -->
+  <Tribal_Hunter.labelFemalePlural>TODO</Tribal_Hunter.labelFemalePlural>
+
+  <!-- EN: trader -->
+  <Tribal_Trader.label>TODO</Tribal_Trader.label>
+  <!-- EN:  -->
+  <Tribal_Trader.description>TODO</Tribal_Trader.description>
+  <!-- EN:  -->
+  <Tribal_Trader.labelPlural>TODO</Tribal_Trader.labelPlural>
+  <!-- EN:  -->
+  <Tribal_Trader.labelMale>TODO</Tribal_Trader.labelMale>
+  <!-- EN:  -->
+  <Tribal_Trader.labelMalePlural>TODO</Tribal_Trader.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_Trader.labelFemale>TODO</Tribal_Trader.labelFemale>
+  <!-- EN:  -->
+  <Tribal_Trader.labelFemalePlural>TODO</Tribal_Trader.labelFemalePlural>
+
+  <!-- EN: berserker -->
+  <Tribal_Berserker.label>TODO</Tribal_Berserker.label>
+  <!-- EN:  -->
+  <Tribal_Berserker.description>TODO</Tribal_Berserker.description>
+  <!-- EN:  -->
+  <Tribal_Berserker.labelPlural>TODO</Tribal_Berserker.labelPlural>
+  <!-- EN:  -->
+  <Tribal_Berserker.labelMale>TODO</Tribal_Berserker.labelMale>
+  <!-- EN:  -->
+  <Tribal_Berserker.labelMalePlural>TODO</Tribal_Berserker.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_Berserker.labelFemale>TODO</Tribal_Berserker.labelFemale>
+  <!-- EN:  -->
+  <Tribal_Berserker.labelFemalePlural>TODO</Tribal_Berserker.labelFemalePlural>
+
+  <!-- EN: heavy archer -->
+  <Tribal_HeavyArcher.label>TODO</Tribal_HeavyArcher.label>
+  <!-- EN:  -->
+  <Tribal_HeavyArcher.description>TODO</Tribal_HeavyArcher.description>
+  <!-- EN:  -->
+  <Tribal_HeavyArcher.labelPlural>TODO</Tribal_HeavyArcher.labelPlural>
+  <!-- EN:  -->
+  <Tribal_HeavyArcher.labelMale>TODO</Tribal_HeavyArcher.labelMale>
+  <!-- EN:  -->
+  <Tribal_HeavyArcher.labelMalePlural>TODO</Tribal_HeavyArcher.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_HeavyArcher.labelFemale>TODO</Tribal_HeavyArcher.labelFemale>
+  <!-- EN:  -->
+  <Tribal_HeavyArcher.labelFemalePlural>TODO</Tribal_HeavyArcher.labelFemalePlural>
+
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.label>TODO</Tribal_ChiefMelee.label>
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.description>TODO</Tribal_ChiefMelee.description>
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.labelPlural>TODO</Tribal_ChiefMelee.labelPlural>
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.labelMale>TODO</Tribal_ChiefMelee.labelMale>
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.labelMalePlural>TODO</Tribal_ChiefMelee.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.labelFemale>TODO</Tribal_ChiefMelee.labelFemale>
+  <!-- EN:  -->
+  <Tribal_ChiefMelee.labelFemalePlural>TODO</Tribal_ChiefMelee.labelFemalePlural>
+
+  <!-- EN: archer chief -->
+  <Tribal_ChiefRanged.label>TODO</Tribal_ChiefRanged.label>
+  <!-- EN:  -->
+  <Tribal_ChiefRanged.description>TODO</Tribal_ChiefRanged.description>
+  <!-- EN:  -->
+  <Tribal_ChiefRanged.labelPlural>TODO</Tribal_ChiefRanged.labelPlural>
+  <!-- EN:  -->
+  <Tribal_ChiefRanged.labelMale>TODO</Tribal_ChiefRanged.labelMale>
+  <!-- EN:  -->
+  <Tribal_ChiefRanged.labelMalePlural>TODO</Tribal_ChiefRanged.labelMalePlural>
+  <!-- EN:  -->
+  <Tribal_ChiefRanged.labelFemale>TODO</Tribal_ChiefRanged.labelFemale>
+  <!-- EN:  -->
+  <Tribal_ChiefRanged.labelFemalePlural>TODO</Tribal_ChiefRanged.labelFemalePlural>
+
 </LanguageData>

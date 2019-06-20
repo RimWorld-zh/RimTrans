@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <MortarRound_Ambient.label>TODO</MortarRound_Ambient.label>
+  <!-- EN:  -->
+  <MortarRound_Ambient.description>TODO</MortarRound_Ambient.description>
+  <!-- EN:  -->
+  <MortarRound_Ambient.subSounds.0.name>TODO</MortarRound_Ambient.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Mortar_LaunchA.label>TODO</Mortar_LaunchA.label>
+  <!-- EN:  -->
+  <Mortar_LaunchA.description>TODO</Mortar_LaunchA.description>
+  <!-- EN:  -->
+  <Mortar_LaunchA.subSounds.0.name>TODO</Mortar_LaunchA.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Artillery_HitThickRoof.label>TODO</Artillery_HitThickRoof.label>
+  <!-- EN:  -->
+  <Artillery_HitThickRoof.description>TODO</Artillery_HitThickRoof.description>
+  <!-- EN:  -->
+  <Artillery_HitThickRoof.subSounds.0.name>TODO</Artillery_HitThickRoof.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MortarRound_PreImpact.label>TODO</MortarRound_PreImpact.label>
+  <!-- EN:  -->
+  <MortarRound_PreImpact.description>TODO</MortarRound_PreImpact.description>
+  <!-- EN:  -->
+  <MortarRound_PreImpact.subSounds.0.name>TODO</MortarRound_PreImpact.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Artillery_ShellLoaded.label>TODO</Artillery_ShellLoaded.label>
+  <!-- EN:  -->
+  <Artillery_ShellLoaded.description>TODO</Artillery_ShellLoaded.description>
+  <!-- EN:  -->
+  <Artillery_ShellLoaded.subSounds.0.name>TODO</Artillery_ShellLoaded.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MortarIncendiary_Explode.label>TODO</MortarIncendiary_Explode.label>
+  <!-- EN:  -->
+  <MortarIncendiary_Explode.description>TODO</MortarIncendiary_Explode.description>
+  <!-- EN:  -->
+  <MortarIncendiary_Explode.subSounds.0.name>TODO</MortarIncendiary_Explode.subSounds.0.name>
+
+  <!-- EN:  -->
+  <MortarBomb_Explode.label>TODO</MortarBomb_Explode.label>
+  <!-- EN:  -->
+  <MortarBomb_Explode.description>TODO</MortarBomb_Explode.description>
+  <!-- EN:  -->
+  <MortarBomb_Explode.subSounds.0.name>TODO</MortarBomb_Explode.subSounds.0.name>
+
+</LanguageData>

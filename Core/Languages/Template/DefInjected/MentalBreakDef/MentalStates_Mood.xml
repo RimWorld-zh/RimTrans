@@ -1,10 +1,109 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <Berserk.label>TODO</Berserk.label>
+  <!-- EN:  -->
+  <Berserk.description>TODO</Berserk.description>
+
+  <!-- EN:  -->
+  <FireStartingSpree.label>TODO</FireStartingSpree.label>
+  <!-- EN:  -->
+  <FireStartingSpree.description>TODO</FireStartingSpree.description>
+
+  <!-- EN:  -->
+  <Binging_DrugExtreme.label>TODO</Binging_DrugExtreme.label>
+  <!-- EN:  -->
+  <Binging_DrugExtreme.description>TODO</Binging_DrugExtreme.description>
+
   <!-- EN: catatonic -->
   <Catatonic.label>TODO</Catatonic.label>
-  
+  <!-- EN:  -->
+  <Catatonic.description>TODO</Catatonic.description>
+
+  <!-- EN:  -->
+  <Jailbreaker.label>TODO</Jailbreaker.label>
+  <!-- EN:  -->
+  <Jailbreaker.description>TODO</Jailbreaker.description>
+
+  <!-- EN:  -->
+  <Slaughterer.label>TODO</Slaughterer.label>
+  <!-- EN:  -->
+  <Slaughterer.description>TODO</Slaughterer.description>
+
+  <!-- EN:  -->
+  <MurderousRage.label>TODO</MurderousRage.label>
+  <!-- EN:  -->
+  <MurderousRage.description>TODO</MurderousRage.description>
+
   <!-- EN: run wild -->
   <RunWild.label>TODO</RunWild.label>
-  
+  <!-- EN:  -->
+  <RunWild.description>TODO</RunWild.description>
+
+  <!-- EN:  -->
+  <GiveUpExit.label>TODO</GiveUpExit.label>
+  <!-- EN:  -->
+  <GiveUpExit.description>TODO</GiveUpExit.description>
+
+  <!-- EN:  -->
+  <Binging_DrugMajor.label>TODO</Binging_DrugMajor.label>
+  <!-- EN:  -->
+  <Binging_DrugMajor.description>TODO</Binging_DrugMajor.description>
+
+  <!-- EN:  -->
+  <Wander_Psychotic.label>TODO</Wander_Psychotic.label>
+  <!-- EN:  -->
+  <Wander_Psychotic.description>TODO</Wander_Psychotic.description>
+
+  <!-- EN:  -->
+  <Tantrum.label>TODO</Tantrum.label>
+  <!-- EN:  -->
+  <Tantrum.description>TODO</Tantrum.description>
+
+  <!-- EN:  -->
+  <TargetedTantrum.label>TODO</TargetedTantrum.label>
+  <!-- EN:  -->
+  <TargetedTantrum.description>TODO</TargetedTantrum.description>
+
+  <!-- EN:  -->
+  <BedroomTantrum.label>TODO</BedroomTantrum.label>
+  <!-- EN:  -->
+  <BedroomTantrum.description>TODO</BedroomTantrum.description>
+
+  <!-- EN:  -->
+  <SadisticRage.label>TODO</SadisticRage.label>
+  <!-- EN:  -->
+  <SadisticRage.description>TODO</SadisticRage.description>
+
+  <!-- EN:  -->
+  <CorpseObsession.label>TODO</CorpseObsession.label>
+  <!-- EN:  -->
+  <CorpseObsession.description>TODO</CorpseObsession.description>
+
+  <!-- EN:  -->
+  <Binging_Food.label>TODO</Binging_Food.label>
+  <!-- EN:  -->
+  <Binging_Food.description>TODO</Binging_Food.description>
+
+  <!-- EN:  -->
+  <Wander_Sad.label>TODO</Wander_Sad.label>
+  <!-- EN:  -->
+  <Wander_Sad.description>TODO</Wander_Sad.description>
+
+  <!-- EN:  -->
+  <Wander_OwnRoom.label>TODO</Wander_OwnRoom.label>
+  <!-- EN:  -->
+  <Wander_OwnRoom.description>TODO</Wander_OwnRoom.description>
+
+  <!-- EN:  -->
+  <InsultingSpree.label>TODO</InsultingSpree.label>
+  <!-- EN:  -->
+  <InsultingSpree.description>TODO</InsultingSpree.description>
+
+  <!-- EN:  -->
+  <TargetedInsultingSpree.label>TODO</TargetedInsultingSpree.label>
+  <!-- EN:  -->
+  <TargetedInsultingSpree.description>TODO</TargetedInsultingSpree.description>
+
 </LanguageData>

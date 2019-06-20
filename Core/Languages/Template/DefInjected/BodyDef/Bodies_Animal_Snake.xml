@@ -1,8 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: snake -->
   <Snake.label>TODO</Snake.label>
+  <!-- EN:  -->
+  <Snake.description>TODO</Snake.description>
+  <!-- EN:  -->
+  <Snake.corePart.customLabel>TODO</Snake.corePart.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.Stomach.customLabel>TODO</Snake.corePart.parts.Stomach.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.Heart.customLabel>TODO</Snake.corePart.parts.Heart.customLabel>
   <!-- EN: left lung -->
   <Snake.corePart.parts.left_lung.customLabel>TODO</Snake.corePart.parts.left_lung.customLabel>
   <!-- EN: right lung -->
@@ -11,9 +19,21 @@
   <Snake.corePart.parts.left_kidney.customLabel>TODO</Snake.corePart.parts.left_kidney.customLabel>
   <!-- EN: right kidney -->
   <Snake.corePart.parts.right_kidney.customLabel>TODO</Snake.corePart.parts.right_kidney.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.Liver.customLabel>TODO</Snake.corePart.parts.Liver.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.SnakeHead.customLabel>TODO</Snake.corePart.parts.SnakeHead.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.SnakeHead.parts.Skull.customLabel>TODO</Snake.corePart.parts.SnakeHead.parts.Skull.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.SnakeHead.parts.Skull.parts.Brain.customLabel>TODO</Snake.corePart.parts.SnakeHead.parts.Skull.parts.Brain.customLabel>
   <!-- EN: left eye -->
   <Snake.corePart.parts.SnakeHead.parts.left_eye.customLabel>TODO</Snake.corePart.parts.SnakeHead.parts.left_eye.customLabel>
   <!-- EN: right eye -->
   <Snake.corePart.parts.SnakeHead.parts.right_eye.customLabel>TODO</Snake.corePart.parts.SnakeHead.parts.right_eye.customLabel>
-  
+  <!-- EN:  -->
+  <Snake.corePart.parts.SnakeHead.parts.Nose.customLabel>TODO</Snake.corePart.parts.SnakeHead.parts.Nose.customLabel>
+  <!-- EN:  -->
+  <Snake.corePart.parts.SnakeHead.parts.SnakeMouth.customLabel>TODO</Snake.corePart.parts.SnakeHead.parts.SnakeMouth.customLabel>
+
 </LanguageData>

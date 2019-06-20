@@ -1,6 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <NamerTraderGeneral.label>TODO</NamerTraderGeneral.label>
+  <!-- EN:  -->
+  <NamerTraderGeneral.description>TODO</NamerTraderGeneral.description>
   <!-- EN:
     <li>r_name(p=4)->[businessname] [businesstype]</li>
     <li>r_name->[NamePerson] [businesstype]</li>
@@ -19,6 +23,31 @@
     <li>maybe_adjective->[AdjectiveFriendly]</li>
     <li>maybe_adjective->[AdjectiveBadass]</li>
   -->
-  <NamerTraderGeneral.rulePack.rulesStrings>TODO</NamerTraderGeneral.rulePack.rulesStrings>
-  
+  <NamerTraderGeneral.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerTraderGeneral.rulePack.rulesStrings>
+  <!-- EN:
+    <li>businessname->Names/Business</li>
+    <li>businesstype->Words/Nouns/BusinessTypes</li>
+  -->
+  <NamerTraderGeneral.rulePack.rulesFiles>
+    <li>TODO</li>
+    <li>TODO</li>
+  </NamerTraderGeneral.rulePack.rulesFiles>
+
 </LanguageData>

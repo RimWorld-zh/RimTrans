@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Designate_DragStandard.label>TODO</Designate_DragStandard.label>
+  <!-- EN:  -->
+  <Designate_DragStandard.description>TODO</Designate_DragStandard.description>
+
+  <!-- EN:  -->
+  <Designate_DragBuilding.label>TODO</Designate_DragBuilding.label>
+  <!-- EN:  -->
+  <Designate_DragBuilding.description>TODO</Designate_DragBuilding.description>
+  <!-- EN:  -->
+  <Designate_DragBuilding.subSounds.0.name>TODO</Designate_DragBuilding.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_DragAreaAdd.label>TODO</Designate_DragAreaAdd.label>
+  <!-- EN:  -->
+  <Designate_DragAreaAdd.description>TODO</Designate_DragAreaAdd.description>
+  <!-- EN:  -->
+  <Designate_DragAreaAdd.subSounds.0.name>TODO</Designate_DragAreaAdd.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Designate_DragAreaDelete.label>TODO</Designate_DragAreaDelete.label>
+  <!-- EN:  -->
+  <Designate_DragAreaDelete.description>TODO</Designate_DragAreaDelete.description>
+  <!-- EN:  -->
+  <Designate_DragAreaDelete.subSounds.0.name>TODO</Designate_DragAreaDelete.subSounds.0.name>
+
+</LanguageData>

@@ -1,6 +1,33 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <TribalWordUtility.label>TODO</TribalWordUtility.label>
+  <!-- EN:  -->
+  <TribalWordUtility.description>TODO</TribalWordUtility.description>
+  <!-- EN:
+    <li>WordTribal(p=3)->[tribal_word_file]</li>
+    <li>WordTribal(p=3)->[SylG][SylG]</li>
+    <li>WordTribal(p=2)->[SylG][SylG][SylG]</li>
+    <li>WordTribal->[SylG][SylG][SylG][SylG]</li>
+  -->
+  <TribalWordUtility.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </TribalWordUtility.rulePack.rulesStrings>
+  <!-- EN:
+    <li>tribal_word_file->Words/Foreign/Tribal</li>
+  -->
+  <TribalWordUtility.rulePack.rulesFiles>
+    <li>TODO</li>
+  </TribalWordUtility.rulePack.rulesFiles>
+
+  <!-- EN:  -->
+  <OutlanderPlaceNameUtility.label>TODO</OutlanderPlaceNameUtility.label>
+  <!-- EN:  -->
+  <OutlanderPlaceNameUtility.description>TODO</OutlanderPlaceNameUtility.description>
   <!-- EN:
     <li>PlaceOutlander->[SylE][place_end]</li>
     <li>PlaceOutlander->[SylE][place_end]</li>
@@ -9,14 +36,19 @@
     <li>PlaceOutlander->[SylE][SylE][place_end]</li>
     <li>PlaceOutlander->[SylE][SylE][SylE][place_end]</li>
   -->
-  <OutlanderPlaceNameUtility.rulePack.rulesStrings>TODO</OutlanderPlaceNameUtility.rulePack.rulesStrings>
-  
+  <OutlanderPlaceNameUtility.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </OutlanderPlaceNameUtility.rulePack.rulesStrings>
   <!-- EN:
-    <li>WordTribal(p=3)->[tribal_word_file]</li>
-    <li>WordTribal(p=3)->[SylG][SylG]</li>
-    <li>WordTribal(p=2)->[SylG][SylG][SylG]</li>
-    <li>WordTribal->[SylG][SylG][SylG][SylG]</li>
+    <li>place_end->WordParts/PlaceEndings</li>
   -->
-  <TribalWordUtility.rulePack.rulesStrings>TODO</TribalWordUtility.rulePack.rulesStrings>
-  
+  <OutlanderPlaceNameUtility.rulePack.rulesFiles>
+    <li>TODO</li>
+  </OutlanderPlaceNameUtility.rulePack.rulesFiles>
+
 </LanguageData>

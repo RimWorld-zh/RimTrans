@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <Sentence_SocialFightStarted.label>TODO</Sentence_SocialFightStarted.label>
+  <!-- EN:  -->
+  <Sentence_SocialFightStarted.description>TODO</Sentence_SocialFightStarted.description>
   <!-- EN:
     <li>sent->This drove [RECIPIENT_nameDef] into a rage and [RECIPIENT_pronoun] began a fight!</li>
   -->
-  <Sentence_SocialFightStarted.rulePack.rulesStrings>TODO</Sentence_SocialFightStarted.rulePack.rulesStrings>
-  
+  <Sentence_SocialFightStarted.rulePack.rulesStrings>
+    <li>TODO</li>
+  </Sentence_SocialFightStarted.rulePack.rulesStrings>
+
 </LanguageData>

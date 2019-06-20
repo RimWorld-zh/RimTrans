@@ -1,10 +1,34 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: colonist -->
   <Colonist.label>TODO</Colonist.label>
-  
+  <!-- EN:  -->
+  <Colonist.description>TODO</Colonist.description>
+  <!-- EN:  -->
+  <Colonist.labelPlural>TODO</Colonist.labelPlural>
+  <!-- EN:  -->
+  <Colonist.labelMale>TODO</Colonist.labelMale>
+  <!-- EN:  -->
+  <Colonist.labelMalePlural>TODO</Colonist.labelMalePlural>
+  <!-- EN:  -->
+  <Colonist.labelFemale>TODO</Colonist.labelFemale>
+  <!-- EN:  -->
+  <Colonist.labelFemalePlural>TODO</Colonist.labelFemalePlural>
+
   <!-- EN: member -->
   <Tribesperson.label>TODO</Tribesperson.label>
-  
+  <!-- EN:  -->
+  <Tribesperson.description>TODO</Tribesperson.description>
+  <!-- EN:  -->
+  <Tribesperson.labelPlural>TODO</Tribesperson.labelPlural>
+  <!-- EN:  -->
+  <Tribesperson.labelMale>TODO</Tribesperson.labelMale>
+  <!-- EN:  -->
+  <Tribesperson.labelMalePlural>TODO</Tribesperson.labelMalePlural>
+  <!-- EN:  -->
+  <Tribesperson.labelFemale>TODO</Tribesperson.labelFemale>
+  <!-- EN:  -->
+  <Tribesperson.labelFemalePlural>TODO</Tribesperson.labelFemalePlural>
+
 </LanguageData>

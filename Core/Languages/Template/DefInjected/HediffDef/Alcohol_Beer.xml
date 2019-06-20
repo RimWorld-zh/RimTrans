@@ -1,15 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: alcohol addiction -->
-  <AlcoholAddiction.label>TODO</AlcoholAddiction.label>
-  <!-- EN: withdrawal -->
-  <AlcoholAddiction.stages.withdrawal.label>TODO</AlcoholAddiction.stages.withdrawal.label>
-  
+
   <!-- EN: alcohol -->
   <AlcoholHigh.label>TODO</AlcoholHigh.label>
-  <!-- EN: drunkenness -->
-  <AlcoholHigh.labelNoun>TODO</AlcoholHigh.labelNoun>
+  <!-- EN:  -->
+  <AlcoholHigh.description>TODO</AlcoholHigh.description>
   <!-- EN: warm -->
   <AlcoholHigh.stages.warm.label>TODO</AlcoholHigh.stages.warm.label>
   <!-- EN: tipsy -->
@@ -20,9 +15,34 @@
   <AlcoholHigh.stages.hammered.label>TODO</AlcoholHigh.stages.hammered.label>
   <!-- EN: blackout -->
   <AlcoholHigh.stages.blackout.label>TODO</AlcoholHigh.stages.blackout.label>
-  
+  <!-- EN:  -->
+  <AlcoholHigh.battleStateLabel>TODO</AlcoholHigh.battleStateLabel>
+  <!-- EN:  -->
+  <AlcoholHigh.labelNounPretty>TODO</AlcoholHigh.labelNounPretty>
+  <!-- EN: drunkenness -->
+  <AlcoholHigh.labelNoun>TODO</AlcoholHigh.labelNoun>
+
+  <!-- EN: hangover -->
+  <Hangover.label>TODO</Hangover.label>
+  <!-- EN:  -->
+  <Hangover.description>TODO</Hangover.description>
+  <!-- EN: slight -->
+  <Hangover.stages.slight.label>TODO</Hangover.stages.slight.label>
+  <!-- EN: strong -->
+  <Hangover.stages.strong.label>TODO</Hangover.stages.strong.label>
+  <!-- EN: pounding -->
+  <Hangover.stages.pounding.label>TODO</Hangover.stages.pounding.label>
+  <!-- EN:  -->
+  <Hangover.battleStateLabel>TODO</Hangover.battleStateLabel>
+  <!-- EN:  -->
+  <Hangover.labelNounPretty>TODO</Hangover.labelNounPretty>
+  <!-- EN: a hangover -->
+  <Hangover.labelNoun>TODO</Hangover.labelNoun>
+
   <!-- EN: alcohol tolerance -->
   <AlcoholTolerance.label>TODO</AlcoholTolerance.label>
+  <!-- EN:  -->
+  <AlcoholTolerance.description>TODO</AlcoholTolerance.description>
   <!-- EN: small -->
   <AlcoholTolerance.stages.small-0.label>TODO</AlcoholTolerance.stages.small-0.label>
   <!-- EN: small -->
@@ -31,16 +51,26 @@
   <AlcoholTolerance.stages.large.label>TODO</AlcoholTolerance.stages.large.label>
   <!-- EN: massive -->
   <AlcoholTolerance.stages.massive.label>TODO</AlcoholTolerance.stages.massive.label>
-  
-  <!-- EN: hangover -->
-  <Hangover.label>TODO</Hangover.label>
-  <!-- EN: a hangover -->
-  <Hangover.labelNoun>TODO</Hangover.labelNoun>
-  <!-- EN: slight -->
-  <Hangover.stages.slight.label>TODO</Hangover.stages.slight.label>
-  <!-- EN: strong -->
-  <Hangover.stages.strong.label>TODO</Hangover.stages.strong.label>
-  <!-- EN: pounding -->
-  <Hangover.stages.pounding.label>TODO</Hangover.stages.pounding.label>
-  
+  <!-- EN:  -->
+  <AlcoholTolerance.battleStateLabel>TODO</AlcoholTolerance.battleStateLabel>
+  <!-- EN:  -->
+  <AlcoholTolerance.labelNounPretty>TODO</AlcoholTolerance.labelNounPretty>
+  <!-- EN:  -->
+  <AlcoholTolerance.labelNoun>TODO</AlcoholTolerance.labelNoun>
+
+  <!-- EN: alcohol addiction -->
+  <AlcoholAddiction.label>TODO</AlcoholAddiction.label>
+  <!-- EN:  -->
+  <AlcoholAddiction.description>TODO</AlcoholAddiction.description>
+  <!-- EN:  -->
+  <AlcoholAddiction.stages.0.label>TODO</AlcoholAddiction.stages.0.label>
+  <!-- EN: withdrawal -->
+  <AlcoholAddiction.stages.withdrawal.label>TODO</AlcoholAddiction.stages.withdrawal.label>
+  <!-- EN:  -->
+  <AlcoholAddiction.battleStateLabel>TODO</AlcoholAddiction.battleStateLabel>
+  <!-- EN:  -->
+  <AlcoholAddiction.labelNounPretty>TODO</AlcoholAddiction.labelNounPretty>
+  <!-- EN:  -->
+  <AlcoholAddiction.labelNoun>TODO</AlcoholAddiction.labelNoun>
+
 </LanguageData>

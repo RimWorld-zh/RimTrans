@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <FireBurning.label>TODO</FireBurning.label>
+  <!-- EN:  -->
+  <FireBurning.description>TODO</FireBurning.description>
+  <!-- EN:  -->
+  <FireBurning.subSounds.0.name>TODO</FireBurning.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tornado.label>TODO</Tornado.label>
+  <!-- EN:  -->
+  <Tornado.description>TODO</Tornado.description>
+  <!-- EN:  -->
+  <Tornado.subSounds.0.name>TODO</Tornado.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tunnel.label>TODO</Tunnel.label>
+  <!-- EN:  -->
+  <Tunnel.description>TODO</Tunnel.description>
+  <!-- EN:  -->
+  <Tunnel.subSounds.0.name>TODO</Tunnel.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tunnel_End.label>TODO</Tunnel_End.label>
+  <!-- EN:  -->
+  <Tunnel_End.description>TODO</Tunnel_End.description>
+  <!-- EN:  -->
+  <Tunnel_End.subSounds.0.name>TODO</Tunnel_End.subSounds.0.name>
+
+  <!-- EN:  -->
+  <HissSmall.label>TODO</HissSmall.label>
+  <!-- EN:  -->
+  <HissSmall.description>TODO</HissSmall.description>
+  <!-- EN: Main hiss -->
+  <HissSmall.subSounds.0.name>TODO</HissSmall.subSounds.0.name>
+
+  <!-- EN:  -->
+  <HissJet.label>TODO</HissJet.label>
+  <!-- EN:  -->
+  <HissJet.description>TODO</HissJet.description>
+  <!-- EN: Main hiss jet -->
+  <HissJet.subSounds.0.name>TODO</HissJet.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Vomit.label>TODO</Vomit.label>
+  <!-- EN:  -->
+  <Vomit.description>TODO</Vomit.description>
+  <!-- EN:  -->
+  <Vomit.subSounds.0.name>TODO</Vomit.subSounds.0.name>
+
+  <!-- EN:  -->
+  <OrbitalBeam.label>TODO</OrbitalBeam.label>
+  <!-- EN:  -->
+  <OrbitalBeam.description>TODO</OrbitalBeam.description>
+  <!-- EN:  -->
+  <OrbitalBeam.subSounds.0.name>TODO</OrbitalBeam.subSounds.0.name>
+
+  <!-- EN:  -->
+  <OrbitalBeamSubtle.label>TODO</OrbitalBeamSubtle.label>
+  <!-- EN:  -->
+  <OrbitalBeamSubtle.description>TODO</OrbitalBeamSubtle.description>
+  <!-- EN:  -->
+  <OrbitalBeamSubtle.subSounds.0.name>TODO</OrbitalBeamSubtle.subSounds.0.name>
+
+</LanguageData>

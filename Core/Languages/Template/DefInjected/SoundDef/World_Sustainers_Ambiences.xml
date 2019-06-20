@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Ambient_NightInsects_Standard.label>TODO</Ambient_NightInsects_Standard.label>
+  <!-- EN:  -->
+  <Ambient_NightInsects_Standard.description>TODO</Ambient_NightInsects_Standard.description>
+  <!-- EN: Main -->
+  <Ambient_NightInsects_Standard.subSounds.0.name>TODO</Ambient_NightInsects_Standard.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_NightInsects_Jungle.label>TODO</Ambient_NightInsects_Jungle.label>
+  <!-- EN:  -->
+  <Ambient_NightInsects_Jungle.description>TODO</Ambient_NightInsects_Jungle.description>
+  <!-- EN: Main -->
+  <Ambient_NightInsects_Jungle.subSounds.0.name>TODO</Ambient_NightInsects_Jungle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_DayInsects_Jungle.label>TODO</Ambient_DayInsects_Jungle.label>
+  <!-- EN:  -->
+  <Ambient_DayInsects_Jungle.description>TODO</Ambient_DayInsects_Jungle.description>
+  <!-- EN: Main -->
+  <Ambient_DayInsects_Jungle.subSounds.0.name>TODO</Ambient_DayInsects_Jungle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_Wind_Desolate.label>TODO</Ambient_Wind_Desolate.label>
+  <!-- EN:  -->
+  <Ambient_Wind_Desolate.description>TODO</Ambient_Wind_Desolate.description>
+  <!-- EN: main -->
+  <Ambient_Wind_Desolate.subSounds.0.name>TODO</Ambient_Wind_Desolate.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_AltitudeWind.label>TODO</Ambient_AltitudeWind.label>
+  <!-- EN:  -->
+  <Ambient_AltitudeWind.description>TODO</Ambient_AltitudeWind.description>
+  <!-- EN: main -->
+  <Ambient_AltitudeWind.subSounds.0.name>TODO</Ambient_AltitudeWind.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Thunder_OffMap.label>TODO</Thunder_OffMap.label>
+  <!-- EN:  -->
+  <Thunder_OffMap.description>TODO</Thunder_OffMap.description>
+  <!-- EN:  -->
+  <Thunder_OffMap.subSounds.0.name>TODO</Thunder_OffMap.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Thunder_OnMap.label>TODO</Thunder_OnMap.label>
+  <!-- EN:  -->
+  <Thunder_OnMap.description>TODO</Thunder_OnMap.description>
+  <!-- EN: main -->
+  <Thunder_OnMap.subSounds.0.name>TODO</Thunder_OnMap.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_Wind_Clear.label>TODO</Ambient_Wind_Clear.label>
+  <!-- EN:  -->
+  <Ambient_Wind_Clear.description>TODO</Ambient_Wind_Clear.description>
+  <!-- EN: MainWind -->
+  <Ambient_Wind_Clear.subSounds.0.name>TODO</Ambient_Wind_Clear.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_Wind_Fog.label>TODO</Ambient_Wind_Fog.label>
+  <!-- EN:  -->
+  <Ambient_Wind_Fog.description>TODO</Ambient_Wind_Fog.description>
+  <!-- EN: main -->
+  <Ambient_Wind_Fog.subSounds.0.name>TODO</Ambient_Wind_Fog.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_Rain.label>TODO</Ambient_Rain.label>
+  <!-- EN:  -->
+  <Ambient_Rain.description>TODO</Ambient_Rain.description>
+  <!-- EN:  -->
+  <Ambient_Rain.subSounds.0.name>TODO</Ambient_Rain.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_Wind_Storm.label>TODO</Ambient_Wind_Storm.label>
+  <!-- EN:  -->
+  <Ambient_Wind_Storm.description>TODO</Ambient_Wind_Storm.description>
+  <!-- EN:  -->
+  <Ambient_Wind_Storm.subSounds.0.name>TODO</Ambient_Wind_Storm.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ambient_Space.label>TODO</Ambient_Space.label>
+  <!-- EN:  -->
+  <Ambient_Space.description>TODO</Ambient_Space.description>
+  <!-- EN: Main -->
+  <Ambient_Space.subSounds.0.name>TODO</Ambient_Space.subSounds.0.name>
+
+</LanguageData>

@@ -1,32 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: aurora -->
-  <Aurora.label>TODO</Aurora.label>
-  <!-- EN:
-    <li>tale_noun->the time an aurora appeared over [PAWN_nameDef]'s [Community]</li>
-    <li>tale_noun->the time polar lights shone over [PAWN_nameDef]'s [Community]</li>
-    <li>tale_noun->[PAWN_nameDef]'s [Community] illuminated by the light of an aurora</li>
-    <li>image->the sky illuminated in [Color]s and [Color]s [circumstance_phrase]</li>
-    <li>image->a fabulous pattern of [Color] rays [circumstance_phrase]</li>
-    <li>image->a network of [Color] lights [circumstance_phrase]</li>
-    <li>image->[Color] swooping arcs with [Color] highlights [circumstance_phrase]</li>
-    <li>image->dancing [Color] lights [circumstance_group]</li>
-    <li>circumstance_phrase->over a [TerrainFeature]</li>
-    <li>circumstance_phrase->illuminating a [TerrainFeature]</li>
-    <li>circumstance_phrase->floating over a [Community]</li>
-    <li>circumstance_phrase->bracketed between a [TerrainFeature] and a [TerrainFeature]</li>
-    <li>desc_sentence->Below, [PAWN_nameDef] plays [Game] with a [AdjectiveFriendly] look.</li>
-    <li>desc_sentence->[PAWN_nameDef] watches with awe on [PAWN_possessive] face.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s watch from below.</li>
-    <li>desc_sentence->[PAWN_nameDef] sits near a [TerrainFeature], gazing at the sky.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s wander peacefully.</li>
-    <li>desc_sentence->There is no [Enemy] in sight.</li>
-  -->
-  <Aurora.rulePack.rulesStrings>TODO</Aurora.rulePack.rulesStrings>
-  
+
   <!-- EN: caravan ambushed -->
   <CaravanAmbushedByHumanlike.label>TODO</CaravanAmbushedByHumanlike.label>
+  <!-- EN:  -->
+  <CaravanAmbushedByHumanlike.description>TODO</CaravanAmbushedByHumanlike.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef]'s caravan being ambushed</li>
     <li>image->[PAWN_nameFull] cowering [circumstance_group]</li>
@@ -48,10 +26,32 @@
     <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the scene of conflict in fear.</li>
     <li>desc_sentence->In the distance, a [PersonJob] observes.</li>
   -->
-  <CaravanAmbushedByHumanlike.rulePack.rulesStrings>TODO</CaravanAmbushedByHumanlike.rulePack.rulesStrings>
-  
+  <CaravanAmbushedByHumanlike.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CaravanAmbushedByHumanlike.rulePack.rulesStrings>
+
   <!-- EN: caravan ambushed by manhunter -->
   <CaravanAmbushedByManhunter.label>TODO</CaravanAmbushedByManhunter.label>
+  <!-- EN:  -->
+  <CaravanAmbushedByManhunter.description>TODO</CaravanAmbushedByManhunter.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef]'s caravan being ambushed</li>
     <li>image->[PAWN_nameFull] cowering [circumstance_group]</li>
@@ -71,38 +71,30 @@
     <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the scene of conflict in fear.</li>
     <li>desc_sentence->In the distance, a [PersonJob] observes.</li>
   -->
-  <CaravanAmbushedByManhunter.rulePack.rulesStrings>TODO</CaravanAmbushedByManhunter.rulePack.rulesStrings>
-  
-  <!-- EN: caravan demand -->
-  <CaravanDemand.label>TODO</CaravanDemand.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef]'s caravan receiving a demand</li>
-    <li>tale_noun->[PAWN_nameDef]'s caravan being threatened</li>
-    <li>image->[PAWN_nameFull] cowering [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] shouting loudly [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] thinking [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] glaring [circumstance_group]</li>
-    <li>image->[PAWN_nameFull], threatened by a [PersonJob], [circumstance_group]</li>
-    <li>image->[PAWN_nameFull] brandishing a [Weapon] [circumstance_group]</li>
-    <li>circumstance_phrase->with a [AdjectiveBadass] expression</li>
-    <li>circumstance_phrase->with a [AdjectiveAngsty] expression</li>
-    <li>circumstance_phrase->as others look on</li>
-    <li>circumstance_phrase->while being threatened by [Enemy]s</li>
-    <li>desc_sentence->[PAWN_nameDef] is practically surrounded by [Enemy]s.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Enemy]s are nearby, [action].</li>
-    <li>desc_sentence->The sun sets over a [TerrainFeature].</li>
-    <li>desc_sentence->The sun rises over a [TerrainFeature].</li>
-    <li>desc_sentence->In the distance, a [PersonJob] observes.</li>
-    <li>action->sharpening their weapons</li>
-    <li>action->watching for danger</li>
-    <li>action->guarding hostages</li>
-    <li>action->waiting for a decision</li>
-    <li>action->taunting [PAWN_nameDef]</li>
-  -->
-  <CaravanDemand.rulePack.rulesStrings>TODO</CaravanDemand.rulePack.rulesStrings>
-  
+  <CaravanAmbushedByManhunter.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CaravanAmbushedByManhunter.rulePack.rulesStrings>
+
   <!-- EN: caravan meeting -->
   <CaravanMeeting.label>TODO</CaravanMeeting.label>
+  <!-- EN:  -->
+  <CaravanMeeting.description>TODO</CaravanMeeting.description>
   <!-- EN:
     <li>tale_noun->[PAWN_nameDef]'s caravan being met by others</li>
     <li>image->[PAWN_nameFull] greeting a [PersonJob] [circumstance_group]</li>
@@ -128,147 +120,89 @@
     <li>event->rekindling old friendships</li>
     <li>event->talking hesitantly</li>
   -->
-  <CaravanMeeting.rulePack.rulesStrings>TODO</CaravanMeeting.rulePack.rulesStrings>
-  
-  <!-- EN: eclipse -->
-  <Eclipse.label>TODO</Eclipse.label>
+  <CaravanMeeting.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CaravanMeeting.rulePack.rulesStrings>
+
+  <!-- EN: caravan demand -->
+  <CaravanDemand.label>TODO</CaravanDemand.label>
+  <!-- EN:  -->
+  <CaravanDemand.description>TODO</CaravanDemand.description>
   <!-- EN:
-    <li>tale_noun->an eclipse over [PAWN_nameDef]'s [Community]</li>
-    <li>image->an unnaturally dark sky, [circumstance_phrase]</li>
-    <li>image->a crepuscular sky, [circumstance_phrase]</li>
-    <li>image->a moon, ringed by a faint circle of sunlight, [circumstance_phrase]</li>
-    <li>image->[Quantity_adjphrase] [Animal]s milling around uncertainly in darkness, [circumstance_phrase]</li>
-    <li>circumstance_phrase->the air still and quiet</li>
-    <li>circumstance_phrase->twilight blanketing a nearby [TerrainFeature]</li>
-    <li>circumstance_phrase->twilight blanketing [Quantity_adjphrase] nearby [TerrainFeature]s</li>
-    <li>circumstance_phrase->with stars visible</li>
-    <li>desc_sentence->Below, [PAWN_nameDef] plays [Game] with a [AdjectiveFriendly] look.</li>
-    <li>desc_sentence->[PAWN_nameDef] watches with awe on [PAWN_possessive] face.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s watch from below.</li>
-    <li>desc_sentence->[PAWN_nameDef] sits near a [TerrainFeature], gazing at the sky.</li>
-    <li>desc_sentence->A [Community] of spectators watches the sky peacefully.</li>
-    <li>desc_sentence->There is no [Enemy] in sight.</li>
+    <li>tale_noun->[PAWN_nameDef]'s caravan receiving a demand</li>
+    <li>tale_noun->[PAWN_nameDef]'s caravan being threatened</li>
+    <li>image->[PAWN_nameFull] cowering [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] shouting loudly [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] thinking [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] glaring [circumstance_group]</li>
+    <li>image->[PAWN_nameFull], threatened by a [PersonJob], [circumstance_group]</li>
+    <li>image->[PAWN_nameFull] brandishing a [Weapon] [circumstance_group]</li>
+    <li>circumstance_phrase->with a [AdjectiveBadass] expression</li>
+    <li>circumstance_phrase->with a [AdjectiveAngsty] expression</li>
+    <li>circumstance_phrase->as others look on</li>
+    <li>circumstance_phrase->while being threatened by [Enemy]s</li>
+    <li>desc_sentence->[PAWN_nameDef] is practically surrounded by [Enemy]s.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Enemy]s are nearby, [action].</li>
+    <li>desc_sentence->The sun sets over a [TerrainFeature].</li>
+    <li>desc_sentence->The sun rises over a [TerrainFeature].</li>
+    <li>desc_sentence->In the distance, a [PersonJob] observes.</li>
+    <li>action->sharpening their weapons</li>
+    <li>action->watching for danger</li>
+    <li>action->guarding hostages</li>
+    <li>action->waiting for a decision</li>
+    <li>action->taunting [PAWN_nameDef]</li>
   -->
-  <Eclipse.rulePack.rulesStrings>TODO</Eclipse.rulePack.rulesStrings>
-  
-  <!-- EN: flashstorm -->
-  <Flashstorm.label>TODO</Flashstorm.label>
-  <!-- EN:
-    <li>tale_noun->a flashstorm that threatened [PAWN_nameDef]'s [Community]</li>
-    <li>tale_noun->[PAWN_nameDef]'s [Community] being menaced by a deadly flashstorm</li>
-    <li>image->[Quantity_adjphrase] lightning strikes [circumstance_phrase]</li>
-    <li>image->[behavior] wall of flames [circumstance_phrase]</li>
-    <li>image->[behavior] wall of [Color] flames [circumstance_phrase]</li>
-    <li>image->[behavior] cloud of ash and smoke [circumstance_phrase]</li>
-    <li>image->[behavior] wave of flames [circumstance_phrase]</li>
-    <li>behavior->a</li>
-    <li>behavior->an advancing</li>
-    <li>behavior->an approaching</li>
-    <li>circumstance_phrase->advancing towards a [Community]</li>
-    <li>circumstance_phrase->underneath an intimidating cloud</li>
-    <li>circumstance_phrase->nearly enveloping a [TerrainFeature]</li>
-    <li>circumstance_phrase->nearly enveloping [Quantity_adjphrase] [TerrainFeature]s</li>
-    <li>desc_sentence->[PAWN_nameDef] watches with visible fright.</li>
-    <li>desc_sentence->[PAWN_nameDef] watches with awe on [PAWN_possessive] face.</li>
-    <li>desc_sentence->[PAWN_nameDef] is coordinating defensive measures.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s rush to prepare.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
-    <li>desc_sentence->All animal life has left the area.</li>
-  -->
-  <Flashstorm.rulePack.rulesStrings>TODO</Flashstorm.rulePack.rulesStrings>
-  
-  <!-- EN: infestation -->
-  <Infestation.label>TODO</Infestation.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef]'s [Community] being infested by giant insects</li>
-    <li>image->a swarm of beetles [circumstance_phrase]</li>
-    <li>image->[Quantity_adjphrase] megaspiders [circumstance_phrase]</li>
-    <li>image->an overwhelming tide of [Color] insects [circumstance_phrase]</li>
-    <li>image->a dense fog of black specks [circumstance_phrase]</li>
-    <li>circumstance_phrase->advancing over a [TerrainFeature]</li>
-    <li>circumstance_phrase->completely encircling a [Community]</li>
-    <li>circumstance_phrase->attacking [Quantity_adjphrase] [PersonJob]s</li>
-    <li>circumstance_phrase->bursting out of the ground</li>
-    <li>circumstance_phrase->slaughtering [Quantity_adjphrase] [Animal]s</li>
-    <li>desc_sentence->[PAWN_nameDef] organizes a resistance.</li>
-    <li>desc_sentence->[PAWN_nameDef] wields a [Weapon] defensively.</li>
-    <li>desc_sentence->[PAWN_nameDef] lies on the ground, wounded.</li>
-    <li>desc_sentence->[PAWN_nameDef] retaliates with [PAWN_possessive] [Weapon].</li>
-    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveBadass] expression.</li>
-    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveAngsty] expression.</li>
-    <li>desc_sentence->The ground is coated in [Gore].</li>
-    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s flee the area.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
-    <li>desc_sentence->All animal life has left the area.</li>
-  -->
-  <Infestation.rulePack.rulesStrings>TODO</Infestation.rulePack.rulesStrings>
-  
-  <!-- EN: journey offer -->
-  <JourneyOffer.label>TODO</JourneyOffer.label>
-  <!-- EN:
-    <li>tale_noun->[PAWN_nameDef] receiving a message from an old friend</li>
-    <li>tale_noun->an opportunity arriving for [PAWN_nameDef]'s [Community]</li>
-    <li>image->[PAWN_nameDef] opening a letter delivered by [delivery_method] while [circumstance_group]</li>
-    <li>image->[PAWN_nameDef] using a datacrystal delivered by [delivery_method] while [circumstance_group]</li>
-    <li>image->[PAWN_nameDef] unrolling a scroll delivered by [delivery_method] while [circumstance_group]</li>
-    <li>image->[PAWN_nameDef] receiving a transmission from [transmission_source] while [circumstance_group]</li>
-    <li>image->[PAWN_nameDef] receiving a message from [transmission_source] while [circumstance_group]</li>
-    <li>image->[PAWN_nameDef] tuning in to a message from [transmission_source] while [circumstance_group]</li>
-    <li>delivery_method->a [Animal]</li>
-    <li>delivery_method->a [PersonJob]</li>
-    <li>delivery_method->[Quantity_adjphrase] [Animal]s</li>
-    <li>transmission_source->a rarely-used frequency</li>
-    <li>transmission_source->an ancient transmitter</li>
-    <li>transmission_source->a low-power signal</li>
-    <li>transmission_source->a long-range signal</li>
-    <li>transmission_source->a mysterious signal</li>
-    <li>circumstance_phrase->standing alone near a [TerrainFeature]</li>
-    <li>circumstance_phrase->exploring a [TerrainFeature]</li>
-    <li>circumstance_phrase->tending crops</li>
-    <li>circumstance_phrase->a [Animal] wanders past</li>
-    <li>circumstance_phrase->playing [Game]</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s wander nearby, unaware.</li>
-    <li>desc_sentence->As [PAWN_pronoun] reads, [PAWN_pronoun] starts [VerbFriendly].</li>
-    <li>desc_sentence->A spectral [PersonJob] watches from the clouds.</li>
-    <li>desc_sentence->[PAWN_nameDef] sits near a [TerrainFeature].</li>
-    <li>desc_sentence->A [Community] is visible in the far distance.</li>
-    <li>desc_sentence->A spaceship is visible in the far distance.</li>
-  -->
-  <JourneyOffer.rulePack.rulesStrings>TODO</JourneyOffer.rulePack.rulesStrings>
-  
-  <!-- EN: manhunter pack -->
-  <ManhunterPack.label>TODO</ManhunterPack.label>
-  <!-- EN:
-    <li>tale_noun->manhunting beasts menacing [PAWN_nameDef]'s [Community]</li>
-    <li>tale_noun->[PAWN_nameDef]'s [Community] being attacked by mad animals</li>
-    <li>image->a herd of [Animal]s [circumstance_phrase]</li>
-    <li>image->[Quantity_adjphrase] [Animal]s [circumstance_phrase]</li>
-    <li>image->a [huge] [Animal] [circumstance_phrase]</li>
-    <li>image->[Quantity_adjphrase] shadowy figures [circumstance_phrase]</li>
-    <li>image->[Quantity_adjphrase] shadowy quadrupeds [circumstance_phrase]</li>
-    <li>circumstance_phrase->advancing over a [TerrainFeature]</li>
-    <li>circumstance_phrase->completely encircling a [Community]</li>
-    <li>circumstance_phrase->attacking [Quantity_adjphrase] [PersonJob]s</li>
-    <li>circumstance_phrase->slaughtering [Quantity_adjphrase] [Animal]s</li>
-    <li>circumstance_phrase->possessed by [hate_emotion]</li>
-    <li>circumstance_phrase->covered in [Gore]</li>
-    <li>hate_emotion->hatred</li>
-    <li>hate_emotion->anger</li>
-    <li>hate_emotion->fury</li>
-    <li>desc_sentence->[PAWN_nameDef] organizes a resistance.</li>
-    <li>desc_sentence->[PAWN_nameDef] wields a [Weapon] defensively.</li>
-    <li>desc_sentence->[PAWN_nameDef] lies on the ground, wounded.</li>
-    <li>desc_sentence->[PAWN_nameDef] retaliates with [PAWN_possessive] [Weapon].</li>
-    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveBadass] expression.</li>
-    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveAngsty] expression.</li>
-    <li>desc_sentence->The ground is coated in [Gore].</li>
-    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s flee the area.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
-  -->
-  <ManhunterPack.rulePack.rulesStrings>TODO</ManhunterPack.rulePack.rulesStrings>
-  
+  <CaravanDemand.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </CaravanDemand.rulePack.rulesStrings>
+
   <!-- EN: meteorite impact -->
   <MeteoriteImpact.label>TODO</MeteoriteImpact.label>
+  <!-- EN:  -->
+  <MeteoriteImpact.description>TODO</MeteoriteImpact.description>
   <!-- EN:
     <li>tale_noun->a meteorite falling near [PAWN_nameDef]'s [Community]</li>
     <li>tale_noun->a meteorite impacting near [PAWN_nameDef]'s [Community]</li>
@@ -294,10 +228,216 @@
     <li>desc_sentence->[Quantity_adjphrase] [Animal]s mill around uncertainly.</li>
     <li>desc_sentence->The surroundings are muted and dull.</li>
   -->
-  <MeteoriteImpact.rulePack.rulesStrings>TODO</MeteoriteImpact.rulePack.rulesStrings>
-  
+  <MeteoriteImpact.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </MeteoriteImpact.rulePack.rulesStrings>
+
+  <!-- EN: toxic fallout -->
+  <ToxicFallout.label>TODO</ToxicFallout.label>
+  <!-- EN:  -->
+  <ToxicFallout.description>TODO</ToxicFallout.description>
+  <!-- EN:
+    <li>tale_noun->fallout settling over [PAWN_nameDef]'s [Community]</li>
+    <li>tale_noun->the atmosphere near [PAWN_nameDef]'s [Community] becoming toxic</li>
+    <li>image->an ominous sky, [circumstance_group]</li>
+    <li>image->the air becoming thick and [circumstance_group]</li>
+    <li>image->the ground glowing gently and [circumstance_group]</li>
+    <li>image->fields of dead plants [circumstance_group]</li>
+    <li>image->[Quantity_adjphrase] graves [circumstance_group]</li>
+    <li>circumstance_phrase->with no life in sight</li>
+    <li>circumstance_phrase->covered by a faint sheen of luminous dust</li>
+    <li>circumstance_phrase->arranged in a pattern that suggests bones</li>
+    <li>circumstance_phrase->waiting for the poison to stop</li>
+    <li>desc_sentence->[PAWN_nameDef] lies on the ground, [PAWN_possessive] body twisted at an unusual angle.</li>
+    <li>desc_sentence->[PAWN_nameDef] hides near a [TerrainFeature], gazing out with a [AdjectiveAngsty] look.</li>
+    <li>desc_sentence->[PAWN_nameDef] looks on in shock.</li>
+    <li>desc_sentence->[PAWN_nameDef] rests quietly with a layer of sweat upon [PAWN_possessive] face.</li>
+    <li>desc_sentence->[Quantity_adjphrase] dead [Animal]s lay on the ground.</li>
+    <li>desc_sentence->[Quantity_adjphrase] dying [Animal]s lay on the ground.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s mill around uncertainly.</li>
+  -->
+  <ToxicFallout.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ToxicFallout.rulePack.rulesStrings>
+
+  <!-- EN: volcanic winter -->
+  <VolcanicWinter.label>TODO</VolcanicWinter.label>
+  <!-- EN:  -->
+  <VolcanicWinter.description>TODO</VolcanicWinter.description>
+  <!-- EN:
+    <li>tale_noun->volcanic winter beginning at [PAWN_nameDef]'s [Community]</li>
+    <li>image->a dark and cold sky, [circumstance_group]</li>
+    <li>image->the air filling with ash, [circumstance_group]</li>
+    <li>image->a frost-covered barren [TerrainFeature] [circumstance_group]</li>
+    <li>image->[Quantity_adjphrase] fields of ash-covered plants [circumstance_group]</li>
+    <li>circumstance_phrase->with no life in sight</li>
+    <li>circumstance_phrase->barely illuminated by thin shafts of light</li>
+    <li>circumstance_phrase->starkly illuminated with chilly blue light</li>
+    <li>desc_sentence->[PAWN_nameDef] huddles near a fire.</li>
+    <li>desc_sentence->To stay warm, [PAWN_nameDef] wears [Quantity_adjphrase] [Apparel]s.</li>
+    <li>desc_sentence->[PAWN_nameDef] sits nearby, visibly exhausted by the ordeal.</li>
+    <li>desc_sentence->[PAWN_nameDef] hides near a [TerrainFeature], gazing out with a [AdjectiveAngsty] look.</li>
+    <li>desc_sentence->[Quantity_adjphrase] starving [Animal]s surround the scene.</li>
+    <li>desc_sentence->[Quantity_adjphrase] shivering [Animal]s surround the scene.</li>
+    <li>desc_sentence->[Quantity_adjphrase] dying [Animal]s lay on the ground.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s mill around uncertainly.</li>
+  -->
+  <VolcanicWinter.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </VolcanicWinter.rulePack.rulesStrings>
+
+  <!-- EN: aurora -->
+  <Aurora.label>TODO</Aurora.label>
+  <!-- EN:  -->
+  <Aurora.description>TODO</Aurora.description>
+  <!-- EN:
+    <li>tale_noun->the time an aurora appeared over [PAWN_nameDef]'s [Community]</li>
+    <li>tale_noun->the time polar lights shone over [PAWN_nameDef]'s [Community]</li>
+    <li>tale_noun->[PAWN_nameDef]'s [Community] illuminated by the light of an aurora</li>
+    <li>image->the sky illuminated in [Color]s and [Color]s [circumstance_phrase]</li>
+    <li>image->a fabulous pattern of [Color] rays [circumstance_phrase]</li>
+    <li>image->a network of [Color] lights [circumstance_phrase]</li>
+    <li>image->[Color] swooping arcs with [Color] highlights [circumstance_phrase]</li>
+    <li>image->dancing [Color] lights [circumstance_group]</li>
+    <li>circumstance_phrase->over a [TerrainFeature]</li>
+    <li>circumstance_phrase->illuminating a [TerrainFeature]</li>
+    <li>circumstance_phrase->floating over a [Community]</li>
+    <li>circumstance_phrase->bracketed between a [TerrainFeature] and a [TerrainFeature]</li>
+    <li>desc_sentence->Below, [PAWN_nameDef] plays [Game] with a [AdjectiveFriendly] look.</li>
+    <li>desc_sentence->[PAWN_nameDef] watches with awe on [PAWN_possessive] face.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s watch from below.</li>
+    <li>desc_sentence->[PAWN_nameDef] sits near a [TerrainFeature], gazing at the sky.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s wander peacefully.</li>
+    <li>desc_sentence->There is no [Enemy] in sight.</li>
+  -->
+  <Aurora.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Aurora.rulePack.rulesStrings>
+
+  <!-- EN: flashstorm -->
+  <Flashstorm.label>TODO</Flashstorm.label>
+  <!-- EN:  -->
+  <Flashstorm.description>TODO</Flashstorm.description>
+  <!-- EN:
+    <li>tale_noun->a flashstorm that threatened [PAWN_nameDef]'s [Community]</li>
+    <li>tale_noun->[PAWN_nameDef]'s [Community] being menaced by a deadly flashstorm</li>
+    <li>image->[Quantity_adjphrase] lightning strikes [circumstance_phrase]</li>
+    <li>image->[behavior] wall of flames [circumstance_phrase]</li>
+    <li>image->[behavior] wall of [Color] flames [circumstance_phrase]</li>
+    <li>image->[behavior] cloud of ash and smoke [circumstance_phrase]</li>
+    <li>image->[behavior] wave of flames [circumstance_phrase]</li>
+    <li>behavior->a</li>
+    <li>behavior->an advancing</li>
+    <li>behavior->an approaching</li>
+    <li>circumstance_phrase->advancing towards a [Community]</li>
+    <li>circumstance_phrase->underneath an intimidating cloud</li>
+    <li>circumstance_phrase->nearly enveloping a [TerrainFeature]</li>
+    <li>circumstance_phrase->nearly enveloping [Quantity_adjphrase] [TerrainFeature]s</li>
+    <li>desc_sentence->[PAWN_nameDef] watches with visible fright.</li>
+    <li>desc_sentence->[PAWN_nameDef] watches with awe on [PAWN_possessive] face.</li>
+    <li>desc_sentence->[PAWN_nameDef] is coordinating defensive measures.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s rush to prepare.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
+    <li>desc_sentence->All animal life has left the area.</li>
+  -->
+  <Flashstorm.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Flashstorm.rulePack.rulesStrings>
+
   <!-- EN: raid -->
   <Raid.label>TODO</Raid.label>
+  <!-- EN:  -->
+  <Raid.description>TODO</Raid.description>
   <!-- EN:
     <li>tale_noun->an raid on [PAWN_nameDef]'s [Community]</li>
     <li>tale_noun->an assault on [PAWN_nameDef]'s [Community]</li>
@@ -329,10 +469,150 @@
     <li>defender_circumstance->raising a fist in defiance</li>
     <li>defender_circumstance->flexing [PAWN_possessive] muscles</li>
   -->
-  <Raid.rulePack.rulesStrings>TODO</Raid.rulePack.rulesStrings>
-  
+  <Raid.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Raid.rulePack.rulesStrings>
+
+  <!-- EN: infestation -->
+  <Infestation.label>TODO</Infestation.label>
+  <!-- EN:  -->
+  <Infestation.description>TODO</Infestation.description>
+  <!-- EN:
+    <li>tale_noun->[PAWN_nameDef]'s [Community] being infested by giant insects</li>
+    <li>image->a swarm of beetles [circumstance_phrase]</li>
+    <li>image->[Quantity_adjphrase] megaspiders [circumstance_phrase]</li>
+    <li>image->an overwhelming tide of [Color] insects [circumstance_phrase]</li>
+    <li>image->a dense fog of black specks [circumstance_phrase]</li>
+    <li>circumstance_phrase->advancing over a [TerrainFeature]</li>
+    <li>circumstance_phrase->completely encircling a [Community]</li>
+    <li>circumstance_phrase->attacking [Quantity_adjphrase] [PersonJob]s</li>
+    <li>circumstance_phrase->bursting out of the ground</li>
+    <li>circumstance_phrase->slaughtering [Quantity_adjphrase] [Animal]s</li>
+    <li>desc_sentence->[PAWN_nameDef] organizes a resistance.</li>
+    <li>desc_sentence->[PAWN_nameDef] wields a [Weapon] defensively.</li>
+    <li>desc_sentence->[PAWN_nameDef] lies on the ground, wounded.</li>
+    <li>desc_sentence->[PAWN_nameDef] retaliates with [PAWN_possessive] [Weapon].</li>
+    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveBadass] expression.</li>
+    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveAngsty] expression.</li>
+    <li>desc_sentence->The ground is coated in [Gore].</li>
+    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s flee the area.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
+    <li>desc_sentence->All animal life has left the area.</li>
+  -->
+  <Infestation.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Infestation.rulePack.rulesStrings>
+
+  <!-- EN: manhunter pack -->
+  <ManhunterPack.label>TODO</ManhunterPack.label>
+  <!-- EN:  -->
+  <ManhunterPack.description>TODO</ManhunterPack.description>
+  <!-- EN:
+    <li>tale_noun->manhunting beasts menacing [PAWN_nameDef]'s [Community]</li>
+    <li>tale_noun->[PAWN_nameDef]'s [Community] being attacked by mad animals</li>
+    <li>image->a herd of [Animal]s [circumstance_phrase]</li>
+    <li>image->[Quantity_adjphrase] [Animal]s [circumstance_phrase]</li>
+    <li>image->a [huge] [Animal] [circumstance_phrase]</li>
+    <li>image->[Quantity_adjphrase] shadowy figures [circumstance_phrase]</li>
+    <li>image->[Quantity_adjphrase] shadowy quadrupeds [circumstance_phrase]</li>
+    <li>circumstance_phrase->advancing over a [TerrainFeature]</li>
+    <li>circumstance_phrase->completely encircling a [Community]</li>
+    <li>circumstance_phrase->attacking [Quantity_adjphrase] [PersonJob]s</li>
+    <li>circumstance_phrase->slaughtering [Quantity_adjphrase] [Animal]s</li>
+    <li>circumstance_phrase->possessed by [hate_emotion]</li>
+    <li>circumstance_phrase->covered in [Gore]</li>
+    <li>hate_emotion->hatred</li>
+    <li>hate_emotion->anger</li>
+    <li>hate_emotion->fury</li>
+    <li>desc_sentence->[PAWN_nameDef] organizes a resistance.</li>
+    <li>desc_sentence->[PAWN_nameDef] wields a [Weapon] defensively.</li>
+    <li>desc_sentence->[PAWN_nameDef] lies on the ground, wounded.</li>
+    <li>desc_sentence->[PAWN_nameDef] retaliates with [PAWN_possessive] [Weapon].</li>
+    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveBadass] expression.</li>
+    <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveAngsty] expression.</li>
+    <li>desc_sentence->The ground is coated in [Gore].</li>
+    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s flee the area.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
+  -->
+  <ManhunterPack.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ManhunterPack.rulePack.rulesStrings>
+
   <!-- EN: ship part crash -->
   <ShipPartCrash.label>TODO</ShipPartCrash.label>
+  <!-- EN:  -->
+  <ShipPartCrash.description>TODO</ShipPartCrash.description>
   <!-- EN:
     <li>tale_noun->an ancient ship part crashing near [PAWN_nameDef]'s [Community]</li>
     <li>tale_noun->an ancient ship part landing near [PAWN_nameDef]'s [Community]</li>
@@ -365,10 +645,145 @@
     <li>defender_circumstance->raising a fist in defiance</li>
     <li>defender_circumstance->flexing [PAWN_possessive] muscles</li>
   -->
-  <ShipPartCrash.rulePack.rulesStrings>TODO</ShipPartCrash.rulePack.rulesStrings>
-  
+  <ShipPartCrash.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </ShipPartCrash.rulePack.rulesStrings>
+
+  <!-- EN: eclipse -->
+  <Eclipse.label>TODO</Eclipse.label>
+  <!-- EN:  -->
+  <Eclipse.description>TODO</Eclipse.description>
+  <!-- EN:
+    <li>tale_noun->an eclipse over [PAWN_nameDef]'s [Community]</li>
+    <li>image->an unnaturally dark sky, [circumstance_phrase]</li>
+    <li>image->a crepuscular sky, [circumstance_phrase]</li>
+    <li>image->a moon, ringed by a faint circle of sunlight, [circumstance_phrase]</li>
+    <li>image->[Quantity_adjphrase] [Animal]s milling around uncertainly in darkness, [circumstance_phrase]</li>
+    <li>circumstance_phrase->the air still and quiet</li>
+    <li>circumstance_phrase->twilight blanketing a nearby [TerrainFeature]</li>
+    <li>circumstance_phrase->twilight blanketing [Quantity_adjphrase] nearby [TerrainFeature]s</li>
+    <li>circumstance_phrase->with stars visible</li>
+    <li>desc_sentence->Below, [PAWN_nameDef] plays [Game] with a [AdjectiveFriendly] look.</li>
+    <li>desc_sentence->[PAWN_nameDef] watches with awe on [PAWN_possessive] face.</li>
+    <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s watch from below.</li>
+    <li>desc_sentence->[PAWN_nameDef] sits near a [TerrainFeature], gazing at the sky.</li>
+    <li>desc_sentence->A [Community] of spectators watches the sky peacefully.</li>
+    <li>desc_sentence->There is no [Enemy] in sight.</li>
+  -->
+  <Eclipse.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Eclipse.rulePack.rulesStrings>
+
+  <!-- EN: journey offer -->
+  <JourneyOffer.label>TODO</JourneyOffer.label>
+  <!-- EN:  -->
+  <JourneyOffer.description>TODO</JourneyOffer.description>
+  <!-- EN:
+    <li>tale_noun->[PAWN_nameDef] receiving a message from an old friend</li>
+    <li>tale_noun->an opportunity arriving for [PAWN_nameDef]'s [Community]</li>
+    <li>image->[PAWN_nameDef] opening a letter delivered by [delivery_method] while [circumstance_group]</li>
+    <li>image->[PAWN_nameDef] using a datacrystal delivered by [delivery_method] while [circumstance_group]</li>
+    <li>image->[PAWN_nameDef] unrolling a scroll delivered by [delivery_method] while [circumstance_group]</li>
+    <li>image->[PAWN_nameDef] receiving a transmission from [transmission_source] while [circumstance_group]</li>
+    <li>image->[PAWN_nameDef] receiving a message from [transmission_source] while [circumstance_group]</li>
+    <li>image->[PAWN_nameDef] tuning in to a message from [transmission_source] while [circumstance_group]</li>
+    <li>delivery_method->a [Animal]</li>
+    <li>delivery_method->a [PersonJob]</li>
+    <li>delivery_method->[Quantity_adjphrase] [Animal]s</li>
+    <li>transmission_source->a rarely-used frequency</li>
+    <li>transmission_source->an ancient transmitter</li>
+    <li>transmission_source->a low-power signal</li>
+    <li>transmission_source->a long-range signal</li>
+    <li>transmission_source->a mysterious signal</li>
+    <li>circumstance_phrase->standing alone near a [TerrainFeature]</li>
+    <li>circumstance_phrase->exploring a [TerrainFeature]</li>
+    <li>circumstance_phrase->tending crops</li>
+    <li>circumstance_phrase->a [Animal] wanders past</li>
+    <li>circumstance_phrase->playing [Game]</li>
+    <li>desc_sentence->[Quantity_adjphrase] [Animal]s wander nearby, unaware.</li>
+    <li>desc_sentence->As [PAWN_pronoun] reads, [PAWN_pronoun] starts [VerbFriendly].</li>
+    <li>desc_sentence->A spectral [PersonJob] watches from the clouds.</li>
+    <li>desc_sentence->[PAWN_nameDef] sits near a [TerrainFeature].</li>
+    <li>desc_sentence->A [Community] is visible in the far distance.</li>
+    <li>desc_sentence->A spaceship is visible in the far distance.</li>
+  -->
+  <JourneyOffer.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </JourneyOffer.rulePack.rulesStrings>
+
   <!-- EN: tornado -->
   <Tornado.label>TODO</Tornado.label>
+  <!-- EN:  -->
+  <Tornado.description>TODO</Tornado.description>
   <!-- EN:
     <li>tale_noun->a tornado that touched down near [PAWN_nameDef]'s [Community]</li>
     <li>tale_noun->[PAWN_nameDef]'s [Community] being menaced by tornado</li>
@@ -391,10 +806,33 @@
     <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
     <li>desc_sentence->All animal life has left the area.</li>
   -->
-  <Tornado.rulePack.rulesStrings>TODO</Tornado.rulePack.rulesStrings>
-  
+  <Tornado.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </Tornado.rulePack.rulesStrings>
+
   <!-- EN: tornado -->
   <TornadoFromItem.label>TODO</TornadoFromItem.label>
+  <!-- EN:  -->
+  <TornadoFromItem.description>TODO</TornadoFromItem.description>
   <!-- EN:
     <li>tale_noun->a tornado that touched down near [COLONIST_nameDef]'s [Community]</li>
     <li>tale_noun->[COLONIST_nameDef]'s [Community] menaced by a tornado</li>
@@ -419,52 +857,29 @@
     <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
     <li>desc_sentence->All animal life has left the area.</li>
   -->
-  <TornadoFromItem.rulePack.rulesStrings>TODO</TornadoFromItem.rulePack.rulesStrings>
-  
-  <!-- EN: toxic fallout -->
-  <ToxicFallout.label>TODO</ToxicFallout.label>
-  <!-- EN:
-    <li>tale_noun->fallout settling over [PAWN_nameDef]'s [Community]</li>
-    <li>tale_noun->the atmosphere near [PAWN_nameDef]'s [Community] becoming toxic</li>
-    <li>image->an ominous sky, [circumstance_group]</li>
-    <li>image->the air becoming thick and [circumstance_group]</li>
-    <li>image->the ground glowing gently and [circumstance_group]</li>
-    <li>image->fields of dead plants [circumstance_group]</li>
-    <li>image->[Quantity_adjphrase] graves [circumstance_group]</li>
-    <li>circumstance_phrase->with no life in sight</li>
-    <li>circumstance_phrase->covered by a faint sheen of luminous dust</li>
-    <li>circumstance_phrase->arranged in a pattern that suggests bones</li>
-    <li>circumstance_phrase->waiting for the poison to stop</li>
-    <li>desc_sentence->[PAWN_nameDef] lies on the ground, [PAWN_possessive] body twisted at an unusual angle.</li>
-    <li>desc_sentence->[PAWN_nameDef] hides near a [TerrainFeature], gazing out with a [AdjectiveAngsty] look.</li>
-    <li>desc_sentence->[PAWN_nameDef] looks on in shock.</li>
-    <li>desc_sentence->[PAWN_nameDef] rests quietly with a layer of sweat upon [PAWN_possessive] face.</li>
-    <li>desc_sentence->[Quantity_adjphrase] dead [Animal]s lay on the ground.</li>
-    <li>desc_sentence->[Quantity_adjphrase] dying [Animal]s lay on the ground.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s mill around uncertainly.</li>
-  -->
-  <ToxicFallout.rulePack.rulesStrings>TODO</ToxicFallout.rulePack.rulesStrings>
-  
-  <!-- EN: volcanic winter -->
-  <VolcanicWinter.label>TODO</VolcanicWinter.label>
-  <!-- EN:
-    <li>tale_noun->volcanic winter beginning at [PAWN_nameDef]'s [Community]</li>
-    <li>image->a dark and cold sky, [circumstance_group]</li>
-    <li>image->the air filling with ash, [circumstance_group]</li>
-    <li>image->a frost-covered barren [TerrainFeature] [circumstance_group]</li>
-    <li>image->[Quantity_adjphrase] fields of ash-covered plants [circumstance_group]</li>
-    <li>circumstance_phrase->with no life in sight</li>
-    <li>circumstance_phrase->barely illuminated by thin shafts of light</li>
-    <li>circumstance_phrase->starkly illuminated with chilly blue light</li>
-    <li>desc_sentence->[PAWN_nameDef] huddles near a fire.</li>
-    <li>desc_sentence->To stay warm, [PAWN_nameDef] wears [Quantity_adjphrase] [Apparel]s.</li>
-    <li>desc_sentence->[PAWN_nameDef] sits nearby, visibly exhausted by the ordeal.</li>
-    <li>desc_sentence->[PAWN_nameDef] hides near a [TerrainFeature], gazing out with a [AdjectiveAngsty] look.</li>
-    <li>desc_sentence->[Quantity_adjphrase] starving [Animal]s surround the scene.</li>
-    <li>desc_sentence->[Quantity_adjphrase] shivering [Animal]s surround the scene.</li>
-    <li>desc_sentence->[Quantity_adjphrase] dying [Animal]s lay on the ground.</li>
-    <li>desc_sentence->[Quantity_adjphrase] [Animal]s mill around uncertainly.</li>
-  -->
-  <VolcanicWinter.rulePack.rulesStrings>TODO</VolcanicWinter.rulePack.rulesStrings>
-  
+  <TornadoFromItem.rulePack.rulesStrings>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+    <li>TODO</li>
+  </TornadoFromItem.rulePack.rulesStrings>
+
 </LanguageData>

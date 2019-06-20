@@ -1,24 +1,40 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: ambush -->
   <Ambush.label>TODO</Ambush.label>
-  <!-- EN: Caravan ambushed -->
-  <Ambush.letterLabel>TODO</Ambush.letterLabel>
+  <!-- EN:  -->
+  <Ambush.description>TODO</Ambush.description>
   <!-- EN: {0} has been ambushed by {1} from {2}! -->
   <Ambush.letterText>TODO</Ambush.letterText>
-  
-  <!-- EN: payment demand -->
-  <CaravanDemand.label>TODO</CaravanDemand.label>
-  
-  <!-- EN: caravan meeting -->
-  <CaravanMeeting.label>TODO</CaravanMeeting.label>
-  
+  <!-- EN: Caravan ambushed -->
+  <Ambush.letterLabel>TODO</Ambush.letterLabel>
+
   <!-- EN: manhunter ambush -->
   <ManhunterAmbush.label>TODO</ManhunterAmbush.label>
-  <!-- EN: Caravan ambushed (manhunters) -->
-  <ManhunterAmbush.letterLabel>TODO</ManhunterAmbush.letterLabel>
+  <!-- EN:  -->
+  <ManhunterAmbush.description>TODO</ManhunterAmbush.description>
   <!-- EN: {0} has been ambushed by manhunting {1}! -->
   <ManhunterAmbush.letterText>TODO</ManhunterAmbush.letterText>
-  
+  <!-- EN: Caravan ambushed (manhunters) -->
+  <ManhunterAmbush.letterLabel>TODO</ManhunterAmbush.letterLabel>
+
+  <!-- EN: caravan meeting -->
+  <CaravanMeeting.label>TODO</CaravanMeeting.label>
+  <!-- EN:  -->
+  <CaravanMeeting.description>TODO</CaravanMeeting.description>
+  <!-- EN:  -->
+  <CaravanMeeting.letterText>TODO</CaravanMeeting.letterText>
+  <!-- EN:  -->
+  <CaravanMeeting.letterLabel>TODO</CaravanMeeting.letterLabel>
+
+  <!-- EN: payment demand -->
+  <CaravanDemand.label>TODO</CaravanDemand.label>
+  <!-- EN:  -->
+  <CaravanDemand.description>TODO</CaravanDemand.description>
+  <!-- EN:  -->
+  <CaravanDemand.letterText>TODO</CaravanDemand.letterText>
+  <!-- EN:  -->
+  <CaravanDemand.letterLabel>TODO</CaravanDemand.letterLabel>
+
 </LanguageData>

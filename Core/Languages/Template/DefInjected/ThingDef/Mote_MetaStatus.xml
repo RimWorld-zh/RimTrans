@@ -1,31 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: Mote -->
-  <Mote_BerserkBit.label>TODO</Mote_BerserkBit.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ColonistAttacking.label>TODO</Mote_ColonistAttacking.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ColonistFleeing.label>TODO</Mote_ColonistFleeing.label>
-  
-  <!-- EN: Mote -->
-  <Mote_DrunkBubble.label>TODO</Mote_DrunkBubble.label>
-  
+
   <!-- EN: Mote -->
   <Mote_HealingCross.label>TODO</Mote_HealingCross.label>
-  
-  <!-- EN: Mote -->
-  <Mote_Heart.label>TODO</Mote_Heart.label>
-  
-  <!-- EN: Mote -->
-  <Mote_IncapIcon.label>TODO</Mote_IncapIcon.label>
-  
+  <!-- EN:  -->
+  <Mote_HealingCross.description>TODO</Mote_HealingCross.description>
+
   <!-- EN: Mote -->
   <Mote_SleepZ.label>TODO</Mote_SleepZ.label>
-  
+  <!-- EN:  -->
+  <Mote_SleepZ.description>TODO</Mote_SleepZ.description>
+
+  <!-- EN: Mote -->
+  <Mote_Heart.label>TODO</Mote_Heart.label>
+  <!-- EN:  -->
+  <Mote_Heart.description>TODO</Mote_Heart.description>
+
+  <!-- EN: Mote -->
+  <Mote_IncapIcon.label>TODO</Mote_IncapIcon.label>
+  <!-- EN:  -->
+  <Mote_IncapIcon.description>TODO</Mote_IncapIcon.description>
+
   <!-- EN: Mote -->
   <Mote_Stun.label>TODO</Mote_Stun.label>
-  
+  <!-- EN:  -->
+  <Mote_Stun.description>TODO</Mote_Stun.description>
+
+  <!-- EN: Mote -->
+  <Mote_ColonistFleeing.label>TODO</Mote_ColonistFleeing.label>
+  <!-- EN:  -->
+  <Mote_ColonistFleeing.description>TODO</Mote_ColonistFleeing.description>
+
+  <!-- EN: Mote -->
+  <Mote_ColonistAttacking.label>TODO</Mote_ColonistAttacking.label>
+  <!-- EN:  -->
+  <Mote_ColonistAttacking.description>TODO</Mote_ColonistAttacking.description>
+
+  <!-- EN: Mote -->
+  <Mote_DrunkBubble.label>TODO</Mote_DrunkBubble.label>
+  <!-- EN:  -->
+  <Mote_DrunkBubble.description>TODO</Mote_DrunkBubble.description>
+
+  <!-- EN: Mote -->
+  <Mote_BerserkBit.label>TODO</Mote_BerserkBit.label>
+  <!-- EN:  -->
+  <Mote_BerserkBit.description>TODO</Mote_BerserkBit.description>
+
 </LanguageData>

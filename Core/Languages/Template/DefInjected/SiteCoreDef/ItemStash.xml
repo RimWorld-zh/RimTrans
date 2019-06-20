@@ -1,9 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: item stash -->
   <ItemStash.label>TODO</ItemStash.label>
   <!-- EN: A stash of valuable items. -->
   <ItemStash.description>TODO</ItemStash.description>
-  
+  <!-- EN:  -->
+  <ItemStash.approachOrderString>TODO</ItemStash.approachOrderString>
+  <!-- EN:  -->
+  <ItemStash.approachingReportString>TODO</ItemStash.approachingReportString>
+  <!-- EN:  -->
+  <ItemStash.arrivedLetter>TODO</ItemStash.arrivedLetter>
+  <!-- EN:  -->
+  <ItemStash.arrivedLetterLabelPart>TODO</ItemStash.arrivedLetterLabelPart>
+  <!-- EN:  -->
+  <ItemStash.descriptionDialogue>TODO</ItemStash.descriptionDialogue>
+
 </LanguageData>

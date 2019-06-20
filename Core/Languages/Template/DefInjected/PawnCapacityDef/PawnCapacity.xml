@@ -1,45 +1,103 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: blood filtration -->
-  <BloodFiltration.label>TODO</BloodFiltration.label>
-  <!-- EN: fluid reprocessing -->
-  <BloodFiltration.labelMechanoids>TODO</BloodFiltration.labelMechanoids>
-  
-  <!-- EN: blood pumping -->
-  <BloodPumping.label>TODO</BloodPumping.label>
-  <!-- EN: power generation -->
-  <BloodPumping.labelMechanoids>TODO</BloodPumping.labelMechanoids>
-  
-  <!-- EN: breathing -->
-  <Breathing.label>TODO</Breathing.label>
-  
+
   <!-- EN: consciousness -->
   <Consciousness.label>TODO</Consciousness.label>
+  <!-- EN:  -->
+  <Consciousness.description>TODO</Consciousness.description>
   <!-- EN: Data processing -->
   <Consciousness.labelMechanoids>TODO</Consciousness.labelMechanoids>
-  
-  <!-- EN: eating -->
-  <Eating.label>TODO</Eating.label>
-  
-  <!-- EN: hearing -->
-  <Hearing.label>TODO</Hearing.label>
-  
-  <!-- EN: manipulation -->
-  <Manipulation.label>TODO</Manipulation.label>
-  
-  <!-- EN: metabolism -->
-  <Metabolism.label>TODO</Metabolism.label>
-  
+  <!-- EN:  -->
+  <Consciousness.labelAnimals>TODO</Consciousness.labelAnimals>
+
   <!-- EN: moving -->
   <Moving.label>TODO</Moving.label>
-  
-  <!-- EN: sight -->
-  <Sight.label>TODO</Sight.label>
-  
+  <!-- EN:  -->
+  <Moving.description>TODO</Moving.description>
+  <!-- EN:  -->
+  <Moving.labelMechanoids>TODO</Moving.labelMechanoids>
+  <!-- EN:  -->
+  <Moving.labelAnimals>TODO</Moving.labelAnimals>
+
+  <!-- EN: manipulation -->
+  <Manipulation.label>TODO</Manipulation.label>
+  <!-- EN:  -->
+  <Manipulation.description>TODO</Manipulation.description>
+  <!-- EN:  -->
+  <Manipulation.labelMechanoids>TODO</Manipulation.labelMechanoids>
+  <!-- EN:  -->
+  <Manipulation.labelAnimals>TODO</Manipulation.labelAnimals>
+
   <!-- EN: talking -->
   <Talking.label>TODO</Talking.label>
+  <!-- EN:  -->
+  <Talking.description>TODO</Talking.description>
   <!-- EN: Communication -->
   <Talking.labelMechanoids>TODO</Talking.labelMechanoids>
-  
+  <!-- EN:  -->
+  <Talking.labelAnimals>TODO</Talking.labelAnimals>
+
+  <!-- EN: eating -->
+  <Eating.label>TODO</Eating.label>
+  <!-- EN:  -->
+  <Eating.description>TODO</Eating.description>
+  <!-- EN:  -->
+  <Eating.labelMechanoids>TODO</Eating.labelMechanoids>
+  <!-- EN:  -->
+  <Eating.labelAnimals>TODO</Eating.labelAnimals>
+
+  <!-- EN: sight -->
+  <Sight.label>TODO</Sight.label>
+  <!-- EN:  -->
+  <Sight.description>TODO</Sight.description>
+  <!-- EN:  -->
+  <Sight.labelMechanoids>TODO</Sight.labelMechanoids>
+  <!-- EN:  -->
+  <Sight.labelAnimals>TODO</Sight.labelAnimals>
+
+  <!-- EN: hearing -->
+  <Hearing.label>TODO</Hearing.label>
+  <!-- EN:  -->
+  <Hearing.description>TODO</Hearing.description>
+  <!-- EN:  -->
+  <Hearing.labelMechanoids>TODO</Hearing.labelMechanoids>
+  <!-- EN:  -->
+  <Hearing.labelAnimals>TODO</Hearing.labelAnimals>
+
+  <!-- EN: breathing -->
+  <Breathing.label>TODO</Breathing.label>
+  <!-- EN:  -->
+  <Breathing.description>TODO</Breathing.description>
+  <!-- EN:  -->
+  <Breathing.labelMechanoids>TODO</Breathing.labelMechanoids>
+  <!-- EN:  -->
+  <Breathing.labelAnimals>TODO</Breathing.labelAnimals>
+
+  <!-- EN: blood filtration -->
+  <BloodFiltration.label>TODO</BloodFiltration.label>
+  <!-- EN:  -->
+  <BloodFiltration.description>TODO</BloodFiltration.description>
+  <!-- EN: fluid reprocessing -->
+  <BloodFiltration.labelMechanoids>TODO</BloodFiltration.labelMechanoids>
+  <!-- EN:  -->
+  <BloodFiltration.labelAnimals>TODO</BloodFiltration.labelAnimals>
+
+  <!-- EN: blood pumping -->
+  <BloodPumping.label>TODO</BloodPumping.label>
+  <!-- EN:  -->
+  <BloodPumping.description>TODO</BloodPumping.description>
+  <!-- EN: power generation -->
+  <BloodPumping.labelMechanoids>TODO</BloodPumping.labelMechanoids>
+  <!-- EN:  -->
+  <BloodPumping.labelAnimals>TODO</BloodPumping.labelAnimals>
+
+  <!-- EN: metabolism -->
+  <Metabolism.label>TODO</Metabolism.label>
+  <!-- EN:  -->
+  <Metabolism.description>TODO</Metabolism.description>
+  <!-- EN:  -->
+  <Metabolism.labelMechanoids>TODO</Metabolism.labelMechanoids>
+  <!-- EN:  -->
+  <Metabolism.labelAnimals>TODO</Metabolism.labelAnimals>
+
 </LanguageData>

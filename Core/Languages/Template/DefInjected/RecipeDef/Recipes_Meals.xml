@@ -1,32 +1,70 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: cook fine meal -->
-  <CookMealFine.label>TODO</CookMealFine.label>
-  <!-- EN: Cook a somewhat complex meal from a combination of meat and plant ingredients. -->
-  <CookMealFine.description>TODO</CookMealFine.description>
-  <!-- EN: Cooking fine meal. -->
-  <CookMealFine.jobString>TODO</CookMealFine.jobString>
-  
-  <!-- EN: cook lavish meal -->
-  <CookMealLavish.label>TODO</CookMealLavish.label>
-  <!-- EN: Cook a very complex meal from a combination of meat and plant ingredients. Much of the ingredients are wasted. -->
-  <CookMealLavish.description>TODO</CookMealLavish.description>
-  <!-- EN: Cooking lavish meal. -->
-  <CookMealLavish.jobString>TODO</CookMealLavish.jobString>
-  
+
   <!-- EN: cook simple meal -->
   <CookMealSimple.label>TODO</CookMealSimple.label>
   <!-- EN: Cook a straightforward meal from one ingredient. -->
   <CookMealSimple.description>TODO</CookMealSimple.description>
   <!-- EN: Cooking simple meal. -->
   <CookMealSimple.jobString>TODO</CookMealSimple.jobString>
-  
+  <!-- EN:  -->
+  <CookMealSimple.ingredients.0.filter.customSummary>TODO</CookMealSimple.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealSimple.fixedIngredientFilter.customSummary>TODO</CookMealSimple.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealSimple.defaultIngredientFilter.customSummary>TODO</CookMealSimple.defaultIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealSimple.successfullyRemovedHediffMessage>TODO</CookMealSimple.successfullyRemovedHediffMessage>
+
+  <!-- EN: cook fine meal -->
+  <CookMealFine.label>TODO</CookMealFine.label>
+  <!-- EN: Cook a somewhat complex meal from a combination of meat and plant ingredients. -->
+  <CookMealFine.description>TODO</CookMealFine.description>
+  <!-- EN: Cooking fine meal. -->
+  <CookMealFine.jobString>TODO</CookMealFine.jobString>
+  <!-- EN:  -->
+  <CookMealFine.ingredients.0.filter.customSummary>TODO</CookMealFine.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealFine.ingredients.1.filter.customSummary>TODO</CookMealFine.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealFine.fixedIngredientFilter.customSummary>TODO</CookMealFine.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealFine.defaultIngredientFilter.customSummary>TODO</CookMealFine.defaultIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealFine.successfullyRemovedHediffMessage>TODO</CookMealFine.successfullyRemovedHediffMessage>
+
+  <!-- EN: cook lavish meal -->
+  <CookMealLavish.label>TODO</CookMealLavish.label>
+  <!-- EN: Cook a very complex meal from a combination of meat and plant ingredients. Much of the ingredients are wasted. -->
+  <CookMealLavish.description>TODO</CookMealLavish.description>
+  <!-- EN: Cooking lavish meal. -->
+  <CookMealLavish.jobString>TODO</CookMealLavish.jobString>
+  <!-- EN:  -->
+  <CookMealLavish.ingredients.0.filter.customSummary>TODO</CookMealLavish.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealLavish.ingredients.1.filter.customSummary>TODO</CookMealLavish.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealLavish.fixedIngredientFilter.customSummary>TODO</CookMealLavish.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealLavish.defaultIngredientFilter.customSummary>TODO</CookMealLavish.defaultIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealLavish.successfullyRemovedHediffMessage>TODO</CookMealLavish.successfullyRemovedHediffMessage>
+
   <!-- EN: cook packaged survival meal -->
   <CookMealSurvival.label>TODO</CookMealSurvival.label>
   <!-- EN: Prepare a packaged survival meal from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process. -->
   <CookMealSurvival.description>TODO</CookMealSurvival.description>
   <!-- EN: Cooking survival meal. -->
   <CookMealSurvival.jobString>TODO</CookMealSurvival.jobString>
-  
+  <!-- EN:  -->
+  <CookMealSurvival.ingredients.0.filter.customSummary>TODO</CookMealSurvival.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealSurvival.ingredients.1.filter.customSummary>TODO</CookMealSurvival.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <CookMealSurvival.fixedIngredientFilter.customSummary>TODO</CookMealSurvival.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealSurvival.defaultIngredientFilter.customSummary>TODO</CookMealSurvival.defaultIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CookMealSurvival.successfullyRemovedHediffMessage>TODO</CookMealSurvival.successfullyRemovedHediffMessage>
+
 </LanguageData>

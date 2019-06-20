@@ -1,9 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN:  -->
+  <WakeUpWithdrawal.label>TODO</WakeUpWithdrawal.label>
+  <!-- EN:  -->
+  <WakeUpWithdrawal.description>TODO</WakeUpWithdrawal.description>
+  <!-- EN:  -->
+  <WakeUpWithdrawal.stages.0.label>TODO</WakeUpWithdrawal.stages.0.label>
+  <!-- EN:  -->
+  <WakeUpWithdrawal.stages.0.labelSocial>TODO</WakeUpWithdrawal.stages.0.labelSocial>
+  <!-- EN:  -->
+  <WakeUpWithdrawal.stages.0.description>TODO</WakeUpWithdrawal.stages.0.description>
   <!-- EN: wake-up withdrawal -->
   <WakeUpWithdrawal.stages.wakeup_withdrawal.label>TODO</WakeUpWithdrawal.stages.wakeup_withdrawal.label>
+  <!-- EN:  -->
+  <WakeUpWithdrawal.stages.wakeup_withdrawal.labelSocial>TODO</WakeUpWithdrawal.stages.wakeup_withdrawal.labelSocial>
   <!-- EN: I feel all fuzzy and unfocused. And I'm so tired. -->
   <WakeUpWithdrawal.stages.wakeup_withdrawal.description>TODO</WakeUpWithdrawal.stages.wakeup_withdrawal.description>
-  
+
 </LanguageData>

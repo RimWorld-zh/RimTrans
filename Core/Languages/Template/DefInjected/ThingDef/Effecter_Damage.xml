@@ -1,13 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: Mote -->
-  <Mote_LongSparkThrown.label>TODO</Mote_LongSparkThrown.label>
-  
+
   <!-- EN: Mote -->
   <Mote_SparkThrownFast.label>TODO</Mote_SparkThrownFast.label>
-  
+  <!-- EN:  -->
+  <Mote_SparkThrownFast.description>TODO</Mote_SparkThrownFast.description>
+
+  <!-- EN: Mote -->
+  <Mote_LongSparkThrown.label>TODO</Mote_LongSparkThrown.label>
+  <!-- EN:  -->
+  <Mote_LongSparkThrown.description>TODO</Mote_LongSparkThrown.description>
+
   <!-- EN: Mote -->
   <Mote_Splash.label>TODO</Mote_Splash.label>
-  
+  <!-- EN:  -->
+  <Mote_Splash.description>TODO</Mote_Splash.description>
+
 </LanguageData>

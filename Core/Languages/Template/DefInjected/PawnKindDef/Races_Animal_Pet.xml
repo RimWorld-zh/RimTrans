@@ -1,32 +1,208 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: cat -->
-  <Cat.label>TODO</Cat.label>
-  <!-- EN: kitten -->
-  <Cat.lifeStages.kitten.label>TODO</Cat.lifeStages.kitten.label>
-  
+
+  <!-- EN: yorkshire terrier -->
+  <YorkshireTerrier.label>TODO</YorkshireTerrier.label>
+  <!-- EN:  -->
+  <YorkshireTerrier.description>TODO</YorkshireTerrier.description>
+  <!-- EN:  -->
+  <YorkshireTerrier.labelPlural>TODO</YorkshireTerrier.labelPlural>
+  <!-- EN: yorkshire terrier puppy -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.label>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.label>
+  <!-- EN: yorkshire terrier puppies -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelPlural>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelPlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelMale>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelMale>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelMalePlural>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelFemale>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelFemale>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelFemalePlural>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.1.label>TODO</YorkshireTerrier.lifeStages.1.label>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.1.labelPlural>TODO</YorkshireTerrier.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.1.labelMale>TODO</YorkshireTerrier.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.1.labelMalePlural>TODO</YorkshireTerrier.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.1.labelFemale>TODO</YorkshireTerrier.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.1.labelFemalePlural>TODO</YorkshireTerrier.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.2.label>TODO</YorkshireTerrier.lifeStages.2.label>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.2.labelPlural>TODO</YorkshireTerrier.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.2.labelMale>TODO</YorkshireTerrier.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.2.labelMalePlural>TODO</YorkshireTerrier.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.2.labelFemale>TODO</YorkshireTerrier.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <YorkshireTerrier.lifeStages.2.labelFemalePlural>TODO</YorkshireTerrier.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.labelMale>TODO</YorkshireTerrier.labelMale>
+  <!-- EN:  -->
+  <YorkshireTerrier.labelMalePlural>TODO</YorkshireTerrier.labelMalePlural>
+  <!-- EN:  -->
+  <YorkshireTerrier.labelFemale>TODO</YorkshireTerrier.labelFemale>
+  <!-- EN:  -->
+  <YorkshireTerrier.labelFemalePlural>TODO</YorkshireTerrier.labelFemalePlural>
+
   <!-- EN: husky -->
   <Husky.label>TODO</Husky.label>
+  <!-- EN:  -->
+  <Husky.description>TODO</Husky.description>
   <!-- EN: huskies -->
   <Husky.labelPlural>TODO</Husky.labelPlural>
   <!-- EN: husky puppy -->
   <Husky.lifeStages.husky_puppy.label>TODO</Husky.lifeStages.husky_puppy.label>
   <!-- EN: husky puppies -->
   <Husky.lifeStages.husky_puppy.labelPlural>TODO</Husky.lifeStages.husky_puppy.labelPlural>
-  
+  <!-- EN:  -->
+  <Husky.lifeStages.husky_puppy.labelMale>TODO</Husky.lifeStages.husky_puppy.labelMale>
+  <!-- EN:  -->
+  <Husky.lifeStages.husky_puppy.labelMalePlural>TODO</Husky.lifeStages.husky_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.husky_puppy.labelFemale>TODO</Husky.lifeStages.husky_puppy.labelFemale>
+  <!-- EN:  -->
+  <Husky.lifeStages.husky_puppy.labelFemalePlural>TODO</Husky.lifeStages.husky_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.1.label>TODO</Husky.lifeStages.1.label>
+  <!-- EN:  -->
+  <Husky.lifeStages.1.labelPlural>TODO</Husky.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.1.labelMale>TODO</Husky.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Husky.lifeStages.1.labelMalePlural>TODO</Husky.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.1.labelFemale>TODO</Husky.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Husky.lifeStages.1.labelFemalePlural>TODO</Husky.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.2.label>TODO</Husky.lifeStages.2.label>
+  <!-- EN:  -->
+  <Husky.lifeStages.2.labelPlural>TODO</Husky.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.2.labelMale>TODO</Husky.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Husky.lifeStages.2.labelMalePlural>TODO</Husky.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Husky.lifeStages.2.labelFemale>TODO</Husky.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Husky.lifeStages.2.labelFemalePlural>TODO</Husky.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Husky.labelMale>TODO</Husky.labelMale>
+  <!-- EN:  -->
+  <Husky.labelMalePlural>TODO</Husky.labelMalePlural>
+  <!-- EN:  -->
+  <Husky.labelFemale>TODO</Husky.labelFemale>
+  <!-- EN:  -->
+  <Husky.labelFemalePlural>TODO</Husky.labelFemalePlural>
+
   <!-- EN: labrador retriever -->
   <LabradorRetriever.label>TODO</LabradorRetriever.label>
+  <!-- EN:  -->
+  <LabradorRetriever.description>TODO</LabradorRetriever.description>
+  <!-- EN:  -->
+  <LabradorRetriever.labelPlural>TODO</LabradorRetriever.labelPlural>
   <!-- EN: labrador puppy -->
   <LabradorRetriever.lifeStages.labrador_puppy.label>TODO</LabradorRetriever.lifeStages.labrador_puppy.label>
   <!-- EN: labrador puppies -->
   <LabradorRetriever.lifeStages.labrador_puppy.labelPlural>TODO</LabradorRetriever.lifeStages.labrador_puppy.labelPlural>
-  
-  <!-- EN: yorkshire terrier -->
-  <YorkshireTerrier.label>TODO</YorkshireTerrier.label>
-  <!-- EN: yorkshire terrier puppy -->
-  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.label>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.label>
-  <!-- EN: yorkshire terrier puppies -->
-  <YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelPlural>TODO</YorkshireTerrier.lifeStages.yorkshire_terrier_puppy.labelPlural>
-  
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.labrador_puppy.labelMale>TODO</LabradorRetriever.lifeStages.labrador_puppy.labelMale>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.labrador_puppy.labelMalePlural>TODO</LabradorRetriever.lifeStages.labrador_puppy.labelMalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.labrador_puppy.labelFemale>TODO</LabradorRetriever.lifeStages.labrador_puppy.labelFemale>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.labrador_puppy.labelFemalePlural>TODO</LabradorRetriever.lifeStages.labrador_puppy.labelFemalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.1.label>TODO</LabradorRetriever.lifeStages.1.label>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.1.labelPlural>TODO</LabradorRetriever.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.1.labelMale>TODO</LabradorRetriever.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.1.labelMalePlural>TODO</LabradorRetriever.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.1.labelFemale>TODO</LabradorRetriever.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.1.labelFemalePlural>TODO</LabradorRetriever.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.2.label>TODO</LabradorRetriever.lifeStages.2.label>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.2.labelPlural>TODO</LabradorRetriever.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.2.labelMale>TODO</LabradorRetriever.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.2.labelMalePlural>TODO</LabradorRetriever.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.2.labelFemale>TODO</LabradorRetriever.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <LabradorRetriever.lifeStages.2.labelFemalePlural>TODO</LabradorRetriever.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.labelMale>TODO</LabradorRetriever.labelMale>
+  <!-- EN:  -->
+  <LabradorRetriever.labelMalePlural>TODO</LabradorRetriever.labelMalePlural>
+  <!-- EN:  -->
+  <LabradorRetriever.labelFemale>TODO</LabradorRetriever.labelFemale>
+  <!-- EN:  -->
+  <LabradorRetriever.labelFemalePlural>TODO</LabradorRetriever.labelFemalePlural>
+
+  <!-- EN: cat -->
+  <Cat.label>TODO</Cat.label>
+  <!-- EN:  -->
+  <Cat.description>TODO</Cat.description>
+  <!-- EN:  -->
+  <Cat.labelPlural>TODO</Cat.labelPlural>
+  <!-- EN: kitten -->
+  <Cat.lifeStages.kitten.label>TODO</Cat.lifeStages.kitten.label>
+  <!-- EN:  -->
+  <Cat.lifeStages.kitten.labelPlural>TODO</Cat.lifeStages.kitten.labelPlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.kitten.labelMale>TODO</Cat.lifeStages.kitten.labelMale>
+  <!-- EN:  -->
+  <Cat.lifeStages.kitten.labelMalePlural>TODO</Cat.lifeStages.kitten.labelMalePlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.kitten.labelFemale>TODO</Cat.lifeStages.kitten.labelFemale>
+  <!-- EN:  -->
+  <Cat.lifeStages.kitten.labelFemalePlural>TODO</Cat.lifeStages.kitten.labelFemalePlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.1.label>TODO</Cat.lifeStages.1.label>
+  <!-- EN:  -->
+  <Cat.lifeStages.1.labelPlural>TODO</Cat.lifeStages.1.labelPlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.1.labelMale>TODO</Cat.lifeStages.1.labelMale>
+  <!-- EN:  -->
+  <Cat.lifeStages.1.labelMalePlural>TODO</Cat.lifeStages.1.labelMalePlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.1.labelFemale>TODO</Cat.lifeStages.1.labelFemale>
+  <!-- EN:  -->
+  <Cat.lifeStages.1.labelFemalePlural>TODO</Cat.lifeStages.1.labelFemalePlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.2.label>TODO</Cat.lifeStages.2.label>
+  <!-- EN:  -->
+  <Cat.lifeStages.2.labelPlural>TODO</Cat.lifeStages.2.labelPlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.2.labelMale>TODO</Cat.lifeStages.2.labelMale>
+  <!-- EN:  -->
+  <Cat.lifeStages.2.labelMalePlural>TODO</Cat.lifeStages.2.labelMalePlural>
+  <!-- EN:  -->
+  <Cat.lifeStages.2.labelFemale>TODO</Cat.lifeStages.2.labelFemale>
+  <!-- EN:  -->
+  <Cat.lifeStages.2.labelFemalePlural>TODO</Cat.lifeStages.2.labelFemalePlural>
+  <!-- EN:  -->
+  <Cat.labelMale>TODO</Cat.labelMale>
+  <!-- EN:  -->
+  <Cat.labelMalePlural>TODO</Cat.labelMalePlural>
+  <!-- EN:  -->
+  <Cat.labelFemale>TODO</Cat.labelFemale>
+  <!-- EN:  -->
+  <Cat.labelFemalePlural>TODO</Cat.labelFemalePlural>
+
 </LanguageData>

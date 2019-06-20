@@ -1,40 +1,64 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: floors -->
-  <Floors.label>TODO</Floors.label>
-  
-  <!-- EN: furniture -->
-  <Furniture.label>TODO</Furniture.label>
-  
-  <!-- EN: recreation -->
-  <Joy.label>TODO</Joy.label>
-  
-  <!-- EN: misc -->
-  <Misc.label>TODO</Misc.label>
-  
+
   <!-- EN: orders -->
   <Orders.label>TODO</Orders.label>
-  
-  <!-- EN: power -->
-  <Power.label>TODO</Power.label>
-  
-  <!-- EN: production -->
-  <Production.label>TODO</Production.label>
-  
-  <!-- EN: security -->
-  <Security.label>TODO</Security.label>
-  
-  <!-- EN: ship -->
-  <Ship.label>TODO</Ship.label>
-  
-  <!-- EN: structure -->
-  <Structure.label>TODO</Structure.label>
-  
-  <!-- EN: temperature -->
-  <Temperature.label>TODO</Temperature.label>
-  
+  <!-- EN:  -->
+  <Orders.description>TODO</Orders.description>
+
   <!-- EN: zone -->
   <Zone.label>TODO</Zone.label>
-  
+  <!-- EN:  -->
+  <Zone.description>TODO</Zone.description>
+
+  <!-- EN: structure -->
+  <Structure.label>TODO</Structure.label>
+  <!-- EN:  -->
+  <Structure.description>TODO</Structure.description>
+
+  <!-- EN: production -->
+  <Production.label>TODO</Production.label>
+  <!-- EN:  -->
+  <Production.description>TODO</Production.description>
+
+  <!-- EN: furniture -->
+  <Furniture.label>TODO</Furniture.label>
+  <!-- EN:  -->
+  <Furniture.description>TODO</Furniture.description>
+
+  <!-- EN: power -->
+  <Power.label>TODO</Power.label>
+  <!-- EN:  -->
+  <Power.description>TODO</Power.description>
+
+  <!-- EN: security -->
+  <Security.label>TODO</Security.label>
+  <!-- EN:  -->
+  <Security.description>TODO</Security.description>
+
+  <!-- EN: misc -->
+  <Misc.label>TODO</Misc.label>
+  <!-- EN:  -->
+  <Misc.description>TODO</Misc.description>
+
+  <!-- EN: floors -->
+  <Floors.label>TODO</Floors.label>
+  <!-- EN:  -->
+  <Floors.description>TODO</Floors.description>
+
+  <!-- EN: recreation -->
+  <Joy.label>TODO</Joy.label>
+  <!-- EN:  -->
+  <Joy.description>TODO</Joy.description>
+
+  <!-- EN: ship -->
+  <Ship.label>TODO</Ship.label>
+  <!-- EN:  -->
+  <Ship.description>TODO</Ship.description>
+
+  <!-- EN: temperature -->
+  <Temperature.label>TODO</Temperature.label>
+  <!-- EN:  -->
+  <Temperature.description>TODO</Temperature.description>
+
 </LanguageData>

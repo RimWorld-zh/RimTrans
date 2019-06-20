@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Interior_Storage.label>TODO</Interior_Storage.label>
+  <!-- EN:  -->
+  <Interior_Storage.description>TODO</Interior_Storage.description>
+
+  <!-- EN:  -->
+  <Interior_Barracks.label>TODO</Interior_Barracks.label>
+  <!-- EN:  -->
+  <Interior_Barracks.description>TODO</Interior_Barracks.description>
+
+  <!-- EN:  -->
+  <Interior_AncientTemple.label>TODO</Interior_AncientTemple.label>
+  <!-- EN:  -->
+  <Interior_AncientTemple.description>TODO</Interior_AncientTemple.description>
+
+  <!-- EN:  -->
+  <Interior_Brewery.label>TODO</Interior_Brewery.label>
+  <!-- EN:  -->
+  <Interior_Brewery.description>TODO</Interior_Brewery.description>
+
+  <!-- EN:  -->
+  <Interior_BatteryRoom.label>TODO</Interior_BatteryRoom.label>
+  <!-- EN:  -->
+  <Interior_BatteryRoom.description>TODO</Interior_BatteryRoom.description>
+
+  <!-- EN:  -->
+  <Interior_DiningRoom.label>TODO</Interior_DiningRoom.label>
+  <!-- EN:  -->
+  <Interior_DiningRoom.description>TODO</Interior_DiningRoom.description>
+
+  <!-- EN:  -->
+  <Interior_PrisonCell.label>TODO</Interior_PrisonCell.label>
+  <!-- EN:  -->
+  <Interior_PrisonCell.description>TODO</Interior_PrisonCell.description>
+
+</LanguageData>

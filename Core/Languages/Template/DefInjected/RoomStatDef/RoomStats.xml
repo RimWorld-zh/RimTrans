@@ -1,30 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: beauty -->
-  <Beauty.label>TODO</Beauty.label>
-  <!-- EN: very beautiful -->
-  <Beauty.scoreStages.very_beautiful.label>TODO</Beauty.scoreStages.very_beautiful.label>
-  <!-- EN: extremely beautiful -->
-  <Beauty.scoreStages.extremely_beautiful.label>TODO</Beauty.scoreStages.extremely_beautiful.label>
-  <!-- EN: unbelievably beautiful -->
-  <Beauty.scoreStages.unbelievably_beautiful.label>TODO</Beauty.scoreStages.unbelievably_beautiful.label>
-  
-  <!-- EN: cleanliness -->
-  <Cleanliness.label>TODO</Cleanliness.label>
-  <!-- EN: very dirty -->
-  <Cleanliness.scoreStages.very_dirty.label>TODO</Cleanliness.scoreStages.very_dirty.label>
-  <!-- EN: slightly dirty -->
-  <Cleanliness.scoreStages.slightly_dirty.label>TODO</Cleanliness.scoreStages.slightly_dirty.label>
-  
-  <!-- EN: food poison chance -->
-  <FoodPoisonChance.label>TODO</FoodPoisonChance.label>
-  
-  <!-- EN: grave visiting recreation factor -->
-  <GraveVisitingJoyGainFactor.label>TODO</GraveVisitingJoyGainFactor.label>
-  
+
   <!-- EN: impressiveness -->
   <Impressiveness.label>TODO</Impressiveness.label>
+  <!-- EN:  -->
+  <Impressiveness.description>TODO</Impressiveness.description>
+  <!-- EN: awful -->
+  <Impressiveness.scoreStages.awful.label>TODO</Impressiveness.scoreStages.awful.label>
+  <!-- EN: dull -->
+  <Impressiveness.scoreStages.dull.label>TODO</Impressiveness.scoreStages.dull.label>
+  <!-- EN: mediocre -->
+  <Impressiveness.scoreStages.mediocre.label>TODO</Impressiveness.scoreStages.mediocre.label>
+  <!-- EN: decent -->
+  <Impressiveness.scoreStages.decent.label>TODO</Impressiveness.scoreStages.decent.label>
   <!-- EN: slightly impressive -->
   <Impressiveness.scoreStages.slightly_impressive.label>TODO</Impressiveness.scoreStages.slightly_impressive.label>
   <!-- EN: somewhat impressive -->
@@ -37,17 +25,40 @@
   <Impressiveness.scoreStages.unbelievably_impressive.label>TODO</Impressiveness.scoreStages.unbelievably_impressive.label>
   <!-- EN: wondrously impressive -->
   <Impressiveness.scoreStages.wondrously_impressive.label>TODO</Impressiveness.scoreStages.wondrously_impressive.label>
-  
-  <!-- EN: infection chance factor -->
-  <InfectionChanceFactor.label>TODO</InfectionChanceFactor.label>
-  
-  <!-- EN: research speed factor -->
-  <ResearchSpeedFactor.label>TODO</ResearchSpeedFactor.label>
-  
+
+  <!-- EN: wealth -->
+  <Wealth.label>TODO</Wealth.label>
+  <!-- EN:  -->
+  <Wealth.description>TODO</Wealth.description>
+  <!-- EN: impoverished -->
+  <Wealth.scoreStages.impoverished.label>TODO</Wealth.scoreStages.impoverished.label>
+  <!-- EN: somewhat poor -->
+  <Wealth.scoreStages.somewhat_poor.label>TODO</Wealth.scoreStages.somewhat_poor.label>
+  <!-- EN: mediocre -->
+  <Wealth.scoreStages.mediocre.label>TODO</Wealth.scoreStages.mediocre.label>
+  <!-- EN: somewhat rich -->
+  <Wealth.scoreStages.somewhat_rich.label>TODO</Wealth.scoreStages.somewhat_rich.label>
+  <!-- EN: rich -->
+  <Wealth.scoreStages.rich.label>TODO</Wealth.scoreStages.rich.label>
+  <!-- EN: luxurious -->
+  <Wealth.scoreStages.luxurious.label>TODO</Wealth.scoreStages.luxurious.label>
+  <!-- EN: very luxurious -->
+  <Wealth.scoreStages.very_luxurious.label>TODO</Wealth.scoreStages.very_luxurious.label>
+  <!-- EN: extremely luxurious -->
+  <Wealth.scoreStages.extremely_luxurious.label>TODO</Wealth.scoreStages.extremely_luxurious.label>
+  <!-- EN: unbelievably luxurious -->
+  <Wealth.scoreStages.unbelievably_luxurious.label>TODO</Wealth.scoreStages.unbelievably_luxurious.label>
+
   <!-- EN: space -->
   <Space.label>TODO</Space.label>
+  <!-- EN:  -->
+  <Space.description>TODO</Space.description>
+  <!-- EN: cramped -->
+  <Space.scoreStages.cramped.label>TODO</Space.scoreStages.cramped.label>
   <!-- EN: rather tight -->
   <Space.scoreStages.rather_tight.label>TODO</Space.scoreStages.rather_tight.label>
+  <!-- EN: average-sized -->
+  <Space.scoreStages.averagesized.label>TODO</Space.scoreStages.averagesized.label>
   <!-- EN: somewhat spacious -->
   <Space.scoreStages.somewhat_spacious.label>TODO</Space.scoreStages.somewhat_spacious.label>
   <!-- EN: quite spacious -->
@@ -56,21 +67,66 @@
   <Space.scoreStages.very_spacious.label>TODO</Space.scoreStages.very_spacious.label>
   <!-- EN: extremely spacious -->
   <Space.scoreStages.extremely_spacious.label>TODO</Space.scoreStages.extremely_spacious.label>
-  
+
+  <!-- EN: beauty -->
+  <Beauty.label>TODO</Beauty.label>
+  <!-- EN:  -->
+  <Beauty.description>TODO</Beauty.description>
+  <!-- EN: hideous -->
+  <Beauty.scoreStages.hideous.label>TODO</Beauty.scoreStages.hideous.label>
+  <!-- EN: ugly -->
+  <Beauty.scoreStages.ugly.label>TODO</Beauty.scoreStages.ugly.label>
+  <!-- EN: neutral -->
+  <Beauty.scoreStages.neutral.label>TODO</Beauty.scoreStages.neutral.label>
+  <!-- EN: pretty -->
+  <Beauty.scoreStages.pretty.label>TODO</Beauty.scoreStages.pretty.label>
+  <!-- EN: beautiful -->
+  <Beauty.scoreStages.beautiful.label>TODO</Beauty.scoreStages.beautiful.label>
+  <!-- EN: very beautiful -->
+  <Beauty.scoreStages.very_beautiful.label>TODO</Beauty.scoreStages.very_beautiful.label>
+  <!-- EN: extremely beautiful -->
+  <Beauty.scoreStages.extremely_beautiful.label>TODO</Beauty.scoreStages.extremely_beautiful.label>
+  <!-- EN: unbelievably beautiful -->
+  <Beauty.scoreStages.unbelievably_beautiful.label>TODO</Beauty.scoreStages.unbelievably_beautiful.label>
+
+  <!-- EN: cleanliness -->
+  <Cleanliness.label>TODO</Cleanliness.label>
+  <!-- EN:  -->
+  <Cleanliness.description>TODO</Cleanliness.description>
+  <!-- EN: very dirty -->
+  <Cleanliness.scoreStages.very_dirty.label>TODO</Cleanliness.scoreStages.very_dirty.label>
+  <!-- EN: dirty -->
+  <Cleanliness.scoreStages.dirty.label>TODO</Cleanliness.scoreStages.dirty.label>
+  <!-- EN: slightly dirty -->
+  <Cleanliness.scoreStages.slightly_dirty.label>TODO</Cleanliness.scoreStages.slightly_dirty.label>
+  <!-- EN: clean -->
+  <Cleanliness.scoreStages.clean.label>TODO</Cleanliness.scoreStages.clean.label>
+  <!-- EN: sterile -->
+  <Cleanliness.scoreStages.sterile.label>TODO</Cleanliness.scoreStages.sterile.label>
+
+  <!-- EN: infection chance factor -->
+  <InfectionChanceFactor.label>TODO</InfectionChanceFactor.label>
+  <!-- EN:  -->
+  <InfectionChanceFactor.description>TODO</InfectionChanceFactor.description>
+
   <!-- EN: surgery success chance cleanliness factor -->
   <SurgerySuccessChanceCleanlinessFactor.label>TODO</SurgerySuccessChanceCleanlinessFactor.label>
-  
-  <!-- EN: wealth -->
-  <Wealth.label>TODO</Wealth.label>
-  <!-- EN: somewhat poor -->
-  <Wealth.scoreStages.somewhat_poor.label>TODO</Wealth.scoreStages.somewhat_poor.label>
-  <!-- EN: somewhat rich -->
-  <Wealth.scoreStages.somewhat_rich.label>TODO</Wealth.scoreStages.somewhat_rich.label>
-  <!-- EN: very luxurious -->
-  <Wealth.scoreStages.very_luxurious.label>TODO</Wealth.scoreStages.very_luxurious.label>
-  <!-- EN: extremely luxurious -->
-  <Wealth.scoreStages.extremely_luxurious.label>TODO</Wealth.scoreStages.extremely_luxurious.label>
-  <!-- EN: unbelievably luxurious -->
-  <Wealth.scoreStages.unbelievably_luxurious.label>TODO</Wealth.scoreStages.unbelievably_luxurious.label>
-  
+  <!-- EN:  -->
+  <SurgerySuccessChanceCleanlinessFactor.description>TODO</SurgerySuccessChanceCleanlinessFactor.description>
+
+  <!-- EN: research speed factor -->
+  <ResearchSpeedFactor.label>TODO</ResearchSpeedFactor.label>
+  <!-- EN:  -->
+  <ResearchSpeedFactor.description>TODO</ResearchSpeedFactor.description>
+
+  <!-- EN: grave visiting recreation factor -->
+  <GraveVisitingJoyGainFactor.label>TODO</GraveVisitingJoyGainFactor.label>
+  <!-- EN:  -->
+  <GraveVisitingJoyGainFactor.description>TODO</GraveVisitingJoyGainFactor.description>
+
+  <!-- EN: food poison chance -->
+  <FoodPoisonChance.label>TODO</FoodPoisonChance.label>
+  <!-- EN:  -->
+  <FoodPoisonChance.description>TODO</FoodPoisonChance.description>
+
 </LanguageData>

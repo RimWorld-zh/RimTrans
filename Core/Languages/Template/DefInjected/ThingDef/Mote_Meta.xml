@@ -1,34 +1,54 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: Mote -->
-  <Mote_Cards.label>TODO</Mote_Cards.label>
-  
-  <!-- EN: Mote -->
-  <Mote_Clean.label>TODO</Mote_Clean.label>
-  
-  <!-- EN: Mote -->
-  <Mote_ClearSnow.label>TODO</Mote_ClearSnow.label>
-  
-  <!-- EN: Mote -->
-  <Mote_FeedbackEquip.label>TODO</Mote_FeedbackEquip.label>
-  
-  <!-- EN: Mote -->
-  <Mote_FeedbackExtinguish.label>TODO</Mote_FeedbackExtinguish.label>
-  
+
   <!-- EN: Mote -->
   <Mote_FeedbackGoto.label>TODO</Mote_FeedbackGoto.label>
-  
-  <!-- EN: Mote -->
-  <Mote_FeedbackMelee.label>TODO</Mote_FeedbackMelee.label>
-  
+  <!-- EN:  -->
+  <Mote_FeedbackGoto.description>TODO</Mote_FeedbackGoto.description>
+
   <!-- EN: Mote -->
   <Mote_FeedbackShoot.label>TODO</Mote_FeedbackShoot.label>
-  
+  <!-- EN:  -->
+  <Mote_FeedbackShoot.description>TODO</Mote_FeedbackShoot.description>
+
   <!-- EN: Mote -->
-  <Mote_Harvest.label>TODO</Mote_Harvest.label>
-  
+  <Mote_FeedbackMelee.label>TODO</Mote_FeedbackMelee.label>
+  <!-- EN:  -->
+  <Mote_FeedbackMelee.description>TODO</Mote_FeedbackMelee.description>
+
+  <!-- EN: Mote -->
+  <Mote_FeedbackEquip.label>TODO</Mote_FeedbackEquip.label>
+  <!-- EN:  -->
+  <Mote_FeedbackEquip.description>TODO</Mote_FeedbackEquip.description>
+
+  <!-- EN: Mote -->
+  <Mote_FeedbackExtinguish.label>TODO</Mote_FeedbackExtinguish.label>
+  <!-- EN:  -->
+  <Mote_FeedbackExtinguish.description>TODO</Mote_FeedbackExtinguish.description>
+
+  <!-- EN: Mote -->
+  <Mote_Clean.label>TODO</Mote_Clean.label>
+  <!-- EN:  -->
+  <Mote_Clean.description>TODO</Mote_Clean.description>
+
   <!-- EN: Mote -->
   <Mote_Sow.label>TODO</Mote_Sow.label>
-  
+  <!-- EN:  -->
+  <Mote_Sow.description>TODO</Mote_Sow.description>
+
+  <!-- EN: Mote -->
+  <Mote_Harvest.label>TODO</Mote_Harvest.label>
+  <!-- EN:  -->
+  <Mote_Harvest.description>TODO</Mote_Harvest.description>
+
+  <!-- EN: Mote -->
+  <Mote_ClearSnow.label>TODO</Mote_ClearSnow.label>
+  <!-- EN:  -->
+  <Mote_ClearSnow.description>TODO</Mote_ClearSnow.description>
+
+  <!-- EN: Mote -->
+  <Mote_Cards.label>TODO</Mote_Cards.label>
+  <!-- EN:  -->
+  <Mote_Cards.description>TODO</Mote_Cards.description>
+
 </LanguageData>

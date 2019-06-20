@@ -1,8 +1,88 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
+  <!-- EN: bad back -->
+  <BadBack.label>TODO</BadBack.label>
+  <!-- EN:  -->
+  <BadBack.description>TODO</BadBack.description>
+  <!-- EN:  -->
+  <BadBack.stages.0.label>TODO</BadBack.stages.0.label>
+  <!-- EN:  -->
+  <BadBack.battleStateLabel>TODO</BadBack.battleStateLabel>
+  <!-- EN:  -->
+  <BadBack.labelNounPretty>TODO</BadBack.labelNounPretty>
+  <!-- EN: a bad back -->
+  <BadBack.labelNoun>TODO</BadBack.labelNoun>
+
+  <!-- EN: frail -->
+  <Frail.label>TODO</Frail.label>
+  <!-- EN:  -->
+  <Frail.description>TODO</Frail.description>
+  <!-- EN:  -->
+  <Frail.stages.0.label>TODO</Frail.stages.0.label>
+  <!-- EN:  -->
+  <Frail.battleStateLabel>TODO</Frail.battleStateLabel>
+  <!-- EN:  -->
+  <Frail.labelNounPretty>TODO</Frail.labelNounPretty>
+  <!-- EN: frailty -->
+  <Frail.labelNoun>TODO</Frail.labelNoun>
+
+  <!-- EN: cataract -->
+  <Cataract.label>TODO</Cataract.label>
+  <!-- EN:  -->
+  <Cataract.description>TODO</Cataract.description>
+  <!-- EN:  -->
+  <Cataract.stages.0.label>TODO</Cataract.stages.0.label>
+  <!-- EN:  -->
+  <Cataract.battleStateLabel>TODO</Cataract.battleStateLabel>
+  <!-- EN:  -->
+  <Cataract.labelNounPretty>TODO</Cataract.labelNounPretty>
+  <!-- EN: a cataract -->
+  <Cataract.labelNoun>TODO</Cataract.labelNoun>
+
+  <!-- EN: blindness -->
+  <Blindness.label>TODO</Blindness.label>
+  <!-- EN:  -->
+  <Blindness.description>TODO</Blindness.description>
+  <!-- EN:  -->
+  <Blindness.stages.0.label>TODO</Blindness.stages.0.label>
+  <!-- EN:  -->
+  <Blindness.battleStateLabel>TODO</Blindness.battleStateLabel>
+  <!-- EN:  -->
+  <Blindness.labelNounPretty>TODO</Blindness.labelNounPretty>
+  <!-- EN:  -->
+  <Blindness.labelNoun>TODO</Blindness.labelNoun>
+
+  <!-- EN: hearing loss -->
+  <HearingLoss.label>TODO</HearingLoss.label>
+  <!-- EN:  -->
+  <HearingLoss.description>TODO</HearingLoss.description>
+  <!-- EN:  -->
+  <HearingLoss.stages.0.label>TODO</HearingLoss.stages.0.label>
+  <!-- EN:  -->
+  <HearingLoss.battleStateLabel>TODO</HearingLoss.battleStateLabel>
+  <!-- EN:  -->
+  <HearingLoss.labelNounPretty>TODO</HearingLoss.labelNounPretty>
+  <!-- EN:  -->
+  <HearingLoss.labelNoun>TODO</HearingLoss.labelNoun>
+
+  <!-- EN: dementia -->
+  <Dementia.label>TODO</Dementia.label>
+  <!-- EN:  -->
+  <Dementia.description>TODO</Dementia.description>
+  <!-- EN:  -->
+  <Dementia.stages.0.label>TODO</Dementia.stages.0.label>
+  <!-- EN:  -->
+  <Dementia.battleStateLabel>TODO</Dementia.battleStateLabel>
+  <!-- EN:  -->
+  <Dementia.labelNounPretty>TODO</Dementia.labelNounPretty>
+  <!-- EN:  -->
+  <Dementia.labelNoun>TODO</Dementia.labelNoun>
+
   <!-- EN: alzheimer's -->
   <Alzheimers.label>TODO</Alzheimers.label>
+  <!-- EN:  -->
+  <Alzheimers.description>TODO</Alzheimers.description>
   <!-- EN: minor -->
   <Alzheimers.stages.minor-0.label>TODO</Alzheimers.stages.minor-0.label>
   <!-- EN: minor -->
@@ -11,28 +91,67 @@
   <Alzheimers.stages.major-0.label>TODO</Alzheimers.stages.major-0.label>
   <!-- EN: major -->
   <Alzheimers.stages.major-1.label>TODO</Alzheimers.stages.major-1.label>
-  
+  <!-- EN:  -->
+  <Alzheimers.battleStateLabel>TODO</Alzheimers.battleStateLabel>
+  <!-- EN:  -->
+  <Alzheimers.labelNounPretty>TODO</Alzheimers.labelNounPretty>
+  <!-- EN:  -->
+  <Alzheimers.labelNoun>TODO</Alzheimers.labelNoun>
+
   <!-- EN: asthma -->
   <Asthma.label>TODO</Asthma.label>
+  <!-- EN:  -->
+  <Asthma.description>TODO</Asthma.description>
+  <!-- EN:  -->
+  <Asthma.comps.HediffComp_TendDuration.labelTendedWell>TODO</Asthma.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Asthma.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Asthma.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Asthma.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Asthma.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: minor -->
   <Asthma.stages.minor.label>TODO</Asthma.stages.minor.label>
   <!-- EN: major -->
   <Asthma.stages.major-0.label>TODO</Asthma.stages.major-0.label>
   <!-- EN: major -->
   <Asthma.stages.major-1.label>TODO</Asthma.stages.major-1.label>
-  
-  <!-- EN: bad back -->
-  <BadBack.label>TODO</BadBack.label>
-  <!-- EN: a bad back -->
-  <BadBack.labelNoun>TODO</BadBack.labelNoun>
-  
-  <!-- EN: blindness -->
-  <Blindness.label>TODO</Blindness.label>
-  
+  <!-- EN:  -->
+  <Asthma.battleStateLabel>TODO</Asthma.battleStateLabel>
+  <!-- EN:  -->
+  <Asthma.labelNounPretty>TODO</Asthma.labelNounPretty>
+  <!-- EN:  -->
+  <Asthma.labelNoun>TODO</Asthma.labelNoun>
+
+  <!-- EN: artery blockage -->
+  <HeartArteryBlockage.label>TODO</HeartArteryBlockage.label>
+  <!-- EN:  -->
+  <HeartArteryBlockage.description>TODO</HeartArteryBlockage.description>
+  <!-- EN: minor -->
+  <HeartArteryBlockage.stages.minor-0.label>TODO</HeartArteryBlockage.stages.minor-0.label>
+  <!-- EN: minor -->
+  <HeartArteryBlockage.stages.minor-1.label>TODO</HeartArteryBlockage.stages.minor-1.label>
+  <!-- EN: major -->
+  <HeartArteryBlockage.stages.major-0.label>TODO</HeartArteryBlockage.stages.major-0.label>
+  <!-- EN: major -->
+  <HeartArteryBlockage.stages.major-1.label>TODO</HeartArteryBlockage.stages.major-1.label>
+  <!-- EN: extreme -->
+  <HeartArteryBlockage.stages.extreme.label>TODO</HeartArteryBlockage.stages.extreme.label>
+  <!-- EN:  -->
+  <HeartArteryBlockage.battleStateLabel>TODO</HeartArteryBlockage.battleStateLabel>
+  <!-- EN:  -->
+  <HeartArteryBlockage.labelNounPretty>TODO</HeartArteryBlockage.labelNounPretty>
+  <!-- EN: an artery blockage -->
+  <HeartArteryBlockage.labelNoun>TODO</HeartArteryBlockage.labelNoun>
+
   <!-- EN: carcinoma -->
   <Carcinoma.label>TODO</Carcinoma.label>
-  <!-- EN: a carcinoma -->
-  <Carcinoma.labelNoun>TODO</Carcinoma.labelNoun>
+  <!-- EN:  -->
+  <Carcinoma.description>TODO</Carcinoma.description>
+  <!-- EN:  -->
+  <Carcinoma.comps.HediffComp_TendDuration.labelTendedWell>TODO</Carcinoma.comps.HediffComp_TendDuration.labelTendedWell>
+  <!-- EN:  -->
+  <Carcinoma.comps.HediffComp_TendDuration.labelTendedWellInner>TODO</Carcinoma.comps.HediffComp_TendDuration.labelTendedWellInner>
+  <!-- EN:  -->
+  <Carcinoma.comps.HediffComp_TendDuration.labelSolidTendedWell>TODO</Carcinoma.comps.HediffComp_TendDuration.labelSolidTendedWell>
   <!-- EN: minor -->
   <Carcinoma.stages.minor-0.label>TODO</Carcinoma.stages.minor-0.label>
   <!-- EN: minor -->
@@ -45,36 +164,11 @@
   <Carcinoma.stages.extreme-0.label>TODO</Carcinoma.stages.extreme-0.label>
   <!-- EN: extreme -->
   <Carcinoma.stages.extreme-1.label>TODO</Carcinoma.stages.extreme-1.label>
-  
-  <!-- EN: cataract -->
-  <Cataract.label>TODO</Cataract.label>
-  <!-- EN: a cataract -->
-  <Cataract.labelNoun>TODO</Cataract.labelNoun>
-  
-  <!-- EN: dementia -->
-  <Dementia.label>TODO</Dementia.label>
-  
-  <!-- EN: frail -->
-  <Frail.label>TODO</Frail.label>
-  <!-- EN: frailty -->
-  <Frail.labelNoun>TODO</Frail.labelNoun>
-  
-  <!-- EN: hearing loss -->
-  <HearingLoss.label>TODO</HearingLoss.label>
-  
-  <!-- EN: artery blockage -->
-  <HeartArteryBlockage.label>TODO</HeartArteryBlockage.label>
-  <!-- EN: an artery blockage -->
-  <HeartArteryBlockage.labelNoun>TODO</HeartArteryBlockage.labelNoun>
-  <!-- EN: minor -->
-  <HeartArteryBlockage.stages.minor-0.label>TODO</HeartArteryBlockage.stages.minor-0.label>
-  <!-- EN: minor -->
-  <HeartArteryBlockage.stages.minor-1.label>TODO</HeartArteryBlockage.stages.minor-1.label>
-  <!-- EN: major -->
-  <HeartArteryBlockage.stages.major-0.label>TODO</HeartArteryBlockage.stages.major-0.label>
-  <!-- EN: major -->
-  <HeartArteryBlockage.stages.major-1.label>TODO</HeartArteryBlockage.stages.major-1.label>
-  <!-- EN: extreme -->
-  <HeartArteryBlockage.stages.extreme.label>TODO</HeartArteryBlockage.stages.extreme.label>
-  
+  <!-- EN:  -->
+  <Carcinoma.battleStateLabel>TODO</Carcinoma.battleStateLabel>
+  <!-- EN:  -->
+  <Carcinoma.labelNounPretty>TODO</Carcinoma.labelNounPretty>
+  <!-- EN: a carcinoma -->
+  <Carcinoma.labelNoun>TODO</Carcinoma.labelNoun>
+
 </LanguageData>

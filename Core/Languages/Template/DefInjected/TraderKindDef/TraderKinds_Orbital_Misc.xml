@@ -1,16 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: bulk goods trader -->
   <Orbital_BulkGoods.label>TODO</Orbital_BulkGoods.label>
-  
+  <!-- EN:  -->
+  <Orbital_BulkGoods.description>TODO</Orbital_BulkGoods.description>
+
   <!-- EN: combat supplier -->
   <Orbital_CombatSupplier.label>TODO</Orbital_CombatSupplier.label>
-  
+  <!-- EN:  -->
+  <Orbital_CombatSupplier.description>TODO</Orbital_CombatSupplier.description>
+
   <!-- EN: exotic goods trader -->
   <Orbital_Exotic.label>TODO</Orbital_Exotic.label>
-  
+  <!-- EN:  -->
+  <Orbital_Exotic.description>TODO</Orbital_Exotic.description>
+
   <!-- EN: pirate merchant -->
   <Orbital_PirateMerchant.label>TODO</Orbital_PirateMerchant.label>
-  
+  <!-- EN:  -->
+  <Orbital_PirateMerchant.description>TODO</Orbital_PirateMerchant.description>
+
 </LanguageData>

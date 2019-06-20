@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <MainColonistBehaviorCore.label>TODO</MainColonistBehaviorCore.label>
+  <!-- EN:  -->
+  <MainColonistBehaviorCore.description>TODO</MainColonistBehaviorCore.description>
+
+  <!-- EN:  -->
+  <MainWildManBehaviorCore.label>TODO</MainWildManBehaviorCore.label>
+  <!-- EN:  -->
+  <MainWildManBehaviorCore.description>TODO</MainWildManBehaviorCore.description>
+
+  <!-- EN:  -->
+  <Downed.label>TODO</Downed.label>
+  <!-- EN:  -->
+  <Downed.description>TODO</Downed.description>
+
+  <!-- EN:  -->
+  <BurningResponse.label>TODO</BurningResponse.label>
+  <!-- EN:  -->
+  <BurningResponse.description>TODO</BurningResponse.description>
+
+  <!-- EN:  -->
+  <DigOutIfCannotReachMapEdge.label>TODO</DigOutIfCannotReachMapEdge.label>
+  <!-- EN:  -->
+  <DigOutIfCannotReachMapEdge.description>TODO</DigOutIfCannotReachMapEdge.description>
+
+  <!-- EN:  -->
+  <MentalStateCritical.label>TODO</MentalStateCritical.label>
+  <!-- EN:  -->
+  <MentalStateCritical.description>TODO</MentalStateCritical.description>
+
+  <!-- EN:  -->
+  <MentalStateNonCritical.label>TODO</MentalStateNonCritical.label>
+  <!-- EN:  -->
+  <MentalStateNonCritical.description>TODO</MentalStateNonCritical.description>
+
+  <!-- EN:  -->
+  <LeaveIfWrongSeason.label>TODO</LeaveIfWrongSeason.label>
+  <!-- EN:  -->
+  <LeaveIfWrongSeason.description>TODO</LeaveIfWrongSeason.description>
+
+  <!-- EN:  -->
+  <LeaveIfStarving.label>TODO</LeaveIfStarving.label>
+  <!-- EN:  -->
+  <LeaveIfStarving.description>TODO</LeaveIfStarving.description>
+
+  <!-- EN:  -->
+  <SatisfyBasicNeeds.label>TODO</SatisfyBasicNeeds.label>
+  <!-- EN:  -->
+  <SatisfyBasicNeeds.description>TODO</SatisfyBasicNeeds.description>
+
+  <!-- EN:  -->
+  <SatisfyBasicNeedsAndWork.label>TODO</SatisfyBasicNeedsAndWork.label>
+  <!-- EN:  -->
+  <SatisfyBasicNeedsAndWork.description>TODO</SatisfyBasicNeedsAndWork.description>
+
+  <!-- EN:  -->
+  <SatisfyVeryUrgentNeeds.label>TODO</SatisfyVeryUrgentNeeds.label>
+  <!-- EN:  -->
+  <SatisfyVeryUrgentNeeds.description>TODO</SatisfyVeryUrgentNeeds.description>
+
+  <!-- EN:  -->
+  <JoinAutoJoinableCaravan.label>TODO</JoinAutoJoinableCaravan.label>
+  <!-- EN:  -->
+  <JoinAutoJoinableCaravan.description>TODO</JoinAutoJoinableCaravan.description>
+
+</LanguageData>

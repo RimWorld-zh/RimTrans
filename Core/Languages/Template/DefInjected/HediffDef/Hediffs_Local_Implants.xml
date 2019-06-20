@@ -1,14 +1,30 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
+
   <!-- EN: joywire -->
   <Joywire.label>TODO</Joywire.label>
+  <!-- EN:  -->
+  <Joywire.description>TODO</Joywire.description>
+  <!-- EN:  -->
+  <Joywire.stages.0.label>TODO</Joywire.stages.0.label>
+  <!-- EN:  -->
+  <Joywire.battleStateLabel>TODO</Joywire.battleStateLabel>
+  <!-- EN:  -->
+  <Joywire.labelNounPretty>TODO</Joywire.labelNounPretty>
   <!-- EN: a joywire -->
   <Joywire.labelNoun>TODO</Joywire.labelNoun>
-  
+
   <!-- EN: painstopper -->
   <Painstopper.label>TODO</Painstopper.label>
+  <!-- EN:  -->
+  <Painstopper.description>TODO</Painstopper.description>
+  <!-- EN:  -->
+  <Painstopper.stages.0.label>TODO</Painstopper.stages.0.label>
+  <!-- EN:  -->
+  <Painstopper.battleStateLabel>TODO</Painstopper.battleStateLabel>
+  <!-- EN:  -->
+  <Painstopper.labelNounPretty>TODO</Painstopper.labelNounPretty>
   <!-- EN: a painstopper -->
   <Painstopper.labelNoun>TODO</Painstopper.labelNoun>
-  
+
 </LanguageData>

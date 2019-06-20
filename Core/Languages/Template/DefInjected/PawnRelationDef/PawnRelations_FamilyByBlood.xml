@@ -1,76 +1,116 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: son -->
-  <Child.label>TODO</Child.label>
-  <!-- EN: daughter -->
-  <Child.labelFemale>TODO</Child.labelFemale>
-  
-  <!-- EN: cousin -->
-  <Cousin.label>TODO</Cousin.label>
-  
-  <!-- EN: cousin once removed -->
-  <CousinOnceRemoved.label>TODO</CousinOnceRemoved.label>
-  
-  <!-- EN: grandson -->
-  <Grandchild.label>TODO</Grandchild.label>
-  <!-- EN: granddaughter -->
-  <Grandchild.labelFemale>TODO</Grandchild.labelFemale>
-  
-  <!-- EN: grandnephew -->
-  <GrandnephewOrGrandniece.label>TODO</GrandnephewOrGrandniece.label>
-  <!-- EN: grandniece -->
-  <GrandnephewOrGrandniece.labelFemale>TODO</GrandnephewOrGrandniece.labelFemale>
-  
-  <!-- EN: grandfather -->
-  <Grandparent.label>TODO</Grandparent.label>
-  <!-- EN: grandmother -->
-  <Grandparent.labelFemale>TODO</Grandparent.labelFemale>
-  
-  <!-- EN: granduncle -->
-  <GranduncleOrGrandaunt.label>TODO</GranduncleOrGrandaunt.label>
-  <!-- EN: grandaunt -->
-  <GranduncleOrGrandaunt.labelFemale>TODO</GranduncleOrGrandaunt.labelFemale>
-  
-  <!-- EN: great grandson -->
-  <GreatGrandchild.label>TODO</GreatGrandchild.label>
-  <!-- EN: great granddaughter -->
-  <GreatGrandchild.labelFemale>TODO</GreatGrandchild.labelFemale>
-  
-  <!-- EN: great grandfather -->
-  <GreatGrandparent.label>TODO</GreatGrandparent.label>
-  <!-- EN: great grandmother -->
-  <GreatGrandparent.labelFemale>TODO</GreatGrandparent.labelFemale>
-  
-  <!-- EN: brother -->
-  <HalfSibling.label>TODO</HalfSibling.label>
-  <!-- EN: sister -->
-  <HalfSibling.labelFemale>TODO</HalfSibling.labelFemale>
-  
-  <!-- EN: kin -->
-  <Kin.label>TODO</Kin.label>
-  
-  <!-- EN: nephew -->
-  <NephewOrNiece.label>TODO</NephewOrNiece.label>
-  <!-- EN: niece -->
-  <NephewOrNiece.labelFemale>TODO</NephewOrNiece.labelFemale>
-  
+
   <!-- EN: father -->
   <Parent.label>TODO</Parent.label>
+  <!-- EN:  -->
+  <Parent.description>TODO</Parent.description>
   <!-- EN: mother -->
   <Parent.labelFemale>TODO</Parent.labelFemale>
-  
-  <!-- EN: second cousin -->
-  <SecondCousin.label>TODO</SecondCousin.label>
-  
+
+  <!-- EN: son -->
+  <Child.label>TODO</Child.label>
+  <!-- EN:  -->
+  <Child.description>TODO</Child.description>
+  <!-- EN: daughter -->
+  <Child.labelFemale>TODO</Child.labelFemale>
+
   <!-- EN: brother -->
   <Sibling.label>TODO</Sibling.label>
+  <!-- EN:  -->
+  <Sibling.description>TODO</Sibling.description>
   <!-- EN: sister -->
   <Sibling.labelFemale>TODO</Sibling.labelFemale>
-  
+
+  <!-- EN: brother -->
+  <HalfSibling.label>TODO</HalfSibling.label>
+  <!-- EN:  -->
+  <HalfSibling.description>TODO</HalfSibling.description>
+  <!-- EN: sister -->
+  <HalfSibling.labelFemale>TODO</HalfSibling.labelFemale>
+
+  <!-- EN: grandfather -->
+  <Grandparent.label>TODO</Grandparent.label>
+  <!-- EN:  -->
+  <Grandparent.description>TODO</Grandparent.description>
+  <!-- EN: grandmother -->
+  <Grandparent.labelFemale>TODO</Grandparent.labelFemale>
+
+  <!-- EN: grandson -->
+  <Grandchild.label>TODO</Grandchild.label>
+  <!-- EN:  -->
+  <Grandchild.description>TODO</Grandchild.description>
+  <!-- EN: granddaughter -->
+  <Grandchild.labelFemale>TODO</Grandchild.labelFemale>
+
+  <!-- EN: nephew -->
+  <NephewOrNiece.label>TODO</NephewOrNiece.label>
+  <!-- EN:  -->
+  <NephewOrNiece.description>TODO</NephewOrNiece.description>
+  <!-- EN: niece -->
+  <NephewOrNiece.labelFemale>TODO</NephewOrNiece.labelFemale>
+
   <!-- EN: uncle -->
   <UncleOrAunt.label>TODO</UncleOrAunt.label>
+  <!-- EN:  -->
+  <UncleOrAunt.description>TODO</UncleOrAunt.description>
   <!-- EN: aunt -->
   <UncleOrAunt.labelFemale>TODO</UncleOrAunt.labelFemale>
-  
+
+  <!-- EN: cousin -->
+  <Cousin.label>TODO</Cousin.label>
+  <!-- EN:  -->
+  <Cousin.description>TODO</Cousin.description>
+  <!-- EN:  -->
+  <Cousin.labelFemale>TODO</Cousin.labelFemale>
+
+  <!-- EN: great grandfather -->
+  <GreatGrandparent.label>TODO</GreatGrandparent.label>
+  <!-- EN:  -->
+  <GreatGrandparent.description>TODO</GreatGrandparent.description>
+  <!-- EN: great grandmother -->
+  <GreatGrandparent.labelFemale>TODO</GreatGrandparent.labelFemale>
+
+  <!-- EN: great grandson -->
+  <GreatGrandchild.label>TODO</GreatGrandchild.label>
+  <!-- EN:  -->
+  <GreatGrandchild.description>TODO</GreatGrandchild.description>
+  <!-- EN: great granddaughter -->
+  <GreatGrandchild.labelFemale>TODO</GreatGrandchild.labelFemale>
+
+  <!-- EN: granduncle -->
+  <GranduncleOrGrandaunt.label>TODO</GranduncleOrGrandaunt.label>
+  <!-- EN:  -->
+  <GranduncleOrGrandaunt.description>TODO</GranduncleOrGrandaunt.description>
+  <!-- EN: grandaunt -->
+  <GranduncleOrGrandaunt.labelFemale>TODO</GranduncleOrGrandaunt.labelFemale>
+
+  <!-- EN: grandnephew -->
+  <GrandnephewOrGrandniece.label>TODO</GrandnephewOrGrandniece.label>
+  <!-- EN:  -->
+  <GrandnephewOrGrandniece.description>TODO</GrandnephewOrGrandniece.description>
+  <!-- EN: grandniece -->
+  <GrandnephewOrGrandniece.labelFemale>TODO</GrandnephewOrGrandniece.labelFemale>
+
+  <!-- EN: cousin once removed -->
+  <CousinOnceRemoved.label>TODO</CousinOnceRemoved.label>
+  <!-- EN:  -->
+  <CousinOnceRemoved.description>TODO</CousinOnceRemoved.description>
+  <!-- EN:  -->
+  <CousinOnceRemoved.labelFemale>TODO</CousinOnceRemoved.labelFemale>
+
+  <!-- EN: second cousin -->
+  <SecondCousin.label>TODO</SecondCousin.label>
+  <!-- EN:  -->
+  <SecondCousin.description>TODO</SecondCousin.description>
+  <!-- EN:  -->
+  <SecondCousin.labelFemale>TODO</SecondCousin.labelFemale>
+
+  <!-- EN: kin -->
+  <Kin.label>TODO</Kin.label>
+  <!-- EN:  -->
+  <Kin.description>TODO</Kin.description>
+  <!-- EN:  -->
+  <Kin.labelFemale>TODO</Kin.labelFemale>
+
 </LanguageData>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Special.label>TODO</Special.label>
+  <!-- EN:  -->
+  <Special.description>TODO</Special.description>
+
+  <!-- EN:  -->
+  <Misc.label>TODO</Misc.label>
+  <!-- EN:  -->
+  <Misc.description>TODO</Misc.description>
+
+  <!-- EN:  -->
+  <ThreatSmall.label>TODO</ThreatSmall.label>
+  <!-- EN:  -->
+  <ThreatSmall.description>TODO</ThreatSmall.description>
+
+  <!-- EN:  -->
+  <ThreatBig.label>TODO</ThreatBig.label>
+  <!-- EN:  -->
+  <ThreatBig.description>TODO</ThreatBig.description>
+
+  <!-- EN:  -->
+  <FactionArrival.label>TODO</FactionArrival.label>
+  <!-- EN:  -->
+  <FactionArrival.description>TODO</FactionArrival.description>
+
+  <!-- EN:  -->
+  <OrbitalVisitor.label>TODO</OrbitalVisitor.label>
+  <!-- EN:  -->
+  <OrbitalVisitor.description>TODO</OrbitalVisitor.description>
+
+  <!-- EN:  -->
+  <ShipChunkDrop.label>TODO</ShipChunkDrop.label>
+  <!-- EN:  -->
+  <ShipChunkDrop.description>TODO</ShipChunkDrop.description>
+
+  <!-- EN:  -->
+  <DiseaseHuman.label>TODO</DiseaseHuman.label>
+  <!-- EN:  -->
+  <DiseaseHuman.description>TODO</DiseaseHuman.description>
+
+  <!-- EN:  -->
+  <DiseaseAnimal.label>TODO</DiseaseAnimal.label>
+  <!-- EN:  -->
+  <DiseaseAnimal.description>TODO</DiseaseAnimal.description>
+
+  <!-- EN:  -->
+  <AllyAssistance.label>TODO</AllyAssistance.label>
+  <!-- EN:  -->
+  <AllyAssistance.description>TODO</AllyAssistance.description>
+
+  <!-- EN:  -->
+  <JourneyOffer.label>TODO</JourneyOffer.label>
+  <!-- EN:  -->
+  <JourneyOffer.description>TODO</JourneyOffer.description>
+
+  <!-- EN:  -->
+  <RaidBeacon.label>TODO</RaidBeacon.label>
+  <!-- EN:  -->
+  <RaidBeacon.description>TODO</RaidBeacon.description>
+
+  <!-- EN:  -->
+  <WorldQuest.label>TODO</WorldQuest.label>
+  <!-- EN:  -->
+  <WorldQuest.description>TODO</WorldQuest.description>
+
+  <!-- EN:  -->
+  <DeepDrillInfestation.label>TODO</DeepDrillInfestation.label>
+  <!-- EN:  -->
+  <DeepDrillInfestation.description>TODO</DeepDrillInfestation.description>
+
+</LanguageData>

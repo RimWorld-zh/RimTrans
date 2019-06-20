@@ -1,172 +1,362 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: install archotech arm -->
-  <InstallArchotechArm.label>TODO</InstallArchotechArm.label>
-  <!-- EN: Install an archotech arm. -->
-  <InstallArchotechArm.description>TODO</InstallArchotechArm.description>
-  <!-- EN: Installing archotech arm. -->
-  <InstallArchotechArm.jobString>TODO</InstallArchotechArm.jobString>
-  
-  <!-- EN: install archotech eye -->
-  <InstallArchotechEye.label>TODO</InstallArchotechEye.label>
-  <!-- EN: Install an archotech eye. -->
-  <InstallArchotechEye.description>TODO</InstallArchotechEye.description>
-  <!-- EN: Installing archotech eye. -->
-  <InstallArchotechEye.jobString>TODO</InstallArchotechEye.jobString>
-  
-  <!-- EN: install archotech leg -->
-  <InstallArchotechLeg.label>TODO</InstallArchotechLeg.label>
-  <!-- EN: Install an archotech leg. -->
-  <InstallArchotechLeg.description>TODO</InstallArchotechLeg.description>
-  <!-- EN: Installing archotech leg. -->
-  <InstallArchotechLeg.jobString>TODO</InstallArchotechLeg.jobString>
-  
-  <!-- EN: install bionic arm -->
-  <InstallBionicArm.label>TODO</InstallBionicArm.label>
-  <!-- EN: Install a bionic arm. -->
-  <InstallBionicArm.description>TODO</InstallBionicArm.description>
-  <!-- EN: Installing bionic arm. -->
-  <InstallBionicArm.jobString>TODO</InstallBionicArm.jobString>
-  
-  <!-- EN: install bionic ear -->
-  <InstallBionicEar.label>TODO</InstallBionicEar.label>
-  <!-- EN: Install a bionic ear. -->
-  <InstallBionicEar.description>TODO</InstallBionicEar.description>
-  <!-- EN: Installing bionic ear. -->
-  <InstallBionicEar.jobString>TODO</InstallBionicEar.jobString>
-  
-  <!-- EN: install bionic eye -->
-  <InstallBionicEye.label>TODO</InstallBionicEye.label>
-  <!-- EN: Install a bionic eye. -->
-  <InstallBionicEye.description>TODO</InstallBionicEye.description>
-  <!-- EN: Installing bionic eye. -->
-  <InstallBionicEye.jobString>TODO</InstallBionicEye.jobString>
-  
-  <!-- EN: install bionic heart -->
-  <InstallBionicHeart.label>TODO</InstallBionicHeart.label>
-  <!-- EN: Install a bionic heart. -->
-  <InstallBionicHeart.description>TODO</InstallBionicHeart.description>
-  <!-- EN: Installing bionic heart. -->
-  <InstallBionicHeart.jobString>TODO</InstallBionicHeart.jobString>
-  
-  <!-- EN: install bionic leg -->
-  <InstallBionicLeg.label>TODO</InstallBionicLeg.label>
-  <!-- EN: Install a bionic leg. -->
-  <InstallBionicLeg.description>TODO</InstallBionicLeg.description>
-  <!-- EN: Installing bionic leg. -->
-  <InstallBionicLeg.jobString>TODO</InstallBionicLeg.jobString>
-  
-  <!-- EN: install bionic spine -->
-  <InstallBionicSpine.label>TODO</InstallBionicSpine.label>
-  <!-- EN: Install a bionic spine. -->
-  <InstallBionicSpine.description>TODO</InstallBionicSpine.description>
-  <!-- EN: Installing bionic spine. -->
-  <InstallBionicSpine.jobString>TODO</InstallBionicSpine.jobString>
-  
-  <!-- EN: install bionic stomach -->
-  <InstallBionicStomach.label>TODO</InstallBionicStomach.label>
-  <!-- EN: Install a bionic stomach. -->
-  <InstallBionicStomach.description>TODO</InstallBionicStomach.description>
-  <!-- EN: Installing bionic stomach. -->
-  <InstallBionicStomach.jobString>TODO</InstallBionicStomach.jobString>
-  
-  <!-- EN: install cochlear implant -->
-  <InstallCochlearImplant.label>TODO</InstallCochlearImplant.label>
-  <!-- EN: Install a cochlear implant. -->
-  <InstallCochlearImplant.description>TODO</InstallCochlearImplant.description>
-  <!-- EN: Installing cochlear implant. -->
-  <InstallCochlearImplant.jobString>TODO</InstallCochlearImplant.jobString>
-  
-  <!-- EN: install denture -->
-  <InstallDenture.label>TODO</InstallDenture.label>
-  <!-- EN: Install a denture. -->
-  <InstallDenture.description>TODO</InstallDenture.description>
-  <!-- EN: Installing denture. -->
-  <InstallDenture.jobString>TODO</InstallDenture.jobString>
-  
-  <!-- EN: install joywire -->
-  <InstallJoywire.label>TODO</InstallJoywire.label>
-  <!-- EN: Install a joywire. -->
-  <InstallJoywire.description>TODO</InstallJoywire.description>
-  <!-- EN: Installing joywire. -->
-  <InstallJoywire.jobString>TODO</InstallJoywire.jobString>
-  
-  <!-- EN: install heart -->
-  <InstallNaturalHeart.label>TODO</InstallNaturalHeart.label>
-  <!-- EN: Install a biological heart. -->
-  <InstallNaturalHeart.description>TODO</InstallNaturalHeart.description>
-  <!-- EN: Installing heart. -->
-  <InstallNaturalHeart.jobString>TODO</InstallNaturalHeart.jobString>
-  
+
   <!-- EN: install kidney -->
   <InstallNaturalKidney.label>TODO</InstallNaturalKidney.label>
   <!-- EN: Install a biological kidney. -->
   <InstallNaturalKidney.description>TODO</InstallNaturalKidney.description>
   <!-- EN: Installing kidney. -->
   <InstallNaturalKidney.jobString>TODO</InstallNaturalKidney.jobString>
-  
+  <!-- EN:  -->
+  <InstallNaturalKidney.ingredients.0.filter.customSummary>TODO</InstallNaturalKidney.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalKidney.ingredients.1.filter.customSummary>TODO</InstallNaturalKidney.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalKidney.fixedIngredientFilter.customSummary>TODO</InstallNaturalKidney.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalKidney.successfullyRemovedHediffMessage>TODO</InstallNaturalKidney.successfullyRemovedHediffMessage>
+
   <!-- EN: install liver -->
   <InstallNaturalLiver.label>TODO</InstallNaturalLiver.label>
   <!-- EN: Install a biological liver. -->
   <InstallNaturalLiver.description>TODO</InstallNaturalLiver.description>
   <!-- EN: Installing liver. -->
   <InstallNaturalLiver.jobString>TODO</InstallNaturalLiver.jobString>
-  
+  <!-- EN:  -->
+  <InstallNaturalLiver.ingredients.0.filter.customSummary>TODO</InstallNaturalLiver.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalLiver.ingredients.1.filter.customSummary>TODO</InstallNaturalLiver.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalLiver.fixedIngredientFilter.customSummary>TODO</InstallNaturalLiver.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalLiver.successfullyRemovedHediffMessage>TODO</InstallNaturalLiver.successfullyRemovedHediffMessage>
+
   <!-- EN: install lung -->
   <InstallNaturalLung.label>TODO</InstallNaturalLung.label>
   <!-- EN: Install a lung. -->
   <InstallNaturalLung.description>TODO</InstallNaturalLung.description>
   <!-- EN: Installing lung. -->
   <InstallNaturalLung.jobString>TODO</InstallNaturalLung.jobString>
-  
-  <!-- EN: install painstopper -->
-  <InstallPainstopper.label>TODO</InstallPainstopper.label>
-  <!-- EN: Install a painstopper. -->
-  <InstallPainstopper.description>TODO</InstallPainstopper.description>
-  <!-- EN: Installing painstopper. -->
-  <InstallPainstopper.jobString>TODO</InstallPainstopper.jobString>
-  
+  <!-- EN:  -->
+  <InstallNaturalLung.ingredients.0.filter.customSummary>TODO</InstallNaturalLung.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalLung.ingredients.1.filter.customSummary>TODO</InstallNaturalLung.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalLung.fixedIngredientFilter.customSummary>TODO</InstallNaturalLung.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalLung.successfullyRemovedHediffMessage>TODO</InstallNaturalLung.successfullyRemovedHediffMessage>
+
+  <!-- EN: install heart -->
+  <InstallNaturalHeart.label>TODO</InstallNaturalHeart.label>
+  <!-- EN: Install a biological heart. -->
+  <InstallNaturalHeart.description>TODO</InstallNaturalHeart.description>
+  <!-- EN: Installing heart. -->
+  <InstallNaturalHeart.jobString>TODO</InstallNaturalHeart.jobString>
+  <!-- EN:  -->
+  <InstallNaturalHeart.ingredients.0.filter.customSummary>TODO</InstallNaturalHeart.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalHeart.ingredients.1.filter.customSummary>TODO</InstallNaturalHeart.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalHeart.fixedIngredientFilter.customSummary>TODO</InstallNaturalHeart.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallNaturalHeart.successfullyRemovedHediffMessage>TODO</InstallNaturalHeart.successfullyRemovedHediffMessage>
+
   <!-- EN: install peg leg -->
   <InstallPegLeg.label>TODO</InstallPegLeg.label>
   <!-- EN: Install a peg leg. -->
   <InstallPegLeg.description>TODO</InstallPegLeg.description>
   <!-- EN: Installing peg leg. -->
   <InstallPegLeg.jobString>TODO</InstallPegLeg.jobString>
-  
-  <!-- EN: install power claw -->
-  <InstallPowerClaw.label>TODO</InstallPowerClaw.label>
-  <!-- EN: Install a power claw. -->
-  <InstallPowerClaw.description>TODO</InstallPowerClaw.description>
-  <!-- EN: Installing power claw. -->
-  <InstallPowerClaw.jobString>TODO</InstallPowerClaw.jobString>
-  
-  <!-- EN: install prosthetic arm -->
-  <InstallSimpleProstheticArm.label>TODO</InstallSimpleProstheticArm.label>
-  <!-- EN: Install a prosthetic arm. -->
-  <InstallSimpleProstheticArm.description>TODO</InstallSimpleProstheticArm.description>
-  <!-- EN: Installing prosthetic arm. -->
-  <InstallSimpleProstheticArm.jobString>TODO</InstallSimpleProstheticArm.jobString>
-  
-  <!-- EN: install prosthetic heart -->
-  <InstallSimpleProstheticHeart.label>TODO</InstallSimpleProstheticHeart.label>
-  <!-- EN: Install a prosthetic heart. -->
-  <InstallSimpleProstheticHeart.description>TODO</InstallSimpleProstheticHeart.description>
-  <!-- EN: Installing prosthetic heart. -->
-  <InstallSimpleProstheticHeart.jobString>TODO</InstallSimpleProstheticHeart.jobString>
-  
-  <!-- EN: install prosthetic leg -->
-  <InstallSimpleProstheticLeg.label>TODO</InstallSimpleProstheticLeg.label>
-  <!-- EN: Install a prosthetic leg. -->
-  <InstallSimpleProstheticLeg.description>TODO</InstallSimpleProstheticLeg.description>
-  <!-- EN: Installing prosthetic leg. -->
-  <InstallSimpleProstheticLeg.jobString>TODO</InstallSimpleProstheticLeg.jobString>
-  
+  <!-- EN:  -->
+  <InstallPegLeg.ingredients.0.filter.customSummary>TODO</InstallPegLeg.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallPegLeg.ingredients.1.filter.customSummary>TODO</InstallPegLeg.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallPegLeg.fixedIngredientFilter.customSummary>TODO</InstallPegLeg.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallPegLeg.successfullyRemovedHediffMessage>TODO</InstallPegLeg.successfullyRemovedHediffMessage>
+
   <!-- EN: install wooden foot -->
   <InstallWoodenFoot.label>TODO</InstallWoodenFoot.label>
   <!-- EN: Install a wooden foot. -->
   <InstallWoodenFoot.description>TODO</InstallWoodenFoot.description>
   <!-- EN: Installing wooden foot. -->
   <InstallWoodenFoot.jobString>TODO</InstallWoodenFoot.jobString>
-  
+  <!-- EN:  -->
+  <InstallWoodenFoot.ingredients.0.filter.customSummary>TODO</InstallWoodenFoot.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallWoodenFoot.ingredients.1.filter.customSummary>TODO</InstallWoodenFoot.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallWoodenFoot.fixedIngredientFilter.customSummary>TODO</InstallWoodenFoot.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallWoodenFoot.successfullyRemovedHediffMessage>TODO</InstallWoodenFoot.successfullyRemovedHediffMessage>
+
+  <!-- EN: install denture -->
+  <InstallDenture.label>TODO</InstallDenture.label>
+  <!-- EN: Install a denture. -->
+  <InstallDenture.description>TODO</InstallDenture.description>
+  <!-- EN: Installing denture. -->
+  <InstallDenture.jobString>TODO</InstallDenture.jobString>
+  <!-- EN:  -->
+  <InstallDenture.ingredients.0.filter.customSummary>TODO</InstallDenture.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallDenture.fixedIngredientFilter.customSummary>TODO</InstallDenture.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallDenture.successfullyRemovedHediffMessage>TODO</InstallDenture.successfullyRemovedHediffMessage>
+
+  <!-- EN: install prosthetic leg -->
+  <InstallSimpleProstheticLeg.label>TODO</InstallSimpleProstheticLeg.label>
+  <!-- EN: Install a prosthetic leg. -->
+  <InstallSimpleProstheticLeg.description>TODO</InstallSimpleProstheticLeg.description>
+  <!-- EN: Installing prosthetic leg. -->
+  <InstallSimpleProstheticLeg.jobString>TODO</InstallSimpleProstheticLeg.jobString>
+  <!-- EN:  -->
+  <InstallSimpleProstheticLeg.ingredients.0.filter.customSummary>TODO</InstallSimpleProstheticLeg.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticLeg.ingredients.1.filter.customSummary>TODO</InstallSimpleProstheticLeg.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticLeg.fixedIngredientFilter.customSummary>TODO</InstallSimpleProstheticLeg.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticLeg.successfullyRemovedHediffMessage>TODO</InstallSimpleProstheticLeg.successfullyRemovedHediffMessage>
+
+  <!-- EN: install prosthetic arm -->
+  <InstallSimpleProstheticArm.label>TODO</InstallSimpleProstheticArm.label>
+  <!-- EN: Install a prosthetic arm. -->
+  <InstallSimpleProstheticArm.description>TODO</InstallSimpleProstheticArm.description>
+  <!-- EN: Installing prosthetic arm. -->
+  <InstallSimpleProstheticArm.jobString>TODO</InstallSimpleProstheticArm.jobString>
+  <!-- EN:  -->
+  <InstallSimpleProstheticArm.ingredients.0.filter.customSummary>TODO</InstallSimpleProstheticArm.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticArm.ingredients.1.filter.customSummary>TODO</InstallSimpleProstheticArm.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticArm.fixedIngredientFilter.customSummary>TODO</InstallSimpleProstheticArm.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticArm.successfullyRemovedHediffMessage>TODO</InstallSimpleProstheticArm.successfullyRemovedHediffMessage>
+
+  <!-- EN: install prosthetic heart -->
+  <InstallSimpleProstheticHeart.label>TODO</InstallSimpleProstheticHeart.label>
+  <!-- EN: Install a prosthetic heart. -->
+  <InstallSimpleProstheticHeart.description>TODO</InstallSimpleProstheticHeart.description>
+  <!-- EN: Installing prosthetic heart. -->
+  <InstallSimpleProstheticHeart.jobString>TODO</InstallSimpleProstheticHeart.jobString>
+  <!-- EN:  -->
+  <InstallSimpleProstheticHeart.ingredients.0.filter.customSummary>TODO</InstallSimpleProstheticHeart.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticHeart.ingredients.1.filter.customSummary>TODO</InstallSimpleProstheticHeart.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticHeart.fixedIngredientFilter.customSummary>TODO</InstallSimpleProstheticHeart.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallSimpleProstheticHeart.successfullyRemovedHediffMessage>TODO</InstallSimpleProstheticHeart.successfullyRemovedHediffMessage>
+
+  <!-- EN: install cochlear implant -->
+  <InstallCochlearImplant.label>TODO</InstallCochlearImplant.label>
+  <!-- EN: Install a cochlear implant. -->
+  <InstallCochlearImplant.description>TODO</InstallCochlearImplant.description>
+  <!-- EN: Installing cochlear implant. -->
+  <InstallCochlearImplant.jobString>TODO</InstallCochlearImplant.jobString>
+  <!-- EN:  -->
+  <InstallCochlearImplant.ingredients.0.filter.customSummary>TODO</InstallCochlearImplant.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallCochlearImplant.ingredients.1.filter.customSummary>TODO</InstallCochlearImplant.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallCochlearImplant.fixedIngredientFilter.customSummary>TODO</InstallCochlearImplant.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallCochlearImplant.successfullyRemovedHediffMessage>TODO</InstallCochlearImplant.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic arm -->
+  <InstallBionicArm.label>TODO</InstallBionicArm.label>
+  <!-- EN: Install a bionic arm. -->
+  <InstallBionicArm.description>TODO</InstallBionicArm.description>
+  <!-- EN: Installing bionic arm. -->
+  <InstallBionicArm.jobString>TODO</InstallBionicArm.jobString>
+  <!-- EN:  -->
+  <InstallBionicArm.ingredients.0.filter.customSummary>TODO</InstallBionicArm.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicArm.ingredients.1.filter.customSummary>TODO</InstallBionicArm.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicArm.fixedIngredientFilter.customSummary>TODO</InstallBionicArm.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicArm.successfullyRemovedHediffMessage>TODO</InstallBionicArm.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic leg -->
+  <InstallBionicLeg.label>TODO</InstallBionicLeg.label>
+  <!-- EN: Install a bionic leg. -->
+  <InstallBionicLeg.description>TODO</InstallBionicLeg.description>
+  <!-- EN: Installing bionic leg. -->
+  <InstallBionicLeg.jobString>TODO</InstallBionicLeg.jobString>
+  <!-- EN:  -->
+  <InstallBionicLeg.ingredients.0.filter.customSummary>TODO</InstallBionicLeg.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicLeg.ingredients.1.filter.customSummary>TODO</InstallBionicLeg.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicLeg.fixedIngredientFilter.customSummary>TODO</InstallBionicLeg.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicLeg.successfullyRemovedHediffMessage>TODO</InstallBionicLeg.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic spine -->
+  <InstallBionicSpine.label>TODO</InstallBionicSpine.label>
+  <!-- EN: Install a bionic spine. -->
+  <InstallBionicSpine.description>TODO</InstallBionicSpine.description>
+  <!-- EN: Installing bionic spine. -->
+  <InstallBionicSpine.jobString>TODO</InstallBionicSpine.jobString>
+  <!-- EN:  -->
+  <InstallBionicSpine.ingredients.0.filter.customSummary>TODO</InstallBionicSpine.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicSpine.ingredients.1.filter.customSummary>TODO</InstallBionicSpine.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicSpine.fixedIngredientFilter.customSummary>TODO</InstallBionicSpine.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicSpine.successfullyRemovedHediffMessage>TODO</InstallBionicSpine.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic heart -->
+  <InstallBionicHeart.label>TODO</InstallBionicHeart.label>
+  <!-- EN: Install a bionic heart. -->
+  <InstallBionicHeart.description>TODO</InstallBionicHeart.description>
+  <!-- EN: Installing bionic heart. -->
+  <InstallBionicHeart.jobString>TODO</InstallBionicHeart.jobString>
+  <!-- EN:  -->
+  <InstallBionicHeart.ingredients.0.filter.customSummary>TODO</InstallBionicHeart.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicHeart.ingredients.1.filter.customSummary>TODO</InstallBionicHeart.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicHeart.fixedIngredientFilter.customSummary>TODO</InstallBionicHeart.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicHeart.successfullyRemovedHediffMessage>TODO</InstallBionicHeart.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic stomach -->
+  <InstallBionicStomach.label>TODO</InstallBionicStomach.label>
+  <!-- EN: Install a bionic stomach. -->
+  <InstallBionicStomach.description>TODO</InstallBionicStomach.description>
+  <!-- EN: Installing bionic stomach. -->
+  <InstallBionicStomach.jobString>TODO</InstallBionicStomach.jobString>
+  <!-- EN:  -->
+  <InstallBionicStomach.ingredients.0.filter.customSummary>TODO</InstallBionicStomach.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicStomach.ingredients.1.filter.customSummary>TODO</InstallBionicStomach.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicStomach.fixedIngredientFilter.customSummary>TODO</InstallBionicStomach.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicStomach.successfullyRemovedHediffMessage>TODO</InstallBionicStomach.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic ear -->
+  <InstallBionicEar.label>TODO</InstallBionicEar.label>
+  <!-- EN: Install a bionic ear. -->
+  <InstallBionicEar.description>TODO</InstallBionicEar.description>
+  <!-- EN: Installing bionic ear. -->
+  <InstallBionicEar.jobString>TODO</InstallBionicEar.jobString>
+  <!-- EN:  -->
+  <InstallBionicEar.ingredients.0.filter.customSummary>TODO</InstallBionicEar.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicEar.ingredients.1.filter.customSummary>TODO</InstallBionicEar.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicEar.fixedIngredientFilter.customSummary>TODO</InstallBionicEar.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicEar.successfullyRemovedHediffMessage>TODO</InstallBionicEar.successfullyRemovedHediffMessage>
+
+  <!-- EN: install archotech arm -->
+  <InstallArchotechArm.label>TODO</InstallArchotechArm.label>
+  <!-- EN: Install an archotech arm. -->
+  <InstallArchotechArm.description>TODO</InstallArchotechArm.description>
+  <!-- EN: Installing archotech arm. -->
+  <InstallArchotechArm.jobString>TODO</InstallArchotechArm.jobString>
+  <!-- EN:  -->
+  <InstallArchotechArm.ingredients.0.filter.customSummary>TODO</InstallArchotechArm.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechArm.ingredients.1.filter.customSummary>TODO</InstallArchotechArm.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechArm.fixedIngredientFilter.customSummary>TODO</InstallArchotechArm.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechArm.successfullyRemovedHediffMessage>TODO</InstallArchotechArm.successfullyRemovedHediffMessage>
+
+  <!-- EN: install archotech leg -->
+  <InstallArchotechLeg.label>TODO</InstallArchotechLeg.label>
+  <!-- EN: Install an archotech leg. -->
+  <InstallArchotechLeg.description>TODO</InstallArchotechLeg.description>
+  <!-- EN: Installing archotech leg. -->
+  <InstallArchotechLeg.jobString>TODO</InstallArchotechLeg.jobString>
+  <!-- EN:  -->
+  <InstallArchotechLeg.ingredients.0.filter.customSummary>TODO</InstallArchotechLeg.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechLeg.ingredients.1.filter.customSummary>TODO</InstallArchotechLeg.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechLeg.fixedIngredientFilter.customSummary>TODO</InstallArchotechLeg.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechLeg.successfullyRemovedHediffMessage>TODO</InstallArchotechLeg.successfullyRemovedHediffMessage>
+
+  <!-- EN: install power claw -->
+  <InstallPowerClaw.label>TODO</InstallPowerClaw.label>
+  <!-- EN: Install a power claw. -->
+  <InstallPowerClaw.description>TODO</InstallPowerClaw.description>
+  <!-- EN: Installing power claw. -->
+  <InstallPowerClaw.jobString>TODO</InstallPowerClaw.jobString>
+  <!-- EN:  -->
+  <InstallPowerClaw.ingredients.0.filter.customSummary>TODO</InstallPowerClaw.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallPowerClaw.ingredients.1.filter.customSummary>TODO</InstallPowerClaw.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallPowerClaw.fixedIngredientFilter.customSummary>TODO</InstallPowerClaw.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallPowerClaw.successfullyRemovedHediffMessage>TODO</InstallPowerClaw.successfullyRemovedHediffMessage>
+
+  <!-- EN: install bionic eye -->
+  <InstallBionicEye.label>TODO</InstallBionicEye.label>
+  <!-- EN: Install a bionic eye. -->
+  <InstallBionicEye.description>TODO</InstallBionicEye.description>
+  <!-- EN: Installing bionic eye. -->
+  <InstallBionicEye.jobString>TODO</InstallBionicEye.jobString>
+  <!-- EN:  -->
+  <InstallBionicEye.ingredients.0.filter.customSummary>TODO</InstallBionicEye.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicEye.ingredients.1.filter.customSummary>TODO</InstallBionicEye.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicEye.fixedIngredientFilter.customSummary>TODO</InstallBionicEye.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallBionicEye.successfullyRemovedHediffMessage>TODO</InstallBionicEye.successfullyRemovedHediffMessage>
+
+  <!-- EN: install archotech eye -->
+  <InstallArchotechEye.label>TODO</InstallArchotechEye.label>
+  <!-- EN: Install an archotech eye. -->
+  <InstallArchotechEye.description>TODO</InstallArchotechEye.description>
+  <!-- EN: Installing archotech eye. -->
+  <InstallArchotechEye.jobString>TODO</InstallArchotechEye.jobString>
+  <!-- EN:  -->
+  <InstallArchotechEye.ingredients.0.filter.customSummary>TODO</InstallArchotechEye.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechEye.ingredients.1.filter.customSummary>TODO</InstallArchotechEye.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechEye.fixedIngredientFilter.customSummary>TODO</InstallArchotechEye.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallArchotechEye.successfullyRemovedHediffMessage>TODO</InstallArchotechEye.successfullyRemovedHediffMessage>
+
+  <!-- EN: install joywire -->
+  <InstallJoywire.label>TODO</InstallJoywire.label>
+  <!-- EN: Install a joywire. -->
+  <InstallJoywire.description>TODO</InstallJoywire.description>
+  <!-- EN: Installing joywire. -->
+  <InstallJoywire.jobString>TODO</InstallJoywire.jobString>
+  <!-- EN:  -->
+  <InstallJoywire.ingredients.0.filter.customSummary>TODO</InstallJoywire.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallJoywire.ingredients.1.filter.customSummary>TODO</InstallJoywire.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallJoywire.fixedIngredientFilter.customSummary>TODO</InstallJoywire.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallJoywire.successfullyRemovedHediffMessage>TODO</InstallJoywire.successfullyRemovedHediffMessage>
+
+  <!-- EN: install painstopper -->
+  <InstallPainstopper.label>TODO</InstallPainstopper.label>
+  <!-- EN: Install a painstopper. -->
+  <InstallPainstopper.description>TODO</InstallPainstopper.description>
+  <!-- EN: Installing painstopper. -->
+  <InstallPainstopper.jobString>TODO</InstallPainstopper.jobString>
+  <!-- EN:  -->
+  <InstallPainstopper.ingredients.0.filter.customSummary>TODO</InstallPainstopper.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <InstallPainstopper.ingredients.1.filter.customSummary>TODO</InstallPainstopper.ingredients.1.filter.customSummary>
+  <!-- EN:  -->
+  <InstallPainstopper.fixedIngredientFilter.customSummary>TODO</InstallPainstopper.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <InstallPainstopper.successfullyRemovedHediffMessage>TODO</InstallPainstopper.successfullyRemovedHediffMessage>
+
 </LanguageData>

@@ -1,55 +1,123 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: building snowman. -->
-  <BuildSnowman.reportString>TODO</BuildSnowman.reportString>
-  
-  <!-- EN: going for a walk. -->
-  <GoForWalk.reportString>TODO</GoForWalk.reportString>
-  
-  <!-- EN: meditating. -->
-  <Meditate.reportString>TODO</Meditate.reportString>
-  
-  <!-- EN: playing billiards. -->
-  <Play_Billiards.reportString>TODO</Play_Billiards.reportString>
-  
-  <!-- EN: playing chess. -->
-  <Play_Chess.reportString>TODO</Play_Chess.reportString>
-  
-  <!-- EN: playing the game of Ur. -->
-  <Play_GameOfUr.reportString>TODO</Play_GameOfUr.reportString>
-  
-  <!-- EN: playing hoopstone. -->
-  <Play_Hoopstone.reportString>TODO</Play_Hoopstone.reportString>
-  
-  <!-- EN: playing horseshoes. -->
-  <Play_Horseshoes.reportString>TODO</Play_Horseshoes.reportString>
-  
-  <!-- EN: playing poker. -->
-  <Play_Poker.reportString>TODO</Play_Poker.reportString>
-  
-  <!-- EN: praying. -->
-  <Pray.reportString>TODO</Pray.reportString>
-  
+
+  <!-- EN:  -->
+  <Skygaze.label>TODO</Skygaze.label>
+  <!-- EN:  -->
+  <Skygaze.description>TODO</Skygaze.description>
   <!-- EN: skygazing. -->
   <Skygaze.reportString>TODO</Skygaze.reportString>
-  
-  <!-- EN: relaxing socially. -->
-  <SocialRelax.reportString>TODO</SocialRelax.reportString>
-  
-  <!-- EN: using telescope. -->
-  <UseTelescope.reportString>TODO</UseTelescope.reportString>
-  
-  <!-- EN: viewing art. -->
-  <ViewArt.reportString>TODO</ViewArt.reportString>
-  
+
+  <!-- EN:  -->
+  <Meditate.label>TODO</Meditate.label>
+  <!-- EN:  -->
+  <Meditate.description>TODO</Meditate.description>
+  <!-- EN: meditating. -->
+  <Meditate.reportString>TODO</Meditate.reportString>
+
+  <!-- EN:  -->
+  <Pray.label>TODO</Pray.label>
+  <!-- EN:  -->
+  <Pray.description>TODO</Pray.description>
+  <!-- EN: praying. -->
+  <Pray.reportString>TODO</Pray.reportString>
+
+  <!-- EN:  -->
+  <GoForWalk.label>TODO</GoForWalk.label>
+  <!-- EN:  -->
+  <GoForWalk.description>TODO</GoForWalk.description>
+  <!-- EN: going for a walk. -->
+  <GoForWalk.reportString>TODO</GoForWalk.reportString>
+
+  <!-- EN:  -->
+  <BuildSnowman.label>TODO</BuildSnowman.label>
+  <!-- EN:  -->
+  <BuildSnowman.description>TODO</BuildSnowman.description>
+  <!-- EN: building snowman. -->
+  <BuildSnowman.reportString>TODO</BuildSnowman.reportString>
+
+  <!-- EN:  -->
+  <VisitGrave.label>TODO</VisitGrave.label>
+  <!-- EN:  -->
+  <VisitGrave.description>TODO</VisitGrave.description>
   <!-- EN: visiting grave. -->
   <VisitGrave.reportString>TODO</VisitGrave.reportString>
-  
+
+  <!-- EN:  -->
+  <ViewArt.label>TODO</ViewArt.label>
+  <!-- EN:  -->
+  <ViewArt.description>TODO</ViewArt.description>
+  <!-- EN: viewing art. -->
+  <ViewArt.reportString>TODO</ViewArt.reportString>
+
+  <!-- EN:  -->
+  <SocialRelax.label>TODO</SocialRelax.label>
+  <!-- EN:  -->
+  <SocialRelax.description>TODO</SocialRelax.description>
+  <!-- EN: relaxing socially. -->
+  <SocialRelax.reportString>TODO</SocialRelax.reportString>
+
+  <!-- EN:  -->
+  <VisitSickPawn.label>TODO</VisitSickPawn.label>
+  <!-- EN:  -->
+  <VisitSickPawn.description>TODO</VisitSickPawn.description>
   <!-- EN: cheering up patient TargetA. -->
   <VisitSickPawn.reportString>TODO</VisitSickPawn.reportString>
-  
+
+  <!-- EN:  -->
+  <Play_Horseshoes.label>TODO</Play_Horseshoes.label>
+  <!-- EN:  -->
+  <Play_Horseshoes.description>TODO</Play_Horseshoes.description>
+  <!-- EN: playing horseshoes. -->
+  <Play_Horseshoes.reportString>TODO</Play_Horseshoes.reportString>
+
+  <!-- EN:  -->
+  <Play_Hoopstone.label>TODO</Play_Hoopstone.label>
+  <!-- EN:  -->
+  <Play_Hoopstone.description>TODO</Play_Hoopstone.description>
+  <!-- EN: playing hoopstone. -->
+  <Play_Hoopstone.reportString>TODO</Play_Hoopstone.reportString>
+
+  <!-- EN:  -->
+  <Play_GameOfUr.label>TODO</Play_GameOfUr.label>
+  <!-- EN:  -->
+  <Play_GameOfUr.description>TODO</Play_GameOfUr.description>
+  <!-- EN: playing the game of Ur. -->
+  <Play_GameOfUr.reportString>TODO</Play_GameOfUr.reportString>
+
+  <!-- EN:  -->
+  <Play_Chess.label>TODO</Play_Chess.label>
+  <!-- EN:  -->
+  <Play_Chess.description>TODO</Play_Chess.description>
+  <!-- EN: playing chess. -->
+  <Play_Chess.reportString>TODO</Play_Chess.reportString>
+
+  <!-- EN:  -->
+  <Play_Billiards.label>TODO</Play_Billiards.label>
+  <!-- EN:  -->
+  <Play_Billiards.description>TODO</Play_Billiards.description>
+  <!-- EN: playing billiards. -->
+  <Play_Billiards.reportString>TODO</Play_Billiards.reportString>
+
+  <!-- EN:  -->
+  <Play_Poker.label>TODO</Play_Poker.label>
+  <!-- EN:  -->
+  <Play_Poker.description>TODO</Play_Poker.description>
+  <!-- EN: playing poker. -->
+  <Play_Poker.reportString>TODO</Play_Poker.reportString>
+
+  <!-- EN:  -->
+  <WatchTelevision.label>TODO</WatchTelevision.label>
+  <!-- EN:  -->
+  <WatchTelevision.description>TODO</WatchTelevision.description>
   <!-- EN: watching television. -->
   <WatchTelevision.reportString>TODO</WatchTelevision.reportString>
-  
+
+  <!-- EN:  -->
+  <UseTelescope.label>TODO</UseTelescope.label>
+  <!-- EN:  -->
+  <UseTelescope.description>TODO</UseTelescope.description>
+  <!-- EN: using telescope. -->
+  <UseTelescope.reportString>TODO</UseTelescope.reportString>
+
 </LanguageData>

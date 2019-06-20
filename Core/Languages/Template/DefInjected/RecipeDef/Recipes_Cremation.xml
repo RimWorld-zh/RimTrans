@@ -1,25 +1,47 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: burn apparel -->
-  <BurnApparel.label>TODO</BurnApparel.label>
-  <!-- EN: Burn unwanted apparel to completely destroy it. -->
-  <BurnApparel.description>TODO</BurnApparel.description>
-  <!-- EN: Burning apparel. -->
-  <BurnApparel.jobString>TODO</BurnApparel.jobString>
-  
-  <!-- EN: burn drugs -->
-  <BurnDrugs.label>TODO</BurnDrugs.label>
-  <!-- EN: Burn unwanted drugs to completely destroy them. -->
-  <BurnDrugs.description>TODO</BurnDrugs.description>
-  <!-- EN: Burning drugs. -->
-  <BurnDrugs.jobString>TODO</BurnDrugs.jobString>
-  
+
   <!-- EN: cremate corpse -->
   <CremateCorpse.label>TODO</CremateCorpse.label>
   <!-- EN: Cremate a corpse to completely destroy it. -->
   <CremateCorpse.description>TODO</CremateCorpse.description>
   <!-- EN: Cremating. -->
   <CremateCorpse.jobString>TODO</CremateCorpse.jobString>
-  
+  <!-- EN:  -->
+  <CremateCorpse.ingredients.0.filter.customSummary>TODO</CremateCorpse.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <CremateCorpse.fixedIngredientFilter.customSummary>TODO</CremateCorpse.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CremateCorpse.defaultIngredientFilter.customSummary>TODO</CremateCorpse.defaultIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <CremateCorpse.successfullyRemovedHediffMessage>TODO</CremateCorpse.successfullyRemovedHediffMessage>
+
+  <!-- EN: burn apparel -->
+  <BurnApparel.label>TODO</BurnApparel.label>
+  <!-- EN: Burn unwanted apparel to completely destroy it. -->
+  <BurnApparel.description>TODO</BurnApparel.description>
+  <!-- EN: Burning apparel. -->
+  <BurnApparel.jobString>TODO</BurnApparel.jobString>
+  <!-- EN:  -->
+  <BurnApparel.ingredients.0.filter.customSummary>TODO</BurnApparel.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <BurnApparel.fixedIngredientFilter.customSummary>TODO</BurnApparel.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <BurnApparel.defaultIngredientFilter.customSummary>TODO</BurnApparel.defaultIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <BurnApparel.successfullyRemovedHediffMessage>TODO</BurnApparel.successfullyRemovedHediffMessage>
+
+  <!-- EN: burn drugs -->
+  <BurnDrugs.label>TODO</BurnDrugs.label>
+  <!-- EN: Burn unwanted drugs to completely destroy them. -->
+  <BurnDrugs.description>TODO</BurnDrugs.description>
+  <!-- EN: Burning drugs. -->
+  <BurnDrugs.jobString>TODO</BurnDrugs.jobString>
+  <!-- EN:  -->
+  <BurnDrugs.ingredients.0.filter.customSummary>TODO</BurnDrugs.ingredients.0.filter.customSummary>
+  <!-- EN:  -->
+  <BurnDrugs.fixedIngredientFilter.customSummary>TODO</BurnDrugs.fixedIngredientFilter.customSummary>
+  <!-- EN:  -->
+  <BurnDrugs.successfullyRemovedHediffMessage>TODO</BurnDrugs.successfullyRemovedHediffMessage>
+
 </LanguageData>

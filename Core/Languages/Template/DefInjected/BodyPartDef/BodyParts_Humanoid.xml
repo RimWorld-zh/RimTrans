@@ -1,46 +1,102 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  
-  <!-- EN: arm -->
-  <Arm.label>TODO</Arm.label>
-  
-  <!-- EN: clavicle -->
-  <Clavicle.label>TODO</Clavicle.label>
-  
-  <!-- EN: femur -->
-  <Femur.label>TODO</Femur.label>
-  
-  <!-- EN: finger -->
-  <Finger.label>TODO</Finger.label>
-  
-  <!-- EN: hand -->
-  <Hand.label>TODO</Hand.label>
-  
-  <!-- EN: humerus -->
-  <Humerus.label>TODO</Humerus.label>
-  
-  <!-- EN: pelvis -->
-  <Pelvis.label>TODO</Pelvis.label>
-  
-  <!-- EN: radius -->
-  <Radius.label>TODO</Radius.label>
-  
-  <!-- EN: shoulder -->
-  <Shoulder.label>TODO</Shoulder.label>
-  
-  <!-- EN: sternum -->
-  <Sternum.label>TODO</Sternum.label>
-  
-  <!-- EN: tibia -->
-  <Tibia.label>TODO</Tibia.label>
-  
-  <!-- EN: toe -->
-  <Toe.label>TODO</Toe.label>
-  
+
   <!-- EN: torso -->
   <Torso.label>TODO</Torso.label>
-  
+  <!-- EN:  -->
+  <Torso.description>TODO</Torso.description>
+  <!-- EN:  -->
+  <Torso.labelShort>TODO</Torso.labelShort>
+
+  <!-- EN: shoulder -->
+  <Shoulder.label>TODO</Shoulder.label>
+  <!-- EN:  -->
+  <Shoulder.description>TODO</Shoulder.description>
+  <!-- EN:  -->
+  <Shoulder.labelShort>TODO</Shoulder.labelShort>
+
+  <!-- EN: arm -->
+  <Arm.label>TODO</Arm.label>
+  <!-- EN:  -->
+  <Arm.description>TODO</Arm.description>
+  <!-- EN:  -->
+  <Arm.labelShort>TODO</Arm.labelShort>
+
+  <!-- EN: hand -->
+  <Hand.label>TODO</Hand.label>
+  <!-- EN:  -->
+  <Hand.description>TODO</Hand.description>
+  <!-- EN:  -->
+  <Hand.labelShort>TODO</Hand.labelShort>
+
+  <!-- EN: finger -->
+  <Finger.label>TODO</Finger.label>
+  <!-- EN:  -->
+  <Finger.description>TODO</Finger.description>
+  <!-- EN:  -->
+  <Finger.labelShort>TODO</Finger.labelShort>
+
   <!-- EN: waist -->
   <Waist.label>TODO</Waist.label>
-  
+  <!-- EN:  -->
+  <Waist.description>TODO</Waist.description>
+  <!-- EN:  -->
+  <Waist.labelShort>TODO</Waist.labelShort>
+
+  <!-- EN: toe -->
+  <Toe.label>TODO</Toe.label>
+  <!-- EN:  -->
+  <Toe.description>TODO</Toe.description>
+  <!-- EN:  -->
+  <Toe.labelShort>TODO</Toe.labelShort>
+
+  <!-- EN: clavicle -->
+  <Clavicle.label>TODO</Clavicle.label>
+  <!-- EN:  -->
+  <Clavicle.description>TODO</Clavicle.description>
+  <!-- EN:  -->
+  <Clavicle.labelShort>TODO</Clavicle.labelShort>
+
+  <!-- EN: sternum -->
+  <Sternum.label>TODO</Sternum.label>
+  <!-- EN:  -->
+  <Sternum.description>TODO</Sternum.description>
+  <!-- EN:  -->
+  <Sternum.labelShort>TODO</Sternum.labelShort>
+
+  <!-- EN: humerus -->
+  <Humerus.label>TODO</Humerus.label>
+  <!-- EN:  -->
+  <Humerus.description>TODO</Humerus.description>
+  <!-- EN:  -->
+  <Humerus.labelShort>TODO</Humerus.labelShort>
+
+  <!-- EN: radius -->
+  <Radius.label>TODO</Radius.label>
+  <!-- EN:  -->
+  <Radius.description>TODO</Radius.description>
+  <!-- EN:  -->
+  <Radius.labelShort>TODO</Radius.labelShort>
+
+  <!-- EN: pelvis -->
+  <Pelvis.label>TODO</Pelvis.label>
+  <!-- EN:  -->
+  <Pelvis.description>TODO</Pelvis.description>
+  <!-- EN:  -->
+  <Pelvis.labelShort>TODO</Pelvis.labelShort>
+
+  <!-- EN: femur -->
+  <Femur.label>TODO</Femur.label>
+  <!-- EN:  -->
+  <Femur.description>TODO</Femur.description>
+  <!-- EN:  -->
+  <Femur.labelShort>TODO</Femur.labelShort>
+
+  <!-- EN: tibia -->
+  <Tibia.label>TODO</Tibia.label>
+  <!-- EN:  -->
+  <Tibia.description>TODO</Tibia.description>
+  <!-- EN:  -->
+  <Tibia.labelShort>TODO</Tibia.labelShort>
+
 </LanguageData>
