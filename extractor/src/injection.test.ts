@@ -12,7 +12,7 @@ import {
   outputDefInjected,
   outputDefInjectedFuzzy,
 } from './utils.test';
-import * as xml from './xml';
+import { parseXML } from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
 import {
@@ -41,7 +41,7 @@ describe('injection', () => {
       definition.load(pathsDefs).then(definition.resolveInheritance),
       typePackage.load(pathsTypePackage),
     ]);
-    defMaps[0]['zmocks_1.xml'] = xml.parse(
+    defMaps[0]['zmocks_1.xml'] = parseXML(
       `<Defs>
         <ZMockDef>
           <defName>Mock1</defName>
@@ -70,7 +70,7 @@ describe('injection', () => {
       </Defs>`,
     );
     defMaps.push({
-      'mock.xml': xml.parse(
+      'mock.xml': parseXML(
         `<Defs>          
           <UnknownDef>
             <defName>Unknown</defName>

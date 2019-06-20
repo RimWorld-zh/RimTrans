@@ -1,7 +1,4 @@
 import { genPathResolve } from '@huiji/shared-utils';
-import * as xml from './xml';
-
-xml.mountDomPrototype();
 
 export const TEMP = '.tmp';
 

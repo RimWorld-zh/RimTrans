@@ -1,9 +1,10 @@
 import pth from 'path';
 import * as io from '@rimtrans/io';
-import * as xml from './xml';
+import { XElementData, loadXML } from './xml';
+import { replaceListItem, cloneObject } from './object';
 
 export interface DefDocumentMap {
-  [path: string]: XMLDocument;
+  [path: string]: XElementData;
 }
 
 // ----------------------------------------------------------------
@@ -30,7 +31,7 @@ export async function load(paths: string[]): Promise<DefDocumentMap[]> {
         .then(files =>
           Promise.all(
             files.map(async file => {
-              map[file] = await xml.load(pth.join(dir, file));
+              map[file] = await loadXML(pth.join(dir, file));
             }),
           ),
         );
@@ -48,8 +49,9 @@ const ATTRIBUTE_NAME_PARENT_NAME = 'ParentName';
 const ATTRIBUTE_NAME_INHERIT = 'Inherit';
 
 interface InheritanceNode {
-  def: Element;
-  resolvedDef?: Element;
+  root: XElementData;
+  def: XElementData;
+  resolvedDef?: XElementData;
   parent?: InheritanceNode;
   children: InheritanceNode[];
 }
@@ -72,17 +74,16 @@ export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
     Object.keys(map)
       .sort()
       .forEach(path => {
-        const {
-          documentElement: { children: defs },
-        } = map[path];
-        Array.from(defs).forEach(def => {
+        const root = map[path];
+        root.elements.forEach(def => {
           const node: InheritanceNode = {
+            root,
             def,
             children: [],
           };
           allNodes.push(node);
-          const name = def.getAttribute(ATTRIBUTE_NAME_NAME);
-          const subMap = parentMap[def.tagName] || (parentMap[def.tagName] = {});
+          const name = def.attributes[ATTRIBUTE_NAME_NAME];
+          const subMap = parentMap[def.name] || (parentMap[def.name] = {});
           if (name) {
             subMap[name] = node;
           }
@@ -98,7 +99,7 @@ export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
     node: InheritanceNode,
     parentName: string,
   ): InheritanceNode | undefined => {
-    const defType = node.def.tagName;
+    const defType = node.def.name;
     // eslint-disable-next-line no-restricted-syntax
     for (const parentMap of parentMaps) {
       const parent = parentMap[defType] && parentMap[defType][parentName];
@@ -111,11 +112,9 @@ export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
 
   // link parents and children
   allNodes.forEach(node => {
-    const parentNameAttribute = node.def.attributes.getNamedItem(
-      ATTRIBUTE_NAME_PARENT_NAME,
-    );
-    if (parentNameAttribute && parentNameAttribute.value) {
-      node.parent = getParent(node, parentNameAttribute.value);
+    const parentName = node.def.attributes[ATTRIBUTE_NAME_PARENT_NAME];
+    if (parentName) {
+      node.parent = getParent(node, parentName);
       if (node.parent) {
         node.parent.children.push(node);
       } else {
@@ -131,7 +130,7 @@ export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
 
   allNodes.forEach(node => {
     if (node.def !== node.resolvedDef) {
-      node.def.replaceWith(node.resolvedDef as Element);
+      replaceListItem(node.root.elements, node.def, node.resolvedDef);
     }
   });
 
@@ -156,46 +155,49 @@ export function resolveXmlNodeFor(node: InheritanceNode): void {
       'Tried to resolve node whose parent has not been resolved yet. This means that this method was called in incorrect order.',
     );
   }
-  const current =
-    node.def.ownerDocument === node.parent.resolvedDef.ownerDocument
-      ? (node.parent.resolvedDef.cloneNode(true) as Element)
-      : (node.def.ownerDocument as Document).importNode(node.parent.resolvedDef, true);
-  recursiveNodeCopyOverwriteElements(node.def, current);
+
+  const child = cloneObject(node.def);
+  const current = cloneObject(node.parent.resolvedDef as XElementData);
+  recursiveNodeCopyOverwriteElements(child, current);
   node.resolvedDef = current;
 }
 
 export function recursiveNodeCopyOverwriteElements(
-  child: Element,
-  current: Element,
+  child: XElementData,
+  current: XElementData,
 ): void {
-  const inherit = child.getAttribute(ATTRIBUTE_NAME_INHERIT);
+  const inherit = child.attributes[ATTRIBUTE_NAME_INHERIT];
   if (inherit && inherit.toLowerCase() === 'false') {
-    current.removeAllChildNodes();
-    current.appendChildrenClone(child.childNodes);
-  } else {
-    current.removeAllAttributes();
-    Array.from(child.attributes).forEach(attr =>
-      current.setAttribute(attr.name, attr.value),
+    current.childNodes = child.childNodes;
+    current.elements = current.childNodes.filter(
+      (n): n is XElementData => n.nodeType === 'element',
     );
+  } else {
+    current.attributes = child.attributes;
 
-    const childValue = child.elementValue.trim();
+    const childValue = child.value.trim();
 
     if (childValue) {
-      current.elementValue = childValue;
-    } else if (child.children.length === 0) {
-      if (current.children.length > 0) {
-        current.removeAllChildNodes();
+      current.childNodes = [{ nodeType: 'text', value: childValue }];
+      current.elements = [];
+      current.value = childValue;
+    } else if (child.elements.length === 0) {
+      if (current.elements.length > 0) {
+        current.childNodes = [];
+        current.elements = [];
       }
     } else {
-      child.getElements().forEach(elChild => {
-        if (elChild.tagName === 'li') {
-          current.appendChildClone(elChild);
+      child.elements.forEach(elChild => {
+        if (elChild.name === 'li') {
+          current.childNodes.push(elChild);
+          current.elements.push(elChild);
         } else {
-          const elCurrent = current.getElement(elChild.tagName);
+          const elCurrent = current.elements.find(el => el.name === elChild.name);
           if (elCurrent) {
             recursiveNodeCopyOverwriteElements(elChild, elCurrent);
           } else {
-            current.appendChildClone(elChild);
+            current.childNodes.push(elChild);
+            current.elements.push(elChild);
           }
         }
       });

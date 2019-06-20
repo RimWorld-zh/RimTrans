@@ -3,7 +3,7 @@ import pth from 'path';
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
 import { pathsDefs, defsFileCount, outputInheritedDefs } from './utils.test';
-import * as xml from './xml';
+import { parseXML } from './xml';
 import {
   DefDocumentMap,
   load,
@@ -12,6 +12,7 @@ import {
   resolveXmlNodeFor,
   recursiveNodeCopyOverwriteElements,
 } from './definition';
+import { cloneObject } from './object';
 
 describe('def', () => {
   let defMaps: DefDocumentMap[];
@@ -30,7 +31,7 @@ describe('def', () => {
     // parent not found
     resolveInheritance([
       {
-        'test.xml': xml.parse(`
+        'test.xml': parseXML(`
       <Defs>
         <MockDef ParentName="MockX"></MockDef>
       </Defs>`),
@@ -41,20 +42,17 @@ describe('def', () => {
     const maps = await resolveInheritance(defMaps);
     const core = maps[0];
     await io.deleteFileOrDirectory(outputInheritedDefs);
-    await Promise.all(
-      Object.entries(core).map(async ([path, doc]) => {
-        await io.save(io.join(outputInheritedDefs, path), doc.documentElement.outerHTML);
-      }),
-    );
+    for (const [path, root] of Object.entries(core)) {
+      await io.save(
+        io.join(outputInheritedDefs, path),
+        JSON.stringify(root, undefined, '  '),
+      );
+    }
     expect(Object.keys(core).length).toBe(defsFileCount);
   });
 
   test('resolveInheritanceNodeRecursively & resolveXmlNodeFor', () => {
-    const {
-      documentElement: {
-        children: [mock0, mock1],
-      },
-    } = xml.parse(`
+    const root = parseXML(`
     <Defs>
       <MockDef Name="Mock0">
         <Some>
@@ -66,12 +64,17 @@ describe('def', () => {
         <Some>C</Some>
       </MockDef>
     </Defs>`);
+    const {
+      elements: [mock0, mock1],
+    } = root;
 
     expect(() =>
       resolveInheritanceNodeRecursively({
+        root,
         def: mock1,
         resolvedDef: mock1,
         parent: {
+          root,
           def: mock0,
           resolvedDef: mock0,
           children: [],
@@ -82,8 +85,10 @@ describe('def', () => {
 
     expect(() =>
       resolveXmlNodeFor({
+        root,
         def: mock1,
         parent: {
+          root,
           def: mock0,
           children: [],
         },
@@ -93,11 +98,7 @@ describe('def', () => {
   });
 
   test('recursiveNodeCopyOverwriteElements', () => {
-    const {
-      documentElement: {
-        children: [mock0, mock1, mock2, mock3],
-      },
-    } = xml.parse(`
+    const root = parseXML(`
     <Defs>
       <MockDef Name="Mock0">
         <Some>
@@ -116,10 +117,14 @@ describe('def', () => {
       <MockDef3>X</MockDef3>
     </Defs>
     `);
+    const {
+      elements: [mock0, mock1, mock2, mock3],
+    } = root;
 
-    const current = mock1.ownerDocument.importNode(mock0, true);
-    recursiveNodeCopyOverwriteElements(mock1, current);
-    expect(current.children[0].children.length).toBe(3);
+    const child = cloneObject(mock1);
+    const current = cloneObject(mock0);
+    recursiveNodeCopyOverwriteElements(child, current);
+    expect(current.elements[0].elements.length).toBe(3);
 
     recursiveNodeCopyOverwriteElements(mock3, mock2);
   });

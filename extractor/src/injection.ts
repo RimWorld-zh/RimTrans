@@ -1,5 +1,5 @@
 import * as io from '@rimtrans/io';
-import * as xml from './xml';
+import { XElementData, loadXML, DEFAULT_DECLARATION } from './xml';
 import { DefDocumentMap } from './definition';
 import {
   ClassInfo,
@@ -55,11 +55,15 @@ export interface SerializedInjectionMap {
 // ----------------------------------------------------------------
 // Basic functions
 
-function tryGetElement(parent: Element, fieldInfo: FieldInfo): Element | undefined {
-  let element: Element | undefined;
-  element = parent.getElement(fieldInfo.name);
+function tryGetElement(
+  parent: XElementData,
+  fieldInfo: FieldInfo,
+): XElementData | undefined {
+  let element: XElementData | undefined = parent.elements.find(
+    c => c.name === fieldInfo.name,
+  );
   if (!element && fieldInfo.alias) {
-    element = parent.getElement(fieldInfo.alias);
+    element = parent.elements.find(c => c.name === fieldInfo.alias);
   }
   return element;
 }
@@ -178,15 +182,15 @@ export async function load(paths: string[]): Promise<InjectionMap[]> {
                     const fileName = io.fileName(filePath, true);
                     subMap[fileName] = [];
                     const injectionList = subMap[fileName];
-                    const doc = await xml.load(filePath);
+                    const root = await loadXML(filePath);
 
                     let comment = '';
                     let origin: string | string[] = '';
                     let translation: string | string[] = TEXT_TODO;
-                    Array.from(doc.documentElement.childNodes).forEach(node => {
+                    root.childNodes.forEach(node => {
                       switch (node.nodeType) {
-                        case node.COMMENT_NODE:
-                          comment = (node.nodeValue || '').trim();
+                        case 'comment':
+                          comment = node.value.trim();
                           if (comment === TEXT_UNUSED) {
                             // do nothing
                           } else if (comment.startsWith(TEXT_EN)) {
@@ -196,15 +200,13 @@ export async function load(paths: string[]): Promise<InjectionMap[]> {
                           }
                           break;
 
-                        case node.ELEMENT_NODE:
-                          translation = (node as Element)
-                            .getElements()
-                            .map(li => li.elementValue.trim());
+                        case 'element':
+                          translation = node.elements.map(li => li.value.trim());
                           if (translation.length === 0) {
-                            translation = (node as Element).elementValue;
+                            translation = node.value;
                           }
                           injectionList.push({
-                            path: deSerializePath((node as Element).tagName),
+                            path: deSerializePath(node.name),
                             origin,
                             translation,
                           });
@@ -244,10 +246,10 @@ export function parse(
   const result: InjectionMap[] = defMaps.map(defMap => {
     const injectionMap: InjectionMap = {};
 
-    Object.entries(defMap).forEach(([path, defDoc]) => {
+    Object.entries(defMap).forEach(([path, root]) => {
       const filename = io.fileName(path);
-      defDoc.documentElement.getElements().forEach(def => {
-        const defType = def.tagName;
+      root.elements.forEach(def => {
+        const defType = def.name;
         const injectionFileMap = injectionMap[defType] || (injectionMap[defType] = {});
         const injectionList =
           injectionFileMap[filename] || (injectionFileMap[filename] = []);
@@ -265,18 +267,18 @@ export function parse(
 // ----------------------------------------------------------------
 // Internal parsing functions
 
-type ParseDef = (injectionList: Injection[], def: Element) => void;
+type ParseDef = (injectionList: Injection[], def: XElementData) => void;
 
 type ParseField = (
   path: PathNode[],
   injectionList: Injection[],
   typeInfo: TypeInfo,
   fieldInfo?: FieldInfo,
-  element?: Element,
+  element?: XElementData,
   pathNode?: PathNode,
 ) => void;
 
-type GetParseNodes = (list: Element[], typeInfoOf: TypeInfo) => PathNode[];
+type GetParseNodes = (list: XElementData[], typeInfoOf: TypeInfo) => PathNode[];
 
 /**
  * High-order function: generate a function for parsing a Def element and getting `Injection`.
@@ -287,11 +289,9 @@ function generateParseDef(
   parseField: ParseField,
 ): ParseDef {
   return (injectionList, def) => {
-    const defNameElement = def.getElement(FIELD_NAME_DEF_NAME);
-    const defName =
-      defNameElement && defNameElement.elementValue && defNameElement.elementValue.trim();
-    const classInfo: ClassInfo | undefined =
-      classInfoMap[def.tagName] || classInfoMap.Def;
+    const defNameElement = def.elements.find(c => c.name === FIELD_NAME_DEF_NAME);
+    const defName = defNameElement && defNameElement.value.trim();
+    const classInfo: ClassInfo | undefined = classInfoMap[def.name] || classInfoMap.Def;
 
     if (!defName) {
       return;
@@ -366,8 +366,8 @@ function generateParseField(
       const currentPath = [...path, fieldInfo.name];
       const origin: string[] = [];
       const translation: string[] = [];
-      element.getElements().forEach(li => {
-        origin.push(li.elementValue.trim());
+      element.elements.forEach(li => {
+        origin.push(li.value.trim());
         translation.push(TEXT_TODO);
       });
       injectionList.push({
@@ -386,7 +386,7 @@ function generateParseField(
       typeInfo.name === TYPE_STRING
     ) {
       const currentPath = [...path, fieldInfo.name];
-      const origin = (element && element.elementValue.trim()) || '';
+      const origin = (element && element.value.trim()) || '';
       injectionList.push({
         path: currentPath,
         origin,
@@ -398,7 +398,7 @@ function generateParseField(
     // List
     if (typeInfo.category === 'LIST' && typeInfoOf && element) {
       path.push((fieldInfo && fieldInfo.name) || pathNode);
-      const list = element.getElements();
+      const list = element.elements;
       const pathNodes = getPathNodes(list, typeInfoOf);
       list.forEach((li, index) => {
         parseField(path, injectionList, typeInfoOf, undefined, li, pathNodes[index]);
@@ -409,7 +409,7 @@ function generateParseField(
 
     // Class
     if (typeInfo.category === 'CLASS' && element) {
-      const attributeClass = element.getAttribute(ATTRIBUTE_NAME_CLASS);
+      const attributeClass = element.attributes[ATTRIBUTE_NAME_CLASS];
       const classInfo: ClassInfo | undefined =
         (attributeClass && classInfoMap[attributeClass]) || classInfoMap[typeInfo.name];
       if (classInfo) {
@@ -435,7 +435,7 @@ function generateParseField(
       typeInfo.category === 'VALUE' &&
       typeInfo.name === TYPE_STRING
     ) {
-      const origin = (element && element.elementValue.trim()) || '';
+      const origin = (element && element.value.trim()) || '';
       if (origin.includes(' ')) {
         const currentPath = [...path, fieldInfo.name];
         injectionList.push({
@@ -461,7 +461,7 @@ function generateGetPathNodes(classInfoMap: Record<string, ClassInfo>): GetParse
 
     const countMap: Record<string, number[]> = {};
     const pathNodes = list.map<PathNode>((li, index) => {
-      const attributeClass = li.getAttribute(ATTRIBUTE_NAME_CLASS);
+      const attributeClass = li.attributes[ATTRIBUTE_NAME_CLASS];
       const currentClassInfo =
         (attributeClass && classInfoMap[attributeClass]) || classInfo;
 
@@ -475,9 +475,9 @@ function generateGetPathNodes(classInfoMap: Record<string, ClassInfo>): GetParse
         let fieldName = handleInfo.field.replace(/^untranslated/, '');
         fieldName = `${fieldName[0].toLowerCase()}${fieldName.substring(1)}`;
 
-        const field = li.getElement(fieldName);
+        const field = li.elements.find(c => c.name === fieldName);
 
-        let currentHandle = (field && field.elementValue) || handleInfo.value || '';
+        let currentHandle = (field && field.value) || handleInfo.value || '';
         if (fieldInfo && fieldInfo.type.category === 'TYPE') {
           const temp = currentHandle.split('.');
           currentHandle = temp[temp.length - 1];
@@ -685,7 +685,7 @@ export function serialize(
 
         const serializedList: string[] = [];
 
-        serializedList.push(xml.DEFAULT_DECLARATION, `<${TAG_NAME_LANGUAGE_DATA}>`, '');
+        serializedList.push(DEFAULT_DECLARATION, `<${TAG_NAME_LANGUAGE_DATA}>`, '');
 
         [...new Set(defTypes)].forEach(currentDefType => {
           serializedList.push(...preSerialized[currentDefType], '');

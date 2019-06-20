@@ -1,5 +1,5 @@
 import * as io from '@rimtrans/io';
-import * as xml from './xml';
+import { loadXML } from './xml';
 
 // Constants
 
@@ -126,23 +126,22 @@ export class Mod {
           };
 
           if (exists) {
-            const { documentElement: root } = await xml.load(pathAboutXML);
+            const root = await loadXML(pathAboutXML);
             Object.entries(metaData).forEach(([key, value]) => {
               const isArray = Array.isArray(value);
-              const element = root.getElement(key);
+              const element = root.elements.find(c => c.name === key);
               if (!element) {
                 return;
               }
               /* eslint-disable @typescript-eslint/no-explicit-any */
               if (isArray) {
-                (metaData as any)[key] = element
-                  .getElements()
-                  .map(li => li.elementValue)
+                (metaData as any)[key] = element.elements
+                  .map(li => li.value.trim())
                   .filter(v => !!v);
                 return;
               }
-              if (element.elementValue) {
-                (metaData as any)[key] = element.elementValue;
+              if (element.value.trim()) {
+                (metaData as any)[key] = element.value.trim();
               }
               /* eslint-enable @typescript-eslint/no-explicit-any */
             });
