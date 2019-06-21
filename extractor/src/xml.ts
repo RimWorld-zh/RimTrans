@@ -42,7 +42,7 @@ function createElement(element: Element): XElementData {
     switch (node.nodeType) {
       case node.TEXT_NODE:
         text = node as Text;
-        childNodes.push({ nodeType: 'text', value: node.nodeValue || '' });
+        childNodes.push({ nodeType: 'text', value: node.nodeValue as string });
         break;
 
       case node.ELEMENT_NODE:
