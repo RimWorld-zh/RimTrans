@@ -169,9 +169,8 @@ export function recursiveNodeCopyOverwriteElements(
   const inherit = child.attributes[ATTRIBUTE_NAME_INHERIT];
   if (inherit && inherit.toLowerCase() === 'false') {
     current.childNodes = child.childNodes;
-    current.elements = current.childNodes.filter(
-      (n): n is XElementData => n.nodeType === 'element',
-    );
+    current.elements = child.elements;
+    current.value = child.value;
   } else {
     current.attributes = child.attributes;
 
@@ -185,6 +184,7 @@ export function recursiveNodeCopyOverwriteElements(
       if (current.elements.length > 0) {
         current.childNodes = [];
         current.elements = [];
+        current.value = '';
       }
     } else {
       child.elements.forEach(elChild => {
@@ -201,6 +201,7 @@ export function recursiveNodeCopyOverwriteElements(
           }
         }
       });
+      current.value = '';
     }
   }
 }

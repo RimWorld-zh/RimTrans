@@ -16,6 +16,8 @@
   "dependencies": {
     "@rimtrans/io": "0.4.0",
     "@types/jsdom": "^12.2.3",
-    "jsdom": "^15.1.1"
+    "@types/prettier": "^1.16.4",
+    "jsdom": "^15.1.1",
+    "prettier": "^1.18.2"
   }
 }

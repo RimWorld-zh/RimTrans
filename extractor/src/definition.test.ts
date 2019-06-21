@@ -3,7 +3,7 @@ import pth from 'path';
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
 import { pathsDefs, defsFileCount, outputInheritedDefs } from './utils.test';
-import { parseXML } from './xml';
+import { parseXML, saveXML } from './xml';
 import {
   DefDocumentMap,
   load,
@@ -43,10 +43,7 @@ describe('def', () => {
     const core = maps[0];
     await io.deleteFileOrDirectory(outputInheritedDefs);
     for (const [path, root] of Object.entries(core)) {
-      await io.save(
-        io.join(outputInheritedDefs, path),
-        JSON.stringify(root, undefined, '  '),
-      );
+      await saveXML(io.join(outputInheritedDefs, path), root, false);
     }
     expect(Object.keys(core).length).toBe(defsFileCount);
   });

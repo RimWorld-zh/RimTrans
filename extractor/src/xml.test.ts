@@ -1,6 +1,6 @@
 import * as io from '@rimtrans/io';
-import { pathCore, pathTestMods } from './utils.test';
-import { loadXML, parseXML } from './xml';
+import { pathCore, pathTestMods, resolvePath, TEMP } from './utils.test';
+import { loadXML, parseXML, saveXML } from './xml';
 
 describe('xml', () => {
   test('load', async () => {
@@ -26,7 +26,7 @@ describe('xml', () => {
   });
 
   test('parse', () => {
-    const root = parseXML(`
+    const rootData = parseXML(`
     <Defs>
       <!---->
       <MockDef Name="MockBase"><defName>Mock_0</defName></MockDef>
@@ -39,11 +39,42 @@ describe('xml', () => {
       <![CDATA[]]>
     </Defs>
     `);
-    expect(root.childNodes.length).toBe(10);
-    expect(root.elements.length).toBe(3);
-    expect(root.elements[0].attributes.Name).toBe('MockBase');
-    expect(root.elements[0].childNodes.length).toBe(1);
-    expect(root.elements[1].attributes.ParentName).toBe('MockBase');
-    expect(root.elements[1].childNodes.length).toBe(3);
+    expect(rootData.childNodes.length).toBe(10);
+    expect(rootData.elements.length).toBe(3);
+    expect(rootData.elements[0].attributes.Name).toBe('MockBase');
+    expect(rootData.elements[0].childNodes.length).toBe(1);
+    expect(rootData.elements[1].attributes.ParentName).toBe('MockBase');
+    expect(rootData.elements[1].childNodes.length).toBe(3);
+  });
+
+  test('save', async () => {
+    const rootData = parseXML(`
+    <Defs>
+    <!---->
+      <MockDef Name="MockBase"><defName>Mock_0</defName></MockDef>
+      <MockDef ParentName="MockBase">
+        <defName>Mock_1</defName>
+      </MockDef>
+      <MockDef disabled="">
+        <defName></defName>
+      </MockDef>
+    </Defs>
+    `);
+
+    Promise.all([
+      saveXML(resolvePath(TEMP, 'xml', '0.xml'), rootData, false),
+      saveXML(resolvePath(TEMP, 'xml', '1.xml'), rootData, true),
+      saveXML(resolvePath(TEMP, 'xml', '2.xml'), rootData, true, {
+        printWidth: 120,
+      }),
+      saveXML(resolvePath(TEMP, 'xml', '3.xml'), rootData, true, {
+        tabWidth: 4,
+        endOfLine: 'cr',
+      }),
+      saveXML(resolvePath(TEMP, 'xml', '4.xml'), rootData, true, {
+        useTabs: true,
+        endOfLine: 'crlf',
+      }),
+    ]);
   });
 });

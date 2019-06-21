@@ -26,7 +26,6 @@ import {
   load,
   merge,
   checkDuplicated,
-  serialize,
   save,
 } from './injection';
 
@@ -328,14 +327,12 @@ describe('injection', () => {
     await io.save(outputFuzzy, [...new Set(fuzzy)].sort().join('\n'));
   });
 
-  test('output', async () => {
+  test('save', async () => {
     const [mapOld] = injectionMapsLoaded;
     const [mapNew] = injectionMapsParsed;
 
     const mapMerged = merge(mapNew, mapOld);
     checkDuplicated([mapMerged]);
-    const [serializedMap] = serialize([mapMerged]);
-    const [serializedMapFuzzy] = serialize([mapMerged], { fuzzy: true });
 
     expect(mapMerged).not.toBe(mapOld);
     expect(mapMerged).not.toBe(mapNew);
@@ -343,16 +340,23 @@ describe('injection', () => {
     expect(mapNew.ZZMockDef).toBeFalsy();
     expect(mapOld.ZZMockDef).toBeTruthy();
     expect(mapOld.ZZMockDef.zmocks_1).toBeTruthy();
-    expect(typeof serializedMap.BiomeDef.Biomes_Cold).toBe('string');
 
     await Promise.all([
       io.deleteFileOrDirectory(outputDefInjected),
       io.deleteFileOrDirectory(outputDefInjectedFuzzy),
     ]);
     await Promise.all([
+      save(`${outputDefInjected}_0`, mapMerged, false, {
+        useTabs: true,
+        endOfLine: 'crlf',
+      }),
+      save(`${outputDefInjected}_1`, mapMerged, false, { endOfLine: 'cr' }),
+      save(`${outputDefInjected}_2`, mapMerged, false, { tabWidth: 4 }),
+    ]);
+    await Promise.all([
       io.save(outputInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
-      save(outputDefInjected, serializedMap),
-      save(outputDefInjectedFuzzy, serializedMapFuzzy),
+      save(outputDefInjected, mapMerged),
+      save(outputDefInjectedFuzzy, mapMerged, true),
     ]);
   });
 });

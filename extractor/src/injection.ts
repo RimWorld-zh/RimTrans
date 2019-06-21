@@ -1,5 +1,14 @@
 import * as io from '@rimtrans/io';
-import { XElementData, loadXML, DEFAULT_DECLARATION } from './xml';
+import {
+  XNodeData,
+  XTextData,
+  XCommentData,
+  XElementData,
+  loadXML,
+  PrettierOptions,
+  saveXML,
+  defaultXmlPrettierOptions,
+} from './xml';
 import { DefDocumentMap } from './definition';
 import {
   ClassInfo,
@@ -598,126 +607,177 @@ export function checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
 }
 
 // ----------------------------------------------------------------
-// Output
-
-export interface InjectionSerializeConfig {
-  /**
-   * Output fuzzy injections or not.
-   * @default false
-   */
-  fuzzy?: boolean;
-
-  /**
-   * The text for indent, 2 spaces, 4 spaces of tab.
-   * @default 2 spaces
-   */
-  indent?: '  ' | '    ' | '\t';
-
-  /**
-   * The text at the end of lines, LF, CR or CRLF.
-   * @default '\n'
-   */
-  eol?: '\n' | '\r' | '\r\n';
-}
+// Saving
 
 /**
- * Serialize `InjectionMap` for output
+ * Save `InjectionMap` as XML document files.
  * @param injectionMap the `InjectionMap` to serialize
- */
-export function serialize(
-  injectionMaps: InjectionMap[],
-  config?: InjectionSerializeConfig,
-): SerializedInjectionMap[] {
-  const { fuzzy = false, indent = '  ', eol = '\n' } = config || {};
-
-  return injectionMaps.map(injectionMap => {
-    const serializedMap: SerializedInjectionMap = {};
-    Object.entries(injectionMap).forEach(([defType, subInjectionMap]) => {
-      serializedMap[defType] = {};
-      const subSerializedMap = serializedMap[defType];
-      Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
-        const endComments: string[] = [];
-        const defTypes: string[] = [];
-        const preSerialized: Record<string, string[]> = {};
-        injectionList.forEach(injection => {
-          if (typeof injection === 'string') {
-            endComments.push(`${indent}<!-- ${injection} -->`);
-            return;
-          }
-          if (injection.duplicated) {
-            return;
-          }
-          if (!fuzzy && injection.fuzzy) {
-            return;
-          }
-
-          const currentDefType = injection.path[0] as string;
-          defTypes.push(currentDefType);
-          const path = serializePath(injection.path);
-          const block =
-            preSerialized[currentDefType] || (preSerialized[currentDefType] = []);
-
-          if (injection.fuzzy) {
-            block.push(`${indent}<!-- ${TEXT_FUZZY} -->`);
-          }
-          if (injection.unused) {
-            block.push(`${indent}<!-- ${TEXT_UNUSED} -->`);
-          }
-
-          if (Array.isArray(injection.origin)) {
-            const origin = injection.origin
-              .map(li => `${indent}${indent}<li>${li}</li>`)
-              .join(eol);
-            block.push(`${indent}<!-- ${TEXT_EN}${eol}${origin}${eol}${indent}-->`);
-          } else {
-            block.push(`${indent}<!-- ${TEXT_EN} ${injection.origin} -->`);
-          }
-
-          if (Array.isArray(injection.translation)) {
-            const translation = injection.translation
-              .map(li => `${indent}${indent}<li>${li}</li>`)
-              .join(eol);
-            block.push(`${indent}<${path}>${eol}${translation}${eol}${indent}</${path}>`);
-          } else {
-            block.push(`${indent}<${path}>${injection.translation}</${path}>`);
-          }
-        });
-
-        const serializedList: string[] = [];
-
-        serializedList.push(DEFAULT_DECLARATION, `<${TAG_NAME_LANGUAGE_DATA}>`, '');
-
-        [...new Set(defTypes)].forEach(currentDefType => {
-          serializedList.push(...preSerialized[currentDefType], '');
-        });
-
-        if (endComments.length > 0) {
-          serializedList.push(...endComments, '');
-        }
-
-        serializedList.push(`</${TAG_NAME_LANGUAGE_DATA}>`, '');
-
-        subSerializedMap[fileName] = serializedList.join(eol);
-      });
-    });
-    return serializedMap;
-  });
-}
-
-/**
- * Save a `SerializedInjectionMap`.
- * @param directory the path to the directory for saving
- * @param serializedInjectionMap the `SerializedInjectionMap`
  */
 export async function save(
   directory: string,
-  serializedInjectionMap: SerializedInjectionMap,
+  injectionMap: InjectionMap,
+  fuzzy: boolean = false,
+  prettierOptions?: PrettierOptions,
 ): Promise<void> {
+  const { tabWidth, useTabs, endOfLine } = {
+    ...defaultXmlPrettierOptions(),
+    ...prettierOptions,
+  };
+  const tab = (useTabs && '\t') || ' '.repeat(tabWidth);
+  const indent: XTextData = { nodeType: 'text', value: tab };
+  const eol = (endOfLine === 'cr' && '\r') || (endOfLine === 'crlf' && '\r\n') || '\n';
+  const newline: XTextData = { nodeType: 'text', value: eol };
+
   const promises: Promise<void>[] = [];
-  Object.entries(serializedInjectionMap).forEach(([defType, subMap]) =>
-    Object.entries(subMap).forEach(([fileName, doc]) =>
-      promises.push(io.save(io.join(directory, defType, `${fileName}.xml`), doc)),
-    ),
+
+  Object.entries(injectionMap).forEach(([defType, subInjectionMap]) =>
+    Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
+      const defTypes: string[] = [];
+      const preSerialized: Record<string, XNodeData[]> = {};
+      const endComments: XNodeData[] = [];
+
+      injectionList.forEach(injection => {
+        if (typeof injection === 'string') {
+          endComments.push(
+            indent,
+            {
+              nodeType: 'comment',
+              value: ` ${injection} `,
+            },
+            newline,
+          );
+          return;
+        }
+        if (injection.duplicated) {
+          return;
+        }
+        if (!fuzzy && injection.fuzzy) {
+          return;
+        }
+
+        const currentDefType = injection.path[0] as string;
+        defTypes.push(currentDefType);
+        const path = serializePath(injection.path);
+        const block =
+          preSerialized[currentDefType] || (preSerialized[currentDefType] = []);
+
+        if (injection.fuzzy) {
+          block.push(
+            indent,
+            {
+              nodeType: 'comment',
+              value: ` ${TEXT_FUZZY} `,
+            },
+            newline,
+          );
+        }
+        if (injection.unused) {
+          block.push(
+            indent,
+            {
+              nodeType: 'comment',
+              value: ` ${TEXT_UNUSED} `,
+            },
+            newline,
+          );
+        }
+
+        if (Array.isArray(injection.origin)) {
+          const origin = injection.origin
+            .map(li => `${tab}${tab}<li>${li}</li>`)
+            .join(eol);
+          block.push(
+            indent,
+            {
+              nodeType: 'comment',
+              value: ` ${TEXT_EN}${eol}${origin}${eol}${tab}`,
+            },
+            newline,
+          );
+        } else {
+          block.push(
+            indent,
+            {
+              nodeType: 'comment',
+              value: ` ${TEXT_EN} ${injection.origin} `,
+            },
+            newline,
+          );
+        }
+
+        if (Array.isArray(injection.translation)) {
+          const list = injection.translation.map<XElementData>(li => ({
+            nodeType: 'element',
+            name: TAG_NAME_LI,
+            attributes: {},
+            childNodes: [{ nodeType: 'text', value: li }],
+            elements: [],
+            value: '',
+          }));
+
+          block.push(
+            indent,
+            {
+              nodeType: 'element',
+              name: path,
+              attributes: {},
+              childNodes: list.reduce<XNodeData[]>(
+                (agg, el) => {
+                  agg.push(indent, el, newline, indent);
+                  return agg;
+                },
+                [newline, indent],
+              ),
+              elements: list,
+              value: '',
+            },
+            newline,
+          );
+        } else {
+          block.push(
+            indent,
+            {
+              nodeType: 'element',
+              name: path,
+              attributes: {},
+              childNodes: [{ nodeType: 'text', value: injection.translation }],
+              elements: [],
+              value: injection.translation,
+            },
+            newline,
+          );
+        }
+      });
+
+      const childNodes: XNodeData[] = [newline, newline];
+
+      [...new Set(defTypes)].forEach(currentDefType => {
+        childNodes.push(...preSerialized[currentDefType], newline);
+      });
+
+      if (endComments.length > 0) {
+        childNodes.push(...endComments, newline);
+      }
+
+      const languageData: XElementData = {
+        nodeType: 'element',
+        name: TAG_NAME_LANGUAGE_DATA,
+        attributes: {},
+        childNodes,
+        elements: childNodes.filter((c): c is XElementData => c.nodeType === 'element'),
+        value: '',
+      };
+
+      promises.push(
+        saveXML(
+          io.join(directory, defType, `${fileName}.xml`),
+          languageData,
+          false,
+          prettierOptions,
+        ),
+      );
+    }),
   );
-  await Promise.all(promises);
+
+  await promises;
 }

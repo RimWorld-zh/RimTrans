@@ -1,4 +1,5 @@
 import * as io from '@rimtrans/io';
+import { PrettierOptions } from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
 import * as injection from './injection';
@@ -10,7 +11,8 @@ export interface ExtractorSolution {
   enabledMods: boolean[];
   languages: string[];
   outputDirectory: string;
-  injectionSerializeConfig?: injection.InjectionSerializeConfig;
+  fuzzy?: boolean;
+  prettierOptions?: PrettierOptions;
 }
 
 /**
@@ -24,7 +26,8 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
     enabledMods,
     languages,
     outputDirectory,
-    injectionSerializeConfig,
+    fuzzy,
+    prettierOptions,
   } = solution;
 
   const mods = await Promise.all(modPaths.map(path => Mod.load(path)));
@@ -46,10 +49,6 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
         injection.merge(newInjectionMaps[modIndex], oldInjectionMaps[modIndex]),
       );
       injection.checkDuplicated(mergedInjectionMaps);
-      const serializedInjectionMaps = injection.serialize(
-        mergedInjectionMaps,
-        injectionSerializeConfig,
-      );
 
       await Promise.all(
         mods.map(async (mod, modIndex) => {
@@ -64,7 +63,9 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
               lang,
               FOLDER_NAME_DEF_INJECTED,
             ),
-            serializedInjectionMaps[modIndex],
+            mergedInjectionMaps[modIndex],
+            fuzzy,
+            prettierOptions,
           );
         }),
       );
