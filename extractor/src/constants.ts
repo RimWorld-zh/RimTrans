@@ -42,3 +42,4 @@ export const TEXT_EN = 'EN:';
 export const TEXT_TODO = 'TODO';
 export const TEXT_UNUSED = 'UNUSED';
 export const TEXT_FUZZY = 'FUZZY';
+export const TEXT_NEWLINE = 'NEWLINE';

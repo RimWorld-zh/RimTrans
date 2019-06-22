@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- EN: Level -->
@@ -64,5 +64,5 @@
   <Skill19>TODO</Skill19>
   <!-- EN: Legendary master -->
   <Skill20>TODO</Skill20>
-  
+
 </LanguageData>

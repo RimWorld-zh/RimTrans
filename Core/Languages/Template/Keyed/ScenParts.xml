@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-  <!-- ======================== Non-grouped ========================-->
-  
+  <!-- ======================== Non-grouped ======================== -->
+
   <!-- EN: Your faction will be a {0}. -->
   <ScenPart_PlayerFaction>TODO</ScenPart_PlayerFaction>
 
@@ -15,7 +15,7 @@
 
   <!-- EN: Start with research: {0} -->
   <ScenPart_StartingResearchFinished>TODO</ScenPart_StartingResearchFinished>
-  
+
   <!-- EN: Arrive in drop pods. -->
   <ScenPart_ArriveInDropPods>TODO</ScenPart_ArriveInDropPods>
 
@@ -39,7 +39,7 @@
   <ScenPart_OnPawnDeathExplode>TODO</ScenPart_OnPawnDeathExplode>
   <!-- EN: {0} start naked. -->
   <ScenPart_PawnsAreNaked>TODO</ScenPart_PawnsAreNaked>
-  
+
   <!-- Pawn filters -->
   <!-- EN: Your people will be at least {0} years old. -->
   <ScenPart_StartingPawnAgeMin>TODO</ScenPart_StartingPawnAgeMin>
@@ -48,7 +48,7 @@
   <!-- EN: Your people will be between {0} and {1} years old. -->
   <ScenPart_StartingPawnAgeRange>TODO</ScenPart_StartingPawnAgeRange>
 
-  <!-- ======================== Grouped ========================-->
+  <!-- ======================== Grouped ======================== -->
 
   <!-- EN: Start with -->
   <ScenPart_StartWith>TODO</ScenPart_StartWith>

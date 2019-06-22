@@ -6,6 +6,7 @@ import {
   pathsTypePackage,
   outputInjectionMapLoaded,
   outputInjectionMapParsed,
+  outputInjectionMapParsedFuzzy,
   outputInjectionMapMerged,
   outputMissing,
   outputFuzzy,
@@ -38,6 +39,7 @@ describe('injection', () => {
   let classInfoMap: Record<string, typePackage.ClassInfo>;
   let injectionMapsLoaded: InjectionMap[];
   let injectionMapsParsed: InjectionMap[];
+  let injectionMapsParsedFuzzy: InjectionMap[];
 
   beforeAll(async () => {
     [defMaps, classInfoMap] = await Promise.all([
@@ -151,9 +153,14 @@ describe('injection', () => {
       handles: [],
     };
 
-    [injectionMapsLoaded, injectionMapsParsed] = await Promise.all([
+    [
+      injectionMapsLoaded,
+      injectionMapsParsed,
+      injectionMapsParsedFuzzy,
+    ] = await Promise.all([
       load(pathsDefInjected),
       parse(defMaps, classInfoMap),
+      parse(defMaps, classInfoMap, true),
     ]);
   });
 
@@ -276,10 +283,16 @@ describe('injection', () => {
       ),
     );
 
-    await io.save(
-      outputInjectionMapParsed,
-      JSON.stringify(injectionMapsParsed, undefined, '  '),
-    );
+    await Promise.all([
+      io.save(
+        outputInjectionMapParsed,
+        JSON.stringify(injectionMapsParsed, undefined, '  '),
+      ),
+      io.save(
+        outputInjectionMapParsedFuzzy,
+        JSON.stringify(injectionMapsParsedFuzzy, undefined, '  '),
+      ),
+    ]);
   });
 
   test('missing', async () => {
@@ -314,7 +327,7 @@ describe('injection', () => {
   });
 
   test('fuzzy', async () => {
-    const [map] = injectionMapsParsed;
+    const [map] = injectionMapsParsedFuzzy;
     const fuzzy: string[] = [];
     Object.entries(map).forEach(([defType, subMap]) =>
       Object.entries(subMap).forEach(([fileName, injections]) =>
@@ -330,7 +343,7 @@ describe('injection', () => {
 
   test('save', async () => {
     const [mapOld] = injectionMapsLoaded;
-    const [mapNew] = injectionMapsParsed;
+    const [mapNew] = injectionMapsParsedFuzzy;
 
     const mapMerged = merge(mapNew, mapOld);
     checkDuplicated([mapMerged]);
@@ -347,17 +360,9 @@ describe('injection', () => {
       io.deleteFileOrDirectory(outputDefInjectedFuzzy),
     ]);
     await Promise.all([
-      save(`${outputDefInjected}_0`, mapMerged, false, {
-        useTabs: true,
-        endOfLine: 'crlf',
-      }),
-      save(`${outputDefInjected}_1`, mapMerged, false, { endOfLine: 'cr' }),
-      save(`${outputDefInjected}_2`, mapMerged, false, { tabWidth: 4 }),
-    ]);
-    await Promise.all([
       io.save(outputInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
       save(outputDefInjected, mapMerged),
-      save(outputDefInjectedFuzzy, mapMerged, true),
+      save(outputDefInjectedFuzzy, mapMerged),
     ]);
   });
 });

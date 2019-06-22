@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- Work tab -->
@@ -22,7 +22,7 @@
   <EmergencyWorkMarker>TODO</EmergencyWorkMarker>
   <!-- EN: Warning: The average of relevant skills is very low. -->
   <SelectedWorkTypeWithVeryBadSkill>TODO</SelectedWorkTypeWithVeryBadSkill>
-  
+
   <!-- Assign tab -->
   <!-- EN: Manage outfits -->
   <ManageOutfits>TODO</ManageOutfits>
@@ -38,7 +38,7 @@
   <ManageDrugPolicies>TODO</ManageDrugPolicies>
   <!-- EN: Manage food restrictions -->
   <ManageFoodRestrictions>TODO</ManageFoodRestrictions>
-  
+
   <!-- Restrictions tab -->
   <!-- EN: Copy -->
   <Copy>TODO</Copy>
@@ -46,7 +46,7 @@
   <Paste>TODO</Paste>
   <!-- EN: Allowed area -->
   <AllowedArea>TODO</AllowedArea>
-  
+
   <!-- Animals tab -->
   <!-- EN: Master -->
   <Master>TODO</Master>
@@ -54,11 +54,11 @@
   <PregnantIconDesc>TODO</PregnantIconDesc>
   <!-- EN: Bonded to -->
   <BondedTo>TODO</BondedTo>
-  
+
   <!-- Wildlife tab -->
   <!-- EN: This creature is a predator. When hungry, it will hunt smaller creatures - possibly including people. -->
   <IsPredator>TODO</IsPredator>
-  
+
   <!-- Factions tab -->
   <!-- EN: Hostile -->
   <Hostile>TODO</Hostile>
@@ -80,7 +80,7 @@
   <CurrentGoodwillTip_Hostile>TODO</CurrentGoodwillTip_Hostile>
   <!-- EN: This faction has a natural goodwill range from {0} to {1}. If goodwill is over {1}, it will fall by {3} per day. If goodwill is under {0}, it will rise by {2} per day. -->
   <CurrentGoodwillTip_NaturalGoodwill>TODO</CurrentGoodwillTip_NaturalGoodwill>
-  
+
   <!-- Social tab -->
   <!-- EN: Friend -->
   <Friend>TODO</Friend>
@@ -88,7 +88,7 @@
   <Rival>TODO</Rival>
   <!-- EN: Acquaintance -->
   <Acquaintance>TODO</Acquaintance>
-  
+
   <!-- History tab - subtabs -->
   <!-- EN: Graph -->
   <Graph>TODO</Graph>
@@ -96,7 +96,7 @@
   <Messages>TODO</Messages>
   <!-- EN: Statistics -->
   <Statistics>TODO</Statistics>
-  
+
   <!-- History tab - Graphs -->
   <!-- EN: Select graph -->
   <SelectGraph>TODO</SelectGraph>
@@ -156,5 +156,5 @@
   <ResearchCostMultiplier>TODO</ResearchCostMultiplier>
   <!-- EN: Project base cost {0} becomes {1} for you because of your tech level. -->
   <ResearchCostComparison>TODO</ResearchCostComparison>
-  
+
 </LanguageData>

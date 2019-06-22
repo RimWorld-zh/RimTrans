@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- ITab titles -->
@@ -43,7 +43,7 @@
   <!-- EN: Contents -->
   <TabTransporterContents>TODO</TabTransporterContents>
 
-  <!-- Bills tab  -->
+  <!-- Bills tab -->
   <!-- EN: Add bill -->
   <AddBill>TODO</AddBill>
   <!-- EN: The recipe {0} requires the skills below. None of your colonists have these skills, so nobody will do this bill. -->
@@ -160,7 +160,7 @@
   <SelfTend>TODO</SelfTend>
   <!-- EN: {0} with self-tend enabled will automatically tend to themselves on the spot at {1} the normal efficiency. -->
   <SelfTendTip>TODO</SelfTendTip>
-  
+
   <!-- Medical - Body and activities condition -->
   <!-- EN: None -->
   <None>TODO</None>
@@ -201,7 +201,7 @@
 
   <!-- EN: Prerequisite needed: {0} -->
   <TrainingNeedsPrerequisite>TODO</TrainingNeedsPrerequisite>
-  
+
   <!-- Social tab -->
   <!-- EN: (no relationships) -->
   <NoRelationships>TODO</NoRelationships>
@@ -221,7 +221,7 @@
   <IAmDead>TODO</IAmDead>
   <!-- EN: I'm a psychopath -->
   <IAmPsychopath>TODO</IAmPsychopath>
-  
+
   <!-- Gear tab -->
   <!-- EN: Overall armor -->
   <OverallArmor>TODO</OverallArmor>
@@ -235,7 +235,7 @@
   <ArmorSharp>TODO</ArmorSharp>
   <!-- EN: Heat -->
   <ArmorHeat>TODO</ArmorHeat>
-  
+
   <!-- Log tab -->
   <!-- EN: Show all -->
   <ShowAll>TODO</ShowAll>

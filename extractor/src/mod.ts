@@ -32,7 +32,15 @@ export interface ModMetaData {
   readonly supportedVersions: string[];
 }
 
-export class Mod {
+export interface ModOutput {
+  pathLanguage(language: string): string;
+  pathBackstories(language: string): string;
+  pathDefInjected(language: string): string;
+  pathKeyed(language: string): string;
+  pathStrings(language: string): string;
+}
+
+export class Mod implements ModOutput {
   public readonly steamPublishFileId?: string;
 
   /**
@@ -89,6 +97,10 @@ export class Mod {
     this.meta = modeMetaData;
   }
 
+  public pathLanguage(language: string): string {
+    return io.join(this.pathLanguages, language);
+  }
+
   public pathBackstories(language: string): string {
     return io.join(this.pathLanguages, language, FOLDER_NAME_BACKSTORIES);
   }
@@ -103,6 +115,27 @@ export class Mod {
 
   public pathStrings(language: string): string {
     return io.join(this.pathLanguages, language, FOLDER_NAME_STRINGS);
+  }
+
+  public output(directory: string): ModOutput {
+    const folderLanguages = io.join(directory, FOLDER_NAME_LANGUAGES);
+    return {
+      pathLanguage(language: string): string {
+        return io.join(folderLanguages, language);
+      },
+      pathBackstories(language: string): string {
+        return io.join(folderLanguages, language, FOLDER_NAME_BACKSTORIES);
+      },
+      pathDefInjected(language: string): string {
+        return io.join(folderLanguages, language, FOLDER_NAME_DEF_INJECTED);
+      },
+      pathKeyed(language: string): string {
+        return io.join(folderLanguages, language, FOLDER_NAME_KEYED);
+      },
+      pathStrings(language: string): string {
+        return io.join(folderLanguages, language, FOLDER_NAME_STRINGS);
+      },
+    };
   }
 
   public static async load(path: string): Promise<Mod> {

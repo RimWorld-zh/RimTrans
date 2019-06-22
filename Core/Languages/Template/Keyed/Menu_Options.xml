@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- Audiovisuals -->
@@ -86,11 +86,11 @@
   <SelectMod>TODO</SelectMod>
   <!-- EN: No configurable mods loaded. -->
   <NoConfigurableMods>TODO</NoConfigurableMods>
-  
+
   <!-- Options reset -->
   <!-- EN: Restore to default settings -->
   <RestoreToDefaultSettings>TODO</RestoreToDefaultSettings>
   <!-- EN: Your options have been reset. The game will now restart automatically. -->
   <ResetAndRestart>TODO</ResetAndRestart>
-  
+
 </LanguageData>

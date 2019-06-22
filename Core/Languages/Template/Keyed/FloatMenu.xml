@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- EN: Call {0} -->
@@ -19,7 +19,7 @@
   <LeaderUnavailable>TODO</LeaderUnavailable>
   <!-- EN: leader is unavailable -->
   <LeaderUnavailableNoLeader>TODO</LeaderUnavailableNoLeader>
-  
+
   <!-- EN: Fire at {1_label} -->
   <FireAt>TODO</FireAt>
 
@@ -42,7 +42,7 @@
 
   <!-- EN: Man {1_labelShort} -->
   <OrderManThing>TODO</OrderManThing>
-  
+
   <!-- EN: Melee attack {1_label} -->
   <MeleeAttack>TODO</MeleeAttack>
   <!-- EN: Melee attack {1_label} to death -->
@@ -120,15 +120,15 @@
   <IncapableOfMining>TODO</IncapableOfMining>
   <!-- EN: angers faction -->
   <AngersFaction>TODO</AngersFaction>
-  
+
   <!-- EN: Consume {1_labelShort} -->
   <ConsumeThing>TODO</ConsumeThing>
-  
+
   <!-- EN: Cannot go here (no path) -->
   <CannotGoNoPath>TODO</CannotGoNoPath>
   <!-- EN: Go here -->
   <GoHere>TODO</GoHere>
-  
+
   <!-- EN: Arrest {0} -->
   <Arrest>TODO</Arrest>
   <!-- EN: Try to arrest {1_label} -->
@@ -175,7 +175,7 @@
 
   <!-- EN: min skill -->
   <MinSkill>TODO</MinSkill>
-  
+
   <!-- EN: Equip {0} -->
   <Equip>TODO</Equip>
   <!-- EN: (brawler will be unhappy) -->
@@ -184,14 +184,14 @@
   <CannotEquip>TODO</CannotEquip>
   <!-- EN: Cannot man {1_labelShort} -->
   <CannotManThing>TODO</CannotManThing>
-  
+
   <!-- EN: Force wear {1_labelShort} -->
   <ForceWear>TODO</ForceWear>
   <!-- EN: Cannot wear {1_label} -->
   <CannotWear>TODO</CannotWear>
   <!-- EN: missing body parts -->
   <CannotWearBecauseOfMissingBodyParts>TODO</CannotWearBecauseOfMissingBodyParts>
-  
+
   <!-- EN: Cannot pick up {1_label} -->
   <CannotPickUp>TODO</CannotPickUp>
   <!-- EN: Cannot pick up {1_label} (all) -->
@@ -204,7 +204,7 @@
   <PickUpSome>TODO</PickUpSome>
   <!-- EN: Pick up {1_labelShort} x{{0}} -->
   <PickUpCount>TODO</PickUpCount>
-  
+
   <!-- EN: Cannot give {1_label} to pack animal -->
   <CannotGiveToPackAnimal>TODO</CannotGiveToPackAnimal>
   <!-- EN: Cannot give {1_label} (all) to pack animal -->
@@ -217,7 +217,7 @@
   <GiveToPackAnimalSome>TODO</GiveToPackAnimalSome>
   <!-- EN: Take {1_labelShort} x{{0}} -->
   <GiveToPackAnimalCount>TODO</GiveToPackAnimalCount>
-  
+
   <!-- EN: Cannot load {1_label} into caravan -->
   <CannotLoadIntoCaravan>TODO</CannotLoadIntoCaravan>
   <!-- EN: Cannot load {1_label} (all) into caravan -->
@@ -239,7 +239,7 @@
   <CarryToExit>TODO</CarryToExit>
   <!-- EN: Capture {1_label} and leave the area -->
   <CarryToExitAndCapture>TODO</CarryToExitAndCapture>
-  
+
   <!-- EN: Strip {1_label} -->
   <Strip>TODO</Strip>
   <!-- EN: Cannot strip {1_label} -->
@@ -247,7 +247,7 @@
 
   <!-- EN: Self-destruct here -->
   <SelfDestructHere>TODO</SelfDestructHere>
-  
+
   <!-- EN: Drop {1_label} -->
   <Drop>TODO</Drop>
 
@@ -257,7 +257,7 @@
   <NotInjured>TODO</NotInjured>
   <!-- EN: occupied by {0} -->
   <SomeoneElseSleeping>TODO</SomeoneElseSleeping>
-  
+
   <!-- EN: Trade with {0} -->
   <TradeWith>TODO</TradeWith>
   <!-- EN: Cannot trade -->
@@ -267,7 +267,7 @@
   <Open>TODO</Open>
   <!-- EN: Cannot open {0_label} -->
   <CannotOpen>TODO</CannotOpen>
-  
+
   <!-- EN: Enter {0} -->
   <EnterMap>TODO</EnterMap>
   <!-- EN: Visit {0} -->
@@ -330,7 +330,7 @@
   <!-- e.g. Prioritize GERUND OBJECT, Prioritize repairing wall, prioritize hauling metal, etc -->
   <!-- EN: Prioritize {0} {1} -->
   <PrioritizeGeneric>TODO</PrioritizeGeneric>
-  
+
   <!-- EN: Drop at edge -->
   <DropAtEdge>TODO</DropAtEdge>
   <!-- EN: Drop in center -->
@@ -339,12 +339,12 @@
   <AttackAndDropAtEdge>TODO</AttackAndDropAtEdge>
   <!-- EN: Attack {0}: Drop in center -->
   <AttackAndDropInCenter>TODO</AttackAndDropInCenter>
-  
+
   <!-- EN: vomiting -->
   <VomitingLower>TODO</VomitingLower>
   <!-- EN: not interruptible -->
   <NotInterruptibleLower>TODO</NotInterruptibleLower>
-  
+
   <!-- EN: Add a new waypoint here -->
   <AddWaypoint>TODO</AddWaypoint>
   <!-- EN: Remove this waypoint -->
@@ -378,5 +378,5 @@
   <FreePrisoner>TODO</FreePrisoner>
   <!-- EN: Offer help -->
   <OfferHelp>TODO</OfferHelp>
-  
+
 </LanguageData>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- EN: Autosaving -->
@@ -69,8 +69,8 @@
   <!-- EN: ${0} -->
   <MoneyFormat>TODO</MoneyFormat>
 
-  <!-- Content generation-->
-  
+  <!-- Content generation -->
+
   <!-- EN: {0} meat -->
   <MeatLabel>TODO</MeatLabel>
   <!-- EN: Raw butchered flesh. Can be cooked into meals, or eaten raw. -->
@@ -117,14 +117,14 @@
   <SomeonesRoom>TODO</SomeonesRoom>
   <!-- EN: {PAWN1_labelShort} and {PAWN2_labelShort}'s {2} -->
   <CouplesRoom>TODO</CouplesRoom>
-  
+
   <!-- EN: (various) -->
   <VariousLabel>TODO</VariousLabel>
 
   <!-- History events -->
   <!-- EN: Colonist died -->
   <ColonistDied>TODO</ColonistDied>
-  
+
   <!-- Rotation -->
   <!-- EN: North -->
   <North>TODO</North>
@@ -134,5 +134,5 @@
   <West>TODO</West>
   <!-- EN: East -->
   <East>TODO</East>
-  
+
 </LanguageData>

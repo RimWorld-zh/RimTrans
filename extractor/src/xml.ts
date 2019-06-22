@@ -150,24 +150,47 @@ export function defaultXmlPrettierOptions(): DefaultPrettierOptions {
   };
 }
 
+export interface XmlPrettierComponents {
+  resolvedOptions: PrettierOptions;
+  tab: string;
+  indent: XTextData;
+  eol: string;
+  newline: XTextData;
+}
+
+export function resolveXmlPrettierOptions(
+  options?: PrettierOptions,
+): XmlPrettierComponents {
+  const resolvedOptions = {
+    ...defaultXmlPrettierOptions(),
+    ...options,
+  };
+  const { tabWidth, useTabs, endOfLine } = resolvedOptions;
+  const tab = (useTabs && '\t') || ' '.repeat(tabWidth);
+  const indent: XTextData = { nodeType: 'text', value: tab };
+  const eol = (endOfLine === 'cr' && '\r') || (endOfLine === 'crlf' && '\r\n') || '\n';
+  const newline: XTextData = { nodeType: 'text', value: eol };
+
+  return {
+    resolvedOptions,
+    tab,
+    indent,
+    eol,
+    newline,
+  };
+}
+
 export async function saveXML(
   path: string,
   rootData: XElementData,
   format?: boolean,
   prettierOptions?: PrettierOptions,
 ): Promise<void> {
+  const { resolvedOptions, eol } = resolveXmlPrettierOptions(prettierOptions);
   const {
     window: { document: doc },
   } = new JSDOM(`<body/>`, { contentType: 'text/xml' });
-
   const root = append(doc, doc.documentElement, rootData);
-
-  const resolvedOptions: PrettierOptions = {
-    ...defaultXmlPrettierOptions(),
-    ...prettierOptions,
-  };
-  const { endOfLine } = resolvedOptions;
-  const eol = (endOfLine === 'cr' && '\r') || (endOfLine === 'crlf' && '\r\n') || '\n';
 
   const content = format
     ? prettier.format(root.outerHTML, resolvedOptions)

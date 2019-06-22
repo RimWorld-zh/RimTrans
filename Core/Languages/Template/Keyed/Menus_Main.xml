@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- Main menu -->
@@ -110,7 +110,7 @@
   <WorldChooseButton>TODO</WorldChooseButton>
   <!-- EN: No world files found. Create a world first. -->
   <NoWorldsFilesFound>TODO</NoWorldsFilesFound>
-  
+
   <!-- Version info -->
   <!-- EN: Version {0} is now available. Check ludeon.com for more info. -->
   <BuildNowAvailable>TODO</BuildNowAvailable>
@@ -170,7 +170,7 @@
   <MessageModNeedsWellFormattedTargetVersion>TODO</MessageModNeedsWellFormattedTargetVersion>
   <!-- EN: Drag to reorder -->
   <DragToReorder>TODO</DragToReorder>
-  
+
   <!-- Select scenario -->
   <!-- EN: Choose scenario -->
   <ChooseScenario>TODO</ChooseScenario>
@@ -182,7 +182,7 @@
   <ScenarioEditor>TODO</ScenarioEditor>
   <!-- EN: Delete -->
   <Delete>TODO</Delete>
-  
+
   <!-- Scenario editor -->
   <!-- EN: seed -->
   <Seed>TODO</Seed>
@@ -206,7 +206,7 @@
   <TooMany>TODO</TooMany>
   <!-- EN: Can be updated on Workshop, since you are the author. -->
   <CanBeUpdatedOnWorkshop>TODO</CanBeUpdatedOnWorkshop>
-  
+
   <!-- Select storyteller -->
   <!-- EN: Choose AI Storyteller -->
   <ChooseAIStoryteller>TODO</ChooseAIStoryteller>
@@ -354,7 +354,7 @@
   <StartingPawnsSelected>TODO</StartingPawnsSelected>
   <!-- EN: Left behind -->
   <StartingPawnsLeftBehind>TODO</StartingPawnsLeftBehind>
-  
+
   <!-- Misc -->
   <!-- EN: Start -->
   <Start>TODO</Start>
@@ -376,7 +376,7 @@
   <Quit>TODO</Quit>
   <!-- EN: Ignore -->
   <Ignore>TODO</Ignore>
-  
+
   <!-- Progress bar -->
   <!-- EN: Generating world -->
   <GeneratingWorld>TODO</GeneratingWorld>

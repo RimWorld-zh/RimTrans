@@ -61,17 +61,38 @@ describe('mod', () => {
     expect(core.meta.targetVersion).toBe('Unknown');
     expect(core.meta.supportedVersions).toEqual([]);
 
-    expect(core.pathBackstories('English')).toBe(
-      io.join(pathCore, 'Languages', 'English', 'Backstories'),
+    expect(core.pathLanguage('MockLanguage')).toBe(
+      io.join(pathCore, 'Languages', 'MockLanguage'),
     );
-    expect(core.pathDefInjected('English')).toBe(
-      io.join(pathCore, 'Languages', 'English', 'DefInjected'),
+    expect(core.pathBackstories('MockLanguage')).toBe(
+      io.join(pathCore, 'Languages', 'MockLanguage', 'Backstories'),
     );
-    expect(core.pathKeyed('English')).toBe(
-      io.join(pathCore, 'Languages', 'English', 'Keyed'),
+    expect(core.pathDefInjected('MockLanguage')).toBe(
+      io.join(pathCore, 'Languages', 'MockLanguage', 'DefInjected'),
     );
-    expect(core.pathStrings('English')).toBe(
-      io.join(pathCore, 'Languages', 'English', 'Strings'),
+    expect(core.pathKeyed('MockLanguage')).toBe(
+      io.join(pathCore, 'Languages', 'MockLanguage', 'Keyed'),
+    );
+    expect(core.pathStrings('MockLanguage')).toBe(
+      io.join(pathCore, 'Languages', 'MockLanguage', 'Strings'),
+    );
+
+    const dir = io.join(__dirname, 'Mock');
+    const output = core.output(dir);
+    expect(output.pathLanguage('MockLanguage')).toBe(
+      io.join(dir, 'Languages', 'MockLanguage'),
+    );
+    expect(output.pathBackstories('MockLanguage')).toBe(
+      io.join(dir, 'Languages', 'MockLanguage', 'Backstories'),
+    );
+    expect(output.pathDefInjected('MockLanguage')).toBe(
+      io.join(dir, 'Languages', 'MockLanguage', 'DefInjected'),
+    );
+    expect(output.pathKeyed('MockLanguage')).toBe(
+      io.join(dir, 'Languages', 'MockLanguage', 'Keyed'),
+    );
+    expect(output.pathStrings('MockLanguage')).toBe(
+      io.join(dir, 'Languages', 'MockLanguage', 'Strings'),
     );
 
     mods.unshift(core);

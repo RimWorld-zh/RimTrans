@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- EN: Sieging {0} from {1} are assaulting the colony. -->
@@ -60,7 +60,7 @@
   <MessageAnimalsGoPsychoHunted>TODO</MessageAnimalsGoPsychoHunted>
   <!-- EN: Warning: {ANIMAL_kindBasePlural} may attack upon failed taming attempts ({1} chance). -->
   <MessageAnimalManhuntsOnTameFailed>TODO</MessageAnimalManhuntsOnTameFailed>
-  
+
   <!-- EN: New recruit -->
   <LetterLabelMessageRecruitSuccess>TODO</LetterLabelMessageRecruitSuccess>
   <!-- EN: {RECRUITER_nameFull} successfully recruited {RECRUITEE_nameFull} ({2} chance). -->
@@ -113,14 +113,14 @@
 
   <!-- EN: {1_labelShort} has refused to be arrested! -->
   <MessageRefusedArrest>TODO</MessageRefusedArrest>
-  
+
   <!-- EN: There are no medical beds available. -->
   <MessageNoMedicalBeds>TODO</MessageNoMedicalBeds>
   <!-- EN: There are no animal beds available. -->
   <MessageNoAnimalBeds>TODO</MessageNoAnimalBeds>
   <!-- EN: Operation requires {0} or better, but {PAWN_labelShort}'s current medical care mode is "{2}". -->
   <MessageTooLowMedCare>TODO</MessageTooLowMedCare>
-  
+
   <!-- EN: {PAWN_labelShort} has died. Cause: {1}. -->
   <PawnDiedBecauseOf>TODO</PawnDiedBecauseOf>
   <!-- EN: {1_labelShort} has died. -->
@@ -156,26 +156,26 @@
 
   <!-- EN: No handler can tame {ANIMAL_kindBase} (requires level {1} in {2}, best handler {HANDLER_labelShort} has {4}). -->
   <MessageNoHandlerSkilledEnough>TODO</MessageNoHandlerSkilledEnough>
-  
+
   <!-- EN: {EATEN_labelShort} has been eaten by {PREDATOR}. -->
   <MessageEatenByPredator>TODO</MessageEatenByPredator>
   <!-- EN: {PREY_labelShort} is being attacked by {PREDATOR}! -->
   <MessageAttackedByPredator>TODO</MessageAttackedByPredator>
-  
+
   <!-- EN: A bug hive has reproduced itself. -->
   <MessageHiveReproduced>TODO</MessageHiveReproduced>
-  
+
   <!-- EN: The trade caravan from {0} is leaving. -->
   <MessageTraderCaravanLeaving>TODO</MessageTraderCaravanLeaving>
-  
+
   <!-- EN: {1_labelShort} is dead. -->
   <MessageCantSelectDeadPawn>TODO</MessageCantSelectDeadPawn>
   <!-- EN: {1_labelShort} is off the map. -->
   <MessageCantSelectOffMapPawn>TODO</MessageCantSelectOffMapPawn>
-  
+
   <!-- EN: {PAWN1_labelShort} started a social fight with {PAWN2_labelShort}. -->
   <MessageSocialFight>TODO</MessageSocialFight>
-  
+
   <!-- EN: Colonists are gathering to celebrate {PAWN1_labelShort} and {PAWN2_labelShort}’s marriage. -->
   <MessageNewMarriageCeremony>TODO</MessageNewMarriageCeremony>
   <!-- EN: {PAWN1_labelShort} and {PAWN2_labelShort} are beginning their marriage ceremony! -->
@@ -186,25 +186,25 @@
   <MessageNewlyMarried>TODO</MessageNewlyMarried>
   <!-- EN: The marriage ceremony for {PAWN1_labelShort} and {PAWN2_labelShort} has finished. -->
   <MessageMarriageCeremonyAfterPartyFinished>TODO</MessageMarriageCeremonyAfterPartyFinished>
-  
+
   <!-- EN: {HUMAN_labelShort} and {ANIMAL_labelShort} have formed a bond. -->
   <MessageNewBondRelation>TODO</MessageNewBondRelation>
   <!-- EN: {HUMAN_labelShort} and {1} have formed a bond. {HUMAN_labelShort} has named {ANIMAL_objective} {ANIMAL_nameFull}. -->
   <MessageNewBondRelationNewName>TODO</MessageNewBondRelationNewName>
-  
+
   <!-- EN: {ANIMAL} has a mental break because of {HUMAN_labelShort}'s death. -->
   <MessageBondedAnimalMentalBreak>TODO</MessageBondedAnimalMentalBreak>
   <!-- EN: {ANIMAL_kindIndef} named {ANIMAL_label} has a mental break because of {HUMAN_labelShort}'s death. -->
   <MessageNamedBondedAnimalMentalBreak>TODO</MessageNamedBondedAnimalMentalBreak>
   <!-- EN: {0} animals have a mental break because of {HUMAN_labelShort}'s death. -->
   <MessageBondedAnimalsMentalBreak>TODO</MessageBondedAnimalsMentalBreak>
-  
+
   <!-- EN: {SURGEON_labelShort} has successfully removed {PATIENT_labelShort}'s {HEDIFF}. -->
   <MessageSuccessfullyRemovedHediff>TODO</MessageSuccessfullyRemovedHediff>
-  
+
   <!-- EN: Chunks of a spacecraft have impacted nearby. You can deconstruct them to yield resources. -->
   <MessageShipChunkDrop>TODO</MessageShipChunkDrop>
-  
+
   <!-- EN: The party has been called off. -->
   <MessagePartyCalledOff>TODO</MessagePartyCalledOff>
   <!-- EN: The party has finished. -->
@@ -218,10 +218,10 @@
 
   <!-- EN: Screenshot saved as: {0} -->
   <MessageScreenshotSavedAs>TODO</MessageScreenshotSavedAs>
-  
+
   <!-- EN: {PAWN1_labelShort} and {PAWN2_labelShort} are no longer social fighting. -->
   <MessageNoLongerSocialFighting>TODO</MessageNoLongerSocialFighting>
-  
+
   <!-- EN: {2_labelShort} is no longer binging on {1}. -->
   <MessageNoLongerBingingOnDrug>TODO</MessageNoLongerBingingOnDrug>
 
@@ -230,10 +230,10 @@
 
   <!-- EN: {1_label} has rotted away in storage. -->
   <MessageRottedAwayInStorage>TODO</MessageRottedAwayInStorage>
-  
+
   <!-- EN: {PAWN_labelShort} has gotten food poisoning from: {FOOD_labelShort}. Cause: {2}. -->
   <MessageFoodPoisoning>TODO</MessageFoodPoisoning>
-  
+
   <!-- EN: {0} has been removed from the caravan. -->
   <MessagePawnLostWhileFormingCaravan>TODO</MessagePawnLostWhileFormingCaravan>
   <!-- EN: The caravan formation process has been terminated. -->
@@ -242,10 +242,10 @@
   <MessageCaravanFormationPaused>TODO</MessageCaravanFormationPaused>
   <!-- EN: Your colonists will now continue forming a caravan. -->
   <MessageCaravanFormationUnpaused>TODO</MessageCaravanFormationUnpaused>
-  
+
   <!-- EN: One of the caravan members has a mental break. -->
   <MessageCaravanMemberHasExtremeMentalBreak>TODO</MessageCaravanMemberHasExtremeMentalBreak>
-  
+
   <!-- EN: Warning: It can take a very long time to generate an entire planet. -->
   <MessageMaxPlanetCoveragePerformanceWarning>TODO</MessageMaxPlanetCoveragePerformanceWarning>
 
@@ -267,69 +267,69 @@
 
   <!-- EN: {INGESTER} has accidentally overdosed while consuming {DRUG_labelShort}! -->
   <MessageAccidentalOverdose>TODO</MessageAccidentalOverdose>
-  
+
   <!-- EN: {0} has arrived at its destination. -->
   <MessageCaravanArrivedAtDestination>TODO</MessageCaravanArrivedAtDestination>
-  
+
   <!-- EN: {1_labelShort} has left the area and formed a caravan. -->
   <MessagePawnLeftMapAndCreatedCaravan>TODO</MessagePawnLeftMapAndCreatedCaravan>
   <!-- EN: Your animals are moving to join it. -->
   <MessagePawnLeftMapAndCreatedCaravan_AnimalsWantToJoin>TODO</MessagePawnLeftMapAndCreatedCaravan_AnimalsWantToJoin>
-  
+
   <!-- EN: You have successfully settled in a new area. -->
   <MessageSettledInExistingMap>TODO</MessageSettledInExistingMap>
-  
+
   <!-- EN: {PAWN_labelShort}'s {2} has healed. Cause: {0} -->
   <MessagePermanentWoundHealed>TODO</MessagePermanentWoundHealed>
 
   <!-- EN: {1_labelShort} has joined your group after being rescued! -->
   <MessageRescueeJoined>TODO</MessageRescueeJoined>
-  
+
   <!-- EN: Some transport pods are unreachable. -->
   <MessageTransporterUnreachable>TODO</MessageTransporterUnreachable>
   <!-- EN: All pod launchers connected to the selected transport pods must be adjacent. -->
   <MessageTransportersNotAdjacent>TODO</MessageTransportersNotAdjacent>
-  
+
   <!-- EN: The loading process has been canceled because one of the transport pods has been destroyed. -->
   <MessageTransportersLoadCanceled_TransporterDestroyed>TODO</MessageTransportersLoadCanceled_TransporterDestroyed>
   <!-- EN: The loading process has been canceled because one of the pod launchers has been destroyed. -->
   <MessageTransportersLoadCanceled_FuelingPortGiverDeSpawned>TODO</MessageTransportersLoadCanceled_FuelingPortGiverDeSpawned>
-  
+
   <!-- EN: Your colonists will now load the assigned items into the transport pods. -->
   <MessageTransportersLoadingProcessStarted>TODO</MessageTransportersLoadingProcessStarted>
-  
+
   <!-- EN: Your transport pods have arrived. -->
   <MessageTransportPodsArrived>TODO</MessageTransportPodsArrived>
   <!-- EN: Your transport pods have arrived, but since there were no colonists inside, the contents are lost. -->
   <MessageTransportPodsArrivedAndLost>TODO</MessageTransportPodsArrivedAndLost>
   <!-- EN: Your transport pods have arrived. The contents have been added to {0}. -->
   <MessageTransportPodsArrivedAndAddedToCaravan>TODO</MessageTransportPodsArrivedAndAddedToCaravan>
-  
+
   <!-- EN: Your colonists have finished loading the transport pods. -->
   <MessageFinishedLoadingTransporters>TODO</MessageFinishedLoadingTransporters>
 
   <!-- EN: Your {1} can't finish loading the transport pods because some items or people became unavailable ({2_labelShort}). -->
   <MessageCantLoadMoreIntoTransporters>TODO</MessageCantLoadMoreIntoTransporters>
-  
+
   <!-- EN: Selected destination is invalid. -->
   <MessageTransportPodsDestinationIsInvalid>TODO</MessageTransportPodsDestinationIsInvalid>
   <!-- EN: Each pod launcher would need at least {0}x chemfuel to send transport pods that far. -->
   <MessageTransportPodsDestinationIsTooFar>TODO</MessageTransportPodsDestinationIsTooFar>
-  
+
   <!-- EN: The caravan has been reformed. -->
   <MessageReformedCaravan>TODO</MessageReformedCaravan>
-  
+
   <!-- EN: You can't banish the last colonist. -->
   <MessageCantBanishLastColonist>TODO</MessageCantBanishLastColonist>
-  
+
   <!-- EN: Cannot equip: {1_labelShort} is incapable of violence. -->
   <MessageCantEquipIncapableOfViolence>TODO</MessageCantEquipIncapableOfViolence>
   <!-- EN: Cannot equip: incapable. -->
   <MessageCantEquipIncapableOfManipulation>TODO</MessageCantEquipIncapableOfManipulation>
-  
+
   <!-- EN: Because they are bonded, slaughtering {DESIGNATED_labelShort} will make {BONDED_labelShort} unhappy. -->
   <MessageSlaughteringBondedAnimal>TODO</MessageSlaughteringBondedAnimal>
-  
+
   <!-- EN: {0} has run out of food ({PAWN_label}). -->
   <MessageCaravanRanOutOfFood>TODO</MessageCaravanRanOutOfFood>
 
@@ -338,10 +338,10 @@
 
   <!-- EN: At this resolution and UI scale, the game interface would not fit on-screen. Please reduce UI scale or increase resolution. -->
   <MessageScreenResTooSmallForUIScale>TODO</MessageScreenResTooSmallForUIScale>
-  
+
   <!-- EN: You have to reform the caravan now. Everyone left behind will be abandoned. -->
   <MessageYouHaveToReformCaravanNow>TODO</MessageYouHaveToReformCaravanNow>
-  
+
   <!-- EN: {0} from {1} are attacking your {2}. -->
   <MessageDefendersAttacking>TODO</MessageDefendersAttacking>
 
@@ -349,7 +349,7 @@
   <MessageSelfTendUnsatisfied>TODO</MessageSelfTendUnsatisfied>
   <!-- EN: {1_labelShort} is incapable of doing Doctor work, and so cannot ever self-tend. -->
   <MessageCannotSelfTendEver>TODO</MessageCannotSelfTendEver>
-  
+
   <!-- EN: This tile is impassable. -->
   <MessageCantAddWaypointBecauseImpassable>TODO</MessageCantAddWaypointBecauseImpassable>
   <!-- EN: It's not possible to reach this tile from the last waypoint. -->
@@ -358,10 +358,10 @@
   <MessageCantAddWaypointBecauseLimit>TODO</MessageCantAddWaypointBecauseLimit>
   <!-- EN: You can't remove this waypoint. -->
   <MessageCantRemoveWaypointBecauseFirst>TODO</MessageCantRemoveWaypointBecauseFirst>
-  
+
   <!-- EN: None of your wardens is capable of violence. The execution won't be performed. -->
   <MessageCantDoExecutionBecauseNoWardenCapableOfViolence>TODO</MessageCantDoExecutionBecauseNoWardenCapableOfViolence>
-  
+
   <!-- EN: You have defeated all enemies. In {0}, the caravan will automatically be reformed. -->
   <MessageSiteCountdownBecauseNoMoreEnemies>TODO</MessageSiteCountdownBecauseNoMoreEnemies>
   <!-- EN: In {0}, the caravan will automatically be reformed. You can reform the caravan now in the World screen. -->

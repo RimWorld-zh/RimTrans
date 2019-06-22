@@ -6,8 +6,8 @@ import {
   XElementData,
   loadXML,
   PrettierOptions,
+  resolveXmlPrettierOptions,
   saveXML,
-  defaultXmlPrettierOptions,
 } from './xml';
 import { DefDocumentMap } from './definition';
 import { ClassInfo, HandleInfo, EnumInfo, FieldInfo, TypeInfo } from './type-package';
@@ -153,7 +153,7 @@ export function deSerializePath(tagName: string): PathNode[] {
 // Loading
 
 /**
- * Load `DefInjected` xml documents and get `InjectionMap`.
+ * Load `DefInjected` xml files of the mod and get `InjectionMap`.
  * @param paths the array of paths to `DefInjected` directories.
  */
 export async function load(paths: string[]): Promise<InjectionMap[]> {
@@ -239,13 +239,15 @@ export async function load(paths: string[]): Promise<InjectionMap[]> {
  * Parse the Def maps and get Def injection maps.
  * @param defMaps the array of Def maps
  * @param typeInfoMaps the array of DefInjection Map
+ * @param fuzzy extract injection in fuzzy mode or not
  */
 export function parse(
   defMaps: DefDocumentMap[],
   classInfoMap: Record<string, ClassInfo>,
+  fuzzy?: boolean,
 ): InjectionMap[] {
   const getPathNodes = generateGetPathNodes(classInfoMap);
-  const parseField = generateParseField(classInfoMap, getPathNodes);
+  const parseField = generateParseField(classInfoMap, getPathNodes, fuzzy);
   const parseDef = generateParseDef(classInfoMap, parseField);
 
   const result: InjectionMap[] = defMaps.map(defMap => {
@@ -288,6 +290,7 @@ type GetParseNodes = (list: XElementData[], typeInfoOf: TypeInfo) => PathNode[];
 /**
  * High-order function: generate a function for parsing a Def element and getting `Injection`.
  * @param classInfoMap the `ClassInfo` map
+ * @param parseField the `ParseField` function
  */
 function generateParseDef(
   classInfoMap: Record<string, ClassInfo>,
@@ -320,10 +323,13 @@ function generateParseDef(
 /**
  * High-order function: generate a function for parsing a field element and getting `Injection`
  * @param classInfoMap the `ClassInfo` map
+ * @param getPathNodes the `GetPathNodes` function
+ * @param fuzzy extract injections in fuzzy mode or not
  */
 function generateParseField(
   classInfoMap: Record<string, ClassInfo>,
   getPathNodes: GetParseNodes,
+  fuzzy?: boolean,
 ): ParseField {
   /**
    * @param path
@@ -435,6 +441,7 @@ function generateParseField(
 
     // Fuzzy
     if (
+      fuzzy &&
       fieldInfo &&
       !noTranslate &&
       typeInfo.category === 'VALUE' &&
@@ -456,6 +463,10 @@ function generateParseField(
   return parseField;
 }
 
+/**
+ * High-order function: generate a `GetPathNodes` function
+ * @param classInfoMap the map of ClassInfo
+ */
 function generateGetPathNodes(classInfoMap: Record<string, ClassInfo>): GetParseNodes {
   return (list, typeInfoOf) => {
     const classInfo: ClassInfo | undefined =
@@ -562,7 +573,8 @@ export function merge(target: InjectionMap, source: InjectionMap): InjectionMap 
           typeof targetInjection.translation === 'string' &&
           typeof sourceInjection.translation === 'string' &&
           sourceInjection.translation &&
-          sourceInjection.translation !== TEXT_TODO
+          sourceInjection.translation !== TEXT_TODO &&
+          sourceInjection.translation !== targetInjection.origin
         ) {
           targetInjection.translation = sourceInjection.translation;
         }
@@ -582,21 +594,24 @@ export function merge(target: InjectionMap, source: InjectionMap): InjectionMap 
  */
 export function checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
   injectionMaps.forEach(map =>
-    Object.entries(map).forEach(([defType, subMap]) => {
-      const visited: Injection[] = [];
-      Object.entries(subMap).forEach(([fileName, injectionList]) =>
-        injectionList.forEach(injection => {
-          if (typeof injection === 'string') {
-            return;
-          }
-          if (visited.some(inj => pathMatch(inj.path, injection.path))) {
-            injection.duplicated = true;
-          } else {
+    Object.keys(map)
+      .sort()
+      .forEach(defType => {
+        const subMap = map[defType];
+        const visited: Injection[] = [];
+        Object.entries(subMap).forEach(([fileName, injectionList]) =>
+          injectionList.forEach(injection => {
+            if (typeof injection === 'string') {
+              return;
+            }
+            if (visited.some(inj => pathMatch(inj.path, injection.path))) {
+              injection.duplicated = true;
+              return;
+            }
             visited.push(injection);
-          }
-        }),
-      );
-    }),
+          }),
+        );
+      }),
   );
 
   return injectionMaps;
@@ -607,22 +622,16 @@ export function checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
 
 /**
  * Save `InjectionMap` as XML document files.
+ * @param directory the directory to save to
  * @param injectionMap the `InjectionMap` to serialize
+ * @param prettierOptions format options
  */
 export async function save(
   directory: string,
   injectionMap: InjectionMap,
-  fuzzy: boolean = false,
   prettierOptions?: PrettierOptions,
 ): Promise<void> {
-  const { tabWidth, useTabs, endOfLine } = {
-    ...defaultXmlPrettierOptions(),
-    ...prettierOptions,
-  };
-  const tab = (useTabs && '\t') || ' '.repeat(tabWidth);
-  const indent: XTextData = { nodeType: 'text', value: tab };
-  const eol = (endOfLine === 'cr' && '\r') || (endOfLine === 'crlf' && '\r\n') || '\n';
-  const newline: XTextData = { nodeType: 'text', value: eol };
+  const { tab, indent, eol, newline } = resolveXmlPrettierOptions(prettierOptions);
 
   const promises: Promise<void>[] = [];
 
@@ -645,9 +654,6 @@ export async function save(
           return;
         }
         if (injection.duplicated) {
-          return;
-        }
-        if (!fuzzy && injection.fuzzy) {
           return;
         }
 

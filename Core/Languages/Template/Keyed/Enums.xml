@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- Glow -->
@@ -88,7 +88,7 @@
   <QualityCategoryShort_Masterwork>TODO</QualityCategoryShort_Masterwork>
   <!-- EN: legd -->
   <QualityCategoryShort_Legendary>TODO</QualityCategoryShort_Legendary>
-  
+
   <!-- Hunger -->
   <!-- EN: Starving -->
   <HungerLevel_Starving>TODO</HungerLevel_Starving>
@@ -120,7 +120,7 @@
   <Hilliness_Mountainous>TODO</Hilliness_Mountainous>
   <!-- EN: impassable -->
   <Hilliness_Impassable>TODO</Hilliness_Impassable>
-  
+
   <!-- Steam workshop interaction -->
   <!-- EN: Creating -->
   <WorkshopInteractStage_CreatingItem>TODO</WorkshopInteractStage_CreatingItem>
@@ -144,7 +144,7 @@
   <ContentSource_LocalFolder>TODO</ContentSource_LocalFolder>
   <!-- EN: Steam Workshop -->
   <ContentSource_SteamWorkshop>TODO</ContentSource_SteamWorkshop>
-  
+
   <!-- Medical care category -->
   <!-- EN: No medical care -->
   <MedicalCareCategory_NoCare>TODO</MedicalCareCategory_NoCare>
@@ -164,7 +164,7 @@
   <HostilityResponseMode_Attack>TODO</HostilityResponseMode_Attack>
   <!-- EN: Flee -->
   <HostilityResponseMode_Flee>TODO</HostilityResponseMode_Flee>
-  
+
   <!-- HediffGrowthMode -->
   <!-- EN: growing -->
   <HediffGrowthMode_Growing>TODO</HediffGrowthMode_Growing>
@@ -202,7 +202,7 @@
   <PawnGenerationContext_PlayerStarter>TODO</PawnGenerationContext_PlayerStarter>
   <!-- EN: non-player characters -->
   <PawnGenerationContext_NonPlayer>TODO</PawnGenerationContext_NonPlayer>
-  
+
   <!-- Animal name display mode -->
   <!-- EN: Show animal names -->
   <ShowAnimalNames>TODO</ShowAnimalNames>
@@ -210,7 +210,7 @@
   <AnimalNameDisplayMode_TameNamed>TODO</AnimalNameDisplayMode_TameNamed>
   <!-- EN: Tame (all) -->
   <AnimalNameDisplayMode_TameAll>TODO</AnimalNameDisplayMode_TameAll>
-  
+
   <!-- Temperature -->
   <!-- EN: Celsius -->
   <Celsius>TODO</Celsius>
@@ -218,7 +218,7 @@
   <Fahrenheit>TODO</Fahrenheit>
   <!-- EN: Kelvin -->
   <Kelvin>TODO</Kelvin>
-  
+
   <!-- Direction8Way -->
   <!-- EN: N -->
   <Direction8Way_North_Short>TODO</Direction8Way_North_Short>
@@ -236,7 +236,7 @@
   <Direction8Way_West_Short>TODO</Direction8Way_West_Short>
   <!-- EN: NW -->
   <Direction8Way_NorthWest_Short>TODO</Direction8Way_NorthWest_Short>
-  
+
   <!-- Diet category -->
   <!-- EN: Never eats -->
   <DietCategory_NeverEats>TODO</DietCategory_NeverEats>

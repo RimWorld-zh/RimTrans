@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- EN: Confirm -->
@@ -9,7 +9,7 @@
   <OK>TODO</OK>
   <!-- EN: Close -->
   <Close>TODO</Close>
-  
+
   <!-- Game updated to new version -->
   <!-- EN: RimWorld has been updated from version {0} to version {1}. -->
   <GameUpdatedToNewVersionInitial>TODO</GameUpdatedToNewVersionInitial>
@@ -21,13 +21,13 @@
   <GameUpdatedToNewVersionNonSteam>TODO</GameUpdatedToNewVersionNonSteam>
   <!-- EN: If you wish to continue with the old version, you can opt in using Steam's "Betas" feature.\n\n  1. In the Steam library, right-click RimWorld.\n  2. Click Properties.\n  3. Click the Betas tab.\n  4. Select the version you want from the drop-down menu.\n\nOld versions will be likely removed from this list eventually - we just didn't want to cut off games in progress.\n\nNote that if mod authors update their mods for a new game version, they'll probably stop working on an old version. You may want to turn off automatic updates to prevent this. -->
   <GameUpdatedToNewVersionSteam>TODO</GameUpdatedToNewVersionSteam>
-  
+
   <!-- Recovered from errors caused by mods -->
   <!-- EN: Recovered from incompatible or corrupted mods errors -->
   <RecoveredFromErrorsDialogTitle>TODO</RecoveredFromErrorsDialogTitle>
   <!-- EN: It seems that some of the active mods were causing errors.\n\nThey were incompatible with each other, designed for a different version of RimWorld, or corrupted.\n\nAll mods have been disabled and can be activated again in the mods dialog. -->
   <RecoveredFromErrorsText>TODO</RecoveredFromErrorsText>
-  
+
   <!-- Errors during loading -->
   <!-- EN: Error while loading assets -->
   <ErrorWhileLoadingAssetsTitle>TODO</ErrorWhileLoadingAssetsTitle>
@@ -43,7 +43,7 @@
   <ErrorWhileLoadingMapTitle>TODO</ErrorWhileLoadingMapTitle>
   <!-- EN: An error occurred while loading a map. See error log for more information. -->
   <ErrorWhileLoadingMap>TODO</ErrorWhileLoadingMap>
-  
+
   <!-- Unloaded mod with an assembly -->
   <!-- EN: The mod list has changed. The game will now restart automatically. -->
   <ModsChanged>TODO</ModsChanged>
@@ -51,11 +51,11 @@
   <FailedToRestart>TODO</FailedToRestart>
   <!-- EN: Restarting -->
   <Restarting>TODO</Restarting>
-  
+
   <!-- Missing Steam -->
   <!-- EN: Could not initialize Steam API. Possible causes:\n\n-Steam is not running.\n-Launched from outside Steam without steam_appid.txt in place.\n-Running with different privileges than Steam client (e.g. "as administrator").\n\nIn most cases, rebooting your computer will fix this problem.\n\nYou can play anyway, but no Steam stats will be recorded and Steam features won't be available. -->
   <SteamClientMissing>TODO</SteamClientMissing>
-  
+
   <!-- Long events -->
   <!-- EN: Initializing interface -->
   <InitializingInterface>TODO</InitializingInterface>
@@ -79,7 +79,7 @@
   <SpawningAllThings>TODO</SpawningAllThings>
   <!-- EN: Spawning colonists -->
   <SpawningColonists>TODO</SpawningColonists>
-  
+
   <!-- Save/load -->
   <!-- EN: Save -->
   <SaveGameButton>TODO</SaveGameButton>
@@ -117,7 +117,7 @@
   <ChangeLoadedMods>TODO</ChangeLoadedMods>
   <!-- EN: Some mods are unavailable, and need to be installed -->
   <MissingMods>TODO</MissingMods>
-  
+
   <!-- Player faction naming -->
   <!-- EN: Since it looks like you'll be here for a while, {0} thinks that you should give your faction a name. What should your faction be called? -->
   <NamePlayerFactionMessage>TODO</NamePlayerFactionMessage>
@@ -133,13 +133,13 @@
   <PlayerFactionBaseGainsName>TODO</PlayerFactionBaseGainsName>
   <!-- EN: That name isn't valid. -->
   <PlayerFactionBaseNameIsInvalid>TODO</PlayerFactionBaseNameIsInvalid>
-  
+
   <!-- Player faction and faction base naming -->
   <!-- EN: {0} also thinks that you should give this settlement a name. What should this local settlement be called? -->
   <NamePlayerFactionBaseMessage_NameFactionContinuation>TODO</NamePlayerFactionBaseMessage_NameFactionContinuation>
   <!-- EN: Your faction is now known as {0}, and this community is now known as {1}. -->
   <PlayerFactionAndBaseGainsName>TODO</PlayerFactionAndBaseGainsName>
-  
+
   <!-- Renaming -->
   <!-- EN: Please enter a valid name. -->
   <NameIsInvalid>TODO</NameIsInvalid>
@@ -147,7 +147,7 @@
   <NameIsInUse>TODO</NameIsInUse>
   <!-- EN: The zone is now called {0}. -->
   <ZoneGainsName>TODO</ZoneGainsName>
-  
+
   <!-- Pawn naming -->
   <!-- EN: This person's nickname is now {0}. {PAWN_possessive} title is {PAWN_title}. -->
   <PawnGainsName>TODO</PawnGainsName>
@@ -201,7 +201,7 @@
   <RequiredResearchBench>TODO</RequiredResearchBench>
   <!-- EN: Required research bench facilities -->
   <RequiredResearchBenchFacilities>TODO</RequiredResearchBenchFacilities>
-  
+
   <!-- Advanced game start options -->
   <!-- EN: Warning: You will be landing in a frozen environment. It may be hard or nearly impossible to survive. If you are not intending to face an extreme challenge, choose a different site or season. -->
   <MapTemperatureDangerWarning>TODO</MapTemperatureDangerWarning>
@@ -255,7 +255,7 @@
   <AnyWorker>TODO</AnyWorker>
   <!-- EN: Unlimited -->
   <Unlimited>TODO</Unlimited>
-  
+
   <!-- EN: (This recipe cannot have a target count because it has multiple or unpredictable products.) -->
   <RecipeCannotHaveTargetCount>TODO</RecipeCannotHaveTargetCount>
   <!-- EN: Work amount -->
@@ -294,7 +294,7 @@
   <IncludeFromAll>TODO</IncludeFromAll>
   <!-- EN: Look in {0} -->
   <IncludeSpecific>TODO</IncludeSpecific>
-  
+
   <!-- Info card -->
   <!-- EN: Damage -->
   <Damage>TODO</Damage>
@@ -520,7 +520,7 @@
   <SellableItemsTitle>TODO</SellableItemsTitle>
   <!-- EN: Creatures -->
   <PawnsTabShort>TODO</PawnsTabShort>
-  
+
   <!-- Form caravan -->
   <!-- EN: Form caravan -->
   <FormCaravan>TODO</FormCaravan>
@@ -656,7 +656,7 @@
   <SourceCaravanMustHaveAtLeastOneColonist>TODO</SourceCaravanMustHaveAtLeastOneColonist>
   <!-- EN: How many of this item the caravan has ready to give to the new caravan. -->
   <SplitCaravanThingCountTip>TODO</SplitCaravanThingCountTip>
-  
+
   <!-- Load transporters -->
   <!-- EN: Load {0} -->
   <LoadTransporters>TODO</LoadTransporters>
@@ -670,18 +670,18 @@
   <TransporterItemIsUnreachableSingle>TODO</TransporterItemIsUnreachableSingle>
   <!-- EN: There is no path between the transport pods and {0}x {1}. -->
   <TransporterItemIsUnreachableMulti>TODO</TransporterItemIsUnreachableMulti>
-  
+
   <!-- Comms -->
   <!-- EN: Social skill: {0} -->
   <SocialSkillIs>TODO</SocialSkillIs>
-  
-  <!--Research-->
+
+  <!-- Research -->
   <!-- EN: Research finished: {0} -->
   <ResearchFinished>TODO</ResearchFinished>
   <!-- EN: Research Screen -->
   <ResearchScreen>TODO</ResearchScreen>
-  
-  <!--HistoryUpload-->
+
+  <!-- HistoryUpload -->
   <!-- EN: Do you want to upload your gameplay data records to RimWorld server in order to help developers balance the game? If you agree, your data will be uploaded every {0} days (and in some other rare cases like the end of the game). Privacy preferences can be changed later in the options menu. -->
   <HistoryUploadMessage>TODO</HistoryUploadMessage>
   <!-- EN: Even though history is sent anonymously, you can attach your name. -->
@@ -694,7 +694,7 @@
   <HistoryUploadYesOnce>TODO</HistoryUploadYesOnce>
   <!-- EN: Do not upload this time, ask me later -->
   <HistoryUploadNoOnce>TODO</HistoryUploadNoOnce>
-  
+
   <!-- Outfit management -->
   <!-- EN: Outfit -->
   <Outfit>TODO</Outfit>
@@ -708,7 +708,7 @@
   <OutfitInUse>TODO</OutfitInUse>
   <!-- EN: No outfit selected -->
   <NoOutfitSelected>TODO</NoOutfitSelected>
-  
+
   <!-- Drug policy management -->
   <!-- EN: Drug policy -->
   <DrugPolicy>TODO</DrugPolicy>
@@ -816,7 +816,7 @@
   <MedGroupNeutralFaction>TODO</MedGroupNeutralFaction>
   <!-- EN: Hostile faction -->
   <MedGroupHostileFaction>TODO</MedGroupHostileFaction>
-  
+
   <!-- Growing -->
   <!-- EN: {0} requires {1} skill in Growing to sow.\n\nNone of your non-downed growers have this skill, so this plant will not be sown. -->
   <NoGrowerCanPlant>TODO</NoGrowerCanPlant>
@@ -828,11 +828,11 @@
   <ConfirmAbandonHomeNegativeThoughts>TODO</ConfirmAbandonHomeNegativeThoughts>
   <!-- EN: Everyone: -->
   <ConfirmAbandonHomeNegativeThoughts_Everyone>TODO</ConfirmAbandonHomeNegativeThoughts_Everyone>
-  
+
   <!-- Move caravan and leave prisoners and animals behind -->
   <!-- EN: Some animals or prisoners are trying to join this caravan. If you move it, they won't be able to anymore.\n\nAnimals, prisoners, and downed colonists left behind in a map without any non-downed colonists are considered abandoned and can be captured by the enemies.\n\nAre you sure you want to move your caravan? -->
   <ConfirmMoveAutoJoinableCaravan>TODO</ConfirmMoveAutoJoinableCaravan>
-  
+
   <!-- Abandon pawn -->
   <!-- EN: Do you really want to banish {1_label}? -->
   <ConfirmBanishPawnDialog>TODO</ConfirmBanishPawnDialog>
@@ -852,7 +852,7 @@
   <!-- Settle near a faction base -->
   <!-- EN: Since this location is within {0} tiles of another faction base, they will feel you are encroaching on their land and relations with those factions will worsen every {1} days.\n\nSettle here anyways? -->
   <ConfirmSettleNearFactionBase>TODO</ConfirmSettleNearFactionBase>
-  
+
   <!-- Cleanup translation files -->
   <!-- EN: Are you sure you want to cleanup all translation files for language {0}?\n\nThis will:\n  - Add placeholders for missing keyed translations, def-injected translations, and backstories\n  - Add or update comments containing the original, untranslated text\n  - Move all keyed and def-injected translations to the appropriate XML files\n  - Apply automatic formatting to all XML files\n  - Update back-compatible def names\n  - Remove all existing XML comments (except in full-list injections)\n\nNon-XML files will not be removed or modified.\n\nRemember to restart the game after modifying the language files before running this tool in order to reload all data.\n\nMake sure to back up all translation files before using this tool. -->
   <ConfirmCleanupTranslationFiles>TODO</ConfirmCleanupTranslationFiles>

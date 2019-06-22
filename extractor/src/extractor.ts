@@ -3,15 +3,16 @@ import { PrettierOptions } from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
 import * as injection from './injection';
-import { Mod } from './mod';
-import { FOLDER_NAME_LANGUAGES, FOLDER_NAME_DEF_INJECTED } from './constants';
+import * as keyed from './keyed-replacement';
+import { Mod, ModOutput } from './mod';
+import { DEFAULT_LANGUAGE } from './constants';
 
 export interface ExtractorSolution {
   typePackages: string[];
   modPaths: string[];
   enabledMods: boolean[];
   languages: string[];
-  outputDirectory: string;
+  outputDirectory?: string;
   fuzzy?: boolean;
   prettierOptions?: PrettierOptions;
 }
@@ -33,15 +34,23 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
 
   const mods = await Promise.all(modPaths.map(path => Mod.load(path)));
 
-  const [definitionMaps, classInfoMap, languagesToOldInjectionMaps] = await Promise.all([
+  const [
+    definitionMaps,
+    classInfoMap,
+    languagesToOldInjectionMaps,
+    englishKeyedMaps,
+    languagesToOldKeyedMaps,
+  ] = await Promise.all([
     definition.load(mods.map(mod => mod.pathDefs)).then(definition.resolveInheritance),
     typePackage.load([...typePackages, ...mods.map(mod => mod.pathAssemblies)]),
     Promise.all(
       languages.map(lang => injection.load(mods.map(mod => mod.pathDefInjected(lang)))),
     ),
+    keyed.load(mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE))),
+    Promise.all(languages.map(lang => keyed.load(mods.map(mod => mod.pathKeyed(lang))))),
   ]);
 
-  const newInjectionMaps = injection.parse(definitionMaps, classInfoMap);
+  const newInjectionMaps = injection.parse(definitionMaps, classInfoMap, fuzzy);
 
   await Promise.all(
     languages.map(async (lang, langIndex) => {
@@ -51,23 +60,32 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
       );
       injection.checkDuplicated(mergedInjectionMaps);
 
+      const oldKeyedMaps = languagesToOldKeyedMaps[langIndex];
+      const mergedKeyedMaps = mods.map((mod, modIndex) =>
+        keyed.merge(englishKeyedMaps[modIndex], oldKeyedMaps[modIndex]),
+      );
+      keyed.checkDuplicated(mergedKeyedMaps);
+
       await Promise.all(
         mods.map(async (mod, modIndex) => {
           if (!enabledMods[modIndex]) {
             return;
           }
-          await injection.save(
-            io.join(
-              outputDirectory,
-              mod.identify,
-              FOLDER_NAME_LANGUAGES,
-              lang,
-              FOLDER_NAME_DEF_INJECTED,
+          const output: ModOutput =
+            (outputDirectory && mod.output(io.join(outputDirectory, mod.identify))) ||
+            mod;
+          await Promise.all([
+            injection.save(
+              output.pathDefInjected(lang),
+              mergedInjectionMaps[modIndex],
+              prettierOptions,
             ),
-            mergedInjectionMaps[modIndex],
-            fuzzy,
-            prettierOptions,
-          );
+            keyed.save(
+              output.pathKeyed(lang),
+              mergedKeyedMaps[modIndex],
+              prettierOptions,
+            ),
+          ]);
         }),
       );
     }),

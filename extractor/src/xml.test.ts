@@ -1,6 +1,12 @@
 import * as io from '@rimtrans/io';
 import { pathCore, pathTestMods, resolvePath, TEMP } from './utils.test';
-import { loadXML, parseXML, saveXML } from './xml';
+import {
+  loadXML,
+  parseXML,
+  defaultXmlPrettierOptions,
+  resolveXmlPrettierOptions,
+  saveXML,
+} from './xml';
 
 describe('xml', () => {
   test('load', async () => {
@@ -45,6 +51,63 @@ describe('xml', () => {
     expect(rootData.elements[0].childNodes.length).toBe(1);
     expect(rootData.elements[1].attributes.ParentName).toBe('MockBase');
     expect(rootData.elements[1].childNodes.length).toBe(3);
+  });
+
+  test('prettier options', () => {
+    {
+      const { resolvedOptions } = resolveXmlPrettierOptions();
+      expect(resolvedOptions).toEqual(defaultXmlPrettierOptions());
+    }
+    {
+      const { tab, indent, eol, newline } = resolveXmlPrettierOptions();
+      expect(tab).toBe('  ');
+      expect(indent.value).toBe('  ');
+      expect(eol).toBe('\n');
+      expect(newline.value).toBe('\n');
+    }
+    {
+      const { tab, indent } = resolveXmlPrettierOptions({
+        tabWidth: 3,
+      });
+      expect(tab).toBe('   ');
+      expect(indent.value).toBe('   ');
+    }
+    {
+      const { tab, indent } = resolveXmlPrettierOptions({
+        tabWidth: 4,
+      });
+      expect(tab).toBe('    ');
+      expect(indent.value).toBe('    ');
+    }
+    {
+      const { tab, indent } = resolveXmlPrettierOptions({
+        tabWidth: 4,
+        useTabs: true,
+      });
+      expect(tab).toBe('\t');
+      expect(indent.value).toBe('\t');
+    }
+    {
+      const { eol, newline } = resolveXmlPrettierOptions({
+        endOfLine: 'cr',
+      });
+      expect(eol).toBe('\r');
+      expect(newline.value).toBe('\r');
+    }
+    {
+      const { eol, newline } = resolveXmlPrettierOptions({
+        endOfLine: 'crlf',
+      });
+      expect(eol).toBe('\r\n');
+      expect(newline.value).toBe('\r\n');
+    }
+    {
+      const { eol, newline } = resolveXmlPrettierOptions({
+        endOfLine: 'lf',
+      });
+      expect(eol).toBe('\n');
+      expect(newline.value).toBe('\n');
+    }
   });
 
   test('save', async () => {

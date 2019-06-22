@@ -34,7 +34,6 @@ describe('extractor', () => {
       modPaths: [pathCore],
       enabledMods: [true],
       languages: ['Template'],
-      outputDirectory: resolvePath(),
     };
 
     await extract(sln);

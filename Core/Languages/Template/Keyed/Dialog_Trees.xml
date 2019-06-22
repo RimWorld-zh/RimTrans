@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
   <!-- EN: {0} hurls some epithets into the microphone and disconnects. -->
@@ -45,8 +45,8 @@
   <!-- EN: {0} sends the requested information and wishes you good luck. -->
   <RequestAICoreInformationResult>TODO</RequestAICoreInformationResult>
   <!-- EN: no more locations known -->
-  <NoKnownAICore>TODO</NoKnownAICore>  
-  
+  <NoKnownAICore>TODO</NoKnownAICore>
+
   <!-- Military aid request -->
   <!-- EN: Request immediate military aid (cost: {0} goodwill) -->
   <RequestMilitaryAid>TODO</RequestMilitaryAid>
