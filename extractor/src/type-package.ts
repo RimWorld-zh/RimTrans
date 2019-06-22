@@ -1,4 +1,5 @@
 import * as io from '@rimtrans/io';
+import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
 
 // Learn more in the project 'Reflection'
 
@@ -54,15 +55,6 @@ export interface TypePackage {
   readonly enums?: readonly EnumInfo[];
   readonly fix?: Record<string, string[]>;
 }
-
-// Constants
-export const ATTRIBUTE_UNSAVED = 'Unsaved';
-export const ATTRIBUTE_NO_TRANSLATE = 'NoTranslate';
-export const ATTRIBUTE_MUST_TRANSLATE = 'MustTranslate';
-export const ATTRIBUTE_MAY_TRANSLATE = 'MayTranslate';
-export const ATTRIBUTE_LOAD_ALIAS = 'LoadAlias';
-export const ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT = 'TranslationCanChangeCount';
-export const TYPE_STRING = 'String';
 
 /**
  *

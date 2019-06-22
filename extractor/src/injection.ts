@@ -10,12 +10,8 @@ import {
   defaultXmlPrettierOptions,
 } from './xml';
 import { DefDocumentMap } from './definition';
+import { ClassInfo, HandleInfo, EnumInfo, FieldInfo, TypeInfo } from './type-package';
 import {
-  ClassInfo,
-  HandleInfo,
-  EnumInfo,
-  FieldInfo,
-  TypeInfo,
   ATTRIBUTE_UNSAVED,
   ATTRIBUTE_NO_TRANSLATE,
   ATTRIBUTE_MUST_TRANSLATE,
@@ -23,7 +19,7 @@ import {
   ATTRIBUTE_LOAD_ALIAS,
   ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
   TYPE_STRING,
-} from './type-package';
+} from './constants';
 
 // CONSTANTS
 const FIELD_NAME_DEF_NAME = 'defName';

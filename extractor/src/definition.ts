@@ -2,6 +2,11 @@ import pth from 'path';
 import * as io from '@rimtrans/io';
 import { XElementData, loadXML } from './xml';
 import { replaceListItem, cloneObject } from './object';
+import {
+  ATTRIBUTE_NAME_NAME,
+  ATTRIBUTE_NAME_PARENT_NAME,
+  ATTRIBUTE_NAME_INHERIT,
+} from './constants';
 
 export interface DefDocumentMap {
   [path: string]: XElementData;
@@ -43,10 +48,6 @@ export async function load(paths: string[]): Promise<DefDocumentMap[]> {
 // ----------------------------------------------------------------
 // Inheritance
 // RimWorld Assembly-CSharp.dll Verse/XmlInheritance.cs
-
-const ATTRIBUTE_NAME_NAME = 'Name';
-const ATTRIBUTE_NAME_PARENT_NAME = 'ParentName';
-const ATTRIBUTE_NAME_INHERIT = 'Inherit';
 
 interface InheritanceNode {
   root: XElementData;

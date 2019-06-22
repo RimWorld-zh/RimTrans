@@ -28,6 +28,10 @@ import {
   checkDuplicated,
   save,
 } from './injection';
+import {
+  ATTRIBUTE_MUST_TRANSLATE,
+  ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
+} from './constants';
 
 describe('injection', () => {
   let defMaps: definition.DefDocumentMap[];
@@ -86,10 +90,7 @@ describe('injection', () => {
         ...classInfoMap.Def.fields,
         {
           name: 'some',
-          attributes: [
-            typePackage.ATTRIBUTE_MUST_TRANSLATE,
-            typePackage.ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
-          ],
+          attributes: [ATTRIBUTE_MUST_TRANSLATE, ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT],
           type: {
             category: 'LIST',
             name: 'List',

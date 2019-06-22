@@ -1,26 +1,24 @@
 import * as io from '@rimtrans/io';
 import { loadXML } from './xml';
+import {
+  ID_CORE,
+  DEFAULT_LANGUAGE,
+  FILE_NAME_ABOUT,
+  FILE_NAME_PREVIEW,
+  FILE_NAME_PUBLISHED_FILE_ID,
+  FOLDER_NAME_ABOUT,
+  FOLDER_NAME_ASSEMBLIES,
+  FOLDER_NAME_DEFS,
+  FOLDER_NAME_PATCHES,
+  FOLDER_NAME_LANGUAGES,
+  FOLDER_NAME_TEXTURES,
+  FOLDER_NAME_BACKSTORIES,
+  FOLDER_NAME_DEF_INJECTED,
+  FOLDER_NAME_KEYED,
+  FOLDER_NAME_STRINGS,
+} from './constants';
 
 // Constants
-
-export const ID_CORE = 'Core';
-export const DEFAULT_LANGUAGE = 'English';
-
-export const FILE_NAME_ABOUT = 'About.xml';
-export const FILE_NAME_PREVIEW = 'Preview.png';
-export const FILE_NAME_PUBLISHED_FILE_ID = 'PublishedFileId.txt';
-
-export const FOLDER_NAME_ABOUT = 'About';
-export const FOLDER_NAME_ASSEMBLIES = 'Assemblies';
-export const FOLDER_NAME_DEFS = 'Defs';
-export const FOLDER_NAME_PATCHES = 'Patches';
-export const FOLDER_NAME_LANGUAGES = 'Languages';
-export const FOLDER_NAME_TEXTURES = 'Textures';
-
-export const FOLDER_NAME_BACKSTORIES = 'Backstories';
-export const FOLDER_NAME_DEF_INJECTED = 'DefInjected';
-export const FOLDER_NAME_KEYED = 'Keyed';
-export const FOLDER_NAME_STRINGS = 'Strings';
 
 export interface ModMetaData {
   readonly name: string;

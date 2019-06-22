@@ -3,7 +3,8 @@ import { PrettierOptions } from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
 import * as injection from './injection';
-import { Mod, FOLDER_NAME_LANGUAGES, FOLDER_NAME_DEF_INJECTED } from './mod';
+import { Mod } from './mod';
+import { FOLDER_NAME_LANGUAGES, FOLDER_NAME_DEF_INJECTED } from './constants';
 
 export interface ExtractorSolution {
   typePackages: string[];
