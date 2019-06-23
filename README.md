@@ -1,4 +1,4 @@
-# RimTrans
+![RimTrans](https://user-images.githubusercontent.com/10762097/59979141-53bf3e80-9616-11e9-80d8-54a7f99cd4cc.png)
 
 [rimtrans-version]: https://img.shields.io/github/tag/RimWorld-zh/RimTrans.svg?label=version&style=flat-square&logo=github
 [rimtrans-downloads]: https://img.shields.io/github/downloads/RimWorld-zh/RimTrans/total.svg?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAQAAAD8x0bcAAAAo0lEQVR4AcXKpUEEUAAA0I+TGABnChK7XME2wC1R8EYmMgJOxd0l41qQh57fVXj5hX+jQINpl24ta5YT0imxKNGsgvQ0IdV4iJOn0w7gzJw5Z+BdVbTkmxXXEz7pAUyq+Ul9ZE0wKD/YFLVnTuQ7RczZE9UfPIs6VxZ+KXMu6iRYJrmlFO6CVpJbSmE2yLcm0ZlTyWpDCIqNOfQq3ZNFdeGvfQBdvDOX57HMqQAAAABJRU5ErkJggg==
