@@ -1,4 +1,5 @@
 import * as io from '@rimtrans/io';
+import { cloneObject } from './object';
 import {
   XNodeData,
   XTextData,
@@ -9,7 +10,7 @@ import {
   resolveXmlPrettierOptions,
   saveXML,
 } from './xml';
-import { DefDocumentMap } from './definition';
+import { DefsElementMap } from './definition';
 import { ClassInfo, HandleInfo, EnumInfo, FieldInfo, TypeInfo } from './type-package';
 import {
   ATTRIBUTE_UNSAVED,
@@ -154,81 +155,79 @@ export function deSerializePath(tagName: string): PathNode[] {
 
 /**
  * Load `DefInjected` xml files of the mod and get `InjectionMap`.
- * @param paths the array of paths to `DefInjected` directories.
+ * @param defInjectedDirectories the array of paths to `DefInjected` directories.
  */
-export async function load(paths: string[]): Promise<InjectionMap[]> {
+export async function load(defInjectedDirectories: string[]): Promise<InjectionMap[]> {
   return Promise.all(
-    paths.map(
-      async (dir): Promise<InjectionMap> => {
-        const map: InjectionMap = {};
-        if (!(await io.directoryExists(dir))) {
-          return map;
-        }
-
-        await io
-          .search(['*'], {
-            cwd: dir,
-            onlyDirectories: true,
-          })
-          .then(defTypes =>
-            Promise.all(
-              defTypes.map(async defType => {
-                map[defType] = {};
-                const subMap = map[defType];
-
-                const files = await io.search(['*.xml'], {
-                  cwd: io.join(dir, defType),
-                  case: false,
-                  onlyFiles: true,
-                });
-                await Promise.all(
-                  files.map(async xmlFile => {
-                    const filePath = io.join(dir, defType, xmlFile);
-                    const fileName = io.fileName(filePath, true);
-                    subMap[fileName] = [];
-                    const injectionList = subMap[fileName];
-                    const root = await loadXML(filePath);
-
-                    let comment = '';
-                    let origin: string | string[] = '';
-                    let translation: string | string[] = TEXT_TODO;
-                    root.childNodes.forEach(node => {
-                      switch (node.nodeType) {
-                        case 'comment':
-                          comment = node.value.trim();
-                          if (comment === TEXT_UNUSED) {
-                            // do nothing
-                          } else if (comment.startsWith(TEXT_EN)) {
-                            origin = comment.replace(TEXT_EN, '').trim();
-                          } else {
-                            injectionList.push(comment);
-                          }
-                          break;
-
-                        case 'element':
-                          translation = node.elements.map(li => li.value.trim());
-                          if (translation.length === 0) {
-                            translation = node.value;
-                          }
-                          injectionList.push({
-                            path: deSerializePath(node.name),
-                            origin,
-                            translation,
-                          });
-                          break;
-
-                        default:
-                      }
-                    });
-                  }),
-                );
-              }),
-            ),
-          );
-
+    defInjectedDirectories.map(async dir => {
+      const map: InjectionMap = {};
+      if (!(await io.directoryExists(dir))) {
         return map;
-      },
-    ),
+      }
+
+      await io
+        .search(['*'], {
+          cwd: dir,
+          onlyDirectories: true,
+        })
+        .then(defTypes =>
+          Promise.all(
+            defTypes.map(async defType => {
+              map[defType] = {};
+              const subMap = map[defType];
+
+              const files = await io.search(['*.xml'], {
+                cwd: io.join(dir, defType),
+                case: false,
+                onlyFiles: true,
+              });
+              await Promise.all(
+                files.map(async xmlFile => {
+                  const filePath = io.join(dir, defType, xmlFile);
+                  const fileName = io.fileName(filePath, true);
+                  subMap[fileName] = [];
+                  const injectionList = subMap[fileName];
+                  const root = await loadXML(filePath);
+
+                  let comment = '';
+                  let origin: string | string[] = '';
+                  let translation: string | string[] = TEXT_TODO;
+                  root.childNodes.forEach(node => {
+                    switch (node.nodeType) {
+                      case 'comment':
+                        comment = node.value.trim();
+                        if (comment === TEXT_UNUSED) {
+                          // do nothing
+                        } else if (comment.startsWith(TEXT_EN)) {
+                          origin = comment.replace(TEXT_EN, '').trim();
+                        } else {
+                          injectionList.push(comment);
+                        }
+                        break;
+
+                      case 'element':
+                        translation = node.elements.map(li => li.value.trim());
+                        if (translation.length === 0) {
+                          translation = node.value;
+                        }
+                        injectionList.push({
+                          path: deSerializePath(node.name),
+                          origin,
+                          translation,
+                        });
+                        break;
+
+                      default:
+                    }
+                  });
+                }),
+              );
+            }),
+          ),
+        );
+
+      return map;
+    }),
   );
 }
 
@@ -237,12 +236,12 @@ export async function load(paths: string[]): Promise<InjectionMap[]> {
 
 /**
  * Parse the Def maps and get Def injection maps.
- * @param defMaps the array of Def maps
+ * @param defsElementMaps the array of Def maps
  * @param typeInfoMaps the array of DefInjection Map
  * @param fuzzy extract injection in fuzzy mode or not
  */
 export function parse(
-  defMaps: DefDocumentMap[],
+  defsElementMaps: DefsElementMap[],
   classInfoMap: Record<string, ClassInfo>,
   fuzzy?: boolean,
 ): InjectionMap[] {
@@ -250,7 +249,7 @@ export function parse(
   const parseField = generateParseField(classInfoMap, getPathNodes, fuzzy);
   const parseDef = generateParseDef(classInfoMap, parseField);
 
-  const result: InjectionMap[] = defMaps.map(defMap => {
+  const result: InjectionMap[] = defsElementMaps.map(defMap => {
     const injectionMap: InjectionMap = {};
 
     Object.entries(defMap).forEach(([path, root]) => {
@@ -539,8 +538,8 @@ function generateGetPathNodes(classInfoMap: Record<string, ClassInfo>): GetParse
  * @param source the source `InjectionMap`
  */
 export function merge(target: InjectionMap, source: InjectionMap): InjectionMap {
-  const targetMap: InjectionMap = JSON.parse(JSON.stringify(target));
-  const sourceMap: InjectionMap = JSON.parse(JSON.stringify(source));
+  const targetMap: InjectionMap = cloneObject(target);
+  const sourceMap: InjectionMap = cloneObject(source);
 
   Object.entries(sourceMap).forEach(([defType, subSourceMap]) => {
     const subTargetMap = targetMap[defType] || (targetMap[defType] = {});

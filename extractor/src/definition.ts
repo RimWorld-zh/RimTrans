@@ -8,7 +8,7 @@ import {
   ATTRIBUTE_NAME_INHERIT,
 } from './constants';
 
-export interface DefDocumentMap {
+export interface DefsElementMap {
   [path: string]: XElementData;
 }
 
@@ -17,12 +17,12 @@ export interface DefDocumentMap {
 
 /**
  * Load all Defs file from a directory and get array of `DefDocumentMap`.
- * @param paths the array of paths to Def directories, order: `[core, ...mods]`.
+ * @param defsDirectories the array of paths to Def directories, order: `[core, ...mods]`.
  */
-export async function load(paths: string[]): Promise<DefDocumentMap[]> {
+export async function load(defsDirectories: string[]): Promise<DefsElementMap[]> {
   return Promise.all(
-    paths.map(async dir => {
-      const map: DefDocumentMap = {};
+    defsDirectories.map(async dir => {
+      const map: DefsElementMap = {};
       if (!(await io.directoryExists(dir))) {
         return map;
       }
@@ -59,10 +59,10 @@ interface InheritanceNode {
 
 /**
  * Resolve the Defs inheritance.
- * @param maps the array of `DefDocumentMap`, order: `[core, ...mods]`.
+ * @param defsElementMaps the array of `DefDocumentMap`, order: `[core, ...mods]`.
  */
-export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
-  if (maps.length < 1) {
+export function resolveInheritance(defsElementMaps: DefsElementMap[]): DefsElementMap[] {
+  if (defsElementMaps.length < 1) {
     throw new Error(`The argument 'maps' is a empty array.`);
   }
 
@@ -70,7 +70,7 @@ export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
   const parentMaps: Record<string, Record<string, InheritanceNode>>[] = [];
 
   // register
-  maps.forEach(map => {
+  defsElementMaps.forEach(map => {
     const parentMap: Record<string, Record<string, InheritanceNode>> = {};
     Object.keys(map)
       .sort()
@@ -135,7 +135,7 @@ export function resolveInheritance(maps: DefDocumentMap[]): DefDocumentMap[] {
     }
   });
 
-  return maps;
+  return defsElementMaps;
 }
 
 export function resolveInheritanceNodeRecursively(node: InheritanceNode): void {

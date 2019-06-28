@@ -31,63 +31,61 @@ export interface KeyedReplacementMap {
 
 /**
  * Load `Keyed` xml document files of the mod and get `KeyedReplacementMap`.
- * @param paths the path to the `Keyed` directory of the mod
+ * @param keyedDirectories the path to the `Keyed` directory of the mod
  */
-export async function load(paths: string[]): Promise<KeyedReplacementMap[]> {
+export async function load(keyedDirectories: string[]): Promise<KeyedReplacementMap[]> {
   return Promise.all(
-    paths.map(
-      async (dir): Promise<KeyedReplacementMap> => {
-        const map: KeyedReplacementMap = {};
-        if (!(await io.directoryExists(dir))) {
-          return map;
-        }
-
-        await io
-          .search(['**/*.xml'], { cwd: dir, case: false, onlyFiles: true })
-          .then(files =>
-            Promise.all(
-              files.map(async fileName => {
-                const root = await loadXML(io.join(dir, fileName));
-                map[fileName] = [];
-                const keyedList = map[fileName];
-
-                let comment = '';
-                let origin = '';
-                root.childNodes.forEach(node => {
-                  switch (node.nodeType) {
-                    case 'comment':
-                      comment = node.value.trim();
-                      if (comment === TEXT_UNUSED) {
-                        // do nothing
-                      } else if (comment.startsWith(TEXT_EN)) {
-                        origin = comment.replace(TEXT_EN, '').trim();
-                      } else {
-                        keyedList.push(comment);
-                      }
-                      break;
-
-                    case 'element':
-                      keyedList.push({
-                        key: node.name,
-                        origin,
-                        translation: node.value,
-                      });
-                      origin = '';
-                      break;
-
-                    default:
-                      if (node.value.split(/\r|\n|\r\n/).length > 2) {
-                        keyedList.push(TEXT_NEWLINE);
-                      }
-                  }
-                });
-              }),
-            ),
-          );
-
+    keyedDirectories.map(async dir => {
+      const map: KeyedReplacementMap = {};
+      if (!(await io.directoryExists(dir))) {
         return map;
-      },
-    ),
+      }
+
+      await io
+        .search(['**/*.xml'], { cwd: dir, case: false, onlyFiles: true })
+        .then(files =>
+          Promise.all(
+            files.map(async fileName => {
+              const root = await loadXML(io.join(dir, fileName));
+              map[fileName] = [];
+              const keyedList = map[fileName];
+
+              let comment = '';
+              let origin = '';
+              root.childNodes.forEach(node => {
+                switch (node.nodeType) {
+                  case 'comment':
+                    comment = node.value.trim();
+                    if (comment === TEXT_UNUSED) {
+                      // do nothing
+                    } else if (comment.startsWith(TEXT_EN)) {
+                      origin = comment.replace(TEXT_EN, '').trim();
+                    } else {
+                      keyedList.push(comment);
+                    }
+                    break;
+
+                  case 'element':
+                    keyedList.push({
+                      key: node.name,
+                      origin,
+                      translation: node.value,
+                    });
+                    origin = '';
+                    break;
+
+                  default:
+                    if (node.value.split(/\r|\n|\r\n/).length > 2) {
+                      keyedList.push(TEXT_NEWLINE);
+                    }
+                }
+              });
+            }),
+          ),
+        );
+
+      return map;
+    }),
   );
 }
 

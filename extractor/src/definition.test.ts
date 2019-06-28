@@ -5,7 +5,7 @@ import * as io from '@rimtrans/io';
 import { pathsDefs, defsFileCount, outputInheritedDefs } from './utils.test';
 import { parseXML, saveXML } from './xml';
 import {
-  DefDocumentMap,
+  DefsElementMap,
   load,
   resolveInheritance,
   resolveInheritanceNodeRecursively,
@@ -15,7 +15,7 @@ import {
 import { cloneObject } from './object';
 
 describe('def', () => {
-  let defMaps: DefDocumentMap[];
+  let defMaps: DefsElementMap[];
   beforeAll(async () => {
     defMaps = await load(pathsDefs);
   });
