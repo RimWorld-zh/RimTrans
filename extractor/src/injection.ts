@@ -20,6 +20,7 @@ import {
   ATTRIBUTE_LOAD_ALIAS,
   ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
   TYPE_STRING,
+  ATTRIBUTE_NAME_ABSTRACT,
 } from './constants';
 
 // CONSTANTS
@@ -296,11 +297,12 @@ function generateParseDef(
   parseField: ParseField,
 ): ParseDef {
   return (injectionList, def) => {
+    const abstract = def.attributes[ATTRIBUTE_NAME_ABSTRACT];
     const defNameElement = def.elements.find(c => c.name === FIELD_NAME_DEF_NAME);
     const defName = defNameElement && defNameElement.value.trim();
     const classInfo: ClassInfo | undefined = classInfoMap[def.name] || classInfoMap.Def;
 
-    if (!defName) {
+    if ((abstract && abstract.toLowerCase() === 'true') || !defName) {
       return;
     }
 

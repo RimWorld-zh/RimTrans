@@ -27,6 +27,7 @@ export const TYPE_STRING = 'String';
 export const TYPE_LIST = 'List';
 export const TYPE_ARRAY = 'Array';
 
+export const ATTRIBUTE_NAME_ABSTRACT = 'Abstract';
 export const ATTRIBUTE_NAME_NAME = 'Name';
 export const ATTRIBUTE_NAME_PARENT_NAME = 'ParentName';
 export const ATTRIBUTE_NAME_INHERIT = 'Inherit';
