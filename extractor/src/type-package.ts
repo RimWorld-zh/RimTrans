@@ -58,7 +58,7 @@ export interface TypePackage {
 
 /**
  *
- * @param paths the array of paths to `TypePackage` json files, `[core, ...mods]`.
+ * @param paths the array of paths to `TypePackage` json files, `[Core, ...Mods]`.
  */
 export async function load(paths: string[]): Promise<Record<string, ClassInfo>> {
   const map: Record<string, ClassInfo> = {};

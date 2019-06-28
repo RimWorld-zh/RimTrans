@@ -180,6 +180,8 @@ export function resolveXmlPrettierOptions(
   };
 }
 
+export const regexEndOfLine = /\r|\n|\r\n/g;
+
 export async function saveXML(
   path: string,
   rootData: XElementData,

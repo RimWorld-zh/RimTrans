@@ -3,7 +3,8 @@ import { PrettierOptions } from './xml';
 import * as definition from './definition';
 import * as typePackage from './type-package';
 import * as injection from './injection';
-import * as keyed from './keyed-replacement';
+import * as keyedReplacement from './keyed-replacement';
+import * as stringsFile from './strings-file';
 import { Mod, ModOutput } from './mod';
 import { DEFAULT_LANGUAGE } from './constants';
 
@@ -19,7 +20,7 @@ export interface ExtractorSolution {
 
 /**
  *
- * @param paths the array of paths to mod directories, order: `[core, ...mods]`.
+ * @param paths the array of paths to mod directories, `[Core, ...Mods]`.
  */
 export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
   const {
@@ -40,31 +41,56 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
     languagesToOldInjectionMaps,
     englishKeyedMaps,
     languagesToOldKeyedMaps,
+    englishStringsMaps,
+    languagesToOldStringsMaps,
   ] = await Promise.all([
+    // Defs
     definition.load(mods.map(mod => mod.pathDefs)).then(definition.resolveInheritance),
+
+    // type
     typePackage.load([...typePackages, ...mods.map(mod => mod.pathAssemblies)]),
+
+    // DefInjected
     Promise.all(
       languages.map(lang => injection.load(mods.map(mod => mod.pathDefInjected(lang)))),
     ),
-    keyed.load(mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE))),
-    Promise.all(languages.map(lang => keyed.load(mods.map(mod => mod.pathKeyed(lang))))),
+
+    // Keyed
+    keyedReplacement.load(mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE))),
+    Promise.all(
+      languages.map(lang => keyedReplacement.load(mods.map(mod => mod.pathKeyed(lang)))),
+    ),
+
+    // Strings
+    stringsFile.load(mods.map(mod => mod.pathStrings(DEFAULT_LANGUAGE))),
+    Promise.all(
+      languages.map(lang => stringsFile.load(mods.map(mod => mod.pathStrings(lang)))),
+    ),
   ]);
 
   const newInjectionMaps = injection.parse(definitionMaps, classInfoMap, fuzzy);
 
   await Promise.all(
     languages.map(async (lang, langIndex) => {
+      // DefInjected
       const oldInjectionMaps = languagesToOldInjectionMaps[langIndex];
       const mergedInjectionMaps = mods.map((mod, modIndex) =>
         injection.merge(newInjectionMaps[modIndex], oldInjectionMaps[modIndex]),
       );
       injection.checkDuplicated(mergedInjectionMaps);
 
+      // Keyed
       const oldKeyedMaps = languagesToOldKeyedMaps[langIndex];
       const mergedKeyedMaps = mods.map((mod, modIndex) =>
-        keyed.merge(englishKeyedMaps[modIndex], oldKeyedMaps[modIndex]),
+        keyedReplacement.merge(englishKeyedMaps[modIndex], oldKeyedMaps[modIndex]),
       );
-      keyed.checkDuplicated(mergedKeyedMaps);
+      keyedReplacement.checkDuplicated(mergedKeyedMaps);
+
+      // Strings
+      const oldStringsMaps = languagesToOldStringsMaps[langIndex];
+      const mergedStringsMaps = mods.map((mod, modIndex) =>
+        stringsFile.merge(englishStringsMaps[modIndex], oldStringsMaps[modIndex]),
+      );
 
       await Promise.all(
         mods.map(async (mod, modIndex) => {
@@ -80,9 +106,14 @@ export async function extract(solution: ExtractorSolution): Promise<Mod[]> {
               mergedInjectionMaps[modIndex],
               prettierOptions,
             ),
-            keyed.save(
+            keyedReplacement.save(
               output.pathKeyed(lang),
               mergedKeyedMaps[modIndex],
+              prettierOptions,
+            ),
+            stringsFile.save(
+              output.pathStrings(lang),
+              mergedStringsMaps[modIndex],
               prettierOptions,
             ),
           ]);

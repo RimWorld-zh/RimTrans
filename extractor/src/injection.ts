@@ -155,8 +155,8 @@ export function deSerializePath(tagName: string): PathNode[] {
 // Loading
 
 /**
- * Load `DefInjected` xml files of the mod and get `InjectionMap`.
- * @param defInjectedDirectories the array of paths to `DefInjected` directories.
+ * Load `DefInjected` xml files of mods and get array of `InjectionMap`.
+ * @param defInjectedDirectories the array of paths to `DefInjected` directories, `[Core, ...Mods]`
  */
 export async function load(defInjectedDirectories: string[]): Promise<InjectionMap[]> {
   return Promise.all(
@@ -603,17 +603,17 @@ export function checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
         Object.entries(subMap)
           .sort(([a], [b]) => a.localeCompare(b))
           .forEach(([fileName, injectionList]) =>
-          injectionList.forEach(injection => {
-            if (typeof injection === 'string') {
-              return;
-            }
-            if (visited.some(inj => pathMatch(inj.path, injection.path))) {
-              injection.duplicated = true;
-              return;
-            }
-            visited.push(injection);
-          }),
-        );
+            injectionList.forEach(injection => {
+              if (typeof injection === 'string') {
+                return;
+              }
+              if (visited.some(inj => pathMatch(inj.path, injection.path))) {
+                injection.duplicated = true;
+                return;
+              }
+              visited.push(injection);
+            }),
+          );
       }),
   );
 

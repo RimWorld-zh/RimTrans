@@ -1,10 +1,8 @@
 import { genPathResolve } from '@huiji/shared-utils';
 
-export const TEMP = '.tmp';
+export const resolvePath = genPathResolve(__dirname, '..', '..');
 
 export const defsFileCount = 413;
-
-export const resolvePath = genPathResolve(__dirname, '..', '..');
 
 export const pathTestMods = resolvePath('.tmp.mods');
 
@@ -28,6 +26,17 @@ export const pathsKeyed = [
   resolvePath('Core', 'Languages', 'Template', 'Keyed'),
   resolvePath('Core', 'Languages', 'Mock', 'Keyed'),
 ];
+
+export const pathEnglishStrings = resolvePath('Core', 'Languages', 'English', 'Strings');
+
+export const pathsStrings = [
+  resolvePath('Core', 'Languages', 'Template', 'Strings'),
+  resolvePath('Core', 'Languages', 'Mock', 'Strings'),
+];
+
+// output
+
+export const TEMP = '.tmp';
 
 export const pathTemp = resolvePath(TEMP);
 
@@ -54,6 +63,8 @@ export const outputKeyedOld = resolvePath(TEMP, 'keyed-map-old.json');
 export const outputKeyedNew = resolvePath(TEMP, 'keyed-map-new.json');
 
 export const outputKeyed = resolvePath(TEMP, 'Keyed');
+
+export const outputStrings = resolvePath(TEMP, 'Strings');
 
 export const outputExtractor = resolvePath(TEMP, 'Mods');
 export const outputBenchmark = resolvePath(TEMP, 'benchmark.txt');

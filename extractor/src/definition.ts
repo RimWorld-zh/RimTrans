@@ -17,7 +17,7 @@ export interface DefsElementMap {
 
 /**
  * Load all Defs file from a directory and get array of `DefDocumentMap`.
- * @param defsDirectories the array of paths to Def directories, order: `[core, ...mods]`.
+ * @param defsDirectories the array of paths to Def directories, `[Core, ...Mods]`.
  */
 export async function load(defsDirectories: string[]): Promise<DefsElementMap[]> {
   return Promise.all(
@@ -59,7 +59,7 @@ interface InheritanceNode {
 
 /**
  * Resolve the Defs inheritance.
- * @param defsElementMaps the array of `DefDocumentMap`, order: `[core, ...mods]`.
+ * @param defsElementMaps the array of `DefDocumentMap`, `[Core, ...Mods]`.
  */
 export function resolveInheritance(defsElementMaps: DefsElementMap[]): DefsElementMap[] {
   if (defsElementMaps.length < 1) {

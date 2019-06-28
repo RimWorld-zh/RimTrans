@@ -30,8 +30,8 @@ export interface KeyedReplacementMap {
 }
 
 /**
- * Load `Keyed` xml document files of the mod and get `KeyedReplacementMap`.
- * @param keyedDirectories the path to the `Keyed` directory of the mod
+ * Load `Keyed` xml document files of mods and get array of `KeyedReplacementMap`.
+ * @param keyedDirectories the array of paths to `Keyed` directories, `[Core, ...Mods]`
  */
 export async function load(keyedDirectories: string[]): Promise<KeyedReplacementMap[]> {
   return Promise.all(
