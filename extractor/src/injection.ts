@@ -600,7 +600,9 @@ export function checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
       .forEach(defType => {
         const subMap = map[defType];
         const visited: Injection[] = [];
-        Object.entries(subMap).forEach(([fileName, injectionList]) =>
+        Object.entries(subMap)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .forEach(([fileName, injectionList]) =>
           injectionList.forEach(injection => {
             if (typeof injection === 'string') {
               return;
