@@ -4,10 +4,10 @@
   "version": "4.0.0-alpha.1",
   "private": true,
   "scripts": {
-    "clean": "rimraf ./lib",
-    "build:win": "dotnet publish --self-contained -c Release -r win-x64 -o ./lib/win",
-    "build:linux": "dotnet publish --self-contained -c Release -r linux-x64 -o ./lib/linux",
-    "build:osx": "dotnet publish --self-contained -c Release -r osx-x64 -o ./lib/osx",
+    "clean": "rimraf dist",
+    "build:win": "dotnet publish --self-contained -c Release -r win-x64 -o dist/win",
+    "build:linux": "dotnet publish --self-contained -c Release -r linux-x64 -o dist/linux",
+    "build:osx": "dotnet publish --self-contained -c Release -r osx-x64 -o dist/osx",
     "build": "yarn build:win && yarn build:linux && yarn build:osx"
   }
 }

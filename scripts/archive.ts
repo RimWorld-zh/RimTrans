@@ -1,54 +1,66 @@
 /* eslint-disable no-console,no-restricted-syntax,no-await-in-loop */
-import fs from 'fs';
 import { genPathResolve } from '@huiji/shared-utils';
-import { ncp } from 'ncp';
 import compressing from 'compressing';
+import * as io from '@rimtrans/io';
 
 const resolvePath = genPathResolve(__dirname, '..');
 
-const platforms = ['win', 'linux', 'osx'];
+const PLATFORMS = ['win', 'linux', 'osx'];
 const { npm_package_version: version } = process.env;
 
-async function copy(src: string, dest: string): Promise<void> {
-  return new Promise<void>((resolve, reject) =>
-    ncp(src, dest, error => (error ? reject(error) : resolve())),
-  );
-}
-
-const LIB = 'lib';
+const DIST = 'dist';
 const EXECUTABLE = 'executable';
 const CORE = 'Core';
 const REFLECTION = 'Reflection';
 const TYPE_INFO = 'type-package.json';
+const TYPE_INFO_FIX = 'type-package-fix.json';
 
 async function archive(): Promise<void> {
-  for (const platform of platforms) {
+  for (const platform of PLATFORMS) {
+    console.log(`version: ${version}, platform: ${platform}`);
     const folder = `rimtrans-v${version}-${platform}`;
-    await fs.promises.mkdir(resolvePath(LIB, folder), { recursive: true });
-
-    // Copy executable
-    await copy(resolvePath(EXECUTABLE, LIB, platform), resolvePath(LIB, folder));
-
-    // Copy Core
-    await copy(resolvePath(CORE), resolvePath(LIB, folder, CORE));
-    // Copy Reflection
-    await copy(
-      resolvePath(REFLECTION, LIB, platform),
-      resolvePath(LIB, folder, REFLECTION),
-    );
-    // Copy type-package.json
-    await copy(resolvePath(REFLECTION, TYPE_INFO), resolvePath(LIB, folder, TYPE_INFO));
+    await io.createDirectory(resolvePath(DIST, folder));
+    {
+      // Copy executable
+      const source = resolvePath(EXECUTABLE, DIST, platform);
+      const target = resolvePath(DIST, folder);
+      await io.copy(source, target);
+    }
+    {
+      // Copy Reflection
+      const source = resolvePath(REFLECTION, DIST, platform);
+      const target = resolvePath(DIST, folder, REFLECTION);
+      await io.copy(source, target);
+    }
+    {
+      // Copy Core
+      const source = resolvePath(CORE);
+      const target = resolvePath(DIST, folder, CORE);
+      await io.copy(source, target);
+    }
+    {
+      // Copy type-package.json
+      const source = resolvePath(REFLECTION, TYPE_INFO);
+      const target = resolvePath(DIST, folder, TYPE_INFO);
+      await io.copy(source, target);
+    }
+    {
+      // Copy type-package-fix.json
+      const source = resolvePath(REFLECTION, TYPE_INFO_FIX);
+      const target = resolvePath(DIST, folder, TYPE_INFO_FIX);
+      await io.copy(source, target);
+    }
 
     // Compress
     if (platform === 'win') {
       await compressing.zip.compressDir(
-        resolvePath(LIB, folder),
-        resolvePath(LIB, `${folder}.zip`),
+        resolvePath(DIST, folder),
+        resolvePath(DIST, `${folder}.zip`),
       );
     } else {
       await compressing.tgz.compressDir(
-        resolvePath(LIB, folder),
-        resolvePath(LIB, `${folder}.tar.gz`),
+        resolvePath(DIST, folder),
+        resolvePath(DIST, `${folder}.tar.gz`),
       );
     }
 
@@ -57,4 +69,4 @@ async function archive(): Promise<void> {
   }
 }
 
-archive().catch(console.error);
+archive();

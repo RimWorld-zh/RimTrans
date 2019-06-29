@@ -259,7 +259,9 @@ paket-files/
 /*/coverage
 /dist
 /*/dist
-/lib
-/*/lib
+/cjs
+/*/cjs
+/esm
+/*/esm
 /types
 /*/types

@@ -6,6 +6,7 @@ module.exports = {
         targets: {
           node: '12.2.0',
         },
+        modules: process.argv.includes('--esm') ? false : 'commonjs',
       },
     ],
     '@babel/preset-typescript',
