@@ -254,14 +254,7 @@ paket-files/
 # Projects
 .tmp
 .tmp.*
-
 /coverage
 /*/coverage
 /dist
 /*/dist
-/cjs
-/*/cjs
-/esm
-/*/esm
-/types
-/*/types
