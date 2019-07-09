@@ -45,10 +45,15 @@ async function benchmark(): Promise<void> {
       const mod = mods[1] || mods[0];
       const cost = Date.now() - start;
       totalCosts += cost;
-      const message = `${mod.identify.padEnd(20, ' ')}${cost}ms    ${mod.meta.name}`;
+      const message = [
+        mod.identify.padEnd(16, ' '),
+        `${cost}ms`.padEnd(16, ' '),
+        mod.meta.name,
+      ].join('');
       console.log(message);
       result.push(message);
     } catch (error) {
+      console.log(`Error:\n${sln.modPaths.join('\n')}`);
       if (error instanceof Error) {
         result.push(`\n${sln.modPaths.join('\n')}\n${error.message}\n${error.stack}\n`);
       } else {
