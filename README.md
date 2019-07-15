@@ -21,3 +21,12 @@
 - `Keyed`
 - `Strings`
 - `Backstories`
+
+## Development
+
+### Environment
+
+- dotnet core sdk >=2.2.0
+- node.js >=12.0.0
+- yarn >=1.17.0
+- lerna >=3.15.0

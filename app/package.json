@@ -1,0 +1,54 @@
+{
+  "name": "@rimtrans/app",
+  "productName": "RimTrans",
+  "description": "The gui application for RimTrans.",
+  "version": "4.0.0-alpha.1",
+  "private": true,
+  "author": "duduluu <duduluu@outlook.com>",
+  "main": "dist/main/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "serve:vue": "vue-cli-service serve",
+    "serve:electron": "electron -h",
+    "build:renderer": "vue-cli-service build",
+    "build:main": "babel src/main -x .ts -d dist/main -s",
+    "build:electron": "electron-builder",
+    "build": "yarn build:main",
+    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=../jest.setup.js",
+    "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
+  },
+  "build": {
+    "directories": {
+      "output": "dist/electron"
+    }
+  },
+  "dependencies": {
+    "@rimtrans/io": "0.4.0",
+    "axios": "^0.19.0",
+    "core-js": "^3.1.4",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.2.1",
+    "vue-router": "^3.0.7"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-plugin-typescript": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "babel-eslint": "^10.0.2",
+    "electron": "^5.0.6",
+    "electron-builder": "^21.0.15",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "sass": "^1.22.4",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.5.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "npmClient": "yarn",
-  "useWorkspaces": true,
+  "packages": [".", "*"],
   "version": "independent",
   "ignoreChanges": [
     "**/scripts/**",

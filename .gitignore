@@ -258,3 +258,4 @@ paket-files/
 /*/coverage
 /dist
 /*/dist
+*.lerna_backup

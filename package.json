@@ -7,15 +7,14 @@
   "author": "duduluu <duduluu@outlook.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "*"
-  ],
   "scripts": {
-    "clean": "lerna run clean",
-    "build": "lerna run build",
     "archive": "rimraf dist && yarn ts scripts/archive",
     "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=./jest.setup.js",
     "ts": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "yarn": ">=1.17.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -42,10 +41,6 @@
     "ts-node": "^8.2.0",
     "tsconfig-paths": "^3.8.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.5.1"
-  },
-  "engines": {
-    "node": ">=12.2.0",
-    "yarn": ">=1.16.0"
+    "typescript": "^3.5.3"
   }
 }

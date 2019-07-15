@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,12 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="lib\**" />
-    <Compile Remove="RimWorldWin64_Data\**" />
-    <EmbeddedResource Remove="lib\**" />
-    <EmbeddedResource Remove="RimWorldWin64_Data\**" />
-    <None Remove="lib\**" />
-    <None Remove="RimWorldWin64_Data\**" />
+    <Compile Remove="**/**" />
+    <EmbeddedResource Remove="**/**" />
+    <None Remove="**/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Models.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="TestXML.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +24,7 @@
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>References\Assembly-CSharp.dll</HintPath>
+      <HintPath>References/Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
