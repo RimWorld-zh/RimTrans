@@ -1,0 +1,11 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/**/node_modules", "*.test.ts", "*.test.tsx"],
+  "verbose": true,
+  "exec": "yarn build:main && yarn serve:main",
+  "watch": ["src/main/"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts,tsx"
+}
