@@ -41,7 +41,7 @@ export default class VApp extends Vue {
         </div>
 
         {this.isDevelopment && (
-          <div staticClass="v-app_debug">
+          <div staticClass="v-app_dev-tools">
             <button
               onClick={() => {
                 const win = remote.getCurrentWindow();
@@ -50,7 +50,7 @@ export default class VApp extends Vue {
             >
               DevTools
             </button>
-            <router-link staticClass="v-app_debug-item" to="/debug/icons">
+            <router-link staticClass="v-app_dev-tools-item" to="/dev-tools/icons">
               icons
             </router-link>
             <span>{decodeURIComponent(this.$route.fullPath)}</span>

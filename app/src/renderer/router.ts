@@ -31,12 +31,12 @@ export function createRouter(): VueRouter {
         ],
       },
 
-      // Debug
+      // dev-tools
       {
-        path: '/debug/icons',
-        name: 'debug-icons',
+        path: '/dev-tools/icons',
+        name: 'dev-tools-icons',
         component: async () =>
-          import(/* webpackChunkName: "v-debug" */ './views/debug/icons'),
+          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/icons'),
       },
     ],
   });

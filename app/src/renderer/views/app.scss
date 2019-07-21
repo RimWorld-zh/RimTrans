@@ -20,7 +20,7 @@
     padding: calc(var(--gap-base) * 8px) 0;
   }
 
-  @include elem('debug') {
+  @include elem('dev-tools') {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -35,7 +35,7 @@
     padding: calc(var(--gap-base) * 1px);
   }
 
-  @include elem('debug-item') {
+  @include elem('dev-tools-item') {
     flex: none;
     padding: calc(var(--gap-base) * 1px);
   }

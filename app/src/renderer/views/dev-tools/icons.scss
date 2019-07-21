@@ -1,0 +1,59 @@
+/**
+ * Component: Dev Tools Icon
+ */
+@include comp('dev-tools-icons') {
+  $gap: calc(var(--gap-base) * 2px);
+
+  @include elem('wrapper') {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    padding: $gap;
+    margin: 0;
+
+    background-color: var(--color-background-lower);
+  }
+
+  @include elem('item') {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    padding: $gap;
+    margin: 0;
+  }
+
+  @include elem('container') {
+    cursor: pointer;
+
+    padding: $gap;
+    margin: 0;
+    border: none;
+
+    color: inherit;
+    background-color: var(--color-background-higher);
+
+    box-shadow: var(--depth-4);
+    &:hover {
+      box-shadow: var(--depth-8);
+    }
+  }
+
+  @include elem('icon') {
+    font-size: calc(var(--gap-base) * 8px);
+  }
+
+  @include elem('label') {
+    width: calc(var(--gap-base) * 10px);
+    padding-top: calc(var(--gap-base) * 1px);
+
+    font-size: calc(var(--font-size-su) * 1px);
+    line-height: calc(var(--line-height-su) * 1px);
+    word-break: break-all;
+  }
+}
