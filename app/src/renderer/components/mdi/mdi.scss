@@ -1,0 +1,30 @@
+@keyframes mdi-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.mdi {
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+
+  &.is-spin {
+    animation: mdi-spin 2s infinite linear;
+  }
+
+  &.is-flip-h {
+    transform: scaleX(-1);
+  }
+
+  &.is-flip-v {
+    transform: scaleY(-1);
+  }
+
+  &.is-flip-h.is-flip-v {
+    transform: scale(-1, -1);
+  }
+}

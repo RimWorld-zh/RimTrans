@@ -16,6 +16,8 @@ module.exports = {
    * @param {Config} config
    */
   chainWebpack: config => {
+    config.target('electron-renderer');
+
     config.resolve.alias.delete('@').set('@src', resolvePath('src'));
 
     config

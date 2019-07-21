@@ -11,3 +11,9 @@ declare global {
     }
   }
 }
+
+declare module 'vue/types/index' {
+  type FunctionalComponent<Props = DefaultProps> = (
+    context: RenderContext<Props>,
+  ) => VNode;
+}

@@ -1,6 +1,7 @@
 import { GenFilesOptions, genFiles } from '@huiji/shared-utils';
 
 const optionsList: GenFilesOptions[] = [
+  // renderer
   // components
   {
     comments: ['All components'],
@@ -31,6 +32,14 @@ const optionsList: GenFilesOptions[] = [
     comments: ['All utils'],
     patterns: ['src/renderer/utils/**/*.ts'],
     output: 'src/renderer/utils/index.ts',
+  },
+
+  // main
+  // utils
+  {
+    comments: ['All utils'],
+    patterns: ['src/main/utils/**/*.ts'],
+    output: 'src/main/utils/index.ts',
   },
 ];
 

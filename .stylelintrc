@@ -43,6 +43,7 @@
     "rule-empty-line-before": null,
     "selector-max-id": 0,
     "string-quotes": "single",
+    "value-list-comma-newline-after": null,
     "value-list-max-empty-lines": null,
     "indentation": null
   }

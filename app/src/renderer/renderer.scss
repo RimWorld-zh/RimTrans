@@ -2,4 +2,8 @@
 
 @import './components/base/index.scss';
 
-@import './app.scss';
+$namespace: 'c';
+@import './components/index.scss';
+
+$namespace: 'v';
+@import './views/index.scss';

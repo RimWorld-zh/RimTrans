@@ -12,6 +12,32 @@ export function createRouter(): VueRouter {
         component: async () =>
           import(/* webpackChunkName: "welcome" */ './views/welcome'),
       },
+      {
+        path: '/settings',
+        component: async () =>
+          import(/* webpackChunkName: "v-settings" */ './views/settings/settings'),
+        children: [
+          {
+            path: '',
+            name: 'settings',
+            redirect: 'languages',
+          },
+          {
+            path: 'languages',
+            name: 'settings-languages',
+            component: async () =>
+              import(/* webpackChunkName: "v-settings" */ './views/settings/languages'),
+          },
+        ],
+      },
+
+      // Debug
+      {
+        path: '/debug/icons',
+        name: 'debug-icons',
+        component: async () =>
+          import(/* webpackChunkName: "v-debug" */ './views/debug/icons'),
+      },
     ],
   });
 }
