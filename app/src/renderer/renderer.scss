@@ -1,9 +1,9 @@
 @import '~cep.scss';
 
-@import './components/base/index.scss';
+@import './components/base/index';
 
-$namespace: 'c';
-@import './components/index.scss';
+$namespace: 'rw';
+@import './components/index';
 
 $namespace: 'v';
-@import './views/index.scss';
+@import './views/index';

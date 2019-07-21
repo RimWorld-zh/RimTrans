@@ -21,23 +21,36 @@ export default class VApp extends Vue {
     return (
       <div staticClass="v-app">
         <div staticClass="v-app_bar">
-          <router-link tag="button" to="/">
-            <mdi icon="Home" />
-          </router-link>
-          <button onClick={() => window.history.back()}>
-            <mdi icon="ChevronLeft" />
-          </button>
-          <button onClick={() => window.history.forward()}>
-            <mdi icon="ChevronRight" />
-          </button>
+          <rw-button size="large" skin="flat" shape="square" router-link to="/">
+            <mdi staticClass="v-app_bar-icon" icon="Home" />
+          </rw-button>
+
+          <rw-button
+            size="large"
+            skin="flat"
+            shape="square"
+            onClick={() => window.history.back()}
+          >
+            <mdi staticClass="v-app_bar-icon" icon="ChevronLeft" />
+          </rw-button>
+          <rw-button
+            size="large"
+            skin="flat"
+            shape="square"
+            onClick={() => window.history.forward()}
+          >
+            <mdi staticClass="v-app_bar-icon" icon="ChevronRight" />
+          </rw-button>
+
           <i staticClass="v-app_bar-blank" />
-          <router-link tag="button" to="/settings">
-            <mdi icon="Settings" />
-          </router-link>
+
+          <rw-button size="large" skin="flat" shape="square" router-link to="/settings">
+            <mdi staticClass="v-app_bar-icon" icon="Settings" />
+          </rw-button>
         </div>
 
         <div staticClass="v-app_wrapper">
-          <router-view staticClass="c-container" />
+          <router-view staticClass="rw-container" />
         </div>
 
         {this.isDevelopment && (

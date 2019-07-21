@@ -5,15 +5,28 @@
   position: relative;
 
   @include elem('bar') {
-    $item-size: calc(var(--gap-base) * 8px);
-    display: grid;
-    grid-template-columns: repeat(3, $item-size) 1fr repeat(1, $item-size);
-    grid-gap: calc(var(--gap-base) * 1px);
-    padding: calc(var(--gap-base) * 1px);
-    height: calc(var(--gap-base) * 10px);
+    position: relative;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    padding: calc(var(--gap-base) * 1px) calc(var(--gap-base) * 4px);
 
     background-color: var(--color-background-higher);
     box-shadow: var(--depth-4);
+  }
+
+  @include elem('bar-icon') {
+    flex: none;
+    width: 28px;
+    height: 28px;
+  }
+
+  @include elem('bar-blank') {
+    flex: 1;
   }
 
   @include elem('wrapper') {

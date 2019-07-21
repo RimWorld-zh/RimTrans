@@ -7,4 +7,5 @@
  * All components
  */
 
-export * from './mdi/mdi';
+export * from './icons/mdi/mdi';
+export * from './inputs/buttons/button';

@@ -3,6 +3,15 @@
  * https://design.firefox.com/photon/
  * https://developer.microsoft.com/en-us/fabric#/styles
  */
+
+$type-colors: 'blue', 'teal', 'magenta', 'green', 'yellow', 'red', 'purple', 'orange';
+$type-depths: 4, 8, 16, 32, 64;
+
+$type-button-colors: 'primary', 'secondary', $type-colors;
+$type-button-sizes: 'small', 'medium', 'large';
+$type-button-skins: 'fill', 'silk', 'flat', 'plain';
+$type-button-shapes: 'rect', 'pill', 'square', 'circle';
+
 %variables-base {
   // ----------------------------------------------------------------
   // Colors
@@ -58,6 +67,18 @@
   --color-orange-80: #712b00;
   --color-orange-90: #3e1300;
 
+  --color-primary-50: var(--color-blue-50);
+  --color-primary-60: var(--color-blue-60);
+  --color-primary-70: var(--color-blue-70);
+  --color-primary-80: var(--color-blue-80);
+  --color-primary-90: var(--color-blue-90);
+
+  --color-secondary-50: var(--color-magenta-50);
+  --color-secondary-60: var(--color-magenta-60);
+  --color-secondary-70: var(--color-magenta-70);
+  --color-secondary-80: var(--color-magenta-80);
+  --color-secondary-90: var(--color-magenta-90);
+
   --color-grey-10: #f9f9fa;
   --color-grey-20: #ededf0;
   --color-grey-30: #d7d7db;
@@ -67,6 +88,26 @@
   --color-grey-70: #38383d;
   --color-grey-80: #2a2a2e;
   --color-grey-90: #0c0c0d;
+
+  --color-grey-10-a10: rgba(249, 249, 250, 0.1);
+  --color-grey-10-a20: rgba(249, 249, 250, 0.2);
+  --color-grey-10-a30: rgba(249, 249, 250, 0.3);
+  --color-grey-10-a40: rgba(249, 249, 250, 0.4);
+  --color-grey-10-a50: rgba(249, 249, 250, 0.5);
+  --color-grey-10-a60: rgba(249, 249, 250, 0.6);
+  --color-grey-10-a70: rgba(249, 249, 250, 0.7);
+  --color-grey-10-a80: rgba(249, 249, 250, 0.8);
+  --color-grey-10-a90: rgba(249, 249, 250, 0.9);
+
+  --color-grey-90-a10: rgba(12, 12, 13, 0.1);
+  --color-grey-90-a20: rgba(12, 12, 13, 0.2);
+  --color-grey-90-a30: rgba(12, 12, 13, 0.3);
+  --color-grey-90-a40: rgba(12, 12, 13, 0.4);
+  --color-grey-90-a50: rgba(12, 12, 13, 0.5);
+  --color-grey-90-a60: rgba(12, 12, 13, 0.6);
+  --color-grey-90-a70: rgba(12, 12, 13, 0.7);
+  --color-grey-90-a80: rgba(12, 12, 13, 0.8);
+  --color-grey-90-a90: rgba(12, 12, 13, 0.9);
 
   --color-black: #000000;
   --color-white: #ffffff;
@@ -106,32 +147,90 @@
     Arial, sans-serif;
 
   --font-size-hero: 64;
+  --font-weight-hero: 200;
   --line-height-hero: 72;
 
   --font-size-core: 48;
+  --font-weight-core: 200;
   --line-height-core: 56;
 
   --font-size-title-1: 32;
+  --font-weight-title-1: 200;
   --line-height-title-1: 40;
+
   --font-size-title-2: 24;
+  --font-weight-title-2: 300;
   --line-height-title-2: 32;
+
   --font-size-title-3: 18;
+  --font-weight-title-3: 500;
   --line-height-title-3: 24;
+
   --font-size-title-4: 16;
+  --font-weight-title-4: 500;
   --line-height-title-4: 22;
+
   --font-size-title-5: 14;
+  --font-weight-title-5: 400;
   --line-height-title-5: 20;
+
   --font-size-title-6: 12;
+  --font-weight-title-6: 400;
   --line-height-title-6: 16;
 
   --font-size-body: 16;
+  --font-weight-body: 400;
   --line-height-body: 22;
+
   --font-size-caption: 14;
+  --font-weight-caption: 400;
   --line-height-caption: 20;
+
   --font-size-small: 12;
+  --font-weight-small: 400;
   --line-height-small: 16;
+
   --font-size-su: 10;
+  --font-weight-su: 400;
   --line-height-su: 14;
+
+  // ----------------------------------------------------------------
+  // Components
+
+  --radius-base: 2;
+
+  // Inputs
+
+  --input-radius: 2;
+  --input-disabled-opacity: 0.4;
+
+  // Button
+
+  --button-radius-rect: 2;
+
+  --button-height-small: 24;
+  --button-min-width-small: 60;
+  --button-padding-small: 8;
+  --button-font-size-small: 11;
+  --button-font-weight-small: 400;
+  --button-line-height-small: 14;
+  --button-icon-size-small: 14;
+
+  --button-height-medium: 32;
+  --button-min-width-medium: 80;
+  --button-padding-medium: 16;
+  --button-font-size-medium: 13;
+  --button-font-weight-medium: 400;
+  --button-line-height-medium: 18;
+  --button-icon-size-medium: 16;
+
+  --button-height-large: 48;
+  --button-min-width-large: 120;
+  --button-padding-large: 24;
+  --button-font-size-large: 15;
+  --button-font-weight-large: 400;
+  --button-line-height-large: 20;
+  --button-icon-size-large: 18;
 }
 
 %variables-theme-light {

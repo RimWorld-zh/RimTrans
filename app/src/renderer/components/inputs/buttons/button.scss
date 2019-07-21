@@ -1,0 +1,172 @@
+@import './mixin-button';
+
+/**
+ * Component: Button
+ */
+@include comp('button') {
+  @include button-reset;
+
+  // default
+  @include button-style(
+    $foreground: var(--color-grey-90),
+    $background: var(--color-grey-90-a10),
+    $background-hover: var(--color-grey-90-a20),
+    $background-pressed: var(--color-grey-90-a30),
+    $radius: calc(var(--button-radius-rect) * 1px),
+    $width: auto,
+    $height: calc(var(--button-height-medium) * 1px),
+    $min-width: calc(var(--button-min-width-medium) * 1px),
+    $padding: 0 calc(var(--button-padding-medium) * 1px),
+    $font-size: calc(var(--button-font-size-medium) * 1px),
+    $font-weight: calc(var(--button-font-weight-medium) * 1px),
+    $line-height: calc(var(--button-line-height-medium) * 1px),
+    $icon-size: calc(var(--button-icon-size-medium) * 1px)
+  );
+
+  // color
+  @each $color in $type-button-colors {
+    @include prop(
+      (
+        'color': $color,
+      )
+    ) {
+      @include button-style(
+        $foreground: var(--color-white),
+        $background: var(--color-#{$color}-60),
+        $background-hover: var(--color-#{$color}-70),
+        $background-pressed: var(--color-#{$color}-80)
+      );
+    }
+  }
+
+  // size
+  @each $size in $type-button-sizes {
+    @include prop(
+      (
+        'size': $size,
+      )
+    ) {
+      @include button-style(
+        $height: calc(var(--button-height-#{$size}) * 1px),
+        $min-width: calc(var(--button-min-width-#{$size}) * 1px),
+        $padding: 0 calc(var(--button-padding-#{$size}) * 1px),
+        $font-size: calc(var(--button-font-size-#{$size}) * 1px),
+        $font-weight: calc(var(--button-font-weight-#{$size}) * 1px),
+        $line-height: calc(var(--button-line-height-#{$size}) * 1px),
+        $icon-size: calc(var(--button-icon-size-#{$size}) * 1px)
+      );
+    }
+  }
+
+  // skin
+  @include prop(
+    (
+      'skin': 'silk',
+    )
+  ) {
+    @include button-style(
+      $foreground: var(--color-grey-80),
+      $background: transparent,
+      $background-hover: var(--color-grey-90-a10),
+      $background-pressed: var(--color-grey-90-a20),
+      $border-color: currentColor
+    );
+  }
+  @each $color in $type-button-colors {
+    @include prop(
+      (
+        'skin': 'silk',
+        'color': $color,
+      )
+    ) {
+      @include button-style($foreground: var(--color-#{$color}-60));
+    }
+  }
+
+  @include prop(
+    (
+      'skin': 'flat',
+    )
+  ) {
+    @include button-style(
+      $foreground: var(--color-grey-80),
+      $background: transparent,
+      $background-hover: var(--color-grey-90-a10),
+      $background-pressed: var(--color-grey-90-a20)
+    );
+  }
+  @each $color in $type-button-colors {
+    @include prop(
+      (
+        'skin': 'flat',
+        'color': $color,
+      )
+    ) {
+      @include button-style($foreground: var(--color-#{$color}-60));
+    }
+  }
+
+  @include prop(
+    (
+      'skin': 'plain',
+    )
+  ) {
+    background-color: var(--color-background-higher);
+    @include button-style(
+      $foreground: var(--color-grey-80),
+      $background: transparent,
+      $background-hover: var(--color-grey-90-a10),
+      $background-pressed: var(--color-grey-90-a20)
+    );
+  }
+  @each $color in $type-button-colors {
+    @include prop(
+      (
+        'skin': 'plain',
+        'color': $color,
+      )
+    ) {
+      @include button-style($foreground: var(--color-#{$color}-60));
+    }
+  }
+
+  // shape
+  @include prop(
+    (
+      'shape': 'pill',
+    )
+  ) {
+    @include button-style($radius: calc(var(--button-height-medium) * 0.5px));
+  }
+  @include prop(
+    (
+      'shape': 'square',
+    )
+  ) {
+    @include button-style(
+      $width: calc(var(--button-height-medium) * 1px),
+      $min-width: initial
+    );
+  }
+  @include prop(
+    (
+      'shape': 'circle',
+    )
+  ) {
+    @include button-style(
+      $radius: 50%,
+      $width: calc(var(--button-height-medium) * 1px),
+      $min-width: initial
+    );
+  }
+
+  @each $depth in $type-depths {
+    @include prop(
+      (
+        'depth': $depth,
+      )
+    ) {
+      box-shadow: var(--depth-#{$depth});
+    }
+  }
+}

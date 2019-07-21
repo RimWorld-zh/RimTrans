@@ -8,15 +8,17 @@ const optionsList: GenFilesOptions[] = [
     patterns: [
       'src/renderer/components/**/*.ts',
       'src/renderer/components/**/*.tsx',
-      '!src/renderer/components/index.ts',
+      '!src/renderer/components/**/_*.ts',
+      '!src/renderer/components/**/_*.tsx',
       '!src/renderer/components/base/**/*.ts',
     ],
-    output: 'src/renderer/components/all.ts',
+    output: 'src/renderer/components/index.ts',
   },
   {
     comments: ['All components style'],
     patterns: [
       'src/renderer/components/**/*.scss',
+      '!src/renderer/components/**/_*.scss',
       '!src/renderer/components/base/**/*.scss',
     ],
     output: 'src/renderer/components/index.scss',

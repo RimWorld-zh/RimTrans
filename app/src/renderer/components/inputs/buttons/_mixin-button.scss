@@ -1,0 +1,125 @@
+@mixin button-reset {
+  -webkit-appearance: none;
+
+  cursor: pointer;
+
+  position: relative;
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  user-select: none;
+  text-decoration: none;
+  text-align: center;
+
+  color: inherit;
+  background-color: transparent;
+
+  outline: 0;
+  &:focus {
+    outline: 0;
+
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 1px;
+      bottom: 1px;
+      left: 1px;
+      right: 1px;
+      border: 1px solid currentColor;
+    }
+  }
+
+  @include when('disabled') {
+    cursor: default;
+    pointer-events: none;
+    opacity: var(--input-disabled-opacity);
+  }
+
+  &::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    background-color: transparent;
+  }
+
+  @include elem('content') {
+    position: relative;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+@mixin button-style(
+  $foreground: null,
+  $foreground-hover: null,
+  $foreground-pressed: null,
+  $background: null,
+  $background-hover: null,
+  $background-pressed: null,
+  $border-color: null,
+  $radius: null,
+  $width: null,
+  $height: null,
+  $min-width: null,
+  $padding: null,
+  $font-size: null,
+  $font-weight: null,
+  $line-height: null,
+  $icon-size: null
+) {
+  color: $foreground;
+  &::before {
+    background-color: $background;
+  }
+  &:hover {
+    color: $foreground-hover;
+    &::before {
+      background-color: $background-hover;
+    }
+  }
+  &:active {
+    color: $foreground-pressed;
+    &::before {
+      background-color: $background-pressed;
+    }
+  }
+
+  border-color: $border-color;
+  border-radius: $radius;
+  width: $width;
+  height: $height;
+  min-width: $min-width;
+
+  padding: $padding;
+
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+
+  .a-button-icon {
+    width: $icon-size;
+    height: $icon-size;
+    line-height: 1;
+  }
+}

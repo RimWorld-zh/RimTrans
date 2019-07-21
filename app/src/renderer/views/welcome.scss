@@ -1,0 +1,10 @@
+/**
+ * Component: Welcome
+ */
+@include comp('welcome') {
+  position: relative;
+
+  padding: calc(var(--gap-base) * 4px);
+
+  background-color: var(--color-background-higher);
+}

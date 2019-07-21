@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { States } from './utils';
-import * as Components from './components/all';
+import * as Components from './components';
 import VApp from './views/app';
 import { createRouter } from './router';
 
