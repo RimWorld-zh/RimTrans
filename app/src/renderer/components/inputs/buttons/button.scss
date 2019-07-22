@@ -8,7 +8,7 @@
 
   // default
   @include button-style(
-    $foreground: var(--color-grey-90),
+    $foreground: var(--color-foreground-primary),
     $background: var(--color-grey-90-a10),
     $background-hover: var(--color-grey-90-a20),
     $background-pressed: var(--color-grey-90-a30),
@@ -67,7 +67,6 @@
     )
   ) {
     @include button-style(
-      $foreground: var(--color-grey-80),
       $background: transparent,
       $background-hover: var(--color-grey-90-a10),
       $background-pressed: var(--color-grey-90-a20),
@@ -91,7 +90,6 @@
     )
   ) {
     @include button-style(
-      $foreground: var(--color-grey-80),
       $background: transparent,
       $background-hover: var(--color-grey-90-a10),
       $background-pressed: var(--color-grey-90-a20)
@@ -115,7 +113,6 @@
   ) {
     background-color: var(--color-background-higher);
     @include button-style(
-      $foreground: var(--color-grey-80),
       $background: transparent,
       $background-hover: var(--color-grey-90-a10),
       $background-pressed: var(--color-grey-90-a20)
