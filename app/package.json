@@ -32,11 +32,11 @@
     },
     "win": {
       "target": "NSIS",
-      "icon": "build/icon.ico"
+      "icon": "../resources/icons/app/icon.ico"
     },
     "nsis": {
-      "installerIcon": "build/installerIcon.ico",
-      "uninstallerIcon": "build/uninstallerIcon.ico",
+      "installerIcon": "../resources/icons/app/installerIcon.ico",
+      "uninstallerIcon": "../resources/icons/app/uninstallerIcon.ico",
       "oneClick": false,
       "perMachine": true,
       "allowElevation": false,

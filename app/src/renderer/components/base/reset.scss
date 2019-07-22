@@ -3,15 +3,21 @@
 /**
  * Reset
  */
+
+:root {
+  @extend %variables-default;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-:root {
-  @extend %variables-default;
-}
+// ::selection {
+//   color: var(--color-white);
+//   background-color: var(--color-primary-60);
+// }
 
 body {
   color: var(--color-foreground-primary);

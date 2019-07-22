@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow, Menu, dialog } from 'electron';
 import * as io from '@rimtrans/io';
 import * as utils from './utils';
 
@@ -15,29 +15,8 @@ async function dispose(): Promise<void> {
   await Promise.all([settings, storage].map(wrapper => wrapper.save()));
 }
 
-function destroyWindow(browserWindow: BrowserWindow): void {
-  const maximized = browserWindow.isMaximized();
-  const [width, height] = browserWindow.getSize();
-  const [x, y] = browserWindow.getPosition();
-
-  storage.set(
-    {
-      lastActiveWindowState: {
-        maximized,
-        width,
-        height,
-        x,
-        y,
-      },
-    },
-    false,
-  );
-
-  browserWindowsSet.delete(browserWindow);
-}
-
 async function createWindow(): Promise<void> {
-  const {
+  let {
     lastActiveWindowState: { maximized, width, height, x, y },
   } = storage.get();
 
@@ -55,11 +34,40 @@ async function createWindow(): Promise<void> {
 
   browserWindowsSet.add(browserWindow);
 
-  browserWindow.once('close', () => destroyWindow(browserWindow));
-
   if (maximized) {
     browserWindow.maximize();
   }
+
+  const onResize = (): void => {
+    if (browserWindow.isMaximized()) {
+      return;
+    }
+    [width, height] = browserWindow.getSize();
+    [x, y] = browserWindow.getPosition();
+  };
+  browserWindow.on('move', onResize);
+  browserWindow.on('resize', onResize);
+  browserWindow.on('maximize', onResize);
+  browserWindow.on('restore', () => {
+    browserWindow.setSize(width as number, height as number);
+    browserWindow.setPosition(x as number, y as number);
+  });
+  browserWindow.once('close', () => {
+    maximized = browserWindow.isMaximized();
+    storage.set(
+      {
+        lastActiveWindowState: {
+          maximized,
+          width,
+          height,
+          x,
+          y,
+        },
+      },
+      false,
+    );
+    browserWindowsSet.delete(browserWindow);
+  });
 
   if (isDevelopment) {
     browserWindow.setAlwaysOnTop(true);

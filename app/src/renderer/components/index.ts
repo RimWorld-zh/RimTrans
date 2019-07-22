@@ -7,5 +7,9 @@
  * All components
  */
 
+export * from './brand/brand';
+export * from './brand/logo';
+export * from './dev-tools/dev- tools';
 export * from './icons/mdi/mdi';
 export * from './inputs/buttons/button';
+export * from './layout/aspect-ratio/aspect-ratio';

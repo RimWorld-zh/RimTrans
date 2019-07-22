@@ -4,6 +4,8 @@
  * https://developer.microsoft.com/en-us/fabric#/styles
  */
 
+$golden-ratio: (sqrt(5) - 1) / 2;
+
 $type-colors: 'blue', 'teal', 'magenta', 'green', 'yellow', 'red', 'purple', 'orange';
 $type-depths: 4, 8, 16, 32, 64;
 
@@ -13,6 +15,10 @@ $type-button-skins: 'fill', 'silk', 'flat', 'plain';
 $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
 %variables-base {
+  // ----------------------------------------------------------------
+  // General
+  --golden-ratio: #{$golden-ratio};
+
   // ----------------------------------------------------------------
   // Colors
 
@@ -199,6 +205,10 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   --radius-base: 2;
 
+  // Card
+
+  --card-radius: 4;
+
   // Inputs
 
   --input-radius: 2;
@@ -254,4 +264,5 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 %variables-default {
   @extend %variables-base;
   @extend %variables-theme-light;
+  @extend %variables-theme-dark;
 }

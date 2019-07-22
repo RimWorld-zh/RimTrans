@@ -40,6 +40,7 @@
   }
 
   // size
+
   @each $size in $type-button-sizes {
     @include prop(
       (
@@ -59,6 +60,7 @@
   }
 
   // skin
+
   @include prop(
     (
       'skin': 'silk',
@@ -131,6 +133,7 @@
   }
 
   // shape
+
   @include prop(
     (
       'shape': 'pill',
@@ -138,6 +141,17 @@
   ) {
     @include button-style($radius: calc(var(--button-height-medium) * 0.5px));
   }
+  @each $size in $type-button-sizes {
+    @include prop(
+      (
+        'shape': 'pill',
+        'size': $size,
+      )
+    ) {
+      @include button-style($radius: calc(calc(var(--button-height-#{$size}) * 0.5px)));
+    }
+  }
+
   @include prop(
     (
       'shape': 'square',
@@ -145,9 +159,25 @@
   ) {
     @include button-style(
       $width: calc(var(--button-height-medium) * 1px),
-      $min-width: initial
+      $height: calc(var(--button-height-medium) * 1px),
+      $min-width: initial,
+      $padding: 0
     );
   }
+  @each $size in $type-button-sizes {
+    @include prop(
+      (
+        'shape': 'square',
+        'size': $size,
+      )
+    ) {
+      @include button-style(
+        $width: calc(var(--button-height-#{$size}) * 1px),
+        $height: calc(var(--button-height-#{$size}) * 1px)
+      );
+    }
+  }
+
   @include prop(
     (
       'shape': 'circle',
@@ -156,8 +186,23 @@
     @include button-style(
       $radius: 50%,
       $width: calc(var(--button-height-medium) * 1px),
-      $min-width: initial
+      $height: calc(var(--button-height-medium) * 1px),
+      $min-width: initial,
+      $padding: 0
     );
+  }
+  @each $size in $type-button-sizes {
+    @include prop(
+      (
+        'shape': 'circle',
+        'size': $size,
+      )
+    ) {
+      @include button-style(
+        $width: calc(var(--button-height-#{$size}) * 1px),
+        $height: calc(var(--button-height-#{$size}) * 1px)
+      );
+    }
   }
 
   @each $depth in $type-depths {

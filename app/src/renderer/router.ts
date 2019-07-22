@@ -31,6 +31,19 @@ export function createRouter(): VueRouter {
         ],
       },
 
+      {
+        path: '/translator',
+        name: 'translator',
+        component: async () =>
+          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/place-holder'),
+      },
+      {
+        path: '/modder',
+        name: 'modder',
+        component: async () =>
+          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/place-holder'),
+      },
+
       // dev-tools
       {
         path: '/dev-tools/icons',

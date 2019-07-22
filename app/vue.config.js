@@ -4,12 +4,14 @@ const { genPathResolve } = require('@huiji/shared-utils');
 
 const resolvePath = genPathResolve(__dirname);
 
+const publicPath = './';
+
 module.exports = {
   parallel: false,
   outputDir: 'dist/renderer',
   filenameHashing: false,
 
-  publicPath: './',
+  publicPath,
   runtimeCompiler: true,
 
   /**

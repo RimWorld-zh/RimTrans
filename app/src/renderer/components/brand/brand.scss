@@ -1,0 +1,26 @@
+/**
+ * Component: Brand
+ */
+@include comp('brand') {
+  $size: 64;
+
+  position: relative;
+  max-width: 100%;
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+
+  white-space: nowrap;
+
+  font-family: 'RimWorld', sans-serif;
+  font-size: 64px;
+
+  @include elem('logo') {
+    width: 1em / $golden-ratio;
+    height: 1em / $golden-ratio;
+    margin-right: 0.5em * $golden-ratio;
+  }
+}

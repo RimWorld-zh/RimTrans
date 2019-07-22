@@ -22,7 +22,8 @@ export default class VApp extends Vue {
       <div staticClass="v-app">
         <div staticClass="v-app_bar">
           <rw-button size="large" skin="flat" shape="square" router-link to="/">
-            <mdi staticClass="v-app_bar-icon" icon="Home" />
+            {/* <mdi staticClass="v-app_bar-icon" icon="Home" /> */}
+            <rw-logo staticClass="v-app_bar-icon" />
           </rw-button>
 
           <rw-button
@@ -53,22 +54,7 @@ export default class VApp extends Vue {
           <router-view staticClass="rw-container" />
         </div>
 
-        {this.isDevelopment && (
-          <div staticClass="v-app_dev-tools">
-            <button
-              onClick={() => {
-                const win = remote.getCurrentWindow();
-                win.webContents.openDevTools();
-              }}
-            >
-              DevTools
-            </button>
-            <router-link staticClass="v-app_dev-tools-item" to="/dev-tools/icons">
-              icons
-            </router-link>
-            <span>{decodeURIComponent(this.$route.fullPath)}</span>
-          </div>
-        )}
+        {this.isDevelopment && <rw-dev-tools />}
       </div>
     );
   }

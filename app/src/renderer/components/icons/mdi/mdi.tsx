@@ -47,7 +47,7 @@ export class Mdi extends Vue {
   public readonly flipV!: boolean;
 
   private render(h: CreateElement): VNode {
-    const { spin, size, rotate, flipH, flipV } = this;
+    const { icon, spin, size, rotate, flipH, flipV } = this;
     const styleSize = (typeof size === 'number' && `${size}px`) || null;
     const styleRotate = (typeof rotate === 'number' && `rotate(${rotate}deg)`) || null;
 
@@ -68,8 +68,9 @@ export class Mdi extends Vue {
         role="presentation"
         aria-hidden="true"
         onClick={(e: Event) => this.$emit('click', e)}
+        data-icon={icon}
       >
-        <path fill="currentColor" d={MdiIconsMap[`mdi${this.icon}` as MdiIconKey]} />
+        <path fill="currentColor" d={MdiIconsMap[`mdi${icon}` as MdiIconKey]} />
       </svg>
     );
   }

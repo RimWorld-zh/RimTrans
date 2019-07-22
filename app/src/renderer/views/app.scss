@@ -3,6 +3,7 @@
  */
 @include comp('app') {
   position: relative;
+  max-width: 100%;
 
   @include elem('bar') {
     position: relative;

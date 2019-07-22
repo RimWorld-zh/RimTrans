@@ -40,6 +40,7 @@
       left: 1px;
       right: 1px;
       border: 1px solid currentColor;
+      opacity: var(--opacity-secondary);
     }
   }
 
@@ -106,7 +107,11 @@
   }
 
   border-color: $border-color;
-  border-radius: $radius;
+  &:focus {
+    &::after {
+      border-radius: $radius;
+    }
+  }
   width: $width;
   height: $height;
   min-width: $min-width;
