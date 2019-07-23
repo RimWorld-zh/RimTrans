@@ -41,6 +41,8 @@ export class RwDevTools extends Vue {
   private render(h: CreateElement): VNode {
     return (
       <div staticClass="rw-dev-tools">
+        <span key="label">DEV</span>
+
         <rw-button
           key="dev-tools"
           size="small"

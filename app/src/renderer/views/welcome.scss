@@ -51,6 +51,12 @@
     }
     transition: $transition;
     transition-property: box-shadow;
+
+    @include when('disabled') {
+      cursor: default;
+      pointer-events: none;
+      opacity: var(--input-disabled-opacity);
+    }
   }
 
   @include elem('nav-icon-container') {

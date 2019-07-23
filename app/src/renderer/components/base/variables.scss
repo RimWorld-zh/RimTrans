@@ -216,7 +216,8 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   // Button
 
-  --button-radius-rect: 2;
+  --button-radius: 2;
+  --button-focus-line-opacity: 0.4;
 
   --button-height-small: 24;
   --button-min-width-small: 60;

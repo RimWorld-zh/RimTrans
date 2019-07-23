@@ -3,4 +3,12 @@
  */
 @include comp('place-holder') {
   position: relative;
+
+  color: white;
+  background-color: #ffb74d;
+  box-shadow: var(--depth-8);
+
+  @include elem('icon') {
+    font-size: 128px;
+  }
 }

@@ -8,13 +8,14 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { GOLDEN_RATIO } from '@src/renderer/components/base';
+import { when, GOLDEN_RATIO } from '@src/renderer/components/base';
 
 interface NavItem {
   icon: string;
   color: string;
   label: string;
   to: string;
+  disabled?: boolean;
 }
 
 const navList: NavItem[] = [
@@ -49,22 +50,27 @@ export default class VWelcome extends Vue {
             </div>
           </div>
 
-          {navList.map(nav => (
-            <div key={nav.to} staticClass="v-welcome_item">
-              <router-link staticClass="v-welcome_nav" to={nav.to}>
+          {navList.map(({ icon, color, label, to, disabled }) => (
+            <div key={to} staticClass="v-welcome_item">
+              <router-link
+                staticClass="v-welcome_nav"
+                class={when({ disabled })}
+                disabled={disabled}
+                to={to}
+              >
                 <rw-aspect-ratio golden>
                   <div
                     staticClass="v-welcome_nav-icon-container"
-                    style={{ color: `var(--color-${nav.color}-50)` }}
+                    style={{ color: `var(--color-${color}-50)` }}
                   >
                     <mdi
                       staticClass="v-welcome_nav-icon"
-                      icon={nav.icon}
-                      style={{ color: `var(--color-${nav.color}-90)` }}
+                      icon={icon}
+                      style={{ color: `var(--color-${color}-90)` }}
                     />
                   </div>
                 </rw-aspect-ratio>
-                <span staticClass="v-welcome_nav-label">{nav.label}</span>
+                <span staticClass="v-welcome_nav-label">{label}</span>
               </router-link>
             </div>
           ))}

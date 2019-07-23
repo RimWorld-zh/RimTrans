@@ -12,7 +12,7 @@
     $background: var(--color-grey-90-a10),
     $background-hover: var(--color-grey-90-a20),
     $background-pressed: var(--color-grey-90-a30),
-    $radius: calc(var(--button-radius-rect) * 1px),
+    $radius: calc(var(--button-radius) * 1px),
     $width: auto,
     $height: calc(var(--button-height-medium) * 1px),
     $min-width: calc(var(--button-min-width-medium) * 1px),
