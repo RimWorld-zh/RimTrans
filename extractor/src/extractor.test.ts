@@ -6,7 +6,7 @@ import {
   pathsTypePackage,
   outputExtractor,
 } from './utils.test';
-import { ExtractorSolution, extract } from './extractor';
+import { ExtractorSolution, Extractor } from './extractor';
 
 describe('extractor', () => {
   let solutions: ExtractorSolution[];
@@ -36,12 +36,12 @@ describe('extractor', () => {
       languages: ['Template'],
     };
 
-    await extract(sln);
+    await Extractor.extract(sln);
   });
 
   test('Mods', async () => {
     for (const sln of solutions.slice(0, 1)) {
-      await extract(sln);
+      await Extractor.extract(sln);
     }
   });
 });

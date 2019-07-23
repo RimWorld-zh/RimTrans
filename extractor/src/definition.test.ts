@@ -4,20 +4,13 @@ import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
 import { pathsDefs, defsFileCount, outputInheritedDefs } from './utils.test';
 import { parseXML, saveXML } from './xml';
-import {
-  DefsElementMap,
-  load,
-  resolveInheritance,
-  resolveInheritanceNodeRecursively,
-  resolveXmlNodeFor,
-  recursiveNodeCopyOverwriteElements,
-} from './definition';
+import { DefsElementMap, Definition } from './definition';
 import { cloneObject } from './object';
 
 describe('def', () => {
   let defMaps: DefsElementMap[];
   beforeAll(async () => {
-    defMaps = await load(pathsDefs);
+    defMaps = await Definition.load(pathsDefs);
   });
 
   test('load', async () => {
@@ -26,10 +19,10 @@ describe('def', () => {
 
   test('resolveInheritance', async () => {
     // arguments error
-    expect(() => resolveInheritance([])).toThrowError(/empty array/);
+    expect(() => Definition.resolveInheritance([])).toThrowError(/empty array/);
 
     // parent not found
-    resolveInheritance([
+    Definition.resolveInheritance([
       {
         'test.xml': parseXML(`
       <Defs>
@@ -39,7 +32,7 @@ describe('def', () => {
     ]);
 
     // core
-    const maps = await resolveInheritance(defMaps);
+    const maps = await Definition.resolveInheritance(defMaps);
     const core = maps[0];
     await io.deleteFileOrDirectory(outputInheritedDefs);
     for (const [path, root] of Object.entries(core)) {
@@ -66,7 +59,7 @@ describe('def', () => {
     } = root;
 
     expect(() =>
-      resolveInheritanceNodeRecursively({
+      Definition.resolveInheritanceNodeRecursively({
         root,
         def: mock1,
         resolvedDef: mock1,
@@ -81,7 +74,7 @@ describe('def', () => {
     ).toThrowError(/cyclic/);
 
     expect(() =>
-      resolveXmlNodeFor({
+      Definition.resolveXmlNodeFor({
         root,
         def: mock1,
         parent: {
@@ -120,9 +113,9 @@ describe('def', () => {
 
     const child = cloneObject(mock1);
     const current = cloneObject(mock0);
-    recursiveNodeCopyOverwriteElements(child, current);
+    Definition.recursiveNodeCopyOverwriteElements(child, current);
     expect(current.elements[0].elements.length).toBe(3);
 
-    recursiveNodeCopyOverwriteElements(mock3, mock2);
+    Definition.recursiveNodeCopyOverwriteElements(mock3, mock2);
   });
 });

@@ -1,6 +1,6 @@
 import * as io from '@rimtrans/io';
 import { pathEnglishStrings, pathsStrings, outputStrings } from './utils.test';
-import { load, merge, save } from './strings-file';
+import { StringsFile } from './strings-file';
 
 describe('string-file', () => {
   beforeAll(async () => {
@@ -11,18 +11,18 @@ describe('string-file', () => {
 
   test('load', async () => {
     [[originMap], [oldMap, mockMap]] = await Promise.all([
-      load([pathEnglishStrings]),
-      load(pathsStrings),
+      StringsFile.load([pathEnglishStrings]),
+      StringsFile.load(pathsStrings),
     ]);
 
     expect(Object.keys(mockMap).length).toBe(0);
   });
 
   test('merge', () => {
-    newMap = merge(originMap, oldMap);
+    newMap = StringsFile.merge(originMap, oldMap);
   });
 
   test('save', async () => {
-    await save(outputStrings, newMap);
+    await StringsFile.save(outputStrings, newMap);
   });
 });

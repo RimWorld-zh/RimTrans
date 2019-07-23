@@ -1,13 +1,13 @@
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
 import { pathsTypePackage } from './utils.test';
-import { ClassInfo, FieldInfo, load } from './type-package';
+import { ClassInfo, FieldInfo, TypePackage } from './type-package';
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
 
 describe('type-package', () => {
   let map: Record<string, ClassInfo>;
   beforeAll(async () => {
-    map = await load([...pathsTypePackage, io.join(__dirname, 'Mock')]);
+    map = await TypePackage.load([...pathsTypePackage, io.join(__dirname, 'Mock')]);
   });
 
   test('load', async () => {

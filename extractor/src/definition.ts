@@ -12,43 +12,6 @@ export interface DefsElementMap {
   [path: string]: XElementData;
 }
 
-// ----------------------------------------------------------------
-// Loading
-
-/**
- * Load all Defs file from a directory and get array of `DefDocumentMap`.
- * @param defsDirectories the array of paths to Def directories, `[Core, ...Mods]`.
- */
-export async function load(defsDirectories: string[]): Promise<DefsElementMap[]> {
-  return Promise.all(
-    defsDirectories.map(async dir => {
-      const map: DefsElementMap = {};
-      if (!(await io.directoryExists(dir))) {
-        return map;
-      }
-
-      await io
-        .search(['**/*.xml'], {
-          cwd: dir,
-          case: false,
-          onlyFiles: true,
-        })
-        .then(files =>
-          Promise.all(
-            files.map(async file => {
-              map[file] = await loadXML(pth.join(dir, file));
-            }),
-          ),
-        );
-      return map;
-    }),
-  );
-}
-
-// ----------------------------------------------------------------
-// Inheritance
-// RimWorld Assembly-CSharp.dll Verse/XmlInheritance.cs
-
 interface InheritanceNode {
   root: XElementData;
   def: XElementData;
@@ -57,152 +20,191 @@ interface InheritanceNode {
   children: InheritanceNode[];
 }
 
-/**
- * Resolve the Defs inheritance.
- * @param defsElementMaps the array of `DefDocumentMap`, `[Core, ...Mods]`.
- */
-export function resolveInheritance(defsElementMaps: DefsElementMap[]): DefsElementMap[] {
-  if (defsElementMaps.length < 1) {
-    throw new Error(`The argument 'maps' is a empty array.`);
-  }
+export class Definition {
+  // ----------------------------------------------------------------
+  // Loading
 
-  const allNodes: InheritanceNode[] = [];
-  const parentMaps: Record<string, Record<string, InheritanceNode>>[] = [];
+  /**
+   * Load all Defs file from a directory and get array of `DefDocumentMap`.
+   * @param defsDirectories the array of paths to Def directories, `[Core, ...Mods]`.
+   */
+  public static async load(defsDirectories: string[]): Promise<DefsElementMap[]> {
+    return Promise.all(
+      defsDirectories.map(async dir => {
+        const map: DefsElementMap = {};
+        if (!(await io.directoryExists(dir))) {
+          return map;
+        }
 
-  // register
-  defsElementMaps.forEach(map => {
-    const parentMap: Record<string, Record<string, InheritanceNode>> = {};
-    Object.keys(map)
-      .sort()
-      .forEach(path => {
-        const root = map[path];
-        root.elements.forEach(def => {
-          const node: InheritanceNode = {
-            root,
-            def,
-            children: [],
-          };
-          allNodes.push(node);
-          const name = def.attributes[ATTRIBUTE_NAME_NAME];
-          const subMap = parentMap[def.name] || (parentMap[def.name] = {});
-          if (name) {
-            subMap[name] = node;
-          }
-        });
-      });
-    parentMaps.push(parentMap);
-  });
-
-  // Reverse parent map
-  parentMaps.reverse();
-
-  const getParent = (
-    node: InheritanceNode,
-    parentName: string,
-  ): InheritanceNode | undefined => {
-    const defType = node.def.name;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const parentMap of parentMaps) {
-      const parent = parentMap[defType] && parentMap[defType][parentName];
-      if (parent) {
-        return parent;
-      }
-    }
-    return undefined;
-  };
-
-  // link parents and children
-  allNodes.forEach(node => {
-    const parentName = node.def.attributes[ATTRIBUTE_NAME_PARENT_NAME];
-    if (parentName) {
-      node.parent = getParent(node, parentName);
-      if (node.parent) {
-        node.parent.children.push(node);
-      } else {
-        // TODO parent not found
-      }
-    }
-  });
-
-  // resolve
-  allNodes
-    .filter(node => !node.parent)
-    .forEach(node => resolveInheritanceNodeRecursively(node));
-
-  allNodes.forEach(node => {
-    if (node.def !== node.resolvedDef) {
-      replaceListItem(node.root.elements, node.def, node.resolvedDef);
-    }
-  });
-
-  return defsElementMaps;
-}
-
-export function resolveInheritanceNodeRecursively(node: InheritanceNode): void {
-  if (node.resolvedDef) {
-    throw new Error('Resolve cyclic inheritance node.');
-  }
-  resolveXmlNodeFor(node);
-  node.children.forEach(resolveInheritanceNodeRecursively);
-}
-
-export function resolveXmlNodeFor(node: InheritanceNode): void {
-  if (!node.parent) {
-    node.resolvedDef = node.def;
-    return;
-  }
-  if (!node.parent.resolvedDef) {
-    throw new Error(
-      'Tried to resolve node whose parent has not been resolved yet. This means that this method was called in incorrect order.',
+        await io
+          .search(['**/*.xml'], {
+            cwd: dir,
+            case: false,
+            onlyFiles: true,
+          })
+          .then(files =>
+            Promise.all(
+              files.map(async file => {
+                map[file] = await loadXML(pth.join(dir, file));
+              }),
+            ),
+          );
+        return map;
+      }),
     );
   }
 
-  const child = cloneObject(node.def);
-  const current = cloneObject(node.parent.resolvedDef as XElementData);
-  recursiveNodeCopyOverwriteElements(child, current);
-  node.resolvedDef = current;
-}
+  // ----------------------------------------------------------------
+  // Inheritance
+  // RimWorld Assembly-CSharp.dll Verse/XmlInheritance.cs
 
-export function recursiveNodeCopyOverwriteElements(
-  child: XElementData,
-  current: XElementData,
-): void {
-  const inherit = child.attributes[ATTRIBUTE_NAME_INHERIT];
-  if (inherit && inherit.toLowerCase() === 'false') {
-    current.childNodes = child.childNodes;
-    current.elements = child.elements;
-    current.value = child.value;
-  } else {
-    current.attributes = child.attributes;
+  /**
+   * Resolve the Defs inheritance.
+   * @param defsElementMaps the array of `DefDocumentMap`, `[Core, ...Mods]`.
+   */
+  public static resolveInheritance(defsElementMaps: DefsElementMap[]): DefsElementMap[] {
+    if (defsElementMaps.length < 1) {
+      throw new Error(`The argument 'maps' is a empty array.`);
+    }
 
-    const childValue = child.value.trim();
+    const allNodes: InheritanceNode[] = [];
+    const parentMaps: Record<string, Record<string, InheritanceNode>>[] = [];
 
-    if (childValue) {
-      current.childNodes = [{ nodeType: 'text', value: childValue }];
-      current.elements = [];
-      current.value = childValue;
-    } else if (child.elements.length === 0) {
-      if (current.elements.length > 0) {
-        current.childNodes = [];
-        current.elements = [];
-        current.value = '';
+    // register
+    defsElementMaps.forEach(map => {
+      const parentMap: Record<string, Record<string, InheritanceNode>> = {};
+      Object.keys(map)
+        .sort()
+        .forEach(path => {
+          const root = map[path];
+          root.elements.forEach(def => {
+            const node: InheritanceNode = {
+              root,
+              def,
+              children: [],
+            };
+            allNodes.push(node);
+            const name = def.attributes[ATTRIBUTE_NAME_NAME];
+            const subMap = parentMap[def.name] || (parentMap[def.name] = {});
+            if (name) {
+              subMap[name] = node;
+            }
+          });
+        });
+      parentMaps.push(parentMap);
+    });
+
+    // Reverse parent map
+    parentMaps.reverse();
+
+    const getParent = (
+      node: InheritanceNode,
+      parentName: string,
+    ): InheritanceNode | undefined => {
+      const defType = node.def.name;
+      // eslint-disable-next-line no-restricted-syntax
+      for (const parentMap of parentMaps) {
+        const parent = parentMap[defType] && parentMap[defType][parentName];
+        if (parent) {
+          return parent;
+        }
       }
-    } else {
-      child.elements.forEach(elChild => {
-        if (elChild.name === 'li') {
-          current.childNodes.push(elChild);
-          current.elements.push(elChild);
+      return undefined;
+    };
+
+    // link parents and children
+    allNodes.forEach(node => {
+      const parentName = node.def.attributes[ATTRIBUTE_NAME_PARENT_NAME];
+      if (parentName) {
+        node.parent = getParent(node, parentName);
+        if (node.parent) {
+          node.parent.children.push(node);
         } else {
-          const elCurrent = current.elements.find(el => el.name === elChild.name);
-          if (elCurrent) {
-            recursiveNodeCopyOverwriteElements(elChild, elCurrent);
-          } else {
+          // TODO parent not found
+        }
+      }
+    });
+
+    // resolve
+    allNodes
+      .filter(node => !node.parent)
+      .forEach(node => Definition.resolveInheritanceNodeRecursively(node));
+
+    allNodes.forEach(node => {
+      if (node.def !== node.resolvedDef) {
+        replaceListItem(node.root.elements, node.def, node.resolvedDef);
+      }
+    });
+
+    return defsElementMaps;
+  }
+
+  public static resolveInheritanceNodeRecursively(node: InheritanceNode): void {
+    if (node.resolvedDef) {
+      throw new Error('Resolve cyclic inheritance node.');
+    }
+    Definition.resolveXmlNodeFor(node);
+    node.children.forEach(Definition.resolveInheritanceNodeRecursively);
+  }
+
+  public static resolveXmlNodeFor(node: InheritanceNode): void {
+    if (!node.parent) {
+      node.resolvedDef = node.def;
+      return;
+    }
+    if (!node.parent.resolvedDef) {
+      throw new Error(
+        'Tried to resolve node whose parent has not been resolved yet. This means that this method was called in incorrect order.',
+      );
+    }
+
+    const child = cloneObject(node.def);
+    const current = cloneObject(node.parent.resolvedDef as XElementData);
+    Definition.recursiveNodeCopyOverwriteElements(child, current);
+    node.resolvedDef = current;
+  }
+
+  public static recursiveNodeCopyOverwriteElements(
+    child: XElementData,
+    current: XElementData,
+  ): void {
+    const inherit = child.attributes[ATTRIBUTE_NAME_INHERIT];
+    if (inherit && inherit.toLowerCase() === 'false') {
+      current.childNodes = child.childNodes;
+      current.elements = child.elements;
+      current.value = child.value;
+    } else {
+      current.attributes = child.attributes;
+
+      const childValue = child.value.trim();
+
+      if (childValue) {
+        current.childNodes = [{ nodeType: 'text', value: childValue }];
+        current.elements = [];
+        current.value = childValue;
+      } else if (child.elements.length === 0) {
+        if (current.elements.length > 0) {
+          current.childNodes = [];
+          current.elements = [];
+          current.value = '';
+        }
+      } else {
+        child.elements.forEach(elChild => {
+          if (elChild.name === 'li') {
             current.childNodes.push(elChild);
             current.elements.push(elChild);
+          } else {
+            const elCurrent = current.elements.find(el => el.name === elChild.name);
+            if (elCurrent) {
+              Definition.recursiveNodeCopyOverwriteElements(elChild, elCurrent);
+            } else {
+              current.childNodes.push(elChild);
+              current.elements.push(elChild);
+            }
           }
-        }
-      });
-      current.value = '';
+        });
+        current.value = '';
+      }
     }
   }
 }

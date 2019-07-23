@@ -14,37 +14,25 @@ import {
   outputDefInjectedFuzzy,
 } from './utils.test';
 import { parseXML } from './xml';
-import * as definition from './definition';
-import * as typePackage from './type-package';
-import {
-  PathNode,
-  Injection,
-  InjectionMap,
-  pathMatch,
-  serializePath,
-  deSerializePath,
-  parse,
-  load,
-  merge,
-  checkDuplicated,
-  save,
-} from './injection';
+import { ClassInfo, TypePackage } from './type-package';
+import { DefsElementMap, Definition } from './definition';
+import { PathNode, Injection, InjectionMap } from './injection';
 import {
   ATTRIBUTE_MUST_TRANSLATE,
   ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
 } from './constants';
 
 describe('injection', () => {
-  let defMaps: definition.DefDocumentMap[];
-  let classInfoMap: Record<string, typePackage.ClassInfo>;
+  let defMaps: DefsElementMap[];
+  let classInfoMap: Record<string, ClassInfo>;
   let injectionMapsLoaded: InjectionMap[];
   let injectionMapsParsed: InjectionMap[];
   let injectionMapsParsedFuzzy: InjectionMap[];
 
   beforeAll(async () => {
     [defMaps, classInfoMap] = await Promise.all([
-      definition.load(pathsDefs).then(definition.resolveInheritance),
-      typePackage.load(pathsTypePackage),
+      Definition.load(pathsDefs).then(Definition.resolveInheritance),
+      TypePackage.load(pathsTypePackage),
     ]);
     defMaps[0]['zmocks_1.xml'] = parseXML(
       `<Defs>
@@ -158,102 +146,116 @@ describe('injection', () => {
       injectionMapsParsed,
       injectionMapsParsedFuzzy,
     ] = await Promise.all([
-      load(pathsDefInjected),
-      parse(defMaps, classInfoMap),
-      parse(defMaps, classInfoMap, true),
+      Injection.load(pathsDefInjected),
+      Injection.parse(defMaps, classInfoMap),
+      Injection.parse(defMaps, classInfoMap, true),
     ]);
   });
 
   test('path', () => {
-    expect(pathMatch(['Mock', 'label'], ['Mock', 'label'])).toBe(true);
-    expect(pathMatch(['Mock', 'label'], ['Mock', 'description'])).toBe(false);
+    expect(Injection.pathMatch(['Mock', 'label'], ['Mock', 'label'])).toBe(true);
+    expect(Injection.pathMatch(['Mock', 'label'], ['Mock', 'description'])).toBe(false);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'comps', 'compUsable', 'label'],
         ['Mock', 'comps', 'compUsable'],
       ),
     ).toBe(false);
-    expect(pathMatch(['Mock', 'comps', 0], ['Mock', 'comps', 1])).toBe(false);
+    expect(Injection.pathMatch(['Mock', 'comps', 0], ['Mock', 'comps', 1])).toBe(false);
 
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(true);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
         ['Mock', 'some', [1, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(false);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable-0'], 'a', 'label'],
         ['Mock', 'some', [0, 'compUsable-1'], 'a', 'label'],
       ),
     ).toBe(false);
 
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
         ['Mock', 'some', 0, 'a', 'label'],
       ),
     ).toBe(true);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
         ['Mock', 'some', 1, 'a', 'label'],
       ),
     ).toBe(false);
 
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
         ['Mock', 'some', 'compUsable', 'a', 'label'],
       ),
     ).toBe(true);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
         ['Mock', 'some', 'compUsable-1', 'a', 'label'],
       ),
     ).toBe(false);
 
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', 0, 'a', 'label'],
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(true);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', 1, 'a', 'label'],
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(false);
 
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', 'compUsable', 'a', 'label'],
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(true);
     expect(
-      pathMatch(
+      Injection.pathMatch(
         ['Mock', 'some', 'compUsable-1', 'a', 'label'],
         ['Mock', 'some', [0, 'compUsable'], 'a', 'label'],
       ),
     ).toBe(false);
 
-    expect(serializePath(['Mock', 'some', 'a', 'label'])).toBe('Mock.some.a.label');
-    expect(serializePath(['Mock', 'some', 0, 'label'])).toBe('Mock.some.0.label');
-    expect(serializePath(['Mock', 'some', [0, 'compUsable'], 'a', 'label'])).toBe(
-      'Mock.some.compUsable.a.label',
+    expect(Injection.serializePath(['Mock', 'some', 'a', 'label'])).toBe(
+      'Mock.some.a.label',
     );
+    expect(Injection.serializePath(['Mock', 'some', 0, 'label'])).toBe(
+      'Mock.some.0.label',
+    );
+    expect(
+      Injection.serializePath(['Mock', 'some', [0, 'compUsable'], 'a', 'label']),
+    ).toBe('Mock.some.compUsable.a.label');
 
-    expect(deSerializePath('Mock.some.0.label')).toEqual(['Mock', 'some', 0, 'label']);
-    expect(deSerializePath('Mock.some.1.label')).toEqual(['Mock', 'some', 1, 'label']);
+    expect(Injection.deSerializePath('Mock.some.0.label')).toEqual([
+      'Mock',
+      'some',
+      0,
+      'label',
+    ]);
+    expect(Injection.deSerializePath('Mock.some.1.label')).toEqual([
+      'Mock',
+      'some',
+      1,
+      'label',
+    ]);
   });
 
   test('load', async () => {
@@ -261,7 +263,7 @@ describe('injection', () => {
       injectionMapsLoaded[0].ZMockDef.zmocks_1.some(
         inj =>
           typeof inj === 'object' &&
-          pathMatch(inj.path, ['Mock1', 'label']) &&
+          Injection.pathMatch(inj.path, ['Mock1', 'label']) &&
           inj.translation === 'mock label',
       ),
     ).toBe(true);
@@ -277,7 +279,7 @@ describe('injection', () => {
       injectionMapsParsed[0].BiomeDef.Biomes_Temperate.some(
         inj =>
           typeof inj === 'object' &&
-          pathMatch(inj.path, ['TemperateForest', 'label']) &&
+          Injection.pathMatch(inj.path, ['TemperateForest', 'label']) &&
           inj.origin === 'temperate forest' &&
           inj.translation === 'TODO',
       ),
@@ -313,7 +315,8 @@ describe('injection', () => {
             expect(injectionListNew.includes(injOld));
           } else {
             const injNew = injectionListNew.find(
-              inj => typeof inj !== 'string' && pathMatch(inj.path, injOld.path),
+              inj =>
+                typeof inj !== 'string' && Injection.pathMatch(inj.path, injOld.path),
             );
 
             if ((typeof injNew === 'object' && injNew.fuzzy) || !injNew) {
@@ -345,8 +348,8 @@ describe('injection', () => {
     const [mapOld] = injectionMapsLoaded;
     const [mapNew] = injectionMapsParsedFuzzy;
 
-    const mapMerged = merge(mapNew, mapOld);
-    checkDuplicated([mapMerged]);
+    const mapMerged = Injection.merge(mapNew, mapOld);
+    Injection.checkDuplicated([mapMerged]);
 
     expect(mapMerged).not.toBe(mapOld);
     expect(mapMerged).not.toBe(mapNew);
@@ -361,8 +364,8 @@ describe('injection', () => {
     ]);
     await Promise.all([
       io.save(outputInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
-      save(outputDefInjected, mapMerged),
-      save(outputDefInjectedFuzzy, mapMerged),
+      Injection.save(outputDefInjected, mapMerged),
+      Injection.save(outputDefInjectedFuzzy, mapMerged),
     ]);
   });
 });
