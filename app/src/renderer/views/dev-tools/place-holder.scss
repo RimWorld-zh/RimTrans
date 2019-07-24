@@ -5,8 +5,11 @@
   position: relative;
 
   color: white;
-  background-color: rgba($color: #ffb74d, $alpha: 0.75);
   box-shadow: var(--depth-8);
+
+  @include elem('wrapper') {
+    background-color: rgba($color: #ffb74d, $alpha: 0.75);
+  }
 
   @include elem('icon') {
     font-size: 128px;

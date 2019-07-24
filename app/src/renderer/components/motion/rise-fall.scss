@@ -1,0 +1,30 @@
+/**
+ * Component: Vue Transition Rise and Fall
+ */
+@include comp('m-rise-fall') {
+  $timing: var(--motion-timing-decelerate);
+  $duration: var(--motion-duration-2);
+  $offset: 16px;
+  position: relative;
+
+  // transition
+  &-enter-active,
+  &-leave-active {
+    transition: $timing $duration;
+    transition-property: transform opacity;
+  }
+
+  // hide
+  &-enter,
+  &-leave-to {
+    transform: translateY($offset);
+    opacity: 0;
+  }
+
+  // show
+  &-enter-to,
+  &-leave {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

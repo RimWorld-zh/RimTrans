@@ -201,6 +201,21 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   --line-height-su: 14;
 
   // ----------------------------------------------------------------
+  // Motion
+
+  --motion-duration-base: 250ms;
+  --motion-duration-1: 100ms;
+  --motion-duration-2: 200ms;
+  --motion-duration-3: 300ms;
+  --motion-duration-4: 400ms;
+
+  --motion-timing-base: cubic-bezier(0.07, 0.95, 0, 1);
+  --motion-timing-linear: cubic-bezier(0, 0, 1, 1);
+  --motion-timing-standard: cubic-bezier(0.8, 0, 0.2, 1);
+  --motion-timing-accelerate: cubic-bezier(0.9, 0.1, 1, 0.2);
+  --motion-timing-decelerate: cubic-bezier(0.1, 0.9, 0.2, 1);
+
+  // ----------------------------------------------------------------
   // Components
 
   --radius-base: 2;

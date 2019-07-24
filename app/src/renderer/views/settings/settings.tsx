@@ -8,7 +8,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { Settings } from '@src/main';
+import { MOTION_DURATION_2 } from '@src/renderer/components/base';
 
 interface SettingCategory {
   icon: string;
@@ -65,9 +65,9 @@ export default class VSettings extends Vue {
           />
         </div>
 
-        <div key="form" staticClass="v-settings_form">
-          <router-view />
-        </div>
+        <transition name="rw-m-rise-fall" mode="out-in" duration={MOTION_DURATION_2}>
+          <router-view staticClass="v-settings_form" />
+        </transition>
       </div>
     );
   }

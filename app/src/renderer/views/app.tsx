@@ -9,6 +9,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
+import { MOTION_DURATION_2 } from '@src/renderer/components/base';
 
 /**
  * Component: App
@@ -51,7 +52,9 @@ export default class VApp extends Vue {
         </div>
 
         <div staticClass="v-app_wrapper">
-          <router-view />
+          <transition name="rw-m-rise-fall" mode="out-in" duration={MOTION_DURATION_2}>
+            <router-view />
+          </transition>
         </div>
 
         {this.isDevelopment && <rw-dev-tools />}

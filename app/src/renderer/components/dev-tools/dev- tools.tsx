@@ -45,12 +45,12 @@ export class RwDevTools extends Vue {
   private render(h: CreateElement): VNode {
     return (
       <div staticClass="rw-dev-tools">
-        <rw-button key="dev-tools" size="small" skin="flat" shape="square">
+        <rw-button key="label" size="small" skin="flat" shape="square">
           <mdi staticClass="rw-button-icon" icon="DevTo" />
         </rw-button>
 
         <rw-button
-          key="dev-tools"
+          key="reload"
           size="small"
           skin="flat"
           shape="square"
