@@ -1,6 +1,7 @@
 {
   "name": "@rimtrans/app",
   "productName": "RimTrans",
+  "appId": "com.duduluu.rimtrans",
   "description": "The GUI application for RimTrans.",
   "version": "4.0.0-alpha.1",
   "private": true,

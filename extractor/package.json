@@ -5,6 +5,7 @@
   "private": true,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "sideEffects": false,
   "files": [
     "dist",
     "src"

@@ -5,7 +5,7 @@ module.exports = {
           '@babel/preset-env',
           {
             targets: {
-              node: '12.2.0',
+              node: 'current',
             },
             modules: process.argv.includes('--esm') ? false : 'commonjs',
           },
