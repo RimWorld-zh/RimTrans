@@ -1,6 +1,6 @@
 {
   "name": "rimtrans",
-  "description": "RimTrans: a translation tool for RimWorld Core and Mods.",
+  "description": "RimTrans: a translation and modding tool for RimWorld.",
   "version": "4.0.0-alpha.1",
   "main": "index.js",
   "repository": "git@github.com:RimWorld-zh/RimTrans.git",

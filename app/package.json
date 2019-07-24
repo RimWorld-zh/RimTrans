@@ -1,7 +1,7 @@
 {
   "name": "@rimtrans/app",
   "productName": "RimTrans",
-  "description": "The gui application for RimTrans.",
+  "description": "The GUI application for RimTrans.",
   "version": "4.0.0-alpha.1",
   "private": true,
   "author": "duduluu <duduluu@outlook.com>",
@@ -16,7 +16,6 @@
     "build:main": "babel src/main -x .ts -d dist/main -s --pure",
     "build:electron": "electron-builder",
     "build": "yarn build:renderer && yarn build:main && yarn build:electron",
-    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=../jest.setup.js",
     "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
   },
   "build": {
@@ -46,6 +45,7 @@
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@mdi/js": "^3.8.95",
+    "@rimtrans/i18n": "4.0.0-alpha.1",
     "@rimtrans/io": "0.4.0",
     "axios": "^0.19.0",
     "cep.scss": "^1.1.1",

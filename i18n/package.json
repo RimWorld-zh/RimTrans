@@ -1,0 +1,23 @@
+{
+  "name": "@rimtrans/i18n",
+  "description": "The internationalization for RimTrans.",
+  "version": "4.0.0-alpha.1",
+  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "gen-files": "yarn ts scripts/gen-files",
+    "build:cjs": "babel src -x .ts -d dist/cjs -s",
+    "build:esm": "babel src -x .ts -d dist/esm -s --esm",
+    "build:types": "tsc && ncp dist/types dist/cjs && ncp dist/types dist/esm && rimraf dist/types",
+    "build": "yarn build:cjs && yarn build:esm && yarn build:types",
+    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=../jest.setup.js",
+    "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
+  },
+  "dependencies": {}
+}
