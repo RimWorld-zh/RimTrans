@@ -40,7 +40,7 @@ const navList: NavItem[] = [
 export default class VWelcome extends Vue {
   private render(h: CreateElement): VNode {
     return (
-      <div staticClass="v-welcome">
+      <div staticClass="v-welcome rw-container">
         <div staticClass="v-welcome_wrapper">
           <div key="hero" staticClass="v-welcome_item is-hero">
             <div staticClass="v-welcome_hero">

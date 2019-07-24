@@ -1,0 +1,50 @@
+/**
+ * Component: Settings
+ */
+@include comp('settings') {
+  position: relative;
+
+  display: grid;
+  grid-template-areas: 'sidebar form';
+  grid-template-columns: 320px 1fr;
+  grid-gap: calc(var(--gap-base) * 4px);
+  align-content: start;
+  align-items: start;
+
+  @include elem('sidebar', 'form') {
+    background-color: var(--color-background-higher);
+    box-shadow: var(--depth-4);
+  }
+
+  $sidebar-padding: calc(var(--gap-base) * 4px);
+
+  @include elem('sidebar') {
+    position: relative;
+    grid-area: sidebar;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+
+    padding: $sidebar-padding 0;
+  }
+
+  @include elem('sidebar-strip') {
+    top: $sidebar-padding;
+  }
+
+  @include elem('form') {
+    position: relative;
+    grid-area: form;
+  }
+
+  @include elem('category') {
+    justify-content: flex-start;
+
+    @include when('active') {
+      //
+    }
+  }
+}

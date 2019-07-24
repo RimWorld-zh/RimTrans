@@ -12,11 +12,22 @@
   align-content: center;
   align-items: center;
 
-  padding: 0 calc(var(--gap-base) * 2px);
+  width: calc(var(--button-height-small) * 1px);
+  &:hover {
+    width: auto;
+  }
+  overflow: hidden;
+
+  padding-right: calc(var(--gap-base) * 2px);
   border: 1px solid currentColor;
 
+  white-space: nowrap;
   font-size: calc(var(--font-size-caption) * 1px);
   background-color: var(--color-background-lower);
+
+  @include elem('label') {
+    margin-right: calc(var(--gap-base) * 2px);
+  }
 
   @include elem('route') {
     padding: 0 calc(var(--gap-base) * 2px);

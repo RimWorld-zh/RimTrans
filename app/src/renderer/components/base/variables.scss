@@ -205,11 +205,13 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   --radius-base: 2;
 
+  // Layout ====
+
   // Card
 
   --card-radius: 4;
 
-  // Inputs
+  // Inputs ====
 
   --input-radius: 2;
   --input-disabled-opacity: 0.4;
@@ -217,7 +219,7 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   // Button
 
   --button-radius: 2;
-  --button-focus-line-opacity: 0.4;
+  --button-focus-line-opacity: 0.2;
 
   --button-height-small: 24;
   --button-min-width-small: 60;
@@ -242,6 +244,22 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   --button-font-weight-large: 400;
   --button-line-height-large: 20;
   --button-icon-size-large: 18;
+
+  // Misc ====
+
+  // Strip
+
+  --strip-v-height-small: 24;
+  --strip-v-rect-width-small: 1;
+  --strip-v-rect-height-reduce-small: 2;
+
+  --strip-v-height-medium: 32;
+  --strip-v-rect-width-medium: 2;
+  --strip-v-rect-height-reduce-medium: 3;
+
+  --strip-v-height-large: 48;
+  --strip-v-rect-width-large: 3;
+  --strip-v-rect-height-reduce-large: 4;
 }
 
 %variables-theme-light {

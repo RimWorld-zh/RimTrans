@@ -1,0 +1,52 @@
+/**
+ * Component: Strip Horizontal
+ */
+@include comp('strip-v') {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+
+  height: calc(var(--strip-v-height-medium) * 1px);
+  padding: calc(var(--strip-v-rect-height-reduce-medium) * 1px) 0;
+
+  transform: translateY(0);
+  transition: transform ease-in-out 0.2s;
+
+  @include elem('rect') {
+    position: relative;
+    display: block;
+
+    width: calc(var(--strip-v-rect-width-medium) * 1px);
+    height: 100%;
+
+    background-color: var(--color-primary-60);
+  }
+
+  @each $size in $type-button-sizes {
+    @include prop(
+      (
+        'size': $size,
+      )
+    ) {
+      height: calc(var(--strip-v-height-#{$size}) * 1px);
+      padding: calc(var(--strip-v-rect-height-reduce-#{$size}) * 1px) 0;
+
+      @include elem('rect') {
+        width: calc(var(--strip-v-rect-width-#{$size}) * 1px);
+      }
+    }
+  }
+
+  @each $color in $type-colors {
+    @include prop(
+      (
+        'color': $color,
+      )
+    ) {
+      @include elem('rect') {
+        background-color: var(--color-#{$color}-60);
+      }
+    }
+  }
+}

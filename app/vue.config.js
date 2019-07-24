@@ -4,6 +4,7 @@ const { genPathResolve } = require('@huiji/shared-utils');
 
 const resolvePath = genPathResolve(__dirname);
 
+const isDev = process.env.NODE_ENV === 'development';
 const publicPath = './';
 
 module.exports = {
@@ -21,6 +22,10 @@ module.exports = {
     config.target('electron-renderer');
 
     config.resolve.alias.delete('@').set('@src', resolvePath('src'));
+
+    if (isDev) {
+      config.resolve.alias.set('@rimtrans/i18n$', resolvePath('..', 'i18n', 'src'));
+    }
 
     config
       .entry('app')

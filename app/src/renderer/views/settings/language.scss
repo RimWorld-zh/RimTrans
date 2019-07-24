@@ -1,0 +1,38 @@
+/**
+ * Component: Settings Language
+ */
+@include comp('settings-language') {
+  position: relative;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+
+  $padding: calc(var(--gap-base) * 4px);
+  padding: $padding 0;
+  @include elem('strip') {
+    top: $padding;
+  }
+
+  @include elem('option') {
+    justify-content: flex-start;
+
+    @include when('active') {
+      //
+    }
+  }
+
+  @include elem('label') {
+    color: var(--color-foreground-secondary);
+    @include when('primary') {
+      color: var(--color-foreground-primary);
+      font-weight: bold;
+    }
+  }
+  @include elem-adjacent('label') {
+    // margin-left: calc(var(--golden-ratio) * 1em);
+    margin-left: calc(var(--gap-base) * 2px);
+  }
+}

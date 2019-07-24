@@ -29,7 +29,11 @@ const items: DebugItem[] = [
  */
 @Component
 export class RwDevTools extends Vue {
-  private onToggleDevTools(event: Event): void {
+  private onReload(event: MouseEvent): void {
+    remote.getCurrentWindow().reload();
+  }
+
+  private onToggleDevTools(event: MouseEvent): void {
     const web = remote.getCurrentWebContents();
     if (web.isDevToolsOpened()) {
       web.closeDevTools();
@@ -41,7 +45,20 @@ export class RwDevTools extends Vue {
   private render(h: CreateElement): VNode {
     return (
       <div staticClass="rw-dev-tools">
-        <span key="label">DEV</span>
+        <rw-button key="dev-tools" size="small" skin="flat" shape="square">
+          <mdi staticClass="rw-button-icon" icon="DevTo" />
+        </rw-button>
+
+        <rw-button
+          key="dev-tools"
+          size="small"
+          skin="flat"
+          shape="square"
+          title="Toggle DevTools"
+          onClick={this.onReload}
+        >
+          <mdi staticClass="rw-button-icon" icon="Reload" />
+        </rw-button>
 
         <rw-button
           key="dev-tools"
@@ -51,7 +68,7 @@ export class RwDevTools extends Vue {
           title="Toggle DevTools"
           onClick={this.onToggleDevTools}
         >
-          <mdi staticClass="a-button-icon" icon="Bug" />
+          <mdi staticClass="rw-button-icon" icon="Bug" />
         </rw-button>
 
         {items.map(item => (
@@ -64,7 +81,7 @@ export class RwDevTools extends Vue {
             skin="flat"
             shape="square"
           >
-            <mdi staticClass="a-button-icon" icon={item.icon} />
+            <mdi staticClass="rw-button-icon" icon={item.icon} />
           </rw-button>
         ))}
 

@@ -5,7 +5,7 @@
   position: relative;
 
   color: white;
-  background-color: #ffb74d;
+  background-color: rgba($color: #ffb74d, $alpha: 0.75);
   box-shadow: var(--depth-8);
 
   @include elem('icon') {

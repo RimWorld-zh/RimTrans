@@ -51,7 +51,7 @@ export default class VApp extends Vue {
         </div>
 
         <div staticClass="v-app_wrapper">
-          <router-view staticClass="rw-container" />
+          <router-view />
         </div>
 
         {this.isDevelopment && <rw-dev-tools />}

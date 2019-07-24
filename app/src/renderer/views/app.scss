@@ -31,7 +31,7 @@
   }
 
   @include elem('wrapper') {
-    padding: calc(var(--gap-base) * 8px) 0;
+    padding: calc(var(--gap-base) * 4px);
   }
 
   @include elem('dev-tools') {

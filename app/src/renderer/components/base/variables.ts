@@ -3,6 +3,8 @@ export type CSSStyle = Partial<CSSStyleDeclaration>;
 export const GOLDEN_RATIO = (Math.sqrt(5) - 1) / 2;
 
 export type Color =
+  | 'primary'
+  | 'secondary'
   | 'blue'
   | 'teal'
   | 'magenta'

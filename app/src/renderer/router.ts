@@ -1,5 +1,8 @@
-import Vue from 'vue';
+import Vue, { AsyncComponent } from 'vue';
 import VueRouter from 'vue-router';
+
+const placeHolder: AsyncComponent = async () =>
+  import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/place-holder');
 
 export function createRouter(): VueRouter {
   return new VueRouter({
@@ -20,13 +23,18 @@ export function createRouter(): VueRouter {
           {
             path: '',
             name: 'settings',
-            redirect: 'languages',
+            redirect: 'language',
           },
           {
-            path: 'languages',
-            name: 'settings-languages',
+            path: 'language',
+            name: 'settings-language',
             component: async () =>
-              import(/* webpackChunkName: "v-settings" */ './views/settings/languages'),
+              import(/* webpackChunkName: "v-settings" */ './views/settings/language'),
+          },
+          {
+            path: 'application',
+            name: 'settings-application',
+            component: placeHolder,
           },
         ],
       },
@@ -34,14 +42,12 @@ export function createRouter(): VueRouter {
       {
         path: '/translator',
         name: 'translator',
-        component: async () =>
-          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/place-holder'),
+        component: placeHolder,
       },
       {
         path: '/modder',
         name: 'modder',
-        component: async () =>
-          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/place-holder'),
+        component: placeHolder,
       },
 
       // dev-tools

@@ -13,3 +13,4 @@ export * from './dev-tools/dev- tools';
 export * from './icons/mdi/mdi';
 export * from './inputs/buttons/button';
 export * from './layout/aspect-ratio/aspect-ratio';
+export * from './misc/strip/strip';

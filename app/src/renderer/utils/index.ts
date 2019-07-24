@@ -7,4 +7,5 @@
  * All utils
  */
 
+export * from './i18n';
 export * from './states';

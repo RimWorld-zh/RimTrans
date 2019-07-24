@@ -1,0 +1,13 @@
+/**
+ * Component: Icon Left
+ */
+@include comp('icon-left') {
+  margin-right: calc(var(--golden-ratio) * 1em);
+}
+
+/**
+ * Component: Icon Right
+ */
+@include comp('icon-right') {
+  margin-left: calc(var(--golden-ratio) * 1em);
+}
