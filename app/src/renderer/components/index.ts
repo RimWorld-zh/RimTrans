@@ -12,5 +12,7 @@ export * from './brand/logo';
 export * from './dev-tools/dev- tools';
 export * from './icons/mdi/mdi';
 export * from './inputs/buttons/button';
+export * from './inputs/form/form';
+export * from './inputs/text-field/text-field';
 export * from './layout/aspect-ratio/aspect-ratio';
 export * from './misc/strip/strip';

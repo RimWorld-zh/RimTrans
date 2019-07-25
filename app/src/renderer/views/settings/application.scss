@@ -1,0 +1,12 @@
+/**
+ * Component: Settings Application
+ */
+@include comp('settings-application') {
+  position: relative;
+
+  padding: calc(var(--gap-base) * 8px);
+
+  @include elem('group') {
+    grid-template-columns: minmax(min-content, 512px) max-content;
+  }
+}

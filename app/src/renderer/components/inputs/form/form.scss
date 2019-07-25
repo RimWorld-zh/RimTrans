@@ -1,0 +1,53 @@
+/**
+ * Component: Form Label
+ */
+@include comp('form-label') {
+  position: relative;
+
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+
+  height: calc(var(--form-widget-height) * 1px);
+  font-size: calc(var(--form-widget-font-size) * 1px);
+}
+
+/**
+ * Component: Form Field Group
+ */
+@include comp('form-field-group') {
+  position: relative;
+
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap: calc(var(--form-widget-gap) * 1px);
+  justify-content: start;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+/**
+ * Component: Form Stack
+ */
+@include comp('form-stack') {
+  position: relative;
+
+  grid-column: 1 / span 2;
+}
+
+/**
+ * Component: Form
+ */
+@include comp('form') {
+  position: relative;
+
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: max-content 1fr;
+  grid-column-gap: calc(var(--form-stack-gap-h) * 1px);
+  grid-row-gap: calc(var(--form-stack-gap-v) * 1px);
+  justify-content: start;
+  align-content: start;
+  align-items: start;
+}

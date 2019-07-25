@@ -1,0 +1,86 @@
+/**
+ * Component: Text Field
+ */
+@include comp('text-field') {
+  position: relative;
+
+  font-size: calc(var(--form-widget-font-size) * 1px);
+
+  @include when('disabled') {
+    opacity: var(--input-disabled-opacity);
+  }
+
+  @include elem('label') {
+    color: inherit;
+  }
+
+  @include elem('container') {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    white-space: nowrap;
+
+    height: calc(var(--text-field-height) * 1px);
+    margin: 0;
+    border: 1px solid var(--color-foreground-secondary);
+    border-radius: calc(var(--text-field-radius) * 1px);
+    color: var(--color-foreground-primary);
+    background-color: var(--color-background-higher);
+
+    &:hover {
+      border-color: var(--color-foreground-primary);
+    }
+    &:focus-within {
+      border-color: var(--color-primary-60);
+    }
+  }
+
+  @include elem('prefix', 'suffix') {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+    height: 100%;
+    padding: 0 calc(var(--text-field-gap) * 1px);
+    color: var(--color-foreground-secondary);
+    background-color: var(--color-background-normal);
+  }
+
+  @include elem('prefix-icon', 'suffix-icon') {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    white-space: nowrap;
+    width: calc((var(--text-field-icon-size) + var(--text-field-gap)) * 1px);
+    height: 100%;
+    font-size: calc(var(--text-field-icon-size) * 1px);
+    color: var(--color-foreground-secondary);
+  }
+
+  @include elem('prefix-icon') {
+    padding-left: calc(var(--text-field-gap) * 1px);
+  }
+  @include elem('suffix-icon') {
+    padding-right: calc(var(--text-field-gap) * 1px);
+  }
+
+  @include elem('input') {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 calc(var(--text-field-gap) * 1px);
+
+    border: none;
+    outline: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}

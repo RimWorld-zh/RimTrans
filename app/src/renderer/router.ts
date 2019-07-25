@@ -34,7 +34,8 @@ export function createRouter(): VueRouter {
           {
             path: 'application',
             name: 'settings-application',
-            component: placeHolder,
+            component: async () =>
+              import(/* webpackChunkName: "v-settings" */ './views/settings/application'),
           },
         ],
       },

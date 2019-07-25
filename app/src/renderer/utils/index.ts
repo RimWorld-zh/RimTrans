@@ -8,5 +8,6 @@
  */
 
 export * from './i18n';
+export * from './interaction';
 export * from './ipc';
 export * from './states';
