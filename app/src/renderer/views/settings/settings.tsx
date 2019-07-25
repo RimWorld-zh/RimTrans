@@ -26,7 +26,7 @@ export default class VSettings extends Vue {
     const categories: SettingCategory[] = [
       {
         icon: 'Translate',
-        label: 'Language',
+        label: 'Language', // DO NOT use translation for this label
         to: 'language',
       },
       {

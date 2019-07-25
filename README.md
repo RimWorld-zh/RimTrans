@@ -1,4 +1,4 @@
-![RimTrans](https://user-images.githubusercontent.com/10762097/59982980-9865cc80-964c-11e9-80d8-ff1bd9fd4cbe.png)
+![RimTrans](https://user-images.githubusercontent.com/10762097/61840069-93ea3900-aec2-11e9-9e27-61cd0f4bb996.png)
 
 [rimtrans-version]: https://img.shields.io/github/tag/RimWorld-zh/RimTrans.svg?label=version&style=flat-square&logo=github
 [rimtrans-downloads]: https://img.shields.io/github/downloads/RimWorld-zh/RimTrans/total.svg?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAQAAAD8x0bcAAAAo0lEQVR4AcXKpUEEUAAA0I+TGABnChK7XME2wC1R8EYmMgJOxd0l41qQh57fVXj5hX+jQINpl24ta5YT0imxKNGsgvQ0IdV4iJOn0w7gzJw5Z+BdVbTkmxXXEz7pAUyq+Ul9ZE0wKD/YFLVnTuQ7RczZE9UfPIs6VxZ+KXMu6iRYJrmlFO6CVpJbSmE2yLcm0ZlTyWpDCIqNOfQq3ZNFdeGvfQBdvDOX57HMqQAAAABJRU5ErkJggg==
@@ -12,17 +12,21 @@
 
 ## Features
 
-- Support RimWord **Core** and **Mods**
-- Merge old translation
-- `Assemblies` load the .dll files and get type info.
-- `Defs` resolve inheritance, add implied defs
-- `Patches` (TODO)
-- `DefInjected`
-- `Keyed`
-- `Strings`
-- `Backstories`
+- `Translator`: parse files of Mods, extract language files, edit and publish. WIP
+- `Modder`: A tool to create and edit Defs xml files for modding. TODO
+- `Translation Workshop`: Players subscribe translation for mods from cloud. TODO
 
 ## Development
+
+### Structure
+
+- `app`: The desktop GUI app, based on Vue.js and Electron.js
+- `Core`: The RimWorld Core files, includes Defs and English Language
+- `extractor`: The core low-level library
+- `i18n`: The i18n data for RimTrans
+- `io`: The file operating library.
+- `Reflection`: The dotnet core project, for get type info from assemblies (.dll files)
+- `resources`: Design assets
 
 ### Environment
 
@@ -30,3 +34,30 @@
 - node.js >=12.0.0
 - yarn >=1.17.0
 - lerna >=3.15.0
+
+### Projects development
+
+```bash
+# Install all dependencies for all projects
+lerna bootstrap
+
+# Clean all build output directories
+lerna run clean
+
+# Build all projects
+lerna run build
+
+# Run all tests
+lerna run test
+```
+
+### App development
+
+```bash
+cd app
+
+# Compiles and hot-reloads
+# The app will run in development mode and restart when you edit source files
+yarn serve:renderer
+yarn serve:electron
+```
