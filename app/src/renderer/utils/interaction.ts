@@ -6,6 +6,7 @@ import { remote } from 'electron';
 export async function selectDirectoryDialog(): Promise<string | undefined> {
   return new Promise<string | undefined>((resolve, reject) => {
     remote.dialog.showOpenDialog(
+      remote.getCurrentWindow(),
       {
         properties: ['openDirectory'],
       },
