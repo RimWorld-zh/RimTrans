@@ -29,6 +29,12 @@ const items: DebugItem[] = [
  */
 @Component
 export class RwDevTools extends Vue {
+  private showSettings: boolean = false;
+
+  private onToggleShowSettings(event: Event): void {
+    this.showSettings = !this.showSettings;
+  }
+
   private onReload(event: MouseEvent): void {
     remote.getCurrentWindow().reload();
   }
@@ -43,9 +49,26 @@ export class RwDevTools extends Vue {
   }
 
   private render(h: CreateElement): VNode {
+    const { showSettings } = this;
+
     return (
       <div staticClass="rw-dev-tools">
-        <rw-button key="label" size="small" skin="flat" shape="square">
+        {showSettings && (
+          <div key="settings" staticClass="rw-dev-tools_settings">
+            <pre>
+              <code>{JSON.stringify(this.$states.settings, undefined, '  ')}</code>
+            </pre>
+          </div>
+        )}
+
+        <rw-button
+          key="label"
+          size="small"
+          skin="flat"
+          shape="square"
+          title="Toggle show settings"
+          onClick={this.onToggleShowSettings}
+        >
           <mdi staticClass="rw-button-icon" icon="DevTo" />
         </rw-button>
 

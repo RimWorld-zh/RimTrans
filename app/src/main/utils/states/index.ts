@@ -5,6 +5,7 @@ import {
   ipcMain,
   Event as ElectronEvent,
   WebContents,
+  dialog,
 } from 'electron';
 import * as io from '@rimtrans/io';
 import {
@@ -15,151 +16,36 @@ import {
   GLOBAL_KEY_STORAGE,
   FILENAME_STORAGE,
 } from '../constants';
+import { IpcMain, createIpc, getGlobal, setGlobal } from '../ipc';
 import { Settings, defaultSettings } from './settings';
 import { Storage, defaultStorage } from './storage';
 
-// ------------------------------------------------
-// Models
-
-/**
- * The type map for ipc channels and states.
- * **NOTE** the state must be a object.
- */
-export interface ChannelStateMap {
+export interface StateTypeMap {
   settings: Settings;
   storage: Storage;
 }
 
-/**
- * The ipc channels for states.
- */
-export type Channel = keyof ChannelStateMap;
+export type StateChannel = keyof StateTypeMap;
 
-/**
- * The type map for ipc channels and various types (includes states).
- */
-export interface IpcChannelTypeMap extends ChannelStateMap {
-  test: undefined;
-}
-
-/**
- * All ipc channels.
- */
-export type IpcChannel = keyof IpcChannelTypeMap;
-
-/**
- * The wrapper for ipc message.
- */
-export interface IpcMessage<T extends IpcChannel> {
-  /**
-   * The ID of the `BrowserWindow`
-   */
-  id?: number;
-  data: IpcChannelTypeMap[T];
-}
-
-/**
- * The type for ipc listener function.
- */
-export type IpcListener<T extends IpcChannel> = (
-  event: ElectronEvent,
-  message: IpcMessage<T>,
-) => any;
+// ------------------------------------------------
+// Paths
 
 /**
  * The paths record for app.
  * The data directory, execute path and json file paths for states.
  */
-export interface Paths extends Record<Channel, string> {
+export interface Paths extends Record<StateChannel, string> {
   readonly dataDir: string;
 }
 
-// ------------------------------------------------
-// Global
-
-/**
- * Get global value.
- * @param key the name of the global value.
- */
-export function getGlobal<T>(key: string): T {
-  return (global as any)[key];
-}
-
-/**
- * Set global value.
- * @param key the name of the global value.
- * @param value the value
- */
-export function setGlobal<T>(key: string, value: T): void {
-  (global as any)[key] = value;
-}
-
-// ------------------------------------------------
-// IPC
-
-/**
- * Add listener to ipc in specified channel.
- * This is for get message from web contents.
- * @param channel the ipc channel
- * @param listener the ipc listener function
- */
-export function ipcOn<T extends IpcChannel>(channel: T, listener: IpcListener<T>): void {
-  ipcMain.on(channel, listener);
-}
-
-/**
- * Add listener to ipc in specified channel. Will be remove after called.
- * This is for get message from web contents.
- * @param channel the ipc channel
- * @param listener the ipc listener function
- */
-export function ipcOnce<T extends IpcChannel>(
-  channel: T,
-  listener: IpcListener<T>,
-): void {
-  ipcMain.once(channel, listener);
-}
-
-/**
- * Send a message via ipc in specified channel to web contents.
- * @param webContents the `WebContents` of the `BrowserWindow`, or event sender for reply.
- * @param channel the ipc channel
- * @param message the message to send
- */
-export function ipcSend<T extends IpcChannel>(
-  webContents: WebContents,
-  channel: T,
-  message: IpcMessage<T>,
-): void {
-  webContents.send(channel, message);
-}
-
-/**
- * Send a message via ipc in specified channel to a set of `BrowserWindow`.
- * @param browserWindowsSet the `Set` of `BrowserWindow`
- * @param channel the ipc channel
- * @param message the message to send
- */
-export function ipcSendAll<T extends IpcChannel>(
-  browserWindowsSet: Set<BrowserWindow> | BrowserWindow[],
-  channel: T,
-  message: IpcMessage<T>,
-): void {
-  browserWindowsSet.forEach((win: BrowserWindow) =>
-    win.webContents.send(channel, message),
-  );
-}
-
-/**
- * Remove the ipc listener in specified channel
- * @param channel the ipc channel
- * @param listener the ipc listener function
- */
-export function ipcRemoveListener<T extends IpcChannel>(
-  channel: T,
-  listener: IpcListener<T>,
-): void {
-  ipcMain.removeListener(channel, listener);
+function createPaths(): Paths {
+  const userData = app.getPath(USER_DATA);
+  const paths: Paths = {
+    dataDir: userData,
+    settings: io.join(userData, FILENAME_SETTINGS),
+    storage: io.join(userData, FILENAME_STORAGE),
+  };
+  return paths;
 }
 
 // ------------------------------------------------
@@ -168,18 +54,18 @@ export function ipcRemoveListener<T extends IpcChannel>(
 /**
  * The state wrapper interface.
  */
-export interface StateWrapper<T extends Channel> {
-  get(): ChannelStateMap[T];
-  set(partial: Partial<ChannelStateMap[T]>, emit?: boolean): void;
+export interface StateWrapper<T> {
+  get(): T;
+  set(partial: Partial<T>, emit?: boolean, id?: number): void;
   load(): Promise<void>;
   save(): Promise<void>;
 }
 
-export interface StateWrapperOptions<T extends Channel> {
+export interface StateWrapperOptions<K extends StateChannel> {
   /**
    * the ipc channel
    */
-  channel: T;
+  channel: K;
   /**
    * the name of global value
    */
@@ -191,29 +77,28 @@ export interface StateWrapperOptions<T extends Channel> {
   /**
    * the factory function for create default state
    */
-  defaultState: () => ChannelStateMap[T];
+  defaultState: () => StateTypeMap[K];
 }
 
 /**
  * Create a `StateWrapper`.
- * @param browserWindowsSet the `Set` of `BrowserWindow`
  * @param options the options
  */
-export function createStateWrapper<T extends Channel>(
-  browserWindowsSet: Set<BrowserWindow>,
-  options: StateWrapperOptions<T>,
-): StateWrapper<T> {
+function createStateWrapper<K extends StateChannel>(
+  ipc: IpcMain<StateTypeMap>,
+  options: StateWrapperOptions<K>,
+): StateWrapper<StateTypeMap[K]> {
   const { channel, key, path, defaultState } = options;
-  type CurrentState = ChannelStateMap[T];
+  type CurrentState = StateTypeMap[K];
 
   setGlobal<CurrentState>(key, defaultState());
 
-  const save: StateWrapper<T>['save'] = async () => {
+  const save: StateWrapper<CurrentState>['save'] = async () => {
     const state = getGlobal<CurrentState>(key);
     io.save(path, JSON.stringify(state, undefined, '  '));
   };
 
-  const load: StateWrapper<T>['load'] = async () => {
+  const load: StateWrapper<CurrentState>['load'] = async () => {
     if (await io.fileExists(path)) {
       const state = await io.load<CurrentState>(path);
       setGlobal<CurrentState>(key, state);
@@ -222,7 +107,7 @@ export function createStateWrapper<T extends Channel>(
     }
   };
 
-  const set: StateWrapper<T>['set'] = (partial, emit = true) => {
+  const set: StateWrapper<CurrentState>['set'] = (partial, emit = true, id?) => {
     const state: CurrentState = {
       ...getGlobal<CurrentState>(key),
       ...partial,
@@ -230,13 +115,17 @@ export function createStateWrapper<T extends Channel>(
     setGlobal<CurrentState>(key, state);
     save();
     if (emit) {
-      ipcSendAll(browserWindowsSet, channel, { data: state as IpcChannelTypeMap[T] });
+      ipc.sendAll(channel, { id, data: state });
     }
   };
 
-  const get: StateWrapper<T>['get'] = () => getGlobal(key);
+  const get: StateWrapper<CurrentState>['get'] = () => getGlobal(key);
 
-  ipcOn(channel, (event, { data }) => set(data, true));
+  ipc.on(channel, (event, message) => {
+    if (message) {
+      set(message.data, true, event.sender.id);
+    }
+  });
 
   return {
     get,
@@ -252,42 +141,44 @@ export function createStateWrapper<T extends Channel>(
 export interface States {
   paths: Paths;
   browserWindowsSet: Set<BrowserWindow>;
-  settings: StateWrapper<'settings'>;
-  storage: StateWrapper<'storage'>;
-  initStates(): Promise<void>;
+  settings: StateWrapper<Settings>;
+  storage: StateWrapper<Storage>;
+  loadStates(): Promise<void>;
+  saveStates(): Promise<void>;
 }
 
 /**
  * Create states collection.
  */
 export function createStates(): States {
-  const userData = app.getPath(USER_DATA);
-  const paths: Paths = {
-    dataDir: userData,
-    settings: io.join(userData, FILENAME_SETTINGS),
-    storage: io.join(userData, FILENAME_STORAGE),
-  };
+  const paths = createPaths();
   setGlobal(GLOBAL_KEY_PATHS, paths);
 
   const browserWindowsSet = new Set<BrowserWindow>();
+  const ipc = createIpc<StateTypeMap>(browserWindowsSet);
 
-  const settings = createStateWrapper(browserWindowsSet, {
+  const settings = createStateWrapper(ipc, {
     channel: 'settings',
     key: GLOBAL_KEY_SETTINGS,
     path: paths.settings,
     defaultState: defaultSettings,
   });
 
-  const storage = createStateWrapper(browserWindowsSet, {
+  const storage = createStateWrapper(ipc, {
     channel: 'storage',
     key: GLOBAL_KEY_STORAGE,
     path: paths.storage,
     defaultState: defaultStorage,
   });
 
-  const initStates = async (): Promise<void> => {
-    await Promise.all([settings, storage].map(state => state.load()));
+  const states = [settings, storage];
+
+  const loadStates = async (): Promise<void> => {
+    await Promise.all(states.map(state => state.load()));
+  };
+  const saveStates = async (): Promise<void> => {
+    await Promise.all(states.map(state => state.save()));
   };
 
-  return { paths, browserWindowsSet, settings, storage, initStates };
+  return { paths, browserWindowsSet, settings, storage, loadStates, saveStates };
 }

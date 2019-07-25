@@ -2,6 +2,7 @@
  * Component: DevTools
  */
 @include comp('dev-tools') {
+  z-index: var(--z-index-bar);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -25,8 +26,25 @@
   font-size: calc(var(--font-size-caption) * 1px);
   background-color: var(--color-background-lower);
 
-  @include elem('label') {
-    margin-right: calc(var(--gap-base) * 2px);
+  @include elem('settings') {
+    @extend %variables-theme-dark;
+
+    $gap: calc(var(--gap-base) * 8px);
+
+    z-index: -1;
+    position: fixed;
+    top: $gap;
+    bottom: $gap;
+    left: $gap;
+    right: $gap;
+    overflow: scroll;
+
+    padding: calc(var(--gap-base) * 4px);
+
+    color: var(--color-foreground-primary);
+    background-color: var(--color-background-lower);
+
+    opacity: var(--opacity-secondary);
   }
 
   @include elem('route') {

@@ -52,22 +52,12 @@ export class I18n extends Vue {
     });
   }
 
-  private $languageID: string = 'auto';
-
-  public get languageID(): string {
-    return this.$languageID;
-  }
-
-  public set languageID(value: string) {
-    this.select(value);
-  }
-
   public dict: LanguageDictionary = getLanguageDictByID('English');
 
-  public select(languageID: string): void {
-    this.$languageID = languageID;
-    let id = languageID;
-    if (languageID.toLowerCase() === 'auto') {
+  @Watch('$states.settings.language', { immediate: true })
+  private select(language: string): void {
+    let id = language;
+    if (language.toLowerCase() === 'auto') {
       id = getLanguageIdByCode(remote.app.getLocale());
     }
     this.dict = getLanguageDictByID(id);

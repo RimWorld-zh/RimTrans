@@ -13,6 +13,7 @@
     "serve:renderer": "vue-cli-service serve",
     "serve:main": "electron .",
     "serve:electron": "nodemon",
+    "serve:electron:second": "nodemon --config ./nodemon.second.json",
     "build:renderer": "vue-cli-service build",
     "build:main": "babel src/main -x .ts -d dist/main -s --pure",
     "build:electron": "electron-builder",

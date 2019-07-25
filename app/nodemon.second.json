@@ -4,7 +4,8 @@
   "env": {
     "NODE_ENV": "development"
   },
-  "exec": "yarn build:main && yarn serve:main",
+  "exec": "yarn serve:main",
+  "delay": "2000",
   "watch": ["src/main/"],
   "ignore": [".git", "node_modules/**/node_modules", "*.test.ts", "*.test.tsx"],
   "ext": "ts,tsx"

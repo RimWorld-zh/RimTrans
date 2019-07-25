@@ -16,13 +16,10 @@ import { when } from '@src/renderer/components/base';
  */
 @Component
 export default class VSettingsLanguage extends Vue {
-  private stripOffset: number =
-    languageInfos.findIndex(info => info.languageID === this.$states.settings.language) +
-    1;
-
   private render(h: CreateElement): VNode {
-    const { stripOffset } = this;
     const { language: settingsLanguage } = this.$states.settings;
+    const stripOffset =
+      languageInfos.findIndex(info => info.languageID === settingsLanguage) + 1;
 
     return (
       <div staticClass="v-settings-language">
@@ -33,8 +30,6 @@ export default class VSettingsLanguage extends Vue {
           skin="flat"
           onClick={() => {
             this.$states.settings.language = 'auto';
-            this.$i18n.languageID = 'auto';
-            this.stripOffset = 0;
           }}
         >
           <span staticClass="v-settings-language_label is-primary">Auto</span>
@@ -59,8 +54,6 @@ export default class VSettingsLanguage extends Vue {
               skin="flat"
               onClick={() => {
                 this.$states.settings.language = languageID;
-                this.$i18n.languageID = languageID;
-                this.stripOffset = index + 1;
               }}
             >
               <span staticClass="v-settings-language_label is-primary">

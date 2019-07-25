@@ -1,4 +1,5 @@
-import { remote, ipcRenderer, Event as ElectronEvent } from 'electron';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { remote, Event as ElectronEvent, ipcRenderer } from 'electron';
 import Vue, { CreateElement, VNode, PluginFunction, PluginObject } from 'vue';
 import {
   Component,
@@ -10,40 +11,10 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { GLOBAL_KEY_PATHS, GLOBAL_KEY_SETTINGS } from '@src/main/utils/constants';
-import { IpcChannel, IpcMessage, IpcListener, Paths } from '@src/main/utils/states';
+import { IpcMessage, IpcListener } from '@src/main/utils/ipc';
+import { StateTypeMap, StateChannel, Paths } from '@src/main/utils/states';
 import { Settings } from '@src/main/utils/states/settings';
-
-// ----------------------------------------------------------------
-// IPC
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-export function ipcOn<T extends IpcChannel>(channel: T, listener: IpcListener<T>): void {
-  ipcRenderer.on(channel, listener);
-}
-
-export function ipcOnce<T extends IpcChannel>(
-  channel: T,
-  listener: IpcListener<T>,
-): void {
-  ipcRenderer.once(channel, listener);
-}
-
-export function ipcSend<T extends IpcChannel>(channel: T, data: IpcMessage<T>): void {
-  ipcRenderer.send(channel, JSON.parse(JSON.stringify(data)));
-}
-
-export function ipcRemoveListener<T extends IpcChannel>(
-  channel: T,
-  listener: IpcListener<T>,
-): void {
-  ipcRenderer.removeListener(channel, listener);
-}
-
-/* eslint-enable @typescript-eslint/no-explicit-any */
-
-// ----------------------------------------------------------------
-// States
+import { IpcRenderer, createIpc, getGlobal } from './ipc';
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -79,31 +50,59 @@ export class States extends Vue {
     });
   }
 
-  public browserWindowID: number = remote.getCurrentWindow().id;
+  public browserWindowID!: number;
 
-  public paths: Paths = remote.getGlobal(GLOBAL_KEY_PATHS);
+  public paths!: Paths;
 
-  // --------------------------------
-  // Settings
+  public settings: Settings = getGlobal(GLOBAL_KEY_SETTINGS);
 
-  public settings: Settings = remote.getGlobal(GLOBAL_KEY_SETTINGS);
+  // Sync
 
-  @Watch('settings', { deep: true })
-  private watchSettings(value: Settings): void {
-    ipcSend('settings', { id: this.browserWindowID, data: value });
+  private ipc!: IpcRenderer<StateTypeMap>;
+
+  private ipcSilentMap!: Partial<Record<StateChannel, boolean>>;
+
+  private unwatchMap!: Partial<Record<StateChannel, Function>>;
+
+  private listenerMap!: Partial<Record<StateChannel, Function>>;
+
+  private installState<K extends StateChannel>(channel: K): void {
+    const watch = (data: StateTypeMap[K]): void => {
+      if (this.ipcSilentMap[channel]) {
+        this.ipcSilentMap[channel] = false;
+        return;
+      }
+      this.ipc.send(channel, { id: this.browserWindowID, data });
+    };
+    const unwatch = this.$watch(channel, watch, { deep: true });
+    this.unwatchMap[channel] = unwatch;
+
+    const listener: IpcListener<StateTypeMap[K]> = (event, message) => {
+      if (message && message.id !== this.browserWindowID) {
+        this.ipcSilentMap[channel] = true;
+        (this as any)[channel] = message.data;
+      }
+    };
+    this.ipc.on(channel, listener);
   }
-
-  private onIpcSettings(event: ElectronEvent, message: IpcMessage<'settings'>): void {
-    if (message.id !== this.browserWindowID) {
-      this.settings = message.data;
-    }
-  }
-
-  private listeners!: Function[];
 
   private created(): void {
-    this.listeners = [];
+    this.browserWindowID = remote.getCurrentWindow().id;
+    this.paths = remote.getGlobal(GLOBAL_KEY_PATHS);
+
+    this.ipc = createIpc<StateTypeMap>();
+    this.ipcSilentMap = {};
+    this.unwatchMap = {};
+    this.listenerMap = {};
+
+    this.installState('settings');
   }
 
-  private beforeDestroy(): void {}
+  private beforeDestroy(): void {
+    (Object.values(this.unwatchMap) as Function[]).forEach(unwatch => unwatch());
+    (Object.entries(this.listenerMap) as [
+      StateChannel,
+      IpcListener<StateTypeMap[StateChannel]>
+    ][]).forEach(([channel, listener]) => this.ipc.removeListener(channel, listener));
+  }
 }
