@@ -28,21 +28,22 @@
   color: inherit;
   background-color: transparent;
 
-  overflow: hidden;
-
   outline: none;
   &:focus {
     outline: none;
 
+    // focus line
     &::after {
+      $dist: calc(var(--button-focus-line-dist) * 1px);
       content: ' ';
       display: block;
       position: absolute;
-      top: 1px;
-      bottom: 1px;
-      left: 1px;
-      right: 1px;
+      top: $dist;
+      bottom: $dist;
+      left: $dist;
+      right: $dist;
       border: 1px solid currentColor;
+      border-radius: inherit;
       opacity: var(--button-focus-line-opacity);
     }
   }
@@ -53,6 +54,7 @@
     opacity: var(--input-disabled-opacity);
   }
 
+  // actual background
   &::before {
     content: ' ';
     display: block;
@@ -61,6 +63,7 @@
     bottom: -1px;
     left: -1px;
     right: -1px;
+    border-radius: inherit;
     background-color: transparent;
   }
 
@@ -112,9 +115,6 @@
   border-color: $border-color;
 
   border-radius: $radius;
-  &::after {
-    border-radius: $radius;
-  }
 
   width: $width;
   height: $height;

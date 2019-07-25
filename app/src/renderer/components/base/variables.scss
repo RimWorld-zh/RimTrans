@@ -234,6 +234,7 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   // Button
 
   --button-radius: 2;
+  --button-focus-line-dist: 2;
   --button-focus-line-opacity: 0.5;
 
   --button-height-small: 24;
