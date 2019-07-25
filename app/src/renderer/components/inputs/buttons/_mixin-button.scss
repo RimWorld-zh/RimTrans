@@ -28,9 +28,11 @@
   color: inherit;
   background-color: transparent;
 
-  outline: 0;
+  overflow: hidden;
+
+  outline: none;
   &:focus {
-    outline: 0;
+    outline: none;
 
     &::after {
       content: ' ';
@@ -108,11 +110,12 @@
   }
 
   border-color: $border-color;
-  &:focus {
-    &::after {
-      border-radius: $radius;
-    }
+
+  border-radius: $radius;
+  &::after {
+    border-radius: $radius;
   }
+
   width: $width;
   height: $height;
   min-width: $min-width;
