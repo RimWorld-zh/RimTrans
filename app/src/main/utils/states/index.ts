@@ -100,8 +100,11 @@ function createStateWrapper<K extends StateChannel>(
 
   const load: StateWrapper<CurrentState>['load'] = async () => {
     if (await io.fileExists(path)) {
-      const state = await io.load<CurrentState>(path);
-      setGlobal<CurrentState>(key, state);
+      const state = await io.load<Partial<CurrentState>>(path);
+      setGlobal<CurrentState>(key, {
+        ...defaultState(),
+        ...state,
+      });
     } else {
       await save();
     }
