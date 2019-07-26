@@ -27,24 +27,33 @@
   background-color: var(--color-background-lower);
 
   @include elem('settings') {
-    @extend %variables-theme-dark;
-
-    $gap: calc(var(--gap-base) * 8px);
-
-    z-index: -1;
     position: fixed;
-    top: $gap;
-    bottom: $gap;
-    left: $gap;
-    right: $gap;
-    overflow: scroll;
+
+    z-index: -2;
+    top: 0;
+    bottom: calc(var(--button-height-small) * 1px);
+    left: 0;
+    right: 0;
+    overflow: auto;
 
     padding: calc(var(--gap-base) * 4px);
+    color: var(--color-white);
 
-    color: var(--color-foreground-primary);
-    background-color: var(--color-background-lower);
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--color-black);
+      opacity: 0.8;
+    }
+  }
 
-    opacity: var(--opacity-secondary);
+  @include elem('settings-content') {
+    position: relative;
   }
 
   @include elem('route') {

@@ -32,10 +32,20 @@ export function createRouter(): VueRouter {
               import(/* webpackChunkName: "v-settings" */ './views/settings/language'),
           },
           {
-            path: 'application',
-            name: 'settings-application',
+            path: 'features',
+            name: 'settings-features',
             component: async () =>
-              import(/* webpackChunkName: "v-settings" */ './views/settings/application'),
+              import(/* webpackChunkName: "v-settings" */ './views/settings/features'),
+          },
+          {
+            path: 'ui',
+            name: 'settings-ui',
+            component: async () =>
+              import(/* webpackChunkName: "v-settings" */ './views/settings/ui'),
+          },
+          {
+            path: '*',
+            redirect: 'language',
           },
         ],
       },

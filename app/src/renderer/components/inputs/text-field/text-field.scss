@@ -4,23 +4,52 @@
 @include comp('text-field') {
   position: relative;
 
+  display: grid;
+
+  grid-template: auto / auto;
+  grid-gap: calc(var(--form-widget-label-gap) * 1px);
+
+  justify-self: normal;
+  align-content: start;
+  align-items: start;
+
   font-size: calc(var(--form-widget-font-size) * 1px);
+  font-weight: var(--form-widget-font-weight);
+  line-height: calc(var(--form-widget-line-height) * 1px);
+  color: inherit;
+  white-space: nowrap;
 
   @include when('disabled') {
     opacity: var(--input-disabled-opacity);
   }
 
   @include elem('label') {
-    color: inherit;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    color: var(--color-foreground-secondary);
+    font-weight: var(--form-widget-label-font-weight);
+  }
+
+  @include when('inline-label') {
+    grid-template: auto / max-content 1fr;
+    @include elem('label') {
+      height: calc(var(--text-field-height) * 1px);
+    }
   }
 
   @include elem('container') {
+    position: relative;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-content: stretch;
     align-items: stretch;
-    white-space: nowrap;
 
     height: calc(var(--text-field-height) * 1px);
     margin: 0;
@@ -38,6 +67,8 @@
   }
 
   @include elem('prefix', 'suffix') {
+    position: relative;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -47,19 +78,24 @@
 
     height: 100%;
     padding: 0 calc(var(--text-field-gap) * 1px);
+
     color: var(--color-foreground-secondary);
     background-color: var(--color-background-normal);
   }
 
   @include elem('prefix-icon', 'suffix-icon') {
+    position: relative;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-content: center;
     align-items: center;
     white-space: nowrap;
+
     width: calc((var(--text-field-icon-size) + var(--text-field-gap)) * 1px);
     height: 100%;
+
     font-size: calc(var(--text-field-icon-size) * 1px);
     color: var(--color-foreground-secondary);
   }
@@ -74,6 +110,7 @@
   @include elem('input') {
     flex: 1;
     min-width: 0;
+    max-width: 100%;
     height: 100%;
     padding: 0 calc(var(--text-field-gap) * 1px);
 
@@ -81,6 +118,14 @@
     outline: none;
     &:focus {
       outline: none;
+    }
+
+    color: inherit;
+    background-color: transparent;
+
+    &::placeholder {
+      color: var(--color-foreground-secondary);
+      opacity: var(--opacity-secondary);
     }
   }
 }

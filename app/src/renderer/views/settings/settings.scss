@@ -5,13 +5,13 @@
   position: relative;
 
   display: grid;
-  grid-template-areas: 'sidebar form';
+  grid-template-areas: 'sidebar panel';
   grid-template-columns: 320px 1fr;
   grid-gap: calc(var(--gap-base) * 4px);
   align-content: start;
   align-items: start;
 
-  @include elem('sidebar', 'form') {
+  @include elem('sidebar', 'panel') {
     background-color: var(--color-background-higher);
     box-shadow: var(--depth-4);
   }
@@ -35,9 +35,10 @@
     top: $sidebar-padding;
   }
 
-  @include elem('form') {
+  @include elem('panel') {
     position: relative;
-    grid-area: form;
+    grid-area: panel;
+    padding: calc(var(--gap-base) * 8px) 0;
   }
 
   @include elem('category') {
@@ -45,6 +46,33 @@
 
     @include when('active') {
       //
+    }
+  }
+
+  @include elem('title') {
+    position: relative;
+    padding: 0;
+    padding-left: calc(var(--gap-base) * 8px);
+    margin: 0;
+    margin-bottom: calc(var(--gap-base) * 8px);
+
+    font-size: calc(var(--font-size-core) * 1px);
+    font-weight: var(--font-weight-core);
+    line-height: calc(var(--line-height-core) * 1px);
+    height: calc(var(--line-height-core) * 1px);
+
+    // title strip
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+
+      bottom: 0;
+      left: 0;
+      width: calc(var(--strip-v-rect-width-large) * 1px);
+      height: calc(var(--font-size-core) * 1px);
+
+      background-color: var(--color-primary-60);
     }
   }
 }

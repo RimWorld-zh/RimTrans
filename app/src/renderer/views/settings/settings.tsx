@@ -30,9 +30,14 @@ export default class VSettings extends Vue {
         to: 'language',
       },
       {
-        icon: 'Settings',
-        label: dict.settingsCategoryApplication,
-        to: 'application',
+        icon: 'FunctionVariant',
+        label: dict.settingsCategoryFeatures,
+        to: 'features',
+      },
+      {
+        icon: 'Palette',
+        label: dict.settingsCategoryUI,
+        to: 'ui',
       },
     ];
 
@@ -42,12 +47,12 @@ export default class VSettings extends Vue {
     return (
       <div staticClass="v-settings">
         <div key="sidebar" staticClass="v-settings_sidebar">
-          {categories.map(({ icon, label, to }) => (
+          {categories.map(({ icon, label, to }, index) => (
             <rw-button
               key={to}
               staticClass="v-settings_category"
               size="large"
-              skin="flat"
+              skin={(stripOffset === index && 'fill') || 'flat'}
               router-link
               to={`/settings/${to}`}
               exact-active-class="is-active"
@@ -66,7 +71,10 @@ export default class VSettings extends Vue {
         </div>
 
         <transition name="rw-m-rise-fall" mode="out-in" duration={MOTION_DURATION_2}>
-          <router-view staticClass="v-settings_form" />
+          <div key={stripOffset} staticClass="v-settings_panel">
+            <h1 staticClass="v-settings_title">{categories[stripOffset].label}</h1>
+            <router-view />
+          </div>
         </transition>
       </div>
     );

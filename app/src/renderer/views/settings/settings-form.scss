@@ -1,0 +1,14 @@
+/**
+ * Component: Settings Form
+ */
+@include comp('settings-form') {
+  position: relative;
+
+  padding: 0 calc(var(--gap-base) * 8px);
+
+  @include elem('directory-group') {
+    grid-template-columns: minmax(min-content, 512px) max-content;
+    align-content: end;
+    align-items: end;
+  }
+}

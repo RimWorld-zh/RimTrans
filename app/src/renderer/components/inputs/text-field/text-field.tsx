@@ -24,6 +24,9 @@ export class RwTextField extends Vue {
   @Prop(String)
   public readonly label?: string;
 
+  @Prop({ type: Boolean, default: false })
+  public readonly inlineLabel!: boolean;
+
   @Prop(String)
   public readonly prefix?: string;
 
@@ -38,16 +41,18 @@ export class RwTextField extends Vue {
       value,
       disabled,
       label,
+      inlineLabel,
       prefix,
       suffix,
     } = this;
 
-    const classes = when({ disabled });
+    const classes = when({ disabled, 'inline-label': inlineLabel });
 
     const attrs = {
-      type: 'text',
       ...$attrs,
+      type: 'text',
       value,
+      disabled,
     };
     const on = {
       ...$listeners,

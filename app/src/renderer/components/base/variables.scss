@@ -6,6 +6,7 @@
 
 $golden-ratio: (sqrt(5) - 1) / 2;
 
+$type-themes: 'light', 'dark';
 $type-colors: 'blue', 'teal', 'magenta', 'green', 'yellow', 'red', 'purple', 'orange';
 $type-depths: 4, 8, 16, 32, 64;
 
@@ -73,11 +74,11 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   --color-orange-80: #712b00;
   --color-orange-90: #3e1300;
 
-  --color-primary-50: var(--color-blue-50);
-  --color-primary-60: var(--color-blue-60);
-  --color-primary-70: var(--color-blue-70);
-  --color-primary-80: var(--color-blue-80);
-  --color-primary-90: var(--color-blue-90);
+  --color-primary-50: var(--color-teal-50);
+  --color-primary-60: var(--color-teal-60);
+  --color-primary-70: var(--color-teal-70);
+  --color-primary-80: var(--color-teal-80);
+  --color-primary-90: var(--color-teal-90);
 
   --color-secondary-50: var(--color-magenta-50);
   --color-secondary-60: var(--color-magenta-60);
@@ -151,6 +152,8 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   --font-family-base: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
     Arial, sans-serif;
+  --font-family-base: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto',
+    'Helvetica Neue', sans-serif;
 
   --font-size-hero: 64;
   --font-weight-hero: 200;
@@ -230,12 +233,12 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   --input-radius: 2;
   --input-disabled-opacity: 0.4;
+  --input-focus-line-dist: 2;
+  --input-focus-line-opacity: 0.6;
 
   // Button
 
   --button-radius: 2;
-  --button-focus-line-dist: 2;
-  --button-focus-line-opacity: 0.5;
 
   --button-height-small: 24;
   --button-min-width-small: 60;
@@ -263,17 +266,31 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   // Form
 
-  --form-widget-height: 32;
-  --form-widget-font-size: 14;
-  --form-widget-gap: 8;
+  --form-label-font-size: 15;
+  --form-label-font-weight: 600;
+  --form-label-line-height: 20;
+
   --form-stack-gap-h: 12;
   --form-stack-gap-v: 16;
+
+  --form-widget-height: 32;
+  --form-widget-font-size: 14;
+  --form-widget-font-weight: 400;
+  --form-widget-line-height: 20;
+
+  --form-widget-gap: 8;
+
+  --form-widget-label-font-weight: 600;
+  --form-widget-label-gap: 4;
 
   // Text Field
   --text-field-height: 32;
   --text-field-gap: 8;
   --text-field-radius: 2;
   --text-field-icon-size: 16;
+
+  // Toggle
+  --toggle-height: 20;
 
   // Misc ====
 

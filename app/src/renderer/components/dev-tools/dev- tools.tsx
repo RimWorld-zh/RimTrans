@@ -55,7 +55,7 @@ export class RwDevTools extends Vue {
       <div staticClass="rw-dev-tools">
         {showSettings && (
           <div key="settings" staticClass="rw-dev-tools_settings">
-            <pre>
+            <pre staticClass="rw-dev-tools_settings-content">
               <code>{JSON.stringify(this.$states.settings, undefined, '  ')}</code>
             </pre>
           </div>

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Vue, { PluginObject } from 'vue';
 import VueRouter from 'vue-router';
-import { PluginIpc, States, I18n } from './utils';
+import { PluginIpc, States, I18n, StatesUI } from './utils';
 import * as Components from './components';
 import { createRouter } from './router';
 import VApp from './views/app';
@@ -22,6 +22,7 @@ Vue.config.productionTip = false;
 export function createApp(): { app: Vue; router: VueRouter } {
   const states = new States();
   const i18n = new I18n({ states });
+  const ui = new StatesUI({ states });
 
   const router = createRouter();
 

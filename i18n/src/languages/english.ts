@@ -13,7 +13,13 @@ export const English = {
     appName: 'RimTrans',
     appDescription: 'RimTrans: a translation and modding tool for RimWorld.',
 
-    // settings
-    settingsCategoryApplication: 'Application',
+    // Settings
+
+    settingsCategoryFeatures: 'Features',
+    settingsCategoryUI: 'User Interface',
+
+    settingsExplorerDirectory: 'Explorer',
+    settingsDirectoryRimWorld: 'RimWorld Installation Directory',
+    settingsDirectoryWorkshop: 'Steam Workshop Mods Directory',
   },
 };

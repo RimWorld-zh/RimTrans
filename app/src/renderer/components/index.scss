@@ -7,6 +7,7 @@
  * All components style
  */
 
+@import './atom/theme';
 @import './brand/brand';
 @import './brand/logo';
 @import './dev-tools/dev-tools';
@@ -16,6 +17,7 @@
 @import './inputs/buttons/button';
 @import './inputs/form/form';
 @import './inputs/text-field/text-field';
+@import './inputs/toggle/toggle';
 @import './layout/aspect-ratio/aspect-ratio';
 @import './misc/strip/strip';
 @import './motion/rise-fall';

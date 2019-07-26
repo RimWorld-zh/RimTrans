@@ -1,0 +1,8 @@
+/**
+ * Component: Theme
+ */
+@each $theme in $type-themes {
+  @include comp('theme-#{$theme}') {
+    @extend %variables-theme-#{$theme};
+  }
+}

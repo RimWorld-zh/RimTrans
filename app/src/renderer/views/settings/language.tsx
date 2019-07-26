@@ -18,8 +18,9 @@ import { when } from '@src/renderer/components/base';
 export default class VSettingsLanguage extends Vue {
   private render(h: CreateElement): VNode {
     const { language: settingsLanguage } = this.$states.settings;
-    const stripOffset =
-      languageInfos.findIndex(info => info.languageID === settingsLanguage) + 1;
+    const stripOffset = languageInfos.findIndex(
+      info => info.languageID === settingsLanguage,
+    );
 
     return (
       <div staticClass="v-settings-language">
@@ -27,7 +28,7 @@ export default class VSettingsLanguage extends Vue {
           key="auto"
           staticClass="v-settings-language_option"
           class={when({ active: settingsLanguage === 'auto' })}
-          skin="flat"
+          skin={(stripOffset === -1 && 'fill') || 'flat'}
           onClick={() => {
             this.$states.settings.language = 'auto';
           }}
@@ -51,7 +52,8 @@ export default class VSettingsLanguage extends Vue {
               key={languageID}
               staticClass="v-settings-language_option"
               class={when({ active: settingsLanguage === languageID })}
-              skin="flat"
+              disabled={progress === 0}
+              skin={(stripOffset === index && 'fill') || 'flat'}
               onClick={() => {
                 this.$states.settings.language = languageID;
               }}
@@ -72,7 +74,7 @@ export default class VSettingsLanguage extends Vue {
         <rw-strip-v
           key="strip"
           staticClass="v-settings-language_strip"
-          offset={stripOffset}
+          offset={stripOffset + 1}
         />
       </div>
     );

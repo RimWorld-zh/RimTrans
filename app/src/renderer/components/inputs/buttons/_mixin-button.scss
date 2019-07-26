@@ -34,7 +34,7 @@
 
     // focus line
     &::after {
-      $dist: calc(var(--button-focus-line-dist) * 1px);
+      $dist: calc(var(--input-focus-line-dist) * 1px);
       content: ' ';
       display: block;
       position: absolute;
@@ -44,7 +44,7 @@
       right: $dist;
       border: 1px solid currentColor;
       border-radius: inherit;
-      opacity: var(--button-focus-line-opacity);
+      opacity: var(--input-focus-line-opacity);
     }
   }
 

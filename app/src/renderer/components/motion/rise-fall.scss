@@ -4,7 +4,7 @@
 @include comp('m-rise-fall') {
   $timing: var(--motion-timing-decelerate);
   $duration: var(--motion-duration-2);
-  $offset: 16px;
+  $offset: 12px;
   position: relative;
 
   // transition

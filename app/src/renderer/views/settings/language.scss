@@ -10,12 +10,6 @@
   align-content: stretch;
   align-items: stretch;
 
-  $padding: calc(var(--gap-base) * 4px);
-  padding: $padding 0;
-  @include elem('strip') {
-    top: $padding;
-  }
-
   @include elem('option') {
     justify-content: flex-start;
 

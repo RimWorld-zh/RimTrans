@@ -1,4 +1,9 @@
+import { systemPreferences } from 'electron';
+import { Theme } from '../../../renderer/components/base/variables';
+
 export interface Settings {
+  theme: Theme;
+
   /**
    * The interface language for app.
    */
@@ -16,6 +21,7 @@ export interface Settings {
 
 export function defaultSettings(): Settings {
   return {
+    theme: systemPreferences.isDarkMode() ? 'dark' : 'light',
     language: 'auto',
 
     directoryRimWorld: '',

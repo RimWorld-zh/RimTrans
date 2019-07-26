@@ -1,0 +1,153 @@
+/**
+ * Component: Toggle
+ */
+@include comp('toggle') {
+  position: relative;
+
+  display: grid;
+
+  grid-template: auto / auto;
+  grid-gap: calc(var(--form-widget-label-gap) * 1px);
+  justify-content: start;
+  align-content: center;
+  align-items: center;
+
+  min-height: calc(var(--text-field-height) * 1px);
+
+  font-size: calc(var(--form-widget-font-size) * 1px);
+  font-weight: var(--form-widget-font-weight);
+  line-height: calc(var(--form-widget-line-height) * 1px);
+  color: inherit;
+  white-space: nowrap;
+
+  @include when('disabled') {
+    opacity: var(--input-disabled-opacity);
+  }
+
+  @include elem('label') {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    color: var(--color-foreground-secondary);
+    font-weight: var(--form-widget-label-font-weight);
+  }
+
+  @include when('inline-label') {
+    grid-template: auto / max-content 1fr;
+    @include elem('label') {
+      height: calc(var(--text-field-height) * 1px);
+    }
+  }
+
+  @include elem('container') {
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    height: calc(var(--toggle-height) * 1px);
+  }
+
+  $transition: var(--motion-timing-decelerate) var(--motion-duration-1);
+  $button-width: calc(var(--toggle-height) * 2px);
+  $button-height: calc(var(--toggle-height) * 1px);
+  $button-padding: 3;
+  $button-border-width: 1;
+  $circle-reduce: ($button-padding + $button-border-width) * 2;
+  $circle-size: calc((var(--toggle-height) - #{$circle-reduce}) * 1px);
+  $circle-offset: calc(var(--toggle-height) * 1px);
+
+  @include elem('button') {
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+    flex: none;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    width: $button-width;
+    height: $button-height;
+    padding: #{$button-padding}px;
+    margin: 0;
+    border-radius: calc(var(--toggle-height) * 0.5px);
+    border: #{$button-border-width}px solid var(--color-foreground-secondary);
+    color: inherit;
+    background-color: var(--color-background-higher);
+
+    outline: none;
+    &:focus {
+      outline: none;
+
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+
+        $offset: calc((var(--input-focus-line-dist) + 1) * -1px);
+        top: $offset;
+        bottom: $offset;
+        left: $offset;
+        right: $offset;
+
+        border: 1px solid currentColor;
+        border-radius: calc(var(--input-radius) * 1px);
+        opacity: var(--input-focus-line-opacity);
+      }
+    }
+
+    transition: $transition;
+    transition-property: border-color background-color;
+  }
+
+  @include elem('circle') {
+    content: ' ';
+    position: relative;
+    display: block;
+
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    background-color: var(--color-foreground-secondary);
+
+    transform: translateX(0);
+
+    transition: $transition;
+    transition-property: background-color transform;
+  }
+
+  @include elem('text') {
+    margin-left: calc(var(--form-widget-gap) * 1px);
+  }
+
+  &:hover {
+    @include elem('button') {
+      border-color: var(--color-foreground-primary);
+    }
+  }
+
+  @include when('checked') {
+    @include elem('button') {
+      border-color: var(--color-primary-60);
+      background-color: var(--color-primary-60);
+    }
+    @include elem('circle') {
+      background-color: var(--color-white);
+      transform: translate($circle-offset);
+    }
+  }
+}

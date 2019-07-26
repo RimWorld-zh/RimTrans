@@ -10,7 +10,9 @@
   align-items: center;
 
   height: calc(var(--form-widget-height) * 1px);
-  font-size: calc(var(--form-widget-font-size) * 1px);
+  font-size: calc(var(--form-label-font-size) * 1px);
+  font-weight: var(--form-label-font-weight);
+  line-height: calc(var(--form-label-line-height) * 1px);
 }
 
 /**
@@ -21,6 +23,7 @@
 
   display: grid;
   grid-auto-rows: auto;
+  grid-template-columns: max-content;
   grid-gap: calc(var(--form-widget-gap) * 1px);
   justify-content: start;
   align-content: stretch;
