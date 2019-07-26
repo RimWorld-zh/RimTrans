@@ -54,12 +54,17 @@ export class I18n extends Vue {
 
   public dict: LanguageDictionary = getLanguageDictByID('English');
 
+  private lastLanguage?: string;
+
   @Watch('$states.settings.language', { immediate: true })
   private select(language: string): void {
     let id = language;
-    if (language.toLowerCase() === 'auto') {
+    if (id.toLowerCase() === 'auto') {
       id = getLanguageIdByCode(remote.app.getLocale());
     }
-    this.dict = getLanguageDictByID(id);
+    if (id !== this.lastLanguage) {
+      this.dict = getLanguageDictByID(id);
+      this.lastLanguage = id;
+    }
   }
 }
