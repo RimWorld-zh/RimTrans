@@ -53,7 +53,7 @@ export default class VApp extends Vue {
 
         <div staticClass="v-app_wrapper">
           <transition name="rw-m-rise-fall" mode="out-in" duration={MOTION_DURATION_2}>
-            <router-view />
+            <router-view staticClass="v-app_container" />
           </transition>
         </div>
 

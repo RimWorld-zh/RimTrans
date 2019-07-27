@@ -7,10 +7,3 @@ $namespace: 'rw';
 
 $namespace: 'v';
 @import './views/index';
-
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}

@@ -3,7 +3,13 @@
  */
 @include comp('app') {
   position: relative;
-  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  $bar-height: var(--button-height-large);
+  grid-template-rows: calc(#{$bar-height} * 1px) calc(100% - #{$bar-height} * 1px);
 
   @include elem('bar') {
     position: relative;
@@ -14,7 +20,7 @@
     align-content: center;
     align-items: center;
 
-    padding: calc(var(--gap-base) * 1px) calc(var(--gap-base) * 4px);
+    padding: 0 calc(var(--gap-base) * 4px);
 
     background-color: var(--color-background-higher);
     box-shadow: var(--depth-4);
@@ -31,7 +37,13 @@
   }
 
   @include elem('wrapper') {
+    position: relative;
     padding: calc(var(--gap-base) * 4px);
+  }
+
+  @include elem('container') {
+    position: relative;
+    height: 100%;
   }
 
   @include elem('dev-tools') {

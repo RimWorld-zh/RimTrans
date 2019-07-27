@@ -6,6 +6,7 @@
 
   display: grid;
   grid-template-areas: 'sidebar panel';
+  grid-template-rows: 100%;
   grid-template-columns: 320px 1fr;
   grid-gap: calc(var(--gap-base) * 4px);
   align-content: start;
@@ -21,6 +22,8 @@
   @include elem('sidebar') {
     position: relative;
     grid-area: sidebar;
+    max-height: 100%;
+    overflow-y: auto;
 
     display: flex;
     flex-flow: column nowrap;
@@ -38,7 +41,9 @@
   @include elem('panel') {
     position: relative;
     grid-area: panel;
+    max-height: 100%;
     padding: calc(var(--gap-base) * 8px) 0;
+    overflow-y: auto;
   }
 
   @include elem('category') {
