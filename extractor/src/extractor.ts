@@ -8,14 +8,58 @@ import { KeyedReplacement } from './keyed-replacement';
 import { StringsFile } from './strings-file';
 import { DEFAULT_LANGUAGE } from './constants';
 
-export interface ExtractorSolution {
+export interface ExtractorModConfig {
+  /**
+   * Path to the mod.
+   */
+  path: string;
+
+  /**
+   * Extract languages or not
+   */
+  extract: boolean;
+
+  /**
+   * Output languages as a stand alone mod or not.
+   */
+  outputAsMod?: boolean;
+
+  /**
+   * Output path.
+   */
+  outputPath?: string;
+}
+
+export interface ExtractorConfig {
+  /**
+   * Temporary directory
+   */
+  temp: string;
+
+  /**
+   * Paths to type package json files.
+   */
   typePackages: string[];
-  modPaths: string[];
-  enabledMods: boolean[];
-  languages: string[];
-  outputDirectory?: string;
+
+  /**
+   * Find possible translatable fields in fuzzy mode or not.
+   */
   fuzzy?: boolean;
+
+  /**
+   * File format options
+   */
   prettierOptions?: PrettierOptions;
+
+  /**
+   * Mods configs
+   */
+  modConfigs: ExtractorModConfig[];
+
+  /**
+   * Languages to extract.
+   */
+  languages: string[];
 }
 
 export class Extractor {
@@ -23,18 +67,10 @@ export class Extractor {
    *
    * @param paths the array of paths to mod directories, `[Core, ...Mods]`.
    */
-  public static async extract(solution: ExtractorSolution): Promise<Mod[]> {
-    const {
-      typePackages,
-      modPaths,
-      enabledMods,
-      languages,
-      outputDirectory,
-      fuzzy,
-      prettierOptions,
-    } = solution;
+  public static async extract(config: ExtractorConfig): Promise<Mod[]> {
+    const { temp, typePackages, fuzzy, prettierOptions, modConfigs, languages } = config;
 
-    const mods = await Promise.all(modPaths.map(path => Mod.load(path)));
+    const mods = await Promise.all(modConfigs.map(({ path }) => Mod.load(path)));
 
     const [
       definitionMaps,
@@ -97,12 +133,14 @@ export class Extractor {
 
         await Promise.all(
           mods.map(async (mod, modIndex) => {
-            if (!enabledMods[modIndex]) {
+            const modConfig = modConfigs[modIndex];
+            if (!modConfig.extract) {
               return;
             }
             const output: ModOutput =
-              (outputDirectory && mod.output(io.join(outputDirectory, mod.identify))) ||
-              mod;
+              modConfig.outputAsMod && modConfig.outputPath
+                ? mod.output(modConfig.outputPath)
+                : mod;
             await Promise.all([
               Injection.save(
                 output.pathDefInjected(lang),

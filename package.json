@@ -8,8 +8,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "archive": "rimraf dist && yarn ts scripts/archive",
-    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=./jest.setup.js",
+    "all:clean": "lerna run clean",
+    "all:build": "lerna run build",
+    "all:test": "lerna run test",
     "ts": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json"
   },
   "engines": {

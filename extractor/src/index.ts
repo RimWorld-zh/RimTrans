@@ -6,3 +6,5 @@ export * from './type-package';
 export * from './definition';
 export * from './injection';
 export * from './keyed-replacement';
+export * from './strings-file';
+export * from './extractor';
