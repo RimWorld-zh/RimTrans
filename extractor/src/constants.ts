@@ -1,11 +1,11 @@
 export const ID_CORE = 'Core';
 export const DEFAULT_LANGUAGE = 'English';
 
+export const FOLDER_NAME_MODS = 'Mods';
+export const FOLDER_NAME_ABOUT = 'About';
 export const FILE_NAME_ABOUT = 'About.xml';
 export const FILE_NAME_PREVIEW = 'Preview.png';
 export const FILE_NAME_PUBLISHED_FILE_ID = 'PublishedFileId.txt';
-
-export const FOLDER_NAME_ABOUT = 'About';
 export const FOLDER_NAME_ASSEMBLIES = 'Assemblies';
 export const FOLDER_NAME_DEFS = 'Defs';
 export const FOLDER_NAME_PATCHES = 'Patches';

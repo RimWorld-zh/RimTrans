@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import * as io from '@rimtrans/io';
-import { ExtractorSolution, extract } from '../src/extractor';
+import { ExtractorConfig, Extractor } from '../src/extractor';
 import {
   pathCore,
   pathTestMods,
@@ -12,36 +12,58 @@ import {
 async function benchmark(): Promise<void> {
   const result: string[] = [];
 
-  await io.deleteFileOrDirectory(outputExtractor);
-  await io.createDirectory(outputExtractor);
+  const outputDirectory = `${outputExtractor}Benchmark`;
+  await io.deleteFileOrDirectory(outputDirectory);
+  await io.createDirectory(outputDirectory);
 
   const languages = ['Template'];
-  const outputDirectory = `${outputExtractor}Benchmark`;
 
   const modIds = await io.search(['*'], { cwd: pathTestMods, onlyDirectories: true });
-  const solutions = modIds.map<ExtractorSolution>(id => ({
+  modIds.sort();
+
+  const configs = modIds.map<ExtractorConfig>(id => ({
+    temp: '',
     typePackages: pathsTypePackage,
-    modPaths: [pathCore, io.join(pathTestMods, id)],
-    enabledMods: [false, true],
+    modConfigs: [
+      {
+        path: pathCore,
+        extract: false,
+      },
+      {
+        path: io.join(pathTestMods, id),
+        extract: true,
+        outputAsMod: true,
+        outputPath: io.join(outputDirectory, id),
+      },
+    ],
     languages,
-    outputDirectory,
+    debugMode: true,
   }));
-  solutions.unshift({
+  configs.unshift({
+    temp: '',
     typePackages: pathsTypePackage,
-    modPaths: [pathCore],
-    enabledMods: [true],
+    modConfigs: [
+      {
+        path: pathCore,
+        extract: true,
+        outputAsMod: true,
+        outputPath: io.join(outputDirectory, 'Core'),
+      },
+    ],
     languages,
-    outputDirectory,
+    debugMode: true,
   });
 
   console.log(`start benchmark: the Core and ${modIds.length} mods.`);
 
   let totalCosts = 0;
 
-  for (const sln of solutions) {
+  for (const cfg of configs) {
+    const modPath = (cfg.modConfigs[1] || cfg.modConfigs[0]).path;
     try {
+      console.log(modPath);
       const start = Date.now();
-      const mods = await extract(sln);
+      const mods = await Extractor.extract(cfg);
       const mod = mods[1] || mods[0];
       const cost = Date.now() - start;
       totalCosts += cost;
@@ -53,12 +75,14 @@ async function benchmark(): Promise<void> {
       console.log(message);
       result.push(message);
     } catch (error) {
-      console.log(`Error:\n${sln.modPaths.join('\n')}`);
+      let message: string;
       if (error instanceof Error) {
-        result.push(`\n${sln.modPaths.join('\n')}\n${error.message}\n${error.stack}\n`);
+        message = `\nError:\n${modPath}\n${error.message}\n${error.stack}\n`;
       } else {
-        result.push(`\n${sln.modPaths.join('\n')}\n${error}\n`);
+        message = `\nError:\n${modPath}\n${error}\n`;
       }
+      console.log(message);
+      result.push(message);
     }
   }
 

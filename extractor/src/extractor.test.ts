@@ -10,22 +10,16 @@ import { ExtractorConfig, Extractor } from './extractor';
 
 describe('extractor', () => {
   let configs: ExtractorConfig[];
+  let configCore: ExtractorConfig;
+  let configCoreOutput: ExtractorConfig;
 
   beforeAll(async () => {
     await io.deleteFileOrDirectory(outputExtractor);
     await io.createDirectory(outputExtractor);
 
     const languages = ['Template', 'Mocking'];
-    const outputDirectory = `${outputExtractor}Benchmark`;
 
     const modIds = await io.search(['*'], { cwd: pathTestMods, onlyDirectories: true });
-    /**
-    
-      modPaths: [pathCore, io.join(pathTestMods, id)],
-      enabledMods: [false, true],
-      languages,
-      outputDirectory,
-     */
     configs = modIds.map<ExtractorConfig>(id => ({
       temp: './.temp',
       typePackages: pathsTypePackage,
@@ -38,15 +32,13 @@ describe('extractor', () => {
           path: io.join(pathTestMods, id),
           extract: true,
           outputAsMod: true,
-          outputPath: io.join(outputDirectory, id),
+          outputPath: io.join(outputExtractor, id),
         },
       ],
       languages,
     }));
-  });
 
-  test('Core', async () => {
-    const cfg: ExtractorConfig = {
+    configCore = {
       temp: './.temp',
       typePackages: pathsTypePackage,
       modConfigs: [
@@ -58,11 +50,53 @@ describe('extractor', () => {
       languages: ['Template'],
     };
 
-    await Extractor.extract(cfg);
+    configCoreOutput = {
+      temp: './.temp',
+      typePackages: pathsTypePackage,
+      modConfigs: [
+        {
+          path: pathCore,
+          extract: true,
+          outputAsMod: true,
+          outputPath: io.join(outputExtractor, 'Core'),
+        },
+      ],
+      languages,
+      debugMode: true,
+    };
+  });
+
+  test('Core', async () => {
+    await Extractor.extract(configCore);
+  });
+
+  jest.retryTimes(3);
+  test('Core Output', async () => {
+    try {
+      await Extractor.extract(configCoreOutput);
+    } catch (error) {
+      console.log(error);
+      console.log(error.stack);
+      expect(true).toBe(false);
+    }
+  });
+
+  jest.retryTimes(3);
+  test('Core Output Brand New', async () => {
+    try {
+      await Extractor.extract({
+        ...configCoreOutput,
+        brandNewMode: true,
+      });
+    } catch (error) {
+      console.log(error);
+      console.log(error.stack);
+      expect(true).toBe(false);
+    }
   });
 
   test('Mods', async () => {
-    for (const sln of configs.slice(0, 1)) {
+    for (const sln of configs.slice(0, 3)) {
       await Extractor.extract(sln);
     }
   });

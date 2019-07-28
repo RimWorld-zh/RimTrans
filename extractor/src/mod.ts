@@ -33,11 +33,33 @@ export interface ModMetaData {
 }
 
 export interface ModOutput {
-  pathLanguage(language: string): string;
-  pathBackstories(language: string): string;
-  pathDefInjected(language: string): string;
-  pathKeyed(language: string): string;
-  pathStrings(language: string): string;
+  /**
+   * Path to the directory of the mod
+   */
+  readonly pathRoot: string;
+
+  /**
+   * Path to the preview image of the mod.
+   */
+  readonly previewImage?: string;
+
+  readonly pathAbout: string;
+
+  readonly pathAssemblies: string;
+
+  readonly pathDefs: string;
+
+  readonly pathLanguages: string;
+
+  readonly pathPatches: string;
+
+  readonly pathTextures: string;
+
+  readonly pathLanguage: (language: string) => string;
+  readonly pathBackstories: (language: string) => string;
+  readonly pathDefInjected: (language: string) => string;
+  readonly pathKeyed: (language: string) => string;
+  readonly pathStrings: (language: string) => string;
 }
 
 export class Mod implements ModOutput {
@@ -47,6 +69,8 @@ export class Mod implements ModOutput {
    * The folder name of the mod.
    */
   public readonly identify: string;
+
+  public readonly meta: ModMetaData;
 
   /**
    * Path to the directory of the mod
@@ -70,31 +94,24 @@ export class Mod implements ModOutput {
 
   public readonly pathTextures: string;
 
-  public readonly meta: ModMetaData;
-
   private constructor(
     pathRoot: string,
     modeMetaData: ModMetaData,
-    preview?: string,
     publishFileId?: string,
   ) {
     this.steamPublishFileId = publishFileId;
-
     this.identify = io.fileName(pathRoot);
+    this.meta = modeMetaData;
+
     this.pathRoot = pathRoot;
 
-    this.previewImage = preview
-      ? io.join(pathRoot, FOLDER_NAME_ABOUT, preview)
-      : undefined;
-
+    this.previewImage = io.join(pathRoot, FOLDER_NAME_ABOUT, FILE_NAME_PREVIEW);
     this.pathAbout = io.join(pathRoot, FOLDER_NAME_ABOUT);
     this.pathAssemblies = io.join(pathRoot, FOLDER_NAME_ASSEMBLIES);
     this.pathDefs = io.join(pathRoot, FOLDER_NAME_DEFS);
     this.pathLanguages = io.join(pathRoot, FOLDER_NAME_LANGUAGES);
     this.pathPatches = io.join(pathRoot, FOLDER_NAME_PATCHES);
     this.pathTextures = io.join(pathRoot, FOLDER_NAME_TEXTURES);
-
-    this.meta = modeMetaData;
   }
 
   public pathLanguage(language: string): string {
@@ -117,23 +134,39 @@ export class Mod implements ModOutput {
     return io.join(this.pathLanguages, language, FOLDER_NAME_STRINGS);
   }
 
-  public output(directory: string): ModOutput {
-    const folderLanguages = io.join(directory, FOLDER_NAME_LANGUAGES);
+  public output(pathRoot: string): ModOutput {
+    const previewImage = io.join(pathRoot, FOLDER_NAME_ABOUT, FILE_NAME_PREVIEW);
+    const pathAbout = io.join(pathRoot, FOLDER_NAME_ABOUT);
+    const pathAssemblies = io.join(pathRoot, FOLDER_NAME_ASSEMBLIES);
+    const pathDefs = io.join(pathRoot, FOLDER_NAME_DEFS);
+    const pathLanguages = io.join(pathRoot, FOLDER_NAME_LANGUAGES);
+    const pathPatches = io.join(pathRoot, FOLDER_NAME_PATCHES);
+    const pathTextures = io.join(pathRoot, FOLDER_NAME_TEXTURES);
+
     return {
+      pathRoot,
+      previewImage,
+      pathAbout,
+      pathAssemblies,
+      pathDefs,
+      pathLanguages,
+      pathPatches,
+      pathTextures,
+
       pathLanguage(language: string): string {
-        return io.join(folderLanguages, language);
+        return io.join(pathLanguages, language);
       },
       pathBackstories(language: string): string {
-        return io.join(folderLanguages, language, FOLDER_NAME_BACKSTORIES);
+        return io.join(pathLanguages, language, FOLDER_NAME_BACKSTORIES);
       },
       pathDefInjected(language: string): string {
-        return io.join(folderLanguages, language, FOLDER_NAME_DEF_INJECTED);
+        return io.join(pathLanguages, language, FOLDER_NAME_DEF_INJECTED);
       },
       pathKeyed(language: string): string {
-        return io.join(folderLanguages, language, FOLDER_NAME_KEYED);
+        return io.join(pathLanguages, language, FOLDER_NAME_KEYED);
       },
       pathStrings(language: string): string {
-        return io.join(folderLanguages, language, FOLDER_NAME_STRINGS);
+        return io.join(pathLanguages, language, FOLDER_NAME_STRINGS);
       },
     };
   }
@@ -144,7 +177,7 @@ export class Mod implements ModOutput {
     const pathAboutXML = io.join(pathAbout, FILE_NAME_ABOUT);
     const pathPublishFileId = io.join(pathAbout, FILE_NAME_PUBLISHED_FILE_ID);
 
-    const [meta, preview, publishFileId] = await Promise.all([
+    const [meta, publishFileId] = await Promise.all([
       io.fileExists(pathAboutXML).then(
         async (exists): Promise<ModMetaData> => {
           const metaData: ModMetaData = {
@@ -181,11 +214,6 @@ export class Mod implements ModOutput {
         },
       ),
 
-      io
-        .search([FILE_NAME_PREVIEW], { cwd: pathAbout, case: false, onlyFiles: true })
-        .then(files => (files.length > 0 ? files[0] : undefined))
-        .catch(() => undefined),
-
       io.fileExists(pathPublishFileId).then(async exists => {
         if (exists) {
           return (await io.read(pathPublishFileId)).trim();
@@ -194,7 +222,7 @@ export class Mod implements ModOutput {
       }),
     ]);
 
-    const mod = new Mod(path, meta, preview, publishFileId);
+    const mod = new Mod(path, meta, publishFileId);
 
     return mod;
   }

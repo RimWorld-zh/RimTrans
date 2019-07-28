@@ -60,6 +60,16 @@ export interface ExtractorConfig {
    * Languages to extract.
    */
   languages: string[];
+
+  /**
+   * Run in brand new mode or not, this will clean old language data.
+   */
+  brandNewMode?: boolean;
+
+  /**
+   * Debug mode will output language intermediate data (json format) before serialize to xml.
+   */
+  debugMode?: boolean;
 }
 
 export class Extractor {
@@ -68,42 +78,111 @@ export class Extractor {
    * @param paths the array of paths to mod directories, `[Core, ...Mods]`.
    */
   public static async extract(config: ExtractorConfig): Promise<Mod[]> {
-    const { temp, typePackages, fuzzy, prettierOptions, modConfigs, languages } = config;
+    const {
+      temp,
+      typePackages,
+      fuzzy,
+      prettierOptions,
+      modConfigs,
+      languages,
+      brandNewMode,
+      debugMode,
+    } = config;
 
     const mods = await Promise.all(modConfigs.map(({ path }) => Mod.load(path)));
+    const outputs = mods.map(
+      (mod, modIndex): ModOutput => {
+        const cfg = modConfigs[modIndex];
+        if (cfg.outputAsMod && cfg.outputPath) {
+          return mod.output(cfg.outputPath);
+        }
+        return mod;
+      },
+    );
+
+    if (brandNewMode) {
+      const toDeleteDirs: string[] = [];
+      languages.forEach(lang =>
+        outputs.forEach(output =>
+          toDeleteDirs.push(
+            output.pathDefInjected(lang),
+            output.pathKeyed(lang),
+            output.pathStrings(lang),
+          ),
+        ),
+      );
+      await Promise.all(
+        toDeleteDirs.map(async dir => {
+          if (await io.directoryExists(dir)) {
+            await io.deleteFileOrDirectory(dir);
+          }
+        }),
+      );
+    } else {
+      await Promise.all(
+        modConfigs.map(async (cfg, modIndex) => {
+          if (cfg.outputAsMod && cfg.outputPath) {
+            const mod = mods[modIndex];
+            const output = outputs[modIndex];
+            await Promise.all(
+              languages.map(async lang => {
+                const srcLang = mod.pathLanguage(lang);
+                const destLang = output.pathLanguage(lang);
+                const [srcLangExists, destLangExists] = await Promise.all([
+                  io.directoryExists(srcLang),
+                  io.directoryExists(destLang),
+                ]);
+                if (srcLangExists && !destLangExists) {
+                  const destLangParent = io.directoryName(destLang);
+                  if (!(await io.directoryExists(destLangParent))) {
+                    await io.createDirectory(destLang);
+                  }
+                  await io.copy(srcLang, destLang);
+                }
+              }),
+            );
+          }
+        }),
+      );
+    }
 
     const [
       definitionMaps,
       classInfoMap,
-      languagesToOldInjectionMaps,
       englishKeyedMaps,
-      languagesToOldKeyedMaps,
       englishStringsMaps,
+      languagesToOldInjectionMaps,
+      languagesToOldKeyedMaps,
       languagesToOldStringsMaps,
     ] = await Promise.all([
       // Defs
       Definition.load(mods.map(mod => mod.pathDefs)).then(Definition.resolveInheritance),
 
-      // type
+      // Assemblies
       TypePackage.load([...typePackages, ...mods.map(mod => mod.pathAssemblies)]),
 
+      // English Keyed and Strings
+      KeyedReplacement.load(mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE))),
+      StringsFile.load(mods.map(mod => mod.pathStrings(DEFAULT_LANGUAGE))),
       // DefInjected
       Promise.all(
-        languages.map(lang => Injection.load(mods.map(mod => mod.pathDefInjected(lang)))),
+        languages.map(lang =>
+          Injection.load(outputs.map(output => output.pathDefInjected(lang))),
+        ),
       ),
 
       // Keyed
-      KeyedReplacement.load(mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE))),
       Promise.all(
         languages.map(lang =>
-          KeyedReplacement.load(mods.map(mod => mod.pathKeyed(lang))),
+          KeyedReplacement.load(outputs.map(output => output.pathKeyed(lang))),
         ),
       ),
 
       // Strings
-      StringsFile.load(mods.map(mod => mod.pathStrings(DEFAULT_LANGUAGE))),
       Promise.all(
-        languages.map(lang => StringsFile.load(mods.map(mod => mod.pathStrings(lang)))),
+        languages.map(lang =>
+          StringsFile.load(outputs.map(output => output.pathStrings(lang))),
+        ),
       ),
     ]);
 
@@ -132,15 +211,25 @@ export class Extractor {
         );
 
         await Promise.all(
-          mods.map(async (mod, modIndex) => {
-            const modConfig = modConfigs[modIndex];
-            if (!modConfig.extract) {
+          modConfigs.map(async (cfg, modIndex) => {
+            if (!cfg.extract) {
               return;
             }
-            const output: ModOutput =
-              modConfig.outputAsMod && modConfig.outputPath
-                ? mod.output(modConfig.outputPath)
-                : mod;
+            const output = outputs[modIndex];
+            if (debugMode) {
+              await io.save(
+                io.join(output.pathLanguage(lang), 'intermediate-data.json'),
+                JSON.stringify(
+                  {
+                    DefInjected: mergedInjectionMaps[modIndex],
+                    Keyed: mergedKeyedMaps[modIndex],
+                    Strings: mergedStringsMaps[modIndex],
+                  },
+                  undefined,
+                  '  ',
+                ),
+              );
+            }
             await Promise.all([
               Injection.save(
                 output.pathDefInjected(lang),
