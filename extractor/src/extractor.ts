@@ -135,7 +135,7 @@ export class Extractor {
                 if (srcLangExists && !destLangExists) {
                   const destLangParent = io.directoryName(destLang);
                   if (!(await io.directoryExists(destLangParent))) {
-                    await io.createDirectory(destLang);
+                    await io.createDirectory(destLangParent);
                   }
                   await io.copy(srcLang, destLang);
                 }
