@@ -47,6 +47,15 @@ export async function search(
   patterns: string[],
   options?: GlobbyOptions,
 ): Promise<string[]> {
+  if (options) {
+    const { cwd } = options;
+    if (cwd) {
+      if (!(await directoryExists(cwd))) {
+        return [];
+      }
+    }
+  }
+
   // Try multiple times for ensuring corrected result
   return Promise.all(
     Array(3)
@@ -112,6 +121,10 @@ export async function deleteFileOrDirectory(path: string): Promise<void> {
  * @param target the path to target directory or file to copy to
  */
 export async function copy(source: string, target: string): Promise<void> {
+  const targetParent = directoryName(target);
+  if (!(await directoryExists(targetParent))) {
+    await createDirectory(targetParent);
+  }
   return new Promise<void>((resolve, reject) => {
     ncp(source, target, error => (error ? reject(error) : resolve()));
   });

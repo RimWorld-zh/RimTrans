@@ -21,7 +21,7 @@
     "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
   },
   "dependencies": {
-    "@rimtrans/io": "0.4.0",
+    "@rimtrans/io": "0.4.1",
     "@types/jsdom": "^12.2.3",
     "@types/prettier": "^1.16.4",
     "chalk": "^2.4.2",

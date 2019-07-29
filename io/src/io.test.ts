@@ -43,13 +43,16 @@ describe('io', () => {
   });
 
   test('several', async () => {
-    const dir = io.join(__dirname, '.tmp');
+    const dir = io.join(__dirname, '.tmp.test');
+    await io.deleteFileOrDirectory(dir);
+
     const subDir = io.join(__dirname, '.tmp', 'mock');
     const file = io.join(__dirname, '.tmp', 'mock', 'mock.txt');
     const content = 'mocking bird';
 
     try {
-      await io.copy(subDir, io.join(subDir, '1'));
+      await io.createDirectory(io.join(subDir, 'src'));
+      await io.copy(io.join(subDir, 'src'), io.join(subDir, 'dest'));
       expect(false).toBeTruthy();
     } catch (error) {
       expect(error).toBeTruthy();
