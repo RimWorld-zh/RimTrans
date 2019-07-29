@@ -1,18 +1,36 @@
-/* eslint-disable no-console */
+import fs from 'fs';
 import * as io from '@rimtrans/io';
-import { ExtractorConfig, Extractor } from '../src/extractor';
 import {
   pathCore,
   pathTestMods,
   pathsTypePackage,
   outputExtractor,
-  outputBenchmark,
 } from '../src/utils.test';
+import { sleep } from '../src/extractor-event-emitter';
+import { ExtractorConfig, Extractor } from '../src/extractor';
+import { createPrinter } from './printer';
+
+const outputDirectory = `${outputExtractor}Benchmark`;
+const outputResult = io.join(outputDirectory, 'result.txt');
+
+/* eslint-disable no-console */
+function log(message: string): void {
+  fs.appendFileSync(outputResult, `${message}\n`);
+  console.log(message);
+}
+/* eslint-enable no-console */
+
+function createExtractor(): Extractor {
+  const extractor = new Extractor();
+
+  extractor.emitter.addListener('error', (event, error) => {
+    log(error);
+  });
+
+  return extractor;
+}
 
 async function benchmark(): Promise<void> {
-  const result: string[] = [];
-
-  const outputDirectory = `${outputExtractor}Benchmark`;
   await io.deleteFileOrDirectory(outputDirectory);
   await io.createDirectory(outputDirectory);
 
@@ -54,16 +72,17 @@ async function benchmark(): Promise<void> {
     debugMode: true,
   });
 
-  console.log(`start benchmark: the Core and ${modIds.length} mods.`);
+  log(`Start benchmark: the Core and ${modIds.length} mods.`);
 
   let totalCosts = 0;
 
   for (const cfg of configs) {
+    const extractor = createExtractor();
     const modPath = (cfg.modConfigs[1] || cfg.modConfigs[0]).path;
     try {
-      console.log(modPath);
+      log(modPath);
       const start = Date.now();
-      const mods = await Extractor.extract(cfg);
+      const mods = await extractor.extract(cfg);
       const mod = mods[1] || mods[0];
       const cost = Date.now() - start;
       totalCosts += cost;
@@ -72,8 +91,7 @@ async function benchmark(): Promise<void> {
         `${cost}ms`.padEnd(16, ' '),
         mod.meta.name,
       ].join('');
-      console.log(message);
-      result.push(message);
+      log(message);
     } catch (error) {
       let message: string;
       if (error instanceof Error) {
@@ -81,14 +99,12 @@ async function benchmark(): Promise<void> {
       } else {
         message = `\nError:\n${modPath}\n${error}\n`;
       }
-      console.log(message);
-      result.push(message);
+      log(message);
     }
   }
 
-  const lastMessage = `Total costs: ${totalCosts}`;
-  result.push(lastMessage);
-  io.save(outputBenchmark, result.join('\n'));
+  log('');
+  log(`Total costs: ${totalCosts}`);
 }
 
 benchmark();

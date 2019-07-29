@@ -1,5 +1,6 @@
 import * as io from '@rimtrans/io';
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
+import { ExtractorEventEmitter, Progress } from './extractor-event-emitter';
 
 // Learn more in the project 'Reflection'
 
@@ -56,35 +57,92 @@ export interface TypePackage {
   readonly fix?: Record<string, string[]>;
 }
 
-export class TypePackage {
+export interface TypeMaps {
+  readonly classInfoMap: Readonly<Record<string, ClassInfo>>;
+  readonly enumInfoMap: Readonly<Record<string, EnumInfo>>;
+}
+
+export class TypePackageExtractor {
+  /* eslint-disable lines-between-class-members */
+  public readonly ACTION_LOAD = 'Assemblies Load';
+  /* eslint-enable lines-between-class-members */
+
+  private readonly emitter: ExtractorEventEmitter;
+
+  public constructor(emitter: ExtractorEventEmitter) {
+    this.emitter = emitter;
+  }
+
   /**
-   *
-   * @param paths the array of paths to `TypePackage` json files, `[Core, ...Mods]`.
+   * Load `TypePackage` json files or Assemblies directories
+   * @param paths the path array of files and directories, `[Core, ...Mods]`.
    */
-  public static async load(paths: string[]): Promise<Record<string, ClassInfo>> {
-    const map: Record<string, ClassInfo> = {};
+  public async load(paths: string[]): Promise<TypeMaps> {
+    const action = this.ACTION_LOAD;
+    this.emitter.emit('progress', {
+      action,
+      key: '',
+      status: 'pending',
+      info: 'loading',
+    });
 
     const typePackages = await Promise.all(
       paths.map(path =>
-        io
-          .fileExists(path)
-          .then<TypePackage>(exists =>
-            exists ? io.load<TypePackage>(path) : { classes: [], enums: [] },
-          ),
+        io.fileExists(path).then(
+          async (exists): Promise<TypePackage> => {
+            if (exists) {
+              const pkg = await io.load<TypePackage>(path);
+              return pkg;
+            }
+            return { classes: [], enums: [] };
+          },
+        ),
       ),
     );
 
-    typePackages.forEach(
-      pack =>
-        pack.classes &&
-        pack.classes.forEach(classInfo => {
-          if (!map[classInfo.name]) {
-            map[classInfo.name] = classInfo;
-          }
-        }),
-    );
+    this.emitter.emit('progress', {
+      action,
+      key: '',
+      status: 'pending',
+      info: 'processing',
+    });
 
-    const allClasses = Object.values(map);
+    const maps = this.mergeTypePackages(typePackages);
+
+    this.emitter.emit('progress', {
+      action,
+      key: '',
+      status: 'pending',
+      info: 'done',
+    });
+
+    return maps;
+  }
+
+  private async mergeTypePackages(typePackages: TypePackage[]): Promise<TypeMaps> {
+    const classInfoMap: Record<string, ClassInfo> = {};
+    const enumInfoMap: Record<string, EnumInfo> = {};
+
+    // Deduplicate
+    typePackages.forEach(pack => {
+      if (pack.classes) {
+        pack.classes.forEach(classInfo => {
+          if (!classInfoMap[classInfo.name]) {
+            classInfoMap[classInfo.name] = classInfo;
+          }
+        });
+      }
+      if (pack.enums) {
+        pack.enums.forEach(enumInfo => {
+          if (!enumInfoMap[enumInfo.name]) {
+            enumInfoMap[enumInfo.name] = enumInfo;
+          }
+        });
+      }
+    });
+
+    // Inheritance
+    const allClasses = Object.values(classInfoMap);
     const resolveInherit = (classInfo: ClassInfo): void => {
       const children = allClasses.filter(ci => ci.baseClass === classInfo.name);
       children.forEach(child => {
@@ -93,14 +151,15 @@ export class TypePackage {
       });
     };
     allClasses
-      .filter(classInfo => !classInfo.baseClass || !map[classInfo.baseClass])
+      .filter(classInfo => !classInfo.baseClass || !classInfoMap[classInfo.baseClass])
       .forEach(classInfo => resolveInherit(classInfo));
 
+    // Fix
     typePackages.forEach(
       pack =>
         pack.fix &&
         Object.entries(pack.fix).forEach(([className, fieldNames]) => {
-          const classInfo: ClassInfo | undefined = map[className];
+          const classInfo: ClassInfo | undefined = classInfoMap[className];
           if (classInfo) {
             fieldNames.forEach(fieldName => {
               const fieldInfo: FieldInfo | undefined = classInfo.fields.find(
@@ -114,6 +173,6 @@ export class TypePackage {
         }),
     );
 
-    return map;
+    return { classInfoMap, enumInfoMap };
   }
 }

@@ -1,12 +1,14 @@
 import pth from 'path';
 import * as io from '@rimtrans/io';
-import { XElementData, loadXML } from './xml';
-import { replaceListItem, cloneObject } from './object';
 import {
   ATTRIBUTE_NAME_NAME,
   ATTRIBUTE_NAME_PARENT_NAME,
   ATTRIBUTE_NAME_INHERIT,
+  FIELD_NAME_DEF_NAME,
 } from './constants';
+import { ExtractorEventEmitter, Progress, sleep } from './extractor-event-emitter';
+import { XElementData, loadXML } from './xml';
+import { replaceListItem, cloneObject } from './object';
 
 export interface DefsElementMap {
   [path: string]: XElementData;
@@ -20,7 +22,19 @@ interface InheritanceNode {
   children: InheritanceNode[];
 }
 
-export class Definition {
+export class DefinitionExtractor {
+  /* eslint-disable lines-between-class-members */
+  public readonly ACTION_LOAD = 'Defs Load';
+  public readonly ACTION_INHERITANCE = 'Defs Process Inheritance';
+  public readonly ACTION_IMPLIED = 'Defs Process Implied Defs';
+  /* eslint-enable lines-between-class-members */
+
+  private readonly emitter: ExtractorEventEmitter;
+
+  public constructor(emitter: ExtractorEventEmitter) {
+    this.emitter = emitter;
+  }
+
   // ----------------------------------------------------------------
   // Loading
 
@@ -28,27 +42,49 @@ export class Definition {
    * Load all Defs file from a directory and get array of `DefDocumentMap`.
    * @param defsDirectories the array of paths to Def directories, `[Core, ...Mods]`.
    */
-  public static async load(defsDirectories: string[]): Promise<DefsElementMap[]> {
+  public async load(defsDirectories: string[]): Promise<DefsElementMap[]> {
+    const action = this.ACTION_LOAD;
+
     return Promise.all(
-      defsDirectories.map(async dir => {
+      defsDirectories.map(async (dir, index) => {
+        this.emitter.emit('progress', {
+          action,
+          key: dir,
+          status: 'pending',
+          info: 'loading',
+        });
+
         const map: DefsElementMap = {};
-        if (!(await io.directoryExists(dir))) {
+
+        const files = await io.search(['**/*.xml'], {
+          cwd: dir,
+          case: false,
+          onlyFiles: true,
+        });
+
+        if (files.length === 0) {
+          this.emitter.emit('progress', {
+            action,
+            key: dir,
+            status: 'succeed',
+            info: 'no files',
+          });
           return map;
         }
 
-        await io
-          .search(['**/*.xml'], {
-            cwd: dir,
-            case: false,
-            onlyFiles: true,
-          })
-          .then(files =>
-            Promise.all(
-              files.map(async file => {
-                map[file] = await loadXML(pth.join(dir, file));
-              }),
-            ),
-          );
+        await Promise.all(
+          files.map(async file => {
+            map[file] = await loadXML(pth.join(dir, file));
+          }),
+        );
+
+        this.emitter.emit('progress', {
+          action,
+          key: dir,
+          status: 'succeed',
+          info: 'done',
+        });
+
         return map;
       }),
     );
@@ -62,10 +98,20 @@ export class Definition {
    * Resolve the Defs inheritance.
    * @param defsElementMaps the array of `DefDocumentMap`, `[Core, ...Mods]`.
    */
-  public static resolveInheritance(defsElementMaps: DefsElementMap[]): DefsElementMap[] {
+  public async resolveInheritance(
+    defsElementMaps: DefsElementMap[],
+  ): Promise<DefsElementMap[]> {
     if (defsElementMaps.length < 1) {
       throw new Error(`The argument 'maps' is a empty array.`);
     }
+
+    const action = this.ACTION_INHERITANCE;
+    this.emitter.emit('progress', {
+      action,
+      key: '',
+      status: 'pending',
+      info: 'processing',
+    });
 
     const allNodes: InheritanceNode[] = [];
     const parentMaps: Record<string, Record<string, InheritanceNode>>[] = [];
@@ -114,13 +160,20 @@ export class Definition {
 
     // link parents and children
     allNodes.forEach(node => {
-      const parentName = node.def.attributes[ATTRIBUTE_NAME_PARENT_NAME];
+      const { def } = node;
+      const parentName = def.attributes[ATTRIBUTE_NAME_PARENT_NAME];
       if (parentName) {
         node.parent = getParent(node, parentName);
         if (node.parent) {
           node.parent.children.push(node);
         } else {
-          // TODO parent not found
+          const defType = def.name;
+          const defNameElement = def.elements.find(c => c.name === FIELD_NAME_DEF_NAME);
+          const defName = defNameElement && defNameElement.value.trim();
+          this.emitter.emit(
+            'error',
+            `${action}: ${defType} "${defName}" parent ${parentName} not found.`,
+          );
         }
       }
     });
@@ -128,7 +181,7 @@ export class Definition {
     // resolve
     allNodes
       .filter(node => !node.parent)
-      .forEach(node => Definition.resolveInheritanceNodeRecursively(node));
+      .forEach(node => this.resolveInheritanceNodeRecursively(node));
 
     allNodes.forEach(node => {
       if (node.def !== node.resolvedDef) {
@@ -136,18 +189,20 @@ export class Definition {
       }
     });
 
+    this.emitter.emit('progress', { action, key: '', status: 'succeed', info: 'done' });
+
     return defsElementMaps;
   }
 
-  public static resolveInheritanceNodeRecursively(node: InheritanceNode): void {
+  public resolveInheritanceNodeRecursively(node: InheritanceNode): void {
     if (node.resolvedDef) {
       throw new Error('Resolve cyclic inheritance node.');
     }
-    Definition.resolveXmlNodeFor(node);
-    node.children.forEach(Definition.resolveInheritanceNodeRecursively);
+    this.resolveXmlNodeFor(node);
+    node.children.forEach(child => this.resolveInheritanceNodeRecursively(child));
   }
 
-  public static resolveXmlNodeFor(node: InheritanceNode): void {
+  public resolveXmlNodeFor(node: InheritanceNode): void {
     if (!node.parent) {
       node.resolvedDef = node.def;
       return;
@@ -160,11 +215,11 @@ export class Definition {
 
     const child = cloneObject(node.def);
     const current = cloneObject(node.parent.resolvedDef as XElementData);
-    Definition.recursiveNodeCopyOverwriteElements(child, current);
+    this.recursiveNodeCopyOverwriteElements(child, current);
     node.resolvedDef = current;
   }
 
-  public static recursiveNodeCopyOverwriteElements(
+  public recursiveNodeCopyOverwriteElements(
     child: XElementData,
     current: XElementData,
   ): void {
@@ -196,7 +251,7 @@ export class Definition {
           } else {
             const elCurrent = current.elements.find(el => el.name === elChild.name);
             if (elCurrent) {
-              Definition.recursiveNodeCopyOverwriteElements(elChild, elCurrent);
+              this.recursiveNodeCopyOverwriteElements(elChild, elCurrent);
             } else {
               current.childNodes.push(elChild);
               current.elements.push(elChild);

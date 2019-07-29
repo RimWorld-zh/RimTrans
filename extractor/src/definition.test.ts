@@ -3,14 +3,19 @@ import pth from 'path';
 import { genPathResolve } from '@huiji/shared-utils';
 import * as io from '@rimtrans/io';
 import { pathsDefs, defsFileCount, outputInheritedDefs } from './utils.test';
+import { ExtractorEventEmitter, ExtractorEventListener } from './extractor-event-emitter';
 import { parseXML, saveXML } from './xml';
-import { DefsElementMap, Definition } from './definition';
+import { DefsElementMap, DefinitionExtractor } from './definition';
 import { cloneObject } from './object';
 
-describe('def', () => {
+describe('definition', () => {
+  const emitter = new ExtractorEventEmitter();
+  const definitionExtractor = new DefinitionExtractor(emitter);
+
   let defMaps: DefsElementMap[];
+
   beforeAll(async () => {
-    defMaps = await Definition.load(pathsDefs);
+    defMaps = await definitionExtractor.load(pathsDefs);
   });
 
   test('load', async () => {
@@ -18,27 +23,65 @@ describe('def', () => {
   });
 
   test('resolveInheritance', async () => {
-    // arguments error
-    expect(() => Definition.resolveInheritance([])).toThrowError(/empty array/);
-
-    // parent not found
-    Definition.resolveInheritance([
-      {
-        'test.xml': parseXML(`
-      <Defs>
-        <MockDef ParentName="MockX"></MockDef>
-      </Defs>`),
-      },
-    ]);
-
     // core
-    const maps = await Definition.resolveInheritance(defMaps);
+    const maps = await definitionExtractor.resolveInheritance(defMaps);
     const core = maps[0];
     await io.deleteFileOrDirectory(outputInheritedDefs);
     for (const [path, root] of Object.entries(core)) {
       await saveXML(io.join(outputInheritedDefs, path), root, false);
     }
     expect(Object.keys(core).length).toBe(defsFileCount);
+  });
+
+  test('resolveInheritance arguments error', async () => {
+    // arguments error
+    try {
+      await definitionExtractor.resolveInheritance([]);
+    } catch (error) {
+      expect(error).toBeTruthy();
+    }
+  });
+
+  test('resolveInheritance parent not found', async () => {
+    // parent not found
+    let errorEmitted = false;
+
+    let listener: ExtractorEventListener<string> = (event, error) => {
+      expect(event).toBe('error');
+      errorEmitted = true;
+
+      expect(error.includes('not found')).toBe(true);
+      expect(error.includes('MockDef')).toBe(true);
+      expect(error.includes('undefined')).toBe(true);
+      expect(error.includes('MockX')).toBe(true);
+    };
+    emitter.addListener('error', listener);
+    await definitionExtractor.resolveInheritance([
+      {
+        'test.xml': parseXML(`
+        <Defs>
+          <MockDef ParentName="MockX"></MockDef>
+        </Defs>`),
+      },
+    ]);
+    emitter.removeListener('error', listener);
+
+    listener = (event, error) => {
+      expect(error.includes('MockDefABC'));
+    };
+    await definitionExtractor.resolveInheritance([
+      {
+        'test.xml': parseXML(`
+        <Defs>
+          <MockDef ParentName="MockX">
+            <defName>MockDefABC</defName>
+          </MockDef>
+        </Defs>`),
+      },
+    ]);
+    emitter.removeListener('error', listener);
+
+    expect(errorEmitted).toBe(true);
   });
 
   test('resolveInheritanceNodeRecursively & resolveXmlNodeFor', () => {
@@ -59,7 +102,7 @@ describe('def', () => {
     } = root;
 
     expect(() =>
-      Definition.resolveInheritanceNodeRecursively({
+      definitionExtractor.resolveInheritanceNodeRecursively({
         root,
         def: mock1,
         resolvedDef: mock1,
@@ -74,7 +117,7 @@ describe('def', () => {
     ).toThrowError(/cyclic/);
 
     expect(() =>
-      Definition.resolveXmlNodeFor({
+      definitionExtractor.resolveXmlNodeFor({
         root,
         def: mock1,
         parent: {
@@ -113,9 +156,9 @@ describe('def', () => {
 
     const child = cloneObject(mock1);
     const current = cloneObject(mock0);
-    Definition.recursiveNodeCopyOverwriteElements(child, current);
+    definitionExtractor.recursiveNodeCopyOverwriteElements(child, current);
     expect(current.elements[0].elements.length).toBe(3);
 
-    Definition.recursiveNodeCopyOverwriteElements(mock3, mock2);
+    definitionExtractor.recursiveNodeCopyOverwriteElements(mock3, mock2);
   });
 });

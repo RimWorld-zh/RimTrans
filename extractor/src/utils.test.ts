@@ -67,4 +67,3 @@ export const outputKeyed = resolvePath(TEMP, 'Keyed');
 export const outputStrings = resolvePath(TEMP, 'Strings');
 
 export const outputExtractor = resolvePath(TEMP, 'Mods');
-export const outputBenchmark = resolvePath(TEMP, 'benchmark.txt');

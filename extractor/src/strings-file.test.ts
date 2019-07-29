@@ -1,8 +1,12 @@
 import * as io from '@rimtrans/io';
 import { pathEnglishStrings, pathsStrings, outputStrings } from './utils.test';
-import { StringsFile } from './strings-file';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
+import { StringsFileExtractor } from './strings-file';
 
 describe('string-file', () => {
+  const emitter = new ExtractorEventEmitter();
+  const stringsFileExtractor = new StringsFileExtractor(emitter);
+
   beforeAll(async () => {
     await io.deleteFileOrDirectory(outputStrings);
   });
@@ -11,18 +15,18 @@ describe('string-file', () => {
 
   test('load', async () => {
     [[originMap], [oldMap, mockMap]] = await Promise.all([
-      StringsFile.load([pathEnglishStrings]),
-      StringsFile.load(pathsStrings),
+      stringsFileExtractor.load([pathEnglishStrings]),
+      stringsFileExtractor.load(pathsStrings),
     ]);
 
     expect(Object.keys(mockMap).length).toBe(0);
   });
 
   test('merge', () => {
-    newMap = StringsFile.merge(originMap, oldMap);
+    newMap = stringsFileExtractor.merge(originMap, oldMap);
   });
 
   test('save', async () => {
-    await StringsFile.save(outputStrings, newMap);
+    await stringsFileExtractor.save(outputStrings, newMap);
   });
 });

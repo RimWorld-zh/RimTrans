@@ -7,17 +7,21 @@ import {
   outputKeyedOld,
   outputKeyedNew,
 } from './utils.test';
-import { KeyedReplacementMap, KeyedReplacement } from './keyed-replacement';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
+import { KeyedReplacementMap, KeyedReplacementExtractor } from './keyed-replacement';
 
 describe('keyed-replacement', () => {
+  const emitter = new ExtractorEventEmitter();
+  const keyedReplacementExtractor = new KeyedReplacementExtractor(emitter);
+
   let keyedMapEnglish: KeyedReplacementMap;
   let keyedMaps: KeyedReplacementMap[];
   let mergedMap: KeyedReplacementMap;
 
   test('load', async () => {
     [[keyedMapEnglish], keyedMaps] = await Promise.all([
-      KeyedReplacement.load([pathEnglishKeyed]),
-      KeyedReplacement.load(pathsKeyed),
+      keyedReplacementExtractor.load([pathEnglishKeyed]),
+      keyedReplacementExtractor.load(pathsKeyed),
     ]);
 
     expect(Array.isArray(keyedMapEnglish['Alerts.xml'])).toBe(true);
@@ -46,8 +50,8 @@ describe('keyed-replacement', () => {
   });
 
   test('merge', async () => {
-    mergedMap = KeyedReplacement.merge(keyedMapEnglish, keyedMaps[0]);
-    KeyedReplacement.checkDuplicated([mergedMap]);
+    mergedMap = await keyedReplacementExtractor.merge(keyedMapEnglish, keyedMaps[0]);
+    await keyedReplacementExtractor.checkDuplicated([mergedMap]);
 
     expect(Array.isArray(mergedMap['Alerts.xml'])).toBe(true);
     expect(
@@ -69,7 +73,7 @@ describe('keyed-replacement', () => {
 
   test('save', async () => {
     await io.deleteFileOrDirectory(outputKeyed);
-    await KeyedReplacement.save(outputKeyed, mergedMap);
+    await keyedReplacementExtractor.save(outputKeyed, mergedMap);
 
     expect(await io.directoryExists(outputKeyed)).toBe(true);
     expect(await io.fileExists(io.join(outputKeyed, 'Alerts.xml'))).toBe(true);

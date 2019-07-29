@@ -1,5 +1,13 @@
 import * as io from '@rimtrans/io';
 import {
+  TAG_NAME_LANGUAGE_DATA,
+  TEXT_EN,
+  TEXT_TODO,
+  TEXT_UNUSED,
+  TEXT_NEWLINE,
+} from './constants';
+import { ExtractorEventEmitter, Progress } from './extractor-event-emitter';
+import {
   XNodeData,
   XTextData,
   XCommentData,
@@ -9,13 +17,6 @@ import {
   resolveXmlPrettierOptions,
   saveXML,
 } from './xml';
-import {
-  TAG_NAME_LANGUAGE_DATA,
-  TEXT_EN,
-  TEXT_TODO,
-  TEXT_UNUSED,
-  TEXT_NEWLINE,
-} from './constants';
 
 export interface KeyedReplacement {
   key: string;
@@ -29,76 +30,118 @@ export interface KeyedReplacementMap {
   [fileName: string]: (string | KeyedReplacement)[];
 }
 
-export class KeyedReplacement {
+export class KeyedReplacementExtractor {
+  /* eslint-disable lines-between-class-members */
+  public readonly ACTION_LOAD = 'Keyed Load';
+  public readonly ACTION_SAVE = 'Keyed Save';
+  /* eslint-enable lines-between-class-members */
+
+  private readonly emitter: ExtractorEventEmitter;
+
+  public constructor(emitter: ExtractorEventEmitter) {
+    this.emitter = emitter;
+  }
+
+  // ----------------------------------------------------------------
+  // Loading
+
   /**
    * Load `Keyed` xml document files of mods and get array of `KeyedReplacementMap`.
    * @param keyedDirectories the array of paths to `Keyed` directories, `[Core, ...Mods]`
    */
-  public static async load(keyedDirectories: string[]): Promise<KeyedReplacementMap[]> {
+  public async load(keyedDirectories: string[]): Promise<KeyedReplacementMap[]> {
+    const action = this.ACTION_LOAD;
+
     return Promise.all(
       keyedDirectories.map(async dir => {
+        this.emitter.emit('progress', {
+          action,
+          key: dir,
+          status: 'pending',
+          info: 'loading',
+        });
+
         const map: KeyedReplacementMap = {};
-        if (!(await io.directoryExists(dir))) {
+
+        const files = await io.search(['**/*.xml'], {
+          cwd: dir,
+          case: false,
+          onlyFiles: true,
+        });
+
+        if (files.length === 0) {
           return map;
         }
 
-        await io
-          .search(['**/*.xml'], { cwd: dir, case: false, onlyFiles: true })
-          .then(files =>
-            Promise.all(
-              files.map(async fileName => {
-                const root = await loadXML(io.join(dir, fileName));
-                map[fileName] = [];
-                const keyedList = map[fileName];
+        await Promise.all(
+          files.map(async fileName => {
+            const path = io.join(dir, fileName);
+            map[fileName] = await this.loadFile(path);
+          }),
+        );
 
-                let comment = '';
-                let origin = '';
-                root.childNodes.forEach(node => {
-                  switch (node.nodeType) {
-                    case 'comment':
-                      comment = node.value.trim();
-                      if (comment === TEXT_UNUSED) {
-                        // do nothing
-                      } else if (comment.startsWith(TEXT_EN)) {
-                        origin = comment.replace(TEXT_EN, '').trim();
-                      } else {
-                        keyedList.push(comment);
-                      }
-                      break;
-
-                    case 'element':
-                      keyedList.push({
-                        key: node.name,
-                        origin,
-                        translation: node.value,
-                      });
-                      origin = '';
-                      break;
-
-                    default:
-                      if (node.value.split(/\r|\n|\r\n/).length > 2) {
-                        keyedList.push(TEXT_NEWLINE);
-                      }
-                  }
-                });
-              }),
-            ),
-          );
+        this.emitter.emit('progress', {
+          action,
+          status: 'succeed',
+          key: dir,
+          info: 'loaded',
+        });
 
         return map;
       }),
     );
   }
 
+  private async loadFile(path: string): Promise<(string | KeyedReplacement)[]> {
+    const root = await loadXML(path);
+    const keyedList: (string | KeyedReplacement)[] = [];
+
+    let comment = '';
+    let origin = '';
+    root.childNodes.forEach(node => {
+      switch (node.nodeType) {
+        case 'comment':
+          comment = node.value.trim();
+          if (comment === TEXT_UNUSED) {
+            // do nothing
+          } else if (comment.startsWith(TEXT_EN)) {
+            origin = comment.replace(TEXT_EN, '').trim();
+          } else {
+            keyedList.push(comment);
+          }
+          break;
+
+        case 'element':
+          keyedList.push({
+            key: node.name,
+            origin,
+            translation: node.value,
+          });
+          origin = '';
+          break;
+
+        default:
+          if (node.value.split(/\r|\n|\r\n/).length > 2) {
+            keyedList.push(TEXT_NEWLINE);
+          }
+      }
+    });
+
+    return keyedList;
+  }
+
+  // ----------------------------------------------------------------
+  // Merging
+
   /**
    * Merge old translation keyed map to the origin keyed map, return a new map
    * @param originMap the origin(English) keyed map
    * @param oldMap the old translation keyed map
    */
-  public static merge(
+  public async merge(
     originMap: KeyedReplacementMap,
     oldMap: KeyedReplacementMap,
-  ): KeyedReplacementMap {
+  ): Promise<KeyedReplacementMap> {
     const newMap: KeyedReplacementMap = {};
 
     Object.entries(originMap).forEach(([fileName, keyedList]) => {
@@ -164,14 +207,18 @@ export class KeyedReplacement {
     return newMap;
   }
 
+  // ----------------------------------------------------------------
+  // Checking Duplicated
+
   /**
    * Check duplicated keyed, should be call after `merge()`.
    * @param keyedReplacementMaps the array of `KeyedReplacementMap`, `[Core, ...Mods]`
    */
-  public static checkDuplicated(
+  public async checkDuplicated(
     keyedReplacementMaps: KeyedReplacementMap[],
-  ): KeyedReplacementMap[] {
+  ): Promise<KeyedReplacementMap[]> {
     const visited = new Set<string>();
+
     keyedReplacementMaps.forEach(map =>
       Object.keys(map)
         .sort()
@@ -189,8 +236,12 @@ export class KeyedReplacement {
           });
         }),
     );
+
     return keyedReplacementMaps;
   }
+
+  // ----------------------------------------------------------------
+  // Saving
 
   /**
    * Save `KeyedReplacementMap` as XML document files.
@@ -198,89 +249,108 @@ export class KeyedReplacement {
    * @param keyedReplaceMap the `KeyedReplacementMap`
    * @param prettierOptions format options
    */
-  public static async save(
+  public async save(
     directory: string,
     keyedReplaceMap: KeyedReplacementMap,
     prettierOptions?: PrettierOptions,
   ): Promise<void> {
+    const action = this.ACTION_SAVE;
+    this.emitter.emit('progress', {
+      action,
+      key: directory,
+      status: 'pending',
+      info: 'saving',
+    });
+
+    await Promise.all(
+      Object.entries(keyedReplaceMap).map(async ([fileName, keyedList]) => {
+        const path = io.join(directory, fileName);
+        await this.saveFile(path, keyedList, prettierOptions);
+      }),
+    );
+
+    this.emitter.emit('progress', {
+      action,
+      key: directory,
+      status: 'succeed',
+      info: 'saved',
+    });
+  }
+
+  private async saveFile(
+    path: string,
+    keyedList: (string | KeyedReplacement)[],
+    prettierOptions?: PrettierOptions,
+  ): Promise<void> {
     const { tab, indent, eol, newline } = resolveXmlPrettierOptions(prettierOptions);
 
-    const promises: Promise<void>[] = [];
-
-    Object.entries(keyedReplaceMap).forEach(([fileName, keyedList]) => {
-      const blocks: XNodeData[][] = [];
-      let currentBlock: XNodeData[] = [];
-      blocks.push(currentBlock);
-
-      keyedList.forEach(keyed => {
-        if (typeof keyed === 'string') {
-          if (keyed === TEXT_NEWLINE) {
-            currentBlock = [];
-            blocks.push(currentBlock);
-            return;
-          }
-          currentBlock.push(
-            indent,
-            {
-              nodeType: 'comment',
-              value: ` ${keyed} `,
-            },
-            newline,
-          );
+    const blocks: XNodeData[][] = [];
+    let currentBlock: XNodeData[] = [];
+    blocks.push(currentBlock);
+    keyedList.forEach(keyed => {
+      if (typeof keyed === 'string') {
+        if (keyed === TEXT_NEWLINE) {
+          currentBlock = [];
+          blocks.push(currentBlock);
           return;
-        }
-        if (keyed.duplicated) {
-          return;
-        }
-        if (keyed.unused) {
-          currentBlock.push(
-            indent,
-            {
-              nodeType: 'comment',
-              value: ` ${TEXT_UNUSED} `,
-            },
-            newline,
-          );
         }
         currentBlock.push(
           indent,
-          { nodeType: 'comment', value: ` ${TEXT_EN} ${keyed.origin} ` },
-          newline,
-          indent,
           {
-            nodeType: 'element',
-            name: keyed.key,
-            attributes: {},
-            childNodes: [{ nodeType: 'text', value: keyed.translation }],
-            elements: [],
-            value: keyed.translation,
+            nodeType: 'comment',
+            value: ` ${keyed} `,
           },
           newline,
         );
-      });
-
-      const childNodes: XNodeData[] = [newline, newline];
-
-      blocks.forEach(block => {
-        if (block.length > 0) {
-          childNodes.push(...block, newline);
-        }
-      });
-
-      const languageData: XElementData = {
-        nodeType: 'element',
-        name: TAG_NAME_LANGUAGE_DATA,
-        attributes: {},
-        childNodes,
-        elements: childNodes.filter((c): c is XElementData => c.nodeType === 'element'),
-        value: '',
-      };
-
-      promises.push(
-        saveXML(io.join(directory, fileName), languageData, false, prettierOptions),
+        return;
+      }
+      if (keyed.duplicated) {
+        return;
+      }
+      if (keyed.unused) {
+        currentBlock.push(
+          indent,
+          {
+            nodeType: 'comment',
+            value: ` ${TEXT_UNUSED} `,
+          },
+          newline,
+        );
+      }
+      currentBlock.push(
+        indent,
+        { nodeType: 'comment', value: ` ${TEXT_EN} ${keyed.origin} ` },
+        newline,
+        indent,
+        {
+          nodeType: 'element',
+          name: keyed.key,
+          attributes: {},
+          childNodes: [{ nodeType: 'text', value: keyed.translation }],
+          elements: [],
+          value: keyed.translation,
+        },
+        newline,
       );
     });
 
-    await Promise.all(promises);
+    const childNodes: XNodeData[] = [newline, newline];
+
+    blocks.forEach(block => {
+      if (block.length > 0) {
+        childNodes.push(...block, newline);
+      }
+    });
+
+    const languageData: XElementData = {
+      nodeType: 'element',
+      name: TAG_NAME_LANGUAGE_DATA,
+      attributes: {},
+      childNodes,
+      elements: childNodes.filter((c): c is XElementData => c.nodeType === 'element'),
+      value: '',
+    };
+
+    await saveXML(path, languageData, false, prettierOptions);
   }
 }

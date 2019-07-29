@@ -9,9 +9,11 @@ import {
 import { ExtractorConfig, Extractor } from './extractor';
 
 describe('extractor', () => {
+  const extractor = new Extractor();
   let configs: ExtractorConfig[];
   let configCore: ExtractorConfig;
   let configCoreOutput: ExtractorConfig;
+  let configCoreBrandNew: ExtractorConfig;
 
   beforeAll(async () => {
     await io.deleteFileOrDirectory(outputExtractor);
@@ -58,46 +60,47 @@ describe('extractor', () => {
           path: pathCore,
           extract: true,
           outputAsMod: true,
-          outputPath: io.join(outputExtractor, 'Core'),
+          outputPath: io.join(outputExtractor, 'CoreOutput'),
         },
       ],
       languages,
       debugMode: true,
     };
+
+    configCoreBrandNew = {
+      temp: './.temp',
+      typePackages: pathsTypePackage,
+      modConfigs: [
+        {
+          path: pathCore,
+          extract: true,
+          outputAsMod: true,
+          outputPath: io.join(outputExtractor, 'CoreBrandNew'),
+        },
+      ],
+      languages,
+      brandNewMode: true,
+      debugMode: true,
+    };
   });
 
   test('Core', async () => {
-    await Extractor.extract(configCore);
+    await extractor.extract(configCore);
   });
 
-  jest.retryTimes(3);
   test('Core Output', async () => {
-    try {
-      await Extractor.extract(configCoreOutput);
-    } catch (error) {
-      console.log(error);
-      console.log(error.stack);
-      expect(true).toBe(false);
-    }
+    await extractor.extract(configCoreOutput);
+    await extractor.extract(configCoreOutput);
   });
 
-  jest.retryTimes(3);
   test('Core Output Brand New', async () => {
-    try {
-      await Extractor.extract({
-        ...configCoreOutput,
-        brandNewMode: true,
-      });
-    } catch (error) {
-      console.log(error);
-      console.log(error.stack);
-      expect(true).toBe(false);
-    }
+    await extractor.extract(configCoreBrandNew);
+    await extractor.extract(configCoreBrandNew);
   });
 
   test('Mods', async () => {
-    for (const sln of configs.slice(0, 3)) {
-      await Extractor.extract(sln);
+    for (const cfg of configs.slice(0, 3)) {
+      await extractor.extract(cfg);
     }
   });
 });

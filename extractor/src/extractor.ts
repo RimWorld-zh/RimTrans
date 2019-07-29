@@ -1,12 +1,13 @@
 import * as io from '@rimtrans/io';
+import { DEFAULT_LANGUAGE } from './constants';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { PrettierOptions } from './xml';
 import { Mod, ModOutput } from './mod';
-import { TypePackage } from './type-package';
-import { Definition } from './definition';
-import { Injection } from './injection';
-import { KeyedReplacement } from './keyed-replacement';
-import { StringsFile } from './strings-file';
-import { DEFAULT_LANGUAGE } from './constants';
+import { TypePackageExtractor } from './type-package';
+import { DefinitionExtractor } from './definition';
+import { Injection, InjectionExtractor } from './injection';
+import { KeyedReplacementExtractor } from './keyed-replacement';
+import { StringsFileExtractor } from './strings-file';
 
 export interface ExtractorModConfig {
   /**
@@ -73,11 +74,33 @@ export interface ExtractorConfig {
 }
 
 export class Extractor {
+  public readonly emitter: ExtractorEventEmitter;
+
+  /* eslint-disable lines-between-class-members */
+  private readonly typePackageExtractor: TypePackageExtractor;
+  private readonly definitionExtractor: DefinitionExtractor;
+  private readonly injectionExtractor: InjectionExtractor;
+  private readonly keyedReplacementExtractor: KeyedReplacementExtractor;
+  private readonly stringsFileExtractor: StringsFileExtractor;
+  /* eslint-enable lines-between-class-members */
+
+  public constructor() {
+    const emitter = new ExtractorEventEmitter();
+    this.emitter = emitter;
+    this.typePackageExtractor = new TypePackageExtractor(emitter);
+    this.definitionExtractor = new DefinitionExtractor(emitter);
+    this.injectionExtractor = new InjectionExtractor(emitter);
+    this.keyedReplacementExtractor = new KeyedReplacementExtractor(emitter);
+    this.stringsFileExtractor = new StringsFileExtractor(emitter);
+  }
+
   /**
    *
    * @param paths the array of paths to mod directories, `[Core, ...Mods]`.
    */
-  public static async extract(config: ExtractorConfig): Promise<Mod[]> {
+  public async extract(config: ExtractorConfig): Promise<Mod[]> {
+    const start = Date.now();
+
     const {
       temp,
       typePackages,
@@ -111,36 +134,31 @@ export class Extractor {
           ),
         ),
       );
-      await Promise.all(
-        toDeleteDirs.map(async dir => {
-          if (await io.directoryExists(dir)) {
-            await io.deleteFileOrDirectory(dir);
-          }
-        }),
-      );
+      await Promise.all(toDeleteDirs.map(async dir => io.deleteFileOrDirectory(dir)));
     } else {
-      await Promise.all(
-        modConfigs.map(async (cfg, modIndex) => {
+      const toCopyDirs: [string, string][] = [];
+      languages.forEach(lang =>
+        modConfigs.forEach((cfg, modIndex) => {
           if (cfg.outputAsMod && cfg.outputPath) {
             const mod = mods[modIndex];
             const output = outputs[modIndex];
-            await Promise.all(
-              languages.map(async lang => {
-                const srcLang = mod.pathLanguage(lang);
-                const destLang = output.pathLanguage(lang);
-                const [srcLangExists, destLangExists] = await Promise.all([
-                  io.directoryExists(srcLang),
-                  io.directoryExists(destLang),
-                ]);
-                if (srcLangExists && !destLangExists) {
-                  const destLangParent = io.directoryName(destLang);
-                  if (!(await io.directoryExists(destLangParent))) {
-                    await io.createDirectory(destLangParent);
-                  }
-                  await io.copy(srcLang, destLang);
-                }
-              }),
+            toCopyDirs.push(
+              [mod.pathDefInjected(lang), output.pathDefInjected(lang)],
+              [mod.pathKeyed(lang), output.pathKeyed(lang)],
+              [mod.pathStrings(lang), output.pathStrings(lang)],
             );
+          }
+        }),
+      );
+
+      await Promise.all(
+        toCopyDirs.map(async ([src, dest]) => {
+          const [srcExists, destExists] = await Promise.all([
+            io.directoryExists(src),
+            io.directoryExists(dest),
+          ]);
+          if (srcExists && !destExists) {
+            await io.copy(src, dest);
           }
         }),
       );
@@ -148,7 +166,7 @@ export class Extractor {
 
     const [
       definitionMaps,
-      classInfoMap,
+      { classInfoMap },
       englishKeyedMaps,
       englishStringsMaps,
       languagesToOldInjectionMaps,
@@ -156,58 +174,86 @@ export class Extractor {
       languagesToOldStringsMaps,
     ] = await Promise.all([
       // Defs
-      Definition.load(mods.map(mod => mod.pathDefs)).then(Definition.resolveInheritance),
+      this.definitionExtractor
+        .load(mods.map(mod => mod.pathDefs))
+        .then(maps => this.definitionExtractor.resolveInheritance(maps)),
 
       // Assemblies
-      TypePackage.load([...typePackages, ...mods.map(mod => mod.pathAssemblies)]),
+      this.typePackageExtractor.load([
+        ...typePackages,
+        ...mods.map(mod => mod.pathAssemblies),
+      ]),
 
-      // English Keyed and Strings
-      KeyedReplacement.load(mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE))),
-      StringsFile.load(mods.map(mod => mod.pathStrings(DEFAULT_LANGUAGE))),
+      // English Keyed
+      this.keyedReplacementExtractor.load(
+        mods.map(mod => mod.pathKeyed(DEFAULT_LANGUAGE)),
+      ),
+
+      // English Strings
+      this.stringsFileExtractor.load(mods.map(mod => mod.pathStrings(DEFAULT_LANGUAGE))),
+
       // DefInjected
       Promise.all(
         languages.map(lang =>
-          Injection.load(outputs.map(output => output.pathDefInjected(lang))),
+          this.injectionExtractor.load(
+            outputs.map(output => output.pathDefInjected(lang)),
+          ),
         ),
       ),
 
       // Keyed
       Promise.all(
         languages.map(lang =>
-          KeyedReplacement.load(outputs.map(output => output.pathKeyed(lang))),
+          this.keyedReplacementExtractor.load(
+            outputs.map(output => output.pathKeyed(lang)),
+          ),
         ),
       ),
 
       // Strings
       Promise.all(
         languages.map(lang =>
-          StringsFile.load(outputs.map(output => output.pathStrings(lang))),
+          this.stringsFileExtractor.load(outputs.map(output => output.pathStrings(lang))),
         ),
       ),
     ]);
 
-    const newInjectionMaps = Injection.parse(definitionMaps, classInfoMap, fuzzy);
+    const newInjectionMaps = this.injectionExtractor.parse(
+      definitionMaps,
+      classInfoMap,
+      fuzzy,
+    );
 
     await Promise.all(
       languages.map(async (lang, langIndex) => {
         // DefInjected
         const oldInjectionMaps = languagesToOldInjectionMaps[langIndex];
         const mergedInjectionMaps = mods.map((mod, modIndex) =>
-          Injection.merge(newInjectionMaps[modIndex], oldInjectionMaps[modIndex]),
+          this.injectionExtractor.merge(
+            newInjectionMaps[modIndex],
+            oldInjectionMaps[modIndex],
+          ),
         );
-        Injection.checkDuplicated(mergedInjectionMaps);
+        this.injectionExtractor.checkDuplicated(mergedInjectionMaps);
 
         // Keyed
         const oldKeyedMaps = languagesToOldKeyedMaps[langIndex];
-        const mergedKeyedMaps = mods.map((mod, modIndex) =>
-          KeyedReplacement.merge(englishKeyedMaps[modIndex], oldKeyedMaps[modIndex]),
-        );
-        KeyedReplacement.checkDuplicated(mergedKeyedMaps);
+        const mergedKeyedMaps = await Promise.all(
+          mods.map((mod, modIndex) =>
+            this.keyedReplacementExtractor.merge(
+              englishKeyedMaps[modIndex],
+              oldKeyedMaps[modIndex],
+            ),
+          ),
+        ).then(maps => this.keyedReplacementExtractor.checkDuplicated(maps));
 
         // Strings
         const oldStringsMaps = languagesToOldStringsMaps[langIndex];
         const mergedStringsMaps = mods.map((mod, modIndex) =>
-          StringsFile.merge(englishStringsMaps[modIndex], oldStringsMaps[modIndex]),
+          this.stringsFileExtractor.merge(
+            englishStringsMaps[modIndex],
+            oldStringsMaps[modIndex],
+          ),
         );
 
         await Promise.all(
@@ -231,17 +277,17 @@ export class Extractor {
               );
             }
             await Promise.all([
-              Injection.save(
+              this.injectionExtractor.save(
                 output.pathDefInjected(lang),
                 mergedInjectionMaps[modIndex],
                 prettierOptions,
               ),
-              KeyedReplacement.save(
+              this.keyedReplacementExtractor.save(
                 output.pathKeyed(lang),
                 mergedKeyedMaps[modIndex],
                 prettierOptions,
               ),
-              StringsFile.save(
+              this.stringsFileExtractor.save(
                 output.pathStrings(lang),
                 mergedStringsMaps[modIndex],
                 prettierOptions,
@@ -251,6 +297,8 @@ export class Extractor {
         );
       }),
     );
+
+    this.emitter.emit('done', `Extracting completed: ${Date.now() - start}ms`);
 
     return mods;
   }

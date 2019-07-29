@@ -1,6 +1,8 @@
 export * from './xml';
 
 export * from './constants';
+export * from './extractor-event-emitter';
+export * from './xml';
 export * from './mod';
 export * from './type-package';
 export * from './definition';
