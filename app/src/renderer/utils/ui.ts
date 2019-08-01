@@ -8,7 +8,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { Theme } from '@src/renderer/components/base';
+import { ColorTheme } from '@src/renderer/components/base';
 
 /**
  * Component States UI
@@ -16,7 +16,7 @@ import { Theme } from '@src/renderer/components/base';
 @Component
 export class StatesUI extends Vue {
   @Watch('$states.settings.theme', { immediate: true })
-  private watchTheme(theme: Theme): void {
+  private watchTheme(theme: ColorTheme): void {
     const {
       documentElement: { classList },
     } = document;

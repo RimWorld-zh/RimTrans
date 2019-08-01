@@ -1,7 +1,7 @@
 /**
  * Component: Theme
  */
-@each $theme in $type-themes {
+@each $theme in $type-color-themes {
   @include comp('theme-#{$theme}') {
     @extend %variables-theme-#{$theme};
   }

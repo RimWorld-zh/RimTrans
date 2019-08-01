@@ -68,6 +68,12 @@ export function createRouter(): VueRouter {
         component: async () =>
           import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/icons'),
       },
+      {
+        path: '/dev-tools/colors',
+        name: 'dev-tools-colors',
+        component: async () =>
+          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/colors'),
+      },
     ],
   });
 }

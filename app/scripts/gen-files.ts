@@ -45,7 +45,7 @@ const optionsList: GenFilesOptions[] = [
   },
 ];
 
-Promise.all(optionsList.map(genFiles)).catch((e: Error) => {
+Promise.all([genVariables(), ...optionsList.map(genFiles)]).catch((e: Error) => {
   /* eslint-disable no-console */
   console.error(e.message);
   console.error(e.stack);

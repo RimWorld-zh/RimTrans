@@ -21,13 +21,13 @@ interface NavItem {
 const navList: NavItem[] = [
   {
     icon: 'Translate',
-    color: 'teal',
+    color: 'green',
     label: 'Translator',
     to: '/translator',
   },
   {
     icon: 'Codepen',
-    color: 'green',
+    color: 'blue',
     label: 'Modder',
     to: '/modder',
   },

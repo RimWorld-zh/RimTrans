@@ -22,6 +22,11 @@ const items: DebugItem[] = [
     label: 'Material Design Icons',
     to: '/dev-tools/icons',
   },
+  {
+    icon: 'Palette',
+    label: 'Colors',
+    to: '/dev-tools/colors',
+  },
 ];
 
 /**
@@ -48,6 +53,28 @@ export class RwDevTools extends Vue {
     }
   }
 
+  private serializeSettings(): string {
+    return JSON.stringify(this.$states.settings, undefined, '  ');
+  }
+
+  private serializeProcess(): string {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data: Record<string, any> = {};
+    const properties: (keyof NodeJS.Process)[] = [
+      'argv',
+      'argv0',
+      'execPath',
+      'execArgv',
+      'env',
+      'version',
+      'versions',
+    ];
+    properties.forEach(p => {
+      data[p] = remote.process[p];
+    });
+    return JSON.stringify(data, undefined, '  ');
+  }
+
   private render(h: CreateElement): VNode {
     const { showSettings } = this;
 
@@ -56,7 +83,10 @@ export class RwDevTools extends Vue {
         {showSettings && (
           <div key="settings" staticClass="rw-dev-tools_settings">
             <pre staticClass="rw-dev-tools_settings-content">
-              <code>{JSON.stringify(this.$states.settings, undefined, '  ')}</code>
+              <code>{this.serializeSettings()}</code>
+              <br />
+              <br />
+              <code>{this.serializeProcess()}</code>
             </pre>
           </div>
         )}
@@ -64,7 +94,8 @@ export class RwDevTools extends Vue {
         <rw-button
           key="label"
           size="small"
-          skin="flat"
+          color="primary"
+          skin="fill"
           shape="square"
           title="Toggle show settings"
           onClick={this.onToggleShowSettings}
@@ -75,9 +106,10 @@ export class RwDevTools extends Vue {
         <rw-button
           key="reload"
           size="small"
-          skin="flat"
+          color="primary"
+          skin="fill"
           shape="square"
-          title="Toggle DevTools"
+          title="Reload"
           onClick={this.onReload}
         >
           <mdi staticClass="rw-button-icon" icon="Reload" />
@@ -86,7 +118,8 @@ export class RwDevTools extends Vue {
         <rw-button
           key="dev-tools"
           size="small"
-          skin="flat"
+          color="primary"
+          skin="fill"
           shape="square"
           title="Toggle DevTools"
           onClick={this.onToggleDevTools}
@@ -101,7 +134,8 @@ export class RwDevTools extends Vue {
             router-link
             to={item.to}
             size="small"
-            skin="flat"
+            color="primary"
+            skin="fill"
             shape="square"
           >
             <mdi staticClass="rw-button-icon" icon={item.icon} />

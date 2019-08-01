@@ -1,0 +1,989 @@
+%variables-color-palette {
+  --color-green-05: #e3fff3;
+  --color-green-10: #d0ffed;
+  --color-green-20: #b3ffe3;
+  --color-green-30: #87ffd1;
+  --color-green-40: #53ffbc;
+  --color-green-50: #3fe1b0;
+  --color-green-60: #2ac4a2;
+  --color-green-70: #018788;
+  --color-green-80: #005e5e;
+  --color-green-90: #084036;
+
+  --color-green-05-a10: rgba(227, 255, 243, 0.1);
+  --color-green-05-a20: rgba(227, 255, 243, 0.2);
+  --color-green-05-a30: rgba(227, 255, 243, 0.3);
+  --color-green-05-a40: rgba(227, 255, 243, 0.4);
+  --color-green-05-a50: rgba(227, 255, 243, 0.5);
+  --color-green-05-a60: rgba(227, 255, 243, 0.6);
+  --color-green-05-a70: rgba(227, 255, 243, 0.7);
+  --color-green-05-a80: rgba(227, 255, 243, 0.8);
+  --color-green-05-a90: rgba(227, 255, 243, 0.9);
+
+  --color-green-10-a10: rgba(208, 255, 237, 0.1);
+  --color-green-10-a20: rgba(208, 255, 237, 0.2);
+  --color-green-10-a30: rgba(208, 255, 237, 0.3);
+  --color-green-10-a40: rgba(208, 255, 237, 0.4);
+  --color-green-10-a50: rgba(208, 255, 237, 0.5);
+  --color-green-10-a60: rgba(208, 255, 237, 0.6);
+  --color-green-10-a70: rgba(208, 255, 237, 0.7);
+  --color-green-10-a80: rgba(208, 255, 237, 0.8);
+  --color-green-10-a90: rgba(208, 255, 237, 0.9);
+
+  --color-green-20-a10: rgba(179, 255, 227, 0.1);
+  --color-green-20-a20: rgba(179, 255, 227, 0.2);
+  --color-green-20-a30: rgba(179, 255, 227, 0.3);
+  --color-green-20-a40: rgba(179, 255, 227, 0.4);
+  --color-green-20-a50: rgba(179, 255, 227, 0.5);
+  --color-green-20-a60: rgba(179, 255, 227, 0.6);
+  --color-green-20-a70: rgba(179, 255, 227, 0.7);
+  --color-green-20-a80: rgba(179, 255, 227, 0.8);
+  --color-green-20-a90: rgba(179, 255, 227, 0.9);
+
+  --color-green-30-a10: rgba(135, 255, 209, 0.1);
+  --color-green-30-a20: rgba(135, 255, 209, 0.2);
+  --color-green-30-a30: rgba(135, 255, 209, 0.3);
+  --color-green-30-a40: rgba(135, 255, 209, 0.4);
+  --color-green-30-a50: rgba(135, 255, 209, 0.5);
+  --color-green-30-a60: rgba(135, 255, 209, 0.6);
+  --color-green-30-a70: rgba(135, 255, 209, 0.7);
+  --color-green-30-a80: rgba(135, 255, 209, 0.8);
+  --color-green-30-a90: rgba(135, 255, 209, 0.9);
+
+  --color-green-40-a10: rgba(83, 255, 188, 0.1);
+  --color-green-40-a20: rgba(83, 255, 188, 0.2);
+  --color-green-40-a30: rgba(83, 255, 188, 0.3);
+  --color-green-40-a40: rgba(83, 255, 188, 0.4);
+  --color-green-40-a50: rgba(83, 255, 188, 0.5);
+  --color-green-40-a60: rgba(83, 255, 188, 0.6);
+  --color-green-40-a70: rgba(83, 255, 188, 0.7);
+  --color-green-40-a80: rgba(83, 255, 188, 0.8);
+  --color-green-40-a90: rgba(83, 255, 188, 0.9);
+
+  --color-green-50-a10: rgba(63, 225, 176, 0.1);
+  --color-green-50-a20: rgba(63, 225, 176, 0.2);
+  --color-green-50-a30: rgba(63, 225, 176, 0.3);
+  --color-green-50-a40: rgba(63, 225, 176, 0.4);
+  --color-green-50-a50: rgba(63, 225, 176, 0.5);
+  --color-green-50-a60: rgba(63, 225, 176, 0.6);
+  --color-green-50-a70: rgba(63, 225, 176, 0.7);
+  --color-green-50-a80: rgba(63, 225, 176, 0.8);
+  --color-green-50-a90: rgba(63, 225, 176, 0.9);
+
+  --color-green-60-a10: rgba(42, 196, 162, 0.1);
+  --color-green-60-a20: rgba(42, 196, 162, 0.2);
+  --color-green-60-a30: rgba(42, 196, 162, 0.3);
+  --color-green-60-a40: rgba(42, 196, 162, 0.4);
+  --color-green-60-a50: rgba(42, 196, 162, 0.5);
+  --color-green-60-a60: rgba(42, 196, 162, 0.6);
+  --color-green-60-a70: rgba(42, 196, 162, 0.7);
+  --color-green-60-a80: rgba(42, 196, 162, 0.8);
+  --color-green-60-a90: rgba(42, 196, 162, 0.9);
+
+  --color-green-70-a10: rgba(1, 135, 136, 0.1);
+  --color-green-70-a20: rgba(1, 135, 136, 0.2);
+  --color-green-70-a30: rgba(1, 135, 136, 0.3);
+  --color-green-70-a40: rgba(1, 135, 136, 0.4);
+  --color-green-70-a50: rgba(1, 135, 136, 0.5);
+  --color-green-70-a60: rgba(1, 135, 136, 0.6);
+  --color-green-70-a70: rgba(1, 135, 136, 0.7);
+  --color-green-70-a80: rgba(1, 135, 136, 0.8);
+  --color-green-70-a90: rgba(1, 135, 136, 0.9);
+
+  --color-green-80-a10: rgba(0, 94, 94, 0.1);
+  --color-green-80-a20: rgba(0, 94, 94, 0.2);
+  --color-green-80-a30: rgba(0, 94, 94, 0.3);
+  --color-green-80-a40: rgba(0, 94, 94, 0.4);
+  --color-green-80-a50: rgba(0, 94, 94, 0.5);
+  --color-green-80-a60: rgba(0, 94, 94, 0.6);
+  --color-green-80-a70: rgba(0, 94, 94, 0.7);
+  --color-green-80-a80: rgba(0, 94, 94, 0.8);
+  --color-green-80-a90: rgba(0, 94, 94, 0.9);
+
+  --color-green-90-a10: rgba(8, 64, 54, 0.1);
+  --color-green-90-a20: rgba(8, 64, 54, 0.2);
+  --color-green-90-a30: rgba(8, 64, 54, 0.3);
+  --color-green-90-a40: rgba(8, 64, 54, 0.4);
+  --color-green-90-a50: rgba(8, 64, 54, 0.5);
+  --color-green-90-a60: rgba(8, 64, 54, 0.6);
+  --color-green-90-a70: rgba(8, 64, 54, 0.7);
+  --color-green-90-a80: rgba(8, 64, 54, 0.8);
+  --color-green-90-a90: rgba(8, 64, 54, 0.9);
+
+  --color-blue-05: #abf1fe;
+  --color-blue-10: #80ebff;
+  --color-blue-20: #01ddff;
+  --color-blue-30: #00b3f5;
+  --color-blue-40: #0090ed;
+  --color-blue-50: #0160e0;
+  --color-blue-60: #0250bc;
+  --color-blue-70: #063f96;
+  --color-blue-80: #073072;
+  --color-blue-90: #09204c;
+
+  --color-blue-05-a10: rgba(171, 241, 254, 0.1);
+  --color-blue-05-a20: rgba(171, 241, 254, 0.2);
+  --color-blue-05-a30: rgba(171, 241, 254, 0.3);
+  --color-blue-05-a40: rgba(171, 241, 254, 0.4);
+  --color-blue-05-a50: rgba(171, 241, 254, 0.5);
+  --color-blue-05-a60: rgba(171, 241, 254, 0.6);
+  --color-blue-05-a70: rgba(171, 241, 254, 0.7);
+  --color-blue-05-a80: rgba(171, 241, 254, 0.8);
+  --color-blue-05-a90: rgba(171, 241, 254, 0.9);
+
+  --color-blue-10-a10: rgba(128, 235, 255, 0.1);
+  --color-blue-10-a20: rgba(128, 235, 255, 0.2);
+  --color-blue-10-a30: rgba(128, 235, 255, 0.3);
+  --color-blue-10-a40: rgba(128, 235, 255, 0.4);
+  --color-blue-10-a50: rgba(128, 235, 255, 0.5);
+  --color-blue-10-a60: rgba(128, 235, 255, 0.6);
+  --color-blue-10-a70: rgba(128, 235, 255, 0.7);
+  --color-blue-10-a80: rgba(128, 235, 255, 0.8);
+  --color-blue-10-a90: rgba(128, 235, 255, 0.9);
+
+  --color-blue-20-a10: rgba(1, 221, 255, 0.1);
+  --color-blue-20-a20: rgba(1, 221, 255, 0.2);
+  --color-blue-20-a30: rgba(1, 221, 255, 0.3);
+  --color-blue-20-a40: rgba(1, 221, 255, 0.4);
+  --color-blue-20-a50: rgba(1, 221, 255, 0.5);
+  --color-blue-20-a60: rgba(1, 221, 255, 0.6);
+  --color-blue-20-a70: rgba(1, 221, 255, 0.7);
+  --color-blue-20-a80: rgba(1, 221, 255, 0.8);
+  --color-blue-20-a90: rgba(1, 221, 255, 0.9);
+
+  --color-blue-30-a10: rgba(0, 179, 245, 0.1);
+  --color-blue-30-a20: rgba(0, 179, 245, 0.2);
+  --color-blue-30-a30: rgba(0, 179, 245, 0.3);
+  --color-blue-30-a40: rgba(0, 179, 245, 0.4);
+  --color-blue-30-a50: rgba(0, 179, 245, 0.5);
+  --color-blue-30-a60: rgba(0, 179, 245, 0.6);
+  --color-blue-30-a70: rgba(0, 179, 245, 0.7);
+  --color-blue-30-a80: rgba(0, 179, 245, 0.8);
+  --color-blue-30-a90: rgba(0, 179, 245, 0.9);
+
+  --color-blue-40-a10: rgba(0, 144, 237, 0.1);
+  --color-blue-40-a20: rgba(0, 144, 237, 0.2);
+  --color-blue-40-a30: rgba(0, 144, 237, 0.3);
+  --color-blue-40-a40: rgba(0, 144, 237, 0.4);
+  --color-blue-40-a50: rgba(0, 144, 237, 0.5);
+  --color-blue-40-a60: rgba(0, 144, 237, 0.6);
+  --color-blue-40-a70: rgba(0, 144, 237, 0.7);
+  --color-blue-40-a80: rgba(0, 144, 237, 0.8);
+  --color-blue-40-a90: rgba(0, 144, 237, 0.9);
+
+  --color-blue-50-a10: rgba(1, 96, 224, 0.1);
+  --color-blue-50-a20: rgba(1, 96, 224, 0.2);
+  --color-blue-50-a30: rgba(1, 96, 224, 0.3);
+  --color-blue-50-a40: rgba(1, 96, 224, 0.4);
+  --color-blue-50-a50: rgba(1, 96, 224, 0.5);
+  --color-blue-50-a60: rgba(1, 96, 224, 0.6);
+  --color-blue-50-a70: rgba(1, 96, 224, 0.7);
+  --color-blue-50-a80: rgba(1, 96, 224, 0.8);
+  --color-blue-50-a90: rgba(1, 96, 224, 0.9);
+
+  --color-blue-60-a10: rgba(2, 80, 188, 0.1);
+  --color-blue-60-a20: rgba(2, 80, 188, 0.2);
+  --color-blue-60-a30: rgba(2, 80, 188, 0.3);
+  --color-blue-60-a40: rgba(2, 80, 188, 0.4);
+  --color-blue-60-a50: rgba(2, 80, 188, 0.5);
+  --color-blue-60-a60: rgba(2, 80, 188, 0.6);
+  --color-blue-60-a70: rgba(2, 80, 188, 0.7);
+  --color-blue-60-a80: rgba(2, 80, 188, 0.8);
+  --color-blue-60-a90: rgba(2, 80, 188, 0.9);
+
+  --color-blue-70-a10: rgba(6, 63, 150, 0.1);
+  --color-blue-70-a20: rgba(6, 63, 150, 0.2);
+  --color-blue-70-a30: rgba(6, 63, 150, 0.3);
+  --color-blue-70-a40: rgba(6, 63, 150, 0.4);
+  --color-blue-70-a50: rgba(6, 63, 150, 0.5);
+  --color-blue-70-a60: rgba(6, 63, 150, 0.6);
+  --color-blue-70-a70: rgba(6, 63, 150, 0.7);
+  --color-blue-70-a80: rgba(6, 63, 150, 0.8);
+  --color-blue-70-a90: rgba(6, 63, 150, 0.9);
+
+  --color-blue-80-a10: rgba(7, 48, 114, 0.1);
+  --color-blue-80-a20: rgba(7, 48, 114, 0.2);
+  --color-blue-80-a30: rgba(7, 48, 114, 0.3);
+  --color-blue-80-a40: rgba(7, 48, 114, 0.4);
+  --color-blue-80-a50: rgba(7, 48, 114, 0.5);
+  --color-blue-80-a60: rgba(7, 48, 114, 0.6);
+  --color-blue-80-a70: rgba(7, 48, 114, 0.7);
+  --color-blue-80-a80: rgba(7, 48, 114, 0.8);
+  --color-blue-80-a90: rgba(7, 48, 114, 0.9);
+
+  --color-blue-90-a10: rgba(9, 32, 76, 0.1);
+  --color-blue-90-a20: rgba(9, 32, 76, 0.2);
+  --color-blue-90-a30: rgba(9, 32, 76, 0.3);
+  --color-blue-90-a40: rgba(9, 32, 76, 0.4);
+  --color-blue-90-a50: rgba(9, 32, 76, 0.5);
+  --color-blue-90-a60: rgba(9, 32, 76, 0.6);
+  --color-blue-90-a70: rgba(9, 32, 76, 0.7);
+  --color-blue-90-a80: rgba(9, 32, 76, 0.8);
+  --color-blue-90-a90: rgba(9, 32, 76, 0.9);
+
+  --color-purple-05: #e6dfff;
+  --color-purple-10: #d9bfff;
+  --color-purple-20: #cb9dff;
+  --color-purple-30: #c588ff;
+  --color-purple-40: #ac71ff;
+  --color-purple-50: #9059ff;
+  --color-purple-60: #7543e4;
+  --color-purple-70: #582acb;
+  --color-purple-80: #46278e;
+  --color-purple-90: #321c64;
+
+  --color-purple-05-a10: rgba(230, 223, 255, 0.1);
+  --color-purple-05-a20: rgba(230, 223, 255, 0.2);
+  --color-purple-05-a30: rgba(230, 223, 255, 0.3);
+  --color-purple-05-a40: rgba(230, 223, 255, 0.4);
+  --color-purple-05-a50: rgba(230, 223, 255, 0.5);
+  --color-purple-05-a60: rgba(230, 223, 255, 0.6);
+  --color-purple-05-a70: rgba(230, 223, 255, 0.7);
+  --color-purple-05-a80: rgba(230, 223, 255, 0.8);
+  --color-purple-05-a90: rgba(230, 223, 255, 0.9);
+
+  --color-purple-10-a10: rgba(217, 191, 255, 0.1);
+  --color-purple-10-a20: rgba(217, 191, 255, 0.2);
+  --color-purple-10-a30: rgba(217, 191, 255, 0.3);
+  --color-purple-10-a40: rgba(217, 191, 255, 0.4);
+  --color-purple-10-a50: rgba(217, 191, 255, 0.5);
+  --color-purple-10-a60: rgba(217, 191, 255, 0.6);
+  --color-purple-10-a70: rgba(217, 191, 255, 0.7);
+  --color-purple-10-a80: rgba(217, 191, 255, 0.8);
+  --color-purple-10-a90: rgba(217, 191, 255, 0.9);
+
+  --color-purple-20-a10: rgba(203, 157, 255, 0.1);
+  --color-purple-20-a20: rgba(203, 157, 255, 0.2);
+  --color-purple-20-a30: rgba(203, 157, 255, 0.3);
+  --color-purple-20-a40: rgba(203, 157, 255, 0.4);
+  --color-purple-20-a50: rgba(203, 157, 255, 0.5);
+  --color-purple-20-a60: rgba(203, 157, 255, 0.6);
+  --color-purple-20-a70: rgba(203, 157, 255, 0.7);
+  --color-purple-20-a80: rgba(203, 157, 255, 0.8);
+  --color-purple-20-a90: rgba(203, 157, 255, 0.9);
+
+  --color-purple-30-a10: rgba(197, 136, 255, 0.1);
+  --color-purple-30-a20: rgba(197, 136, 255, 0.2);
+  --color-purple-30-a30: rgba(197, 136, 255, 0.3);
+  --color-purple-30-a40: rgba(197, 136, 255, 0.4);
+  --color-purple-30-a50: rgba(197, 136, 255, 0.5);
+  --color-purple-30-a60: rgba(197, 136, 255, 0.6);
+  --color-purple-30-a70: rgba(197, 136, 255, 0.7);
+  --color-purple-30-a80: rgba(197, 136, 255, 0.8);
+  --color-purple-30-a90: rgba(197, 136, 255, 0.9);
+
+  --color-purple-40-a10: rgba(172, 113, 255, 0.1);
+  --color-purple-40-a20: rgba(172, 113, 255, 0.2);
+  --color-purple-40-a30: rgba(172, 113, 255, 0.3);
+  --color-purple-40-a40: rgba(172, 113, 255, 0.4);
+  --color-purple-40-a50: rgba(172, 113, 255, 0.5);
+  --color-purple-40-a60: rgba(172, 113, 255, 0.6);
+  --color-purple-40-a70: rgba(172, 113, 255, 0.7);
+  --color-purple-40-a80: rgba(172, 113, 255, 0.8);
+  --color-purple-40-a90: rgba(172, 113, 255, 0.9);
+
+  --color-purple-50-a10: rgba(144, 89, 255, 0.1);
+  --color-purple-50-a20: rgba(144, 89, 255, 0.2);
+  --color-purple-50-a30: rgba(144, 89, 255, 0.3);
+  --color-purple-50-a40: rgba(144, 89, 255, 0.4);
+  --color-purple-50-a50: rgba(144, 89, 255, 0.5);
+  --color-purple-50-a60: rgba(144, 89, 255, 0.6);
+  --color-purple-50-a70: rgba(144, 89, 255, 0.7);
+  --color-purple-50-a80: rgba(144, 89, 255, 0.8);
+  --color-purple-50-a90: rgba(144, 89, 255, 0.9);
+
+  --color-purple-60-a10: rgba(117, 67, 228, 0.1);
+  --color-purple-60-a20: rgba(117, 67, 228, 0.2);
+  --color-purple-60-a30: rgba(117, 67, 228, 0.3);
+  --color-purple-60-a40: rgba(117, 67, 228, 0.4);
+  --color-purple-60-a50: rgba(117, 67, 228, 0.5);
+  --color-purple-60-a60: rgba(117, 67, 228, 0.6);
+  --color-purple-60-a70: rgba(117, 67, 228, 0.7);
+  --color-purple-60-a80: rgba(117, 67, 228, 0.8);
+  --color-purple-60-a90: rgba(117, 67, 228, 0.9);
+
+  --color-purple-70-a10: rgba(88, 42, 203, 0.1);
+  --color-purple-70-a20: rgba(88, 42, 203, 0.2);
+  --color-purple-70-a30: rgba(88, 42, 203, 0.3);
+  --color-purple-70-a40: rgba(88, 42, 203, 0.4);
+  --color-purple-70-a50: rgba(88, 42, 203, 0.5);
+  --color-purple-70-a60: rgba(88, 42, 203, 0.6);
+  --color-purple-70-a70: rgba(88, 42, 203, 0.7);
+  --color-purple-70-a80: rgba(88, 42, 203, 0.8);
+  --color-purple-70-a90: rgba(88, 42, 203, 0.9);
+
+  --color-purple-80-a10: rgba(70, 39, 142, 0.1);
+  --color-purple-80-a20: rgba(70, 39, 142, 0.2);
+  --color-purple-80-a30: rgba(70, 39, 142, 0.3);
+  --color-purple-80-a40: rgba(70, 39, 142, 0.4);
+  --color-purple-80-a50: rgba(70, 39, 142, 0.5);
+  --color-purple-80-a60: rgba(70, 39, 142, 0.6);
+  --color-purple-80-a70: rgba(70, 39, 142, 0.7);
+  --color-purple-80-a80: rgba(70, 39, 142, 0.8);
+  --color-purple-80-a90: rgba(70, 39, 142, 0.9);
+
+  --color-purple-90-a10: rgba(50, 28, 100, 0.1);
+  --color-purple-90-a20: rgba(50, 28, 100, 0.2);
+  --color-purple-90-a30: rgba(50, 28, 100, 0.3);
+  --color-purple-90-a40: rgba(50, 28, 100, 0.4);
+  --color-purple-90-a50: rgba(50, 28, 100, 0.5);
+  --color-purple-90-a60: rgba(50, 28, 100, 0.6);
+  --color-purple-90-a70: rgba(50, 28, 100, 0.7);
+  --color-purple-90-a80: rgba(50, 28, 100, 0.8);
+  --color-purple-90-a90: rgba(50, 28, 100, 0.9);
+
+  --color-violet-05: #f7e3ff;
+  --color-violet-10: #f6b9ff;
+  --color-violet-20: #f690ff;
+  --color-violet-30: #f564ff;
+  --color-violet-40: #d74cf0;
+  --color-violet-50: #b933e0;
+  --color-violet-60: #952bb9;
+  --color-violet-70: #722291;
+  --color-violet-80: #4f1a6a;
+  --color-violet-90: #2b1141;
+
+  --color-violet-05-a10: rgba(247, 227, 255, 0.1);
+  --color-violet-05-a20: rgba(247, 227, 255, 0.2);
+  --color-violet-05-a30: rgba(247, 227, 255, 0.3);
+  --color-violet-05-a40: rgba(247, 227, 255, 0.4);
+  --color-violet-05-a50: rgba(247, 227, 255, 0.5);
+  --color-violet-05-a60: rgba(247, 227, 255, 0.6);
+  --color-violet-05-a70: rgba(247, 227, 255, 0.7);
+  --color-violet-05-a80: rgba(247, 227, 255, 0.8);
+  --color-violet-05-a90: rgba(247, 227, 255, 0.9);
+
+  --color-violet-10-a10: rgba(246, 185, 255, 0.1);
+  --color-violet-10-a20: rgba(246, 185, 255, 0.2);
+  --color-violet-10-a30: rgba(246, 185, 255, 0.3);
+  --color-violet-10-a40: rgba(246, 185, 255, 0.4);
+  --color-violet-10-a50: rgba(246, 185, 255, 0.5);
+  --color-violet-10-a60: rgba(246, 185, 255, 0.6);
+  --color-violet-10-a70: rgba(246, 185, 255, 0.7);
+  --color-violet-10-a80: rgba(246, 185, 255, 0.8);
+  --color-violet-10-a90: rgba(246, 185, 255, 0.9);
+
+  --color-violet-20-a10: rgba(246, 144, 255, 0.1);
+  --color-violet-20-a20: rgba(246, 144, 255, 0.2);
+  --color-violet-20-a30: rgba(246, 144, 255, 0.3);
+  --color-violet-20-a40: rgba(246, 144, 255, 0.4);
+  --color-violet-20-a50: rgba(246, 144, 255, 0.5);
+  --color-violet-20-a60: rgba(246, 144, 255, 0.6);
+  --color-violet-20-a70: rgba(246, 144, 255, 0.7);
+  --color-violet-20-a80: rgba(246, 144, 255, 0.8);
+  --color-violet-20-a90: rgba(246, 144, 255, 0.9);
+
+  --color-violet-30-a10: rgba(245, 100, 255, 0.1);
+  --color-violet-30-a20: rgba(245, 100, 255, 0.2);
+  --color-violet-30-a30: rgba(245, 100, 255, 0.3);
+  --color-violet-30-a40: rgba(245, 100, 255, 0.4);
+  --color-violet-30-a50: rgba(245, 100, 255, 0.5);
+  --color-violet-30-a60: rgba(245, 100, 255, 0.6);
+  --color-violet-30-a70: rgba(245, 100, 255, 0.7);
+  --color-violet-30-a80: rgba(245, 100, 255, 0.8);
+  --color-violet-30-a90: rgba(245, 100, 255, 0.9);
+
+  --color-violet-40-a10: rgba(215, 76, 240, 0.1);
+  --color-violet-40-a20: rgba(215, 76, 240, 0.2);
+  --color-violet-40-a30: rgba(215, 76, 240, 0.3);
+  --color-violet-40-a40: rgba(215, 76, 240, 0.4);
+  --color-violet-40-a50: rgba(215, 76, 240, 0.5);
+  --color-violet-40-a60: rgba(215, 76, 240, 0.6);
+  --color-violet-40-a70: rgba(215, 76, 240, 0.7);
+  --color-violet-40-a80: rgba(215, 76, 240, 0.8);
+  --color-violet-40-a90: rgba(215, 76, 240, 0.9);
+
+  --color-violet-50-a10: rgba(185, 51, 224, 0.1);
+  --color-violet-50-a20: rgba(185, 51, 224, 0.2);
+  --color-violet-50-a30: rgba(185, 51, 224, 0.3);
+  --color-violet-50-a40: rgba(185, 51, 224, 0.4);
+  --color-violet-50-a50: rgba(185, 51, 224, 0.5);
+  --color-violet-50-a60: rgba(185, 51, 224, 0.6);
+  --color-violet-50-a70: rgba(185, 51, 224, 0.7);
+  --color-violet-50-a80: rgba(185, 51, 224, 0.8);
+  --color-violet-50-a90: rgba(185, 51, 224, 0.9);
+
+  --color-violet-60-a10: rgba(149, 43, 185, 0.1);
+  --color-violet-60-a20: rgba(149, 43, 185, 0.2);
+  --color-violet-60-a30: rgba(149, 43, 185, 0.3);
+  --color-violet-60-a40: rgba(149, 43, 185, 0.4);
+  --color-violet-60-a50: rgba(149, 43, 185, 0.5);
+  --color-violet-60-a60: rgba(149, 43, 185, 0.6);
+  --color-violet-60-a70: rgba(149, 43, 185, 0.7);
+  --color-violet-60-a80: rgba(149, 43, 185, 0.8);
+  --color-violet-60-a90: rgba(149, 43, 185, 0.9);
+
+  --color-violet-70-a10: rgba(114, 34, 145, 0.1);
+  --color-violet-70-a20: rgba(114, 34, 145, 0.2);
+  --color-violet-70-a30: rgba(114, 34, 145, 0.3);
+  --color-violet-70-a40: rgba(114, 34, 145, 0.4);
+  --color-violet-70-a50: rgba(114, 34, 145, 0.5);
+  --color-violet-70-a60: rgba(114, 34, 145, 0.6);
+  --color-violet-70-a70: rgba(114, 34, 145, 0.7);
+  --color-violet-70-a80: rgba(114, 34, 145, 0.8);
+  --color-violet-70-a90: rgba(114, 34, 145, 0.9);
+
+  --color-violet-80-a10: rgba(79, 26, 106, 0.1);
+  --color-violet-80-a20: rgba(79, 26, 106, 0.2);
+  --color-violet-80-a30: rgba(79, 26, 106, 0.3);
+  --color-violet-80-a40: rgba(79, 26, 106, 0.4);
+  --color-violet-80-a50: rgba(79, 26, 106, 0.5);
+  --color-violet-80-a60: rgba(79, 26, 106, 0.6);
+  --color-violet-80-a70: rgba(79, 26, 106, 0.7);
+  --color-violet-80-a80: rgba(79, 26, 106, 0.8);
+  --color-violet-80-a90: rgba(79, 26, 106, 0.9);
+
+  --color-violet-90-a10: rgba(43, 17, 65, 0.1);
+  --color-violet-90-a20: rgba(43, 17, 65, 0.2);
+  --color-violet-90-a30: rgba(43, 17, 65, 0.3);
+  --color-violet-90-a40: rgba(43, 17, 65, 0.4);
+  --color-violet-90-a50: rgba(43, 17, 65, 0.5);
+  --color-violet-90-a60: rgba(43, 17, 65, 0.6);
+  --color-violet-90-a70: rgba(43, 17, 65, 0.7);
+  --color-violet-90-a80: rgba(43, 17, 65, 0.8);
+  --color-violet-90-a90: rgba(43, 17, 65, 0.9);
+
+  --color-magenta-05: #ffdff0;
+  --color-magenta-10: #ffb4db;
+  --color-magenta-20: #ff8ac6;
+  --color-magenta-30: #ff6aba;
+  --color-magenta-40: #fe4aa2;
+  --color-magenta-50: #ff2a8a;
+  --color-magenta-60: #e11586;
+  --color-magenta-70: #c60184;
+  --color-magenta-80: #7f165b;
+  --color-magenta-90: #50134c;
+
+  --color-magenta-05-a10: rgba(255, 223, 240, 0.1);
+  --color-magenta-05-a20: rgba(255, 223, 240, 0.2);
+  --color-magenta-05-a30: rgba(255, 223, 240, 0.3);
+  --color-magenta-05-a40: rgba(255, 223, 240, 0.4);
+  --color-magenta-05-a50: rgba(255, 223, 240, 0.5);
+  --color-magenta-05-a60: rgba(255, 223, 240, 0.6);
+  --color-magenta-05-a70: rgba(255, 223, 240, 0.7);
+  --color-magenta-05-a80: rgba(255, 223, 240, 0.8);
+  --color-magenta-05-a90: rgba(255, 223, 240, 0.9);
+
+  --color-magenta-10-a10: rgba(255, 180, 219, 0.1);
+  --color-magenta-10-a20: rgba(255, 180, 219, 0.2);
+  --color-magenta-10-a30: rgba(255, 180, 219, 0.3);
+  --color-magenta-10-a40: rgba(255, 180, 219, 0.4);
+  --color-magenta-10-a50: rgba(255, 180, 219, 0.5);
+  --color-magenta-10-a60: rgba(255, 180, 219, 0.6);
+  --color-magenta-10-a70: rgba(255, 180, 219, 0.7);
+  --color-magenta-10-a80: rgba(255, 180, 219, 0.8);
+  --color-magenta-10-a90: rgba(255, 180, 219, 0.9);
+
+  --color-magenta-20-a10: rgba(255, 138, 198, 0.1);
+  --color-magenta-20-a20: rgba(255, 138, 198, 0.2);
+  --color-magenta-20-a30: rgba(255, 138, 198, 0.3);
+  --color-magenta-20-a40: rgba(255, 138, 198, 0.4);
+  --color-magenta-20-a50: rgba(255, 138, 198, 0.5);
+  --color-magenta-20-a60: rgba(255, 138, 198, 0.6);
+  --color-magenta-20-a70: rgba(255, 138, 198, 0.7);
+  --color-magenta-20-a80: rgba(255, 138, 198, 0.8);
+  --color-magenta-20-a90: rgba(255, 138, 198, 0.9);
+
+  --color-magenta-30-a10: rgba(255, 106, 186, 0.1);
+  --color-magenta-30-a20: rgba(255, 106, 186, 0.2);
+  --color-magenta-30-a30: rgba(255, 106, 186, 0.3);
+  --color-magenta-30-a40: rgba(255, 106, 186, 0.4);
+  --color-magenta-30-a50: rgba(255, 106, 186, 0.5);
+  --color-magenta-30-a60: rgba(255, 106, 186, 0.6);
+  --color-magenta-30-a70: rgba(255, 106, 186, 0.7);
+  --color-magenta-30-a80: rgba(255, 106, 186, 0.8);
+  --color-magenta-30-a90: rgba(255, 106, 186, 0.9);
+
+  --color-magenta-40-a10: rgba(254, 74, 162, 0.1);
+  --color-magenta-40-a20: rgba(254, 74, 162, 0.2);
+  --color-magenta-40-a30: rgba(254, 74, 162, 0.3);
+  --color-magenta-40-a40: rgba(254, 74, 162, 0.4);
+  --color-magenta-40-a50: rgba(254, 74, 162, 0.5);
+  --color-magenta-40-a60: rgba(254, 74, 162, 0.6);
+  --color-magenta-40-a70: rgba(254, 74, 162, 0.7);
+  --color-magenta-40-a80: rgba(254, 74, 162, 0.8);
+  --color-magenta-40-a90: rgba(254, 74, 162, 0.9);
+
+  --color-magenta-50-a10: rgba(255, 42, 138, 0.1);
+  --color-magenta-50-a20: rgba(255, 42, 138, 0.2);
+  --color-magenta-50-a30: rgba(255, 42, 138, 0.3);
+  --color-magenta-50-a40: rgba(255, 42, 138, 0.4);
+  --color-magenta-50-a50: rgba(255, 42, 138, 0.5);
+  --color-magenta-50-a60: rgba(255, 42, 138, 0.6);
+  --color-magenta-50-a70: rgba(255, 42, 138, 0.7);
+  --color-magenta-50-a80: rgba(255, 42, 138, 0.8);
+  --color-magenta-50-a90: rgba(255, 42, 138, 0.9);
+
+  --color-magenta-60-a10: rgba(225, 21, 134, 0.1);
+  --color-magenta-60-a20: rgba(225, 21, 134, 0.2);
+  --color-magenta-60-a30: rgba(225, 21, 134, 0.3);
+  --color-magenta-60-a40: rgba(225, 21, 134, 0.4);
+  --color-magenta-60-a50: rgba(225, 21, 134, 0.5);
+  --color-magenta-60-a60: rgba(225, 21, 134, 0.6);
+  --color-magenta-60-a70: rgba(225, 21, 134, 0.7);
+  --color-magenta-60-a80: rgba(225, 21, 134, 0.8);
+  --color-magenta-60-a90: rgba(225, 21, 134, 0.9);
+
+  --color-magenta-70-a10: rgba(198, 1, 132, 0.1);
+  --color-magenta-70-a20: rgba(198, 1, 132, 0.2);
+  --color-magenta-70-a30: rgba(198, 1, 132, 0.3);
+  --color-magenta-70-a40: rgba(198, 1, 132, 0.4);
+  --color-magenta-70-a50: rgba(198, 1, 132, 0.5);
+  --color-magenta-70-a60: rgba(198, 1, 132, 0.6);
+  --color-magenta-70-a70: rgba(198, 1, 132, 0.7);
+  --color-magenta-70-a80: rgba(198, 1, 132, 0.8);
+  --color-magenta-70-a90: rgba(198, 1, 132, 0.9);
+
+  --color-magenta-80-a10: rgba(127, 22, 91, 0.1);
+  --color-magenta-80-a20: rgba(127, 22, 91, 0.2);
+  --color-magenta-80-a30: rgba(127, 22, 91, 0.3);
+  --color-magenta-80-a40: rgba(127, 22, 91, 0.4);
+  --color-magenta-80-a50: rgba(127, 22, 91, 0.5);
+  --color-magenta-80-a60: rgba(127, 22, 91, 0.6);
+  --color-magenta-80-a70: rgba(127, 22, 91, 0.7);
+  --color-magenta-80-a80: rgba(127, 22, 91, 0.8);
+  --color-magenta-80-a90: rgba(127, 22, 91, 0.9);
+
+  --color-magenta-90-a10: rgba(80, 19, 76, 0.1);
+  --color-magenta-90-a20: rgba(80, 19, 76, 0.2);
+  --color-magenta-90-a30: rgba(80, 19, 76, 0.3);
+  --color-magenta-90-a40: rgba(80, 19, 76, 0.4);
+  --color-magenta-90-a50: rgba(80, 19, 76, 0.5);
+  --color-magenta-90-a60: rgba(80, 19, 76, 0.6);
+  --color-magenta-90-a70: rgba(80, 19, 76, 0.7);
+  --color-magenta-90-a80: rgba(80, 19, 76, 0.8);
+  --color-magenta-90-a90: rgba(80, 19, 76, 0.9);
+
+  --color-red-05: #fedfe7;
+  --color-red-10: #ffbec6;
+  --color-red-20: #ff9aa2;
+  --color-red-30: #ff848c;
+  --color-red-40: #ff6a75;
+  --color-red-50: #ff4f5f;
+  --color-red-60: #e12851;
+  --color-red-70: #c40042;
+  --color-red-80: #810220;
+  --color-red-90: #440307;
+
+  --color-red-05-a10: rgba(254, 223, 231, 0.1);
+  --color-red-05-a20: rgba(254, 223, 231, 0.2);
+  --color-red-05-a30: rgba(254, 223, 231, 0.3);
+  --color-red-05-a40: rgba(254, 223, 231, 0.4);
+  --color-red-05-a50: rgba(254, 223, 231, 0.5);
+  --color-red-05-a60: rgba(254, 223, 231, 0.6);
+  --color-red-05-a70: rgba(254, 223, 231, 0.7);
+  --color-red-05-a80: rgba(254, 223, 231, 0.8);
+  --color-red-05-a90: rgba(254, 223, 231, 0.9);
+
+  --color-red-10-a10: rgba(255, 190, 198, 0.1);
+  --color-red-10-a20: rgba(255, 190, 198, 0.2);
+  --color-red-10-a30: rgba(255, 190, 198, 0.3);
+  --color-red-10-a40: rgba(255, 190, 198, 0.4);
+  --color-red-10-a50: rgba(255, 190, 198, 0.5);
+  --color-red-10-a60: rgba(255, 190, 198, 0.6);
+  --color-red-10-a70: rgba(255, 190, 198, 0.7);
+  --color-red-10-a80: rgba(255, 190, 198, 0.8);
+  --color-red-10-a90: rgba(255, 190, 198, 0.9);
+
+  --color-red-20-a10: rgba(255, 154, 162, 0.1);
+  --color-red-20-a20: rgba(255, 154, 162, 0.2);
+  --color-red-20-a30: rgba(255, 154, 162, 0.3);
+  --color-red-20-a40: rgba(255, 154, 162, 0.4);
+  --color-red-20-a50: rgba(255, 154, 162, 0.5);
+  --color-red-20-a60: rgba(255, 154, 162, 0.6);
+  --color-red-20-a70: rgba(255, 154, 162, 0.7);
+  --color-red-20-a80: rgba(255, 154, 162, 0.8);
+  --color-red-20-a90: rgba(255, 154, 162, 0.9);
+
+  --color-red-30-a10: rgba(255, 132, 140, 0.1);
+  --color-red-30-a20: rgba(255, 132, 140, 0.2);
+  --color-red-30-a30: rgba(255, 132, 140, 0.3);
+  --color-red-30-a40: rgba(255, 132, 140, 0.4);
+  --color-red-30-a50: rgba(255, 132, 140, 0.5);
+  --color-red-30-a60: rgba(255, 132, 140, 0.6);
+  --color-red-30-a70: rgba(255, 132, 140, 0.7);
+  --color-red-30-a80: rgba(255, 132, 140, 0.8);
+  --color-red-30-a90: rgba(255, 132, 140, 0.9);
+
+  --color-red-40-a10: rgba(255, 106, 117, 0.1);
+  --color-red-40-a20: rgba(255, 106, 117, 0.2);
+  --color-red-40-a30: rgba(255, 106, 117, 0.3);
+  --color-red-40-a40: rgba(255, 106, 117, 0.4);
+  --color-red-40-a50: rgba(255, 106, 117, 0.5);
+  --color-red-40-a60: rgba(255, 106, 117, 0.6);
+  --color-red-40-a70: rgba(255, 106, 117, 0.7);
+  --color-red-40-a80: rgba(255, 106, 117, 0.8);
+  --color-red-40-a90: rgba(255, 106, 117, 0.9);
+
+  --color-red-50-a10: rgba(255, 79, 95, 0.1);
+  --color-red-50-a20: rgba(255, 79, 95, 0.2);
+  --color-red-50-a30: rgba(255, 79, 95, 0.3);
+  --color-red-50-a40: rgba(255, 79, 95, 0.4);
+  --color-red-50-a50: rgba(255, 79, 95, 0.5);
+  --color-red-50-a60: rgba(255, 79, 95, 0.6);
+  --color-red-50-a70: rgba(255, 79, 95, 0.7);
+  --color-red-50-a80: rgba(255, 79, 95, 0.8);
+  --color-red-50-a90: rgba(255, 79, 95, 0.9);
+
+  --color-red-60-a10: rgba(225, 40, 81, 0.1);
+  --color-red-60-a20: rgba(225, 40, 81, 0.2);
+  --color-red-60-a30: rgba(225, 40, 81, 0.3);
+  --color-red-60-a40: rgba(225, 40, 81, 0.4);
+  --color-red-60-a50: rgba(225, 40, 81, 0.5);
+  --color-red-60-a60: rgba(225, 40, 81, 0.6);
+  --color-red-60-a70: rgba(225, 40, 81, 0.7);
+  --color-red-60-a80: rgba(225, 40, 81, 0.8);
+  --color-red-60-a90: rgba(225, 40, 81, 0.9);
+
+  --color-red-70-a10: rgba(196, 0, 66, 0.1);
+  --color-red-70-a20: rgba(196, 0, 66, 0.2);
+  --color-red-70-a30: rgba(196, 0, 66, 0.3);
+  --color-red-70-a40: rgba(196, 0, 66, 0.4);
+  --color-red-70-a50: rgba(196, 0, 66, 0.5);
+  --color-red-70-a60: rgba(196, 0, 66, 0.6);
+  --color-red-70-a70: rgba(196, 0, 66, 0.7);
+  --color-red-70-a80: rgba(196, 0, 66, 0.8);
+  --color-red-70-a90: rgba(196, 0, 66, 0.9);
+
+  --color-red-80-a10: rgba(129, 2, 32, 0.1);
+  --color-red-80-a20: rgba(129, 2, 32, 0.2);
+  --color-red-80-a30: rgba(129, 2, 32, 0.3);
+  --color-red-80-a40: rgba(129, 2, 32, 0.4);
+  --color-red-80-a50: rgba(129, 2, 32, 0.5);
+  --color-red-80-a60: rgba(129, 2, 32, 0.6);
+  --color-red-80-a70: rgba(129, 2, 32, 0.7);
+  --color-red-80-a80: rgba(129, 2, 32, 0.8);
+  --color-red-80-a90: rgba(129, 2, 32, 0.9);
+
+  --color-red-90-a10: rgba(68, 3, 7, 0.1);
+  --color-red-90-a20: rgba(68, 3, 7, 0.2);
+  --color-red-90-a30: rgba(68, 3, 7, 0.3);
+  --color-red-90-a40: rgba(68, 3, 7, 0.4);
+  --color-red-90-a50: rgba(68, 3, 7, 0.5);
+  --color-red-90-a60: rgba(68, 3, 7, 0.6);
+  --color-red-90-a70: rgba(68, 3, 7, 0.7);
+  --color-red-90-a80: rgba(68, 3, 7, 0.8);
+  --color-red-90-a90: rgba(68, 3, 7, 0.9);
+
+  --color-orange-05: #fff4de;
+  --color-orange-10: #ffd5b2;
+  --color-orange-20: #ffb587;
+  --color-orange-30: #ffa265;
+  --color-orange-40: #fe8a4f;
+  --color-orange-50: #ff7139;
+  --color-orange-60: #e25821;
+  --color-orange-70: #cd3d00;
+  --color-orange-80: #9e280c;
+  --color-orange-90: #7b1604;
+
+  --color-orange-05-a10: rgba(255, 244, 222, 0.1);
+  --color-orange-05-a20: rgba(255, 244, 222, 0.2);
+  --color-orange-05-a30: rgba(255, 244, 222, 0.3);
+  --color-orange-05-a40: rgba(255, 244, 222, 0.4);
+  --color-orange-05-a50: rgba(255, 244, 222, 0.5);
+  --color-orange-05-a60: rgba(255, 244, 222, 0.6);
+  --color-orange-05-a70: rgba(255, 244, 222, 0.7);
+  --color-orange-05-a80: rgba(255, 244, 222, 0.8);
+  --color-orange-05-a90: rgba(255, 244, 222, 0.9);
+
+  --color-orange-10-a10: rgba(255, 213, 178, 0.1);
+  --color-orange-10-a20: rgba(255, 213, 178, 0.2);
+  --color-orange-10-a30: rgba(255, 213, 178, 0.3);
+  --color-orange-10-a40: rgba(255, 213, 178, 0.4);
+  --color-orange-10-a50: rgba(255, 213, 178, 0.5);
+  --color-orange-10-a60: rgba(255, 213, 178, 0.6);
+  --color-orange-10-a70: rgba(255, 213, 178, 0.7);
+  --color-orange-10-a80: rgba(255, 213, 178, 0.8);
+  --color-orange-10-a90: rgba(255, 213, 178, 0.9);
+
+  --color-orange-20-a10: rgba(255, 181, 135, 0.1);
+  --color-orange-20-a20: rgba(255, 181, 135, 0.2);
+  --color-orange-20-a30: rgba(255, 181, 135, 0.3);
+  --color-orange-20-a40: rgba(255, 181, 135, 0.4);
+  --color-orange-20-a50: rgba(255, 181, 135, 0.5);
+  --color-orange-20-a60: rgba(255, 181, 135, 0.6);
+  --color-orange-20-a70: rgba(255, 181, 135, 0.7);
+  --color-orange-20-a80: rgba(255, 181, 135, 0.8);
+  --color-orange-20-a90: rgba(255, 181, 135, 0.9);
+
+  --color-orange-30-a10: rgba(255, 162, 101, 0.1);
+  --color-orange-30-a20: rgba(255, 162, 101, 0.2);
+  --color-orange-30-a30: rgba(255, 162, 101, 0.3);
+  --color-orange-30-a40: rgba(255, 162, 101, 0.4);
+  --color-orange-30-a50: rgba(255, 162, 101, 0.5);
+  --color-orange-30-a60: rgba(255, 162, 101, 0.6);
+  --color-orange-30-a70: rgba(255, 162, 101, 0.7);
+  --color-orange-30-a80: rgba(255, 162, 101, 0.8);
+  --color-orange-30-a90: rgba(255, 162, 101, 0.9);
+
+  --color-orange-40-a10: rgba(254, 138, 79, 0.1);
+  --color-orange-40-a20: rgba(254, 138, 79, 0.2);
+  --color-orange-40-a30: rgba(254, 138, 79, 0.3);
+  --color-orange-40-a40: rgba(254, 138, 79, 0.4);
+  --color-orange-40-a50: rgba(254, 138, 79, 0.5);
+  --color-orange-40-a60: rgba(254, 138, 79, 0.6);
+  --color-orange-40-a70: rgba(254, 138, 79, 0.7);
+  --color-orange-40-a80: rgba(254, 138, 79, 0.8);
+  --color-orange-40-a90: rgba(254, 138, 79, 0.9);
+
+  --color-orange-50-a10: rgba(255, 113, 57, 0.1);
+  --color-orange-50-a20: rgba(255, 113, 57, 0.2);
+  --color-orange-50-a30: rgba(255, 113, 57, 0.3);
+  --color-orange-50-a40: rgba(255, 113, 57, 0.4);
+  --color-orange-50-a50: rgba(255, 113, 57, 0.5);
+  --color-orange-50-a60: rgba(255, 113, 57, 0.6);
+  --color-orange-50-a70: rgba(255, 113, 57, 0.7);
+  --color-orange-50-a80: rgba(255, 113, 57, 0.8);
+  --color-orange-50-a90: rgba(255, 113, 57, 0.9);
+
+  --color-orange-60-a10: rgba(226, 88, 33, 0.1);
+  --color-orange-60-a20: rgba(226, 88, 33, 0.2);
+  --color-orange-60-a30: rgba(226, 88, 33, 0.3);
+  --color-orange-60-a40: rgba(226, 88, 33, 0.4);
+  --color-orange-60-a50: rgba(226, 88, 33, 0.5);
+  --color-orange-60-a60: rgba(226, 88, 33, 0.6);
+  --color-orange-60-a70: rgba(226, 88, 33, 0.7);
+  --color-orange-60-a80: rgba(226, 88, 33, 0.8);
+  --color-orange-60-a90: rgba(226, 88, 33, 0.9);
+
+  --color-orange-70-a10: rgba(205, 61, 0, 0.1);
+  --color-orange-70-a20: rgba(205, 61, 0, 0.2);
+  --color-orange-70-a30: rgba(205, 61, 0, 0.3);
+  --color-orange-70-a40: rgba(205, 61, 0, 0.4);
+  --color-orange-70-a50: rgba(205, 61, 0, 0.5);
+  --color-orange-70-a60: rgba(205, 61, 0, 0.6);
+  --color-orange-70-a70: rgba(205, 61, 0, 0.7);
+  --color-orange-70-a80: rgba(205, 61, 0, 0.8);
+  --color-orange-70-a90: rgba(205, 61, 0, 0.9);
+
+  --color-orange-80-a10: rgba(158, 40, 12, 0.1);
+  --color-orange-80-a20: rgba(158, 40, 12, 0.2);
+  --color-orange-80-a30: rgba(158, 40, 12, 0.3);
+  --color-orange-80-a40: rgba(158, 40, 12, 0.4);
+  --color-orange-80-a50: rgba(158, 40, 12, 0.5);
+  --color-orange-80-a60: rgba(158, 40, 12, 0.6);
+  --color-orange-80-a70: rgba(158, 40, 12, 0.7);
+  --color-orange-80-a80: rgba(158, 40, 12, 0.8);
+  --color-orange-80-a90: rgba(158, 40, 12, 0.9);
+
+  --color-orange-90-a10: rgba(123, 22, 4, 0.1);
+  --color-orange-90-a20: rgba(123, 22, 4, 0.2);
+  --color-orange-90-a30: rgba(123, 22, 4, 0.3);
+  --color-orange-90-a40: rgba(123, 22, 4, 0.4);
+  --color-orange-90-a50: rgba(123, 22, 4, 0.5);
+  --color-orange-90-a60: rgba(123, 22, 4, 0.6);
+  --color-orange-90-a70: rgba(123, 22, 4, 0.7);
+  --color-orange-90-a80: rgba(123, 22, 4, 0.8);
+  --color-orange-90-a90: rgba(123, 22, 4, 0.9);
+
+  --color-yellow-05: #ffffcc;
+  --color-yellow-10: #feff98;
+  --color-yellow-20: #ffea80;
+  --color-yellow-30: #ffd567;
+  --color-yellow-40: #ffbd4f;
+  --color-yellow-50: #ffa537;
+  --color-yellow-60: #e27f2e;
+  --color-yellow-70: #c45a28;
+  --color-yellow-80: #a7341f;
+  --color-yellow-90: #960e18;
+
+  --color-yellow-05-a10: rgba(255, 255, 204, 0.1);
+  --color-yellow-05-a20: rgba(255, 255, 204, 0.2);
+  --color-yellow-05-a30: rgba(255, 255, 204, 0.3);
+  --color-yellow-05-a40: rgba(255, 255, 204, 0.4);
+  --color-yellow-05-a50: rgba(255, 255, 204, 0.5);
+  --color-yellow-05-a60: rgba(255, 255, 204, 0.6);
+  --color-yellow-05-a70: rgba(255, 255, 204, 0.7);
+  --color-yellow-05-a80: rgba(255, 255, 204, 0.8);
+  --color-yellow-05-a90: rgba(255, 255, 204, 0.9);
+
+  --color-yellow-10-a10: rgba(254, 255, 152, 0.1);
+  --color-yellow-10-a20: rgba(254, 255, 152, 0.2);
+  --color-yellow-10-a30: rgba(254, 255, 152, 0.3);
+  --color-yellow-10-a40: rgba(254, 255, 152, 0.4);
+  --color-yellow-10-a50: rgba(254, 255, 152, 0.5);
+  --color-yellow-10-a60: rgba(254, 255, 152, 0.6);
+  --color-yellow-10-a70: rgba(254, 255, 152, 0.7);
+  --color-yellow-10-a80: rgba(254, 255, 152, 0.8);
+  --color-yellow-10-a90: rgba(254, 255, 152, 0.9);
+
+  --color-yellow-20-a10: rgba(255, 234, 128, 0.1);
+  --color-yellow-20-a20: rgba(255, 234, 128, 0.2);
+  --color-yellow-20-a30: rgba(255, 234, 128, 0.3);
+  --color-yellow-20-a40: rgba(255, 234, 128, 0.4);
+  --color-yellow-20-a50: rgba(255, 234, 128, 0.5);
+  --color-yellow-20-a60: rgba(255, 234, 128, 0.6);
+  --color-yellow-20-a70: rgba(255, 234, 128, 0.7);
+  --color-yellow-20-a80: rgba(255, 234, 128, 0.8);
+  --color-yellow-20-a90: rgba(255, 234, 128, 0.9);
+
+  --color-yellow-30-a10: rgba(255, 213, 103, 0.1);
+  --color-yellow-30-a20: rgba(255, 213, 103, 0.2);
+  --color-yellow-30-a30: rgba(255, 213, 103, 0.3);
+  --color-yellow-30-a40: rgba(255, 213, 103, 0.4);
+  --color-yellow-30-a50: rgba(255, 213, 103, 0.5);
+  --color-yellow-30-a60: rgba(255, 213, 103, 0.6);
+  --color-yellow-30-a70: rgba(255, 213, 103, 0.7);
+  --color-yellow-30-a80: rgba(255, 213, 103, 0.8);
+  --color-yellow-30-a90: rgba(255, 213, 103, 0.9);
+
+  --color-yellow-40-a10: rgba(255, 189, 79, 0.1);
+  --color-yellow-40-a20: rgba(255, 189, 79, 0.2);
+  --color-yellow-40-a30: rgba(255, 189, 79, 0.3);
+  --color-yellow-40-a40: rgba(255, 189, 79, 0.4);
+  --color-yellow-40-a50: rgba(255, 189, 79, 0.5);
+  --color-yellow-40-a60: rgba(255, 189, 79, 0.6);
+  --color-yellow-40-a70: rgba(255, 189, 79, 0.7);
+  --color-yellow-40-a80: rgba(255, 189, 79, 0.8);
+  --color-yellow-40-a90: rgba(255, 189, 79, 0.9);
+
+  --color-yellow-50-a10: rgba(255, 165, 55, 0.1);
+  --color-yellow-50-a20: rgba(255, 165, 55, 0.2);
+  --color-yellow-50-a30: rgba(255, 165, 55, 0.3);
+  --color-yellow-50-a40: rgba(255, 165, 55, 0.4);
+  --color-yellow-50-a50: rgba(255, 165, 55, 0.5);
+  --color-yellow-50-a60: rgba(255, 165, 55, 0.6);
+  --color-yellow-50-a70: rgba(255, 165, 55, 0.7);
+  --color-yellow-50-a80: rgba(255, 165, 55, 0.8);
+  --color-yellow-50-a90: rgba(255, 165, 55, 0.9);
+
+  --color-yellow-60-a10: rgba(226, 127, 46, 0.1);
+  --color-yellow-60-a20: rgba(226, 127, 46, 0.2);
+  --color-yellow-60-a30: rgba(226, 127, 46, 0.3);
+  --color-yellow-60-a40: rgba(226, 127, 46, 0.4);
+  --color-yellow-60-a50: rgba(226, 127, 46, 0.5);
+  --color-yellow-60-a60: rgba(226, 127, 46, 0.6);
+  --color-yellow-60-a70: rgba(226, 127, 46, 0.7);
+  --color-yellow-60-a80: rgba(226, 127, 46, 0.8);
+  --color-yellow-60-a90: rgba(226, 127, 46, 0.9);
+
+  --color-yellow-70-a10: rgba(196, 90, 40, 0.1);
+  --color-yellow-70-a20: rgba(196, 90, 40, 0.2);
+  --color-yellow-70-a30: rgba(196, 90, 40, 0.3);
+  --color-yellow-70-a40: rgba(196, 90, 40, 0.4);
+  --color-yellow-70-a50: rgba(196, 90, 40, 0.5);
+  --color-yellow-70-a60: rgba(196, 90, 40, 0.6);
+  --color-yellow-70-a70: rgba(196, 90, 40, 0.7);
+  --color-yellow-70-a80: rgba(196, 90, 40, 0.8);
+  --color-yellow-70-a90: rgba(196, 90, 40, 0.9);
+
+  --color-yellow-80-a10: rgba(167, 52, 31, 0.1);
+  --color-yellow-80-a20: rgba(167, 52, 31, 0.2);
+  --color-yellow-80-a30: rgba(167, 52, 31, 0.3);
+  --color-yellow-80-a40: rgba(167, 52, 31, 0.4);
+  --color-yellow-80-a50: rgba(167, 52, 31, 0.5);
+  --color-yellow-80-a60: rgba(167, 52, 31, 0.6);
+  --color-yellow-80-a70: rgba(167, 52, 31, 0.7);
+  --color-yellow-80-a80: rgba(167, 52, 31, 0.8);
+  --color-yellow-80-a90: rgba(167, 52, 31, 0.9);
+
+  --color-yellow-90-a10: rgba(150, 14, 24, 0.1);
+  --color-yellow-90-a20: rgba(150, 14, 24, 0.2);
+  --color-yellow-90-a30: rgba(150, 14, 24, 0.3);
+  --color-yellow-90-a40: rgba(150, 14, 24, 0.4);
+  --color-yellow-90-a50: rgba(150, 14, 24, 0.5);
+  --color-yellow-90-a60: rgba(150, 14, 24, 0.6);
+  --color-yellow-90-a70: rgba(150, 14, 24, 0.7);
+  --color-yellow-90-a80: rgba(150, 14, 24, 0.8);
+  --color-yellow-90-a90: rgba(150, 14, 24, 0.9);
+
+  --color-grey-10: #f9f9fa;
+  --color-grey-20: #ededf0;
+  --color-grey-30: #d7d7db;
+  --color-grey-40: #b1b1b3;
+  --color-grey-50: #737373;
+  --color-grey-60: #4a4a4f;
+  --color-grey-70: #38383d;
+  --color-grey-80: #2a2a2e;
+  --color-grey-90: #0c0c0d;
+
+  --color-grey-10-a10: rgba(249, 249, 250, 0.1);
+  --color-grey-10-a20: rgba(249, 249, 250, 0.2);
+  --color-grey-10-a30: rgba(249, 249, 250, 0.3);
+  --color-grey-10-a40: rgba(249, 249, 250, 0.4);
+  --color-grey-10-a50: rgba(249, 249, 250, 0.5);
+  --color-grey-10-a60: rgba(249, 249, 250, 0.6);
+  --color-grey-10-a70: rgba(249, 249, 250, 0.7);
+  --color-grey-10-a80: rgba(249, 249, 250, 0.8);
+  --color-grey-10-a90: rgba(249, 249, 250, 0.9);
+
+  --color-grey-20-a10: rgba(237, 237, 240, 0.1);
+  --color-grey-20-a20: rgba(237, 237, 240, 0.2);
+  --color-grey-20-a30: rgba(237, 237, 240, 0.3);
+  --color-grey-20-a40: rgba(237, 237, 240, 0.4);
+  --color-grey-20-a50: rgba(237, 237, 240, 0.5);
+  --color-grey-20-a60: rgba(237, 237, 240, 0.6);
+  --color-grey-20-a70: rgba(237, 237, 240, 0.7);
+  --color-grey-20-a80: rgba(237, 237, 240, 0.8);
+  --color-grey-20-a90: rgba(237, 237, 240, 0.9);
+
+  --color-grey-30-a10: rgba(215, 215, 219, 0.1);
+  --color-grey-30-a20: rgba(215, 215, 219, 0.2);
+  --color-grey-30-a30: rgba(215, 215, 219, 0.3);
+  --color-grey-30-a40: rgba(215, 215, 219, 0.4);
+  --color-grey-30-a50: rgba(215, 215, 219, 0.5);
+  --color-grey-30-a60: rgba(215, 215, 219, 0.6);
+  --color-grey-30-a70: rgba(215, 215, 219, 0.7);
+  --color-grey-30-a80: rgba(215, 215, 219, 0.8);
+  --color-grey-30-a90: rgba(215, 215, 219, 0.9);
+
+  --color-grey-40-a10: rgba(177, 177, 179, 0.1);
+  --color-grey-40-a20: rgba(177, 177, 179, 0.2);
+  --color-grey-40-a30: rgba(177, 177, 179, 0.3);
+  --color-grey-40-a40: rgba(177, 177, 179, 0.4);
+  --color-grey-40-a50: rgba(177, 177, 179, 0.5);
+  --color-grey-40-a60: rgba(177, 177, 179, 0.6);
+  --color-grey-40-a70: rgba(177, 177, 179, 0.7);
+  --color-grey-40-a80: rgba(177, 177, 179, 0.8);
+  --color-grey-40-a90: rgba(177, 177, 179, 0.9);
+
+  --color-grey-50-a10: rgba(115, 115, 115, 0.1);
+  --color-grey-50-a20: rgba(115, 115, 115, 0.2);
+  --color-grey-50-a30: rgba(115, 115, 115, 0.3);
+  --color-grey-50-a40: rgba(115, 115, 115, 0.4);
+  --color-grey-50-a50: rgba(115, 115, 115, 0.5);
+  --color-grey-50-a60: rgba(115, 115, 115, 0.6);
+  --color-grey-50-a70: rgba(115, 115, 115, 0.7);
+  --color-grey-50-a80: rgba(115, 115, 115, 0.8);
+  --color-grey-50-a90: rgba(115, 115, 115, 0.9);
+
+  --color-grey-60-a10: rgba(74, 74, 79, 0.1);
+  --color-grey-60-a20: rgba(74, 74, 79, 0.2);
+  --color-grey-60-a30: rgba(74, 74, 79, 0.3);
+  --color-grey-60-a40: rgba(74, 74, 79, 0.4);
+  --color-grey-60-a50: rgba(74, 74, 79, 0.5);
+  --color-grey-60-a60: rgba(74, 74, 79, 0.6);
+  --color-grey-60-a70: rgba(74, 74, 79, 0.7);
+  --color-grey-60-a80: rgba(74, 74, 79, 0.8);
+  --color-grey-60-a90: rgba(74, 74, 79, 0.9);
+
+  --color-grey-70-a10: rgba(56, 56, 61, 0.1);
+  --color-grey-70-a20: rgba(56, 56, 61, 0.2);
+  --color-grey-70-a30: rgba(56, 56, 61, 0.3);
+  --color-grey-70-a40: rgba(56, 56, 61, 0.4);
+  --color-grey-70-a50: rgba(56, 56, 61, 0.5);
+  --color-grey-70-a60: rgba(56, 56, 61, 0.6);
+  --color-grey-70-a70: rgba(56, 56, 61, 0.7);
+  --color-grey-70-a80: rgba(56, 56, 61, 0.8);
+  --color-grey-70-a90: rgba(56, 56, 61, 0.9);
+
+  --color-grey-80-a10: rgba(42, 42, 46, 0.1);
+  --color-grey-80-a20: rgba(42, 42, 46, 0.2);
+  --color-grey-80-a30: rgba(42, 42, 46, 0.3);
+  --color-grey-80-a40: rgba(42, 42, 46, 0.4);
+  --color-grey-80-a50: rgba(42, 42, 46, 0.5);
+  --color-grey-80-a60: rgba(42, 42, 46, 0.6);
+  --color-grey-80-a70: rgba(42, 42, 46, 0.7);
+  --color-grey-80-a80: rgba(42, 42, 46, 0.8);
+  --color-grey-80-a90: rgba(42, 42, 46, 0.9);
+
+  --color-grey-90-a10: rgba(12, 12, 13, 0.1);
+  --color-grey-90-a20: rgba(12, 12, 13, 0.2);
+  --color-grey-90-a30: rgba(12, 12, 13, 0.3);
+  --color-grey-90-a40: rgba(12, 12, 13, 0.4);
+  --color-grey-90-a50: rgba(12, 12, 13, 0.5);
+  --color-grey-90-a60: rgba(12, 12, 13, 0.6);
+  --color-grey-90-a70: rgba(12, 12, 13, 0.7);
+  --color-grey-90-a80: rgba(12, 12, 13, 0.8);
+  --color-grey-90-a90: rgba(12, 12, 13, 0.9);
+}
