@@ -1,6 +1,13 @@
 @import './mixin-button';
 
 /**
+ * Component: Button Icon
+ */
+@include comp('button-icon') {
+  position: relative;
+}
+
+/**
  * Component: Button
  */
 @include comp('button') {

@@ -1,0 +1,22 @@
+@mixin animation($name-list, $duration, $timing, $fill-mode: both) {
+  animation-name: $name-list;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill-mode;
+}
+
+@mixin animation-fade($action: 'in') {
+  @include animation(
+    (fade-#{$action}),
+    var(--motion-duration-3),
+    var(--motion-timing-decelerate)
+  );
+}
+
+@mixin animation-slide($direction: 'bottom', $action: 'in') {
+  @include animation(
+    (fade-#{$action}, slide-#{$direction}-#{$action}),
+    var(--motion-duration-3),
+    var(--motion-timing-decelerate)
+  );
+}

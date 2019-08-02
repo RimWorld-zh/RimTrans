@@ -1,0 +1,20 @@
+@each $direction in ('top', 'bottom', 'left', 'right') {
+  @each $action in ('in', 'out') {
+    $offset: 16px;
+    $original: translate3d(0, 0, 0);
+    $moved: translate3d(
+      if($direction == 'left', -$offset, if($direction == 'right', $offset, 0)),
+      if($direction == 'top', -$offset, if($direction == 'bottom', $offset, 0)),
+      0
+    );
+
+    @keyframes slide-#{$direction}-#{$action} {
+      from {
+        transform: if($action == 'in', $moved, $original);
+      }
+      to {
+        transform: if($action == 'out', $moved, $original);
+      }
+    }
+  }
+}

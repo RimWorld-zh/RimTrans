@@ -129,13 +129,13 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   --radius-base: 2;
 
-  // Layout ====
+  // Layout ================
 
   // Card
 
   --card-radius: 4;
 
-  // Inputs ====
+  // Inputs ================
 
   --input-radius: 2;
   --input-disabled-opacity: 0.4;
@@ -197,6 +197,13 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
 
   // Toggle
   --toggle-height: 20;
+
+  // Surfaces ================
+
+  // Dialog
+
+  --dialog-min-width: 300;
+  --dialog-radius: 4;
 
   // Misc ====
 

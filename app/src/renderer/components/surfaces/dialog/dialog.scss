@@ -1,0 +1,93 @@
+/**
+ * Component: Dialog
+ */
+@include comp('dialog') {
+  z-index: var(--z-index-surface);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: calc(var(--gap-base) * 4px);
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  font-size: calc(var(--font-size-body) * 1px);
+  font-weight: var(--font-weight-body);
+  line-height: calc(var(--line-height-body) * 1px);
+
+  @include elem('overlay') {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @include elem('container') {
+    position: relative;
+    min-width: calc(var(--dialog-min-width) * 1px);
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+
+    padding: calc(var(--gap-base) * 6px);
+    border-radius: calc(var(--dialog-radius) * 1px);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+
+    box-shadow: var(--depth-32);
+
+    @include animation-slide('bottom', 'in');
+  }
+
+  @include elem('header') {
+    position: relative;
+
+    padding-bottom: calc(var(--gap-base) * 2px);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    font-size: calc(var(--font-size-title-2) * 1px);
+    font-weight: var(--font-weight-title-2);
+    line-height: calc(var(--line-height-title-2) * 1px);
+  }
+
+  @include elem('header-content') {
+    position: relative;
+    flex: 1;
+    padding-right: calc(var(--gap-base) * 2px);
+  }
+
+  @include elem('close-button') {
+    flex: none;
+    margin-left: auto;
+  }
+
+  @include elem('body') {
+    position: relative;
+    padding: calc(var(--gap-base) * 4px) 0;
+  }
+
+  @include elem('footer') {
+    position: relative;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: calc(var(--gap-base) * 2px);
+    justify-content: end;
+    align-content: center;
+    align-items: center;
+  }
+}
