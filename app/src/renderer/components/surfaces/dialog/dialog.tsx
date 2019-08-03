@@ -87,6 +87,7 @@ export class RwDialog extends Vue implements DialogOptions {
           const confirm = (e: MouseEvent): void => {
             state.show = false;
             parent.$nextTick(() => {
+              state.$destroy();
               destroy();
               resolve(true);
             });
@@ -94,6 +95,7 @@ export class RwDialog extends Vue implements DialogOptions {
           const cancel = (e: MouseEvent): void => {
             state.show = false;
             parent.$nextTick(() => {
+              state.$destroy();
               destroy();
               resolve(false);
             });
