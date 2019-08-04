@@ -11,9 +11,9 @@ import {
 } from 'vue-property-decorator';
 import {
   LanguageInfo,
-  LanguageDictionary,
   LanguageData,
   languageInfos,
+  TranslationDictionary,
   getLanguageIdByCode,
   getLanguageDictByID,
 } from '@rimtrans/i18n';
@@ -52,7 +52,7 @@ export class I18n extends Vue {
     });
   }
 
-  public dict: LanguageDictionary = getLanguageDictByID('English');
+  public dict: TranslationDictionary = getLanguageDictByID('English');
 
   private lastLanguage?: string;
 

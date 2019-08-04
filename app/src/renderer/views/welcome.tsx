@@ -18,27 +18,37 @@ interface NavItem {
   disabled?: boolean;
 }
 
-const navList: NavItem[] = [
-  {
-    icon: 'Translate',
-    color: 'green',
-    label: 'Translator',
-    to: '/translator',
-  },
-  {
-    icon: 'Codepen',
-    color: 'blue',
-    label: 'Modder',
-    to: '/modder',
-  },
-];
-
 /**
  * Component: Welcome
  */
 @Component
 export default class VWelcome extends Vue {
   private render(h: CreateElement): VNode {
+    const {
+      $i18n: {
+        dict: {
+          app: {
+            tool: { translator, modder, translationWorkshop },
+          },
+        },
+      },
+    } = this;
+
+    const navList: NavItem[] = [
+      {
+        icon: 'Translate',
+        color: 'green',
+        label: translator,
+        to: '/translator',
+      },
+      {
+        icon: 'Codepen',
+        color: 'blue',
+        label: modder,
+        to: '/modder',
+      },
+    ];
+
     return (
       <div staticClass="v-welcome rw-container">
         <div staticClass="v-welcome_wrapper">

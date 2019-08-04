@@ -15,10 +15,18 @@ import {
 @Component
 export default class VSettingsUI extends Vue {
   private render(h: CreateElement): VNode {
+    const {
+      $i18n: {
+        dict: {
+          settings: { darkMode },
+        },
+      },
+    } = this;
+
     return (
       <div staticClass="v-settings-form">
         <rw-form>
-          <rw-form-label key="theme-label">Dark mode</rw-form-label>
+          <rw-form-label key="theme-label">{darkMode}</rw-form-label>
           <rw-toggle
             key="theme"
             v-model={this.$states.settings.theme}

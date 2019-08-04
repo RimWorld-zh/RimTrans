@@ -34,9 +34,8 @@ export default class VSettingsFeature extends Vue {
     const {
       $i18n: {
         dict: {
-          settingsExplorerDirectory,
-          settingsDirectoryRimWorld,
-          settingsDirectoryWorkshop,
+          file: { explore },
+          settings: { directoryRimWorld, directoryWorkshop },
         },
       },
     } = this;
@@ -44,23 +43,23 @@ export default class VSettingsFeature extends Vue {
     return (
       <div staticClass="v-settings-form">
         <rw-form>
-          <rw-form-label key="dir-rw-label">{settingsDirectoryRimWorld}</rw-form-label>
+          <rw-form-label key="dir-rw-label">{directoryRimWorld}</rw-form-label>
           <rw-form-field-group key="dir-rw" staticClass="v-settings-form_directory-group">
             <rw-text-field v-model={this.$states.settings.directoryRimWorld}>
               <mdi slot="prefixIcon" icon="FolderOutline" />
             </rw-text-field>
             <rw-button color="primary" onClick={this.onDirectoryRimWorldExplorer}>
-              {settingsExplorerDirectory}
+              {explore}
             </rw-button>
           </rw-form-field-group>
 
-          <rw-form-label key="dir-ws-label">{settingsDirectoryWorkshop}</rw-form-label>
+          <rw-form-label key="dir-ws-label">{directoryWorkshop}</rw-form-label>
           <rw-form-field-group key="dir-ws" staticClass="v-settings-form_directory-group">
             <rw-text-field v-model={this.$states.settings.directoryWorkshop}>
               <mdi slot="prefixIcon" icon="FolderOutline" />
             </rw-text-field>
             <rw-button color="primary" onClick={this.onDirectoryWorkshopExplorer}>
-              {settingsExplorerDirectory}
+              {explore}
             </rw-button>
           </rw-form-field-group>
         </rw-form>

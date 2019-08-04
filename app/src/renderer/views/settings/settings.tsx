@@ -22,21 +22,28 @@ interface SettingCategory {
 @Component
 export default class VSettings extends Vue {
   private render(h: CreateElement): VNode {
-    const { dict } = this.$i18n;
+    const {
+      $i18n: {
+        dict: {
+          settings: { features, ui, about },
+        },
+      },
+    } = this;
+
     const categories: SettingCategory[] = [
       {
         icon: 'Translate',
-        label: 'Language', // DO NOT use translation for this label
+        label: 'Language', // DO NOT use translation for this category
         to: 'language',
       },
       {
         icon: 'FunctionVariant',
-        label: dict.settingsCategoryFeatures,
+        label: features,
         to: 'features',
       },
       {
         icon: 'Palette',
-        label: dict.settingsCategoryUI,
+        label: ui,
         to: 'ui',
       },
     ];
