@@ -35,7 +35,21 @@ export interface ModMetaData {
    */
   readonly targetVersion: string;
   readonly description: string;
-  readonly supportedVersions: string[];
+  readonly supportedVersions: readonly string[];
+}
+
+export function defaultModMetaData(path: string): ModMetaData {
+  const id = io.fileName(path);
+  return {
+    path,
+    id,
+    name: id,
+    author: 'Anonymous',
+    url: '',
+    description: 'No description provided.',
+    targetVersion: 'Unknown',
+    supportedVersions: [],
+  };
 }
 
 export interface ModOutput {
@@ -165,7 +179,6 @@ export class Mod implements ModOutput {
   }
 
   public static async load(path: string): Promise<Mod> {
-    const id = io.fileName(path);
     const pathAbout = io.join(path, FOLDER_NAME_ABOUT);
     const pathAboutXML = io.join(pathAbout, FILE_NAME_ABOUT);
     const pathPublishFileId = io.join(pathAbout, FILE_NAME_PUBLISHED_FILE_ID);
@@ -173,37 +186,33 @@ export class Mod implements ModOutput {
     const [meta, publishFileId] = await Promise.all([
       io.fileExists(pathAboutXML).then(
         async (exists): Promise<ModMetaData> => {
-          const metaData: ModMetaData = {
-            path,
-            id,
-            name: id,
-            author: 'Anonymous',
-            url: '',
-            description: 'No description provided.',
-            targetVersion: 'Unknown',
-            supportedVersions: [],
-          };
+          const metaData: ModMetaData = defaultModMetaData(path);
 
           if (exists) {
-            const root = await loadXML(pathAboutXML);
-            Object.entries(metaData).forEach(([key, value]) => {
-              const isArray = Array.isArray(value);
-              const element = root.elements.find(c => c.name === key);
-              if (!element) {
-                return;
-              }
-              /* eslint-disable @typescript-eslint/no-explicit-any */
-              if (isArray) {
-                (metaData as any)[key] = element.elements
-                  .map(li => li.value.trim())
-                  .filter(v => !!v);
-                return;
-              }
-              if (element.value.trim()) {
-                (metaData as any)[key] = element.value.trim();
-              }
-              /* eslint-enable @typescript-eslint/no-explicit-any */
-            });
+            /* eslint-disable @typescript-eslint/no-explicit-any */
+            try {
+              const root = await loadXML(pathAboutXML);
+              Object.entries(metaData).forEach(([key, value]) => {
+                const isArray = Array.isArray(value);
+                const element = root.elements.find(c => c.name === key);
+                if (!element) {
+                  return;
+                }
+                if (isArray) {
+                  (metaData as any)[key] = element.elements
+                    .map(li => li.value.trim())
+                    .filter(v => !!v);
+                  return;
+                }
+                if (element.value.trim()) {
+                  (metaData as any)[key] = element.value.trim();
+                }
+              });
+            } catch (e) {
+              const error = e as Error;
+              (metaData as any).description = `${error.message}\n${error.stack}`;
+            }
+            /* eslint-enable @typescript-eslint/no-explicit-any */
           }
           return metaData;
         },
