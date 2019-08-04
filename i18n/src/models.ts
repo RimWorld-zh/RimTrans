@@ -1,4 +1,4 @@
-import { English } from './languages/english';
+import { TranslationDictionaryPartial } from './models-dict';
 
 export interface LanguageInfo {
   readonly translators: string[];
@@ -17,16 +17,12 @@ export interface LanguageInfo {
   readonly languageNameEnglish: string;
 
   /**
-   * Translating progress of the language, compute by program.
+   * Translation progress, count by `script/gen-progress.ts`.
    */
   progress?: number;
 }
 
-export type LanguageDictionary = {
-  readonly [key in keyof (typeof English)['dict']]: string
-};
-
 export interface LanguageData {
   readonly info: LanguageInfo;
-  readonly dict: Partial<LanguageDictionary>;
+  readonly dict: TranslationDictionaryPartial;
 }

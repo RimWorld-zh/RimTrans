@@ -1,4 +1,9 @@
-import { GenFilesOptions, genFiles } from '@huiji/shared-utils';
+import fs from 'fs';
+import { GenFilesOptions, genFiles, genPathResolve } from '@huiji/shared-utils';
+import { genTypes } from './gen-types';
+import { genProgress } from './gen-progress';
+
+const resolvePath = genPathResolve(__dirname, '..');
 
 const optionsList: GenFilesOptions[] = [
   {
@@ -13,3 +18,6 @@ Promise.all(optionsList.map(genFiles)).catch((e: Error) => {
   console.error(e.message);
   console.error(e.stack);
 });
+
+fs.writeFileSync(resolvePath('src', 'models-dict.ts'), genTypes());
+fs.writeFileSync(resolvePath('src', 'progresses.ts'), genProgress());
