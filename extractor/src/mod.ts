@@ -20,7 +20,13 @@ import {
 
 // Constants
 
+/**
+ * The mod meta data from About.xml of the mod.
+ */
 export interface ModMetaData {
+  readonly path: string;
+  readonly id: string;
+  readonly workshopId?: number;
   readonly name: string;
   readonly author: string;
   readonly url: string;
@@ -63,13 +69,6 @@ export interface ModOutput {
 }
 
 export class Mod implements ModOutput {
-  public readonly steamPublishFileId?: string;
-
-  /**
-   * The folder name of the mod.
-   */
-  public readonly identify: string;
-
   public readonly meta: ModMetaData;
 
   /**
@@ -94,13 +93,7 @@ export class Mod implements ModOutput {
 
   public readonly pathTextures: string;
 
-  private constructor(
-    pathRoot: string,
-    modeMetaData: ModMetaData,
-    publishFileId?: string,
-  ) {
-    this.steamPublishFileId = publishFileId;
-    this.identify = io.fileName(pathRoot);
+  private constructor(pathRoot: string, modeMetaData: ModMetaData) {
     this.meta = modeMetaData;
 
     this.pathRoot = pathRoot;
@@ -172,7 +165,7 @@ export class Mod implements ModOutput {
   }
 
   public static async load(path: string): Promise<Mod> {
-    const identify = io.fileName(path);
+    const id = io.fileName(path);
     const pathAbout = io.join(path, FOLDER_NAME_ABOUT);
     const pathAboutXML = io.join(pathAbout, FILE_NAME_ABOUT);
     const pathPublishFileId = io.join(pathAbout, FILE_NAME_PUBLISHED_FILE_ID);
@@ -181,7 +174,9 @@ export class Mod implements ModOutput {
       io.fileExists(pathAboutXML).then(
         async (exists): Promise<ModMetaData> => {
           const metaData: ModMetaData = {
-            name: identify,
+            path,
+            id,
+            name: id,
             author: 'Anonymous',
             url: '',
             description: 'No description provided.',
@@ -222,7 +217,7 @@ export class Mod implements ModOutput {
       }),
     ]);
 
-    const mod = new Mod(path, meta, publishFileId);
+    const mod = new Mod(path, meta);
 
     return mod;
   }

@@ -24,9 +24,10 @@ describe('mod', () => {
     const pathMock = io.join(__dirname, 'Mock');
     const mock = await Mod.load(io.join(__dirname, 'Mock'));
 
-    expect(mock.identify).toBe('Mock');
     expect(mock.pathRoot).toBe(pathMock);
 
+    expect(mock.meta.path).toBe(pathMock);
+    expect(mock.meta.id).toBe('Mock');
     expect(mock.meta.name).toBe('Mock');
     expect(mock.meta.author).toBe('Anonymous');
     expect(mock.meta.url).toBe('');
@@ -40,9 +41,8 @@ describe('mod', () => {
   test('core', async () => {
     const core = await Mod.load(pathCore);
 
-    expect(core.steamPublishFileId).toBe(undefined);
+    expect(core.meta.workshopId).toBe(undefined);
 
-    expect(core.identify).toBe('Core');
     expect(core.pathRoot).toBe(pathCore);
 
     expect(core.previewImage).toBe(io.join(pathCore, 'About', 'Preview.png'));
@@ -54,6 +54,7 @@ describe('mod', () => {
     expect(core.pathPatches).toBe(io.join(pathCore, 'Patches'));
     expect(core.pathTextures).toBe(io.join(pathCore, 'Textures'));
 
+    expect(core.meta.id).toBe('Core');
     expect(core.meta.name).toBe('Core');
     expect(core.meta.author).toBe('Ludeon Studios');
     expect(core.meta.url).toBe('http://rimworldgame.com');
