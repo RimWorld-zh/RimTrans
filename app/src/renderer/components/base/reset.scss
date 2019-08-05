@@ -14,10 +14,10 @@
   box-sizing: border-box;
 }
 
-// ::selection {
-//   color: var(--color-white);
-//   background-color: var(--color-primary-60);
-// }
+::selection {
+  color: var(--color-white);
+  background-color: var(--color-primary-60);
+}
 
 body {
   color: var(--color-foreground-primary);

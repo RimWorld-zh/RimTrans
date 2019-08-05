@@ -2,5 +2,116 @@
  * Component: Checkbox
  */
 @include comp('checkbox') {
+  cursor: pointer;
+  user-select: none;
+
   position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+
+  font-size: calc(var(--form-widget-font-size) * 1px);
+  font-weight: var(--form-widget-font-weight);
+  line-height: calc(var(--form-widget-line-height) * 1px);
+  color: inherit;
+  white-space: nowrap;
+
+  height: calc(var(--form-widget-height) * 1px);
+
+  @include when('disabled') {
+    opacity: var(--input-disabled-opacity);
+  }
+
+  @include elem('input') {
+    position: absolute;
+    opacity: 0;
+  }
+
+  $button-size: calc(var(--choice-height) * 1px);
+  $button-border-width: 1;
+  $check-size: calc((var(--choice-height) - 4) * 1px);
+
+  @include elem('button') {
+    position: relative;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    width: $button-size;
+    height: $button-size;
+    font-size: $check-size;
+    padding: 0;
+    margin: 0;
+    border-radius: calc(var(--choice-radius) * 1px);
+    border: #{$button-border-width}px solid currentColor;
+    color: var(--color-foreground-secondary);
+    background-color: var(--color-background-higher);
+
+    transition: var(--choice-transition);
+    transition-property: color, border-color, background-color;
+  }
+
+  @include elem('check') {
+    opacity: 0;
+  }
+
+  @include elem('label') {
+    margin-left: calc(var(--form-widget-gap) * 1px);
+  }
+
+  &:hover {
+    @include elem('button') {
+      color: var(--color-foreground-primary);
+    }
+    @include elem('check') {
+      opacity: var(--choice-opacity-secondary);
+    }
+  }
+
+  @include when('checked') {
+    @include elem('button') {
+      border-color: transparent;
+      color: var(--color-white);
+      background-color: var(--color-primary-60);
+    }
+    @include elem('check') {
+      opacity: 1;
+    }
+
+    &:hover {
+      @include elem('button') {
+        background-color: var(--color-primary-70);
+      }
+      @include elem('check') {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/**
+ * Component: Multi Choice Group
+ */
+@include comp('multi-choice-group') {
+  position: relative;
+
+  font-size: calc(var(--form-widget-font-size) * 1px);
+  font-weight: var(--form-widget-font-weight);
+  line-height: calc(var(--form-widget-line-height) * 1px);
+  color: inherit;
+  white-space: nowrap;
+
+  @include elem('label') {
+    position: relative;
+  }
+
+  @include elem('wrapper') {
+    position: relative;
+  }
 }

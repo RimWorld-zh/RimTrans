@@ -195,8 +195,11 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   --text-field-radius: 2;
   --text-field-icon-size: 16;
 
-  // Toggle
-  --toggle-height: 20;
+  // Choice
+  --choice-height: 20;
+  --choice-radius: 2;
+  --choice-opacity-secondary: 0.5;
+  --choice-transition: var(--motion-timing-decelerate) var(--motion-duration-2);
 
   // Surfaces ================
 

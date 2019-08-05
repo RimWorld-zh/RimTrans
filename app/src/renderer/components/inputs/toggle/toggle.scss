@@ -12,7 +12,7 @@
   align-content: center;
   align-items: center;
 
-  min-height: calc(var(--text-field-height) * 1px);
+  min-height: calc(var(--form-widget-height) * 1px);
 
   font-size: calc(var(--form-widget-font-size) * 1px);
   font-weight: var(--form-widget-font-weight);
@@ -39,7 +39,7 @@
   @include when('inline-label') {
     grid-template: auto / max-content 1fr;
     @include elem('label') {
-      height: calc(var(--text-field-height) * 1px);
+      height: calc(var(--form-widget-height) * 1px);
     }
   }
 
@@ -55,17 +55,16 @@
     align-content: center;
     align-items: center;
 
-    height: calc(var(--toggle-height) * 1px);
+    height: calc(var(--choice-height) * 1px);
   }
 
-  $transition: var(--motion-timing-decelerate) var(--motion-duration-1);
-  $button-width: calc(var(--toggle-height) * 2px);
-  $button-height: calc(var(--toggle-height) * 1px);
+  $button-width: calc(var(--choice-height) * 2px);
+  $button-height: calc(var(--choice-height) * 1px);
   $button-padding: 3;
   $button-border-width: 1;
   $circle-reduce: ($button-padding + $button-border-width) * 2;
-  $circle-size: calc((var(--toggle-height) - #{$circle-reduce}) * 1px);
-  $circle-offset: calc(var(--toggle-height) * 1px);
+  $circle-size: calc((var(--choice-height) - #{$circle-reduce}) * 1px);
+  $circle-offset: calc(var(--choice-height) * 1px);
 
   @include elem('button') {
     cursor: pointer;
@@ -84,7 +83,7 @@
     height: $button-height;
     padding: #{$button-padding}px;
     margin: 0;
-    border-radius: calc(var(--toggle-height) * 0.5px);
+    border-radius: calc(var(--choice-height) * 0.5px);
     border: #{$button-border-width}px solid var(--color-foreground-secondary);
     color: inherit;
     background-color: var(--color-background-higher);
@@ -110,7 +109,7 @@
       }
     }
 
-    transition: $transition;
+    transition: var(--choice-transition);
     transition-property: border-color background-color;
   }
 
@@ -126,7 +125,7 @@
 
     transform: translateX(0);
 
-    transition: $transition;
+    transition: var(--choice-transition);
     transition-property: background-color transform;
   }
 

@@ -188,7 +188,7 @@ export class RwDialog extends Vue implements DialogOptions {
       confirmColor,
       cancelColor,
       $slots: { header: headerSlot, default: defaultSlot, footer: footerSlot },
-      $listeners: { confirm, cancel, close, dismiss, ...on },
+      $listeners: { confirm = [], cancel = [], close = [], dismiss = [], ...on },
     } = this;
 
     return (
@@ -196,7 +196,7 @@ export class RwDialog extends Vue implements DialogOptions {
         <div
           key="overlay"
           staticClass="rw-dialog_overlay"
-          onClick={(block && dismiss) || undefined}
+          onClick={(!block && dismiss) || []}
         />
         <div key="container" staticClass="rw-dialog_container">
           <header key="header" staticClass="rw-dialog_header">

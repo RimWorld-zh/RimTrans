@@ -66,7 +66,6 @@ export class RwToggle<T extends boolean | string | number> extends Vue {
     };
 
     const onClick = (event: MouseEvent): void => {
-      console.log(checked, valueOff, valueOn);
       this.$emit('change', checked ? valueOff : valueOn);
     };
     const on = {

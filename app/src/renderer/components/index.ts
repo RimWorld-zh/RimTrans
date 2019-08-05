@@ -14,6 +14,7 @@ export * from './icons/mdi/mdi';
 export * from './inputs/buttons/button';
 export * from './inputs/checkbox/checkbox';
 export * from './inputs/form/form';
+export * from './inputs/input-models';
 export * from './inputs/radio-button/radio-button';
 export * from './inputs/text-field/text-field';
 export * from './inputs/toggle/toggle';
