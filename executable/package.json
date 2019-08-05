@@ -22,9 +22,5 @@
   },
   "devDependencies": {
     "pkg": "^4.4.0"
-  },
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "time-stamp": "^2.2.0"
   }
 }

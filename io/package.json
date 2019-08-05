@@ -22,11 +22,10 @@
   },
   "dependencies": {
     "@types/fs-extra": "^8.0.0",
-    "@types/globby": "^9.1.0",
     "@types/ncp": "^2.0.1",
     "@types/rimraf": "^2.0.2",
     "fs-extra": "^8.1.0",
-    "globby": "^9.2.0",
+    "globby": "^10.0.1",
     "ncp": "^2.0.0",
     "rimraf": "^2.6.3"
   }

@@ -22,14 +22,9 @@
   },
   "dependencies": {
     "@rimtrans/io": "0.4.1",
-    "@types/jsdom": "^12.2.3",
-    "@types/prettier": "^1.16.4",
-    "chalk": "^2.4.2",
+    "@types/jsdom": "^12.2.4",
+    "@types/prettier": "^1.18.1",
     "jsdom": "^15.1.1",
     "prettier": "^1.18.2"
-  },
-  "devDependencies": {
-    "ts-node": "^8.3.0",
-    "tsconfig-paths": "^3.8.0"
   }
 }
