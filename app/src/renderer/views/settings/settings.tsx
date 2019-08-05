@@ -64,7 +64,7 @@ export default class VSettings extends Vue {
               to={`/settings/${to}`}
               exact-active-class="is-active"
             >
-              <mdi staticClass="rw-button-icon rw-icon-left" icon={icon} />
+              <md-icon staticClass="rw-button-icon rw-icon-left" icon={icon} />
               {label}
             </rw-button>
           ))}

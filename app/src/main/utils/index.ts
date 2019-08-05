@@ -9,6 +9,7 @@
 
 export * from './constants';
 export * from './ipc';
+export * from './object';
 export * from './slaver';
 export * from './states/index';
 export * from './states/settings';

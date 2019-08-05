@@ -61,7 +61,7 @@ export class RwCheckbox extends Vue {
           on,
         })}
         <i staticClass="rw-checkbox_button">
-          <mdi staticClass="rw-checkbox_check" icon="Check" />
+          <md-icon staticClass="rw-checkbox_check" icon="Check" />
         </i>
         {!!(defaultSlot || label) && (
           <span staticClass="rw-checkbox_label">{defaultSlot || label}</span>

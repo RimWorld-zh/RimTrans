@@ -10,7 +10,7 @@
 export * from './brand/brand';
 export * from './brand/logo';
 export * from './dev-tools/dev- tools';
-export * from './icons/mdi/mdi';
+export * from './icons/md-icon/md-icon';
 export * from './inputs/buttons/button';
 export * from './inputs/checkbox/checkbox';
 export * from './inputs/form/form';

@@ -100,7 +100,7 @@ export class RwDevTools extends Vue {
           title="Toggle show settings"
           onClick={this.onToggleShowSettings}
         >
-          <mdi staticClass="rw-button-icon" icon="DevTo" />
+          <md-icon staticClass="rw-button-icon" icon="DevTo" />
         </rw-button>
 
         <rw-button
@@ -112,7 +112,7 @@ export class RwDevTools extends Vue {
           title="Reload"
           onClick={this.onReload}
         >
-          <mdi staticClass="rw-button-icon" icon="Reload" />
+          <md-icon staticClass="rw-button-icon" icon="Reload" />
         </rw-button>
 
         <rw-button
@@ -124,7 +124,7 @@ export class RwDevTools extends Vue {
           title="Toggle DevTools"
           onClick={this.onToggleDevTools}
         >
-          <mdi staticClass="rw-button-icon" icon="Bug" />
+          <md-icon staticClass="rw-button-icon" icon="Bug" />
         </rw-button>
 
         {items.map(item => (
@@ -138,7 +138,7 @@ export class RwDevTools extends Vue {
             skin="fill"
             shape="square"
           >
-            <mdi staticClass="rw-button-icon" icon={item.icon} />
+            <md-icon staticClass="rw-button-icon" icon={item.icon} />
           </rw-button>
         ))}
 

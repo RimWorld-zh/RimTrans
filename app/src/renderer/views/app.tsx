@@ -23,7 +23,7 @@ export default class VApp extends Vue {
       <div staticClass="v-app">
         <div key="app-bar" staticClass="v-app_bar">
           <rw-button size="large" skin="flat" shape="square" router-link to="/">
-            {/* <mdi staticClass="v-app_bar-icon" icon="Home" /> */}
+            {/* <md-icon staticClass="v-app_bar-icon" icon="Home" /> */}
             <rw-logo staticClass="v-app_bar-icon" />
           </rw-button>
 
@@ -33,7 +33,7 @@ export default class VApp extends Vue {
             shape="square"
             onClick={() => window.history.back()}
           >
-            <mdi staticClass="v-app_bar-icon" icon="ChevronLeft" />
+            <md-icon staticClass="v-app_bar-icon" icon="ChevronLeft" />
           </rw-button>
           <rw-button
             size="large"
@@ -41,13 +41,13 @@ export default class VApp extends Vue {
             shape="square"
             onClick={() => window.history.forward()}
           >
-            <mdi staticClass="v-app_bar-icon" icon="ChevronRight" />
+            <md-icon staticClass="v-app_bar-icon" icon="ChevronRight" />
           </rw-button>
 
           <i staticClass="v-app_bar-blank" />
 
           <rw-button size="large" skin="flat" shape="square" router-link to="/settings">
-            <mdi staticClass="v-app_bar-icon" icon="Settings" />
+            <md-icon staticClass="v-app_bar-icon" icon="Settings" />
           </rw-button>
         </div>
 

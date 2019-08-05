@@ -147,7 +147,7 @@ export class SSelectModDialog extends Vue {
             color={(genre === 'local' && 'primary') || 'default'}
             onClick={() => (this.genre = 'local')}
           >
-            <mdi staticClass="rw-button-icon rw-icon-left" icon="FolderOutline" />
+            <md-icon staticClass="rw-button-icon rw-icon-left" icon="FolderOutline" />
             {this.$i18n.dict.common.mods}
           </rw-button>
           <rw-button
@@ -156,7 +156,7 @@ export class SSelectModDialog extends Vue {
             color={(genre === 'steam' && 'primary') || 'default'}
             onClick={() => (this.genre = 'steam')}
           >
-            <mdi staticClass="rw-button-icon rw-icon-left" icon="Steam" />
+            <md-icon staticClass="rw-button-icon rw-icon-left" icon="Steam" />
             {this.$i18n.dict.common.steam}
           </rw-button>
 
@@ -167,7 +167,7 @@ export class SSelectModDialog extends Vue {
             shape="square"
             onClick={this.loadMods}
           >
-            <mdi staticClass="rw-button-icon" icon="Reload" spin={loading} />
+            <md-icon staticClass="rw-button-icon" icon="Reload" spin={loading} />
           </rw-button>
         </header>
 
@@ -182,7 +182,7 @@ export class SSelectModDialog extends Vue {
             onClick={() => this.sort('path')}
           >
             {this.$i18n.dict.file.path}
-            <mdi
+            <md-icon
               staticClass="rw-button-icon rw-icon-right"
               icon={
                 (lastSortBy !== 'path' && 'SortVariant') ||
@@ -198,7 +198,7 @@ export class SSelectModDialog extends Vue {
             onClick={() => this.sort('name')}
           >
             {this.$i18n.dict.modMeta.name}
-            <mdi
+            <md-icon
               staticClass="rw-button-icon rw-icon-right"
               icon={
                 (lastSortBy !== 'name' && 'SortVariant') ||
@@ -214,7 +214,7 @@ export class SSelectModDialog extends Vue {
             onClick={() => this.sort('author')}
           >
             {this.$i18n.dict.modMeta.author}
-            <mdi
+            <md-icon
               staticClass="rw-button-icon rw-icon-right"
               icon={
                 (lastSortBy !== 'author' && 'SortVariant') ||

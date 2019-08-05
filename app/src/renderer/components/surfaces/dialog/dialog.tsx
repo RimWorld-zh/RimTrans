@@ -210,7 +210,7 @@ export class RwDialog extends Vue implements DialogOptions {
               shape="square"
               onClick={close}
             >
-              <mdi staticClass="rw-button-icon" icon="Close" />
+              <md-icon staticClass="rw-button-icon" icon="Close" />
             </rw-button>
           </header>
 

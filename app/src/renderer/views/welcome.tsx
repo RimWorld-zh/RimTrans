@@ -73,7 +73,7 @@ export default class VWelcome extends Vue {
                     staticClass="v-welcome_nav-icon-container"
                     style={{ color: `var(--color-${color}-50)` }}
                   >
-                    <mdi
+                    <md-icon
                       staticClass="v-welcome_nav-icon"
                       icon={icon}
                       style={{ color: `var(--color-${color}-90)` }}

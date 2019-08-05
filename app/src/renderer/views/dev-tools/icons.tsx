@@ -27,7 +27,7 @@ export default class VDevToolsIcons extends Vue {
               return (
                 <li key={icon} staticClass="v-dev-tools-icons_item">
                   <button staticClass="v-dev-tools-icons_container" title={icon}>
-                    <mdi staticClass="v-dev-tools-icons_icon" icon={icon} />
+                    <md-icon staticClass="v-dev-tools-icons_icon" icon={icon} />
                   </button>
                   <span staticClass="v-dev-tools-icons_label">{icon}</span>
                 </li>
@@ -39,22 +39,22 @@ export default class VDevToolsIcons extends Vue {
         <ul staticClass="v-dev-tools-icons_wrapper">
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title={18}>
-              <mdi staticClass="v-dev-tools-icons_icon" icon="Account" size={18} />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="Account" size={18} />
             </button>
           </li>
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title={24}>
-              <mdi staticClass="v-dev-tools-icons_icon" icon="Account" size={24} />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="Account" size={24} />
             </button>
           </li>
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title={36}>
-              <mdi staticClass="v-dev-tools-icons_icon" icon="Account" size={36} />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="Account" size={36} />
             </button>
           </li>
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title={48}>
-              <mdi staticClass="v-dev-tools-icons_icon" icon="Account" size={48} />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="Account" size={48} />
             </button>
           </li>
         </ul>
@@ -68,7 +68,7 @@ export default class VDevToolsIcons extends Vue {
               return (
                 <li key={rotate} staticClass="v-dev-tools-icons_item">
                   <button staticClass="v-dev-tools-icons_container" title={rotate}>
-                    <mdi
+                    <md-icon
                       staticClass="v-dev-tools-icons_icon"
                       icon="Account"
                       rotate={rotate}
@@ -83,17 +83,17 @@ export default class VDevToolsIcons extends Vue {
         <ul staticClass="v-dev-tools-icons_wrapper">
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title="flip-h">
-              <mdi staticClass="v-dev-tools-icons_icon" icon="AccountAlert" flip-h />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="AccountAlert" flip-h />
             </button>
           </li>
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title="flip-v">
-              <mdi staticClass="v-dev-tools-icons_icon" icon="AccountAlert" flip-v />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="AccountAlert" flip-v />
             </button>
           </li>
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title="flip-h flip-v">
-              <mdi
+              <md-icon
                 staticClass="v-dev-tools-icons_icon"
                 icon="AccountAlert"
                 flip-h
@@ -107,12 +107,12 @@ export default class VDevToolsIcons extends Vue {
         <ul staticClass="v-dev-tools-icons_wrapper">
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title="Loading spin">
-              <mdi staticClass="v-dev-tools-icons_icon" icon="Loading" spin />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="Loading" spin />
             </button>
           </li>
           <li staticClass="v-dev-tools-icons_item">
             <button staticClass="v-dev-tools-icons_container" title="Star spin">
-              <mdi staticClass="v-dev-tools-icons_icon" icon="Star" spin />
+              <md-icon staticClass="v-dev-tools-icons_icon" icon="Star" spin />
             </button>
           </li>
         </ul>
@@ -123,7 +123,7 @@ export default class VDevToolsIcons extends Vue {
             color => (
               <li staticClass="v-dev-tools-icons_item">
                 <button staticClass="v-dev-tools-icons_container" title={color}>
-                  <mdi
+                  <md-icon
                     staticClass="v-dev-tools-icons_icon"
                     icon="Star"
                     style={{ color: `var(--color-${color}-50)` }}

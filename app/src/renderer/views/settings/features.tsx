@@ -46,7 +46,7 @@ export default class VSettingsFeature extends Vue {
           <rw-form-label key="dir-rw-label">{directoryRimWorld}</rw-form-label>
           <rw-form-field-group key="dir-rw" staticClass="v-settings-form_directory-group">
             <rw-text-field v-model={this.$states.settings.directoryRimWorld}>
-              <mdi slot="prefixIcon" icon="FolderOutline" />
+              <md-icon slot="prefixIcon" icon="FolderOutline" />
             </rw-text-field>
             <rw-button color="primary" onClick={this.onDirectoryRimWorldExplorer}>
               {explore}
@@ -56,7 +56,7 @@ export default class VSettingsFeature extends Vue {
           <rw-form-label key="dir-ws-label">{directoryWorkshop}</rw-form-label>
           <rw-form-field-group key="dir-ws" staticClass="v-settings-form_directory-group">
             <rw-text-field v-model={this.$states.settings.directoryWorkshop}>
-              <mdi slot="prefixIcon" icon="FolderOutline" />
+              <md-icon slot="prefixIcon" icon="FolderOutline" />
             </rw-text-field>
             <rw-button color="primary" onClick={this.onDirectoryWorkshopExplorer}>
               {explore}

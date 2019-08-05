@@ -14,14 +14,15 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import * as MdiIconsMap from '@mdi/js';
+import { when } from '../../base';
 
 type MdiIconKey = keyof typeof MdiIconsMap;
 
 /**
- * Component: Mdi
+ * Component: Material Design Icon
  */
 @Component
-export class Mdi extends Vue {
+export class MdIcon extends Vue {
   @Prop({
     type: String,
     required: true,
@@ -48,17 +49,16 @@ export class Mdi extends Vue {
 
   private render(h: CreateElement): VNode {
     const { icon, spin, size, rotate, flipH, flipV } = this;
+
+    const classes = when({ spin, 'flip-h': flipH, 'flip-v': flipV });
+
     const styleSize = (typeof size === 'number' && `${size}px`) || null;
     const styleRotate = (typeof rotate === 'number' && `rotate(${rotate}deg)`) || null;
 
     return (
       <svg
-        staticClass="mdi"
-        class={{
-          'is-spin': spin,
-          'is-flip-h': flipH,
-          'is-flip-v': flipV,
-        }}
+        staticClass="md-icon"
+        class={classes}
         style={{
           width: styleSize,
           height: styleSize,
