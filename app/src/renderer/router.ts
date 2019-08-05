@@ -53,7 +53,8 @@ export function createRouter(): VueRouter {
       {
         path: '/translator',
         name: 'translator',
-        component: placeHolder,
+        component: async () =>
+          import(/* webpackChunkName: "v-translator" */ './views/translator/translator'),
       },
       {
         path: '/modder',

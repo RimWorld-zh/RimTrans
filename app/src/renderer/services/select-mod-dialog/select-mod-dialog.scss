@@ -1,0 +1,75 @@
+/**
+ * Component: Select Mod Dialog
+ */
+@include comp('select-mod-dialog') {
+  position: relative;
+
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+  grid-gap: calc(var(--gap-base) * 4px);
+
+  width: 1200px;
+  max-width: 100%;
+  height: 800px;
+  max-height: 100%;
+
+  @include elem('header') {
+    position: relative;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    grid-gap: calc(var(--gap-base) * 2px);
+    justify-content: center;
+  }
+
+  @include elem('menu') {
+    position: relative;
+    max-width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  @include elem('menu-label') {
+    font-size: calc(var(--button-font-size-medium) * 1px);
+    margin-right: calc(var(--gap-base) * 2px);
+  }
+
+  @include elem('scroll') {
+    position: relative;
+    max-width: 100%;
+    padding: 0 calc(var(--gap-base) * 4px);
+    overflow: scroll;
+    background-color: var(--color-background-normal);
+  }
+
+  @include elem('wrapper') {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    grid-auto-rows: max-content;
+    justify-content: start;
+    align-content: center;
+    align-items: center;
+  }
+
+  @include elem('cell') {
+    padding-left: calc(var(--gap-base) * 2px);
+
+    @include when('clamp') {
+      max-width: 256px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    @include when('secondary') {
+      opacity: var(--opacity-secondary);
+    }
+  }
+}

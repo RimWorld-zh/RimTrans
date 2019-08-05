@@ -9,39 +9,38 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { ModMetaData } from '@rimtrans/extractor';
+import { selectModDialog } from '@src/renderer/services';
 
 /**
  * Component: Translator
  */
 @Component
 export default class VTranslator extends Vue {
-  private async onShowDialog(event: MouseEvent): Promise<void> {
-    const value = await this.$rw_showDialog(
-      {
-        title: 'Dialog',
-        content: 'This is a dialog',
-        confirmLabel: 'Confirm',
-        cancelLabel: 'Cancel',
-      },
-      this,
-    );
-  }
+  private showDialog = true;
 
-  private mods: Record<string, ModMetaData> = {};
+  private mods: string[] = [];
 
-  private async onLoadMods(event: Event): Promise<void> {
-    this.mods = await this.$ipc.request('getModMetaData', 'workshop');
+  private async onToggleDialog(event: MouseEvent): Promise<void> {
+    const mods = await selectModDialog(this);
+    if (mods) {
+      this.mods = mods;
+    }
   }
 
   private render(h: CreateElement): VNode {
-    const { mods } = this;
-
     return (
       <div staticClass="v-translator">
-        <h1>translator</h1>
         <div>
-          <rw-button onClick={this.onShowDialog}>select mod</rw-button>
+          <rw-button color="primary" onClick={this.onToggleDialog}>
+            toggle
+          </rw-button>
         </div>
+        <h1>translator</h1>
+        <ul>
+          {this.mods.map(mod => (
+            <li>{mod}</li>
+          ))}
+        </ul>
       </div>
     );
   }

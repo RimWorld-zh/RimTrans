@@ -21,8 +21,8 @@ import { Settings, defaultSettings } from './settings';
 import { Storage, defaultStorage } from './storage';
 
 export interface StateTypeMap {
-  settings: Settings;
-  storage: Storage;
+  settings: [Settings];
+  storage: [Storage];
 }
 
 export type StateChannel = keyof StateTypeMap;
@@ -77,7 +77,7 @@ export interface StateWrapperOptions<K extends StateChannel> {
   /**
    * the factory function for create default state
    */
-  defaultState: () => StateTypeMap[K];
+  defaultState: () => StateTypeMap[K][0];
 }
 
 /**
@@ -87,9 +87,9 @@ export interface StateWrapperOptions<K extends StateChannel> {
 function createStateWrapper<K extends StateChannel>(
   ipc: IpcMain<StateTypeMap>,
   options: StateWrapperOptions<K>,
-): StateWrapper<StateTypeMap[K]> {
+): StateWrapper<StateTypeMap[K][0]> {
   const { channel, key, path, defaultState } = options;
-  type CurrentState = StateTypeMap[K];
+  type CurrentState = StateTypeMap[K][0];
 
   setGlobal<CurrentState>(key, defaultState());
 
@@ -142,11 +142,39 @@ function createStateWrapper<K extends StateChannel>(
  * The states collection.
  */
 export interface States {
+  /**
+   * Environment Paths
+   */
   paths: Paths;
+
+  /**
+   * The `Set` for all `BrowserWindow`
+   */
   browserWindowsSet: Set<BrowserWindow>;
+
+  /**
+   * Default App IPC
+   */
+  ipc: IpcMain;
+
+  /**
+   * State Settings
+   */
   settings: StateWrapper<Settings>;
+
+  /**
+   * State Storage
+   */
   storage: StateWrapper<Storage>;
+
+  /**
+   * Load all states
+   */
   loadStates(): Promise<void>;
+
+  /**
+   * Save all states
+   */
   saveStates(): Promise<void>;
 }
 
@@ -158,16 +186,17 @@ export function createStates(): States {
   setGlobal(GLOBAL_KEY_PATHS, paths);
 
   const browserWindowsSet = new Set<BrowserWindow>();
-  const ipc = createIpc<StateTypeMap>(browserWindowsSet);
+  const ipc = createIpc(browserWindowsSet, 'app');
+  const ipcStates = createIpc<StateTypeMap>(browserWindowsSet, 'states');
 
-  const settings = createStateWrapper(ipc, {
+  const settings = createStateWrapper(ipcStates, {
     channel: 'settings',
     key: GLOBAL_KEY_SETTINGS,
     path: paths.settings,
     defaultState: defaultSettings,
   });
 
-  const storage = createStateWrapper(ipc, {
+  const storage = createStateWrapper(ipcStates, {
     channel: 'storage',
     key: GLOBAL_KEY_STORAGE,
     path: paths.storage,
@@ -183,5 +212,5 @@ export function createStates(): States {
     await Promise.all(states.map(state => state.save()));
   };
 
-  return { paths, browserWindowsSet, settings, storage, loadStates, saveStates };
+  return { paths, browserWindowsSet, ipc, settings, storage, loadStates, saveStates };
 }

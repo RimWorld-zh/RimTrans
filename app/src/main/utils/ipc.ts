@@ -6,22 +6,29 @@ import {
   WebContents,
   ipcMain,
 } from 'electron';
+import { StateTypeMap } from './states';
 
 export interface IpcTypeMap {
-  test: string;
+  // must use tuple type
+  foobar: [
+    { foo: string }, // type from renderer process to main process.
+    { bar: string } // type from main process to renderer process.
+  ];
 }
 
 export type IpcChannel = keyof IpcTypeMap;
 
 export interface IpcMessage<T> {
   /**
-   * The ID of the `BrowserWindow`
+   * The ID of the `BrowserWindow` or a request
    */
   id?: number;
   data: T;
 }
 
 export type IpcListener<T> = (event: ElectronEvent, message?: IpcMessage<T>) => any;
+
+export type IpcHandler<T, R> = (event: ElectronEvent, data: T) => Promise<R>;
 
 /**
  * The IPC interface for main process.
@@ -34,7 +41,7 @@ export interface IpcMain<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param listener the ipc listener function
    */
-  on<K extends keyof T>(channel: K, listener: IpcListener<T[K]>): void;
+  on<K extends keyof T>(channel: K, listener: IpcListener<T[K][0]>): void;
 
   /**
    * Add listener to ipc in specified channel.
@@ -43,7 +50,7 @@ export interface IpcMain<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param listener the ipc listener function
    */
-  once<K extends keyof T>(channel: K, listener: IpcListener<T[K]>): void;
+  once<K extends keyof T>(channel: K, listener: IpcListener<T[K][0]>): void;
 
   /**
    * Send a message to a renderer process via ipc in specified channel.
@@ -62,14 +69,34 @@ export interface IpcMain<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param message the message to send
    */
-  sendAll<K extends keyof T>(channel: K, message?: IpcMessage<T[K]>): void;
+  sendAll<K extends keyof T>(channel: K, message?: IpcMessage<T[K][0]>): void;
 
   /**
    * Remove the ipc listener in specified channel.
    * @param channel the ipc channel
    * @param listener the ipc listener function
    */
-  removeListener<K extends keyof T>(channel: K, listener: IpcListener<T[K]>): void;
+  removeListener<K extends keyof T>(channel: K, listener: IpcListener<T[K][0]>): void;
+
+  /**
+   * Add handler to response request from renderer process in specified channel.
+   * @param channel the ipc channel
+   * @param handler the handler function for reply value to the renderer process request
+   */
+  addRequestHandler<K extends keyof T>(
+    channel: K,
+    handler: IpcHandler<T[K][0], T[K][1]>,
+  ): void;
+
+  /**
+   * Remove handler in specified channel.
+   * @param channel the ipc channel
+   * @param handler the handler
+   */
+  removeRequestHandler<K extends keyof T>(
+    channel: K,
+    handler: IpcHandler<T[K][0], T[K][1]>,
+  ): void;
 }
 
 /**
@@ -78,24 +105,66 @@ export interface IpcMain<T extends any = IpcTypeMap> {
  */
 export function createIpc<T extends any = IpcTypeMap>(
   browserWindowsSet: Set<BrowserWindow>,
+  namespace: string,
 ): IpcMain<T> {
+  const handlerListenerMap = new Map<Function, Function>();
+
   return {
     on(channel, listener) {
-      ipcMain.on(channel as string, listener);
+      ipcMain.on(`${namespace}-${channel}`, listener);
     },
     once(channel, listener) {
-      ipcMain.once(channel as string, listener);
+      ipcMain.once(`${namespace}-${channel}`, listener);
     },
     send(webContents, channel, message) {
-      webContents.send(channel as string, JSON.parse(JSON.stringify(message)));
+      webContents.send(`${namespace}-${channel}`, JSON.parse(JSON.stringify(message)));
     },
     sendAll(channel, message) {
       browserWindowsSet.forEach((win: BrowserWindow) =>
-        win.webContents.send(channel as string, JSON.parse(JSON.stringify(message))),
+        win.webContents.send(
+          `${namespace}-${channel}`,
+          JSON.parse(JSON.stringify(message)),
+        ),
       );
     },
     removeListener(channel, listener) {
-      ipcMain.removeListener(channel as string, listener);
+      ipcMain.removeListener(`${namespace}-${channel}`, listener);
+    },
+
+    addRequestHandler<K extends keyof T>(
+      channel: K,
+      handler: IpcHandler<T[K][0], T[K][1]>,
+    ): void {
+      if (handlerListenerMap.has(handler)) {
+        return;
+      }
+      const realChannel = `${namespace}-${channel}`;
+
+      const listener = async (
+        event: ElectronEvent,
+        message: IpcMessage<T[K][0]>,
+      ): Promise<void> => {
+        const replyData = await handler(event, message.data);
+        const replyMessage: IpcMessage<T[K][1]> = {
+          id: message.id,
+          data: replyData,
+        };
+        event.sender.send(realChannel, replyMessage);
+      };
+
+      handlerListenerMap.set(handler, listener);
+      ipcMain.on(realChannel, listener);
+    },
+
+    removeRequestHandler<K extends keyof T>(
+      channel: K,
+      handler: IpcHandler<T[K][0], T[K][1]>,
+    ): void {
+      if (handlerListenerMap.has(handler)) {
+        const listener = handlerListenerMap.get(handler) as IpcListener<T[K][0]>;
+        handlerListenerMap.delete(handler);
+        ipcMain.removeListener(`${namespace}-${channel}`, listener);
+      }
     },
   };
 }

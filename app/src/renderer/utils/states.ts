@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { remote, Event as ElectronEvent, ipcRenderer } from 'electron';
 import Vue, { CreateElement, VNode, PluginFunction, PluginObject } from 'vue';
 import {
@@ -50,59 +49,70 @@ export class States extends Vue {
     });
   }
 
+  // Public
+  /* eslint-disable lines-between-class-members,@typescript-eslint/no-explicit-any */
   public browserWindowID!: number;
-
+  public ipc!: IpcRenderer;
   public paths!: Paths;
-
-  public settings: Settings = getGlobal(GLOBAL_KEY_SETTINGS);
+  public settings: Settings = null as any;
+  /* eslint-enable lines-between-class-members,@typescript-eslint/no-explicit-any */
 
   // Sync
-
-  private ipc!: IpcRenderer<StateTypeMap>;
-
-  private ipcSilentMap!: Partial<Record<StateChannel, boolean>>;
-
+  /* eslint-disable lines-between-class-members */
+  private statesIpc!: IpcRenderer<StateTypeMap>;
+  private statesIpcSilentMap!: Partial<Record<StateChannel, boolean>>;
   private unwatchMap!: Partial<Record<StateChannel, Function>>;
-
   private listenerMap!: Partial<Record<StateChannel, Function>>;
+  /* eslint-enable lines-between-class-members */
 
-  private installState<K extends StateChannel>(channel: K): void {
-    const watch = (data: StateTypeMap[K]): void => {
-      if (this.ipcSilentMap[channel]) {
-        this.ipcSilentMap[channel] = false;
+  private installState<K extends StateChannel & keyof States>(
+    channel: K,
+    globalKey: string,
+  ): void {
+    this[channel] = getGlobal(globalKey);
+
+    const watch = (data: StateTypeMap[K][0]): void => {
+      if (this.statesIpcSilentMap[channel]) {
+        this.statesIpcSilentMap[channel] = false;
         return;
       }
-      this.ipc.send(channel, { id: this.browserWindowID, data });
+      this.statesIpc.send(channel, { id: this.browserWindowID, data });
     };
+
+    const listener: IpcListener<StateTypeMap[K][0]> = (event, message) => {
+      if (message && message.id !== this.browserWindowID) {
+        this.statesIpcSilentMap[channel] = true;
+        this[channel] = message.data;
+      }
+    };
+
     const unwatch = this.$watch(channel, watch, { deep: true });
     this.unwatchMap[channel] = unwatch;
 
-    const listener: IpcListener<StateTypeMap[K]> = (event, message) => {
-      if (message && message.id !== this.browserWindowID) {
-        this.ipcSilentMap[channel] = true;
-        (this as any)[channel] = message.data;
-      }
-    };
-    this.ipc.on(channel, listener);
+    this.listenerMap[channel] = listener;
+    this.statesIpc.on(channel, listener);
   }
 
   private created(): void {
     this.browserWindowID = remote.getCurrentWindow().id;
-    this.paths = remote.getGlobal(GLOBAL_KEY_PATHS);
+    this.ipc = createIpc('app');
+    this.paths = getGlobal(GLOBAL_KEY_PATHS);
 
-    this.ipc = createIpc<StateTypeMap>();
-    this.ipcSilentMap = {};
+    this.statesIpc = createIpc<StateTypeMap>('states');
+    this.statesIpcSilentMap = {};
     this.unwatchMap = {};
     this.listenerMap = {};
 
-    this.installState('settings');
+    this.installState('settings', GLOBAL_KEY_SETTINGS);
   }
 
   private beforeDestroy(): void {
     (Object.values(this.unwatchMap) as Function[]).forEach(unwatch => unwatch());
     (Object.entries(this.listenerMap) as [
       StateChannel,
-      IpcListener<StateTypeMap[StateChannel]>
-    ][]).forEach(([channel, listener]) => this.ipc.removeListener(channel, listener));
+      IpcListener<StateTypeMap[StateChannel][0]>
+    ][]).forEach(([channel, listener]) =>
+      this.statesIpc.removeListener(channel, listener),
+    );
   }
 }

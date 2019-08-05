@@ -1,6 +1,7 @@
-import { App, app, Event as ElectronEvent } from 'electron';
+import { App, app, Event as ElectronEvent, dialog } from 'electron';
 import * as io from '@rimtrans/io';
 import { createStates } from './utils';
+import * as services from './services';
 import { RimTransWindowOptions, createRimTransWindow } from './windows/rimtrans-window';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -13,6 +14,7 @@ export function createApp(): App {
   }
 
   const states = createStates();
+  Object.entries(services).forEach(([name, srv]) => srv.init(states));
 
   const url = isDevelopment
     ? `http://localhost:9421/`

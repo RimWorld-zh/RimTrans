@@ -1,8 +1,8 @@
 import { systemPreferences } from 'electron';
-import { Theme } from '../../../renderer/components/base/variables';
+import { ColorTheme } from '../../../renderer/components/base/variables';
 
 export interface Settings {
-  theme: Theme;
+  theme: ColorTheme;
 
   /**
    * The interface language for app.

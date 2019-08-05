@@ -1,7 +1,16 @@
 import { GenFilesOptions, genFiles } from '@huiji/shared-utils';
+import { genVariables } from './gen-variables';
 
 const optionsList: GenFilesOptions[] = [
-  // renderer
+  // main process
+  // utils
+  {
+    comments: ['All utils'],
+    patterns: ['src/main/utils/**/*.ts'],
+    output: 'src/main/utils/index.ts',
+  },
+
+  // renderer process
   // components
   {
     comments: ['All components'],
@@ -23,6 +32,17 @@ const optionsList: GenFilesOptions[] = [
     ],
     output: 'src/renderer/components/index.scss',
   },
+  // services
+  {
+    comments: ['All services'],
+    patterns: ['src/renderer/services/**/*.ts', 'src/renderer/services/**/*.tsx'],
+    output: 'src/renderer/services/index.ts',
+  },
+  {
+    comments: ['All services style'],
+    patterns: ['src/renderer/services/**/*.scss'],
+    output: 'src/renderer/services/index.scss',
+  },
   // views
   {
     comments: ['All views style'],
@@ -34,14 +54,6 @@ const optionsList: GenFilesOptions[] = [
     comments: ['All utils'],
     patterns: ['src/renderer/utils/**/*.ts'],
     output: 'src/renderer/utils/index.ts',
-  },
-
-  // main
-  // utils
-  {
-    comments: ['All utils'],
-    patterns: ['src/main/utils/**/*.ts'],
-    output: 'src/main/utils/index.ts',
   },
 ];
 

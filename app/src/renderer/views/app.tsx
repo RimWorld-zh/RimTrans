@@ -21,7 +21,7 @@ export default class VApp extends Vue {
   private render(h: CreateElement): VNode {
     return (
       <div staticClass="v-app">
-        <div staticClass="v-app_bar">
+        <div key="app-bar" staticClass="v-app_bar">
           <rw-button size="large" skin="flat" shape="square" router-link to="/">
             {/* <mdi staticClass="v-app_bar-icon" icon="Home" /> */}
             <rw-logo staticClass="v-app_bar-icon" />
@@ -51,13 +51,13 @@ export default class VApp extends Vue {
           </rw-button>
         </div>
 
-        <div staticClass="v-app_wrapper">
+        <div key="wrapper" staticClass="v-app_wrapper">
           <transition name="rw-m-rise-fall" mode="out-in" duration={MOTION_DURATION_2}>
             <router-view staticClass="v-app_container" />
           </transition>
         </div>
 
-        {this.isDevelopment && <rw-dev-tools />}
+        {this.isDevelopment && <rw-dev-tools key="dev-tools" />}
       </div>
     );
   }

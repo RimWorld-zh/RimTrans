@@ -5,5 +5,8 @@
 $namespace: 'rw';
 @import './components/index';
 
+$namespace: 's';
+@import './services/index';
+
 $namespace: 'v';
 @import './views/index';

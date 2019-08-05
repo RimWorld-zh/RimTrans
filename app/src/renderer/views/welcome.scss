@@ -59,6 +59,11 @@
     }
   }
 
+  @include elem('hero') {
+    color: var(--color-primary-60);
+    background-color: var(--color-primary-60-a10);
+  }
+
   @include elem('nav-icon-container') {
     position: relative;
 

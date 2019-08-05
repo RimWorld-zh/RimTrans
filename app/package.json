@@ -14,7 +14,7 @@
     "serve:main": "electron .",
     "serve:electron": "nodemon",
     "serve:electron:second": "nodemon --config ./nodemon.second.json",
-    "build:renderer": "vue-cli-service build",
+    "build:renderer": "vue-cli-service build --report",
     "build:main": "babel src/main -x .ts -d dist/main -s --pure",
     "build:electron": "electron-builder",
     "build": "yarn build:renderer && yarn build:main && yarn build:electron",
@@ -47,6 +47,7 @@
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@mdi/js": "^3.8.95",
+    "@rimtrans/extractor": "4.0.0-alpha.1",
     "@rimtrans/i18n": "4.0.0-alpha.1",
     "@rimtrans/io": "0.4.1",
     "axios": "^0.19.0",
