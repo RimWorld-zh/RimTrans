@@ -16,7 +16,6 @@ import { Settings } from '@src/main/utils/states/settings';
 import { IpcRendererListener, IpcRenderer, createIpc, getGlobal } from './ipc';
 import { StateI18n } from './i18n';
 import { StateUi } from './ui';
-import { TranslationDictionary } from '@rimtrans/i18n';
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -60,7 +59,7 @@ export class States extends Vue {
   public settings: Settings = null as any;
 
   private stateI18n!: StateI18n;
-  public get i18n(): TranslationDictionary {
+  public get i18n(): StateI18n['dict'] {
     return this.stateI18n.dict;
   }
 
