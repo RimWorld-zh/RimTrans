@@ -4,7 +4,7 @@
   "env": {
     "NODE_ENV": "development"
   },
-  "exec": "yarn build:main && yarn serve:main",
+  "exec": "lerna run build:main . && yarn serve:main",
   "watch": ["src/main/"],
   "ignore": [".git", "node_modules/**/node_modules", "*.test.ts", "*.test.tsx"],
   "ext": "ts,tsx"

@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "all:clean": "lerna run clean",
     "all:build": "lerna run build",
     "all:test": "lerna run test",

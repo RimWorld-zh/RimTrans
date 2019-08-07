@@ -54,7 +54,6 @@
     "dotenv": "^8.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
     "@mdi/js": "^3.8.95",
     "@types/dotenv": "^6.1.1",
     "@types/webpack": "^4.32.1",
@@ -81,7 +80,7 @@
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.1",
-    "vue-router": "^3.0.7",
+    "vue-router": "^3.1.1",
     "vue-template-compiler": "^2.6.10"
   }
 }
