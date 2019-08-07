@@ -5,13 +5,15 @@ const { genPathResolve } = require('@huiji/shared-utils');
 const resolvePath = genPathResolve(__dirname);
 
 const isDev = process.env.NODE_ENV === 'development';
+const isProd = process.env.NODE_ENV === 'production';
 const publicPath = './';
 
 module.exports = {
   parallel: false,
+  lintOnSave: !isProd,
+
   outputDir: 'dist/renderer',
   filenameHashing: false,
-
   publicPath,
   runtimeCompiler: true,
 

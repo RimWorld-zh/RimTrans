@@ -19,6 +19,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:electron": "electron-builder",
     "build": "yarn build:renderer && yarn build:main && yarn build:types && yarn build:electron",
+    "lint": "eslint src/ --ext .ts,.tsx --color",
     "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
   },
   "build": {
