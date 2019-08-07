@@ -11,7 +11,7 @@ declare module '../../utils/ipc' {
   }
 }
 
-export function init(states: States): void {
+export function initHandler(states: States): void {
   const { ipc } = states;
 
   ipc.addRequestHandler('mod-meta-data', async (e, data) => {

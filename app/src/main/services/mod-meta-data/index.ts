@@ -1,5 +1,6 @@
-import { init } from './handler';
+import { InitService } from '../models';
+import { initHandler } from './handler';
 
-export const ModMetaData = {
-  init,
+export const initServiceModMetaData: InitService = states => {
+  initHandler(states);
 };

@@ -14,7 +14,7 @@ export function createApp(): App {
   }
 
   const states = createStates();
-  Object.entries(services).forEach(([name, srv]) => srv.init(states));
+  Object.entries(services).forEach(([name, srv]) => srv(states));
 
   const url = isDevelopment
     ? `http://localhost:9421/`
