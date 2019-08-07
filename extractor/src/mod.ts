@@ -192,7 +192,11 @@ export class Mod implements ModOutput {
             /* eslint-disable @typescript-eslint/no-explicit-any */
             try {
               const root = await loadXML(pathAboutXML);
+              const excludes: (keyof ModMetaData)[] = ['path', 'id', 'workshopId'];
               Object.entries(metaData).forEach(([key, value]) => {
+                if ((excludes as string[]).includes(key)) {
+                  return;
+                }
                 const isArray = Array.isArray(value);
                 const element = root.elements.find(c => c.name === key);
                 if (!element) {
@@ -210,7 +214,7 @@ export class Mod implements ModOutput {
               });
             } catch (e) {
               const error = e as Error;
-              (metaData as any).description = `${error.message}\n${error.stack}`;
+              (metaData as any).description = `Error:\n${error.message}\n${error.stack}`;
             }
             /* eslint-enable @typescript-eslint/no-explicit-any */
           }
