@@ -14,18 +14,19 @@ const outputDirectory = `${outputExtractor}Benchmark`;
 const outputResult = io.join(outputDirectory, 'result.txt');
 
 /* eslint-disable no-console */
-function log(message: string): void {
-  fs.appendFileSync(outputResult, `${message}\n`);
-  console.log(message);
+function log(...args: string[]): void {
+  fs.appendFileSync(outputResult, `${args.join(' ')}\n`);
+  console.log(...args);
 }
 /* eslint-enable no-console */
 
 function createExtractor(): Extractor {
   const extractor = new Extractor();
 
-  extractor.emitter.addListener('error', (event, error) => {
-    log(error);
-  });
+  extractor.emitter
+    .addListener('info', (e, msg) => log(msg))
+    .addListener('error', (e, msg) => log(msg))
+    .addListener('warn', (e, msg) => log(msg));
 
   return extractor;
 }
@@ -87,7 +88,7 @@ async function benchmark(): Promise<void> {
       const cost = Date.now() - start;
       totalCosts += cost;
       const message = [
-        mod.identify.padEnd(16, ' '),
+        mod.meta.id.padEnd(16, ' '),
         `${cost}ms`.padEnd(16, ' '),
         mod.meta.name,
       ].join('');

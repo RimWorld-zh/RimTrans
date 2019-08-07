@@ -1,6 +1,6 @@
 import * as io from '@rimtrans/io';
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
-import { ExtractorEventEmitter, Progress } from './extractor-event-emitter';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
 
 // Learn more in the project 'Reflection'
 
@@ -79,12 +79,6 @@ export class TypePackageExtractor {
    */
   public async load(paths: string[]): Promise<TypeMaps> {
     const action = this.ACTION_LOAD;
-    this.emitter.emit('progress', {
-      action,
-      key: '',
-      status: 'pending',
-      info: 'loading',
-    });
 
     const typePackages = await Promise.all(
       paths.map(path =>
@@ -100,21 +94,7 @@ export class TypePackageExtractor {
       ),
     );
 
-    this.emitter.emit('progress', {
-      action,
-      key: '',
-      status: 'pending',
-      info: 'processing',
-    });
-
     const maps = this.mergeTypePackages(typePackages);
-
-    this.emitter.emit('progress', {
-      action,
-      key: '',
-      status: 'pending',
-      info: 'done',
-    });
 
     return maps;
   }

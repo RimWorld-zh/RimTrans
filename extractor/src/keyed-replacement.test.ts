@@ -19,10 +19,9 @@ describe('keyed-replacement', () => {
   let mergedMap: KeyedReplacementMap;
 
   test('load', async () => {
-    [[keyedMapEnglish], keyedMaps] = await Promise.all([
-      keyedReplacementExtractor.load([pathEnglishKeyed]),
-      keyedReplacementExtractor.load(pathsKeyed),
-    ]);
+    [keyedMapEnglish, ...keyedMaps] = await Promise.all(
+      [pathEnglishKeyed, ...pathsKeyed].map(path => keyedReplacementExtractor.load(path)),
+    );
 
     expect(Array.isArray(keyedMapEnglish['Alerts.xml'])).toBe(true);
     expect(

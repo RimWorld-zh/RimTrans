@@ -15,7 +15,7 @@ describe('definition', () => {
   let defMaps: DefsElementMap[];
 
   beforeAll(async () => {
-    defMaps = await definitionExtractor.load(pathsDefs);
+    defMaps = await Promise.all(pathsDefs.map(path => definitionExtractor.load(path)));
   });
 
   test('load', async () => {
@@ -24,8 +24,8 @@ describe('definition', () => {
 
   test('resolveInheritance', async () => {
     // core
-    const maps = await definitionExtractor.resolveInheritance(defMaps);
-    const core = maps[0];
+    definitionExtractor.resolveInheritance(defMaps);
+    const core = defMaps[0];
     await io.deleteFileOrDirectory(outputInheritedDefs);
     for (const [path, root] of Object.entries(core)) {
       await saveXML(io.join(outputInheritedDefs, path), root, false);
@@ -84,7 +84,7 @@ describe('definition', () => {
     expect(errorEmitted).toBe(true);
   });
 
-  test('resolveInheritanceNodeRecursively & resolveXmlNodeFor', () => {
+  test('resolveInheritanceNodeRecursively & resolveXmlNodeFor', async () => {
     const root = parseXML(`
     <Defs>
       <MockDef Name="Mock0">
@@ -101,7 +101,7 @@ describe('definition', () => {
       elements: [mock0, mock1],
     } = root;
 
-    expect(() =>
+    await expect(() =>
       definitionExtractor.resolveInheritanceNodeRecursively({
         root,
         def: mock1,
@@ -116,7 +116,7 @@ describe('definition', () => {
       }),
     ).toThrowError(/cyclic/);
 
-    expect(() =>
+    await expect(() =>
       definitionExtractor.resolveXmlNodeFor({
         root,
         def: mock1,

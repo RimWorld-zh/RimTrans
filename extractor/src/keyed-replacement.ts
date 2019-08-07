@@ -6,7 +6,7 @@ import {
   TEXT_UNUSED,
   TEXT_NEWLINE,
 } from './constants';
-import { ExtractorEventEmitter, Progress } from './extractor-event-emitter';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
 import {
   XNodeData,
   XTextData,
@@ -31,11 +31,6 @@ export interface KeyedReplacementMap {
 }
 
 export class KeyedReplacementExtractor {
-  /* eslint-disable lines-between-class-members */
-  public readonly ACTION_LOAD = 'Keyed Load';
-  public readonly ACTION_SAVE = 'Keyed Save';
-  /* eslint-enable lines-between-class-members */
-
   private readonly emitter: ExtractorEventEmitter;
 
   public constructor(emitter: ExtractorEventEmitter) {
@@ -46,50 +41,26 @@ export class KeyedReplacementExtractor {
   // Loading
 
   /**
-   * Load `Keyed` xml document files of mods and get array of `KeyedReplacementMap`.
-   * @param keyedDirectories the array of paths to `Keyed` directories, `[Core, ...Mods]`
+   * Load `Keyed` xml document files of the mod.
+   * @param directory the path to the directory 'Keyed' of the mod for the specified language
    */
-  public async load(keyedDirectories: string[]): Promise<KeyedReplacementMap[]> {
-    const action = this.ACTION_LOAD;
+  public async load(directory: string): Promise<KeyedReplacementMap> {
+    const files = await io.search(['**/*.xml'], {
+      cwd: directory,
+      onlyFiles: true,
+      caseSensitiveMatch: false,
+    });
 
-    return Promise.all(
-      keyedDirectories.map(async dir => {
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'pending',
-          info: 'loading',
-        });
+    const map: KeyedReplacementMap = {};
 
-        const map: KeyedReplacementMap = {};
-
-        const files = await io.search(['**/*.xml'], {
-          cwd: dir,
-          onlyFiles: true,
-          caseSensitiveMatch: false,
-        });
-
-        if (files.length === 0) {
-          return map;
-        }
-
-        await Promise.all(
-          files.map(async fileName => {
-            const path = io.join(dir, fileName);
-            map[fileName] = await this.loadFile(path);
-          }),
-        );
-
-        this.emitter.emit('progress', {
-          action,
-          status: 'succeed',
-          key: dir,
-          info: 'loaded',
-        });
-
-        return map;
+    await Promise.all(
+      files.map(async fileName => {
+        const path = io.join(directory, fileName);
+        map[fileName] = await this.loadFile(path);
       }),
     );
+
+    return map;
   }
 
   private async loadFile(path: string): Promise<(string | KeyedReplacement)[]> {
@@ -138,10 +109,10 @@ export class KeyedReplacementExtractor {
    * @param originMap the origin(English) keyed map
    * @param oldMap the old translation keyed map
    */
-  public async merge(
+  public merge(
     originMap: KeyedReplacementMap,
     oldMap: KeyedReplacementMap,
-  ): Promise<KeyedReplacementMap> {
+  ): KeyedReplacementMap {
     const newMap: KeyedReplacementMap = {};
 
     Object.entries(originMap).forEach(([fileName, keyedList]) => {
@@ -214,9 +185,7 @@ export class KeyedReplacementExtractor {
    * Check duplicated keyed, should be call after `merge()`.
    * @param keyedReplacementMaps the array of `KeyedReplacementMap`, `[Core, ...Mods]`
    */
-  public async checkDuplicated(
-    keyedReplacementMaps: KeyedReplacementMap[],
-  ): Promise<KeyedReplacementMap[]> {
+  public checkDuplicated(keyedReplacementMaps: KeyedReplacementMap[]): void {
     const visited = new Set<string>();
 
     keyedReplacementMaps.forEach(map =>
@@ -236,8 +205,6 @@ export class KeyedReplacementExtractor {
           });
         }),
     );
-
-    return keyedReplacementMaps;
   }
 
   // ----------------------------------------------------------------
@@ -254,27 +221,12 @@ export class KeyedReplacementExtractor {
     keyedReplaceMap: KeyedReplacementMap,
     prettierOptions?: PrettierOptions,
   ): Promise<void> {
-    const action = this.ACTION_SAVE;
-    this.emitter.emit('progress', {
-      action,
-      key: directory,
-      status: 'pending',
-      info: 'saving',
-    });
-
     await Promise.all(
       Object.entries(keyedReplaceMap).map(async ([fileName, keyedList]) => {
         const path = io.join(directory, fileName);
         await this.saveFile(path, keyedList, prettierOptions);
       }),
     );
-
-    this.emitter.emit('progress', {
-      action,
-      key: directory,
-      status: 'succeed',
-      info: 'saved',
-    });
   }
 
   private async saveFile(

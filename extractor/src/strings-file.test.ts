@@ -14,10 +14,9 @@ describe('string-file', () => {
   let [originMap, oldMap, mockMap, newMap] = [] as Record<string, string>[];
 
   test('load', async () => {
-    [[originMap], [oldMap, mockMap]] = await Promise.all([
-      stringsFileExtractor.load([pathEnglishStrings]),
-      stringsFileExtractor.load(pathsStrings),
-    ]);
+    [originMap, oldMap, mockMap] = await Promise.all(
+      [pathEnglishStrings, ...pathsStrings].map(path => stringsFileExtractor.load(path)),
+    );
 
     expect(Object.keys(mockMap).length).toBe(0);
   });

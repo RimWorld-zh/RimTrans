@@ -1,13 +1,8 @@
 import * as io from '@rimtrans/io';
-import { ExtractorEventEmitter, Progress } from './extractor-event-emitter';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { PrettierOptions, resolveXmlPrettierOptions, regexEndOfLine } from './xml';
 
 export class StringsFileExtractor {
-  /* eslint-disable lines-between-class-members */
-  public readonly ACTION_LOAD = 'Strings Load';
-  public readonly ACTION_SAVE = 'Strings Save';
-  /* eslint-enable lines-between-class-members */
-
   private readonly emitter: ExtractorEventEmitter;
 
   public constructor(emitter: ExtractorEventEmitter) {
@@ -15,51 +10,25 @@ export class StringsFileExtractor {
   }
 
   /**
-   * Load `Strings` text files of mods.
-   * @param stringsDirectories tha array of paths to `Strings` directories of mods.
+   * Load `Strings` text files of the mod.
+   * @param directory path to the directory 'Strings' of the mod for the specified language
    */
-  public async load(stringsDirectories: string[]): Promise<Record<string, string>[]> {
-    const action = this.ACTION_LOAD;
+  public async load(directory: string): Promise<Record<string, string>> {
+    const files = await io.search(['**/*.txt'], {
+      cwd: directory,
+      caseSensitiveMatch: false,
+      onlyFiles: true,
+    });
 
-    return Promise.all(
-      stringsDirectories.map(async dir => {
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'pending',
-          info: 'loading',
-        });
+    const map: Record<string, string> = {};
 
-        const map: Record<string, string> = {};
-
-        if (!(await io.directoryExists(dir))) {
-          return map;
-        }
-
-        await io
-          .search(['**/*.txt'], {
-            cwd: dir,
-            caseSensitiveMatch: false,
-            onlyFiles: true,
-          })
-          .then(files =>
-            Promise.all(
-              files.map(async fileName => {
-                map[fileName] = await io.read(io.join(dir, fileName));
-              }),
-            ),
-          );
-
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'succeed',
-          info: 'loaded',
-        });
-
-        return map;
+    await Promise.all(
+      files.map(async fileName => {
+        map[fileName] = await io.read(io.join(directory, fileName));
       }),
     );
+
+    return map;
   }
 
   /**
@@ -91,14 +60,6 @@ export class StringsFileExtractor {
     stringsMap: Record<string, string>,
     prettierOptions?: PrettierOptions,
   ): Promise<void> {
-    const action = this.ACTION_SAVE;
-    this.emitter.emit('progress', {
-      action,
-      key: directory,
-      status: 'pending',
-      info: 'saving',
-    });
-
     const { eol } = resolveXmlPrettierOptions(prettierOptions);
 
     await Promise.all(
@@ -106,12 +67,5 @@ export class StringsFileExtractor {
         io.save(io.join(directory, fileName), content.replace(regexEndOfLine, eol)),
       ),
     );
-
-    this.emitter.emit('progress', {
-      action,
-      key: directory,
-      status: 'succeed',
-      info: 'saved',
-    });
   }
 }

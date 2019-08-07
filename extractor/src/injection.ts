@@ -9,7 +9,7 @@ import {
   TYPE_STRING,
   ATTRIBUTE_NAME_ABSTRACT,
 } from './constants';
-import { ExtractorEventEmitter, Progress } from './extractor-event-emitter';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
 import {
   XNodeData,
   XTextData,
@@ -74,11 +74,6 @@ type ParseField = (
 type GetParseNodes = (list: XElementData[], typeInfoOf: TypeInfo) => PathNode[];
 
 export class InjectionExtractor {
-  /* eslint-disable lines-between-class-members */
-  public readonly ACTION_LOAD = 'DefInjected Load';
-  public readonly ACTION_SAVE = 'DefInjected Save';
-  /* eslint-enable lines-between-class-members */
-
   private readonly emitter: ExtractorEventEmitter;
 
   public constructor(emitter: ExtractorEventEmitter) {
@@ -181,60 +176,29 @@ export class InjectionExtractor {
   // Loading
 
   /**
-   * Load `DefInjected` xml files of mods and get array of `InjectionMap`.
-   * @param defInjectedDirectories the array of paths to `DefInjected` directories, `[Core, ...Mods]`
+   * Load `DefInjected` xml files of the mod
+   * @param directory path to the directory 'DefInjected' of the mod for the specified language
    */
-  public async load(defInjectedDirectories: string[]): Promise<InjectionMap[]> {
-    const action = this.ACTION_LOAD;
+  public async load(directory: string): Promise<InjectionMap> {
+    const files = await io.search(['*/*.xml'], {
+      cwd: directory,
+      onlyFiles: true,
+      caseSensitiveMatch: false,
+    });
 
-    return Promise.all(
-      defInjectedDirectories.map(async dir => {
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'pending',
-          info: 'loading',
-        });
+    const map: InjectionMap = {};
 
-        const map: InjectionMap = {};
-
-        const fileMaps: Record<string, string[]> = {};
-        const files = await io.search(['*/*.xml'], {
-          cwd: dir,
-          onlyFiles: true,
-          caseSensitiveMatch: false,
-        });
-
-        if (files.length === 0) {
-          this.emitter.emit('progress', {
-            action,
-            key: dir,
-            status: 'succeed',
-            info: 'no files',
-          });
-          return map;
-        }
-
-        await Promise.all(
-          files.map(async relatedPath => {
-            const defType = io.directoryName(relatedPath);
-            const fileName = io.fileName(relatedPath, true);
-            const path = io.join(dir, relatedPath);
-            const subMap = map[defType] || (map[defType] = {});
-            subMap[fileName] = await this.loadFile(path);
-          }),
-        );
-
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'succeed',
-          info: 'loaded',
-        });
-
-        return map;
+    await Promise.all(
+      files.map(async relatedPath => {
+        const defType = io.directoryName(relatedPath);
+        const fileName = io.fileName(relatedPath, true);
+        const path = io.join(directory, relatedPath);
+        const subMap = map[defType] || (map[defType] = {});
+        subMap[fileName] = await this.loadFile(path);
       }),
     );
+
+    return map;
   }
 
   private async loadFile(path: string): Promise<(string | Injection)[]> {
@@ -625,7 +589,7 @@ export class InjectionExtractor {
    * Check all of injections is duplicated or not, should be call after `merge()`
    * @param injectionMaps the array of `InjectionMap`, `[Core, ...Mods]`
    */
-  public checkDuplicated(injectionMaps: InjectionMap[]): InjectionMap[] {
+  public checkDuplicated(injectionMaps: InjectionMap[]): void {
     injectionMaps.forEach(map =>
       Object.keys(map)
         .sort()
@@ -648,8 +612,6 @@ export class InjectionExtractor {
             );
         }),
     );
-
-    return injectionMaps;
   }
 
   // ----------------------------------------------------------------
@@ -666,9 +628,6 @@ export class InjectionExtractor {
     injectionMap: InjectionMap,
     prettierOptions?: PrettierOptions,
   ): Promise<void> {
-    const action = this.ACTION_SAVE;
-    this.emitter.emit('progress', { action, key: '', status: 'pending', info: 'saving' });
-
     const injectionListMap: Record<string, (Injection | string)[]> = {};
     Object.entries(injectionMap).forEach(([defType, subInjectionMap]) =>
       Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
@@ -686,8 +645,6 @@ export class InjectionExtractor {
         this.saveFile(path, injectionList, prettierOptions),
       ),
     );
-
-    this.emitter.emit('progress', { action, key: '', status: 'succeed', info: 'saved' });
   }
 
   private async saveFile(

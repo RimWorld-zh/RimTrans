@@ -37,11 +37,11 @@ describe('injection', () => {
 
   beforeAll(async () => {
     [defMaps, { classInfoMap }] = await Promise.all([
-      definitionExtractor
-        .load(pathsDefs)
-        .then(maps => definitionExtractor.resolveInheritance(maps)),
+      Promise.all(pathsDefs.map(path => definitionExtractor.load(path))),
       typePackageExtractor.load(pathsTypePackage),
     ]);
+    definitionExtractor.resolveInheritance(defMaps);
+
     defMaps[0]['zmocks_1.xml'] = parseXML(
       `<Defs>
         <ZMockDef>
@@ -154,7 +154,7 @@ describe('injection', () => {
       injectionMapsParsed,
       injectionMapsParsedFuzzy,
     ] = await Promise.all([
-      injectionExtractor.load(pathsDefInjected),
+      Promise.all(pathsDefInjected.map(path => injectionExtractor.load(path))),
       injectionExtractor.parse(defMaps, classInfoMap),
       injectionExtractor.parse(defMaps, classInfoMap, true),
     ]);

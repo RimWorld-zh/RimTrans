@@ -6,7 +6,7 @@ import {
   ATTRIBUTE_NAME_INHERIT,
   FIELD_NAME_DEF_NAME,
 } from './constants';
-import { ExtractorEventEmitter, Progress, sleep } from './extractor-event-emitter';
+import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { XElementData, loadXML } from './xml';
 import { replaceListItem, cloneObject } from './object';
 
@@ -23,12 +23,6 @@ interface InheritanceNode {
 }
 
 export class DefinitionExtractor {
-  /* eslint-disable lines-between-class-members */
-  public readonly ACTION_LOAD = 'Defs Load';
-  public readonly ACTION_INHERITANCE = 'Defs Process Inheritance';
-  public readonly ACTION_IMPLIED = 'Defs Process Implied Defs';
-  /* eslint-enable lines-between-class-members */
-
   private readonly emitter: ExtractorEventEmitter;
 
   public constructor(emitter: ExtractorEventEmitter) {
@@ -39,55 +33,25 @@ export class DefinitionExtractor {
   // Loading
 
   /**
-   * Load all Defs file from a directory and get array of `DefDocumentMap`.
-   * @param defsDirectories the array of paths to Def directories, `[Core, ...Mods]`.
+   * Load all Defs file of the mod.
+   * @param directory path to the directory 'Defs' of the mod
    */
-  public async load(defsDirectories: string[]): Promise<DefsElementMap[]> {
-    const action = this.ACTION_LOAD;
+  public async load(directory: string): Promise<DefsElementMap> {
+    const files = await io.search(['**/*.xml'], {
+      cwd: directory,
+      onlyFiles: true,
+      caseSensitiveMatch: false,
+    });
 
-    return Promise.all(
-      defsDirectories.map(async (dir, index) => {
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'pending',
-          info: 'loading',
-        });
+    const map: DefsElementMap = {};
 
-        const map: DefsElementMap = {};
-
-        const files = await io.search(['**/*.xml'], {
-          cwd: dir,
-          onlyFiles: true,
-          caseSensitiveMatch: false,
-        });
-
-        if (files.length === 0) {
-          this.emitter.emit('progress', {
-            action,
-            key: dir,
-            status: 'succeed',
-            info: 'no files',
-          });
-          return map;
-        }
-
-        await Promise.all(
-          files.map(async file => {
-            map[file] = await loadXML(pth.join(dir, file));
-          }),
-        );
-
-        this.emitter.emit('progress', {
-          action,
-          key: dir,
-          status: 'succeed',
-          info: 'done',
-        });
-
-        return map;
+    await Promise.all(
+      files.map(async file => {
+        map[file] = await loadXML(pth.join(directory, file));
       }),
     );
+
+    return map;
   }
 
   // ----------------------------------------------------------------
@@ -98,20 +62,10 @@ export class DefinitionExtractor {
    * Resolve the Defs inheritance.
    * @param defsElementMaps the array of `DefDocumentMap`, `[Core, ...Mods]`.
    */
-  public async resolveInheritance(
-    defsElementMaps: DefsElementMap[],
-  ): Promise<DefsElementMap[]> {
+  public resolveInheritance(defsElementMaps: DefsElementMap[]): void {
     if (defsElementMaps.length < 1) {
       throw new Error(`The argument 'maps' is a empty array.`);
     }
-
-    const action = this.ACTION_INHERITANCE;
-    this.emitter.emit('progress', {
-      action,
-      key: '',
-      status: 'pending',
-      info: 'processing',
-    });
 
     const allNodes: InheritanceNode[] = [];
     const parentMaps: Record<string, Record<string, InheritanceNode>>[] = [];
@@ -172,7 +126,7 @@ export class DefinitionExtractor {
           const defName = defNameElement && defNameElement.value.trim();
           this.emitter.emit(
             'error',
-            `${action}: ${defType} "${defName}" parent ${parentName} not found.`,
+            `${defType} "${defName}" parent ${parentName} not found.`,
           );
         }
       }
@@ -188,10 +142,6 @@ export class DefinitionExtractor {
         replaceListItem(node.root.elements, node.def, node.resolvedDef);
       }
     });
-
-    this.emitter.emit('progress', { action, key: '', status: 'succeed', info: 'done' });
-
-    return defsElementMaps;
   }
 
   public resolveInheritanceNodeRecursively(node: InheritanceNode): void {
