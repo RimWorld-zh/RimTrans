@@ -19,7 +19,9 @@ module.exports = {
    * @param {Config} config
    */
   chainWebpack: config => {
-    config.target('electron-renderer').resolve.symlinks(false);
+    config.target('electron-renderer');
+
+    // config.resolve.symlinks(false);
 
     config.resolve.alias.delete('@').set('@src', resolvePath('src'));
 
