@@ -17,7 +17,7 @@
     "build:types": "tsc && ncp dist/types dist/cjs && ncp dist/types dist/esm && rimraf dist/types",
     "build": "yarn build:cjs && yarn build:esm && yarn build:types",
     "lint": "eslint src/ --ext .ts,.tsx --color",
-    "test": "jest --maxWorkers=1 --setupTestFrameworkScriptFile=../jest.setup.js --color",
+    "test": "jest --setupTestFrameworkScriptFile=../jest.setup.js --color",
     "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as io from '@rimtrans/io';
 import {
   resolvePath,

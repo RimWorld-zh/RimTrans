@@ -11,7 +11,8 @@
     "bootstrap": "lerna bootstrap",
     "all:clean": "lerna run clean",
     "all:build": "lerna run build",
-    "all:test": "lerna run test",
+    "all:lint": "lerna run lint --no-sort",
+    "all:test": "lerna run test --no-sort",
     "ts": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json"
   },
   "engines": {
