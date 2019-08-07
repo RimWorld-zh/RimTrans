@@ -16,6 +16,11 @@ describe('mod', () => {
     });
   });
 
+  test('error-about', async () => {
+    const mod = await Mod.load(io.join(__dirname, '..', 'tests', 'ErrorMod'));
+    expect(mod.meta.description.includes('Error:'));
+  });
+
   test('test-mods', async () => {
     mods = await Promise.all(modIds.map(id => Mod.load(io.join(pathTestMods, id))));
   });
