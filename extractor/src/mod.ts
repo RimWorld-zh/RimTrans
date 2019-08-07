@@ -24,18 +24,50 @@ import {
  * The mod meta data from About.xml of the mod.
  */
 export interface ModMetaData {
+  /**
+   * Path to directory of the mod.
+   */
   readonly path: string;
+
+  /**
+   * Folder name of the mod.
+   */
   readonly id: string;
+
+  /**
+   * Steam workshop publish file id of the mod.
+   */
   readonly workshopId?: number;
+
+  /**
+   * Meta: name from About.xml
+   */
   readonly name: string;
+
+  /**
+   * Meta: author from About.xml
+   */
   readonly author: string;
+
+  /**
+   * Meta: url from About.xml
+   */
   readonly url: string;
   /**
+   * Meta: targetVersion from About.xml
    * @deprecated
    */
   readonly targetVersion: string;
-  readonly description: string;
+
+  /**
+   * Meta: supportedVersions from About.xml
+   */
   readonly supportedVersions: readonly string[];
+
+  /**
+   * Meta: description from About.xml
+   */
+  readonly description: string;
 }
 
 export function defaultModMetaData(path: string): ModMetaData {
@@ -54,9 +86,9 @@ export function defaultModMetaData(path: string): ModMetaData {
 
 export interface ModOutput {
   /**
-   * Path to the directory of the mod
+   * Path to the directory of the output
    */
-  readonly pathRoot: string;
+  readonly path: string;
 
   /**
    * Path to the preview image of the mod.
@@ -86,9 +118,25 @@ export class Mod implements ModOutput {
   public readonly meta: ModMetaData;
 
   /**
-   * Path to the directory of the mod
+   * Path to directory of the mod.
    */
-  public readonly pathRoot: string;
+  public get path(): string {
+    return this.meta.path;
+  }
+
+  /**
+   * Folder name of the mod.
+   */
+  public get id(): string {
+    return this.meta.id;
+  }
+
+  /**
+   * Steam workshop publish file id of the mod.
+   */
+  public get workshopId(): number | undefined {
+    return this.meta.workshopId;
+  }
 
   /**
    * Path to the preview image of the mod.
@@ -109,8 +157,6 @@ export class Mod implements ModOutput {
 
   private constructor(pathRoot: string, modeMetaData: ModMetaData) {
     this.meta = modeMetaData;
-
-    this.pathRoot = pathRoot;
 
     this.previewImage = io.join(pathRoot, FOLDER_NAME_ABOUT, FILE_NAME_PREVIEW);
     this.pathAbout = io.join(pathRoot, FOLDER_NAME_ABOUT);
@@ -151,7 +197,7 @@ export class Mod implements ModOutput {
     const pathTextures = io.join(pathRoot, FOLDER_NAME_TEXTURES);
 
     return {
-      pathRoot,
+      path: pathRoot,
       previewImage,
       pathAbout,
       pathAssemblies,
@@ -224,7 +270,11 @@ export class Mod implements ModOutput {
 
       io.fileExists(pathPublishFileId).then(async exists => {
         if (exists) {
-          return (await io.read(pathPublishFileId)).trim();
+          const text = (await io.read(pathPublishFileId)).trim();
+          const value = Number.parseInt(text, 10);
+          if (!Number.isNaN(value) && value > 0) {
+            return value;
+          }
         }
         return undefined;
       }),

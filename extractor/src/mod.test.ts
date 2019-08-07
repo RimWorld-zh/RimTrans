@@ -29,10 +29,13 @@ describe('mod', () => {
     const pathMock = io.join(__dirname, 'Mock');
     const mock = await Mod.load(io.join(__dirname, 'Mock'));
 
-    expect(mock.pathRoot).toBe(pathMock);
+    expect(mock.path).toBe(pathMock);
+    expect(mock.id).toBe('Mock');
+    expect(mock.workshopId).toBe(undefined);
 
     expect(mock.meta.path).toBe(pathMock);
     expect(mock.meta.id).toBe('Mock');
+    expect(mock.meta.workshopId).toBe(undefined);
     expect(mock.meta.name).toBe('Mock');
     expect(mock.meta.author).toBe('Anonymous');
     expect(mock.meta.url).toBe('');
@@ -48,7 +51,7 @@ describe('mod', () => {
 
     expect(core.meta.workshopId).toBe(undefined);
 
-    expect(core.pathRoot).toBe(pathCore);
+    expect(core.path).toBe(pathCore);
 
     expect(core.previewImage).toBe(io.join(pathCore, 'About', 'Preview.png'));
 
