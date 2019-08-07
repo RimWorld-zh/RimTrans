@@ -28,8 +28,8 @@ function setup(): void {
         paths.map(async dir => {
           const files = await io.search([`*/${FOLDER_NAME_ABOUT}/${FILE_NAME_ABOUT}`], {
             cwd: dir,
-            case: false,
             onlyFiles: true,
+            caseSensitiveMatch: false,
           });
 
           await Promise.all(
