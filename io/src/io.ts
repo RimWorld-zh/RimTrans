@@ -126,7 +126,12 @@ export async function copy(source: string, target: string): Promise<void> {
     await createDirectory(targetParent);
   }
   return new Promise<void>((resolve, reject) => {
-    ncp(source, target, error => (error ? reject(error) : resolve()));
+    ncp(source, target, error => {
+      if (error) {
+        return reject(error);
+      }
+      return resolve();
+    });
   });
 }
 

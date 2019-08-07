@@ -23,10 +23,28 @@ describe('io', () => {
     ).toBe(true);
 
     expect(
-      io.search(['*.ts'], {
-        cwd: io.join(__dirname, 'mock'),
-      }),
-    ).rejects.toThrowError(/ENOENT/);
+      await io
+        .search(['*.TS'], { cwd: __dirname, caseSensitiveMatch: false })
+        .then(files => files.includes('io.ts') && files.includes('io.test.ts')),
+    ).toBe(true);
+
+    expect(
+      await io
+        .search(['src/*.ts'])
+        .then(files => files.includes('src/io.ts') && files.includes('src/io.test.ts')),
+    ).toBe(true);
+
+    expect(
+      await io
+        .search(['src/*.TS'], { caseSensitiveMatch: false })
+        .then(files => files.includes('src/io.ts') && files.includes('src/io.test.ts')),
+    ).toBe(true);
+
+    expect(await io.search(['src/*.TS'])).toEqual([]);
+
+    expect(await io.search(['*.ts'], { cwd: io.join(__dirname, 'mock') })).toEqual([]);
+
+    expect(await io.search(['*'], { cwd: io.join(__dirname, 'foobar') })).toEqual([]);
   });
 
   test('exists', async () => {
@@ -43,36 +61,33 @@ describe('io', () => {
   });
 
   test('several', async () => {
-    const dir = io.join(__dirname, '.tmp.test');
+    const dir = io.join(__dirname, '.tmp', 'test');
+    await io.deleteFileOrDirectory(dir);
+
+    let error: Error | undefined;
+    try {
+      await io.copy(io.join(__dirname, 'foobar', 'io.ts'), io.join(dir, 'io.ts'));
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeTruthy();
+
+    await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'io.ts'));
+    expect(await io.fileExists(io.join(dir, 'io.ts'))).toBe(true);
+
+    await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'foobar', 'io.ts'));
+    expect(await io.fileExists(io.join(dir, 'foobar', 'io.ts'))).toBe(true);
+
     await io.deleteFileOrDirectory(dir);
 
     const subDir = io.join(__dirname, '.tmp', 'mock');
     const file = io.join(__dirname, '.tmp', 'mock', 'mock.txt');
     const content = 'mocking bird';
 
-    try {
-      await io.createDirectory(io.join(subDir, 'src'));
-      await io.copy(io.join(subDir, 'src'), io.join(subDir, 'dest'));
-      expect(false).toBeTruthy();
-    } catch (error) {
-      expect(error).toBeTruthy();
-    }
-    try {
-      await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'io.ts'));
-      expect(false).toBeTruthy();
-    } catch (error) {
-      expect(error).toBeTruthy();
-    }
-
-    await io.createDirectory(dir);
-    await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'io.ts'));
-
-    await io.deleteFileOrDirectory(dir);
-
     await io.createDirectory(subDir);
     expect(await io.directoryExists(subDir)).toBe(true);
 
-    await io.deleteFileOrDirectory(dir);
+    await io.deleteFileOrDirectory(subDir);
     expect(await io.directoryExists(subDir)).toBe(false);
 
     await io.save(file, content);
@@ -84,9 +99,11 @@ describe('io', () => {
     await io.save(file, content);
     expect(await io.read(file)).toBe(content);
 
-    await io.deleteFileOrDirectory(dir);
-
     const typePackage = await io.load(io.join(__dirname, '..', 'package.json'));
     expect(typePackage.name).toBe('@rimtrans/io');
+  });
+
+  afterAll(async () => {
+    io.deleteFileOrDirectory(io.join(__dirname, '.tmp'));
   });
 });
