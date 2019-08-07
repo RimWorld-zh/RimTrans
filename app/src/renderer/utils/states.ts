@@ -10,10 +10,10 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { GLOBAL_KEY_PATHS, GLOBAL_KEY_SETTINGS } from '@src/main/utils/constants';
-import { IpcMessage, IpcListener } from '@src/main/utils/ipc';
+import { IpcMessage } from '@src/main/utils/ipc';
 import { StateTypeMap, StateChannel, Paths } from '@src/main/utils/states';
 import { Settings } from '@src/main/utils/states/settings';
-import { IpcRenderer, createIpc, getGlobal } from './ipc';
+import { IpcRendererListener, IpcRenderer, createIpc, getGlobal } from './ipc';
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -79,7 +79,7 @@ export class States extends Vue {
       this.statesIpc.send(channel, { id: this.browserWindowID, data });
     };
 
-    const listener: IpcListener<StateTypeMap[K][0]> = (event, message) => {
+    const listener: IpcRendererListener<StateTypeMap[K][0]> = (event, message) => {
       if (message && message.id !== this.browserWindowID) {
         this.statesIpcSilentMap[channel] = true;
         this[channel] = message.data;
@@ -110,7 +110,7 @@ export class States extends Vue {
     (Object.values(this.unwatchMap) as Function[]).forEach(unwatch => unwatch());
     (Object.entries(this.listenerMap) as [
       StateChannel,
-      IpcListener<StateTypeMap[StateChannel][0]>
+      IpcRendererListener<StateTypeMap[StateChannel][0]>
     ][]).forEach(([channel, listener]) =>
       this.statesIpc.removeListener(channel, listener),
     );

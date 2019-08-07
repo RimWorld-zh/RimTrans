@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { remote, Event as ElectronEvent, ipcRenderer } from 'electron';
+import { remote, IpcRendererEvent, ipcRenderer } from 'electron';
 import Vue, { PluginFunction } from 'vue';
 import {
   Component,
@@ -10,7 +10,12 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { IpcTypeMap, IpcMessage, IpcListener } from '@src/main/utils/ipc';
+import { IpcTypeMap, IpcMessage } from '@src/main/utils/ipc';
+
+export type IpcRendererListener<T> = (
+  event: IpcRendererEvent,
+  message?: IpcMessage<T>,
+) => any;
 
 /**
  * The IPC interface for renderer interface.
@@ -22,7 +27,7 @@ export interface IpcRenderer<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param listener the ipc listener function
    */
-  on<K extends keyof T>(channel: K, listener: IpcListener<T[K][0]>): void;
+  on<K extends keyof T>(channel: K, listener: IpcRendererListener<T[K][0]>): void;
 
   /**
    * Add listener to ipc in specified channel.
@@ -31,7 +36,7 @@ export interface IpcRenderer<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param listener the ipc listener function
    */
-  once<K extends keyof T>(channel: K, listener: IpcListener<T[K][0]>): void;
+  once<K extends keyof T>(channel: K, listener: IpcRendererListener<T[K][0]>): void;
 
   /**
    * Send a message to the main process via ipc in specified channel.
@@ -45,7 +50,10 @@ export interface IpcRenderer<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param listener the ipc listener function
    */
-  removeListener<K extends keyof T>(channel: K, listener: IpcListener<T[K][0]>): void;
+  removeListener<K extends keyof T>(
+    channel: K,
+    listener: IpcRendererListener<T[K][0]>,
+  ): void;
 
   request<K extends keyof T>(channel: K, data: T[K][0]): Promise<T[K][1]>;
 }
@@ -79,7 +87,7 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
         const message = { id, data };
 
         const listener = (
-          event: ElectronEvent,
+          event: IpcRendererEvent,
           replyMessage: IpcMessage<T[K][1]>,
           error?: Error,
         ): void => {
