@@ -36,6 +36,8 @@ describe('i18n', () => {
 
     const chinese = getLanguageDictByID('ChineseSimplified');
     expect(chinese).not.toEqual(english);
-    expect(english.appName).not.toBe(chinese.appName);
+    expect(english.app.name).toBe('RimTrans');
+    expect(chinese.app.name).toBe('边缘译');
+    expect(english.app.name).not.toBe(chinese.app.name);
   });
 });

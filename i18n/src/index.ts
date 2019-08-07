@@ -41,12 +41,10 @@ function mergeDict<T extends any>(target: T, source: any): T {
   Object.keys(source).forEach(k => {
     const vt = target[k];
     const vs = source[k];
-    if (vs) {
-      if (typeof vs === 'string' && typeof vt === 'string') {
-        target[k] = vs;
-      } else if (typeof vs === 'object' && typeof vt === 'object') {
-        mergeDict(vt, vs);
-      }
+    if (typeof vs === 'string' && typeof vt === 'string') {
+      target[k] = vs;
+    } else {
+      mergeDict(vt, vs);
     }
   });
 
