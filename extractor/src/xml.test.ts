@@ -124,7 +124,7 @@ describe('xml', () => {
     </Defs>
     `);
 
-    Promise.all([
+    await Promise.all([
       saveXML(resolvePath(TEMP, 'xml', '0.xml'), rootData, false),
       saveXML(resolvePath(TEMP, 'xml', '1.xml'), rootData, true),
       saveXML(resolvePath(TEMP, 'xml', '2.xml'), rootData, true, {
