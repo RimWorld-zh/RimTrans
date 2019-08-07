@@ -14,6 +14,9 @@ import { IpcMessage } from '@src/main/utils/ipc';
 import { StateTypeMap, StateChannel, Paths } from '@src/main/utils/states';
 import { Settings } from '@src/main/utils/states/settings';
 import { IpcRendererListener, IpcRenderer, createIpc, getGlobal } from './ipc';
+import { StateI18n } from './i18n';
+import { StateUi } from './ui';
+import { TranslationDictionary } from '@rimtrans/i18n';
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -55,6 +58,13 @@ export class States extends Vue {
   public ipc!: IpcRenderer;
   public paths!: Paths;
   public settings: Settings = null as any;
+
+  private stateI18n!: StateI18n;
+  public get i18n(): TranslationDictionary {
+    return this.stateI18n.dict;
+  }
+
+  private stateUi!: StateUi;
   /* eslint-enable lines-between-class-members,@typescript-eslint/no-explicit-any */
 
   // Sync
@@ -104,6 +114,9 @@ export class States extends Vue {
     this.listenerMap = {};
 
     this.installState('settings', GLOBAL_KEY_SETTINGS);
+
+    this.stateI18n = new StateI18n({ parent: this });
+    this.stateUi = new StateUi({ parent: this });
   }
 
   private beforeDestroy(): void {

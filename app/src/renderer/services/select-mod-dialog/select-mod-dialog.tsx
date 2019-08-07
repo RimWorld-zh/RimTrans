@@ -76,8 +76,8 @@ export class SSelectModDialog extends Vue {
     const { lastSortBy, lastSortDirection } = this;
 
     const [modsLocal, modsSteam] = await Promise.all([
-      this.$ipc.request('mod-meta-data', 'local'),
-      this.$ipc.request('mod-meta-data', 'steam'),
+      this.$states.ipc.request('mod-meta-data', 'local'),
+      this.$states.ipc.request('mod-meta-data', 'steam'),
     ]);
 
     const [modsLocalOptions, modsSteamOptions] = [modsLocal, modsSteam].map(mods =>
@@ -119,6 +119,13 @@ export class SSelectModDialog extends Vue {
       modsSteamSelected,
       lastSortBy,
       lastSortDirection,
+      $states: {
+        i18n: {
+          common: { mods: labelMods, steam: labelSteam },
+          file: { path: labelPath },
+          modMeta: { name: labelName, author: labelAuthor },
+        },
+      },
     } = this;
 
     const mods = (genre === 'local' && modsLocal) || modsSteam;
@@ -148,7 +155,7 @@ export class SSelectModDialog extends Vue {
             onClick={() => (this.genre = 'local')}
           >
             <md-icon staticClass="rw-button-icon rw-icon-left" icon="FolderOutline" />
-            {this.$i18n.dict.common.mods}
+            {labelMods}
           </rw-button>
           <rw-button
             key="steam"
@@ -157,7 +164,7 @@ export class SSelectModDialog extends Vue {
             onClick={() => (this.genre = 'steam')}
           >
             <md-icon staticClass="rw-button-icon rw-icon-left" icon="Steam" />
-            {this.$i18n.dict.common.steam}
+            {labelSteam}
           </rw-button>
 
           <rw-button
@@ -181,7 +188,7 @@ export class SSelectModDialog extends Vue {
             skin={(lastSortBy === 'path' && 'fill') || 'flat'}
             onClick={() => this.sort('path')}
           >
-            {this.$i18n.dict.file.path}
+            {labelPath}
             <md-icon
               staticClass="rw-button-icon rw-icon-right"
               icon={
@@ -197,7 +204,7 @@ export class SSelectModDialog extends Vue {
             skin={(lastSortBy === 'name' && 'fill') || 'flat'}
             onClick={() => this.sort('name')}
           >
-            {this.$i18n.dict.modMeta.name}
+            {labelName}
             <md-icon
               staticClass="rw-button-icon rw-icon-right"
               icon={
@@ -213,7 +220,7 @@ export class SSelectModDialog extends Vue {
             skin={(lastSortBy === 'author' && 'fill') || 'flat'}
             onClick={() => this.sort('author')}
           >
-            {this.$i18n.dict.modMeta.author}
+            {labelAuthor}
             <md-icon
               staticClass="rw-button-icon rw-icon-right"
               icon={

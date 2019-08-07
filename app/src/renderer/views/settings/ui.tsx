@@ -16,8 +16,8 @@ import {
 export default class VSettingsUI extends Vue {
   private render(h: CreateElement): VNode {
     const {
-      $i18n: {
-        dict: {
+      $states: {
+        i18n: {
           settings: { darkMode },
         },
       },

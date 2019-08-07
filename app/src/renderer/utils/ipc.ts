@@ -109,28 +109,6 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
   };
 }
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    readonly $ipc: IpcRenderer;
-  }
-}
-
-let $$Vue: typeof Vue | undefined;
-
-export const PluginIpc: PluginFunction<never> = $Vue => {
-  if ($$Vue && $$Vue === $Vue) {
-    return;
-  }
-  $$Vue = $Vue;
-
-  Object.defineProperty($Vue.prototype, '$ipc', {
-    configurable: false,
-    writable: false,
-    enumerable: false,
-    value: createIpc('app'),
-  });
-};
-
 // ------------------------------------------------
 // Global
 

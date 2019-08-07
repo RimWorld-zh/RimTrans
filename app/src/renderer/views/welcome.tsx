@@ -25,8 +25,8 @@ interface NavItem {
 export default class VWelcome extends Vue {
   private render(h: CreateElement): VNode {
     const {
-      $i18n: {
-        dict: {
+      $states: {
+        i18n: {
           app: {
             tool: { translator, modder, translationWorkshop },
           },

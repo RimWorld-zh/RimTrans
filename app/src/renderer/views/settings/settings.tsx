@@ -23,8 +23,8 @@ interface SettingCategory {
 export default class VSettings extends Vue {
   private render(h: CreateElement): VNode {
     const {
-      $i18n: {
-        dict: {
+      $states: {
+        i18n: {
           settings: { features, ui, about },
         },
       },

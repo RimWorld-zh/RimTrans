@@ -9,13 +9,16 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { ColorTheme } from '@src/renderer/components/base';
+import { States } from './states';
 
 /**
- * Component States UI
+ * Component State UI
  */
 @Component
-export class StatesUI extends Vue {
-  @Watch('$states.settings.theme', { immediate: true })
+export class StateUi extends Vue {
+  public readonly $parent!: States;
+
+  @Watch('$parent.settings.theme', { immediate: true })
   private watchTheme(theme: ColorTheme): void {
     const {
       documentElement: { classList },
