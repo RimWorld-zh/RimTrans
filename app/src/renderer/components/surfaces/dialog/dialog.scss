@@ -27,6 +27,9 @@
     bottom: 0;
     left: 0;
     right: 0;
+
+    @include backdrop-acrylic;
+    @include animation-fade('in');
   }
 
   @include elem('container') {

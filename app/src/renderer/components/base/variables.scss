@@ -110,6 +110,11 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   --line-height-su: 14;
 
   // ----------------------------------------------------------------
+  // Visual
+
+  --acrylic-filter: blur(8px) brightness(50%);
+
+  // ----------------------------------------------------------------
   // Motion
 
   --motion-duration-base: 250ms;

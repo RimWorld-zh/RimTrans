@@ -8,7 +8,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { ButtonColor } from '../../base';
+import { ButtonColor, when } from '../../base';
 
 let $$Vue: typeof Vue | undefined;
 
@@ -145,6 +145,9 @@ export class RwDialog extends Vue implements DialogOptions {
   @Prop({ type: String, default: 'default' })
   public readonly cancelColor?: ButtonColor;
 
+  @Prop({ type: Boolean, default: true })
+  public readonly acrylic!: boolean;
+
   private destroy?: Function;
 
   @Watch('show')
@@ -187,15 +190,19 @@ export class RwDialog extends Vue implements DialogOptions {
       cancelLabel,
       confirmColor,
       cancelColor,
+      acrylic,
       $slots: { header: headerSlot, default: defaultSlot, footer: footerSlot },
       $listeners: { confirm = [], cancel = [], close = [], dismiss = [], ...on },
     } = this;
+
+    const overlayClasses = when({ acrylic });
 
     return (
       <div staticClass="rw-dialog" {...{ on }}>
         <div
           key="overlay"
           staticClass="rw-dialog_overlay"
+          class={overlayClasses}
           onClick={(!block && dismiss) || []}
         />
         <div key="container" staticClass="rw-dialog_container">
