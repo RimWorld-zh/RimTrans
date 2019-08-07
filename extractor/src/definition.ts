@@ -58,8 +58,8 @@ export class DefinitionExtractor {
 
         const files = await io.search(['**/*.xml'], {
           cwd: dir,
-          case: false,
           onlyFiles: true,
+          caseSensitiveMatch: false,
         });
 
         if (files.length === 0) {

@@ -202,7 +202,7 @@ export class InjectionExtractor {
         const files = await io.search(['*/*.xml'], {
           cwd: dir,
           onlyFiles: true,
-          case: false,
+          caseSensitiveMatch: false,
         });
 
         if (files.length === 0) {

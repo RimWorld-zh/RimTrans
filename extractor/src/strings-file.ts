@@ -39,7 +39,7 @@ export class StringsFileExtractor {
         await io
           .search(['**/*.txt'], {
             cwd: dir,
-            case: false,
+            caseSensitiveMatch: false,
             onlyFiles: true,
           })
           .then(files =>

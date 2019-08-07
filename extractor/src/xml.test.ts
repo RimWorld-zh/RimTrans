@@ -17,7 +17,7 @@ describe('xml', () => {
         if (await io.directoryExists(pathDefs)) {
           const defFiles = await io.search(['**/*.xml'], {
             cwd: pathDefs,
-            case: false,
+            caseSensitiveMatch: false,
             onlyFiles: true,
           });
           Promise.all(
