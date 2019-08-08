@@ -123,7 +123,11 @@ export type ExtractorEventListenerMap = {
 };
 
 export class ExtractorEventEmitter {
-  public readonly raw = new EventEmitter();
+  public readonly raw: EventEmitter;
+
+  public constructor(raw?: EventEmitter) {
+    this.raw = raw || new EventEmitter();
+  }
 
   /**
    * Add a listener to the specified event.

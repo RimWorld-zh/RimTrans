@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { EventEmitter } from 'events';
 import * as io from '@rimtrans/io';
 import {
   resolvePath,
@@ -16,8 +17,8 @@ describe('extractor', () => {
   let configCoreOutput: ExtractorConfig;
   let configCoreBrandNew: ExtractorConfig;
 
-  const createExtractor = (): [Extractor, () => WorkflowMap] => {
-    const extractor = new Extractor();
+  const createExtractor = (raw?: EventEmitter): [Extractor, () => WorkflowMap] => {
+    const extractor = new Extractor(raw);
     let map: WorkflowMap;
     extractor.emitter.addListener('workflowMap', (e, data) => (map = data));
     extractor.emitter.addListener('workflow', (e, payload) => {
@@ -135,7 +136,7 @@ describe('extractor', () => {
 
   test('Mods and Workflow', async () => {
     for (const cfg of configs.slice(0, 3)) {
-      const [extractor, getMap] = createExtractor();
+      const [extractor, getMap] = createExtractor(new EventEmitter());
       await extractor.extract(cfg);
       const map = getMap();
       if (!isResolved(map)) {

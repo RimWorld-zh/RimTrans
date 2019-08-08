@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 import {
   sleep,
   WorkflowStatus,
@@ -38,6 +39,15 @@ describe('extractor-event-emitter', () => {
     emitter.removeListener('info', listener);
     flag = emitter.emit('info', 'foobar listener has been removed.');
     expect(flag).toBe(false);
+  });
+
+  test('raw', () => {
+    const raw = new ExtractorEventEmitter(new EventEmitter());
+    raw.addListener('info', (e, msg) => {
+      expect(msg).toBe('raw emitter');
+    });
+    const flag = raw.emit('info', 'raw emitter');
+    expect(flag).toBe(true);
   });
 
   test('createWorkflowNode', () => {

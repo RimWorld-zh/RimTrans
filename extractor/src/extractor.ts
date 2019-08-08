@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 import * as io from '@rimtrans/io';
 import {
   FOLDER_NAME_ASSEMBLIES,
@@ -107,8 +108,8 @@ export class Extractor {
   private readonly stringsFileExtractor: StringsFileExtractor;
   /* eslint-enable lines-between-class-members */
 
-  public constructor() {
-    const emitter = new ExtractorEventEmitter();
+  public constructor(rawEventEmitter?: EventEmitter) {
+    const emitter = new ExtractorEventEmitter(rawEventEmitter);
     this.emitter = emitter;
     this.typePackageExtractor = new TypePackageExtractor(emitter);
     this.definitionExtractor = new DefinitionExtractor(emitter);
