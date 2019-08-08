@@ -53,6 +53,7 @@ function setup(): void {
     }
 
     slaver.send('request', mods);
+    process.exit(0);
   });
 }
 

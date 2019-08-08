@@ -22,7 +22,6 @@ export function initHandler(states: States): void {
 
       slaver.addListener('request', mods => {
         resolve(mods);
-        slaver.childProcess.kill();
       });
 
       const genre = Array.isArray(data) ? 'files' : 'directories';
