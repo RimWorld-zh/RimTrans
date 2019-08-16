@@ -1,4 +1,3 @@
-import fs from 'fs';
 import pth from 'path';
 import * as io from './io';
 
@@ -48,21 +47,21 @@ describe('io', () => {
   });
 
   test('exists', async () => {
-    expect(await io.fileExists(io.join(__dirname, 'Mock', 'mock.txt'))).toBe(false);
-    expect(await io.fileExists(__filename)).toBe(true);
-    expect(await io.fileExists(`${__filename}.mock`)).toBe(false);
-    expect(await io.fileExists(io.join(__dirname, 'mock', 'mock', 'mock.txt'))).toBe(
+    expect(await io.pathExists(io.join(__dirname, 'Mock', 'mock.txt'))).toBe(false);
+    expect(await io.pathExists(__filename)).toBe(true);
+    expect(await io.pathExists(`${__filename}.mock`)).toBe(false);
+    expect(await io.pathExists(io.join(__dirname, 'mock', 'mock', 'mock.txt'))).toBe(
       false,
     );
 
-    expect(await io.directoryExists(__dirname)).toBe(true);
-    expect(await io.directoryExists(io.join(__dirname, 'mock'))).toBe(false);
-    expect(await io.directoryExists(io.join(__dirname, 'mock', 'mock'))).toBe(false);
+    expect(await io.pathExists(__dirname)).toBe(true);
+    expect(await io.pathExists(io.join(__dirname, 'mock'))).toBe(false);
+    expect(await io.pathExists(io.join(__dirname, 'mock', 'mock'))).toBe(false);
   });
 
-  test('several', async () => {
+  test('copy', async () => {
     const dir = io.join(__dirname, '.tmp', 'test');
-    await io.deleteFileOrDirectory(dir);
+    await io.remove(dir);
 
     let error: Error | undefined;
     try {
@@ -73,37 +72,42 @@ describe('io', () => {
     expect(error).toBeTruthy();
 
     await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'io.ts'));
-    expect(await io.fileExists(io.join(dir, 'io.ts'))).toBe(true);
+    expect(await io.pathExists(io.join(dir, 'io.ts'))).toBe(true);
 
-    await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'foobar', 'io.ts'));
-    expect(await io.fileExists(io.join(dir, 'foobar', 'io.ts'))).toBe(true);
+    await io.copy(io.join(__dirname, 'io.ts'), io.join(dir, 'foo', 'io.ts'));
+    expect(await io.pathExists(io.join(dir, 'foo', 'io.ts'))).toBe(true);
 
-    await io.deleteFileOrDirectory(dir);
+    await io.copy(io.join(dir, 'foo'), io.join(dir, 'bar'));
+    expect(await io.pathExists(io.join(dir, 'bar', 'io.ts'))).toBe(true);
 
+    await io.remove(dir);
+  });
+
+  test('several', async () => {
     const subDir = io.join(__dirname, '.tmp', 'mock');
     const file = io.join(__dirname, '.tmp', 'mock', 'mock.txt');
     const content = 'mocking bird';
 
-    await io.createDirectory(subDir);
-    expect(await io.directoryExists(subDir)).toBe(true);
+    await io.ensureDir(subDir);
+    expect(await io.pathExists(subDir)).toBe(true);
 
-    await io.deleteFileOrDirectory(subDir);
-    expect(await io.directoryExists(subDir)).toBe(false);
+    await io.remove(subDir);
+    expect(await io.pathExists(subDir)).toBe(false);
 
-    await io.save(file, content);
-    expect(await io.read(file)).toBe(content);
+    await io.outputFile(file, content);
+    expect(await io.readFile(file, 'utf-8')).toBe(content);
 
-    await io.deleteFileOrDirectory(file);
-    expect(await io.fileExists(file)).toBe(false);
+    await io.remove(file);
+    expect(await io.pathExists(file)).toBe(false);
 
-    await io.save(file, content);
-    expect(await io.read(file)).toBe(content);
+    await io.outputFile(file, content);
+    expect(await io.readFile(file, 'utf-8')).toBe(content);
 
-    const typePackage = await io.load(io.join(__dirname, '..', 'package.json'));
+    const typePackage = await io.readJson(io.join(__dirname, '..', 'package.json'));
     expect(typePackage.name).toBe('@rimtrans/io');
   });
 
   afterAll(async () => {
-    io.deleteFileOrDirectory(io.join(__dirname, '.tmp'));
+    io.remove(io.join(__dirname, '.tmp'));
   });
 });

@@ -24,7 +24,7 @@
 - `Core`: The RimWorld Core files, includes Defs and English Language
 - `extractor`: The core low-level library
 - `i18n`: The i18n data for RimTrans
-- `io`: The file operating library.
+- `io`: The file operating library, based on [fs-extra](https://www.npmjs.com/package/fs-extra), [globby](https://www.npmjs.com/package/globby) and nodejs built-in modules.
 - `Reflection`: The dotnet core project, for get type info from assemblies (.dll files)
 - `resources`: Design assets
 

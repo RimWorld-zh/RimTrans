@@ -22,7 +22,7 @@
     "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
   },
   "dependencies": {
-    "@rimtrans/io": "0.4.1",
+    "@rimtrans/io": "1.0.0",
     "@types/jsdom": "^12.2.4",
     "@types/prettier": "^1.18.1",
     "jsdom": "^15.1.1",
