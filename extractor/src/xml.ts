@@ -182,12 +182,11 @@ export function resolveXmlPrettierOptions(
 
 export const regexEndOfLine = /\r|\n|\r\n/g;
 
-export async function saveXML(
-  path: string,
+export function serializeXML(
   rootData: XElementData,
   format?: boolean,
   prettierOptions?: PrettierOptions,
-): Promise<void> {
+): string {
   const { resolvedOptions, eol } = resolveXmlPrettierOptions(prettierOptions);
   const {
     window: { document: doc },
@@ -197,5 +196,15 @@ export async function saveXML(
   const content = format
     ? prettier.format(root.outerHTML, resolvedOptions)
     : root.outerHTML;
-  await io.save(path, `${DEFAULT_DECLARATION}${eol}${content}${eol}`);
+
+  return `${DEFAULT_DECLARATION}${eol}${content}${eol}`;
+}
+
+export async function saveXML(
+  path: string,
+  rootData: XElementData,
+  format?: boolean,
+  prettierOptions?: PrettierOptions,
+): Promise<void> {
+  await io.save(path, serializeXML(rootData, format, prettierOptions));
 }

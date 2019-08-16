@@ -126,7 +126,7 @@ export class DefinitionExtractor {
           const defName = defNameElement && defNameElement.value.trim();
           this.emitter.emit(
             'error',
-            `${defType} "${defName}" parent ${parentName} not found.`,
+            `${defType} "${defName}" parent "${parentName}" not found.`,
           );
         }
       }
@@ -178,38 +178,43 @@ export class DefinitionExtractor {
       current.childNodes = child.childNodes;
       current.elements = child.elements;
       current.value = child.value;
-    } else {
-      current.attributes = child.attributes;
+      return;
+    }
 
-      const childValue = child.value.trim();
+    current.attributes = child.attributes;
 
-      if (childValue) {
-        current.childNodes = [{ nodeType: 'text', value: childValue }];
+    const childValue = child.value.trim();
+
+    if (childValue) {
+      current.childNodes = [{ nodeType: 'text', value: childValue }];
+      current.elements = [];
+      current.value = childValue;
+      return;
+    }
+
+    if (child.elements.length === 0) {
+      if (current.elements.length > 0) {
+        current.childNodes = [];
         current.elements = [];
-        current.value = childValue;
-      } else if (child.elements.length === 0) {
-        if (current.elements.length > 0) {
-          current.childNodes = [];
-          current.elements = [];
-          current.value = '';
-        }
-      } else {
-        child.elements.forEach(elChild => {
-          if (elChild.name === 'li') {
-            current.childNodes.push(elChild);
-            current.elements.push(elChild);
-          } else {
-            const elCurrent = current.elements.find(el => el.name === elChild.name);
-            if (elCurrent) {
-              this.recursiveNodeCopyOverwriteElements(elChild, elCurrent);
-            } else {
-              current.childNodes.push(elChild);
-              current.elements.push(elChild);
-            }
-          }
-        });
         current.value = '';
       }
+      return;
     }
+
+    child.elements.forEach(elChild => {
+      if (elChild.name === 'li') {
+        current.childNodes.push(elChild);
+        current.elements.push(elChild);
+      } else {
+        const elCurrent = current.elements.find(el => el.name === elChild.name);
+        if (elCurrent) {
+          this.recursiveNodeCopyOverwriteElements(elChild, elCurrent);
+        } else {
+          current.childNodes.push(elChild);
+          current.elements.push(elChild);
+        }
+      }
+    });
+    current.value = '';
   }
 }

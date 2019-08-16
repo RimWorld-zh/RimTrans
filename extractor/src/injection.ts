@@ -784,6 +784,15 @@ export class InjectionExtractor {
       value: '',
     };
 
-    await saveXML(path, languageData, false, prettierOptions);
+    try {
+      await saveXML(path, languageData, false, prettierOptions);
+    } catch (error) {
+      this.emitter.emit(
+        'error',
+        `Failed to save DefInjected: "${path}".\n${error.message}\n${error.stack}`,
+      );
+      await io.save(`${path}.error.json`, JSON.stringify(injectionList, undefined, '  '));
+      throw error;
+    }
   }
 }
