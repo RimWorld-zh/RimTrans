@@ -1,4 +1,3 @@
-import ChildProcess from 'child_process';
 import * as io from '@rimtrans/io';
 import { FOLDER_NAME_MODS, ModMetaData } from '@rimtrans/extractor';
 import { States } from '../../utils/states';

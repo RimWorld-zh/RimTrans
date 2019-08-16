@@ -14,6 +14,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
+      "@rimtrans/extractor": ["../extractor/src"],
       "@rimtrans/i18n": ["../i18n/src"],
       "@src/*": ["src/*"]
     }
