@@ -1,11 +1,14 @@
 import pth from 'path';
-import * as io from '@rimtrans/io';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import {
   ATTRIBUTE_NAME_NAME,
   ATTRIBUTE_NAME_PARENT_NAME,
   ATTRIBUTE_NAME_INHERIT,
   FIELD_NAME_DEF_NAME,
 } from './constants';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { XElementData, loadXML } from './xml';
 import { replaceListItem, cloneObject } from './object';
@@ -37,7 +40,11 @@ export class DefinitionExtractor {
    * @param directory path to the directory 'Defs' of the mod
    */
   public async load(directory: string): Promise<DefsElementMap> {
-    const files = await io.search(['**/*.xml'], {
+    if (!(await fse.pathExists(directory))) {
+      return {};
+    }
+
+    const files = await globby(['**/*.xml'], {
       cwd: directory,
       onlyFiles: true,
       caseSensitiveMatch: false,

@@ -1,5 +1,9 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 
 // Learn more in the project 'Reflection'
@@ -81,16 +85,22 @@ export class TypePackageExtractor {
     const action = this.ACTION_LOAD;
 
     const typePackages = await Promise.all(
-      paths.map(path =>
-        io.fileExists(path).then(
-          async (exists): Promise<TypePackage> => {
-            if (exists) {
-              const pkg = await io.load<TypePackage>(path);
+      paths.map(
+        async (path): Promise<TypePackage> => {
+          if (await fse.pathExists(path)) {
+            if (
+              await fse
+                .lstat(path)
+                .then(stats => stats.isFile())
+                .catch(() => false)
+            ) {
+              const pkg = await fse.readJSON(path);
               return pkg;
             }
             return { classes: [], enums: [] };
-          },
-        ),
+          }
+          return { classes: [], enums: [] };
+        },
       ),
     );
 

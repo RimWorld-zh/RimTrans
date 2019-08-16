@@ -1,7 +1,11 @@
-import { genPathResolve } from '@huiji/shared-utils';
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import { pathsTypePackage } from './utils.test';
+
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import {
   ClassInfo,
@@ -18,7 +22,7 @@ describe('type-package', () => {
   let maps: TypeMaps;
 
   beforeAll(async () => {
-    maps = await extractor.load([...pathsTypePackage, io.join(__dirname, 'Mock')]);
+    maps = await extractor.load([...pathsTypePackage, pth.join(__dirname, 'Mock')]);
   });
 
   test('load', async () => {

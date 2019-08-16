@@ -1,5 +1,9 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import { pathEnglishStrings, pathsStrings, outputStrings } from './utils.test';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { StringsFileExtractor } from './strings-file';
 
@@ -8,7 +12,7 @@ describe('string-file', () => {
   const stringsFileExtractor = new StringsFileExtractor(emitter);
 
   beforeAll(async () => {
-    await io.deleteFileOrDirectory(outputStrings);
+    await fse.remove(outputStrings);
   });
 
   let [originMap, oldMap, mockMap, newMap] = [] as Record<string, string>[];

@@ -1,5 +1,9 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import { pathCore, pathTestMods, resolvePath, TEMP } from './utils.test';
+
 import {
   loadXML,
   parseXML,
@@ -10,19 +14,19 @@ import {
 
 describe('xml', () => {
   test('load', async () => {
-    const ids = await io.search(['*'], { cwd: pathTestMods, onlyDirectories: true });
+    const ids = await globby(['*'], { cwd: pathTestMods, onlyDirectories: true });
     await Promise.all(
       ids.slice(0, 10).map(async id => {
-        const pathDefs = io.join(pathTestMods, id, 'Defs');
-        if (await io.directoryExists(pathDefs)) {
-          const defFiles = await io.search(['**/*.xml'], {
+        const pathDefs = pth.join(pathTestMods, id, 'Defs');
+        if (await fse.pathExists(pathDefs)) {
+          const defFiles = await globby(['**/*.xml'], {
             cwd: pathDefs,
             caseSensitiveMatch: false,
             onlyFiles: true,
           });
           Promise.all(
             defFiles.map(async file => {
-              const root = await loadXML(io.join(pathDefs, file));
+              const root = await loadXML(pth.join(pathDefs, file));
               expect(root.nodeType).toBe('element');
             }),
           );

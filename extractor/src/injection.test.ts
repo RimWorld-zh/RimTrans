@@ -1,5 +1,7 @@
-import { genPathResolve } from '@huiji/shared-utils';
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import {
   pathsDefs,
   pathsDefInjected,
@@ -13,10 +15,12 @@ import {
   outputDefInjected,
   outputDefInjectedFuzzy,
 } from './utils.test';
+
 import {
   ATTRIBUTE_MUST_TRANSLATE,
   ATTRIBUTE_TRANSLATION_CAN_CHANGE_COUNT,
 } from './constants';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { parseXML } from './xml';
 import { ClassInfo, TypePackage, TypePackageExtractor } from './type-package';
@@ -280,10 +284,7 @@ describe('injection', () => {
       ),
     ).toBe(true);
 
-    await io.save(
-      outputInjectionMapLoaded,
-      JSON.stringify(injectionMapsLoaded, undefined, '  '),
-    );
+    await fse.outputJSON(outputInjectionMapLoaded, injectionMapsLoaded, { spaces: 2 });
   });
 
   test('parse', async () => {
@@ -298,14 +299,10 @@ describe('injection', () => {
     );
 
     await Promise.all([
-      io.save(
-        outputInjectionMapParsed,
-        JSON.stringify(injectionMapsParsed, undefined, '  '),
-      ),
-      io.save(
-        outputInjectionMapParsedFuzzy,
-        JSON.stringify(injectionMapsParsedFuzzy, undefined, '  '),
-      ),
+      fse.outputJSON(outputInjectionMapParsed, injectionMapsParsed, { spaces: 2 }),
+      fse.outputJSON(outputInjectionMapParsedFuzzy, injectionMapsParsedFuzzy, {
+        spaces: 2,
+      }),
     ]);
   });
 
@@ -339,7 +336,7 @@ describe('injection', () => {
         });
       });
     });
-    await io.save(outputMissing, missing.sort().join('\n'));
+    await fse.outputFile(outputMissing, missing.sort().join('\n'));
   });
 
   test('fuzzy', async () => {
@@ -354,7 +351,7 @@ describe('injection', () => {
         }),
       ),
     );
-    await io.save(outputFuzzy, [...new Set(fuzzy)].sort().join('\n'));
+    await fse.outputFile(outputFuzzy, [...new Set(fuzzy)].sort().join('\n'));
   });
 
   test('save', async () => {
@@ -372,11 +369,11 @@ describe('injection', () => {
     expect(mapOld.ZZMockDef.zmocks_1).toBeTruthy();
 
     await Promise.all([
-      io.deleteFileOrDirectory(outputDefInjected),
-      io.deleteFileOrDirectory(outputDefInjectedFuzzy),
+      fse.remove(outputDefInjected),
+      fse.remove(outputDefInjectedFuzzy),
     ]);
     await Promise.all([
-      io.save(outputInjectionMapMerged, JSON.stringify(mapMerged, undefined, '  ')),
+      fse.outputJSON(outputInjectionMapMerged, mapMerged, { spaces: 2 }),
       injectionExtractor.save(outputDefInjected, mapMerged),
       injectionExtractor.save(outputDefInjectedFuzzy, mapMerged),
     ]);

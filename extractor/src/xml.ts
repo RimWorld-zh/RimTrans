@@ -1,6 +1,8 @@
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
 import { JSDOM } from 'jsdom';
 import prettier, { Options } from 'prettier';
-import * as io from '@rimtrans/io';
 
 export const DEFAULT_DECLARATION = '<?xml version="1.0" encoding="utf-8" ?>';
 
@@ -206,5 +208,5 @@ export async function saveXML(
   format?: boolean,
   prettierOptions?: PrettierOptions,
 ): Promise<void> {
-  await io.save(path, serializeXML(rootData, format, prettierOptions));
+  await fse.outputFile(path, serializeXML(rootData, format, prettierOptions));
 }

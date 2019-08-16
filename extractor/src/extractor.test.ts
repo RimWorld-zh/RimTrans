@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
 import { EventEmitter } from 'events';
-import * as io from '@rimtrans/io';
+
 import {
   resolvePath,
   pathCore,
@@ -8,6 +11,7 @@ import {
   pathsTypePackage,
   outputExtractor,
 } from './utils.test';
+
 import { WorkflowMap, setWorkflowMap } from './extractor-event-emitter';
 import { ExtractorConfig, Extractor } from './extractor';
 
@@ -45,12 +49,12 @@ describe('extractor', () => {
   };
 
   beforeAll(async () => {
-    await io.deleteFileOrDirectory(outputExtractor);
-    await io.createDirectory(outputExtractor);
+    await fse.remove(outputExtractor);
+    await fse.ensureDir(outputExtractor);
 
     const languages = ['Template', 'Mocking'];
 
-    const modIds = await io.search(['*'], { cwd: pathTestMods, onlyDirectories: true });
+    const modIds = await globby(['*'], { cwd: pathTestMods, onlyDirectories: true });
     configs = modIds.map<ExtractorConfig>(id => ({
       temp: './.temp',
       typePackages: pathsTypePackage,
@@ -60,10 +64,10 @@ describe('extractor', () => {
           extract: false,
         },
         {
-          path: io.join(pathTestMods, id),
+          path: pth.join(pathTestMods, id),
           extract: true,
           outputAsMod: true,
-          outputPath: io.join(outputExtractor, id),
+          outputPath: pth.join(outputExtractor, id),
         },
       ],
       languages,
@@ -89,7 +93,7 @@ describe('extractor', () => {
           path: pathCore,
           extract: true,
           outputAsMod: true,
-          outputPath: io.join(outputExtractor, 'CoreOutput'),
+          outputPath: pth.join(outputExtractor, 'CoreOutput'),
         },
       ],
       languages,
@@ -104,7 +108,7 @@ describe('extractor', () => {
           path: pathCore,
           extract: true,
           outputAsMod: true,
-          outputPath: io.join(outputExtractor, 'CoreBrandNew'),
+          outputPath: pth.join(outputExtractor, 'CoreBrandNew'),
         },
       ],
       languages,

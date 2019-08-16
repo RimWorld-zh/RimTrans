@@ -1,8 +1,9 @@
-import fs from 'fs';
 import pth from 'path';
-import { genPathResolve } from '@huiji/shared-utils';
-import * as io from '@rimtrans/io';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import { pathsDefs, defsFileCount, outputInheritedDefs } from './utils.test';
+
 import { ExtractorEventEmitter, ExtractorEventListener } from './extractor-event-emitter';
 import { parseXML, saveXML } from './xml';
 import { DefsElementMap, DefinitionExtractor } from './definition';
@@ -26,9 +27,9 @@ describe('definition', () => {
     // core
     definitionExtractor.resolveInheritance(defMaps);
     const core = defMaps[0];
-    await io.deleteFileOrDirectory(outputInheritedDefs);
+    await fse.remove(outputInheritedDefs);
     for (const [path, root] of Object.entries(core)) {
-      await saveXML(io.join(outputInheritedDefs, path), root, false);
+      await saveXML(pth.join(outputInheritedDefs, path), root, false);
     }
     expect(Object.keys(core).length).toBe(defsFileCount);
   });

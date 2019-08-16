@@ -1,4 +1,7 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import {
   pathEnglishKeyed,
   pathsKeyed,
@@ -7,6 +10,7 @@ import {
   outputKeyedOld,
   outputKeyedNew,
 } from './utils.test';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { KeyedReplacementMap, KeyedReplacementExtractor } from './keyed-replacement';
 
@@ -64,17 +68,17 @@ describe('keyed-replacement', () => {
     );
 
     await Promise.all([
-      io.save(outputKeyedEnglish, JSON.stringify(keyedMapEnglish, undefined, '  ')),
-      io.save(outputKeyedOld, JSON.stringify(keyedMaps[0], undefined, '  ')),
-      io.save(outputKeyedNew, JSON.stringify(mergedMap, undefined, '  ')),
+      fse.outputJSON(outputKeyedEnglish, keyedMapEnglish, { spaces: 2 }),
+      fse.outputJSON(outputKeyedOld, keyedMaps[0], { spaces: 2 }),
+      fse.outputJSON(outputKeyedNew, mergedMap, { spaces: 2 }),
     ]);
   });
 
   test('save', async () => {
-    await io.deleteFileOrDirectory(outputKeyed);
+    await fse.remove(outputKeyed);
     await keyedReplacementExtractor.save(outputKeyed, mergedMap);
 
-    expect(await io.directoryExists(outputKeyed)).toBe(true);
-    expect(await io.fileExists(io.join(outputKeyed, 'Alerts.xml'))).toBe(true);
+    expect(await fse.pathExists(outputKeyed)).toBe(true);
+    expect(await fse.pathExists(pth.join(outputKeyed, 'Alerts.xml'))).toBe(true);
   });
 });

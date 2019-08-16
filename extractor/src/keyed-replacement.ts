@@ -1,4 +1,7 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import {
   TAG_NAME_LANGUAGE_DATA,
   TEXT_EN,
@@ -6,6 +9,7 @@ import {
   TEXT_UNUSED,
   TEXT_NEWLINE,
 } from './constants';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import {
   XNodeData,
@@ -45,7 +49,11 @@ export class KeyedReplacementExtractor {
    * @param directory the path to the directory 'Keyed' of the mod for the specified language
    */
   public async load(directory: string): Promise<KeyedReplacementMap> {
-    const files = await io.search(['**/*.xml'], {
+    if (!(await fse.pathExists(directory))) {
+      return {};
+    }
+
+    const files = await globby(['**/*.xml'], {
       cwd: directory,
       onlyFiles: true,
       caseSensitiveMatch: false,
@@ -55,7 +63,7 @@ export class KeyedReplacementExtractor {
 
     await Promise.all(
       files.map(async fileName => {
-        const path = io.join(directory, fileName);
+        const path = pth.join(directory, fileName);
         map[fileName] = await this.loadFile(path);
       }),
     );
@@ -223,7 +231,7 @@ export class KeyedReplacementExtractor {
   ): Promise<void> {
     await Promise.all(
       Object.entries(keyedReplaceMap).map(async ([fileName, keyedList]) => {
-        const path = io.join(directory, fileName);
+        const path = pth.join(directory, fileName);
         await this.saveFile(path, keyedList, prettierOptions);
       }),
     );

@@ -1,4 +1,8 @@
-export * from './xml';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
+export { pth, fse, globby };
 
 export * from './constants';
 export * from './extractor-event-emitter';

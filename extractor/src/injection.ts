@@ -1,4 +1,7 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import {
   ATTRIBUTE_UNSAVED,
   ATTRIBUTE_NO_TRANSLATE,
@@ -9,6 +12,7 @@ import {
   TYPE_STRING,
   ATTRIBUTE_NAME_ABSTRACT,
 } from './constants';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import {
   XNodeData,
@@ -180,7 +184,11 @@ export class InjectionExtractor {
    * @param directory path to the directory 'DefInjected' of the mod for the specified language
    */
   public async load(directory: string): Promise<InjectionMap> {
-    const files = await io.search(['*/*.xml'], {
+    if (!(await fse.pathExists(directory))) {
+      return {};
+    }
+
+    const files = await globby(['*/*.xml'], {
       cwd: directory,
       onlyFiles: true,
       caseSensitiveMatch: false,
@@ -190,9 +198,9 @@ export class InjectionExtractor {
 
     await Promise.all(
       files.map(async relatedPath => {
-        const defType = io.directoryName(relatedPath);
-        const fileName = io.fileName(relatedPath, true);
-        const path = io.join(directory, relatedPath);
+        const defType = pth.dirname(relatedPath);
+        const fileName = pth.basename(relatedPath, pth.extname(relatedPath));
+        const path = pth.join(directory, relatedPath);
         const subMap = map[defType] || (map[defType] = {});
         subMap[fileName] = await this.loadFile(path);
       }),
@@ -262,7 +270,7 @@ export class InjectionExtractor {
       const injectionMap: InjectionMap = {};
 
       Object.entries(defMap).forEach(([path, root]) => {
-        const filename = io.fileName(path);
+        const filename = pth.basename(path, pth.extname(path));
         root.elements.forEach(def => {
           const defType = def.name;
           const injectionFileMap = injectionMap[defType] || (injectionMap[defType] = {});
@@ -631,7 +639,7 @@ export class InjectionExtractor {
     const injectionListMap: Record<string, (Injection | string)[]> = {};
     Object.entries(injectionMap).forEach(([defType, subInjectionMap]) =>
       Object.entries(subInjectionMap).forEach(([fileName, injectionList]) => {
-        const path = io.join(directory, defType, `${fileName}.xml`);
+        const path = pth.join(directory, defType, `${fileName}.xml`);
         injectionListMap[path] = injectionList;
       }),
     );
@@ -791,7 +799,7 @@ export class InjectionExtractor {
         'error',
         `Failed to save DefInjected: "${path}".\n${error.message}\n${error.stack}`,
       );
-      await io.save(`${path}.error.json`, JSON.stringify(injectionList, undefined, '  '));
+      await fse.outputJSON(`${path}.error.json`, injectionList, { spaces: 2 });
       throw error;
     }
   }

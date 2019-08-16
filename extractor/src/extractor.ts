@@ -1,5 +1,8 @@
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
 import { EventEmitter } from 'events';
-import * as io from '@rimtrans/io';
+
 import {
   FOLDER_NAME_ASSEMBLIES,
   FOLDER_NAME_DEFS,
@@ -11,6 +14,7 @@ import {
   FOLDER_NAME_KEYED,
   FOLDER_NAME_STRINGS,
 } from './constants';
+
 import {
   WorkflowMap,
   createWorkflowMap,
@@ -240,7 +244,7 @@ export class Extractor {
           ),
         ),
       );
-      await Promise.all(toDeleteDirs.map(async dir => io.deleteFileOrDirectory(dir)));
+      await Promise.all(toDeleteDirs.map(async dir => fse.remove(dir)));
     } else {
       const toCopyDirs: [string, string][] = [];
       languages.forEach(lang =>
@@ -260,11 +264,11 @@ export class Extractor {
       await Promise.all(
         toCopyDirs.map(async ([src, dest]) => {
           const [srcExists, destExists] = await Promise.all([
-            io.directoryExists(src),
-            io.directoryExists(dest),
+            fse.pathExists(src),
+            fse.pathExists(dest),
           ]);
           if (srcExists && !destExists) {
-            await io.copy(src, dest);
+            await fse.copy(src, dest);
           }
         }),
       );
@@ -469,17 +473,14 @@ export class Extractor {
                 const mod = mods[modIndex];
                 const output = outputs[modIndex];
                 if (debugMode) {
-                  await io.save(
-                    io.join(output.pathLanguage(lang), 'intermediate-data.json'),
-                    JSON.stringify(
-                      {
-                        DefInjected: mergedInjectionMaps[modIndex],
-                        Keyed: mergedKeyedMaps[modIndex],
-                        Strings: mergedStringsMaps[modIndex],
-                      },
-                      undefined,
-                      '  ',
-                    ),
+                  await fse.outputJSON(
+                    pth.join(output.pathLanguage(lang), 'intermediate-data.json'),
+                    {
+                      DefInjected: mergedInjectionMaps[modIndex],
+                      Keyed: mergedKeyedMaps[modIndex],
+                      Strings: mergedStringsMaps[modIndex],
+                    },
+                    { spaces: 2 },
                   );
                 }
                 await Promise.all([

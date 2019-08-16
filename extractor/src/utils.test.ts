@@ -1,6 +1,8 @@
-import { genPathResolve } from '@huiji/shared-utils';
+import { join } from 'path';
 
-export const resolvePath = genPathResolve(__dirname, '..', '..');
+export const resolvePath = (...paths: string[]): string => {
+  return join(__dirname, '..', '..', ...paths);
+};
 
 export const defsFileCount = 413;
 

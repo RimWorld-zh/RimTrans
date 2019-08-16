@@ -1,4 +1,7 @@
-import * as io from '@rimtrans/io';
+import pth from 'path';
+import fse from 'fs-extra';
+import globby from 'globby';
+
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { PrettierOptions, resolveXmlPrettierOptions, regexEndOfLine } from './xml';
 
@@ -14,7 +17,11 @@ export class StringsFileExtractor {
    * @param directory path to the directory 'Strings' of the mod for the specified language
    */
   public async load(directory: string): Promise<Record<string, string>> {
-    const files = await io.search(['**/*.txt'], {
+    if (!(await fse.pathExists(directory))) {
+      return {};
+    }
+
+    const files = await globby(['**/*.txt'], {
       cwd: directory,
       caseSensitiveMatch: false,
       onlyFiles: true,
@@ -24,7 +31,7 @@ export class StringsFileExtractor {
 
     await Promise.all(
       files.map(async fileName => {
-        map[fileName] = await io.read(io.join(directory, fileName));
+        map[fileName] = await fse.readFile(pth.join(directory, fileName), 'utf8');
       }),
     );
 
@@ -64,7 +71,10 @@ export class StringsFileExtractor {
 
     await Promise.all(
       Object.entries(stringsMap).map(([fileName, content]) =>
-        io.save(io.join(directory, fileName), content.replace(regexEndOfLine, eol)),
+        fse.outputFile(
+          pth.join(directory, fileName),
+          content.replace(regexEndOfLine, eol),
+        ),
       ),
     );
   }
