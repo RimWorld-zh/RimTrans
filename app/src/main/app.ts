@@ -1,5 +1,5 @@
 import { App, app, Event as ElectronEvent, dialog } from 'electron';
-import * as io from '@rimtrans/io';
+import { pth } from '@rimtrans/extractor';
 import { createStates } from './utils';
 import * as services from './services';
 import { RimTransWindowOptions, createRimTransWindow } from './windows/rimtrans-window';
@@ -18,7 +18,7 @@ export function createApp(): App {
 
   const url = isDevelopment
     ? `http://localhost:9421/`
-    : `file://${io.join(__dirname, '..', 'renderer', 'index.html')}`;
+    : `file://${pth.join(__dirname, '..', 'renderer', 'index.html')}`;
   const options: RimTransWindowOptions = {
     url,
     hash: '/',

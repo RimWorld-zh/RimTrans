@@ -1,5 +1,7 @@
-import * as io from '@rimtrans/io';
 import {
+  pth,
+  fse,
+  globby,
   FOLDER_NAME_ABOUT,
   FILE_NAME_ABOUT,
   Mod,
@@ -26,7 +28,7 @@ function setup(): void {
     if (genre === 'directories') {
       await Promise.all(
         paths.map(async dir => {
-          const files = await io.search([`*/${FOLDER_NAME_ABOUT}/${FILE_NAME_ABOUT}`], {
+          const files = await globby([`*/${FOLDER_NAME_ABOUT}/${FILE_NAME_ABOUT}`], {
             cwd: dir,
             onlyFiles: true,
             caseSensitiveMatch: false,
@@ -34,7 +36,7 @@ function setup(): void {
 
           await Promise.all(
             files.map(f => {
-              const p = io.join(dir, f.split(/\\|\//)[0]);
+              const p = pth.join(dir, f.split(/\\|\//)[0]);
               return Mod.load(p).then(mod => {
                 mods[p] = mod.meta;
               });

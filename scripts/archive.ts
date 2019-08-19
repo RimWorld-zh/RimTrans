@@ -1,9 +1,9 @@
 /* eslint-disable no-console,no-restricted-syntax,no-await-in-loop */
-import { genPathResolve } from '@huiji/shared-utils';
+import fse from 'fs-extra';
+import pth from 'path';
 import compressing from 'compressing';
-import * as io from '@rimtrans/io';
 
-const resolvePath = genPathResolve(__dirname, '..');
+const resolvePath = (...paths: string[]): string => pth.join(__dirname, '..', ...paths);
 
 const PLATFORMS = ['win', 'linux', 'osx'];
 const { npm_package_version: version } = process.env;
@@ -19,36 +19,36 @@ async function archive(): Promise<void> {
   for (const platform of PLATFORMS) {
     console.log(`version: ${version}, platform: ${platform}`);
     const folder = `rimtrans-v${version}-${platform}`;
-    await io.createDirectory(resolvePath(DIST, folder));
+    await fse.promises.mkdirp(resolvePath(DIST, folder));
     {
       // Copy executable
       const source = resolvePath(EXECUTABLE, DIST, platform);
       const target = resolvePath(DIST, folder);
-      await io.copy(source, target);
+      await fse.copy(source, target);
     }
     {
       // Copy Reflection
       const source = resolvePath(REFLECTION, DIST, platform);
       const target = resolvePath(DIST, folder, REFLECTION);
-      await io.copy(source, target);
+      await fse.copy(source, target);
     }
     {
       // Copy Core
       const source = resolvePath(CORE);
       const target = resolvePath(DIST, folder, CORE);
-      await io.copy(source, target);
+      await fse.copy(source, target);
     }
     {
       // Copy type-package.json
       const source = resolvePath(REFLECTION, TYPE_INFO);
       const target = resolvePath(DIST, folder, TYPE_INFO);
-      await io.copy(source, target);
+      await fse.copy(source, target);
     }
     {
       // Copy type-package-fix.json
       const source = resolvePath(REFLECTION, TYPE_INFO_FIX);
       const target = resolvePath(DIST, folder, TYPE_INFO_FIX);
-      await io.copy(source, target);
+      await fse.copy(source, target);
     }
 
     // Compress

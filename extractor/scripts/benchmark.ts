@@ -1,21 +1,18 @@
-import fs from 'fs';
-import * as io from '@rimtrans/io';
 import {
   pathCore,
   pathTestMods,
   pathsTypePackage,
   outputExtractor,
 } from '../src/utils.test';
-import { sleep } from '../src/extractor-event-emitter';
-import { ExtractorConfig, Extractor } from '../src/extractor';
+import { pth, fse, globby, ExtractorConfig, Extractor } from '../src';
 import { createPrinter } from './printer';
 
 const outputDirectory = `${outputExtractor}Benchmark`;
-const outputResult = io.join(outputDirectory, 'result.txt');
+const outputResult = pth.join(outputDirectory, 'result.txt');
 
 /* eslint-disable no-console */
 function log(...args: string[]): void {
-  fs.appendFileSync(outputResult, `${args.join(' ')}\n`);
+  fse.appendFileSync(outputResult, `${args.join(' ')}\n`);
   console.log(...args);
 }
 /* eslint-enable no-console */
@@ -32,12 +29,12 @@ function createExtractor(): Extractor {
 }
 
 async function benchmark(): Promise<void> {
-  await io.deleteFileOrDirectory(outputDirectory);
-  await io.createDirectory(outputDirectory);
+  await fse.remove(outputDirectory);
+  await fse.mkdirp(outputDirectory);
 
   const languages = ['Template'];
 
-  const modIds = await io.search(['*'], { cwd: pathTestMods, onlyDirectories: true });
+  const modIds = await globby(['*'], { cwd: pathTestMods, onlyDirectories: true });
   modIds.sort();
 
   const configs = modIds.map<ExtractorConfig>(id => ({
@@ -49,10 +46,10 @@ async function benchmark(): Promise<void> {
         extract: false,
       },
       {
-        path: io.join(pathTestMods, id),
+        path: pth.join(pathTestMods, id),
         extract: true,
         outputAsMod: true,
-        outputPath: io.join(outputDirectory, id),
+        outputPath: pth.join(outputDirectory, id),
       },
     ],
     languages,
@@ -66,7 +63,7 @@ async function benchmark(): Promise<void> {
         path: pathCore,
         extract: true,
         outputAsMod: true,
-        outputPath: io.join(outputDirectory, 'Core'),
+        outputPath: pth.join(outputDirectory, 'Core'),
       },
     ],
     languages,

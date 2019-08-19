@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import * as io from '@rimtrans/io';
+import { pth, fse } from '@rimtrans/extractor';
 
 async function genColors(): Promise<void> {
-  const colorsJson: Record<string, Record<string, string>> = await io.load(
-    io.join(__dirname, 'variables', 'colors.json'),
+  const colorsJson: Record<string, Record<string, string>> = await fse.readJSON(
+    pth.join(__dirname, 'variables', 'colors.json'),
   );
 
   const blocks: [string, string][][] = [];
@@ -44,8 +44,8 @@ async function genColors(): Promise<void> {
 
   const wrap = `%variables-color-palette {\n${content}\n}\n`;
 
-  await io.save(
-    io.join(
+  await fse.outputFile(
+    pth.join(
       __dirname,
       '..',
       'src',

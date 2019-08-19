@@ -7,7 +7,7 @@ import {
   WebContents,
   dialog,
 } from 'electron';
-import * as io from '@rimtrans/io';
+import { pth, fse, globby } from '@rimtrans/extractor';
 import {
   USER_DATA,
   GLOBAL_KEY_PATHS,
@@ -42,8 +42,8 @@ function createPaths(): Paths {
   const userData = app.getPath(USER_DATA);
   const paths: Paths = {
     dataDir: userData,
-    settings: io.join(userData, FILENAME_SETTINGS),
-    storage: io.join(userData, FILENAME_STORAGE),
+    settings: pth.join(userData, FILENAME_SETTINGS),
+    storage: pth.join(userData, FILENAME_STORAGE),
   };
   return paths;
 }
@@ -95,12 +95,12 @@ function createStateWrapper<K extends StateChannel>(
 
   const save: StateWrapper<CurrentState>['save'] = async () => {
     const state = getGlobal<CurrentState>(key);
-    io.save(path, JSON.stringify(state, undefined, '  '));
+    fse.outputJSON(path, state, { spaces: 2 });
   };
 
   const load: StateWrapper<CurrentState>['load'] = async () => {
-    if (await io.fileExists(path)) {
-      const state = await io.load<Partial<CurrentState>>(path);
+    if (await fse.pathExists(path)) {
+      const state = await fse.readJSON(path);
       setGlobal<CurrentState>(key, {
         ...defaultState(),
         ...state,

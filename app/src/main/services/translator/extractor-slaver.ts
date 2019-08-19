@@ -1,4 +1,3 @@
-import * as io from '@rimtrans/io';
 import { Extractor, ExtractorConfig } from '@rimtrans/extractor';
 import { createSlaverSub } from '../../utils/slaver';
 
