@@ -34,13 +34,24 @@
   }
 
   @include elem-adjacent('row') {
-    margin-top: calc(var(--gap-base) * 4px);
+    margin-top: calc(var(--gap-base) * 3px);
+  }
+
+  @include elem('item', 'label') {
+    font-size: calc(var(--font-size-caption) * 1px);
+    font-weight: var(--font-weight-caption);
+    line-height: calc(var(--line-height-caption) * 1px);
+    color: var(--color-foreground-secondary);
   }
 
   @include elem('item') {
     position: relative;
     flex: none;
     display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: flex-end;
     width: 32px;
     height: 32px;
     border-radius: calc(var(--radius-base) * 1px);
@@ -54,7 +65,5 @@
     flex: none;
     width: 128px;
     margin-left: calc(var(--gap-base) * 2px);
-
-    color: var(--color-foreground-secondary);
   }
 }

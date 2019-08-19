@@ -27,6 +27,11 @@ const items: DebugItem[] = [
     label: 'Colors',
     to: '/dev-tools/colors',
   },
+  {
+    icon: 'TestTubeEmpty',
+    label: 'Playground',
+    to: '/dev-tools/playground',
+  },
 ];
 
 /**
@@ -35,6 +40,14 @@ const items: DebugItem[] = [
 @Component
 export class RwDevTools extends Vue {
   private showSettings: boolean = false;
+
+  private onToggleTheme(event: MouseEvent): void {
+    if (this.$states.settings.theme === 'light') {
+      this.$states.settings.theme = 'dark';
+    } else {
+      this.$states.settings.theme = 'light';
+    }
+  }
 
   private onToggleShowSettings(event: Event): void {
     this.showSettings = !this.showSettings;
@@ -76,12 +89,17 @@ export class RwDevTools extends Vue {
   }
 
   private render(h: CreateElement): VNode {
-    const { showSettings } = this;
+    const {
+      showSettings,
+      $states: {
+        settings: { theme },
+      },
+    } = this;
 
     return (
       <div staticClass="rw-dev-tools">
         {showSettings && (
-          <div key="settings" staticClass="rw-dev-tools_settings">
+          <div key="settings-content" staticClass="rw-dev-tools_settings">
             <pre staticClass="rw-dev-tools_settings-content">
               <code>{this.serializeSettings()}</code>
               <br />
@@ -92,7 +110,22 @@ export class RwDevTools extends Vue {
         )}
 
         <rw-button
-          key="label"
+          key="them"
+          size="small"
+          color="primary"
+          skin="fill"
+          shape="square"
+          title="Toggle theme"
+          onClick={this.onToggleTheme}
+        >
+          <md-icon
+            staticClass="rw-button-icon"
+            icon={(theme === 'light' && 'Lightbulb') || 'LightbulbOff'}
+          />
+        </rw-button>
+
+        <rw-button
+          key="settings"
           size="small"
           color="primary"
           skin="fill"

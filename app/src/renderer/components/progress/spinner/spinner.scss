@@ -1,0 +1,50 @@
+/**
+ * Component: Spinner
+ */
+@include comp('spinner') {
+  position: relative;
+
+  display: inline-flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  @include when('hidden') {
+    display: none;
+  }
+
+  @include elem('circle') {
+    position: relative;
+    display: flex;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: calc(var(--spinner-border-width) * 1px);
+    border-color: var(--color-primary-60) var(--progress-color-secondary)
+      var(--progress-color-secondary);
+    animation: spin 1.3s cubic-bezier(0.53, 0.21, 0.29, 0.67) infinite;
+  }
+
+  @include elem('label') {
+    //
+  }
+
+  @include elem('circle') {
+    $value: calc(var(--spinner-size-medium) * 1px);
+    width: $value;
+    height: $value;
+  }
+  @each $size in $type-spinner-sizes {
+    @include prop(
+      (
+        'size': $size,
+      )
+    ) {
+      $value: calc(var(--spinner-size-#{$size}) * 1px);
+      @include elem('circle') {
+        width: $value;
+        height: $value;
+      }
+    }
+  }
+}

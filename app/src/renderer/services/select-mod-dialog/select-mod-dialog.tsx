@@ -11,6 +11,7 @@ import {
 } from 'vue-property-decorator';
 import { ModMetaData } from '@rimtrans/extractor';
 import { SortDirection, sort, clone } from '@src/main/utils/object';
+import { when } from '@src/renderer/components/base';
 import { ChoiceOption, ChoiceSlotProps } from '@src/renderer/components';
 
 type Genre = 'local' | 'steam';
@@ -128,6 +129,8 @@ export class SSelectModDialog extends Vue {
       },
     } = this;
 
+    const classes = when({ loading });
+
     const mods = (genre === 'local' && modsLocal) || modsSteam;
 
     const itemOuter = ({ value: path }: ChoiceSlotProps): ScopedSlotReturnValue => {
@@ -146,7 +149,7 @@ export class SSelectModDialog extends Vue {
     };
 
     return (
-      <div staticClass="s-select-mod-dialog">
+      <div staticClass="s-select-mod-dialog" class={classes}>
         <header key="header" staticClass="s-select-mod-dialog_header">
           <rw-button
             key="local"
@@ -232,27 +235,34 @@ export class SSelectModDialog extends Vue {
           </rw-button>
         </menu>
 
-        {(genre === 'local' && (
-          <div key={`mods-local`} staticClass="s-select-mod-dialog_scroll">
+        <div staticClass="s-select-mod-dialog_scroll">
+          {(genre === 'local' && (
             <rw-multi-choice-group
+              key="local"
               value={modsLocalSelected}
               onChange={this.onLocalChange}
               options={modsLocalOptions}
               wrapperClass="s-select-mod-dialog_wrapper"
               {...{ scopedSlots: { itemOuter } }}
             />
-          </div>
-        )) || (
-          <div key={`mods-steam`} staticClass="s-select-mod-dialog_scroll">
+          )) || (
             <rw-multi-choice-group
+              key="steam"
               value={modsSteamSelected}
               onChange={this.onSteamChange}
               options={modsSteamOptions}
               wrapperClass="s-select-mod-dialog_wrapper"
               {...{ scopedSlots: { itemOuter } }}
             />
-          </div>
-        )}
+          )}
+
+          <rw-spinner
+            key="loading"
+            staticClass="s-select-mod-dialog_spinner"
+            size="large"
+            hidden={!loading}
+          />
+        </div>
       </div>
     );
   }

@@ -75,6 +75,12 @@ export function createRouter(): VueRouter {
         component: async () =>
           import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/colors'),
       },
+      {
+        path: '/dev-tools/playground',
+        name: 'dev-tools-playground',
+        component: async () =>
+          import(/* webpackChunkName: "v-dev-tools" */ './views/dev-tools/playground'),
+      },
     ],
   });
 }

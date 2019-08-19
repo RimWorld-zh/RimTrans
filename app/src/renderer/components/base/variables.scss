@@ -12,12 +12,17 @@ $golden-ratio: (sqrt(5) - 1) / 2;
 $type-colors: 'green', 'blue', 'purple', 'violet', 'magenta', 'red', 'orange', 'yellow';
 $type-color-themes: 'light', 'dark';
 $type-color-semantics: 'primary', 'secondary', 'success', 'warning', 'danger';
+
 $type-depths: 4, 8, 16, 32, 64;
 
+$type-sizes: 'small', 'medium', 'large';
+
 $type-button-colors: join($type-colors, $type-color-semantics);
-$type-button-sizes: 'small', 'medium', 'large';
+$type-button-sizes: $type-sizes;
 $type-button-skins: 'fill', 'silk', 'flat', 'plain';
 $type-button-shapes: 'rect', 'pill', 'square', 'circle';
+
+$type-spinner-sizes: $type-sizes;
 
 %variables-base {
   // ----------------------------------------------------------------
@@ -205,6 +210,21 @@ $type-button-shapes: 'rect', 'pill', 'square', 'circle';
   --choice-radius: 2;
   --choice-opacity-secondary: 0.5;
   --choice-transition: var(--motion-timing-decelerate) var(--motion-duration-2);
+
+  // Progress ================
+
+  --progress-color-secondary: var(--color-grey-50-a20);
+
+  // Progress Indicator
+
+  --progress-indicator-thick: 2;
+
+  // Spinner
+
+  --spinner-size-small: 12;
+  --spinner-size-medium: 16;
+  --spinner-size-large: 32;
+  --spinner-border-width: 1.5;
 
   // Surfaces ================
 

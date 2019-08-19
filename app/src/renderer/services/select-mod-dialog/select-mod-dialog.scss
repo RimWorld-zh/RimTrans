@@ -13,6 +13,10 @@
   height: 800px;
   max-height: 100%;
 
+  @include when('loading') {
+    cursor: progress;
+  }
+
   @include elem('header') {
     position: relative;
     max-width: 100%;
@@ -71,5 +75,14 @@
     @include when('secondary') {
       opacity: var(--opacity-secondary);
     }
+  }
+
+  @include elem('spinner') {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }

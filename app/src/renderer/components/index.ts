@@ -21,4 +21,6 @@ export * from './inputs/toggle/toggle';
 export * from './layout/aspect-ratio/aspect-ratio';
 export * from './layout/portal/portal';
 export * from './misc/strip/strip';
+export * from './progress/progress-indicator/progress-indicator';
+export * from './progress/spinner/spinner';
 export * from './surfaces/dialog/dialog';

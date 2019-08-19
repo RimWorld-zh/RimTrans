@@ -14,10 +14,18 @@ export type Color =
 export type ColorTheme = 'light' | 'dark';
 export type ColorSemantic = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 
+export type Size = 'small' | 'medium' | 'large';
+
+export type Position = 'top' | 'bottom' | 'left' | 'right';
+
 export type ButtonColor = Color | ColorSemantic;
-export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonSize = Size;
 export type ButtonSkin = 'fill' | 'silk' | 'flat' | 'plain';
 export type ButtonShape = 'rect' | 'pill' | 'square' | 'circle';
+
+export type SpinnerColor = Color | ColorSemantic;
+export type SpinnerSize = Size;
+export type SpinnerLabelPosition = Position;
 
 export const MOTION_DURATION_BASE = 250;
 export const MOTION_DURATION_1 = 100;

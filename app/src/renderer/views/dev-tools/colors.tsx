@@ -41,6 +41,13 @@ export default class VDevToolsColors extends Vue {
           <h1 staticClass="v-dev-tools-colors_title" key="title">
             Color Palette
           </h1>
+          <div key="levels" staticClass="v-dev-tools-colors_row">
+            {levels.map(lv => (
+              <span key={lv} staticClass="v-dev-tools-colors_item">
+                {lv}
+              </span>
+            ))}
+          </div>
           {colors.map(name => (
             <div key={name} staticClass="v-dev-tools-colors_row">
               {levels.map(lv => (
@@ -61,6 +68,17 @@ export default class VDevToolsColors extends Vue {
               {name}
             </h2>
             <div>
+              <div key="alphas" staticClass="v-dev-tools-colors_row">
+                {alphas.map(a => (
+                  <span
+                    key={a}
+                    staticClass="v-dev-tools-colors_item"
+                    style={{ opacity: `0.${a}` }}
+                  >
+                    {`a${a}`}
+                  </span>
+                ))}
+              </div>
               {levels.map(lv => (
                 <div key={lv} staticClass="v-dev-tools-colors_row">
                   {alphas.map(a => (
