@@ -2,8 +2,6 @@ import pth from 'path';
 import fse from 'fs-extra';
 import globby from 'globby';
 
-import { pathsTypePackage } from './utils.test';
-
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
 
 import { ExtractorEventEmitter } from './extractor-event-emitter';
@@ -11,21 +9,29 @@ import {
   ClassInfo,
   FieldInfo,
   TypePackage,
-  TypePackageExtractor,
   TypeMaps,
+  TypePackageExtractor,
+  getCoreTypePackage,
 } from './type-package';
 
-describe('type-package', () => {
-  const emitter = new ExtractorEventEmitter();
-  const extractor = new TypePackageExtractor(emitter);
+const emitter = new ExtractorEventEmitter();
+const extractor = new TypePackageExtractor(emitter);
 
+describe('type-package', () => {
   let maps: TypeMaps;
 
   beforeAll(async () => {
-    maps = await extractor.load([...pathsTypePackage, pth.join(__dirname, 'Mock')]);
+    maps = extractor.merge([await getCoreTypePackage()]);
   });
 
-  test('load', async () => {
+  test('getCoreTypePackage', async () => {
+    const core = getCoreTypePackage();
+    expect(core.classes).toBeDefined();
+    expect(core.enums).toBeDefined();
+    expect(core.fix).toBeDefined();
+  });
+
+  test('core', async () => {
     const { classInfoMap } = maps;
 
     expect(classInfoMap.Def).toBeTruthy();
@@ -52,5 +58,10 @@ describe('type-package', () => {
       .forEach(fieldInfo =>
         expect(fieldInfo.attributes.includes(ATTRIBUTE_MUST_TRANSLATE)).toBe(true),
       );
+  });
+
+  test('load', async () => {
+    const pkg = await extractor.load(pth.join(__dirname, 'Mock'));
+    expect(pkg).toEqual({});
   });
 });

@@ -2,6 +2,8 @@ import pth from 'path';
 import fse from 'fs-extra';
 import globby from 'globby';
 
+import { getCoreTypePackage as internalGetCoreTypePackage } from '@rimtrans/core';
+
 import { ATTRIBUTE_MUST_TRANSLATE } from './constants';
 
 import { ExtractorEventEmitter } from './extractor-event-emitter';
@@ -66,11 +68,11 @@ export interface TypeMaps {
   readonly enumInfoMap: Readonly<Record<string, EnumInfo>>;
 }
 
-export class TypePackageExtractor {
-  /* eslint-disable lines-between-class-members */
-  public readonly ACTION_LOAD = 'Assemblies Load';
-  /* eslint-enable lines-between-class-members */
+export function getCoreTypePackage(): TypePackage {
+  return internalGetCoreTypePackage();
+}
 
+export class TypePackageExtractor {
   private readonly emitter: ExtractorEventEmitter;
 
   public constructor(emitter: ExtractorEventEmitter) {
@@ -78,38 +80,14 @@ export class TypePackageExtractor {
   }
 
   /**
-   * Load `TypePackage` json files or Assemblies directories
-   * @param paths the path array of files and directories, `[Core, ...Mods]`.
+   * Load all Assemblies of the mod.
+   * @param directory the path to the directory 'Assemblies' of the mod
    */
-  public async load(paths: string[]): Promise<TypeMaps> {
-    const action = this.ACTION_LOAD;
-
-    const typePackages = await Promise.all(
-      paths.map(
-        async (path): Promise<TypePackage> => {
-          if (await fse.pathExists(path)) {
-            if (
-              await fse
-                .lstat(path)
-                .then(stats => stats.isFile())
-                .catch(() => false)
-            ) {
-              const pkg = await fse.readJSON(path);
-              return pkg;
-            }
-            return { classes: [], enums: [] };
-          }
-          return { classes: [], enums: [] };
-        },
-      ),
-    );
-
-    const maps = this.mergeTypePackages(typePackages);
-
-    return maps;
+  public async load(directory: string): Promise<TypePackage> {
+    return {};
   }
 
-  private async mergeTypePackages(typePackages: TypePackage[]): Promise<TypeMaps> {
+  public merge(typePackages: TypePackage[]): TypeMaps {
     const classInfoMap: Record<string, ClassInfo> = {};
     const enumInfoMap: Record<string, EnumInfo> = {};
 

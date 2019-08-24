@@ -1,9 +1,7 @@
+import { ExtractorConfig } from '@rimtrans/extractor';
+
 export interface TranslatorProject {
   mods: string[];
-}
 
-export interface TranslatorProjectMod {
-  path: string;
-  output: boolean;
-  outputPath: string;
+  extractConfig: ExtractorConfig;
 }

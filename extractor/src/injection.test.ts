@@ -5,7 +5,6 @@ import globby from 'globby';
 import {
   pathsDefs,
   pathsDefInjected,
-  pathsTypePackage,
   outputInjectionMapLoaded,
   outputInjectionMapParsed,
   outputInjectionMapParsedFuzzy,
@@ -23,7 +22,12 @@ import {
 
 import { ExtractorEventEmitter } from './extractor-event-emitter';
 import { parseXML } from './xml';
-import { ClassInfo, TypePackage, TypePackageExtractor } from './type-package';
+import {
+  ClassInfo,
+  TypePackage,
+  TypePackageExtractor,
+  getCoreTypePackage,
+} from './type-package';
 import { DefsElementMap, DefinitionExtractor } from './definition';
 import { PathNode, Injection, InjectionMap, InjectionExtractor } from './injection';
 
@@ -42,7 +46,7 @@ describe('injection', () => {
   beforeAll(async () => {
     [defMaps, { classInfoMap }] = await Promise.all([
       Promise.all(pathsDefs.map(path => definitionExtractor.load(path))),
-      typePackageExtractor.load(pathsTypePackage),
+      typePackageExtractor.merge([getCoreTypePackage()]),
     ]);
     definitionExtractor.resolveInheritance(defMaps);
 

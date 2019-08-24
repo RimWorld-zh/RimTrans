@@ -22,9 +22,9 @@ import {
 } from './extractor-event-emitter';
 import { PrettierOptions } from './xml';
 import { Mod, ModOutput } from './mod';
-import { TypePackageExtractor } from './type-package';
+import { TypePackageExtractor, getCoreTypePackage } from './type-package';
 import { DefinitionExtractor } from './definition';
-import { Injection, InjectionExtractor } from './injection';
+import { InjectionExtractor } from './injection';
 import { KeyedReplacementExtractor } from './keyed-replacement';
 import { StringsFileExtractor } from './strings-file';
 
@@ -51,16 +51,6 @@ export interface ExtractorModConfig {
 }
 
 export interface ExtractorConfig {
-  /**
-   * Temporary directory
-   */
-  temp: string;
-
-  /**
-   * Paths to type package json files.
-   */
-  typePackages: string[];
-
   /**
    * Find possible translatable fields in fuzzy mode or not.
    */
@@ -92,14 +82,14 @@ export interface ExtractorConfig {
   debugMode?: boolean;
 }
 
-const KEY_LOAD = 'Load';
+const WF_LOAD = 'Load';
+const WF_PROCESS = 'Process';
+const WF_SAVE = 'Save';
 
-const KEY_PROCESS = 'Process';
-const KYE_INHERITANCE = 'Inheritance';
-const KEY_EXTRACT = 'Extract';
-const KEY_MERGE = 'Merge';
-
-const KEY_SAVE = 'Save';
+const WF_TYPE = 'Type';
+const WF_INHERITANCE = 'Inheritance';
+const WF_EXTRACT = 'Extract';
+const WF_MERGE = 'Merge';
 
 export class Extractor {
   public readonly emitter: ExtractorEventEmitter;
@@ -128,12 +118,14 @@ export class Extractor {
   private workflowMap(config: ExtractorConfig): WorkflowMap {
     const { modConfigs, languages } = config;
     return createWorkflowMap([
-      KEY_LOAD,
+      WF_LOAD,
+      // Assemblies
+      ...modConfigs.map(mod => [WF_LOAD, mod.path, FOLDER_NAME_ASSEMBLIES]),
       // Defs
-      ...modConfigs.map(mod => [KEY_LOAD, mod.path, FOLDER_NAME_DEFS]),
+      ...modConfigs.map(mod => [WF_LOAD, mod.path, FOLDER_NAME_DEFS]),
       // English Keyed
       ...modConfigs.map(mod => [
-        KEY_LOAD,
+        WF_LOAD,
         mod.path,
         FOLDER_NAME_LANGUAGES,
         DEFAULT_LANGUAGE,
@@ -141,7 +133,7 @@ export class Extractor {
       ]),
       // English Strings
       ...modConfigs.map(mod => [
-        KEY_LOAD,
+        WF_LOAD,
         mod.path,
         FOLDER_NAME_LANGUAGES,
         DEFAULT_LANGUAGE,
@@ -151,7 +143,7 @@ export class Extractor {
       ...languages
         .map(lang =>
           modConfigs.map(mod => [
-            KEY_LOAD,
+            WF_LOAD,
             mod.path,
             FOLDER_NAME_LANGUAGES,
             lang,
@@ -163,7 +155,7 @@ export class Extractor {
       ...languages
         .map(lang =>
           modConfigs.map(mod => [
-            KEY_LOAD,
+            WF_LOAD,
             mod.path,
             FOLDER_NAME_LANGUAGES,
             lang,
@@ -175,7 +167,7 @@ export class Extractor {
       ...languages
         .map(lang =>
           modConfigs.map(mod => [
-            KEY_LOAD,
+            WF_LOAD,
             mod.path,
             FOLDER_NAME_LANGUAGES,
             lang,
@@ -184,20 +176,21 @@ export class Extractor {
         )
         .flat(),
 
-      KEY_PROCESS,
-      [KEY_PROCESS, FOLDER_NAME_DEFS, KYE_INHERITANCE],
-      [KEY_PROCESS, FOLDER_NAME_DEF_INJECTED, KEY_EXTRACT],
-      [KEY_PROCESS, FOLDER_NAME_DEF_INJECTED, KEY_MERGE],
+      WF_PROCESS,
+      [WF_PROCESS, FOLDER_NAME_ASSEMBLIES, WF_TYPE],
+      [WF_PROCESS, FOLDER_NAME_DEFS, WF_INHERITANCE],
+      [WF_PROCESS, FOLDER_NAME_DEF_INJECTED, WF_EXTRACT],
+      [WF_PROCESS, FOLDER_NAME_DEF_INJECTED, WF_MERGE],
 
-      KEY_SAVE,
+      WF_SAVE,
       ...languages
         .map(lang =>
           modConfigs
             .filter(mod => mod.extract)
             .map(mod => [
-              [KEY_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_DEF_INJECTED],
-              [KEY_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_KEYED],
-              [KEY_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_STRINGS],
+              [WF_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_DEF_INJECTED],
+              [WF_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_KEYED],
+              [WF_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_STRINGS],
             ]),
         )
         .flat(2),
@@ -212,8 +205,6 @@ export class Extractor {
     this.emitter.emit('workflowMap', this.workflowMap(config));
 
     const {
-      temp,
-      typePackages,
       fuzzy,
       prettierOptions,
       modConfigs,
@@ -275,25 +266,28 @@ export class Extractor {
     }
 
     const [
-      { classInfoMap },
+      typePackages,
       definitionMaps,
       englishKeyedMaps,
       englishStringsMaps,
       languagesToOldInjectionMaps,
       languagesToOldKeyedMaps,
       languagesToOldStringsMaps,
-    ] = await this.emitter.workflow(KEY_LOAD, () =>
+    ] = await this.emitter.workflow(WF_LOAD, () =>
       Promise.all([
         // Assemblies
-        this.typePackageExtractor.load([
-          ...typePackages,
-          ...mods.map(mod => mod.pathAssemblies),
-        ]),
+        Promise.all(
+          mods.map((mod, modIndex) =>
+            this.emitter.workflow([WF_LOAD, mod.path, FOLDER_NAME_ASSEMBLIES], () =>
+              this.typePackageExtractor.load(mod.pathAssemblies),
+            ),
+          ),
+        ),
 
         // Defs
         Promise.all(
           mods.map((mod, modIndex) =>
-            this.emitter.workflow([KEY_LOAD, mod.path, FOLDER_NAME_DEFS], () =>
+            this.emitter.workflow([WF_LOAD, mod.path, FOLDER_NAME_DEFS], () =>
               this.definitionExtractor.load(mod.pathDefs),
             ),
           ),
@@ -304,7 +298,7 @@ export class Extractor {
           mods.map((mod, modIndex) =>
             this.emitter.workflow(
               [
-                KEY_LOAD,
+                WF_LOAD,
                 mod.path,
                 FOLDER_NAME_LANGUAGES,
                 DEFAULT_LANGUAGE,
@@ -320,7 +314,7 @@ export class Extractor {
           mods.map(mod =>
             this.emitter.workflow(
               [
-                KEY_LOAD,
+                WF_LOAD,
                 mod.path,
                 FOLDER_NAME_LANGUAGES,
                 DEFAULT_LANGUAGE,
@@ -338,7 +332,7 @@ export class Extractor {
               outputs.map((output, modIndex) =>
                 this.emitter.workflow(
                   [
-                    KEY_LOAD,
+                    WF_LOAD,
                     mods[modIndex].path,
                     FOLDER_NAME_LANGUAGES,
                     lang,
@@ -358,7 +352,7 @@ export class Extractor {
               outputs.map((output, modIndex) =>
                 this.emitter.workflow(
                   [
-                    KEY_LOAD,
+                    WF_LOAD,
                     mods[modIndex].path,
                     FOLDER_NAME_LANGUAGES,
                     lang,
@@ -378,7 +372,7 @@ export class Extractor {
               outputs.map((output, modIndex) =>
                 this.emitter.workflow(
                   [
-                    KEY_LOAD,
+                    WF_LOAD,
                     mods[modIndex].path,
                     FOLDER_NAME_LANGUAGES,
                     lang,
@@ -396,11 +390,18 @@ export class Extractor {
     // Workflow Process
 
     const languageToMergedLanguageData = await this.emitter.workflow(
-      KEY_PROCESS,
+      WF_PROCESS,
       async () => {
+        // Process TypePackage
+        const { classInfoMap } = await this.emitter.workflow(
+          [WF_PROCESS, FOLDER_NAME_ASSEMBLIES, WF_TYPE],
+          async () =>
+            this.typePackageExtractor.merge([getCoreTypePackage(), ...typePackages]),
+        );
+
         // process Defs
         await this.emitter.workflow(
-          [KEY_PROCESS, FOLDER_NAME_DEFS, KYE_INHERITANCE],
+          [WF_PROCESS, FOLDER_NAME_DEFS, WF_INHERITANCE],
           async () => {
             this.definitionExtractor.resolveInheritance(definitionMaps);
           },
@@ -408,7 +409,7 @@ export class Extractor {
 
         // extract
         const newInjectionMaps = await this.emitter.workflow(
-          [KEY_PROCESS, FOLDER_NAME_DEF_INJECTED, KEY_EXTRACT],
+          [WF_PROCESS, FOLDER_NAME_DEF_INJECTED, WF_EXTRACT],
           async () => {
             return this.injectionExtractor.parse(definitionMaps, classInfoMap, fuzzy);
           },
@@ -416,7 +417,7 @@ export class Extractor {
 
         // merge
         return this.emitter.workflow(
-          [KEY_PROCESS, FOLDER_NAME_DEF_INJECTED, KEY_MERGE],
+          [WF_PROCESS, FOLDER_NAME_DEF_INJECTED, WF_MERGE],
           async () =>
             languages.map((lang, langIndex) => {
               // DefInjected
@@ -456,7 +457,7 @@ export class Extractor {
 
     // Workflow Save
 
-    await this.emitter.workflow(KEY_SAVE, () =>
+    await this.emitter.workflow(WF_SAVE, () =>
       Promise.all(
         languageToMergedLanguageData.map(
           async (
@@ -472,6 +473,7 @@ export class Extractor {
 
                 const mod = mods[modIndex];
                 const output = outputs[modIndex];
+
                 if (debugMode) {
                   await fse.outputJSON(
                     pth.join(output.pathLanguage(lang), 'intermediate-data.json'),
@@ -483,10 +485,12 @@ export class Extractor {
                     { spaces: 2 },
                   );
                 }
+
                 await Promise.all([
+                  // DefInjected
                   this.emitter.workflow(
                     [
-                      KEY_SAVE,
+                      WF_SAVE,
                       mod.path,
                       FOLDER_NAME_LANGUAGES,
                       lang,
@@ -499,8 +503,10 @@ export class Extractor {
                         prettierOptions,
                       ),
                   ),
+
+                  // Keyed
                   this.emitter.workflow(
-                    [KEY_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_KEYED],
+                    [WF_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_KEYED],
                     () =>
                       this.keyedReplacementExtractor.save(
                         output.pathKeyed(lang),
@@ -508,14 +514,10 @@ export class Extractor {
                         prettierOptions,
                       ),
                   ),
+
+                  // Strings
                   this.emitter.workflow(
-                    [
-                      KEY_SAVE,
-                      mod.path,
-                      FOLDER_NAME_LANGUAGES,
-                      lang,
-                      FOLDER_NAME_STRINGS,
-                    ],
+                    [WF_SAVE, mod.path, FOLDER_NAME_LANGUAGES, lang, FOLDER_NAME_STRINGS],
                     () =>
                       this.stringsFileExtractor.save(
                         output.pathStrings(lang),

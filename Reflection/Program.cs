@@ -13,7 +13,7 @@ namespace RimTrans.Reflection {
         { "classes", ClassInfo.classesOf },
         { "enums", EnumInfo.enumsOf },
       };
-      File.WriteAllText("./type-package.json", JsonConvert.SerializeObject(result, Formatting.Indented).Replace("\r\n", "\n"));
+      File.WriteAllText("../Core/type-package.json", JsonConvert.SerializeObject(result, Formatting.Indented).Replace("\r\n", "\n"));
 
       Test(ClassInfo.classesOf);
     }

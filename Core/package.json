@@ -1,0 +1,8 @@
+{
+  "name": "@rimtrans/core",
+  "description": "The Core files of RimWorld.",
+  "version": "4.0.0-alpha.1",
+  "private": true,
+  "main": "index.js",
+  "sideEffects": false
+}

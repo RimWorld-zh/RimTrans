@@ -12,11 +12,6 @@ export const pathCore = resolvePath('Core');
 
 export const pathsDefs = [resolvePath('Core', 'Defs'), resolvePath('Mock', 'Defs')];
 
-export const pathsTypePackage = [
-  resolvePath('Reflection', 'type-package.json'),
-  resolvePath('Reflection', 'type-package-fix.json'),
-];
-
 export const pathsDefInjected = [
   resolvePath('Core', 'Languages', 'Template', 'DefInjected'),
   resolvePath('Core', 'Languages', 'Mock', 'DefInjected'),
