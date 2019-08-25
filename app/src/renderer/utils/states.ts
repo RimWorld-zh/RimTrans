@@ -122,7 +122,7 @@ export class States extends Vue {
     (Object.values(this.unwatchMap) as Function[]).forEach(unwatch => unwatch());
     (Object.entries(this.listenerMap) as [
       StateChannel,
-      IpcRendererListener<StateTypeMap[StateChannel][0]>
+      IpcRendererListener<StateTypeMap[StateChannel][0]>,
     ][]).forEach(([channel, listener]) =>
       this.statesIpc.removeListener(channel, listener),
     );

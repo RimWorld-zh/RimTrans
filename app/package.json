@@ -66,6 +66,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "cep.scss": "^1.1.1",
+    "chokidar": "^3.0.2",
     "core-js": "^2.6.9",
     "electron": "^6.0.0",
     "electron-builder": "^21.2.0",

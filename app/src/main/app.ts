@@ -7,12 +7,6 @@ import { RimTransWindowOptions, createRimTransWindow } from './windows/rimtrans-
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 export function createApp(): App {
-  const singleInstanceLock = app.requestSingleInstanceLock();
-  if (!singleInstanceLock) {
-    app.quit();
-    return app;
-  }
-
   const states = createStates();
   Object.entries(services).forEach(([name, srv]) => srv(states));
 
@@ -24,13 +18,6 @@ export function createApp(): App {
     hash: '/',
   };
 
-  const onSecondInstance = async (
-    event: ElectronEvent,
-    argv: string[],
-    workingDirectory: string,
-  ): Promise<void> => {
-    const win = await createRimTransWindow(states, options);
-  };
   const onReady = async (): Promise<void> => {
     await states.loadStates();
     const win = await createRimTransWindow(states, options);
@@ -39,7 +26,6 @@ export function createApp(): App {
     await states.saveStates();
   };
 
-  app.on('second-instance', onSecondInstance);
   app.on('ready', onReady);
   app.on('quit', onQuit);
 

@@ -1,24 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  app,
-  BrowserWindow,
-  ipcMain,
-  Event as ElectronEvent,
-  WebContents,
-  dialog,
-} from 'electron';
+import { BrowserWindow } from 'electron';
+import chokidar from 'chokidar';
 import { pth, fse, globby } from '@rimtrans/extractor';
 import {
   USER_DATA,
   GLOBAL_KEY_PATHS,
   GLOBAL_KEY_SETTINGS,
-  FILENAME_SETTINGS,
   GLOBAL_KEY_STORAGE,
-  FILENAME_STORAGE,
 } from '../constants';
+import { objectEqual } from '../object';
 import { IpcMain, createIpc, getGlobal, setGlobal } from '../ipc';
+import { Paths, createPaths } from './paths';
 import { Settings, defaultSettings } from './settings';
 import { Storage, defaultStorage } from './storage';
+
+export * from './paths';
 
 export interface StateTypeMap {
   settings: [Settings];
@@ -26,27 +22,6 @@ export interface StateTypeMap {
 }
 
 export type StateChannel = keyof StateTypeMap;
-
-// ------------------------------------------------
-// Paths
-
-/**
- * The paths record for app.
- * The data directory, execute path and json file paths for states.
- */
-export interface Paths extends Record<StateChannel, string> {
-  readonly dataDir: string;
-}
-
-function createPaths(): Paths {
-  const userData = app.getPath(USER_DATA);
-  const paths: Paths = {
-    dataDir: userData,
-    settings: pth.join(userData, FILENAME_SETTINGS),
-    storage: pth.join(userData, FILENAME_STORAGE),
-  };
-  return paths;
-}
 
 // ------------------------------------------------
 // State
@@ -110,16 +85,13 @@ function createStateWrapper<K extends StateChannel>(
     }
   };
 
-  const set: StateWrapper<CurrentState>['set'] = (partial, emit = true, id?) => {
+  const set: StateWrapper<CurrentState>['set'] = partial => {
     const state: CurrentState = {
       ...getGlobal<CurrentState>(key),
       ...partial,
     };
     setGlobal<CurrentState>(key, state);
     save();
-    if (emit) {
-      ipc.sendAll(channel, { id, data: state });
-    }
   };
 
   const get: StateWrapper<CurrentState>['get'] = () => getGlobal(key);
@@ -127,6 +99,20 @@ function createStateWrapper<K extends StateChannel>(
   ipc.on(channel, (event, message) => {
     if (message) {
       set(message.data, true, event.sender.id);
+    }
+  });
+
+  const watcher = chokidar.watch(path);
+  watcher.on('change', async _path => {
+    if (_path !== path) {
+      return;
+    }
+
+    const newValue = await fse.readJSON(path);
+    const oldValue = getGlobal<CurrentState>(key);
+    if (!objectEqual(newValue, oldValue)) {
+      setGlobal<CurrentState>(key, newValue);
+      ipc.sendAll(channel, { data: newValue });
     }
   });
 

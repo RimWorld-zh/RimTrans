@@ -2,7 +2,10 @@
 import cp, { ChildProcess } from 'child_process';
 
 export interface SlaverTypeMap {
-  foobar: [{ foo: string }, { bar: string }];
+  foobar: [
+    { foo: string }, // from main to sub process
+    { bar: string }, // from sub to main process
+  ];
 }
 
 export type SlaverListener<T> = (data: T) => any;

@@ -10,7 +10,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { ModMetaData } from '@rimtrans/extractor';
-import { SortDirection, sort, clone } from '@src/main/utils/object';
+import { SortDirection, sort, cloneObject } from '@src/main/utils/object';
 import { when } from '@src/renderer/components/base';
 import { ChoiceOption, ChoiceSlotProps } from '@src/renderer/components';
 
@@ -100,8 +100,8 @@ export class SSelectModDialog extends Vue {
 
     this.lastSortBy = sortBy;
     this.lastSortDirection = sortDirection;
-    this.modsLocalOptions = this.convert(clone(modsLocal), sortBy, sortDirection);
-    this.modsSteamOptions = this.convert(clone(modsSteam), sortBy, sortDirection);
+    this.modsLocalOptions = this.convert(cloneObject(modsLocal), sortBy, sortDirection);
+    this.modsSteamOptions = this.convert(cloneObject(modsSteam), sortBy, sortDirection);
   }
 
   private mounted(): void {
