@@ -67,7 +67,14 @@ export class RwDevTools extends Vue {
   }
 
   private serializeSettings(): string {
-    return JSON.stringify(this.$states.settings, undefined, '  ');
+    return JSON.stringify(
+      {
+        id: this.$states.browserWindowID,
+        ...this.$states.settings,
+      },
+      undefined,
+      '  ',
+    );
   }
 
   private serializeProcess(): string {

@@ -17,8 +17,8 @@ import { Storage, defaultStorage } from './storage';
 export * from './paths';
 
 export interface StateTypeMap {
-  settings: [Settings];
-  storage: [Storage];
+  settings: [Settings, Settings];
+  storage: [Storage, Storage];
 }
 
 export type StateChannel = keyof StateTypeMap;
@@ -91,6 +91,7 @@ function createStateWrapper<K extends StateChannel>(
       ...partial,
     };
     setGlobal<CurrentState>(key, state);
+    ipc.sendAll(channel, { data: state });
     save();
   };
 
