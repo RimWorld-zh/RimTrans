@@ -1,5 +1,6 @@
 import { LanguageData } from '../models';
 
+// remove the type before run the script 'gen-files'
 export const English: LanguageData = {
   info: {
     translators: [],
@@ -13,7 +14,7 @@ export const English: LanguageData = {
 
   dict: {
     app: {
-      name: 'RimTrans',
+      name: 'RimTrans', // The 'RimTrans' means 'RimWorld Translator'
       description: 'A translation and modding tool for RimWorld.',
 
       /** Names for tools */
@@ -50,6 +51,7 @@ export const English: LanguageData = {
       no: 'No',
       confirm: 'Confirm',
       cancel: 'Cancel',
+      close: 'Close',
     },
 
     /** Editor and Clipboard related */
@@ -85,6 +87,49 @@ export const English: LanguageData = {
       saveAll: 'Save All',
 
       loading: 'Loading', // Loading in process
+    },
+
+    /** Form related */
+    form: {
+      options: 'Options',
+
+      list: 'List',
+      item: 'Item',
+      items: 'Items',
+
+      check: 'Check',
+      uncheck: 'Uncheck',
+      checkAll: 'Check All',
+
+      on: 'On',
+      off: 'Off',
+
+      select: 'Select',
+      unselect: 'Unselect',
+      selectAll: 'Select All',
+      selectGroup: 'Select group',
+      selectInverse: 'Select Inverse',
+      deleteSelected: 'Delete Selected',
+      removeSelected: 'Remove Selected',
+
+      commit: 'Commit',
+      confirm: 'Confirm',
+      cancel: 'Cancel',
+      save: 'Save',
+      reset: 'Reset',
+    },
+
+    /** Translator */
+    translator: {
+      projects: {
+        addProject: 'Add A Project',
+        addProjectDescription: `The <strong>"file name"</strong> field contains your project's file name, and must be lower case English word or number, and may contain single hyphen between each word.<br/>The <strong>"project name"</strong> field is only for display, set what you like.`,
+        fieldFileName: 'File name',
+        fieldProjectName: 'Project Name',
+        openProjectsFolder: 'Open Projects Folder',
+        deleteProject: 'Delete Project',
+        deleteProjects: 'Delete Projects',
+      },
     },
 
     /** Settings */

@@ -50,6 +50,7 @@ export const ChineseSimplified: LanguageData = {
       no: '否',
       confirm: '确定',
       cancel: '取消',
+      close: '关闭',
     },
 
     /** Editor and Clipboard related */
@@ -85,6 +86,49 @@ export const ChineseSimplified: LanguageData = {
       saveAll: '全部保存',
 
       loading: '载入中', // Loading in process
+    },
+
+    /** Form related */
+    form: {
+      options: '选项',
+
+      list: '列表',
+      item: '项目',
+      items: '项目',
+
+      check: '选取',
+      uncheck: '取消选取',
+      checkAll: '选取所有',
+
+      on: '开启',
+      off: '关闭',
+
+      select: '选择',
+      unselect: '取消选择',
+      selectAll: '全选',
+      selectGroup: '选择分组',
+      selectInverse: '反选',
+      deleteSelected: '删除选中',
+      removeSelected: '移除选中',
+
+      commit: '提交',
+      confirm: '确定',
+      cancel: '取消',
+      save: '保存',
+      reset: '重置',
+    },
+
+    /** Translator */
+    translator: {
+      projects: {
+        addProject: '新建项目',
+        addProjectDescription: `<strong>"文件名"</strong>字段作为你的项目的文件名，只能使用小写英文字母和数字，单词间可使用连字符。<br/><strong>"项目名"</strong>字段仅用于显示，设置成你喜欢的。`,
+        fieldFileName: '文件名',
+        fieldProjectName: '项目名',
+        openProjectsFolder: '打开项目文件夹',
+        deleteProject: '删除项目',
+        deleteProjects: '删除项目',
+      },
     },
 
     /** Settings */

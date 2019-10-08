@@ -32,6 +32,7 @@ export interface TranslationDictionary {
     readonly no: string;
     readonly confirm: string;
     readonly cancel: string;
+    readonly close: string;
   };
   readonly editor: {
     readonly undo: string;
@@ -58,6 +59,40 @@ export interface TranslationDictionary {
     readonly save: string;
     readonly saveAll: string;
     readonly loading: string;
+  };
+  readonly form: {
+    readonly options: string;
+    readonly list: string;
+    readonly item: string;
+    readonly items: string;
+    readonly check: string;
+    readonly uncheck: string;
+    readonly checkAll: string;
+    readonly on: string;
+    readonly off: string;
+    readonly select: string;
+    readonly unselect: string;
+    readonly selectAll: string;
+    readonly selectGroup: string;
+    readonly selectInverse: string;
+    readonly deleteSelected: string;
+    readonly removeSelected: string;
+    readonly commit: string;
+    readonly confirm: string;
+    readonly cancel: string;
+    readonly save: string;
+    readonly reset: string;
+  };
+  readonly translator: {
+    readonly projects: {
+      readonly addProject: string;
+      readonly addProjectDescription: string;
+      readonly fieldFileName: string;
+      readonly fieldProjectName: string;
+      readonly openProjectsFolder: string;
+      readonly deleteProject: string;
+      readonly deleteProjects: string;
+    };
   };
   readonly settings: {
     readonly features: string;
@@ -102,6 +137,7 @@ export interface TranslationDictionaryPartial {
     readonly no?: string;
     readonly confirm?: string;
     readonly cancel?: string;
+    readonly close?: string;
   };
   readonly editor?: {
     readonly undo?: string;
@@ -128,6 +164,40 @@ export interface TranslationDictionaryPartial {
     readonly save?: string;
     readonly saveAll?: string;
     readonly loading?: string;
+  };
+  readonly form?: {
+    readonly options?: string;
+    readonly list?: string;
+    readonly item?: string;
+    readonly items?: string;
+    readonly check?: string;
+    readonly uncheck?: string;
+    readonly checkAll?: string;
+    readonly on?: string;
+    readonly off?: string;
+    readonly select?: string;
+    readonly unselect?: string;
+    readonly selectAll?: string;
+    readonly selectGroup?: string;
+    readonly selectInverse?: string;
+    readonly deleteSelected?: string;
+    readonly removeSelected?: string;
+    readonly commit?: string;
+    readonly confirm?: string;
+    readonly cancel?: string;
+    readonly save?: string;
+    readonly reset?: string;
+  };
+  readonly translator?: {
+    readonly projects?: {
+      readonly addProject?: string;
+      readonly addProjectDescription?: string;
+      readonly fieldFileName?: string;
+      readonly fieldProjectName?: string;
+      readonly openProjectsFolder?: string;
+      readonly deleteProject?: string;
+      readonly deleteProjects?: string;
+    };
   };
   readonly settings?: {
     readonly features?: string;
