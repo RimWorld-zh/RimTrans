@@ -28,24 +28,34 @@ export class SAddTranslatorProjectDialog extends Vue
   public readonly projectName!: string;
 
   private render(h: CreateElement): VNode {
-    const { fileName, projectName } = this;
+    const {
+      fileName,
+      projectName,
+      $states: {
+        i18n: {
+          translator: {
+            projects: {
+              addProject,
+              addProjectDescription,
+              fieldFileName,
+              fieldProjectName,
+            },
+          },
+        },
+      },
+    } = this;
 
     return (
       <div staticClass="s-add-translator-project-dialog">
         <rw-form>
           <rw-form-stack
             key="description"
-            domPropsInnerHTML={`The <strong>"file name"</strong> field contains your project's file name, and 
-                                must be lower case English word or number, and may contain single hyphen
-                                between each word.
-                                <br />
-                                The <strong>"project name"</strong> field is only for display, set what you
-                                like.`}
+            domPropsInnerHTML={addProjectDescription}
           ></rw-form-stack>
 
           <rw-form-stack key="field-file">
             <rw-text-field
-              label="file name"
+              label={fieldFileName}
               value={fileName}
               onInput={(v: string) => this.$emit('fileNameChange', v)}
               validator={validateKebabCase}
@@ -54,7 +64,7 @@ export class SAddTranslatorProjectDialog extends Vue
 
           <rw-form-stack key="field-project">
             <rw-text-field
-              label="project name"
+              label={fieldProjectName}
               value={projectName}
               onInput={(v: string) => this.$emit('projectNameChange', v)}
             ></rw-text-field>
@@ -68,13 +78,24 @@ export class SAddTranslatorProjectDialog extends Vue
 export async function addTranslatorProjectDialog(
   parent: Vue,
 ): Promise<AddTranslatorProjectPayload | undefined> {
+  const {
+    $states: {
+      i18n: {
+        dialog: { confirm: confirmLabel, cancel: cancelLabel },
+        translator: {
+          projects: { addProject },
+        },
+      },
+    },
+  } = parent;
+
   const [confirm, payload] = await parent.$rw_showDialog(
     parent,
     {
-      title: 'Add Project',
+      title: addProject,
       block: true,
-      confirmLabel: 'Confirm',
-      cancelLabel: 'Cancel',
+      confirmLabel,
+      cancelLabel,
     },
     (h, state) =>
       h(SAddTranslatorProjectDialog, {

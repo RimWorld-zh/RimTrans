@@ -104,6 +104,17 @@ export default class VTranslatorProjects extends Vue {
   }
 
   private async onDeleteSelectedProjects(event: MouseEvent): Promise<void> {
+    const {
+      $states: {
+        i18n: {
+          dialog: { confirm: confirmLabel, cancel: cancelLabel },
+          translator: {
+            projects: { deleteProjects },
+          },
+        },
+      },
+    } = this;
+
     const paths = Object.entries(this.projectSelectedMap)
       .filter(([path, selected]) => selected)
       .map(([path, selected]) => path);
@@ -111,20 +122,17 @@ export default class VTranslatorProjects extends Vue {
     const [confirm] = await this.$rw_showDialog(
       this,
       {
-        title: 'Delete Projects',
+        title: deleteProjects,
         block: true,
-        confirmLabel: 'Confirm',
+        confirmLabel,
         confirmColor: 'danger',
-        cancelLabel: 'Cancel',
+        cancelLabel,
       },
       h => (
         <div>
-          Detete projects?
-          <ul>
-            {paths.map(path => (
-              <li>{this.projectMetaMap[path].name || path}</li>
-            ))}
-          </ul>
+          {paths.map(path => (
+            <div>{this.projectMetaMap[path].name || path}</div>
+          ))}
         </div>
       ),
     );
@@ -140,13 +148,24 @@ export default class VTranslatorProjects extends Vue {
     path: string,
     meta: TranslatorProjectMetaData,
   ): Promise<void> {
+    const {
+      $states: {
+        i18n: {
+          dialog: { confirm: confirmLabel, cancel: cancelLabel },
+          translator: {
+            projects: { deleteProject },
+          },
+        },
+      },
+    } = this;
+
     const [confirm] = await this.$rw_showDialog(this, {
-      title: 'Delete Project',
+      title: deleteProject,
       block: true,
-      confirmLabel: 'Confirm',
+      confirmLabel,
       confirmColor: 'danger',
-      cancelLabel: 'Cancel',
-      content: `Delete the project "${meta.name || path}"?`,
+      cancelLabel,
+      content: meta.name || path,
     });
     if (confirm) {
       await translatorProjectIpc.send('unlink', { data: path });
@@ -154,7 +173,17 @@ export default class VTranslatorProjects extends Vue {
   }
 
   private render(h: CreateElement): VNode {
-    const { projectMetaMap } = this;
+    const {
+      projectMetaMap,
+      $states: {
+        i18n: {
+          form: { select, selectAll, selectInverse, deleteSelected },
+          translator: {
+            projects: { addProject, openProjectsFolder, deleteProject, deleteProjects },
+          },
+        },
+      },
+    } = this;
 
     const pairs = Object.keys(projectMetaMap)
       .sort()
@@ -170,7 +199,7 @@ export default class VTranslatorProjects extends Vue {
               shape="square"
               skin="flat"
               onClick={this.onAddProject}
-              title="Add a project"
+              title={addProject}
             >
               <md-icon staticClass="rw-button-icon" icon="FilePlusOutline"></md-icon>
             </rw-button>
@@ -181,7 +210,7 @@ export default class VTranslatorProjects extends Vue {
               shape="square"
               skin="flat"
               onClick={this.onOpenProjectsFolder}
-              title="Open projects folder"
+              title={openProjectsFolder}
             >
               <md-icon staticClass="rw-button-icon" icon="FolderOpenOutline"></md-icon>
             </rw-button>
@@ -194,7 +223,7 @@ export default class VTranslatorProjects extends Vue {
               shape="square"
               skin="flat"
               onClick={this.onSelectAll}
-              title="Select All"
+              title={selectAll}
             >
               <md-icon staticClass="rw-button-icon" icon="SelectAll"></md-icon>
             </rw-button>
@@ -205,7 +234,7 @@ export default class VTranslatorProjects extends Vue {
               shape="square"
               skin="flat"
               onClick={this.onSelectInverse}
-              title="Select Inverse"
+              title={selectInverse}
             >
               <md-icon staticClass="rw-button-icon" icon="SelectInverse"></md-icon>
             </rw-button>
@@ -216,7 +245,7 @@ export default class VTranslatorProjects extends Vue {
               shape="square"
               skin="flat"
               onClick={this.onDeleteSelectedProjects}
-              title="Delete selected projects"
+              title={deleteSelected}
             >
               <md-icon staticClass="rw-button-icon" icon="DeleteOutline"></md-icon>
             </rw-button>
@@ -242,7 +271,7 @@ export default class VTranslatorProjects extends Vue {
                 shape="square"
                 skin="flat"
                 onClick={() => this.deleteProject(path, meta)}
-                title="Delete"
+                title={deleteProject}
               >
                 <md-icon staticClass="rw-button-icon" icon="DeleteOutline"></md-icon>
                 <span staticClass="sr-only">Delete</span>

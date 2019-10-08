@@ -85,6 +85,10 @@
   @include elem('body') {
     position: relative;
     width: 100%;
+
+    font-size: calc(var(--font-size-body) * 1px);
+    font-weight: var(--font-weight-body);
+    line-height: calc(var(--line-height-body) * 1px);
   }
 
   @include elem('footer') {
