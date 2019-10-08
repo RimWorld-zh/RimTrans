@@ -10,7 +10,7 @@ export async function createRimTransWindow(
   states: States,
   options: RimTransWindowOptions,
 ): Promise<BrowserWindow> {
-  const { browserWindowsSet, settings, storage } = states;
+  const { settings, storage } = states;
 
   let {
     lastActiveWindowState: { maximized, width, height, x, y },
@@ -27,7 +27,6 @@ export async function createRimTransWindow(
       nodeIntegration: true,
     },
   });
-  browserWindowsSet.add(win);
 
   if (maximized) {
     win.maximize();
@@ -46,7 +45,6 @@ export async function createRimTransWindow(
   const onClose = (): void => {
     maximized = win.isMaximized();
     storage.set({ lastActiveWindowState: { maximized, width, height, x, y } });
-    browserWindowsSet.delete(win);
   };
 
   win.on('move', onBoundChange);

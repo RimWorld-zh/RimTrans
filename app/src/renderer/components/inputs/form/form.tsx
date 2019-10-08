@@ -36,7 +36,7 @@ export class RwFormFieldGroup extends Vue {
 @Component
 export class RwFormStack extends Vue {
   private render(h: CreateElement): VNode {
-    return <div staticClass="rw-form-row">{this.$slots.default}</div>;
+    return <div staticClass="rw-form-stack">{this.$slots.default}</div>;
   }
 }
 

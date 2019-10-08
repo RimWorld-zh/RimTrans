@@ -33,3 +33,11 @@ body {
     line-height: calc(var(--line-height-title-#{$level}) * 1px);
   }
 }
+
+a {
+  color: var(--color-primary-60);
+  &:hover {
+    color: var(--color-secondary-60);
+  }
+  text-decoration: none;
+}

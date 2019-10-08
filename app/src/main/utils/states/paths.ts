@@ -2,8 +2,8 @@ import { app } from 'electron';
 import { pth, fse, globby } from '@rimtrans/extractor';
 import {
   USER_DATA,
-  FILENAME_SETTINGS,
-  FILENAME_STORAGE,
+  FILE_NAME_SETTINGS,
+  FILE_NAME_STORAGE,
   FOLDER_NAME_TRANSLATOR_PROJECTS,
 } from '../constants';
 import { StateChannel } from './index';
@@ -13,7 +13,19 @@ import { StateChannel } from './index';
  * The data directory, execute path and json file paths for states.
  */
 export interface Paths extends Record<StateChannel, string> {
+  /**
+   * The platform-specific file separator. '\\' or '/'.
+   */
+  readonly separator: '\\' | '/';
+
+  /**
+   * The path to the directory for storing the app's configuration files.
+   */
   readonly dataDir: string;
+
+  /**
+   * The path to the directory for storing translator project files.
+   */
   readonly translatorProjects: string;
 }
 
@@ -23,9 +35,10 @@ export function createPaths(): Paths {
   const resolve = (...args: string[]): string => pth.join(userData, ...args);
 
   const paths: Paths = {
+    separator: pth.sep,
     dataDir: userData,
-    settings: resolve(FILENAME_SETTINGS),
-    storage: resolve(FILENAME_STORAGE),
+    settings: resolve(FILE_NAME_SETTINGS),
+    storage: resolve(FILE_NAME_STORAGE),
     translatorProjects: resolve(FOLDER_NAME_TRANSLATOR_PROJECTS),
   };
   return paths;

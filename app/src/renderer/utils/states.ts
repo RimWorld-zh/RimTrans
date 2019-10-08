@@ -1,4 +1,3 @@
-import { remote, Event as ElectronEvent, ipcRenderer } from 'electron';
 import Vue, { CreateElement, VNode, PluginFunction, PluginObject } from 'vue';
 import {
   Component,
@@ -9,11 +8,22 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { GLOBAL_KEY_PATHS, GLOBAL_KEY_SETTINGS } from '@src/main/utils/constants';
+import {
+  IPC_NAMESPACE_APP,
+  IPC_NAMESPACE_STATES,
+  GLOBAL_KEY_PATHS,
+  GLOBAL_KEY_SETTINGS,
+} from '@src/main/utils/constants';
 import { IpcMessage } from '@src/main/utils/ipc';
 import { StateTypeMap, StateChannel, Paths } from '@src/main/utils/states';
 import { Settings } from '@src/main/utils/states/settings';
-import { IpcRendererListener, IpcRenderer, createIpc, getGlobal } from './ipc';
+import {
+  IpcRendererListener,
+  IpcRenderer,
+  createIpc,
+  getGlobal,
+  getCurrentWindowId,
+} from './ipc';
 import { StateI18n } from './i18n';
 import { StateUi } from './ui';
 
@@ -103,11 +113,11 @@ export class States extends Vue {
   }
 
   private created(): void {
-    this.browserWindowID = remote.getCurrentWindow().id;
-    this.ipc = createIpc('app');
+    this.browserWindowID = getCurrentWindowId();
+    this.ipc = createIpc(IPC_NAMESPACE_APP);
     this.paths = getGlobal(GLOBAL_KEY_PATHS);
 
-    this.statesIpc = createIpc<StateTypeMap>('states');
+    this.statesIpc = createIpc<StateTypeMap>(IPC_NAMESPACE_STATES);
     this.statesIpcSilentMap = {};
     this.unwatchMap = {};
     this.listenerMap = {};

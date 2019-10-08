@@ -3,6 +3,8 @@ import { BrowserWindow } from 'electron';
 import chokidar from 'chokidar';
 import { pth, fse, globby } from '@rimtrans/extractor';
 import {
+  IPC_NAMESPACE_APP,
+  IPC_NAMESPACE_STATES,
   USER_DATA,
   GLOBAL_KEY_PATHS,
   GLOBAL_KEY_SETTINGS,
@@ -135,11 +137,6 @@ export interface States {
   paths: Paths;
 
   /**
-   * The `Set` for all `BrowserWindow`
-   */
-  browserWindowsSet: Set<BrowserWindow>;
-
-  /**
    * Default App IPC
    */
   ipc: IpcMain;
@@ -172,9 +169,8 @@ export function createStates(): States {
   const paths = createPaths();
   setGlobal(GLOBAL_KEY_PATHS, paths);
 
-  const browserWindowsSet = new Set<BrowserWindow>();
-  const ipc = createIpc(browserWindowsSet, 'app');
-  const ipcStates = createIpc<StateTypeMap>(browserWindowsSet, 'states');
+  const ipc = createIpc(IPC_NAMESPACE_APP);
+  const ipcStates = createIpc<StateTypeMap>(IPC_NAMESPACE_STATES);
 
   const settings = createStateWrapper(ipcStates, {
     channel: 'settings',
@@ -199,5 +195,5 @@ export function createStates(): States {
     await Promise.all(states.map(state => state.save()));
   };
 
-  return { paths, browserWindowsSet, ipc, settings, storage, loadStates, saveStates };
+  return { paths, ipc, settings, storage, loadStates, saveStates };
 }

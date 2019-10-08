@@ -25,5 +25,5 @@
     "*/scripts/**/*.ts",
     "scripts/**/*.ts"
   ],
-  "exclude": ["node_modules", "*/node_modules"]
+  "exclude": ["node_modules", "*/node_modules", "coverage", "*/coverage"]
 }

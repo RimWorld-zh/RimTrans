@@ -1,4 +1,3 @@
-import { remote } from 'electron';
 import Vue, { CreateElement, VNode } from 'vue';
 import {
   Component,

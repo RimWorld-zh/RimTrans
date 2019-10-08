@@ -8,3 +8,5 @@
  */
 
 export * from './select-mod-dialog/select-mod-dialog';
+export * from './translator/add-project-dialog';
+export * from './translator/project';

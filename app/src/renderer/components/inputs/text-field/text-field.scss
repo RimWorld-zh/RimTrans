@@ -66,6 +66,22 @@
     }
   }
 
+  @each $color in $type-color-semantics {
+    @include prop(
+      (
+        'status': $color,
+      )
+    ) {
+      @include elem('container') {
+        &,
+        &:hover,
+        &:focus-within {
+          border-color: var(--color-#{$color}-60);
+        }
+      }
+    }
+  }
+
   @include elem('prefix', 'suffix') {
     position: relative;
 

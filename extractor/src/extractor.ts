@@ -28,7 +28,7 @@ import { InjectionExtractor } from './injection';
 import { KeyedReplacementExtractor } from './keyed-replacement';
 import { StringsFileExtractor } from './strings-file';
 
-export interface ExtractorModConfig {
+export interface ExtractModConfig {
   /**
    * Path to the mod.
    */
@@ -50,7 +50,7 @@ export interface ExtractorModConfig {
   outputPath?: string;
 }
 
-export interface ExtractorConfig {
+export interface ExtractConfig {
   /**
    * Find possible translatable fields in fuzzy mode or not.
    */
@@ -64,7 +64,7 @@ export interface ExtractorConfig {
   /**
    * Mods configs
    */
-  modConfigs: ExtractorModConfig[];
+  modConfigs: ExtractModConfig[];
 
   /**
    * Languages to extract.
@@ -115,7 +115,7 @@ export class Extractor {
   /**
    * Create a new workflow map for storing workflow status
    */
-  private workflowMap(config: ExtractorConfig): WorkflowMap {
+  private workflowMap(config: ExtractConfig): WorkflowMap {
     const { modConfigs, languages } = config;
     return createWorkflowMap([
       WF_LOAD,
@@ -201,7 +201,7 @@ export class Extractor {
    *
    * @param paths the array of paths to mod directories, `[Core, ...Mods]`.
    */
-  public async extract(config: ExtractorConfig): Promise<Mod[]> {
+  public async extract(config: ExtractConfig): Promise<Mod[]> {
     this.emitter.emit('workflowMap', this.workflowMap(config));
 
     const {

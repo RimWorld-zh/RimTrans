@@ -1,15 +1,9 @@
 import { pth, fse, globby, FOLDER_NAME_MODS, ModMetaData } from '@rimtrans/extractor';
 import { States } from '../../utils/states';
 import { createSlaverMain } from '../../utils/slaver';
-import { ModMetaDataSlaver } from './slaver';
+import { ModMetaDataSlaver } from './models';
 
-declare module '../../utils/ipc' {
-  interface IpcTypeMap {
-    'mod-meta-data': ['local' | 'steam' | string[], Record<string, ModMetaData>];
-  }
-}
-
-export function initHandler(states: States): void {
+export function initModMetaDataHandler(states: States): void {
   const { ipc } = states;
 
   ipc.addRequestHandler('mod-meta-data', async (e, data) => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Vue, { CreateElement, VNode, PluginObject } from 'vue';
 import {
   Component,
@@ -22,11 +23,12 @@ declare module 'vue/types/vue' {
      *
      */
     // eslint-disable-next-line @typescript-eslint/camelcase
-    $rw_showDialog(
-      options: DialogOptions,
+    $rw_showDialog<T = undefined>(
       parent: Vue,
-      render?: (createElement: CreateElement) => VNode | VNode[] | undefined,
-    ): Promise<boolean>;
+      options: DialogOptions,
+      render?: (createElement: CreateElement, state: T) => VNode | VNode[] | undefined,
+      initState?: () => T,
+    ): Promise<[boolean, T]>;
   }
 }
 
@@ -73,45 +75,57 @@ export class RwDialog extends Vue implements DialogOptions {
     }
     $$Vue = $Vue;
 
-    const showDialog: Vue['$rw_showDialog'] = async (options, parent, render) => {
-      return new Promise<boolean>((resolve, reject) => {
-        const state = new $Vue({
+    async function showDialog<T = undefined>(
+      parent: Vue,
+      options: DialogOptions,
+      render?: (createElement: CreateElement, state: T) => VNode | VNode[] | undefined,
+      initState: () => T = () => undefined as any,
+    ): Promise<[boolean, T]> {
+      return new Promise<[boolean, T]>((resolve, reject) => {
+        const toggle = new $Vue({
           parent,
           data() {
-            return { show: true };
+            return {
+              show: true,
+              state: initState(),
+            };
           },
         });
         const destroy = parent.$rw_portalRender('body', parent, h => {
-          const content = render && render(h);
+          const content = render && render(h, toggle.state);
 
-          const confirm = (e: MouseEvent): void => {
-            state.show = false;
+          const confirm = (e: MouseEvent | KeyboardEvent): void => {
+            toggle.show = false;
+            const state = toggle.state && JSON.parse(JSON.stringify(toggle.state));
             parent.$nextTick(() => {
-              state.$destroy();
+              toggle.$destroy();
               destroy();
-              resolve(true);
+              resolve([true, state]);
             });
           };
-          const cancel = (e: MouseEvent): void => {
-            state.show = false;
+          const cancel = (e: MouseEvent | KeyboardEvent): void => {
+            toggle.show = false;
+            const state = toggle.state && JSON.parse(JSON.stringify(toggle.state));
             parent.$nextTick(() => {
-              state.$destroy();
+              toggle.$destroy();
               destroy();
-              resolve(false);
+              resolve([false, state]);
             });
           };
 
           return h(
             'rw-dialog',
             {
-              props: { ...options, show: state.show },
+              props: { ...options, show: toggle.show },
               on: { confirm, cancel, close: cancel, dismiss: cancel },
             },
             (Array.isArray(content) && content) || [content],
           );
         });
       });
-    };
+    }
+
+    const typeCheck: Vue['$rw_showDialog'] = showDialog;
 
     Object.defineProperty(Vue.prototype, '$rw_showDialog', {
       configurable: false,
@@ -192,13 +206,51 @@ export class RwDialog extends Vue implements DialogOptions {
       cancelColor,
       acrylic,
       $slots: { header: headerSlot, default: defaultSlot, footer: footerSlot },
-      $listeners: { confirm = [], cancel = [], close = [], dismiss = [], ...on },
+      $listeners: {
+        confirm = [],
+        cancel = [],
+        close = [],
+        dismiss = [],
+        keydown: rawKeydown = [],
+        ...on
+      },
     } = this;
+
+    const emitRaw = (listener: Function | Function[], event: Event): void => {
+      if (Array.isArray(listener)) {
+        listener.forEach(l => l(event));
+        return;
+      }
+      listener(event);
+    };
+
+    const keydown = (event: KeyboardEvent): void => {
+      switch (event.key) {
+        case 'Enter':
+          emitRaw(confirm, event);
+          break;
+
+        case 'Escape':
+          emitRaw(cancel, event);
+          break;
+
+        default:
+      }
+      emitRaw(rawKeydown, event);
+    };
 
     const overlayClasses = when({ acrylic });
 
     return (
-      <div staticClass="rw-dialog" {...{ on }}>
+      <div
+        staticClass="rw-dialog"
+        {...{
+          on: {
+            ...on,
+            keydown,
+          },
+        }}
+      >
         <div
           key="overlay"
           staticClass="rw-dialog_overlay"

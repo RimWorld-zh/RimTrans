@@ -29,6 +29,13 @@ export interface SlaverMain<T extends any = SlaverTypeMap> {
    * @param listener
    */
   addListener<K extends keyof T>(action: K, listener: SlaverListener<T[K][1]>): void;
+
+  /**
+   * Remove the listener for specified action.
+   * @param action the action
+   * @param listener the listener
+   */
+  removeListener<K extends keyof T>(action: K, listener: SlaverListener<T[K][1]>): void;
 }
 
 /**
@@ -44,10 +51,17 @@ export interface SlaverSub<T extends any = SlaverTypeMap> {
 
   /**
    * Listen specified action for resolving data from main process.
-   * @param action
-   * @param listener
+   * @param action the action
+   * @param listener the listener
    */
   addListener<K extends keyof T>(action: K, listener: SlaverListener<T[K][0]>): void;
+
+  /**
+   * Remove the listener for specified action.
+   * @param action the action
+   * @param listener the listener
+   */
+  removeListener<K extends keyof T>(action: K, listener: SlaverListener<T[K][0]>): void;
 }
 
 export function createSlaverMain<T extends any = SlaverTypeMap>(
@@ -79,7 +93,15 @@ export function createSlaverMain<T extends any = SlaverTypeMap>(
     (listeners as Function[]).push(listener);
   };
 
-  return { childProcess, send, addListener };
+  const removeListener: SlaverMain<T>['removeListener'] = (action, listener) => {
+    const listeners = listenerMap[action] || (listenerMap[action] = []);
+    const index = (listeners as Function[]).indexOf(listener);
+    if (index > -1) {
+      (listeners as Function[]).splice(index);
+    }
+  };
+
+  return { childProcess, send, addListener, removeListener };
 }
 
 type Send = (
@@ -90,8 +112,8 @@ type Send = (
 ) => boolean;
 
 export function createSlaverSub<T extends any = SlaverTypeMap>(): SlaverSub<T> {
-  if (!process.send) {
-    throw new Error('createSlaverSub must be called in sub process.');
+  if (process.env.ELECTRON_RUN_AS_NODE !== '1') {
+    throw new Error('createSlaverSub() must be called in sub process.');
   }
 
   const listenerMap: { [K in keyof T]?: SlaverListener<T[K][1]>[] } = {};
@@ -111,5 +133,13 @@ export function createSlaverSub<T extends any = SlaverTypeMap>(): SlaverSub<T> {
     (listeners as Function[]).push(listener);
   };
 
-  return { send, addListener };
+  const removeListener: SlaverSub<T>['removeListener'] = (action, listener) => {
+    const listeners = listenerMap[action] || (listenerMap[action] = []);
+    const index = (listeners as Function[]).indexOf(listener);
+    if (index > -1) {
+      (listeners as Function[]).splice(index);
+    }
+  };
+
+  return { send, addListener, removeListener };
 }

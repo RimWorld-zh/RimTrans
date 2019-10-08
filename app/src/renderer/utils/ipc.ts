@@ -10,11 +10,12 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
+import { cloneObject } from '@src/main/utils/object';
 import { IpcTypeMap, IpcMessage } from '@src/main/utils/ipc';
 
 export type IpcRendererListener<T> = (
   event: IpcRendererEvent,
-  message?: IpcMessage<T>,
+  message: IpcMessage<T>,
 ) => any;
 
 /**
@@ -43,7 +44,7 @@ export interface IpcRenderer<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param message the message to send
    */
-  send<K extends keyof T>(channel: K, message?: IpcMessage<T[K][0]>): void;
+  send<K extends keyof T>(channel: K, message: IpcMessage<T[K][0]>): void;
 
   /**
    * Remove the ipc listener in specified channel.
@@ -54,6 +55,12 @@ export interface IpcRenderer<T extends any = IpcTypeMap> {
     channel: K,
     listener: IpcRendererListener<T[K][0]>,
   ): void;
+
+  /**
+   * Remove all of listeners in specified channels.
+   * @param channels the ipc channels
+   */
+  removeAllListener<K extends keyof T>(...channels: K[]): void;
 
   request<K extends keyof T>(channel: K, data: T[K][0]): Promise<T[K][1]>;
 }
@@ -66,6 +73,10 @@ function generateID(): number {
  * Create a IPC interface for the renderer process.
  */
 export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRenderer<T> {
+  if (!namespace) {
+    throw new Error("Must provide the argument 'namespace'");
+  }
+
   return {
     on(channel, listener) {
       ipcRenderer.on(`${namespace}-${channel}`, listener);
@@ -73,11 +84,18 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
     once(channel, listener) {
       ipcRenderer.once(`${namespace}-${channel}`, listener);
     },
+
     send(channel, message) {
-      ipcRenderer.send(`${namespace}-${channel}`, JSON.parse(JSON.stringify(message)));
+      ipcRenderer.send(`${namespace}-${channel}`, cloneObject(message));
     },
+
     removeListener(channel, listener) {
       ipcRenderer.removeListener(`${namespace}-${channel}`, listener);
+    },
+    removeAllListener(...channels) {
+      channels.forEach(channel => {
+        ipcRenderer.removeAllListeners(`${namespace}-${channel}`);
+      });
     },
 
     request<K extends keyof T>(channel: K, data: T[K][0]): Promise<T[K][1]> {
@@ -103,7 +121,7 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
         };
 
         ipcRenderer.on(realChannel, listener);
-        ipcRenderer.send(realChannel, message);
+        ipcRenderer.send(realChannel, cloneObject(message));
       });
     },
   };
@@ -118,4 +136,11 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
  */
 export function getGlobal<T>(key: string): T {
   return JSON.parse(JSON.stringify(remote.getGlobal(key)));
+}
+
+/**
+ * Get current electron browser window id.
+ */
+export function getCurrentWindowId(): number {
+  return remote.getCurrentWindow().id;
 }

@@ -8,16 +8,7 @@ import {
   ModMetaData,
 } from '@rimtrans/extractor';
 import { createSlaverSub } from '../../utils/slaver';
-
-export interface ModMetaDataSlaver {
-  request: [
-    {
-      genre: 'directories' | 'files';
-      paths: string[];
-    },
-    Record<string, ModMetaData>
-  ];
-}
+import { ModMetaDataSlaver } from './models';
 
 function setup(): void {
   const slaver = createSlaverSub<ModMetaDataSlaver>();

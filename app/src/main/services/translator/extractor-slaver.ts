@@ -1,8 +1,8 @@
-import { Extractor, ExtractorConfig } from '@rimtrans/extractor';
+import { Extractor, ExtractConfig } from '@rimtrans/extractor';
 import { createSlaverSub } from '../../utils/slaver';
 
 export interface TranslationExtractorSlaver {
-  extract: [ExtractorConfig, never];
+  extract: [ExtractConfig, never];
 }
 
 const slaver = createSlaverSub<TranslationExtractorSlaver>();

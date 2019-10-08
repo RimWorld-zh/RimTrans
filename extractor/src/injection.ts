@@ -38,6 +38,8 @@ const TEXT_TODO = 'TODO';
 const TEXT_UNUSED = 'UNUSED';
 const TEXT_FUZZY = 'FUZZY';
 
+const REGEX_INTEGER = /^\d+$/;
+
 /**
  * The type of path nodes, if is tuple `[number, string]`, means `[index, handle]`
  */
@@ -168,12 +170,10 @@ export class InjectionExtractor {
     return path.map(node => (Array.isArray(node) ? node[1] : node)).join('.');
   }
 
-  private readonly REGEX_INTEGER = /^\d+$/;
-
   public deSerializePath(tagName: string): PathNode[] {
     return tagName
       .split('.')
-      .map(node => (this.REGEX_INTEGER.test(node) ? Number.parseInt(node, 10) : node));
+      .map(node => (REGEX_INTEGER.test(node) ? Number.parseInt(node, 10) : node));
   }
 
   // ----------------------------------------------------------------

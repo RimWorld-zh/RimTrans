@@ -22,7 +22,7 @@ const sortProperties: (keyof ModMetaData)[] = ['path', 'name', 'author'];
  * Component: SelectModDialog
  */
 @Component
-export class SSelectModDialog extends Vue {
+class SSelectModDialog extends Vue {
   public loading: boolean = false;
 
   public genre: Genre = 'local';
@@ -270,26 +270,16 @@ export class SSelectModDialog extends Vue {
 
 export async function selectModDialog(parent: Vue): Promise<string[] | undefined> {
   return new Promise<string[] | undefined>((resolve, reject) => {
-    const state = new Vue({
-      parent,
-      data() {
-        return {
-          modsLocalSelected: [] as string[],
-          modsSteamSelected: [] as string[],
-        };
-      },
-    });
-
     parent
       .$rw_showDialog(
+        parent,
         {
           title: 'Select Mods',
           block: true,
           confirmLabel: 'Confirm',
           cancelLabel: 'Cancel',
         },
-        parent,
-        h =>
+        (h, state) =>
           h(SSelectModDialog, {
             props: {
               modsLocalSelected: state.modsLocalSelected,
@@ -300,12 +290,15 @@ export async function selectModDialog(parent: Vue): Promise<string[] | undefined
               steamChange: (v: string[]) => (state.modsSteamSelected = v),
             },
           }),
+        () => ({
+          modsLocalSelected: [] as string[],
+          modsSteamSelected: [] as string[],
+        }),
       )
-      .then(confirm => {
+      .then(([confirm, state]) => {
         const result =
           (confirm && [...state.modsLocalSelected, ...state.modsSteamSelected]) ||
           undefined;
-        state.$destroy();
         parent.$nextTick(() => resolve(result));
       });
   });

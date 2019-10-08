@@ -18,6 +18,15 @@ export type Size = 'small' | 'medium' | 'large';
 
 export type Position = 'top' | 'bottom' | 'left' | 'right';
 
+export type Severity =
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'error'
+  | 'safe'
+  | 'fatal';
+
 export type ButtonColor = Color | ColorSemantic;
 export type ButtonSize = Size;
 export type ButtonSkin = 'fill' | 'silk' | 'flat' | 'plain';

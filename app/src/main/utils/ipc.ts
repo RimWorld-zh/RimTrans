@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { dialog, BrowserWindow, IpcMainEvent, WebContents, ipcMain } from 'electron';
+import { cloneObject } from './object';
 import { StateTypeMap } from './states';
 
 export interface IpcTypeMap {
   // must use tuple type
   foobar: [
     { foo: string }, // type from renderer process to main process.
-    { bar: string } // type from main process to renderer process.
+    { bar: string }, // type from main process to renderer process.
   ];
 }
 
@@ -20,7 +21,7 @@ export interface IpcMessage<T> {
   data: T;
 }
 
-export type IpcMainListener<T> = (event: IpcMainEvent, message?: IpcMessage<T>) => any;
+export type IpcMainListener<T> = (event: IpcMainEvent, message: IpcMessage<T>) => any;
 
 export type IpcMainHandler<T, R> = (event: IpcMainEvent, data: T) => Promise<R>;
 
@@ -55,7 +56,7 @@ export interface IpcMain<T extends any = IpcTypeMap> {
   send<K extends keyof T>(
     webContents: WebContents,
     channel: K,
-    message?: IpcMessage<T[K]>,
+    message: IpcMessage<T[K][1]>,
   ): void;
 
   /**
@@ -63,7 +64,7 @@ export interface IpcMain<T extends any = IpcTypeMap> {
    * @param channel the ipc channel
    * @param message the message to send
    */
-  sendAll<K extends keyof T>(channel: K, message?: IpcMessage<T[K][0]>): void;
+  sendAll<K extends keyof T>(channel: K, message: IpcMessage<T[K][1]>): void;
 
   /**
    * Remove the ipc listener in specified channel.
@@ -71,6 +72,12 @@ export interface IpcMain<T extends any = IpcTypeMap> {
    * @param listener the ipc listener function
    */
   removeListener<K extends keyof T>(channel: K, listener: IpcMainListener<T[K][0]>): void;
+
+  /**
+   * Remove all of listeners in specified channels.
+   * @param channels the ipc channels
+   */
+  removeAllListeners<K extends keyof T>(...channels: K[]): void;
 
   /**
    * Add handler to response request from renderer process in specified channel.
@@ -97,10 +104,11 @@ export interface IpcMain<T extends any = IpcTypeMap> {
  * Create a IPC interface from the main process.
  * @param browserWindowsSet the `Set` of `BrowserWindow`
  */
-export function createIpc<T extends any = IpcTypeMap>(
-  browserWindowsSet: Set<BrowserWindow>,
-  namespace: string,
-): IpcMain<T> {
+export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcMain<T> {
+  if (!namespace) {
+    throw new Error("Must provide the argument 'namespace'");
+  }
+
   const handlerListenerMap = new Map<Function, Function>();
 
   return {
@@ -110,19 +118,31 @@ export function createIpc<T extends any = IpcTypeMap>(
     once(channel, listener) {
       ipcMain.once(`${namespace}-${channel}`, listener);
     },
+
     send(webContents, channel, message) {
-      webContents.send(`${namespace}-${channel}`, JSON.parse(JSON.stringify(message)));
+      webContents.send(`${namespace}-${channel}`, cloneObject(message));
     },
     sendAll(channel, message) {
-      browserWindowsSet.forEach((win: BrowserWindow) =>
-        win.webContents.send(
-          `${namespace}-${channel}`,
-          JSON.parse(JSON.stringify(message)),
-        ),
+      BrowserWindow.getAllWindows().forEach((win: BrowserWindow) =>
+        win.webContents.send(`${namespace}-${channel}`, cloneObject(message)),
       );
     },
+
     removeListener(channel, listener) {
       ipcMain.removeListener(`${namespace}-${channel}`, listener);
+    },
+    removeAllListeners(...channels) {
+      const entries = Array.from(handlerListenerMap.entries());
+      channels.forEach(channel => {
+        const realChannel = `${namespace}-${channel}`;
+        ipcMain.listeners(realChannel).forEach(listener => {
+          const pair = entries.find(([k, v]) => v === listener);
+          if (pair) {
+            handlerListenerMap.delete(pair[0]);
+          }
+        });
+        ipcMain.removeAllListeners(realChannel);
+      });
     },
 
     addRequestHandler<K extends keyof T>(
@@ -143,7 +163,7 @@ export function createIpc<T extends any = IpcTypeMap>(
           id: message.id,
           data: replyData,
         };
-        event.sender.send(realChannel, replyMessage);
+        event.sender.send(realChannel, cloneObject(replyMessage));
       };
 
       handlerListenerMap.set(handler, listener);

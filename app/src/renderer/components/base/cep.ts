@@ -7,7 +7,7 @@ export function prop(
   return Object.fromEntries(
     Object.entries(props).map(([name, value]) => [
       `${namespace}p-${name}_${value}`,
-      !!value,
+      value !== null && value !== undefined,
     ]),
   );
 }

@@ -13,6 +13,7 @@
 
   @include elem('bar') {
     position: relative;
+    z-index: var(--z-index-bar);
 
     display: flex;
     flex-flow: row nowrap;
@@ -38,12 +39,12 @@
 
   @include elem('wrapper') {
     position: relative;
-    padding: calc(var(--gap-base) * 4px);
   }
 
   @include elem('container') {
     position: relative;
     height: 100%;
+    padding: calc(var(--gap-base) * 4px);
   }
 
   @include elem('dev-tools') {

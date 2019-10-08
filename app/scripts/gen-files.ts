@@ -2,14 +2,6 @@ import { GenFilesOptions, genFiles } from '@huiji/shared-utils';
 import { genVariables } from './gen-variables';
 
 const optionsList: GenFilesOptions[] = [
-  // main process
-  // utils
-  {
-    comments: ['All utils'],
-    patterns: ['src/main/utils/**/*.ts'],
-    output: 'src/main/utils/index.ts',
-  },
-
   // renderer process
   // components
   {

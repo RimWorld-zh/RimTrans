@@ -1,4 +1,3 @@
-import { remote } from 'electron';
 import Vue, { CreateElement, VNode } from 'vue';
 import {
   Component,
@@ -9,7 +8,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { selectDirectoryDialog } from '@src/renderer/utils';
+import { interaction } from '@src/renderer/utils';
 
 /**
  * Component: Settings Feature
@@ -17,14 +16,14 @@ import { selectDirectoryDialog } from '@src/renderer/utils';
 @Component
 export default class VSettingsFeature extends Vue {
   private async onDirectoryRimWorldExplorer(event: MouseEvent): Promise<void> {
-    const path = await selectDirectoryDialog();
+    const path = await interaction.selectDirectoryDialog();
     if (path) {
       this.$states.settings.directoryRimWorld = path;
     }
   }
 
   private async onDirectoryWorkshopExplorer(event: MouseEvent): Promise<void> {
-    const path = await selectDirectoryDialog();
+    const path = await interaction.selectDirectoryDialog();
     if (path) {
       this.$states.settings.directoryWorkshop = path;
     }

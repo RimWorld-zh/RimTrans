@@ -50,12 +50,26 @@ export function createRouter(): VueRouter {
         ],
       },
 
+      // translator
       {
         path: '/translator',
         name: 'translator',
-        component: async () =>
-          import(/* webpackChunkName: "v-translator" */ './views/translator/translator'),
+        redirect: '/translator/projects',
       },
+      {
+        path: '/translator/projects',
+        name: 'translator-projects',
+        component: async () =>
+          import(/* webpackChunkName: "v-translator" */ './views/translator/projects'),
+      },
+      {
+        path: '/translator/project',
+        name: 'translator-project',
+        component: async () =>
+          import(/* webpackChunkName: "v-translator" */ './views/translator/project'),
+      },
+
+      // modder
       {
         path: '/modder',
         name: 'modder',
