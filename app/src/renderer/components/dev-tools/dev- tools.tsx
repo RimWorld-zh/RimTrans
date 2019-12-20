@@ -183,7 +183,9 @@ export class RwDevTools extends Vue {
         ))}
 
         <span staticClass="rw-dev-tools_route">{this.$route.name}</span>
-        <span staticClass="rw-dev-tools_route">{this.$route.path}</span>
+        <span staticClass="rw-dev-tools_route">
+          {decodeURIComponent(this.$route.fullPath)}
+        </span>
       </div>
     );
   }
