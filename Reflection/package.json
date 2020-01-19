@@ -3,11 +3,22 @@
   "description": "A dotnet core command line tool for getting type info in .dll file.",
   "version": "4.0.0-alpha.1",
   "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "clean": "rimraf dist bin obj",
+    "build:cjs": "babel src -x .ts -d dist/cjs -s",
+    "build:esm": "babel src -x .ts -d dist/esm -s --esm",
+    "build:types": "tsc && ncp dist/types dist/cjs && ncp dist/types dist/esm && rimraf dist/types",
+    "build:js": "yarn build:cjs && yarn build:esm && yarn build:types",
     "build:win": "dotnet publish --self-contained -c Release -r win-x64 -o dist/win",
     "build:linux": "dotnet publish --self-contained -c Release -r linux-x64 -o dist/linux",
     "build:osx": "dotnet publish --self-contained -c Release -r osx-x64 -o dist/osx",
-    "build": "yarn build:win && yarn build:linux && yarn build:osx"
+    "build:dotnet": "yarn build:win && yarn build:linux && yarn build:osx",
+    "build": "yarn build:js && yarn build:dotnet"
   }
 }

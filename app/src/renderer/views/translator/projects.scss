@@ -4,22 +4,35 @@
 @include comp('translator-projects') {
   position: relative;
 
-  overflow-x: hidden;
-  overflow-y: auto;
-
   @include elem('wrapper') {
     position: relative;
 
+    width: 100%;
+    height: 100%;
+
     display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: max-content;
-    grid-gap: calc(var(--gap-base) * 2px);
+    grid-template-areas:
+      'toolbar'
+      'list';
+    grid-template-rows: calc(var(--button-height-medium) * 1px) 1fr;
+    grid-template-columns: 100%;
+    grid-gap: calc(var(--divider-width) * 1px);
+    align-content: start;
+    align-items: start;
+    padding: calc(var(--divider-width) * 1px);
+
+    background-color: var(--color-divider);
+    box-shadow: var(--depth-4);
   }
 
-  @include elem('toolbar', 'item') {
-    position: relative;
+  @include elem('toolbar', 'list') {
+    background-color: var(--color-background-higher);
+  }
 
-    height: calc(var(--button-height-medium) * 1px);
+  @include elem('toolbar') {
+    position: relative;
+    grid-area: toolbar;
+    height: 100%;
 
     display: flex;
     flex-flow: row nowrap;
@@ -28,19 +41,40 @@
     align-items: center;
   }
 
-  @include elem('toolbar') {
-    background-color: var(--color-background-higher);
-  }
-
   @include elem('toolbar-blank') {
     flex: 1;
+  }
+
+  @include elem('list') {
+    $gap: calc(var(--gap-base) * 2px);
+
+    position: relative;
+    grid-area: list;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: max-content;
+    grid-gap: $gap;
+    padding: $gap 0;
+
+    overflow-y: scroll;
   }
 
   @include elem('item') {
     user-select: none;
 
+    position: relative;
+    flex: 1 0 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    padding-left: calc(var(--gap-base) * 2px);
     border: none;
-    color: inherit;
+    color: var(--color-foreground-primary);
+    background-color: transparent;
 
     transition: var(--motion-timing-decelerate) var(--motion-duration-2);
     transition-property: box-shadow, background-color;
@@ -60,11 +94,13 @@
     align-content: center;
     align-items: center;
 
-    height: 100%;
-    padding: 0 calc(var(--gap-base) * 1px);
-
-    // color: inherit;
+    color: inherit;
     text-decoration: none;
+  }
+
+  @include elem('item-sub-label') {
+    margin-left: calc(var(--gap-base) * 1px);
+    color: var(--color-foreground-secondary);
   }
 
   @include elem('item-button') {
@@ -76,6 +112,8 @@
 
   @include elem('item') {
     &:hover {
+      background-color: var(--color-background-normal);
+
       @include elem('item-button') {
         opacity: 1;
       }

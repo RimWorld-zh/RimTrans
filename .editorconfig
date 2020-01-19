@@ -124,6 +124,10 @@ csharp_preserve_single_line_blocks = true
 ############################### 
 # VB Coding Conventions       # 
 ############################### 
+
+# CS8632: 只能在 "#nullable" 注释上下文内的代码中使用可为 null 的引用类型的注释。
+dotnet_diagnostic.CS8632.severity = error
+
 [*.vb] 
 # Modifier preferences 
 visual_basic_preferred_modifier_order = Partial,Default,Private,Protected,Public,Friend,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion 

@@ -37,20 +37,19 @@ export function setupFSWatchSlaver<TWatch = string, TSearch = string>(
   watcher.on('error', error => slaver.send('error', error));
 
   slaver.addListener('add', async payload => save(...payload));
-  watcher.on('add', path =>
-    fse.readJSON(path).then(data => slaver.send('add', [path, data])),
-  );
+  watcher.on('add', path => load(path).then(data => slaver.send('add', [path, data])));
 
   slaver.addListener('addDir', async path => fse.mkdirp(path));
   watcher.on('addDir', path => slaver.send('addDir', path));
 
   slaver.addListener('read', async path => {
-    slaver.send('read', [path, await load(path)]);
+    const data = await load(path);
+    slaver.send('read', [path, data]);
   });
 
   slaver.addListener('change', async payload => save(...payload));
   watcher.on('change', path =>
-    fse.readJSON(path).then(data => slaver.send('change', [path, data])),
+    load(path).then(data => slaver.send('change', [path, data])),
   );
 
   slaver.addListener('unlink', async path => fse.remove(path));

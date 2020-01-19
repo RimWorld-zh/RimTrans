@@ -35,7 +35,7 @@ $type-spinner-sizes: $type-sizes;
   --color-black: #000000;
   --color-white: #ffffff;
 
-  --color-common-bolder: var(--color-grey-50-a30);
+  --color-divider: var(--color-grey-50-a30);
 
   --opacity-secondary: 0.6;
 
@@ -52,6 +52,8 @@ $type-spinner-sizes: $type-sizes;
   // Layout
 
   --gap-base: 4;
+
+  --divider-width: 1;
 
   // for app bar, status bar, top nav bar
   --z-index-bar: 10000;

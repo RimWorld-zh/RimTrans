@@ -22,7 +22,7 @@ import {
   IpcRenderer,
   createIpc,
   getGlobal,
-  getCurrentWindowId,
+  currentWindowId,
 } from './ipc';
 import { StateI18n } from './i18n';
 import { StateUi } from './ui';
@@ -63,7 +63,6 @@ export class States extends Vue {
 
   // Public
   /* eslint-disable lines-between-class-members,@typescript-eslint/no-explicit-any */
-  public browserWindowID!: number;
   public ipc!: IpcRenderer;
   public paths!: Paths;
   public settings: Settings = null as any;
@@ -95,11 +94,11 @@ export class States extends Vue {
         this.statesIpcSilentMap[channel] = false;
         return;
       }
-      this.statesIpc.send(channel, { id: this.browserWindowID, data });
+      this.statesIpc.send(channel, { data });
     };
 
     const listener: IpcRendererListener<StateTypeMap[K][0]> = (event, message) => {
-      if (message && message.id !== this.browserWindowID) {
+      if (message && message.id !== currentWindowId) {
         this.statesIpcSilentMap[channel] = true;
         this[channel] = message.data;
       }
@@ -113,7 +112,6 @@ export class States extends Vue {
   }
 
   private created(): void {
-    this.browserWindowID = getCurrentWindowId();
     this.ipc = createIpc(IPC_NAMESPACE_APP);
     this.paths = getGlobal(GLOBAL_KEY_PATHS);
 

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace RimTrans.Reflection {
+namespace RimTrans.Reflection.Models {
   class ClassInfo {
-    public static readonly List<Type> classTypes = new List<Type>();
-    public static readonly List<ClassInfo> classesOf = new List<ClassInfo>();
-    public static readonly Type TYPE_DEF = typeof(Verse.Def);
+    public readonly List<Type> classTypes = new List<Type>();
+    public readonly List<ClassInfo> classesOf = new List<ClassInfo>();
+    public readonly Type TYPE_DEF = typeof(Verse.Def);
 
-    public static void Crawl() {
+    public void Crawl() {
       var defs = new List<ClassInfo> { new ClassInfo(TYPE_DEF) };
       defs.AddRange(
         TYPE_DEF
@@ -28,7 +28,7 @@ namespace RimTrans.Reflection {
       }
     }
 
-    public static void CrawlFieldType(TypeInfo ti) {
+    public void CrawlFieldType(TypeInfo ti) {
       if (ti.category == TypeInfo.CATEGORY_CLASS) {
         if (!classTypes.Contains(ti.type) && ti.type.Assembly == TYPE_DEF.Assembly) {
           var classInfos = new List<ClassInfo> { new ClassInfo(ti.type) };

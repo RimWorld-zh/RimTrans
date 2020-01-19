@@ -28,15 +28,16 @@ export function initFSWatchHandler<TWatch = string, TSearch = string>(
   ipc.on('addDir', (e, { data }) => slaver.send('addDir', data));
   slaver.addListener('addDir', data => ipc.sendAll('addDir', { data }));
 
-  ipc.addRequestHandler('read', (e, expectedPath) => {
+  ipc.addRequestHandler('read', (e, path) => {
     return new Promise<[string, TWatch]>((resolve, reject) => {
-      const read = ([path, data]: [string, TWatch]): void => {
-        if (path === expectedPath) {
+      const read = ([replyPath, data]: [string, TWatch]): void => {
+        if (replyPath === path) {
           slaver.removeListener('read', read);
-          resolve([path, data]);
+          resolve([replyPath, data]);
         }
       };
       slaver.addListener('read', read);
+      slaver.send('read', path);
     });
   });
 
@@ -58,6 +59,17 @@ export function initFSWatchHandler<TWatch = string, TSearch = string>(
       slaver.addListener('search', search);
       slaver.send('search', undefined);
     });
+  });
+
+  ipc.checkListeners({
+    error: false,
+    add: true,
+    addDir: true,
+    read: true,
+    change: true,
+    unlink: true,
+    unlinkDir: true,
+    search: true,
   });
 
   return { ipc, slaver };

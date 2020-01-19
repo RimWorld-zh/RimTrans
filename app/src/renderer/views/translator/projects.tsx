@@ -8,12 +8,13 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
+import { basename, extname } from 'path';
 import { EXT_NAME_TRANSLATOR_PROJECT } from '@src/main/utils/constants';
 import { cloneObject } from '@src/main/utils/object';
 import { interaction } from '@src/renderer/utils';
 import {
-  TranslatorProjectMetaData,
   TranslatorProject,
+  TranslatorProjectMetaData,
 } from '@src/main/services/translator';
 import { translatorProjectIpc, addTranslatorProjectDialog } from '@src/renderer/services';
 
@@ -24,30 +25,36 @@ import { translatorProjectIpc, addTranslatorProjectDialog } from '@src/renderer/
 export default class VTranslatorProjects extends Vue {
   private loading: boolean = true;
 
-  private projectMetaMap: Record<string, TranslatorProjectMetaData> = {};
+  private projectMap: Record<string, TranslatorProject> = {};
 
   private projectSelectedMap: Record<string, boolean> = {};
 
-  private async beforeMount(): Promise<void> {
-    translatorProjectIpc.on('add', (e, { data: [path, { meta }] }) => {
-      this.$set(this.projectMetaMap, path, meta);
-      this.$set(this.projectSelectedMap, path, false);
-    });
-    translatorProjectIpc.on('unlink', (e, { data: path }) => {
-      this.$delete(this.projectMetaMap, path);
-      this.$delete(this.projectSelectedMap, path);
-    });
-    translatorProjectIpc.on('change', (e, { data: [path, { meta }] }) => {
-      this.$set(this.projectMetaMap, path, meta);
-    });
-
+  private async load(): Promise<void> {
     console.log('projectMetaMap', 'request');
     const metaMap = await translatorProjectIpc.request('search', undefined);
     const selectedMap: Record<string, boolean> = {};
     Object.entries(metaMap).forEach(([path, meta]) => (selectedMap[path] = false));
     console.log('projectMetaMap', cloneObject(metaMap));
-    this.projectMetaMap = metaMap;
+    this.projectMap = metaMap;
     this.projectSelectedMap = selectedMap;
+
+    this.loading = false;
+  }
+
+  private async beforeMount(): Promise<void> {
+    translatorProjectIpc.on('add', (e, { data: [path, project] }) => {
+      this.$set(this.projectMap, path, project);
+      this.$set(this.projectSelectedMap, path, false);
+    });
+    translatorProjectIpc.on('unlink', (e, { data: path }) => {
+      this.$delete(this.projectMap, path);
+      this.$delete(this.projectSelectedMap, path);
+    });
+    translatorProjectIpc.on('change', (e, { data: [path, project] }) => {
+      this.$set(this.projectMap, path, project);
+    });
+
+    await this.load();
   }
 
   private beforeDestroy(): void {
@@ -55,6 +62,9 @@ export default class VTranslatorProjects extends Vue {
   }
 
   private async onAddProject(event: MouseEvent): Promise<void> {
+    const existsFilenames = Object.keys(this.projectMap).map(p =>
+      basename(p, extname(p)),
+    );
     const payload = await addTranslatorProjectDialog(this);
     if (payload && payload.fileName) {
       const {
@@ -131,7 +141,7 @@ export default class VTranslatorProjects extends Vue {
       h => (
         <div>
           {paths.map(path => (
-            <div>{this.projectMetaMap[path].name || path}</div>
+            <div>{this.projectMap[path].meta.name || path}</div>
           ))}
         </div>
       ),
@@ -174,7 +184,7 @@ export default class VTranslatorProjects extends Vue {
 
   private render(h: CreateElement): VNode {
     const {
-      projectMetaMap,
+      projectMap,
       $states: {
         i18n: {
           form: { select, selectAll, selectInverse, deleteSelected },
@@ -185,13 +195,13 @@ export default class VTranslatorProjects extends Vue {
       },
     } = this;
 
-    const pairs = Object.keys(projectMetaMap)
+    const pairs = Object.keys(projectMap)
       .sort()
-      .map<[string, TranslatorProjectMetaData]>(k => [k, projectMetaMap[k]]);
+      .map<[string, TranslatorProjectMetaData]>(k => [k, projectMap[k].meta]);
 
     return (
-      <div staticClass="v-translator-projects">
-        <div staticClass="v-translator-projects_wrapper rw-container">
+      <div staticClass="v-translator-projects rw-container">
+        <div staticClass="v-translator-projects_wrapper">
           <div key="toolbar" staticClass="v-translator-projects_toolbar">
             <rw-button
               key="add"
@@ -251,33 +261,38 @@ export default class VTranslatorProjects extends Vue {
             </rw-button>
           </div>
 
-          {pairs.map(([path, meta]) => (
-            <div key={path} staticClass="v-translator-projects_item">
-              <rw-checkbox vModel={this.projectSelectedMap[path]}>
-                <span staticClass="sr-only">Select</span>
-              </rw-checkbox>
+          <div key="list" staticClass="v-translator-projects_list">
+            {pairs.map(([path, meta]) => (
+              <div key={path} staticClass="v-translator-projects_item">
+                <rw-checkbox vModel={this.projectSelectedMap[path]}>
+                  <span staticClass="sr-only">Select</span>
+                </rw-checkbox>
 
-              <router-link
-                staticClass="v-translator-projects_item-label"
-                to={`/translator/project?path=${path}`}
-              >
-                {meta.name || path}
-              </router-link>
+                <router-link
+                  staticClass="v-translator-projects_item-label"
+                  to={`/translator/project?path=${path}`}
+                >
+                  {meta.name}
+                  <span staticClass="v-translator-projects_item-sub-label">
+                    {basename(path)}
+                  </span>
+                </router-link>
 
-              <rw-button
-                staticClass="v-translator-projects_item-button"
-                color="default"
-                size="medium"
-                shape="square"
-                skin="flat"
-                onClick={() => this.deleteProject(path, meta)}
-                title={deleteProject}
-              >
-                <md-icon staticClass="rw-button-icon" icon="DeleteOutline"></md-icon>
-                <span staticClass="sr-only">Delete</span>
-              </rw-button>
-            </div>
-          ))}
+                <rw-button
+                  staticClass="v-translator-projects_item-button"
+                  color="default"
+                  size="medium"
+                  shape="square"
+                  skin="flat"
+                  onClick={() => this.deleteProject(path, meta)}
+                  title={deleteProject}
+                >
+                  <md-icon staticClass="rw-button-icon" icon="DeleteOutline"></md-icon>
+                  <span staticClass="sr-only">Delete</span>
+                </rw-button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

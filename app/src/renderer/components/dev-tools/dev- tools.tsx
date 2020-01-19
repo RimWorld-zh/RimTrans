@@ -9,6 +9,7 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
+import { currentWindowId } from '@src/renderer/utils/ipc';
 
 interface DebugItem {
   icon: string;
@@ -69,7 +70,7 @@ export class RwDevTools extends Vue {
   private serializeSettings(): string {
     return JSON.stringify(
       {
-        id: this.$states.browserWindowID,
+        currentWindowId,
         ...this.$states.settings,
       },
       undefined,

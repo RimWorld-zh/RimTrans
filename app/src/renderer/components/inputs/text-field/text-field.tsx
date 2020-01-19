@@ -65,7 +65,7 @@ export class RwTextField extends Vue {
         typeof validator === 'function'
           ? validator(value)
           : (validator as RegExp).test(value);
-      switch (status as (Severity | boolean)) {
+      switch (status as Severity | boolean) {
         case true:
         case 'success':
         case 'safe':

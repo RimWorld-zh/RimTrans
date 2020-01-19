@@ -65,8 +65,18 @@ export interface IpcRenderer<T extends any = IpcTypeMap> {
   request<K extends keyof T>(channel: K, data: T[K][0]): Promise<T[K][1]>;
 }
 
-function generateID(): number {
-  return Math.floor((Date.now() + Math.random()) * 1000);
+export const currentWindowId: number = remote.getCurrentWindow().id;
+
+let requestCount = 0;
+
+/**
+ * Generate a message id to send.
+ */
+export function generateIpcId(): string {
+  requestCount += 1;
+  return [currentWindowId, Date.now(), Math.floor(Math.random() * 1000)]
+    .map(n => n.toString(16))
+    .join('-');
 }
 
 /**
@@ -101,7 +111,7 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
     request<K extends keyof T>(channel: K, data: T[K][0]): Promise<T[K][1]> {
       return new Promise<T[K][1]>((resolve, reject) => {
         const realChannel = `${namespace}-${channel}`;
-        const id = generateID();
+        const id = generateIpcId();
         const message = { id, data };
 
         const listener = (
@@ -136,11 +146,4 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcRen
  */
 export function getGlobal<T>(key: string): T {
   return JSON.parse(JSON.stringify(remote.getGlobal(key)));
-}
-
-/**
- * Get current electron browser window id.
- */
-export function getCurrentWindowId(): number {
-  return remote.getCurrentWindow().id;
 }

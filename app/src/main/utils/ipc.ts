@@ -17,7 +17,7 @@ export interface IpcMessage<T> {
   /**
    * The ID of the `BrowserWindow` or a request
    */
-  id?: number;
+  id?: number | string;
   data: T;
 }
 
@@ -98,6 +98,12 @@ export interface IpcMain<T extends any = IpcTypeMap> {
     channel: K,
     handler: IpcMainHandler<T[K][0], T[K][1]>,
   ): void;
+
+  /**
+   * Checks listeners, for debugging.
+   * @param eventRequiredRecord the map to signing requirement for events
+   */
+  checkListeners(eventRequiredRecord: Record<keyof T, boolean>): boolean;
 }
 
 /**
@@ -158,9 +164,10 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcMai
         event: IpcMainEvent,
         message: IpcMessage<T[K][0]>,
       ): Promise<void> => {
-        const replyData = await handler(event, message.data);
+        const { id, data } = message;
+        const replyData = await handler(event, data);
         const replyMessage: IpcMessage<T[K][1]> = {
-          id: message.id,
+          id,
           data: replyData,
         };
         event.sender.send(realChannel, cloneObject(replyMessage));
@@ -179,6 +186,33 @@ export function createIpc<T extends any = IpcTypeMap>(namespace: string): IpcMai
         handlerListenerMap.delete(handler);
         ipcMain.removeListener(`${namespace}-${channel}`, listener);
       }
+    },
+
+    checkListeners(eventRequiredRecord: Record<keyof T, boolean>): boolean {
+      const existsPairs = Object.entries(eventRequiredRecord).map<[string, boolean]>(
+        ([channel, required]) => {
+          if (!required) {
+            return [channel, true];
+          }
+          const listeners = ipcMain.listeners(`${namespace}-${channel}`);
+          return [channel, listeners.length > 0];
+        },
+      );
+      const existsMap = Object.fromEntries(existsPairs);
+
+      const result = existsPairs.reduce<boolean>(
+        (sum, [, exists]) => sum && exists,
+        true,
+      );
+
+      if (process.env.NODE_ENV === 'development' && !result) {
+        dialog.showErrorBox(
+          `Missing listener for ipc namespace '${namespace}'`,
+          JSON.stringify(existsMap, undefined, '  '),
+        );
+      }
+
+      return result;
     },
   };
 }

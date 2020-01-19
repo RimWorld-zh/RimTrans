@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>RimTrans.Reflection</RootNamespace>
   </PropertyGroup>
 
@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Crawler.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="TestXML.cs" />
   </ItemGroup>
 
   <ItemGroup>

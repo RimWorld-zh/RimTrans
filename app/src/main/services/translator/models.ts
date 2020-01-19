@@ -14,12 +14,9 @@ export interface TranslatorProjectMetaData {
   mods: string[];
 }
 
-export type TranslatorProjectSlaver = FSWatchSlaver<
-  TranslatorProject,
-  TranslatorProjectMetaData
->;
+export type TranslatorProjectSlaver = FSWatchSlaver<TranslatorProject, TranslatorProject>;
 
 export type TranslatorProjectIpcTypeMap = FSWatchIpcTypeMap<
   TranslatorProject,
-  TranslatorProjectMetaData
+  TranslatorProject
 >;

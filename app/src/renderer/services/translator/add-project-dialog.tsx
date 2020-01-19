@@ -8,7 +8,11 @@ import {
   Provide,
   Watch,
 } from 'vue-property-decorator';
-import { validateKebabCase } from '@src/main/utils/validators';
+import {
+  compositeValidators,
+  validateRequired,
+  validateKebabCase,
+} from '@src/main/utils/validators';
 
 export interface AddTranslatorProjectPayload {
   fileName: string;
@@ -58,7 +62,7 @@ export class SAddTranslatorProjectDialog extends Vue
               label={fieldFileName}
               value={fileName}
               onInput={(v: string) => this.$emit('fileNameChange', v)}
-              validator={validateKebabCase}
+              validator={compositeValidators(validateRequired, validateKebabCase)}
             ></rw-text-field>
           </rw-form-stack>
 
@@ -77,6 +81,8 @@ export class SAddTranslatorProjectDialog extends Vue
 
 export async function addTranslatorProjectDialog(
   parent: Vue,
+  fileName: string = '',
+  projectName: string = '',
 ): Promise<AddTranslatorProjectPayload | undefined> {
   const {
     $states: {
@@ -109,8 +115,8 @@ export async function addTranslatorProjectDialog(
         },
       }),
     (): AddTranslatorProjectPayload => ({
-      fileName: '',
-      projectName: '',
+      fileName,
+      projectName,
     }),
   );
 
