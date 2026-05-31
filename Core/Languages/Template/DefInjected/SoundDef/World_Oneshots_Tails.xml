@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <GunTail_Light.label>TODO</GunTail_Light.label>
+  <!-- EN:  -->
+  <GunTail_Light.description>TODO</GunTail_Light.description>
+  <!-- EN:  -->
+  <GunTail_Light.subSounds.0.name>TODO</GunTail_Light.subSounds.0.name>
+
+  <!-- EN:  -->
+  <GunTail_Medium.label>TODO</GunTail_Medium.label>
+  <!-- EN:  -->
+  <GunTail_Medium.description>TODO</GunTail_Medium.description>
+  <!-- EN:  -->
+  <GunTail_Medium.subSounds.0.name>TODO</GunTail_Medium.subSounds.0.name>
+
+  <!-- EN:  -->
+  <GunTail_Heavy.label>TODO</GunTail_Heavy.label>
+  <!-- EN:  -->
+  <GunTail_Heavy.description>TODO</GunTail_Heavy.description>
+  <!-- EN:  -->
+  <GunTail_Heavy.subSounds.0.name>TODO</GunTail_Heavy.subSounds.0.name>
+
+</LanguageData>

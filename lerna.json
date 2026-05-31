@@ -1,0 +1,13 @@
+{
+  "npmClient": "yarn",
+  "packages": [".", "*"],
+  "version": "independent",
+  "ignoreChanges": [
+    "**/scripts/**",
+    "**/tests/**",
+    "**/__tests__/**",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/*.md"
+  ]
+}

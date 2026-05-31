@@ -1,0 +1,80 @@
+/**
+ * Component: Translator Project
+ */
+@include comp('translator-project') {
+  $header-height: calc(
+    ((var(--line-height-title-1) + var(--line-height-caption) * 2) * 1px) +
+      (var(--gap-base) * 2 * 4px)
+  );
+
+  position: relative;
+
+  @include elem('wrapper') {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-areas:
+      'header header header'
+      'mods languages options';
+
+    grid-template-rows: $header-height 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: calc(var(--divider-width) * 1px);
+    align-content: start;
+    align-items: start;
+    padding: calc(var(--divider-width) * 1px);
+
+    background-color: var(--color-divider);
+    box-shadow: var(--depth-4);
+  }
+
+  @include elem('header', 'mods', 'languages', 'options') {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background-higher);
+  }
+
+  @include elem('header') {
+    grid-area: header;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    padding: 0 calc(var(--gap-base) * 4px);
+  }
+
+  @include elem('name') {
+    font-size: calc(var(--font-size-title-1) * 1px);
+    font-weight: var(--font-weight-title-1);
+    line-height: calc(var(--line-height-title-1) * 1px);
+
+    color: var(--color-foreground-primary);
+  }
+
+  @include elem('category', 'path') {
+    font-size: calc(var(--font-size-caption) * 1px);
+    font-weight: var(--font-weight-caption);
+    line-height: calc(var(--line-height-caption) * 1px);
+
+    color: var(--color-foreground-secondary);
+  }
+
+  @include elem('mods') {
+    grid-area: mods;
+  }
+
+  @include elem('languages') {
+    grid-area: languages;
+  }
+
+  @include elem('options') {
+    grid-area: options;
+  }
+}

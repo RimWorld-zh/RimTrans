@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Roof_Collapse.label>TODO</Roof_Collapse.label>
+  <!-- EN:  -->
+  <Roof_Collapse.description>TODO</Roof_Collapse.description>
+  <!-- EN:  -->
+  <Roof_Collapse.subSounds.0.name>TODO</Roof_Collapse.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Power_OnSmall.label>TODO</Power_OnSmall.label>
+  <!-- EN:  -->
+  <Power_OnSmall.description>TODO</Power_OnSmall.description>
+  <!-- EN:  -->
+  <Power_OnSmall.subSounds.0.name>TODO</Power_OnSmall.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Power_OffSmall.label>TODO</Power_OffSmall.label>
+  <!-- EN:  -->
+  <Power_OffSmall.description>TODO</Power_OffSmall.description>
+  <!-- EN:  -->
+  <Power_OffSmall.subSounds.0.name>TODO</Power_OffSmall.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DispensePaste.label>TODO</DispensePaste.label>
+  <!-- EN:  -->
+  <DispensePaste.description>TODO</DispensePaste.description>
+  <!-- EN:  -->
+  <DispensePaste.subSounds.0.name>TODO</DispensePaste.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DropPod_Fall.label>TODO</DropPod_Fall.label>
+  <!-- EN:  -->
+  <DropPod_Fall.description>TODO</DropPod_Fall.description>
+  <!-- EN:  -->
+  <DropPod_Fall.subSounds.0.name>TODO</DropPod_Fall.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DropPod_Leaving.label>TODO</DropPod_Leaving.label>
+  <!-- EN:  -->
+  <DropPod_Leaving.description>TODO</DropPod_Leaving.description>
+  <!-- EN:  -->
+  <DropPod_Leaving.subSounds.0.name>TODO</DropPod_Leaving.subSounds.0.name>
+
+  <!-- EN:  -->
+  <DropPod_Open.label>TODO</DropPod_Open.label>
+  <!-- EN:  -->
+  <DropPod_Open.description>TODO</DropPod_Open.description>
+  <!-- EN:  -->
+  <DropPod_Open.subSounds.0.name>TODO</DropPod_Open.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TrapArm.label>TODO</TrapArm.label>
+  <!-- EN:  -->
+  <TrapArm.description>TODO</TrapArm.description>
+  <!-- EN:  -->
+  <TrapArm.subSounds.0.name>TODO</TrapArm.subSounds.0.name>
+
+  <!-- EN:  -->
+  <TrapSpring.label>TODO</TrapSpring.label>
+  <!-- EN:  -->
+  <TrapSpring.description>TODO</TrapSpring.description>
+  <!-- EN:  -->
+  <TrapSpring.subSounds.0.name>TODO</TrapSpring.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Bridge_Collapse.label>TODO</Bridge_Collapse.label>
+  <!-- EN:  -->
+  <Bridge_Collapse.description>TODO</Bridge_Collapse.description>
+  <!-- EN:  -->
+  <Bridge_Collapse.subSounds.0.name>TODO</Bridge_Collapse.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Bridge_CollapseWater.label>TODO</Bridge_CollapseWater.label>
+  <!-- EN:  -->
+  <Bridge_CollapseWater.description>TODO</Bridge_CollapseWater.description>
+  <!-- EN:  -->
+  <Bridge_CollapseWater.subSounds.0.name>TODO</Bridge_CollapseWater.subSounds.0.name>
+
+</LanguageData>

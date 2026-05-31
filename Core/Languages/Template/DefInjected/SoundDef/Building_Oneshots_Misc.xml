@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <CryptosleepCasket_Eject.label>TODO</CryptosleepCasket_Eject.label>
+  <!-- EN:  -->
+  <CryptosleepCasket_Eject.description>TODO</CryptosleepCasket_Eject.description>
+  <!-- EN:  -->
+  <CryptosleepCasket_Eject.subSounds.0.name>TODO</CryptosleepCasket_Eject.subSounds.0.name>
+
+  <!-- EN:  -->
+  <CryptosleepCasket_Accept.label>TODO</CryptosleepCasket_Accept.label>
+  <!-- EN:  -->
+  <CryptosleepCasket_Accept.description>TODO</CryptosleepCasket_Accept.description>
+  <!-- EN:  -->
+  <CryptosleepCasket_Accept.subSounds.0.name>TODO</CryptosleepCasket_Accept.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Hive_Spawn.label>TODO</Hive_Spawn.label>
+  <!-- EN:  -->
+  <Hive_Spawn.description>TODO</Hive_Spawn.description>
+  <!-- EN:  -->
+  <Hive_Spawn.subSounds.0.name>TODO</Hive_Spawn.subSounds.0.name>
+
+</LanguageData>

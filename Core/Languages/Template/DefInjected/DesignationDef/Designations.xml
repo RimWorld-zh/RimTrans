@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Plan.label>TODO</Plan.label>
+  <!-- EN:  -->
+  <Plan.description>TODO</Plan.description>
+
+  <!-- EN:  -->
+  <Mine.label>TODO</Mine.label>
+  <!-- EN:  -->
+  <Mine.description>TODO</Mine.description>
+
+  <!-- EN:  -->
+  <Haul.label>TODO</Haul.label>
+  <!-- EN:  -->
+  <Haul.description>TODO</Haul.description>
+
+  <!-- EN:  -->
+  <Deconstruct.label>TODO</Deconstruct.label>
+  <!-- EN:  -->
+  <Deconstruct.description>TODO</Deconstruct.description>
+
+  <!-- EN:  -->
+  <Uninstall.label>TODO</Uninstall.label>
+  <!-- EN:  -->
+  <Uninstall.description>TODO</Uninstall.description>
+
+  <!-- EN:  -->
+  <CutPlant.label>TODO</CutPlant.label>
+  <!-- EN:  -->
+  <CutPlant.description>TODO</CutPlant.description>
+
+  <!-- EN:  -->
+  <HarvestPlant.label>TODO</HarvestPlant.label>
+  <!-- EN:  -->
+  <HarvestPlant.description>TODO</HarvestPlant.description>
+
+  <!-- EN:  -->
+  <Hunt.label>TODO</Hunt.label>
+  <!-- EN:  -->
+  <Hunt.description>TODO</Hunt.description>
+
+  <!-- EN:  -->
+  <SmoothFloor.label>TODO</SmoothFloor.label>
+  <!-- EN:  -->
+  <SmoothFloor.description>TODO</SmoothFloor.description>
+
+  <!-- EN:  -->
+  <SmoothWall.label>TODO</SmoothWall.label>
+  <!-- EN:  -->
+  <SmoothWall.description>TODO</SmoothWall.description>
+
+  <!-- EN:  -->
+  <RemoveFloor.label>TODO</RemoveFloor.label>
+  <!-- EN:  -->
+  <RemoveFloor.description>TODO</RemoveFloor.description>
+
+  <!-- EN:  -->
+  <Flick.label>TODO</Flick.label>
+  <!-- EN:  -->
+  <Flick.description>TODO</Flick.description>
+
+  <!-- EN:  -->
+  <Strip.label>TODO</Strip.label>
+  <!-- EN:  -->
+  <Strip.description>TODO</Strip.description>
+
+  <!-- EN:  -->
+  <Slaughter.label>TODO</Slaughter.label>
+  <!-- EN:  -->
+  <Slaughter.description>TODO</Slaughter.description>
+
+  <!-- EN:  -->
+  <Tame.label>TODO</Tame.label>
+  <!-- EN:  -->
+  <Tame.description>TODO</Tame.description>
+
+  <!-- EN:  -->
+  <Open.label>TODO</Open.label>
+  <!-- EN:  -->
+  <Open.description>TODO</Open.description>
+
+</LanguageData>

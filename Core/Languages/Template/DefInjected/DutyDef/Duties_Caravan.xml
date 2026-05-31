@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <PrepareCaravan_GatherItems.label>TODO</PrepareCaravan_GatherItems.label>
+  <!-- EN:  -->
+  <PrepareCaravan_GatherItems.description>TODO</PrepareCaravan_GatherItems.description>
+
+  <!-- EN:  -->
+  <PrepareCaravan_Wait.label>TODO</PrepareCaravan_Wait.label>
+  <!-- EN:  -->
+  <PrepareCaravan_Wait.description>TODO</PrepareCaravan_Wait.description>
+
+  <!-- EN:  -->
+  <PrepareCaravan_GatherPawns.label>TODO</PrepareCaravan_GatherPawns.label>
+  <!-- EN:  -->
+  <PrepareCaravan_GatherPawns.description>TODO</PrepareCaravan_GatherPawns.description>
+
+  <!-- EN:  -->
+  <PrepareCaravan_GatherDownedPawns.label>TODO</PrepareCaravan_GatherDownedPawns.label>
+  <!-- EN:  -->
+  <PrepareCaravan_GatherDownedPawns.description>TODO</PrepareCaravan_GatherDownedPawns.description>
+
+  <!-- EN:  -->
+  <PrepareCaravan_Pause.label>TODO</PrepareCaravan_Pause.label>
+  <!-- EN:  -->
+  <PrepareCaravan_Pause.description>TODO</PrepareCaravan_Pause.description>
+
+</LanguageData>

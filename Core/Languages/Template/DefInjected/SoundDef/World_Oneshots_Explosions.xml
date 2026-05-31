@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Explosion_Bomb.label>TODO</Explosion_Bomb.label>
+  <!-- EN:  -->
+  <Explosion_Bomb.description>TODO</Explosion_Bomb.description>
+  <!-- EN:  -->
+  <Explosion_Bomb.subSounds.0.name>TODO</Explosion_Bomb.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Explosion_Stun.label>TODO</Explosion_Stun.label>
+  <!-- EN:  -->
+  <Explosion_Stun.description>TODO</Explosion_Stun.description>
+  <!-- EN:  -->
+  <Explosion_Stun.subSounds.0.name>TODO</Explosion_Stun.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Explosion_Flame.label>TODO</Explosion_Flame.label>
+  <!-- EN:  -->
+  <Explosion_Flame.description>TODO</Explosion_Flame.description>
+  <!-- EN:  -->
+  <Explosion_Flame.subSounds.0.name>TODO</Explosion_Flame.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Explosion_EMP.label>TODO</Explosion_EMP.label>
+  <!-- EN:  -->
+  <Explosion_EMP.description>TODO</Explosion_EMP.description>
+  <!-- EN:  -->
+  <Explosion_EMP.subSounds.0.name>TODO</Explosion_EMP.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Explosion_Smoke.label>TODO</Explosion_Smoke.label>
+  <!-- EN:  -->
+  <Explosion_Smoke.description>TODO</Explosion_Smoke.description>
+  <!-- EN:  -->
+  <Explosion_Smoke.subSounds.0.name>TODO</Explosion_Smoke.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Explosion_GiantBomb.label>TODO</Explosion_GiantBomb.label>
+  <!-- EN:  -->
+  <Explosion_GiantBomb.description>TODO</Explosion_GiantBomb.description>
+  <!-- EN:  -->
+  <Explosion_GiantBomb.subSounds.0.name>TODO</Explosion_GiantBomb.subSounds.0.name>
+
+</LanguageData>

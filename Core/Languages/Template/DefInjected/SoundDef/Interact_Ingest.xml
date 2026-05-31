@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <RawVegetable_Eat.label>TODO</RawVegetable_Eat.label>
+  <!-- EN:  -->
+  <RawVegetable_Eat.description>TODO</RawVegetable_Eat.description>
+  <!-- EN:  -->
+  <RawVegetable_Eat.subSounds.0.name>TODO</RawVegetable_Eat.subSounds.0.name>
+
+  <!-- EN:  -->
+  <RawMeat_Eat.label>TODO</RawMeat_Eat.label>
+  <!-- EN:  -->
+  <RawMeat_Eat.description>TODO</RawMeat_Eat.description>
+  <!-- EN:  -->
+  <RawMeat_Eat.subSounds.0.name>TODO</RawMeat_Eat.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Meal_Eat.label>TODO</Meal_Eat.label>
+  <!-- EN:  -->
+  <Meal_Eat.description>TODO</Meal_Eat.description>
+  <!-- EN:  -->
+  <Meal_Eat.subSounds.0.name>TODO</Meal_Eat.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Beer.label>TODO</Ingest_Beer.label>
+  <!-- EN:  -->
+  <Ingest_Beer.description>TODO</Ingest_Beer.description>
+  <!-- EN:  -->
+  <Ingest_Beer.subSounds.0.name>TODO</Ingest_Beer.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Beer_Start.label>TODO</Ingest_Beer_Start.label>
+  <!-- EN:  -->
+  <Ingest_Beer_Start.description>TODO</Ingest_Beer_Start.description>
+  <!-- EN:  -->
+  <Ingest_Beer_Start.subSounds.0.name>TODO</Ingest_Beer_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Drink.label>TODO</Ingest_Drink.label>
+  <!-- EN:  -->
+  <Ingest_Drink.description>TODO</Ingest_Drink.description>
+  <!-- EN:  -->
+  <Ingest_Drink.subSounds.0.name>TODO</Ingest_Drink.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Smoke.label>TODO</Ingest_Smoke.label>
+  <!-- EN:  -->
+  <Ingest_Smoke.description>TODO</Ingest_Smoke.description>
+  <!-- EN:  -->
+  <Ingest_Smoke.subSounds.0.name>TODO</Ingest_Smoke.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Snort.label>TODO</Ingest_Snort.label>
+  <!-- EN:  -->
+  <Ingest_Snort.description>TODO</Ingest_Snort.description>
+  <!-- EN:  -->
+  <Ingest_Snort.subSounds.0.name>TODO</Ingest_Snort.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Pill.label>TODO</Ingest_Pill.label>
+  <!-- EN:  -->
+  <Ingest_Pill.description>TODO</Ingest_Pill.description>
+  <!-- EN:  -->
+  <Ingest_Pill.subSounds.0.name>TODO</Ingest_Pill.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Ingest_Inject.label>TODO</Ingest_Inject.label>
+  <!-- EN:  -->
+  <Ingest_Inject.description>TODO</Ingest_Inject.description>
+  <!-- EN:  -->
+  <Ingest_Inject.subSounds.0.name>TODO</Ingest_Inject.subSounds.0.name>
+
+</LanguageData>

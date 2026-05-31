@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN: surgical cut -->
+  <SurgicalCut.label>TODO</SurgicalCut.label>
+  <!-- EN:  -->
+  <SurgicalCut.description>TODO</SurgicalCut.description>
+  <!-- EN: {0} has died during surgery. -->
+  <SurgicalCut.deathMessage>TODO</SurgicalCut.deathMessage>
+
+  <!-- EN: execution cut -->
+  <ExecutionCut.label>TODO</ExecutionCut.label>
+  <!-- EN:  -->
+  <ExecutionCut.description>TODO</ExecutionCut.description>
+  <!-- EN: {0} has been executed by cutting. -->
+  <ExecutionCut.deathMessage>TODO</ExecutionCut.deathMessage>
+
+</LanguageData>

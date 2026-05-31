@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Stab.label>TODO</Stab.label>
+  <!-- EN:  -->
+  <Stab.description>TODO</Stab.description>
+
+  <!-- EN:  -->
+  <Cut.label>TODO</Cut.label>
+  <!-- EN:  -->
+  <Cut.description>TODO</Cut.description>
+
+  <!-- EN:  -->
+  <Blunt.label>TODO</Blunt.label>
+  <!-- EN:  -->
+  <Blunt.description>TODO</Blunt.description>
+
+  <!-- EN:  -->
+  <Scratch.label>TODO</Scratch.label>
+  <!-- EN:  -->
+  <Scratch.description>TODO</Scratch.description>
+
+  <!-- EN:  -->
+  <Poke.label>TODO</Poke.label>
+  <!-- EN:  -->
+  <Poke.description>TODO</Poke.description>
+
+  <!-- EN:  -->
+  <Bite.label>TODO</Bite.label>
+  <!-- EN:  -->
+  <Bite.description>TODO</Bite.description>
+
+  <!-- EN:  -->
+  <ToxicBite.label>TODO</ToxicBite.label>
+  <!-- EN:  -->
+  <ToxicBite.description>TODO</ToxicBite.description>
+
+  <!-- EN:  -->
+  <KickMaterialInEyes.label>TODO</KickMaterialInEyes.label>
+  <!-- EN:  -->
+  <KickMaterialInEyes.description>TODO</KickMaterialInEyes.description>
+
+</LanguageData>

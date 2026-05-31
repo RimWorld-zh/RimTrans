@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Door_OpenPowered.label>TODO</Door_OpenPowered.label>
+  <!-- EN:  -->
+  <Door_OpenPowered.description>TODO</Door_OpenPowered.description>
+  <!-- EN: False -->
+  <Door_OpenPowered.subSounds.0.name>TODO</Door_OpenPowered.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Door_ClosePowered.label>TODO</Door_ClosePowered.label>
+  <!-- EN:  -->
+  <Door_ClosePowered.description>TODO</Door_ClosePowered.description>
+  <!-- EN: False -->
+  <Door_ClosePowered.subSounds.0.name>TODO</Door_ClosePowered.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Door_OpenManual.label>TODO</Door_OpenManual.label>
+  <!-- EN:  -->
+  <Door_OpenManual.description>TODO</Door_OpenManual.description>
+  <!-- EN: False -->
+  <Door_OpenManual.subSounds.0.name>TODO</Door_OpenManual.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Door_CloseManual.label>TODO</Door_CloseManual.label>
+  <!-- EN:  -->
+  <Door_CloseManual.description>TODO</Door_CloseManual.description>
+  <!-- EN: False -->
+  <Door_CloseManual.subSounds.0.name>TODO</Door_CloseManual.subSounds.0.name>
+
+</LanguageData>

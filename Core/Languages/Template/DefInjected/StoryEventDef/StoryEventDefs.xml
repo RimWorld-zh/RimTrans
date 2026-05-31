@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <DamageTaken.label>TODO</DamageTaken.label>
+  <!-- EN:  -->
+  <DamageTaken.description>TODO</DamageTaken.description>
+
+  <!-- EN:  -->
+  <DamageDealt.label>TODO</DamageDealt.label>
+  <!-- EN:  -->
+  <DamageDealt.description>TODO</DamageDealt.description>
+
+  <!-- EN:  -->
+  <AttackedPlayer.label>TODO</AttackedPlayer.label>
+  <!-- EN:  -->
+  <AttackedPlayer.description>TODO</AttackedPlayer.description>
+
+  <!-- EN:  -->
+  <KilledPlayer.label>TODO</KilledPlayer.label>
+  <!-- EN:  -->
+  <KilledPlayer.description>TODO</KilledPlayer.description>
+
+  <!-- EN:  -->
+  <TendedByPlayer.label>TODO</TendedByPlayer.label>
+  <!-- EN:  -->
+  <TendedByPlayer.description>TODO</TendedByPlayer.description>
+
+  <!-- EN:  -->
+  <Seen.label>TODO</Seen.label>
+  <!-- EN:  -->
+  <Seen.description>TODO</Seen.description>
+
+  <!-- EN:  -->
+  <TaleCreated.label>TODO</TaleCreated.label>
+  <!-- EN:  -->
+  <TaleCreated.description>TODO</TaleCreated.description>
+
+</LanguageData>

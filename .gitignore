@@ -251,9 +251,11 @@ paket-files/
 .idea/
 *.sln.iml
 
-test/
-RimTrans/
-Output/
-
-# macOS
-.DS_Store
+# Projects
+.tmp
+.tmp.*
+/coverage
+/*/coverage
+/dist
+/*/dist
+*.lerna_backup

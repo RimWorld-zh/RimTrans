@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Interact_Grenade.label>TODO</Interact_Grenade.label>
+  <!-- EN:  -->
+  <Interact_Grenade.description>TODO</Interact_Grenade.description>
+  <!-- EN:  -->
+  <Interact_Grenade.subSounds.0.name>TODO</Interact_Grenade.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ThrowGrenade.label>TODO</ThrowGrenade.label>
+  <!-- EN:  -->
+  <ThrowGrenade.description>TODO</ThrowGrenade.description>
+  <!-- EN:  -->
+  <ThrowGrenade.subSounds.0.name>TODO</ThrowGrenade.subSounds.0.name>
+  <!-- EN:  -->
+  <ThrowGrenade.subSounds.1.name>TODO</ThrowGrenade.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Interact_MolotovCocktail.label>TODO</Interact_MolotovCocktail.label>
+  <!-- EN:  -->
+  <Interact_MolotovCocktail.description>TODO</Interact_MolotovCocktail.description>
+  <!-- EN:  -->
+  <Interact_MolotovCocktail.subSounds.0.name>TODO</Interact_MolotovCocktail.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ThrowMolotovCocktail.label>TODO</ThrowMolotovCocktail.label>
+  <!-- EN:  -->
+  <ThrowMolotovCocktail.description>TODO</ThrowMolotovCocktail.description>
+  <!-- EN:  -->
+  <ThrowMolotovCocktail.subSounds.0.name>TODO</ThrowMolotovCocktail.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Revolver.label>TODO</Interact_Revolver.label>
+  <!-- EN:  -->
+  <Interact_Revolver.description>TODO</Interact_Revolver.description>
+  <!-- EN:  -->
+  <Interact_Revolver.subSounds.0.name>TODO</Interact_Revolver.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Autopistol.label>TODO</Interact_Autopistol.label>
+  <!-- EN:  -->
+  <Interact_Autopistol.description>TODO</Interact_Autopistol.description>
+  <!-- EN:  -->
+  <Interact_Autopistol.subSounds.0.name>TODO</Interact_Autopistol.subSounds.0.name>
+
+  <!-- EN:  -->
+  <GunShotA.label>TODO</GunShotA.label>
+  <!-- EN:  -->
+  <GunShotA.description>TODO</GunShotA.description>
+  <!-- EN:  -->
+  <GunShotA.subSounds.0.name>TODO</GunShotA.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Shotgun.label>TODO</Interact_Shotgun.label>
+  <!-- EN:  -->
+  <Interact_Shotgun.description>TODO</Interact_Shotgun.description>
+  <!-- EN:  -->
+  <Interact_Shotgun.subSounds.0.name>TODO</Interact_Shotgun.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Rifle.label>TODO</Interact_Rifle.label>
+  <!-- EN:  -->
+  <Interact_Rifle.description>TODO</Interact_Rifle.description>
+  <!-- EN:  -->
+  <Interact_Rifle.subSounds.0.name>TODO</Interact_Rifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_AssaultRifle.label>TODO</Interact_AssaultRifle.label>
+  <!-- EN:  -->
+  <Interact_AssaultRifle.description>TODO</Interact_AssaultRifle.description>
+  <!-- EN:  -->
+  <Interact_AssaultRifle.subSounds.0.name>TODO</Interact_AssaultRifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_SMG.label>TODO</Interact_SMG.label>
+  <!-- EN:  -->
+  <Interact_SMG.description>TODO</Interact_SMG.description>
+  <!-- EN:  -->
+  <Interact_SMG.subSounds.0.name>TODO</Interact_SMG.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_ChargeRifle.label>TODO</Interact_ChargeRifle.label>
+  <!-- EN:  -->
+  <Interact_ChargeRifle.description>TODO</Interact_ChargeRifle.description>
+  <!-- EN:  -->
+  <Interact_ChargeRifle.subSounds.0.name>TODO</Interact_ChargeRifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_ChargeLance.label>TODO</Interact_ChargeLance.label>
+  <!-- EN:  -->
+  <Interact_ChargeLance.description>TODO</Interact_ChargeLance.description>
+  <!-- EN:  -->
+  <Interact_ChargeLance.subSounds.0.name>TODO</Interact_ChargeLance.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Bow_Small.label>TODO</Bow_Small.label>
+  <!-- EN:  -->
+  <Bow_Small.description>TODO</Bow_Small.description>
+  <!-- EN:  -->
+  <Bow_Small.subSounds.0.name>TODO</Bow_Small.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Bow_Recurve.label>TODO</Bow_Recurve.label>
+  <!-- EN:  -->
+  <Bow_Recurve.description>TODO</Bow_Recurve.description>
+  <!-- EN:  -->
+  <Bow_Recurve.subSounds.0.name>TODO</Bow_Recurve.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Bow_Large.label>TODO</Bow_Large.label>
+  <!-- EN:  -->
+  <Bow_Large.description>TODO</Bow_Large.description>
+  <!-- EN:  -->
+  <Bow_Large.subSounds.0.name>TODO</Bow_Large.subSounds.0.name>
+
+  <!-- EN:  -->
+  <InfernoCannon_Fire.label>TODO</InfernoCannon_Fire.label>
+  <!-- EN:  -->
+  <InfernoCannon_Fire.description>TODO</InfernoCannon_Fire.description>
+  <!-- EN:  -->
+  <InfernoCannon_Fire.subSounds.0.name>TODO</InfernoCannon_Fire.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_ChargeRifle.label>TODO</Shot_ChargeRifle.label>
+  <!-- EN:  -->
+  <Shot_ChargeRifle.description>TODO</Shot_ChargeRifle.description>
+  <!-- EN:  -->
+  <Shot_ChargeRifle.subSounds.0.name>TODO</Shot_ChargeRifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_Revolver.label>TODO</Shot_Revolver.label>
+  <!-- EN:  -->
+  <Shot_Revolver.description>TODO</Shot_Revolver.description>
+  <!-- EN:  -->
+  <Shot_Revolver.subSounds.0.name>TODO</Shot_Revolver.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_Autopistol.label>TODO</Shot_Autopistol.label>
+  <!-- EN:  -->
+  <Shot_Autopistol.description>TODO</Shot_Autopistol.description>
+  <!-- EN:  -->
+  <Shot_Autopistol.subSounds.0.name>TODO</Shot_Autopistol.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_MachinePistol.label>TODO</Shot_MachinePistol.label>
+  <!-- EN:  -->
+  <Shot_MachinePistol.description>TODO</Shot_MachinePistol.description>
+  <!-- EN:  -->
+  <Shot_MachinePistol.subSounds.0.name>TODO</Shot_MachinePistol.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_HeavySMG.label>TODO</Shot_HeavySMG.label>
+  <!-- EN:  -->
+  <Shot_HeavySMG.description>TODO</Shot_HeavySMG.description>
+  <!-- EN: Shot -->
+  <Shot_HeavySMG.subSounds.0.name>TODO</Shot_HeavySMG.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_AssaultRifle.label>TODO</Shot_AssaultRifle.label>
+  <!-- EN:  -->
+  <Shot_AssaultRifle.description>TODO</Shot_AssaultRifle.description>
+  <!-- EN:  -->
+  <Shot_AssaultRifle.subSounds.0.name>TODO</Shot_AssaultRifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_Autocannon.label>TODO</Shot_Autocannon.label>
+  <!-- EN:  -->
+  <Shot_Autocannon.description>TODO</Shot_Autocannon.description>
+  <!-- EN:  -->
+  <Shot_Autocannon.subSounds.0.name>TODO</Shot_Autocannon.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_TurretSniper.label>TODO</Shot_TurretSniper.label>
+  <!-- EN:  -->
+  <Shot_TurretSniper.description>TODO</Shot_TurretSniper.description>
+  <!-- EN:  -->
+  <Shot_TurretSniper.subSounds.0.name>TODO</Shot_TurretSniper.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_Shotgun.label>TODO</Shot_Shotgun.label>
+  <!-- EN:  -->
+  <Shot_Shotgun.description>TODO</Shot_Shotgun.description>
+  <!-- EN:  -->
+  <Shot_Shotgun.subSounds.0.name>TODO</Shot_Shotgun.subSounds.0.name>
+  <!-- EN:  -->
+  <Shot_Shotgun.subSounds.1.name>TODO</Shot_Shotgun.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Shot_BoltActionRifle.label>TODO</Shot_BoltActionRifle.label>
+  <!-- EN:  -->
+  <Shot_BoltActionRifle.description>TODO</Shot_BoltActionRifle.description>
+  <!-- EN:  -->
+  <Shot_BoltActionRifle.subSounds.0.name>TODO</Shot_BoltActionRifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_SniperRifle.label>TODO</Shot_SniperRifle.label>
+  <!-- EN:  -->
+  <Shot_SniperRifle.description>TODO</Shot_SniperRifle.description>
+  <!-- EN:  -->
+  <Shot_SniperRifle.subSounds.0.name>TODO</Shot_SniperRifle.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_Minigun.label>TODO</Shot_Minigun.label>
+  <!-- EN:  -->
+  <Shot_Minigun.description>TODO</Shot_Minigun.description>
+  <!-- EN:  -->
+  <Shot_Minigun.subSounds.0.name>TODO</Shot_Minigun.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ChargeLance_Fire.label>TODO</ChargeLance_Fire.label>
+  <!-- EN:  -->
+  <ChargeLance_Fire.description>TODO</ChargeLance_Fire.description>
+  <!-- EN:  -->
+  <ChargeLance_Fire.subSounds.0.name>TODO</ChargeLance_Fire.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_ChargeBlaster.label>TODO</Shot_ChargeBlaster.label>
+  <!-- EN:  -->
+  <Shot_ChargeBlaster.description>TODO</Shot_ChargeBlaster.description>
+  <!-- EN:  -->
+  <Shot_ChargeBlaster.subSounds.0.name>TODO</Shot_ChargeBlaster.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Shot_IncendiaryLauncher.label>TODO</Shot_IncendiaryLauncher.label>
+  <!-- EN:  -->
+  <Shot_IncendiaryLauncher.description>TODO</Shot_IncendiaryLauncher.description>
+  <!-- EN:  -->
+  <Shot_IncendiaryLauncher.subSounds.0.name>TODO</Shot_IncendiaryLauncher.subSounds.0.name>
+
+  <!-- EN:  -->
+  <OrbitalTargeter_Fire.label>TODO</OrbitalTargeter_Fire.label>
+  <!-- EN:  -->
+  <OrbitalTargeter_Fire.description>TODO</OrbitalTargeter_Fire.description>
+  <!-- EN:  -->
+  <OrbitalTargeter_Fire.subSounds.0.name>TODO</OrbitalTargeter_Fire.subSounds.0.name>
+
+</LanguageData>

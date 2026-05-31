@@ -1,0 +1,69 @@
+/**
+ * Component: App
+ */
+@include comp('app') {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  $bar-height: var(--button-height-large);
+  grid-template-rows: calc(#{$bar-height} * 1px) calc(100% - #{$bar-height} * 1px);
+
+  @include elem('bar') {
+    position: relative;
+    z-index: var(--z-index-bar);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    padding: 0 calc(var(--gap-base) * 4px);
+
+    background-color: var(--color-background-higher);
+    box-shadow: var(--depth-4);
+  }
+
+  @include elem('bar-icon') {
+    flex: none;
+    width: 28px;
+    height: 28px;
+  }
+
+  @include elem('bar-blank') {
+    flex: 1;
+  }
+
+  @include elem('wrapper') {
+    position: relative;
+  }
+
+  @include elem('container') {
+    position: relative;
+    height: 100%;
+    padding: calc(var(--gap-base) * 4px);
+  }
+
+  @include elem('dev-tools') {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    padding: calc(var(--gap-base) * 1px);
+  }
+
+  @include elem('dev-tools-item') {
+    flex: none;
+    padding: calc(var(--gap-base) * 1px);
+  }
+}

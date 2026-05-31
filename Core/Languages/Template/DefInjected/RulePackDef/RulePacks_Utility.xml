@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <DynamicWrapper.label>TODO</DynamicWrapper.label>
+  <!-- EN:  -->
+  <DynamicWrapper.description>TODO</DynamicWrapper.description>
+  <!-- EN:
+    <li>r_root->[RULE]</li>
+  -->
+  <DynamicWrapper.rulePack.rulesStrings>
+    <li>TODO</li>
+  </DynamicWrapper.rulePack.rulesStrings>
+
+</LanguageData>

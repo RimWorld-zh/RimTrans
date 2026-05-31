@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Outline.label>TODO</Outline.label>
+  <!-- EN:  -->
+  <Outline.description>TODO</Outline.description>
+
+  <!-- EN:  -->
+  <Dirt.label>TODO</Dirt.label>
+  <!-- EN:  -->
+  <Dirt.description>TODO</Dirt.description>
+
+  <!-- EN:  -->
+  <Stone.label>TODO</Stone.label>
+  <!-- EN:  -->
+  <Stone.description>TODO</Stone.description>
+
+  <!-- EN:  -->
+  <Gravel.label>TODO</Gravel.label>
+  <!-- EN:  -->
+  <Gravel.description>TODO</Gravel.description>
+
+  <!-- EN:  -->
+  <Asphalt.label>TODO</Asphalt.label>
+  <!-- EN:  -->
+  <Asphalt.description>TODO</Asphalt.description>
+
+</LanguageData>

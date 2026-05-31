@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="400" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#073072"/>
+      <stop offset="1" stop-color="#0250bc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#582acb"/>
+      <stop offset="1" stop-color="#c60184"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff4f5f"/>
+      <stop offset="1" stop-color="#ff7139"/>
+    </linearGradient>
+  </defs>
+  <g id="color_palette" data-name="color palette" transform="translate(-38 18)">
+    <rect id="pane" width="640" height="400" transform="translate(38 -18)" fill="#fff"/>
+    <g id="items">
+      <rect id="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#e3fff3"/>
+      <rect id="item-2" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#d0ffed"/>
+      <rect id="item-3" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#b3ffe3"/>
+      <rect id="item-4" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#87ffd1"/>
+      <rect id="item-5" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#53ffbc"/>
+      <rect id="item-6" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#3fe1b0"/>
+      <rect id="item-7" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#2ac4a2"/>
+      <rect id="item-8" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#018788"/>
+      <rect id="item-9" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#005e5e"/>
+      <rect id="item-10" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#084036"/>
+    </g>
+    <g id="items-2" data-name="items" transform="translate(0 40)">
+      <rect id="item-11" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#abf1fe"/>
+      <rect id="item-12" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#80ebff"/>
+      <rect id="item-13" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#01ddff"/>
+      <rect id="item-14" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#00b3f5"/>
+      <rect id="item-15" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#0090ed"/>
+      <rect id="item-16" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#0160e0"/>
+      <rect id="item-17" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#0250bc"/>
+      <rect id="item-18" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#063f96"/>
+      <rect id="item-19" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#073072"/>
+      <rect id="item-20" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#09204c"/>
+    </g>
+    <g id="items-3" data-name="items" transform="translate(0 80)">
+      <rect id="item-21" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#e6dfff"/>
+      <rect id="item-22" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#d9bfff"/>
+      <rect id="item-23" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#cb9dff"/>
+      <rect id="item-24" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#c588ff"/>
+      <rect id="item-25" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#ac71ff"/>
+      <rect id="item-26" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#9059ff"/>
+      <rect id="item-27" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#7543e4"/>
+      <rect id="item-28" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#582acb"/>
+      <rect id="item-29" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#46278e"/>
+      <rect id="item-30" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#321c64"/>
+    </g>
+    <g id="items-4" data-name="items" transform="translate(0 120)">
+      <rect id="item-31" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#f7e3ff"/>
+      <rect id="item-32" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#f6b9ff"/>
+      <rect id="item-33" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#f690ff"/>
+      <rect id="item-34" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#f564ff"/>
+      <rect id="item-35" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#d74cf0"/>
+      <rect id="item-36" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#b933e0"/>
+      <rect id="item-37" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#952bb9"/>
+      <rect id="item-38" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#722291"/>
+      <rect id="item-39" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#4f1a6a"/>
+      <rect id="item-40" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#2b1141"/>
+    </g>
+    <g id="items-5" data-name="items" transform="translate(0 160)">
+      <rect id="item-41" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#ffdff0"/>
+      <rect id="item-42" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#ffb4db"/>
+      <rect id="item-43" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#ff8ac6"/>
+      <rect id="item-44" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#ff6aba"/>
+      <rect id="item-45" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#fe4aa2"/>
+      <rect id="item-46" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#ff2a8a"/>
+      <rect id="item-47" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#e11586"/>
+      <rect id="item-48" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#c60184"/>
+      <rect id="item-49" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#7f165b"/>
+      <rect id="item-50" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#50134c"/>
+    </g>
+    <g id="items-6" data-name="items" transform="translate(0 200)">
+      <rect id="item-51" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#fedfe7"/>
+      <rect id="item-52" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#ffbec6"/>
+      <rect id="item-53" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#ff9aa2"/>
+      <rect id="item-54" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#ff848c"/>
+      <rect id="item-55" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#ff6a75"/>
+      <rect id="item-56" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#ff4f5f"/>
+      <rect id="item-57" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#e12851"/>
+      <rect id="item-58" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#c40042"/>
+      <rect id="item-59" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#810220"/>
+      <rect id="item-60" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#440307"/>
+    </g>
+    <g id="items-7" data-name="items" transform="translate(0 240)">
+      <rect id="item-61" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#fff4de"/>
+      <rect id="item-62" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#ffd5b2"/>
+      <rect id="item-63" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#ffb587"/>
+      <rect id="item-64" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#ffa265"/>
+      <rect id="item-65" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#fe8a4f"/>
+      <rect id="item-66" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#ff7139"/>
+      <rect id="item-67" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#e25821"/>
+      <rect id="item-68" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#cd3d00"/>
+      <rect id="item-69" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#9e280c"/>
+      <rect id="item-70" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#7b1604"/>
+    </g>
+    <g id="items-8" data-name="items" transform="translate(0 280)">
+      <rect id="item-71" data-name="item" width="20" height="20" rx="2" transform="translate(189 32)" fill="#ffc"/>
+      <rect id="item-72" data-name="item" width="20" height="20" rx="2" transform="translate(211 32)" fill="#feff98"/>
+      <rect id="item-73" data-name="item" width="20" height="20" rx="2" transform="translate(233 32)" fill="#ffea80"/>
+      <rect id="item-74" data-name="item" width="20" height="20" rx="2" transform="translate(255 32)" fill="#ffd567"/>
+      <rect id="item-75" data-name="item" width="20" height="20" rx="2" transform="translate(277 32)" fill="#ffbd4f"/>
+      <rect id="item-76" data-name="item" width="20" height="20" rx="2" transform="translate(299 32)" fill="#ffa537"/>
+      <rect id="item-77" data-name="item" width="20" height="20" rx="2" transform="translate(321 32)" fill="#e27f2e"/>
+      <rect id="item-78" data-name="item" width="20" height="20" rx="2" transform="translate(343 32)" fill="#c45a28"/>
+      <rect id="item-79" data-name="item" width="20" height="20" rx="2" transform="translate(365 32)" fill="#a7341f"/>
+      <rect id="item-80" data-name="item" width="20" height="20" rx="2" transform="translate(387 32)" fill="#960e18"/>
+    </g>
+    <rect id="gradient" width="80" height="80" rx="4" transform="translate(447 112) rotate(-90)" fill="url(#linear-gradient)"/>
+    <rect id="gradient-2" data-name="gradient" width="80" height="80" rx="4" transform="translate(447 222) rotate(-90)" fill="url(#linear-gradient-2)"/>
+    <rect id="gradient-3" data-name="gradient" width="80" height="80" rx="4" transform="translate(447 332) rotate(-90)" fill="url(#linear-gradient-3)"/>
+  </g>
+</svg>

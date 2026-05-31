@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Slash.label>TODO</Slash.label>
+  <!-- EN:  -->
+  <Slash.description>TODO</Slash.description>
+  <!-- EN:  -->
+  <Slash.verb.label>TODO</Slash.verb.label>
+
+  <!-- EN:  -->
+  <Stab.label>TODO</Stab.label>
+  <!-- EN:  -->
+  <Stab.description>TODO</Stab.description>
+  <!-- EN:  -->
+  <Stab.verb.label>TODO</Stab.verb.label>
+
+  <!-- EN:  -->
+  <Smash.label>TODO</Smash.label>
+  <!-- EN:  -->
+  <Smash.description>TODO</Smash.description>
+  <!-- EN:  -->
+  <Smash.verb.label>TODO</Smash.verb.label>
+
+  <!-- EN:  -->
+  <Scratch.label>TODO</Scratch.label>
+  <!-- EN:  -->
+  <Scratch.description>TODO</Scratch.description>
+  <!-- EN:  -->
+  <Scratch.verb.label>TODO</Scratch.verb.label>
+
+  <!-- EN:  -->
+  <Poke.label>TODO</Poke.label>
+  <!-- EN:  -->
+  <Poke.description>TODO</Poke.description>
+  <!-- EN:  -->
+  <Poke.verb.label>TODO</Poke.verb.label>
+
+  <!-- EN:  -->
+  <Bite.label>TODO</Bite.label>
+  <!-- EN:  -->
+  <Bite.description>TODO</Bite.description>
+  <!-- EN:  -->
+  <Bite.verb.label>TODO</Bite.verb.label>
+
+  <!-- EN:  -->
+  <ToxicBite.label>TODO</ToxicBite.label>
+  <!-- EN:  -->
+  <ToxicBite.description>TODO</ToxicBite.description>
+  <!-- EN:  -->
+  <ToxicBite.verb.label>TODO</ToxicBite.verb.label>
+
+  <!-- EN:  -->
+  <KickMaterialInEyes.label>TODO</KickMaterialInEyes.label>
+  <!-- EN:  -->
+  <KickMaterialInEyes.description>TODO</KickMaterialInEyes.description>
+  <!-- EN:  -->
+  <KickMaterialInEyes.verb.label>TODO</KickMaterialInEyes.verb.label>
+
+</LanguageData>

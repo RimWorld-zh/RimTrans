@@ -1,0 +1,43 @@
+@import url('~normalize.css');
+
+/**
+ * Reset
+ */
+
+:root {
+  @extend %variables-default;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: var(--color-white);
+  background-color: var(--color-primary-60);
+}
+
+body {
+  color: var(--color-foreground-primary);
+  background-color: var(--color-background-normal);
+
+  font-size: calc(var(--font-size-base) * 1px);
+  font-family: var(--font-family-base);
+}
+
+@for $level from 1 through 6 {
+  h#{$level} {
+    font-size: calc(var(--font-size-title-#{$level}) * 1px);
+    line-height: calc(var(--line-height-title-#{$level}) * 1px);
+  }
+}
+
+a {
+  color: var(--color-primary-60);
+  &:hover {
+    color: var(--color-secondary-60);
+  }
+  text-decoration: none;
+}

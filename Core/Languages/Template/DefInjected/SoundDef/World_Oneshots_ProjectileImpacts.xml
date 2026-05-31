@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <MetalHitImportant.label>TODO</MetalHitImportant.label>
+  <!-- EN:  -->
+  <MetalHitImportant.description>TODO</MetalHitImportant.description>
+  <!-- EN:  -->
+  <MetalHitImportant.subSounds.0.name>TODO</MetalHitImportant.subSounds.0.name>
+
+  <!-- EN:  -->
+  <BulletImpact_Ground.label>TODO</BulletImpact_Ground.label>
+  <!-- EN:  -->
+  <BulletImpact_Ground.description>TODO</BulletImpact_Ground.description>
+  <!-- EN:  -->
+  <BulletImpact_Ground.subSounds.0.name>TODO</BulletImpact_Ground.subSounds.0.name>
+
+  <!-- EN:  -->
+  <BulletImpact_Wood.label>TODO</BulletImpact_Wood.label>
+  <!-- EN:  -->
+  <BulletImpact_Wood.description>TODO</BulletImpact_Wood.description>
+  <!-- EN:  -->
+  <BulletImpact_Wood.subSounds.0.name>TODO</BulletImpact_Wood.subSounds.0.name>
+
+  <!-- EN:  -->
+  <BulletImpact_Metal.label>TODO</BulletImpact_Metal.label>
+  <!-- EN:  -->
+  <BulletImpact_Metal.description>TODO</BulletImpact_Metal.description>
+  <!-- EN:  -->
+  <BulletImpact_Metal.subSounds.0.name>TODO</BulletImpact_Metal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <BulletImpact_Flesh.label>TODO</BulletImpact_Flesh.label>
+  <!-- EN:  -->
+  <BulletImpact_Flesh.description>TODO</BulletImpact_Flesh.description>
+  <!-- EN:  -->
+  <BulletImpact_Flesh.subSounds.0.name>TODO</BulletImpact_Flesh.subSounds.0.name>
+
+  <!-- EN:  -->
+  <PunchThroughRoofMetal.label>TODO</PunchThroughRoofMetal.label>
+  <!-- EN:  -->
+  <PunchThroughRoofMetal.description>TODO</PunchThroughRoofMetal.description>
+  <!-- EN:  -->
+  <PunchThroughRoofMetal.subSounds.0.name>TODO</PunchThroughRoofMetal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <EnergyShield_AbsorbDamage.label>TODO</EnergyShield_AbsorbDamage.label>
+  <!-- EN:  -->
+  <EnergyShield_AbsorbDamage.description>TODO</EnergyShield_AbsorbDamage.description>
+  <!-- EN:  -->
+  <EnergyShield_AbsorbDamage.subSounds.0.name>TODO</EnergyShield_AbsorbDamage.subSounds.0.name>
+
+  <!-- EN:  -->
+  <EnergyShield_Broken.label>TODO</EnergyShield_Broken.label>
+  <!-- EN:  -->
+  <EnergyShield_Broken.description>TODO</EnergyShield_Broken.description>
+  <!-- EN:  -->
+  <EnergyShield_Broken.subSounds.0.name>TODO</EnergyShield_Broken.subSounds.0.name>
+
+  <!-- EN:  -->
+  <EnergyShield_Reset.label>TODO</EnergyShield_Reset.label>
+  <!-- EN:  -->
+  <EnergyShield_Reset.description>TODO</EnergyShield_Reset.description>
+  <!-- EN:  -->
+  <EnergyShield_Reset.subSounds.0.name>TODO</EnergyShield_Reset.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Deflect_Metal.label>TODO</Deflect_Metal.label>
+  <!-- EN:  -->
+  <Deflect_Metal.description>TODO</Deflect_Metal.description>
+  <!-- EN:  -->
+  <Deflect_Metal.subSounds.0.name>TODO</Deflect_Metal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Deflect_General.label>TODO</Deflect_General.label>
+  <!-- EN:  -->
+  <Deflect_General.description>TODO</Deflect_General.description>
+  <!-- EN:  -->
+  <Deflect_General.subSounds.0.name>TODO</Deflect_General.subSounds.0.name>
+
+</LanguageData>

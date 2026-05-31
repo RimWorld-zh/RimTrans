@@ -1,0 +1,313 @@
+@import './variables-color-palette.scss';
+
+/**
+ * Variables
+ * https://design.firefox.com/photon/
+ * https://blog.mozilla.org/opendesign/firefox-the-evolution-of-a-brand/
+ * https://developer.microsoft.com/en-us/fabric#/styles
+ */
+
+$golden-ratio: (sqrt(5) - 1) / 2;
+
+$type-colors: 'green', 'blue', 'purple', 'violet', 'magenta', 'red', 'orange', 'yellow';
+$type-color-themes: 'light', 'dark';
+$type-color-semantics: 'primary', 'secondary', 'success', 'warning', 'danger';
+
+$type-depths: 4, 8, 16, 32, 64;
+
+$type-sizes: 'small', 'medium', 'large';
+
+$type-button-colors: join($type-colors, $type-color-semantics);
+$type-button-sizes: $type-sizes;
+$type-button-skins: 'fill', 'silk', 'flat', 'plain';
+$type-button-shapes: 'rect', 'pill', 'square', 'circle';
+
+$type-spinner-sizes: $type-sizes;
+
+%variables-base {
+  // ----------------------------------------------------------------
+  // General
+  --golden-ratio: #{$golden-ratio};
+
+  // ----------------------------------------------------------------
+  // Colors
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-divider: var(--color-grey-50-a30);
+
+  --opacity-secondary: 0.6;
+
+  // ----------------------------------------------------------------
+  // Elevation
+
+  --depth-4: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+  --depth-8: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+  --depth-16: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  --depth-32: 0 12.8px 28.8px 0 rgba(0, 0, 0, 0.132), 0 2.4px 7.2px 0 rgba(0, 0, 0, 0.108);
+  --depth-64: 0 25.6px 57.6px 0 rgba(0, 0, 0, 0.22), 0 4.8px 14.4px 0 rgba(0, 0, 0, 0.18);
+
+  // ----------------------------------------------------------------
+  // Layout
+
+  --gap-base: 4;
+
+  --divider-width: 1;
+
+  // for app bar, status bar, top nav bar
+  --z-index-bar: 10000;
+  // for call out components, dialog, modal, panel(drawer), tooltip
+  --z-index-surface: 100000;
+
+  // ----------------------------------------------------------------
+  // Typographic
+
+  --font-family-base: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    Arial, sans-serif;
+  --font-family-base: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto',
+    'Helvetica Neue', sans-serif;
+
+  --font-size-hero: 64;
+  --font-weight-hero: 200;
+  --line-height-hero: 72;
+
+  --font-size-core: 48;
+  --font-weight-core: 200;
+  --line-height-core: 56;
+
+  --font-size-title-1: 32;
+  --font-weight-title-1: 200;
+  --line-height-title-1: 40;
+
+  --font-size-title-2: 24;
+  --font-weight-title-2: 300;
+  --line-height-title-2: 32;
+
+  --font-size-title-3: 18;
+  --font-weight-title-3: 500;
+  --line-height-title-3: 24;
+
+  --font-size-title-4: 16;
+  --font-weight-title-4: 500;
+  --line-height-title-4: 22;
+
+  --font-size-title-5: 14;
+  --font-weight-title-5: 400;
+  --line-height-title-5: 20;
+
+  --font-size-title-6: 12;
+  --font-weight-title-6: 400;
+  --line-height-title-6: 16;
+
+  --font-size-body: 16;
+  --font-weight-body: 400;
+  --line-height-body: 22;
+
+  --font-size-caption: 14;
+  --font-weight-caption: 400;
+  --line-height-caption: 20;
+
+  --font-size-small: 12;
+  --font-weight-small: 400;
+  --line-height-small: 16;
+
+  --font-size-su: 10;
+  --font-weight-su: 400;
+  --line-height-su: 14;
+
+  // ----------------------------------------------------------------
+  // Visual
+
+  --acrylic-filter: blur(8px) brightness(50%);
+
+  // ----------------------------------------------------------------
+  // Motion
+
+  --motion-duration-base: 250ms;
+  --motion-duration-1: 100ms;
+  --motion-duration-2: 200ms;
+  --motion-duration-3: 300ms;
+  --motion-duration-4: 400ms;
+
+  --motion-timing-base: cubic-bezier(0.07, 0.95, 0, 1);
+  --motion-timing-linear: cubic-bezier(0, 0, 1, 1);
+  --motion-timing-standard: cubic-bezier(0.8, 0, 0.2, 1);
+  --motion-timing-accelerate: cubic-bezier(0.9, 0.1, 1, 0.2);
+  --motion-timing-decelerate: cubic-bezier(0.1, 0.9, 0.2, 1);
+
+  // ----------------------------------------------------------------
+  // Components
+
+  --radius-base: 2;
+
+  // Layout ================
+
+  // Card
+
+  --card-radius: 4;
+
+  // Inputs ================
+
+  --input-radius: 2;
+  --input-disabled-opacity: 0.4;
+  --input-focus-line-dist: 2;
+  --input-focus-line-opacity: 0.6;
+
+  // Button
+
+  --button-radius: 2;
+
+  --button-height-small: 24;
+  --button-min-width-small: 60;
+  --button-padding-small: 8;
+  --button-font-size-small: 11;
+  --button-font-weight-small: 400;
+  --button-line-height-small: 14;
+  --button-icon-size-small: 14;
+
+  --button-height-medium: 32;
+  --button-min-width-medium: 80;
+  --button-padding-medium: 16;
+  --button-font-size-medium: 13;
+  --button-font-weight-medium: 400;
+  --button-line-height-medium: 18;
+  --button-icon-size-medium: 16;
+
+  --button-height-large: 48;
+  --button-min-width-large: 120;
+  --button-padding-large: 24;
+  --button-font-size-large: 15;
+  --button-font-weight-large: 400;
+  --button-line-height-large: 20;
+  --button-icon-size-large: 18;
+
+  // Form
+
+  --form-label-font-size: 15;
+  --form-label-font-weight: 600;
+  --form-label-line-height: 20;
+
+  --form-stack-gap-h: 12;
+  --form-stack-gap-v: 16;
+
+  --form-widget-height: 32;
+  --form-widget-font-size: 14;
+  --form-widget-font-weight: 400;
+  --form-widget-line-height: 20;
+
+  --form-widget-gap: 8;
+
+  --form-widget-label-font-weight: 600;
+  --form-widget-label-gap: 4;
+
+  // Text Field
+  --text-field-height: 32;
+  --text-field-gap: 8;
+  --text-field-radius: 2;
+  --text-field-icon-size: 16;
+
+  // Choice
+  --choice-height: 20;
+  --choice-radius: 2;
+  --choice-opacity-secondary: 0.5;
+  --choice-transition: var(--motion-timing-decelerate) var(--motion-duration-2);
+
+  // Progress ================
+
+  --progress-color-secondary: var(--color-grey-50-a20);
+
+  // Progress Indicator
+
+  --progress-indicator-thick: 2;
+
+  // Spinner
+
+  --spinner-size-small: 12;
+  --spinner-size-medium: 16;
+  --spinner-size-large: 32;
+  --spinner-border-width: 1.5;
+
+  // Surfaces ================
+
+  // Dialog
+
+  --dialog-min-width: 300;
+  --dialog-radius: 4;
+
+  // Misc ====
+
+  // Strip
+
+  --strip-v-height-small: 24;
+  --strip-v-rect-width-small: 1;
+  --strip-v-rect-height-reduce-small: 2;
+
+  --strip-v-height-medium: 32;
+  --strip-v-rect-width-medium: 2;
+  --strip-v-rect-height-reduce-medium: 3;
+
+  --strip-v-height-large: 48;
+  --strip-v-rect-width-large: 3;
+  --strip-v-rect-height-reduce-large: 4;
+}
+
+%variables-theme-light {
+  --color-foreground-primary: var(--color-grey-90);
+  --color-foreground-secondary: var(--color-grey-50);
+
+  --color-background-higher: var(--color-white);
+  --color-background-normal: var(--color-grey-10);
+  --color-background-lower: var(--color-grey-30);
+}
+
+%variables-theme-dark {
+  --color-foreground-primary: var(--color-white);
+  --color-foreground-secondary: var(--color-grey-10);
+
+  --color-background-higher: var(--color-grey-60);
+  --color-background-normal: var(--color-grey-70);
+  --color-background-lower: var(--color-grey-90);
+}
+
+@mixin _color-map($target, $source) {
+  @for $index from 0 through 9 {
+    $level: if($index == 0, '05', $index * 10);
+    $name: --color-#{$target}-#{$level};
+    $value: --color-#{$source}-#{$level};
+    #{$name}: var(#{$value});
+    @for $alpha from 1 through 9 {
+      $name: --color-#{$target}-#{$level}-a#{$alpha}0;
+      $value: --color-#{$source}-#{$level}-a#{$alpha}0;
+      #{$name}: var(#{$value});
+    }
+  }
+}
+
+$semantic-map: (
+  primary: 'blue',
+  secondary: 'magenta',
+  success: 'green',
+  warning: 'yellow',
+  danger: 'red',
+) !default;
+%variables-semantic {
+  @each $semantic in $type-color-semantics {
+    $color: map-get(
+      $map: $semantic-map,
+      $key: $semantic,
+    );
+    @if $color == null {
+      @error 'missing semantic "#{$semantic}"';
+    }
+    @include _color-map($semantic, $color);
+  }
+}
+
+%variables-default {
+  @extend %variables-color-palette;
+  @extend %variables-base;
+  @extend %variables-semantic;
+  @extend %variables-theme-light;
+  // @extend %variables-theme-dark;
+}

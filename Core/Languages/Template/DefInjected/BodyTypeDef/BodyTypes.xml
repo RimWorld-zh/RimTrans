@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Male.label>TODO</Male.label>
+  <!-- EN:  -->
+  <Male.description>TODO</Male.description>
+
+  <!-- EN:  -->
+  <Female.label>TODO</Female.label>
+  <!-- EN:  -->
+  <Female.description>TODO</Female.description>
+
+  <!-- EN:  -->
+  <Thin.label>TODO</Thin.label>
+  <!-- EN:  -->
+  <Thin.description>TODO</Thin.description>
+
+  <!-- EN:  -->
+  <Hulk.label>TODO</Hulk.label>
+  <!-- EN:  -->
+  <Hulk.description>TODO</Hulk.description>
+
+  <!-- EN:  -->
+  <Fat.label>TODO</Fat.label>
+  <!-- EN:  -->
+  <Fat.description>TODO</Fat.description>
+
+</LanguageData>

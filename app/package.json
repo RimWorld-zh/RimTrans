@@ -1,0 +1,86 @@
+{
+  "name": "@rimtrans/app",
+  "productName": "RimTrans",
+  "appId": "com.duduluu.rimtrans",
+  "description": "The GUI application for RimTrans.",
+  "version": "4.0.0-alpha.1",
+  "private": true,
+  "author": "duduluu <duduluu@outlook.com>",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "gen-files": "yarn ts scripts/gen-files",
+    "serve:renderer": "vue-cli-service serve",
+    "serve:main": "electron .",
+    "serve:electron": "nodemon",
+    "serve:electron:second": "nodemon --config ./nodemon.second.json",
+    "build:renderer": "vue-cli-service build --report",
+    "build:main": "babel src/main -x .ts -d dist/main -s --pure",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:electron": "electron-builder",
+    "build": "yarn build:renderer && yarn build:main && yarn build:types && yarn build:electron",
+    "lint": "eslint src/ --ext .ts,.tsx --color",
+    "ts": "ts-node -r tsconfig-paths/register -P ../tsconfig.scripts.json"
+  },
+  "build": {
+    "asar": true,
+    "files": [
+      "dist",
+      "src",
+      "!dist/electron",
+      ".env"
+    ],
+    "directories": {
+      "output": "dist/electron"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "../resources/icons/app/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "../resources/icons/app/installerIcon.ico",
+      "uninstallerIcon": "../resources/icons/app/uninstallerIcon.ico",
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "@rimtrans/extractor": "4.0.0-alpha.1",
+    "@rimtrans/i18n": "4.0.0-alpha.1",
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0"
+  },
+  "devDependencies": {
+    "@mdi/js": "^3.8.95",
+    "@types/dotenv": "^6.1.1",
+    "@types/webpack": "^4.32.1",
+    "@types/webpack-chain": "^4.8.1",
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-typescript": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "@types/node": "^12.6.9",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.2",
+    "cep.scss": "^1.1.1",
+    "chokidar": "^3.0.2",
+    "core-js": "^2.6.9",
+    "electron": "^6.0.0",
+    "electron-builder": "^21.2.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "nodemon": "^1.19.1",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.22.9",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.5.3",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.2.1",
+    "vue-router": "^3.1.1",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

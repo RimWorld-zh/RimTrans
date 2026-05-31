@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Weapon.label>TODO</Weapon.label>
+  <!-- EN:  -->
+  <Weapon.description>TODO</Weapon.description>
+
+  <!-- EN:  -->
+  <Bodypart.label>TODO</Bodypart.label>
+  <!-- EN:  -->
+  <Bodypart.description>TODO</Bodypart.description>
+
+  <!-- EN:  -->
+  <Hediff.label>TODO</Hediff.label>
+  <!-- EN:  -->
+  <Hediff.description>TODO</Hediff.description>
+
+  <!-- EN:  -->
+  <Terrain.label>TODO</Terrain.label>
+  <!-- EN:  -->
+  <Terrain.description>TODO</Terrain.description>
+
+  <!-- EN:  -->
+  <NativeVerb.label>TODO</NativeVerb.label>
+  <!-- EN:  -->
+  <NativeVerb.description>TODO</NativeVerb.description>
+
+</LanguageData>

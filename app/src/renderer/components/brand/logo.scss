@@ -1,0 +1,12 @@
+/**
+ * Component: Logo
+ */
+@include comp('logo') {
+  position: relative;
+
+  width: 64px;
+  height: 64px;
+  vertical-align: middle;
+  color: inherit;
+  background-color: transparent;
+}

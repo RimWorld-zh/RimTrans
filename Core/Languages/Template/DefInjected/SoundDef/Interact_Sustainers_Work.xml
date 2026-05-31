@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Interact_ConstructMetal.label>TODO</Interact_ConstructMetal.label>
+  <!-- EN:  -->
+  <Interact_ConstructMetal.description>TODO</Interact_ConstructMetal.description>
+  <!-- EN:  -->
+  <Interact_ConstructMetal.subSounds.0.name>TODO</Interact_ConstructMetal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_ConstructDirt.label>TODO</Interact_ConstructDirt.label>
+  <!-- EN:  -->
+  <Interact_ConstructDirt.description>TODO</Interact_ConstructDirt.description>
+  <!-- EN:  -->
+  <Interact_ConstructDirt.subSounds.0.name>TODO</Interact_ConstructDirt.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Harvest_Standard.label>TODO</Harvest_Standard.label>
+  <!-- EN:  -->
+  <Harvest_Standard.description>TODO</Harvest_Standard.description>
+  <!-- EN:  -->
+  <Harvest_Standard.subSounds.0.name>TODO</Harvest_Standard.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Harvest_Standard_Finish.label>TODO</Harvest_Standard_Finish.label>
+  <!-- EN:  -->
+  <Harvest_Standard_Finish.description>TODO</Harvest_Standard_Finish.description>
+  <!-- EN:  -->
+  <Harvest_Standard_Finish.subSounds.0.name>TODO</Harvest_Standard_Finish.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Repair_Start.label>TODO</Interact_Repair_Start.label>
+  <!-- EN:  -->
+  <Interact_Repair_Start.description>TODO</Interact_Repair_Start.description>
+  <!-- EN:  -->
+  <Interact_Repair_Start.subSounds.0.name>TODO</Interact_Repair_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Repair.label>TODO</Interact_Repair.label>
+  <!-- EN:  -->
+  <Interact_Repair.description>TODO</Interact_Repair.description>
+  <!-- EN:  -->
+  <Interact_Repair.subSounds.0.name>TODO</Interact_Repair.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Sow.label>TODO</Interact_Sow.label>
+  <!-- EN:  -->
+  <Interact_Sow.description>TODO</Interact_Sow.description>
+  <!-- EN:  -->
+  <Interact_Sow.subSounds.0.name>TODO</Interact_Sow.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Research.label>TODO</Interact_Research.label>
+  <!-- EN:  -->
+  <Interact_Research.description>TODO</Interact_Research.description>
+  <!-- EN:  -->
+  <Interact_Research.subSounds.0.name>TODO</Interact_Research.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Harvest_Tree.label>TODO</Harvest_Tree.label>
+  <!-- EN:  -->
+  <Harvest_Tree.description>TODO</Harvest_Tree.description>
+  <!-- EN:  -->
+  <Harvest_Tree.subSounds.0.name>TODO</Harvest_Tree.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Harvest_Tree_Finish.label>TODO</Harvest_Tree_Finish.label>
+  <!-- EN:  -->
+  <Harvest_Tree_Finish.description>TODO</Harvest_Tree_Finish.description>
+  <!-- EN:  -->
+  <Harvest_Tree_Finish.subSounds.0.name>TODO</Harvest_Tree_Finish.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Hand.label>TODO</Recipe_MakeWoodPlanks_Hand.label>
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Hand.description>TODO</Recipe_MakeWoodPlanks_Hand.description>
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Hand.subSounds.0.name>TODO</Recipe_MakeWoodPlanks_Hand.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Electric.label>TODO</Recipe_MakeWoodPlanks_Electric.label>
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Electric.description>TODO</Recipe_MakeWoodPlanks_Electric.description>
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Electric.subSounds.0.name>TODO</Recipe_MakeWoodPlanks_Electric.subSounds.0.name>
+  <!-- EN:  -->
+  <Recipe_MakeWoodPlanks_Electric.subSounds.1.name>TODO</Recipe_MakeWoodPlanks_Electric.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Recipe_CircularSaw_Off.label>TODO</Recipe_CircularSaw_Off.label>
+  <!-- EN:  -->
+  <Recipe_CircularSaw_Off.description>TODO</Recipe_CircularSaw_Off.description>
+  <!-- EN:  -->
+  <Recipe_CircularSaw_Off.subSounds.0.name>TODO</Recipe_CircularSaw_Off.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_ConstructWood.label>TODO</Interact_ConstructWood.label>
+  <!-- EN:  -->
+  <Interact_ConstructWood.description>TODO</Interact_ConstructWood.description>
+  <!-- EN:  -->
+  <Interact_ConstructWood.subSounds.0.name>TODO</Interact_ConstructWood.subSounds.0.name>
+  <!-- EN:  -->
+  <Interact_ConstructWood.subSounds.1.name>TODO</Interact_ConstructWood.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Finish_Wood.label>TODO</Finish_Wood.label>
+  <!-- EN:  -->
+  <Finish_Wood.description>TODO</Finish_Wood.description>
+  <!-- EN:  -->
+  <Finish_Wood.subSounds.0.name>TODO</Finish_Wood.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_CleanFilth.label>TODO</Interact_CleanFilth.label>
+  <!-- EN:  -->
+  <Interact_CleanFilth.description>TODO</Interact_CleanFilth.description>
+  <!-- EN:  -->
+  <Interact_CleanFilth.subSounds.0.name>TODO</Interact_CleanFilth.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_MakeStoneBlocks.label>TODO</Recipe_MakeStoneBlocks.label>
+  <!-- EN:  -->
+  <Recipe_MakeStoneBlocks.description>TODO</Recipe_MakeStoneBlocks.description>
+  <!-- EN:  -->
+  <Recipe_MakeStoneBlocks.subSounds.0.name>TODO</Recipe_MakeStoneBlocks.subSounds.0.name>
+  <!-- EN:  -->
+  <Recipe_MakeStoneBlocks.subSounds.1.name>TODO</Recipe_MakeStoneBlocks.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Finish_StoneBlock.label>TODO</Finish_StoneBlock.label>
+  <!-- EN:  -->
+  <Finish_StoneBlock.description>TODO</Finish_StoneBlock.description>
+  <!-- EN:  -->
+  <Finish_StoneBlock.subSounds.0.name>TODO</Finish_StoneBlock.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseFlesh.label>TODO</Recipe_ButcherCorpseFlesh.label>
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseFlesh.description>TODO</Recipe_ButcherCorpseFlesh.description>
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseFlesh.subSounds.0.name>TODO</Recipe_ButcherCorpseFlesh.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseMechanoid.label>TODO</Recipe_ButcherCorpseMechanoid.label>
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseMechanoid.description>TODO</Recipe_ButcherCorpseMechanoid.description>
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseMechanoid.subSounds.0.name>TODO</Recipe_ButcherCorpseMechanoid.subSounds.0.name>
+  <!-- EN:  -->
+  <Recipe_ButcherCorpseMechanoid.subSounds.1.name>TODO</Recipe_ButcherCorpseMechanoid.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Crematorium_Stop.label>TODO</Crematorium_Stop.label>
+  <!-- EN:  -->
+  <Crematorium_Stop.description>TODO</Crematorium_Stop.description>
+  <!-- EN:  -->
+  <Crematorium_Stop.subSounds.0.name>TODO</Crematorium_Stop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Cremate.label>TODO</Recipe_Cremate.label>
+  <!-- EN:  -->
+  <Recipe_Cremate.description>TODO</Recipe_Cremate.description>
+  <!-- EN:  -->
+  <Recipe_Cremate.subSounds.0.name>TODO</Recipe_Cremate.subSounds.0.name>
+  <!-- EN:  -->
+  <Recipe_Cremate.subSounds.1.name>TODO</Recipe_Cremate.subSounds.1.name>
+
+  <!-- EN:  -->
+  <Smelt_Start.label>TODO</Smelt_Start.label>
+  <!-- EN:  -->
+  <Smelt_Start.description>TODO</Smelt_Start.description>
+  <!-- EN:  -->
+  <Smelt_Start.subSounds.0.name>TODO</Smelt_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Smelt_Stop.label>TODO</Smelt_Stop.label>
+  <!-- EN:  -->
+  <Smelt_Stop.description>TODO</Smelt_Stop.description>
+  <!-- EN:  -->
+  <Smelt_Stop.subSounds.0.name>TODO</Smelt_Stop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Smelt.label>TODO</Recipe_Smelt.label>
+  <!-- EN:  -->
+  <Recipe_Smelt.description>TODO</Recipe_Smelt.description>
+  <!-- EN:  -->
+  <Recipe_Smelt.subSounds.0.name>TODO</Recipe_Smelt.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_CookMeal.label>TODO</Recipe_CookMeal.label>
+  <!-- EN:  -->
+  <Recipe_CookMeal.description>TODO</Recipe_CookMeal.description>
+  <!-- EN:  -->
+  <Recipe_CookMeal.subSounds.0.name>TODO</Recipe_CookMeal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Sculpt.label>TODO</Recipe_Sculpt.label>
+  <!-- EN:  -->
+  <Recipe_Sculpt.description>TODO</Recipe_Sculpt.description>
+  <!-- EN:  -->
+  <Recipe_Sculpt.subSounds.0.name>TODO</Recipe_Sculpt.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Sculpt_Start.label>TODO</Sculpt_Start.label>
+  <!-- EN:  -->
+  <Sculpt_Start.description>TODO</Sculpt_Start.description>
+  <!-- EN:  -->
+  <Sculpt_Start.subSounds.0.name>TODO</Sculpt_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Sculpt_Stop.label>TODO</Sculpt_Stop.label>
+  <!-- EN:  -->
+  <Sculpt_Stop.description>TODO</Sculpt_Stop.description>
+  <!-- EN:  -->
+  <Sculpt_Stop.subSounds.0.name>TODO</Sculpt_Stop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Surgery.label>TODO</Recipe_Surgery.label>
+  <!-- EN:  -->
+  <Recipe_Surgery.description>TODO</Recipe_Surgery.description>
+  <!-- EN:  -->
+  <Recipe_Surgery.subSounds.0.name>TODO</Recipe_Surgery.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Smith.label>TODO</Recipe_Smith.label>
+  <!-- EN:  -->
+  <Recipe_Smith.description>TODO</Recipe_Smith.description>
+  <!-- EN:  -->
+  <Recipe_Smith.subSounds.0.name>TODO</Recipe_Smith.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tailor_Start.label>TODO</Tailor_Start.label>
+  <!-- EN:  -->
+  <Tailor_Start.description>TODO</Tailor_Start.description>
+  <!-- EN:  -->
+  <Tailor_Start.subSounds.0.name>TODO</Tailor_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Tailor.label>TODO</Recipe_Tailor.label>
+  <!-- EN:  -->
+  <Recipe_Tailor.description>TODO</Recipe_Tailor.description>
+  <!-- EN:  -->
+  <Recipe_Tailor.subSounds.0.name>TODO</Recipe_Tailor.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Tend_Start.label>TODO</Tend_Start.label>
+  <!-- EN:  -->
+  <Tend_Start.description>TODO</Tend_Start.description>
+  <!-- EN:  -->
+  <Tend_Start.subSounds.0.name>TODO</Tend_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Interact_Tend.label>TODO</Interact_Tend.label>
+  <!-- EN:  -->
+  <Interact_Tend.description>TODO</Interact_Tend.description>
+  <!-- EN:  -->
+  <Interact_Tend.subSounds.0.name>TODO</Interact_Tend.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Machining.label>TODO</Recipe_Machining.label>
+  <!-- EN:  -->
+  <Recipe_Machining.description>TODO</Recipe_Machining.description>
+  <!-- EN:  -->
+  <Recipe_Machining.subSounds.0.name>TODO</Recipe_Machining.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Machining_Stop.label>TODO</Machining_Stop.label>
+  <!-- EN:  -->
+  <Machining_Stop.description>TODO</Machining_Stop.description>
+  <!-- EN:  -->
+  <Machining_Stop.subSounds.0.name>TODO</Machining_Stop.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Recipe_Brewing.label>TODO</Recipe_Brewing.label>
+  <!-- EN:  -->
+  <Recipe_Brewing.description>TODO</Recipe_Brewing.description>
+  <!-- EN:  -->
+  <Recipe_Brewing.subSounds.0.name>TODO</Recipe_Brewing.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Brewing_Start.label>TODO</Brewing_Start.label>
+  <!-- EN:  -->
+  <Brewing_Start.description>TODO</Brewing_Start.description>
+  <!-- EN:  -->
+  <Brewing_Start.subSounds.0.name>TODO</Brewing_Start.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Brewing_Stop.label>TODO</Brewing_Stop.label>
+  <!-- EN:  -->
+  <Brewing_Stop.description>TODO</Brewing_Stop.description>
+  <!-- EN:  -->
+  <Brewing_Stop.subSounds.0.name>TODO</Brewing_Stop.subSounds.0.name>
+
+</LanguageData>

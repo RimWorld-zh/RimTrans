@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN: Player faction -->
+  <PlayerFaction.label>TODO</PlayerFaction.label>
+  <!-- EN:  -->
+  <PlayerFaction.description>TODO</PlayerFaction.description>
+
+  <!-- EN: starting people -->
+  <ConfigPage_ConfigureStartingPawns.label>TODO</ConfigPage_ConfigureStartingPawns.label>
+  <!-- EN:  -->
+  <ConfigPage_ConfigureStartingPawns.description>TODO</ConfigPage_ConfigureStartingPawns.description>
+
+  <!-- EN: arrival method -->
+  <PlayerPawnsArriveMethod.label>TODO</PlayerPawnsArriveMethod.label>
+  <!-- EN:  -->
+  <PlayerPawnsArriveMethod.description>TODO</PlayerPawnsArriveMethod.description>
+
+</LanguageData>

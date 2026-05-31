@@ -1,0 +1,49 @@
+{
+  "name": "rimtrans",
+  "description": "RimTrans: a translation and modding tool for RimWorld.",
+  "version": "4.0.0-alpha.1",
+  "main": "index.js",
+  "repository": "git@github.com:RimWorld-zh/RimTrans.git",
+  "author": "duduluu <duduluu@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "all:clean": "lerna run clean",
+    "all:build": "lerna run build",
+    "all:lint": "lerna run lint --no-sort",
+    "all:test": "lerna run test --no-sort",
+    "ts": "ts-node -r tsconfig-paths/register -P ./tsconfig.scripts.json"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "yarn": ">=1.17.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@huiji/eslint-config-typescript": "^0.1.0",
+    "@huiji/shared-utils": "^1.1.0",
+    "@octokit/rest": "^16.28.7",
+    "@types/jest": "^24.0.16",
+    "@types/ncp": "^2.0.1",
+    "@types/node": "^12.6.9",
+    "@types/rimraf": "^2.0.2",
+    "compressing": "^1.4.0",
+    "core-js": "3.1.4",
+    "eslint": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.8.0",
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.3",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.9.3",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
+  }
+}

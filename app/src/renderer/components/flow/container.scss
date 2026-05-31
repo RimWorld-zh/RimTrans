@@ -1,0 +1,8 @@
+/**
+ * Component: container
+ */
+@include comp('container') {
+  position: relative;
+  max-width: px(1200);
+  margin: 0 auto;
+}

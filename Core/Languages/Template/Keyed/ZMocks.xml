@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- a commnet -->
+
+  <!-- EN: mock -->
+  <ZMock>mock mock</ZMock>
+
+  <!-- UNUSED -->
+  <!-- EN: mock -->
+  <ZMockUnused>mock mock</ZMockUnused>
+
+</LanguageData>

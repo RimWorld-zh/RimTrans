@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["scripthost", "esnext"],
+    "types": ["node", "jest"],
+    "typeRoots": ["./node_modules/@types"],
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "baseUrl": "."
+  },
+  "include": [
+    "*/src/**/*.ts",
+    "*/src/**/*.tsx",
+    "*/tests/**/*.ts",
+    "*/tests/**/*.tsx",
+    "*/scripts/**/*.ts",
+    "scripts/**/*.ts"
+  ],
+  "exclude": ["node_modules", "*/node_modules", "coverage", "*/coverage"]
+}

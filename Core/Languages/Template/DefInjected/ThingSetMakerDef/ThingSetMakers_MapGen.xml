@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <MapGen_DefaultStockpile.label>TODO</MapGen_DefaultStockpile.label>
+  <!-- EN:  -->
+  <MapGen_DefaultStockpile.description>TODO</MapGen_DefaultStockpile.description>
+
+  <!-- EN:  -->
+  <MapGen_AncientTempleContents.label>TODO</MapGen_AncientTempleContents.label>
+  <!-- EN:  -->
+  <MapGen_AncientTempleContents.description>TODO</MapGen_AncientTempleContents.description>
+
+  <!-- EN:  -->
+  <MapGen_AncientPodContents.label>TODO</MapGen_AncientPodContents.label>
+  <!-- EN:  -->
+  <MapGen_AncientPodContents.description>TODO</MapGen_AncientPodContents.description>
+
+  <!-- EN:  -->
+  <MapGen_PrisonCellStockpile.label>TODO</MapGen_PrisonCellStockpile.label>
+  <!-- EN:  -->
+  <MapGen_PrisonCellStockpile.description>TODO</MapGen_PrisonCellStockpile.description>
+
+</LanguageData>

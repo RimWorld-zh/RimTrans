@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <BloodFiltrationSource.label>TODO</BloodFiltrationSource.label>
+  <!-- EN:  -->
+  <BloodFiltrationSource.description>TODO</BloodFiltrationSource.description>
+
+  <!-- EN:  -->
+  <BloodFiltrationLiver.label>TODO</BloodFiltrationLiver.label>
+  <!-- EN:  -->
+  <BloodFiltrationLiver.description>TODO</BloodFiltrationLiver.description>
+
+  <!-- EN:  -->
+  <BloodFiltrationKidney.label>TODO</BloodFiltrationKidney.label>
+  <!-- EN:  -->
+  <BloodFiltrationKidney.description>TODO</BloodFiltrationKidney.description>
+
+  <!-- EN:  -->
+  <BloodPumpingSource.label>TODO</BloodPumpingSource.label>
+  <!-- EN:  -->
+  <BloodPumpingSource.description>TODO</BloodPumpingSource.description>
+
+  <!-- EN:  -->
+  <BreathingSource.label>TODO</BreathingSource.label>
+  <!-- EN:  -->
+  <BreathingSource.description>TODO</BreathingSource.description>
+
+  <!-- EN:  -->
+  <BreathingSourceCage.label>TODO</BreathingSourceCage.label>
+  <!-- EN:  -->
+  <BreathingSourceCage.description>TODO</BreathingSourceCage.description>
+
+  <!-- EN:  -->
+  <BreathingPathway.label>TODO</BreathingPathway.label>
+  <!-- EN:  -->
+  <BreathingPathway.description>TODO</BreathingPathway.description>
+
+  <!-- EN:  -->
+  <ConsciousnessSource.label>TODO</ConsciousnessSource.label>
+  <!-- EN:  -->
+  <ConsciousnessSource.description>TODO</ConsciousnessSource.description>
+
+  <!-- EN:  -->
+  <EatingSource.label>TODO</EatingSource.label>
+  <!-- EN:  -->
+  <EatingSource.description>TODO</EatingSource.description>
+
+  <!-- EN:  -->
+  <EatingPathway.label>TODO</EatingPathway.label>
+  <!-- EN:  -->
+  <EatingPathway.description>TODO</EatingPathway.description>
+
+  <!-- EN:  -->
+  <HearingSource.label>TODO</HearingSource.label>
+  <!-- EN:  -->
+  <HearingSource.description>TODO</HearingSource.description>
+
+  <!-- EN:  -->
+  <MetabolismSource.label>TODO</MetabolismSource.label>
+  <!-- EN:  -->
+  <MetabolismSource.description>TODO</MetabolismSource.description>
+
+  <!-- EN:  -->
+  <ManipulationLimbCore.label>TODO</ManipulationLimbCore.label>
+  <!-- EN:  -->
+  <ManipulationLimbCore.description>TODO</ManipulationLimbCore.description>
+
+  <!-- EN:  -->
+  <ManipulationLimbSegment.label>TODO</ManipulationLimbSegment.label>
+  <!-- EN:  -->
+  <ManipulationLimbSegment.description>TODO</ManipulationLimbSegment.description>
+
+  <!-- EN:  -->
+  <ManipulationLimbDigit.label>TODO</ManipulationLimbDigit.label>
+  <!-- EN:  -->
+  <ManipulationLimbDigit.description>TODO</ManipulationLimbDigit.description>
+
+  <!-- EN:  -->
+  <MovingLimbCore.label>TODO</MovingLimbCore.label>
+  <!-- EN:  -->
+  <MovingLimbCore.description>TODO</MovingLimbCore.description>
+
+  <!-- EN:  -->
+  <MovingLimbSegment.label>TODO</MovingLimbSegment.label>
+  <!-- EN:  -->
+  <MovingLimbSegment.description>TODO</MovingLimbSegment.description>
+
+  <!-- EN:  -->
+  <MovingLimbDigit.label>TODO</MovingLimbDigit.label>
+  <!-- EN:  -->
+  <MovingLimbDigit.description>TODO</MovingLimbDigit.description>
+
+  <!-- EN:  -->
+  <Pelvis.label>TODO</Pelvis.label>
+  <!-- EN:  -->
+  <Pelvis.description>TODO</Pelvis.description>
+
+  <!-- EN:  -->
+  <SightSource.label>TODO</SightSource.label>
+  <!-- EN:  -->
+  <SightSource.description>TODO</SightSource.description>
+
+  <!-- EN:  -->
+  <Spine.label>TODO</Spine.label>
+  <!-- EN:  -->
+  <Spine.description>TODO</Spine.description>
+
+  <!-- EN:  -->
+  <TalkingSource.label>TODO</TalkingSource.label>
+  <!-- EN:  -->
+  <TalkingSource.description>TODO</TalkingSource.description>
+
+  <!-- EN:  -->
+  <TalkingPathway.label>TODO</TalkingPathway.label>
+  <!-- EN:  -->
+  <TalkingPathway.description>TODO</TalkingPathway.description>
+
+</LanguageData>

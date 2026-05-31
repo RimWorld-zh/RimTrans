@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- UNUSED -->
+  <!-- EN:  -->
+  <Mock1.label>mock label</Mock1.label>
+  <!-- UNUSED -->
+  <!-- EN:  -->
+  <Mock1.description></Mock1.description>
+  <!-- UNUSED -->
+  <!-- EN: <li>mock text</li>
+    <li>mock text</li> -->
+  <Mock1.some>
+    <li>mock text</li>
+    <li>mock text</li>
+    <li>mock text</li>
+  </Mock1.some>
+
+  <!--  -->
+  <!-- Some Comments -->
+
+</LanguageData>

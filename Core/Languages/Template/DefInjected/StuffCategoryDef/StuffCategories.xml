@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN: metallic -->
+  <Metallic.label>TODO</Metallic.label>
+  <!-- EN:  -->
+  <Metallic.description>TODO</Metallic.description>
+
+  <!-- EN: woody -->
+  <Woody.label>TODO</Woody.label>
+  <!-- EN:  -->
+  <Woody.description>TODO</Woody.description>
+
+  <!-- EN: stony -->
+  <Stony.label>TODO</Stony.label>
+  <!-- EN:  -->
+  <Stony.description>TODO</Stony.description>
+
+  <!-- EN: fabric -->
+  <Fabric.label>TODO</Fabric.label>
+  <!-- EN:  -->
+  <Fabric.description>TODO</Fabric.description>
+
+  <!-- EN: leathery -->
+  <Leathery.label>TODO</Leathery.label>
+  <!-- EN:  -->
+  <Leathery.description>TODO</Leathery.description>
+
+</LanguageData>

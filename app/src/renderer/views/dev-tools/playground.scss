@@ -1,0 +1,28 @@
+/**
+ * Component: DevTools Playground
+ */
+@include comp('dev-tools-playground') {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: calc(var(--gap-base) * 4px);
+
+  background-color: var(--color-background-higher);
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+
+  @include elem('row') {
+    position: relative;
+    flex: 1 0 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  @include elem-adjacent('row') {
+    margin-top: calc(var(--gap-base) * 4px);
+  }
+}

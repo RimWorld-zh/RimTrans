@@ -1,0 +1,9 @@
+/**
+ * Component: Add Translator Project Dialog
+ */
+@include comp('add-translator-project-dialog') {
+  position: relative;
+
+  min-width: 800px;
+  // padding: calc(var(--gap-base) * 4px) 0;
+}

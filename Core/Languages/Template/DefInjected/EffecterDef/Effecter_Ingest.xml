@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <EatVegetarian.label>TODO</EatVegetarian.label>
+  <!-- EN:  -->
+  <EatVegetarian.description>TODO</EatVegetarian.description>
+
+  <!-- EN:  -->
+  <EatMeat.label>TODO</EatMeat.label>
+  <!-- EN:  -->
+  <EatMeat.description>TODO</EatMeat.description>
+
+  <!-- EN:  -->
+  <Smoke_Joint.label>TODO</Smoke_Joint.label>
+  <!-- EN:  -->
+  <Smoke_Joint.description>TODO</Smoke_Joint.description>
+
+  <!-- EN:  -->
+  <Smoke_Flake.label>TODO</Smoke_Flake.label>
+  <!-- EN:  -->
+  <Smoke_Flake.description>TODO</Smoke_Flake.description>
+
+</LanguageData>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Wounded.label>TODO</Pawn_Mech_Centipede_Wounded.label>
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Wounded.description>TODO</Pawn_Mech_Centipede_Wounded.description>
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Wounded.subSounds.0.name>TODO</Pawn_Mech_Centipede_Wounded.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Death.label>TODO</Pawn_Mech_Centipede_Death.label>
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Death.description>TODO</Pawn_Mech_Centipede_Death.description>
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Death.subSounds.0.name>TODO</Pawn_Mech_Centipede_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Call.label>TODO</Pawn_Mech_Centipede_Call.label>
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Call.description>TODO</Pawn_Mech_Centipede_Call.description>
+  <!-- EN:  -->
+  <Pawn_Mech_Centipede_Call.subSounds.0.name>TODO</Pawn_Mech_Centipede_Call.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Wounded.label>TODO</Pawn_Mech_Scyther_Wounded.label>
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Wounded.description>TODO</Pawn_Mech_Scyther_Wounded.description>
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Wounded.subSounds.0.name>TODO</Pawn_Mech_Scyther_Wounded.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Death.label>TODO</Pawn_Mech_Scyther_Death.label>
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Death.description>TODO</Pawn_Mech_Scyther_Death.description>
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Death.subSounds.0.name>TODO</Pawn_Mech_Scyther_Death.subSounds.0.name>
+
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Call.label>TODO</Pawn_Mech_Scyther_Call.label>
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Call.description>TODO</Pawn_Mech_Scyther_Call.description>
+  <!-- EN:  -->
+  <Pawn_Mech_Scyther_Call.subSounds.0.name>TODO</Pawn_Mech_Scyther_Call.subSounds.0.name>
+
+</LanguageData>

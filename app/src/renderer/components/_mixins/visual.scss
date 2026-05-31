@@ -1,0 +1,3 @@
+@mixin backdrop-acrylic {
+  backdrop-filter: blur(8px) brightness(50%);
+}

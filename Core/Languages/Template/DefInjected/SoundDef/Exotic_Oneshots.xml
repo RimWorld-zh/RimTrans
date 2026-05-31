@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <PsychicPulseGlobal.label>TODO</PsychicPulseGlobal.label>
+  <!-- EN:  -->
+  <PsychicPulseGlobal.description>TODO</PsychicPulseGlobal.description>
+  <!-- EN:  -->
+  <PsychicPulseGlobal.subSounds.0.name>TODO</PsychicPulseGlobal.subSounds.0.name>
+
+  <!-- EN:  -->
+  <ShipTakeoff.label>TODO</ShipTakeoff.label>
+  <!-- EN:  -->
+  <ShipTakeoff.description>TODO</ShipTakeoff.description>
+  <!-- EN:  -->
+  <ShipTakeoff.subSounds.0.name>TODO</ShipTakeoff.subSounds.0.name>
+
+</LanguageData>

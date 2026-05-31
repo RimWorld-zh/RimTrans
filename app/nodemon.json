@@ -1,0 +1,11 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "lerna --scope=@rimtrans/app run --stream build:main && yarn serve:main",
+  "watch": ["src/main/"],
+  "ignore": [".git", "node_modules/**/node_modules", "*.test.ts", "*.test.tsx"],
+  "ext": "ts,tsx"
+}

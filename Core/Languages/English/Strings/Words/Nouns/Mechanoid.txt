@@ -1,0 +1,18 @@
+﻿
+scyther
+lancer
+centipede
+
+mechanoid
+robot
+automaton
+drone
+combat drone
+serving bot
+utility bot
+sexbot
+guard bot
+
+
+AI persona avatar
+archotech projection

@@ -1,0 +1,29 @@
+{
+  "fix": {
+    "Def": ["mockField"],
+
+    "FactionDef": ["leaderTitle"],
+
+    "HediffDef": ["battleStateLabel", "labelNounPretty"],
+    "HediffCompProperties_Discoverable": ["discoverLetterLabel", "discoverLetterText"],
+    "HediffCompProperties_TendDuration": [
+      "labelTendedWell",
+      "labelTendedWellInner",
+      "labelSolidTendedWell"
+    ],
+    "HediffCompProperties_GetsPermanent": ["permanentLabel", "instantlyPermanentLabel"],
+    "InjuryProps": ["destroyedLabel", "destroyedOutLabel"],
+
+    "HediffGiver_BrainInjury": ["letterLabel", "letter"],
+
+    "RoomStatScoreStage": ["label"],
+
+    "ScenPart_GameStartDialog": ["text"],
+
+    "CompProperties_Refuelable": ["fuelLabel", "fuelGizmoLabel", "outOfFuelMessage"],
+
+    "StuffProperties": ["stuffAdjective"],
+
+    "MockClass": ["mockField"]
+  }
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- EN:  -->
+  <Terrain.label>TODO</Terrain.label>
+  <!-- EN:  -->
+  <Terrain.description>TODO</Terrain.description>
+
+  <!-- EN:  -->
+  <Components.label>TODO</Components.label>
+  <!-- EN:  -->
+  <Components.description>TODO</Components.description>
+
+  <!-- EN:  -->
+  <Lakes.label>TODO</Lakes.label>
+  <!-- EN:  -->
+  <Lakes.description>TODO</Lakes.description>
+
+  <!-- EN:  -->
+  <Rivers.label>TODO</Rivers.label>
+  <!-- EN:  -->
+  <Rivers.description>TODO</Rivers.description>
+
+  <!-- EN:  -->
+  <AncientSites.label>TODO</AncientSites.label>
+  <!-- EN:  -->
+  <AncientSites.description>TODO</AncientSites.description>
+
+  <!-- EN:  -->
+  <AncientRoads.label>TODO</AncientRoads.label>
+  <!-- EN:  -->
+  <AncientRoads.description>TODO</AncientRoads.description>
+
+  <!-- EN:  -->
+  <Factions.label>TODO</Factions.label>
+  <!-- EN:  -->
+  <Factions.description>TODO</Factions.description>
+
+  <!-- EN:  -->
+  <Roads.label>TODO</Roads.label>
+  <!-- EN:  -->
+  <Roads.description>TODO</Roads.description>
+
+  <!-- EN:  -->
+  <Features.label>TODO</Features.label>
+  <!-- EN:  -->
+  <Features.description>TODO</Features.description>
+
+</LanguageData>
